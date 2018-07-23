@@ -36,14 +36,14 @@ To access data through authorized e-com Developer APIs, it is required to use oA
 ### Authorization Header
 To obtain access, you first need to obtain customer key and consumer secret of the app from the MartJack's **Control Panel** > **Apps** > **App Store** and configure the header. 
 
-|  | 
+|  | |
 ---|---|
-Accept | application/json
-Content-Type | application/x-www-form-urlencoded
-PublicKey | ${PublicKey}
-Authorization Type | OAuth 1.0
-Consumer Key | {app's consumer key}
-Consumer Secret | {app's secret value}
+Accept | application/json |
+Content-Type | application/x-www-form-urlencoded |
+PublicKey | ${PublicKey} |
+Authorization Type | OAuth 1.0 |
+Consumer Key | {app's consumer key} |
+Consumer Secret | {app's secret value} |
 
 
 **JSON Web Token (JWT) Authentication** is a new standard for creating token also called Token Based Authentication. This standard basically provides a set of rules for creating tokens in a very specific way, which makes tokens more useful for you in general.
@@ -59,14 +59,14 @@ To generate Auth token use the API
 
 
 ### Authorization Header
-|  | 
+|  | |
 ---|---|
-Accept | application/json
-Content-Type | application/x-www-form-urlencoded
-PublicKey | ${PublicKey}
-Content-Type | application/x-www-form-urlencoded
-AuthToken | ${AuthToken}
-MerchantId | ${merchantId}
+Accept | application/json |
+Content-Type | application/x-www-form-urlencoded |
+PublicKey | ${PublicKey} |
+Content-Type | application/x-www-form-urlencoded |
+AuthToken | ${AuthToken} |
+MerchantId | ${merchantId} |
 
 
 
