@@ -1,5 +1,5 @@
 ---
-title: Capillary API V2.0 Doc
+title: Capillary ECom API Document
 
 language_tabs:
   - json
@@ -7,92 +7,84 @@ language_tabs:
   
 
 toc_footers:
-  - <a href='#'>Capillary V2.0 API Documentation</a>
+  - <a href='#'>Capillary ECom API Documentation</a>
   - <a href=''></a>
 
 includes:
-  - customer
-  - otp
-  - survey
-  - userAuth
-  - customerWalkin
-  - verticals
-  - org
-  - OrganizationSource
+  - order
+
 
 search: true
 ---
 
 # Introduction
 
-Capillary RESTful APIs are be consumed by Capillary and other brands that are registered with Capillary/MartJack to manage their CRM. Capillary V2 APIs support multiple sources such as InStore, MartJack, Facebook, and WeChat.
+Capillary e-com APIs are RESTful APIs that can be used to configure merchant data, customer activities and order management for mobile apps, Progressive Web Apps (PWA), 3rd party integrations and so on.
 
-This document provides detailed information on all the APIs and guides in how to each API with the appropriate samples.
-
-
-## Source
-Source is an entry through which a customer is registered. Unlike v1.1 APIs, v2.0 APIs provide extended support for multiple sources, i.e., you can now manage accounts of different sources such as InStore, MartJack, WeChat, e-commerce and Facebook.
-
-V2.0 APIs also support multiple accounts of a single source. For example, an org could have multiple accounts of WeChat and Facebook. Each account will have a different account id. You would need to pass the respective account id when making API calls.
-
-## Account IDs
-An organization can have multiple accounts of a source (such as WeChat). Each account will have a unique account id. You can manage customers from different accounts by passing the respective account id along with the source.
+This document provides detailed information about e-com APIs with appropriate samples.
 
 
-## Identifiers
-A customer identifier is a unique identifier that is used for registering in a source such as mobile number, email id, or external id. Identifier are also used to lookup customers and retrieve their capillary unique ids.
-
-Capillary V2.0 APIs merge accounts automatically when a same identifier is registered in different sources.For example, assume that a customer has registered on InStore using his mobile number and e-commerce site using his email id. Now, if the customer registers the same mobile number in e-commerce site, the  accounts will be merged automatically to a single customer id. You can retrieve the customer details from various sources of an organization using the unique customer id.
-
-Before starting with v2.0 APIs, it is important to understand different official accounts created for each source and the respective account ids.
+# Authentication (Merchant Setup on Admin Portal)
+Capillary e-com APIs can be authenticated in two ways and the Authentication Headers differ based on the type you choose. 
 
 
-# Organization Setup
-The following sub-sections guides you in authenticating your organization to use Capillary v2.0 APIs.
+## OAuth 1.0 Authentication
+OAuth protocol authenticates users via tokens (a unique string that identifies a user), that is, instead of sending actual credentials to the server on every request, you can first exchange your user credentials for a 'token', and then authenticate the user based on this 'token'. The frequency of users passing credentials over the network will be less.
 
-## Authentication
-Before starting with authentication process, ensure that your organization is registered in Capillary InTouch and at least one TILL has been created for your organization. Stores and store TILLs will be created based on the size and outlets of your organization. You need to know the username and password of the TILL that you want to authenticate for making API calls. 
-
-<aside class="notice"> To gain access to our entities in the Rest API, you need to authenticate your TILL with its username and password using the HTTP Basic Authentication.</aside>
+To access data through authorized e-com Developer APIs, it is required to use oAuth authentication as the input. 
 
 ### Authorization Header
-Authorization Header is used for validating authentication credentials. The Authorization Header is constructed as shown below:
+To obtain access, you first need to obtain customer key and consumer secret of the app from the MartJack's **Control Panel** > **Apps** > **App Store** and configure the header. 
 
-`Authorization: Basic <Base64 encoded (username: md5(password)>`
-
-In the Authorization Header pass the Base64 decoded form of username and md5 formatted password.
-
-For example, if the username is “store.server” and the password is 'server123', md5 of the password is 8a16a6b70505eb1f1ff7cdc0cd5559a7
-
-Encode the username and md5 password to Base64, then the header is formed as shown below
-
-`Authorization: Basic c3RvcmUuc2VydmVyOjhhMTZhNmI3MDUwNWViMWYxZmY3Y2RjMGNkNTU1OWE3`
-
-Now, v2 API supports submitting requests on behalf of other TILLs (active TILLs). In db the combination of attribution_lookup and lookup_code are mapped to TILL ids and org ids. When a new POST request is placed with the combination of a lookup name and lookup code, the data will be inserted in the db on behalf of the TILL that is mapped to the specified combination. 
-
-To submit requests on behalf of other TILLs, include the following code along with the HEADER: 
-
-`X-CAP-API-ATTRIBUTION-LOOKUP-TYPE:<name>`
-`X-CAP-API-ATTRIBUTION-LOOKUP:<value>`(value is case sensitive)
+|  | 
+---|---|
+Accept | application/json
+Content-Type | application/x-www-form-urlencoded
+PublicKey | ${PublicKey}
+Authorization Type | OAuth 1.0
+Consumer Key | {app's consumer key}
+Consumer Secret | {app's secret value}
 
 
-### Other Headers Required
-* **Content type** - This should be set as application/json
+**JSON Web Token (JWT) Authentication** is a new standard for creating token also called Token Based Authentication. This standard basically provides a set of rules for creating tokens in a very specific way, which makes tokens more useful for you in general.
 
-* **Accept** - This should also be set as application/json
+The developer APIs provide sample code to create oAuth authentication token which contains Merchant Secret Key, Public Key and a few other parameters. For each data request, you need to pass the query string parameter with new oAuth signature along with other input parameters to the REST API.
+
+### Back-end configuration required
+To obtain access, you first need to add the app in the control panel and generate the Auth token (public key) for that app.
+
+To generate Auth token use the API
+`developerapi/OAuth/Token/${PublicKey}`
+
+
+
+### Authorization Header
+|  | 
+---|---|
+Accept | application/json
+Content-Type | application/x-www-form-urlencoded
+PublicKey | ${PublicKey}
+Content-Type | application/x-www-form-urlencoded
+AuthToken | ${AuthToken}
+MerchantId | ${merchantId}
+
+
+
 
 ## Resource Information
 
-### Request URL Format	
-`https://<host>/v2/<entity>/...`
-
 Entry | Description
 ----- | -----------
-Host | The server to which the API calls are made. This should be the URL of the respective cluster from where the calls are made. * India: apac.intouch.capillary.co.in * APAC2: apac2.intouch.capillarytech.com * EU: eu.intouch.capillarytech.com * US: us.intouch.capillarytech.com * CN: intouch.capillarytech.cn.com
-API Version Number | v2
-Entity | Provide the appropriate entity based on the action to be performed. **Supported entities**: customers, communications, coupon, organization, points, product, store, transaction, goodwill requests, add events, integration resources, referral and request
-HTTP Methods | The Capillary Cloud REST APIs support the standard HTTP methods GET, PUT, DELETE and POST
-Response Format | v2.0 APIs return information only in json
+Host | The server to which the API calls are made. This should be the URL of the respective cluster from where the calls are made. 
+* India: www.martjack.com 
+* YUM: `https://www9.martjack.com`
+* AM: https://www1.martjack.com
+* PH India: `https://www2.martjack.com`
+* Walmart: `https://www8.martjack.com`
+* LuLu:'https://www3.martjack.com'
+Entity | Resource for which you want to perform an action. **Supported resources**: Banners, Brand, Carts, Category, Customer, CustomerGroups,GiftVoucher, Location, MailList, Merchant, Navigation, Order, PickList, Post, Pricelist, Product, ProductTags, ShoppingList, Store, and Voucher
+HTTP Methods | GET, POST
+Response Format | JSON
 
 
 
