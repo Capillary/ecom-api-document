@@ -19,7 +19,7 @@ search: true
 
 # Introduction
 
-Capillary e-com APIs are RESTful APIs that can be used to configure merchant data, customer activities and order management for mobile apps, Progressive Web Apps (PWA), 3rd party integrations and so on.
+Capillary e-com APIs are RESTful APIs that can be used to configure merchant data, handle customer activities, and manage orders. ECOM APIs also has support for mobile apps, Progressive Web Apps (PWA), and 3rd party integrations.
 
 This document provides detailed information about e-com APIs with appropriate samples.
 
