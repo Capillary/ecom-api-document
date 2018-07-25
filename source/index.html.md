@@ -76,13 +76,13 @@ MerchantId | ${merchantId} |
 
 
 
-## Resource Information
+# Resource Information
 
 Entry | Description
 ----- | -----------
-Host | The server to which the API calls are made. This should be the URL of the respective cluster from where the calls are made. **India**: `www.martjack.com` **YUM**: `https://www9.martjack.com` **AM**: `https://www1.martjack.com` **PH India**: `https://www2.martjack.com` **Walmart**: `https://www8.martjack.com` **LuLu**:'https://www3.martjack.com'
+Host | The server to which the API calls are made. This should be the URL of the respective cluster from where the calls are made. **India**: `https://www.martjack.com` **YUM**: `https://www9.martjack.com` **AM**: `https://www1.martjack.com` **PH India**: `https://www2.martjack.com` **Walmart**: `https://www8.martjack.com` **LuLu**:'https://www3.martjack.com'
 Entity | Resource for which you want to perform an action. **Supported resources**: Banners, Brand, Carts, Category, Customer, CustomerGroups,GiftVoucher, Location, MailList, Merchant, Navigation, Order, PickList, Post, Pricelist, Product, ProductTags, ShoppingList, Store, and Voucher
-HTTP Methods | GET, POST
+HTTP Methods | GET, POST, 
 Response Format | JSON
 
 
