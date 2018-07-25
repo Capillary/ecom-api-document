@@ -52,6 +52,8 @@ Consumer Secret | {app's secret value} |
 
 The developer APIs provide sample code to create oAuth authentication token which contains Merchant Secret Key, Public Key and a few other parameters. For each data request, you need to pass the query string parameter with new oAuth signature along with other input parameters to the REST API.
 
+To enable JWT for a merchant API integration app, you need to set the column `EnableJWT`=1 in the 'martjack.tblmerchantaddons` table for a specific merchant and public key combination.
+
 ### Back-end configuration required
 To obtain access, you first need to add the app in the control panel and generate the Auth token (public key) for that app.
 
