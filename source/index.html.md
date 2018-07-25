@@ -19,7 +19,7 @@ search: true
 
 # Introduction
 
-Capillary e-com APIs are RESTful APIs that can be used to configure merchant data, handle customer activities, and manage orders. ECOM APIs are used for different Inhouse products and 3rd party integrations.
+Capillary e-com APIs are RESTful APIs that can be used to configure merchant data, handle customer activities, and manage orders. ECOM APIs can be used for various in-house products and 3rd party integrations.
 
 This document provides detailed information about each e-com API with appropriate sample codes.
 
@@ -33,19 +33,21 @@ OAuth protocol authenticates users via tokens (a unique string that identifies a
 
 To access data through authorized e-com Developer APIs, it is required to use oAuth authentication as the input. 
 
+### Headers|  | |
+---|---|
+Accept | application/json |
+Content-Type | application/x-www-form-urlencoded |
+
 ### Authorization Header
 To obtain access, you first need to obtain customer key and consumer secret of the app from the MartJack's **Control Panel** > **Apps** > **App Store** and configure the header. 
 
 |  | |
 ---|---|
-Accept | application/json |
-Content-Type | application/x-www-form-urlencoded |
-PublicKey | ${PublicKey} |
 Authorization Type | OAuth 1.0 |
-Consumer Key | {app's consumer key} |
+PublicKey | ${PublicKey} |
 Consumer Secret | {app's secret value} |
 
-
+## JWT Authentication
 **JSON Web Token (JWT) Authentication** is a new standard for creating token also called Token Based Authentication. This standard basically provides a set of rules for creating tokens in a very specific way, which makes tokens more useful for you in general.
 
 The developer APIs provide sample code to create oAuth authentication token which contains Merchant Secret Key, Public Key and a few other parameters. For each data request, you need to pass the query string parameter with new oAuth signature along with other input parameters to the REST API.
