@@ -169,6 +169,8 @@ Content-Type | application/x-www-form-urlencoded |</p>
 
 <p>The developer APIs provide sample code to create oAuth authentication token which contains Merchant Secret Key, Public Key and a few other parameters. For each data request, you need to pass the query string parameter with new oAuth signature along with other input parameters to the REST API.</p>
 
+<p>To enable JWT for a merchant API integration app, you need to set the column <code class="prettyprint">EnableJWT</code>=1 in the &#39;martjack.tblmerchantaddons` table for a specific merchant and public key combination.</p>
+
 <h3 id="back-end-configuration-required">Back-end configuration required</h3>
 
 <p>To obtain access, you first need to add the app in the control panel and generate the Auth token (public key) for that app.</p>

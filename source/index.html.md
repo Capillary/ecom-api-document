@@ -33,7 +33,8 @@ OAuth protocol authenticates users via tokens (a unique string that identifies a
 
 To access data through authorized e-com Developer APIs, it is required to use oAuth authentication as the input. 
 
-### Headers|  | |
+### Headers
+|  | |
 ---|---|
 Accept | application/json |
 Content-Type | application/x-www-form-urlencoded |
