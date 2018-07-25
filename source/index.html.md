@@ -19,7 +19,7 @@ search: true
 
 # Introduction
 
-Capillary e-com APIs are RESTful APIs that can be used to configure merchant data, handle customer activities, and manage orders. ECOM APIs also has support for mobile apps, Progressive Web Apps (PWA), and 3rd party integrations.
+Capillary e-com APIs are RESTful APIs that can be used to configure merchant data, handle customer activities, and manage orders. ECOM APIs are used for different Inhouse products and 3rd party integrations.
 
 This document provides detailed information about each e-com API with appropriate sample codes.
 
@@ -75,13 +75,7 @@ MerchantId | ${merchantId} |
 
 Entry | Description
 ----- | -----------
-Host | The server to which the API calls are made. This should be the URL of the respective cluster from where the calls are made. 
-* India: www.martjack.com 
-* YUM: `https://www9.martjack.com`
-* AM: https://www1.martjack.com
-* PH India: `https://www2.martjack.com`
-* Walmart: `https://www8.martjack.com`
-* LuLu:'https://www3.martjack.com'
+Host | The server to which the API calls are made. This should be the URL of the respective cluster from where the calls are made. * India: www.martjack.com * YUM: `https://www9.martjack.com`* AM: https://www1.martjack.com * PH India: `https://www2.martjack.com` * Walmart: `https://www8.martjack.com` * LuLu:'https://www3.martjack.com'
 Entity | Resource for which you want to perform an action. **Supported resources**: Banners, Brand, Carts, Category, Customer, CustomerGroups,GiftVoucher, Location, MailList, Merchant, Navigation, Order, PickList, Post, Pricelist, Product, ProductTags, ShoppingList, Store, and Voucher
 HTTP Methods | GET, POST
 Response Format | JSON
