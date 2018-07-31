@@ -211,10 +211,6 @@
 <td>${PublicKey}</td>
 </tr>
 <tr>
-<td>Content-Type</td>
-<td>application/x-www-form-urlencoded</td>
-</tr>
-<tr>
 <td>AuthToken</td>
 <td>${AuthToken}</td>
 </tr>
@@ -224,7 +220,7 @@
 </tr>
 </tbody></table>
 
-<h1 id="resource-information">Resource Information</h1>
+<h2 id="request-information">Request Information</h2>
 
 <table><thead>
 <tr>
@@ -233,16 +229,20 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>Host</td>
-<td>The server to which the API calls are made. This should be the URL of the respective cluster from where the calls are made. <strong>India</strong>: <code class="prettyprint">https://www.martjack.com</code> <strong>YUM</strong>: <code class="prettyprint">https://www9.martjack.com</code> <strong>AM</strong>: <code class="prettyprint">https://www1.martjack.com</code> <strong>PH India</strong>: <code class="prettyprint">https://www2.martjack.com</code> <strong>Walmart</strong>: <code class="prettyprint">https://www8.martjack.com</code> <strong>LuLu</strong>:&#39;https://www3.martjack.com&rsquo;</td>
+<td>URL</td>
+<td>https://<host>/developerapi/<resource>/. We recommend using secure HTTPS requests instead of http for all your calls</td>
 </tr>
 <tr>
-<td>Entity</td>
+<td>Host</td>
+<td>The server to which the API calls are made. This should be the URL of the respective cluster from where the calls are made. <br> <strong>India</strong>: <code class="prettyprint">www.martjack.com</code> <br> <strong>YUM</strong>: <code class="prettyprint">www9.martjack.com</code> <br> <strong>AM</strong>: <code class="prettyprint">www1.martjack.com</code> <br> <strong>PH India</strong>: <code class="prettyprint">www2.martjack.com</code>  <br> <strong>Walmart</strong>: <code class="prettyprint">www8.martjack.com</code> <br> <strong>LuLu</strong>:&#39;www3.martjack.com&rsquo;</td>
+</tr>
+<tr>
+<td>Resource</td>
 <td>Resource for which you want to perform an action. <strong>Supported resources</strong>: Banners, Brand, Carts, Category, Customer, CustomerGroups,GiftVoucher, Location, MailList, Merchant, Navigation, Order, PickList, Post, Pricelist, Product, ProductTags, ShoppingList, Store, and Voucher</td>
 </tr>
 <tr>
 <td>HTTP Methods</td>
-<td>GET, POST,</td>
+<td>GET, POST</td>
 </tr>
 <tr>
 <td>Response Format</td>
@@ -595,6 +595,554 @@ https://us.api.capillarytech.com/v2/user_auth/update
 <tr>
 <td>91031</td>
 <td>Unable to register user</td>
+</tr>
+</tbody></table>
+
+          <h1 id="customer">Customer</h1>
+
+<p>A Customer is a user of a merchant&rsquo;s online store. This resource consists of APIs to create new customer accounts and manage their details and preferences.</p>
+
+<h2 id="create-customer-account">Create Customer Account</h2>
+
+<p>This API lets you create a new user account on MartJack platform for a specific merchant.</p>
+
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
+<pre class="highlight html"><code>https://www.martjack.com/developerapi/Customer/12345678-1234-1234-1234-1234567890AB/Create
+</code></pre>
+<blockquote>
+<p>Sample POST Request</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">  
+   </span><span class="nt">"customer"</span><span class="p">:{</span><span class="w">  
+      </span><span class="nt">"UserName"</span><span class="p">:</span><span class="s2">"tom.sawyer@capillarytech.com"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"FirstName"</span><span class="p">:</span><span class="s2">"Tom"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"LastName"</span><span class="p">:</span><span class="s2">"Sawyer"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"PostalAddress"</span><span class="p">:</span><span class="s2">"100, Santa Plaza"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"AlternateEmail"</span><span class="p">:</span><span class="s2">"alternateEmail@gmail.com"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"City"</span><span class="p">:</span><span class="s2">"Bangalore"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Pin"</span><span class="p">:</span><span class="s2">"560001"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"State"</span><span class="p">:</span><span class="s2">"Karnataka"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Country"</span><span class="p">:</span><span class="s2">"India"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"PhoneNo"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Street"</span><span class="p">:</span><span class="s2">"MG Road"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"MobileNo"</span><span class="p">:</span><span class="s2">"917000000000"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"BirthDate"</span><span class="p">:</span><span class="s2">"1/1/1994 12:00:00"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Gender"</span><span class="p">:</span><span class="s2">"F"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Occupation"</span><span class="p">:</span><span class="s2">"Professor"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Industry"</span><span class="p">:</span><span class="s2">"Education"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"OtherArea"</span><span class="p">:</span><span class="s2">"otherArea"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"CountryName"</span><span class="p">:</span><span class="s2">"India"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"StateName"</span><span class="p">:</span><span class="s2">"Karnataka"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"CityName"</span><span class="p">:</span><span class="s2">"Bangalore"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"AreaName"</span><span class="p">:</span><span class="s2">"Area Name"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"OtherCity"</span><span class="p">:</span><span class="s2">"OtherCity"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"IsReceiveOffers"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"States"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"merchantId"</span><span class="p">:</span><span class="s2">"81e77da2-723b-483d-8c0d-49f800c1e288"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Password"</span><span class="p">:</span><span class="s2">"ABG-704@cp"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"CommunicationType"</span><span class="p">:</span><span class="kc">null</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"messageCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1004"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"UserProfiles"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"UserInfoId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00000000-0000-0000-0000-000000000000"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"UserId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9b0df0ca-101c-4525-ac55-33829319085a"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"81e77da2-723b-483d-8c0d-49f800cxxxx"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"UserName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tom.sawyer@capillarytech.com"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"FirstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tom"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"LastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sawyer"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"PostalAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100, Santa Plaza"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"AlternateEmail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"alternateEmail@gmail.com"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3451"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Pin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"560001"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KA"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IN"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"PhoneNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"917411639213"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MG Road"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"MobileNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"917000000000"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"BirthDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1/1/1994 12:00:00 PM"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Gender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"M"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Occupation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Job"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Industry"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Private"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"OtherArea"</span><span class="p">:</span><span class="w"> </span><span class="s2">"otherArea"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"CountryName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"India"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"StateName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Karnataka"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"CityName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bangalore"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"AreaName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Area Name"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"OtherCity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OtherCity"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"IsReceiveOffers"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Password"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"ConfirmPassword"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Countries"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"States"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"CommunicationType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nochannel"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"MarketingNotificationType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sms|email|push"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td><code class="prettyprint">Customer/{{merchantId}}/Create</code></td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>POST</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>No</td>
+</tr>
+</tbody></table>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">https://{host}/developerapi/Customer/{merchantId}/Create</code></p>
+
+<h3 id="request-attributes">Request Attributes</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>UserName*</td>
+<td>The unique identifier of the customer as configured for the merchant. It could be email, mobile, or any other identifier</td>
+</tr>
+<tr>
+<td>merchantId*</td>
+<td>The unique id (GUID) of the merchant in which you want to register customer</td>
+</tr>
+<tr>
+<td>Password*</td>
+<td>Password of the customer account. Password policy is as configured for the merchant on the Merchant Panel</td>
+</tr>
+<tr>
+<td>CommunicationType</td>
+<td>The preferred communication channel(s) of the customer. Possible Values: SMS, EMAIL</td>
+</tr>
+</tbody></table>
+
+<h2 id="customer-login">Customer Login</h2>
+
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
+<pre class="highlight html"><code>https://www.martjack.com/developerapi/Customer/12345678-1234-1234-1234-1234567890AB/login
+</code></pre>
+<blockquote>
+<p>Sample POST Request</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">  
+   </span><span class="nt">"username"</span><span class="p">:</span><span class="s2">"tom.sawyer@capillarytech.com"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"password"</span><span class="p">:</span><span class="s2">"123456!"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">  
+   </span><span class="nt">"messageCode"</span><span class="p">:</span><span class="s2">"1004"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"Message"</span><span class="p">:</span><span class="s2">"Logged In successfully"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"Token"</span><span class="p">:{</span><span class="w">  
+      </span><span class="nt">"AccessToken"</span><span class="p">:</span><span class="s2">"i1z1ouqyb3roglpei1vmpowe"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"issued_at"</span><span class="p">:</span><span class="s2">"/Date(1533029929318+0530)/"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"UserId"</span><span class="p">:</span><span class="s2">"132d3c1d-7d71-4b87-9a69-a4d216d634fa"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"MerchantId"</span><span class="p">:</span><span class="s2">"81e77da2-723b-483d-8c0d-49f800c1e288"</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="mi">0</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Logs in a registered customer to the merchant&rsquo;s e-commerce store. Customer has to be logged in to perform any other customer tasks such as fetching customer details, modifying customer details and updating profile attributes. Upon successful login, you will receive a <code class="prettyprint">UserId</code> which is required to fetch customer details.</p>
+
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td><code class="prettyprint">/Customer/{merchantId}/login</code></td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>POST</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>No</td>
+</tr>
+</tbody></table>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">https://{host}/developerapi/Customer/{merchantId}/login</code></p>
+
+<h3 id="request-attributes">Request Attributes</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>username*</td>
+<td>User name of the customer account</td>
+</tr>
+<tr>
+<td>password*</td>
+<td>Password of the customer account</td>
+</tr>
+</tbody></table>
+
+<h2 id="get-customer-details">Get Customer Details</h2>
+
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
+<pre class="highlight html"><code>https://www.martjack.com/developerapi/Customer/81e77da2-723b-483d-8c0d-49f800c1xxxx/132d3c1d-7d71-4b87-9a69-a4d216d634fa
+</code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">  
+   </span><span class="nt">"messageCode"</span><span class="p">:</span><span class="s2">"1004"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"Message"</span><span class="p">:</span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"Customer"</span><span class="p">:{</span><span class="w">  
+      </span><span class="nt">"UserProfiles"</span><span class="p">:[</span><span class="w">  
+         </span><span class="p">{</span><span class="w">  
+            </span><span class="nt">"UserId"</span><span class="p">:</span><span class="s2">"132d3c1d-7d71-4b87-9a69-a4d216d634fa"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ProfileAttributeId"</span><span class="p">:</span><span class="mi">660</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ProfileAttributeValueId"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ProfileAttributeName"</span><span class="p">:</span><span class="s2">"Favorite Game"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ProfileAttributeValue"</span><span class="p">:</span><span class="s2">"Football"</span><span class="w">
+         </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nt">"UserInfoId"</span><span class="p">:</span><span class="s2">"08a0dffe-86f0-45b6-9fae-df276fe9abb5"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"UserId"</span><span class="p">:</span><span class="s2">"132d3c1d-7d71-4b87-9a69-a4d216d634fa"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"MerchantId"</span><span class="p">:</span><span class="s2">"81e77da2-723b-483d-8c0d-49f800c1xxxx"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"UserName"</span><span class="p">:</span><span class="s2">"NewTeatUser19@capillarytech.com"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"FirstName"</span><span class="p">:</span><span class="s2">"Tom"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"LastName"</span><span class="p">:</span><span class="s2">"Sawyer"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"PostalAddress"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"AlternateEmail"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"City"</span><span class="p">:</span><span class="s2">"32"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Pin"</span><span class="p">:</span><span class="s2">"560001"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"State"</span><span class="p">:</span><span class="s2">"KA"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Country"</span><span class="p">:</span><span class="s2">"IN"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"PhoneNo"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Street"</span><span class="p">:</span><span class="s2">"MG Road"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"MobileNo"</span><span class="p">:</span><span class="s2">"917000000000"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"BirthDate"</span><span class="p">:</span><span class="s2">"1/1/1994"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Gender"</span><span class="p">:</span><span class="s2">"male"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Occupation"</span><span class="p">:</span><span class="s2">"Professor"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Industry"</span><span class="p">:</span><span class="s2">"Education"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"OtherArea"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"CountryName"</span><span class="p">:</span><span class="s2">"India"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"StateName"</span><span class="p">:</span><span class="s2">"Karnataka"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"CityName"</span><span class="p">:</span><span class="s2">"Bangalore"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"AreaName"</span><span class="p">:</span><span class="s2">"MG Road"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"OtherCity"</span><span class="p">:</span><span class="s2">"OtherCity"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"IsReceiveOffers"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Password"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ConfirmPassword"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Countries"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"States"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"CommunicationType"</span><span class="p">:</span><span class="s2">"nochannel"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"MarketingNotificationType"</span><span class="p">:</span><span class="s2">"sms|email|push"</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="mi">0</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<p>Retrieves details of a specific customer.</p>
+
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td><code class="prettyprint">/Customer/{merchantId}/{UserId}</code></td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>No</td>
+</tr>
+</tbody></table>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">https://{host}/developerapi/Customer/{merchantId}/{UserId}</code></p>
+
+<h3 id="request-parameters">Request Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>merchantId</td>
+<td>The unique id (GUID) of the merchant account from which the customer details need to be fetched</td>
+</tr>
+<tr>
+<td>UserId</td>
+<td>The unique user identifier of the customer whose details need to be retrieved</td>
+</tr>
+</tbody></table>
+
+<h2 id="update-customer-details">Update Customer Details</h2>
+
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
+<pre class="highlight html"><code>https://www.martjack.com/developerapi/Customer/7c778337-4652-4944-934f-09e0fe56xxxx/Update
+</code></pre>
+<blockquote>
+<p>Sample POST Request</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">  
+   </span><span class="nt">"customer"</span><span class="p">:{</span><span class="w">  
+      </span><span class="nt">"UserInfoId"</span><span class="p">:</span><span class="s2">"021e57ca-f19a-42c4-8214-180ad7202044"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"UserId"</span><span class="p">:</span><span class="s2">"1142e724-0f59-4b43-ace6-f10e0e2f3c21"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"merchantId"</span><span class="p">:</span><span class="s2">"7c778337-4652-4944-934f-09e0fe56xxxx"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"UserName"</span><span class="p">:</span><span class="s2">"tom.sawyer@capillarytech.com"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"FirstName"</span><span class="p">:</span><span class="s2">"Tom"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"LastName"</span><span class="p">:</span><span class="s2">"Sawyer"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"PostalAddress"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"AlternateEmail"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"City"</span><span class="p">:</span><span class="s2">"32"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Pin"</span><span class="p">:</span><span class="s2">"560001"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"State"</span><span class="p">:</span><span class="s2">"KA"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Country"</span><span class="p">:</span><span class="s2">"IN"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"PhoneNo"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Street"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"MobileNo"</span><span class="p">:</span><span class="s2">"917400000000"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"BirthDate"</span><span class="p">:</span><span class="s2">"01/01/1993"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Gender"</span><span class="p">:</span><span class="s2">"male"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Occupation"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Industry"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"OtherArea"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"CountryName"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"IsReceiveOffers"</span><span class="p">:</span><span class="kc">false</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"messageCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1004"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Modifies the existing details of a registered customer other than the customer&rsquo;s unique identifier.</p>
+
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td><code class="prettyprint">Customer/{merchantId}/Update</code></td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>POST</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>No</td>
+</tr>
+</tbody></table>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">https://{host}/developerapi/Customer/{merchantId}/Update</code></p>
+
+<h3 id="request-attributes">Request Attributes</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+</tbody></table>
+
+<h2 id="update-profile-attributes-custom-fields">Update Profile Attributes (Custom Fields)</h2>
+
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
+<pre class="highlight html"><code>https://www.martjack.com/developerapi/Customer/7c778337-4652-4944-934f-09e0fe56xxxx/UpdateUserProfile
+</code></pre>
+<blockquote>
+<p>Sample POST Request</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">  
+   </span><span class="nt">"UserProfile"</span><span class="p">:{</span><span class="w">  
+      </span><span class="nt">"UserId"</span><span class="p">:</span><span class="s2">"3562a74e-1292-4d47-ba17-bc0a06af3xxx"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ProfileAttributes"</span><span class="p">:{</span><span class="w">  
+         </span><span class="nt">"ProfileAttribute"</span><span class="p">:{</span><span class="w">  
+            </span><span class="nt">"ProfileAttributeId"</span><span class="p">:</span><span class="s2">"1058"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ProfileAttributeValue"</span><span class="p">:</span><span class="s2">"Football"</span><span class="w">
+         </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"messageCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1004"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Updated Successfully"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Captures or updates custom field details of a customer.</p>
+
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td><code class="prettyprint">/Customer/{merchantId}/UpdateUserProfile</code></td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>POST</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>No</td>
+</tr>
+</tbody></table>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">https://{host}/developerapi/Customer/{merchantId}/UpdateUserProfile</code></p>
+
+<h3 id="request-attributes">Request Attributes</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ProfileAttributeId*</td>
+<td>ID of the attribute that needs to be updated</td>
+</tr>
+<tr>
+<td>ProfileAttributeValue</td>
+<td>Customer&rsquo;s preferred attribute value</td>
 </tr>
 </tbody></table>
 
