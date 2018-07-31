@@ -12,6 +12,7 @@ toc_footers:
 
 includes:
   - order
+  - customer
 
 
 search: true
@@ -69,20 +70,20 @@ To generate Auth token use the API
 Accept | application/json |
 Content-Type | application/x-www-form-urlencoded |
 PublicKey | ${PublicKey} |
-Content-Type | application/x-www-form-urlencoded |
 AuthToken | ${AuthToken} |
 MerchantId | ${merchantId} |
 
 
 
 
-# Resource Information
+## Request Information
 
 Entry | Description
 ----- | -----------
-Host | The server to which the API calls are made. This should be the URL of the respective cluster from where the calls are made. **India**: `https://www.martjack.com` **YUM**: `https://www9.martjack.com` **AM**: `https://www1.martjack.com` **PH India**: `https://www2.martjack.com` **Walmart**: `https://www8.martjack.com` **LuLu**:'https://www3.martjack.com'
-Entity | Resource for which you want to perform an action. **Supported resources**: Banners, Brand, Carts, Category, Customer, CustomerGroups,GiftVoucher, Location, MailList, Merchant, Navigation, Order, PickList, Post, Pricelist, Product, ProductTags, ShoppingList, Store, and Voucher
-HTTP Methods | GET, POST, 
+URL | https://<host>/developerapi/<resource>/. We recommend using secure HTTPS requests instead of http for all your calls
+Host | The server to which the API calls are made. This should be the URL of the respective cluster from where the calls are made. <br> **India**: `www.martjack.com` <br> **YUM**: `www9.martjack.com` <br> **AM**: `www1.martjack.com` <br> **PH India**: `www2.martjack.com`  <br> **Walmart**: `www8.martjack.com` <br> **LuLu**:'www3.martjack.com'
+Resource | Resource for which you want to perform an action. **Supported resources**: Banners, Brand, Carts, Category, Customer, CustomerGroups,GiftVoucher, Location, MailList, Merchant, Navigation, Order, PickList, Post, Pricelist, Product, ProductTags, ShoppingList, Store, and Voucher
+HTTP Methods | GET, POST
 Response Format | JSON
 
 
