@@ -11,8 +11,8 @@ toc_footers:
   - <a href=''></a>
 
 includes:
-  - order
   - customer
+  - order
 
 
 search: true

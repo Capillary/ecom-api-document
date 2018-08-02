@@ -220,7 +220,7 @@
 </tr>
 </tbody></table>
 
-<h2 id="request-information">Request Information</h2>
+<h1 id="request-information">Request Information</h1>
 
 <table><thead>
 <tr>
@@ -230,7 +230,7 @@
 </thead><tbody>
 <tr>
 <td>URL</td>
-<td>https://<host>/developerapi/<resource>/. We recommend using secure HTTPS requests instead of http for all your calls</td>
+<td>https://<host>/developerapi/{resource}/. We recommend using secure HTTPS requests instead of http for all your calls</td>
 </tr>
 <tr>
 <td>Host</td>
@@ -250,101 +250,210 @@
 </tr>
 </tbody></table>
 
-          <h1 id="user-authentication">User Authentication</h1>
+          <h1 id="order">Order</h1>
 
-<p>The userAuth resource allows existing customers of InStore to register on the org&rsquo;s web page/mobile app, authenticate login credentials, and update user details.</p>
+<p>An order is a completed purchase request of a customer. This resource consists APIs related to creating and managing orders of a merchant shop. </p>
 
-<h2 id="register-users">Register Users</h2>
+<h2 id="create-bulk-order">Create Bulk Order</h2>
+
+<p>This API lets you create batch orders. You can also captute vertical specific product attributes such as variants, bundle, and combo.</p>
 <pre class="highlight html"><code># Sample Request
 
-https://us.api.capillarytech.com/v2/user_auth/register
+http://www.martjack.com/developerapi/Order/BulkOrderCreation
+
 </code></pre><pre class="highlight json"><code><span class="err">#</span><span class="w"> </span><span class="err">Sample</span><span class="w"> </span><span class="err">POST</span><span class="w"> </span><span class="err">Request</span><span class="w">
 
-</span><span class="p">{</span><span class="w">
-  </span><span class="nt">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"71000000000"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tom.sawyer@example.com"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tom123"</span><span class="w">
+</span><span class="p">{</span><span class="w">  
+   </span><span class="nt">"orders"</span><span class="p">:{</span><span class="w">  
+      </span><span class="nt">"order"</span><span class="p">:[</span><span class="w">  
+         </span><span class="p">{</span><span class="w">  
+            </span><span class="nt">"orderrefno"</span><span class="p">:</span><span class="mi">2731792</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"orderdate"</span><span class="p">:</span><span class="s2">"07/26/2018"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"deliveredon"</span><span class="p">:</span><span class="s2">"07/26/2018"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"customertype"</span><span class="p">:</span><span class="s2">"Guest User"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"userid"</span><span class="p">:</span><span class="s2">"tom.sawyer@example.com"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"orderamountstatus"</span><span class="p">:</span><span class="s2">"NO"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ordervalue"</span><span class="p">:</span><span class="mi">9495</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"orderstatus"</span><span class="p">:</span><span class="s2">"Authorized"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"orderconfirmationmail"</span><span class="p">:</span><span class="s2">"NO"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"paymentlinkstatus"</span><span class="p">:</span><span class="s2">"YES"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"calculateshippingtax"</span><span class="p">:</span><span class="s2">"NO"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"vouchercode"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"shipfirstname"</span><span class="p">:</span><span class="s2">"Tom"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"shiplastname"</span><span class="p">:</span><span class="s2">"Sawyer"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"shipaddress1"</span><span class="p">:</span><span class="s2">"H.no.6-51, plot.31"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"shipaddress2"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"shipcity"</span><span class="p">:</span><span class="s2">"Hyderabad"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"shipstate"</span><span class="p">:</span><span class="s2">"Telangana"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"shipcountry"</span><span class="p">:</span><span class="s2">"India"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"shipzip"</span><span class="p">:</span><span class="s2">"500062"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"shiplandline"</span><span class="p">:</span><span class="s2">"8500000000"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"shipmobile"</span><span class="p">:</span><span class="s2">"8500111111"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"shipemail"</span><span class="p">:</span><span class="s2">"tom.sawyer@example.com"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"billfirstname"</span><span class="p">:</span><span class="s2">"Tom"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"billlastname"</span><span class="p">:</span><span class="s2">"Sawyer"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"billaddress1"</span><span class="p">:</span><span class="s2">"H.no.6-51, ECIL"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"billaddress2"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"billcity"</span><span class="p">:</span><span class="s2">"Hyderabad"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"billstate"</span><span class="p">:</span><span class="s2">"Telangana"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"billcountry"</span><span class="p">:</span><span class="s2">"India"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"billzip"</span><span class="p">:</span><span class="s2">"500062"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"billlandline"</span><span class="p">:</span><span class="s2">"8500000000"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"billmobile"</span><span class="p">:</span><span class="s2">"8500111111"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"billemail"</span><span class="p">:</span><span class="s2">"tom.sawyer@example.com"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"giftmsg"</span><span class="p">:</span><span class="s2">"Many happy returns of the  day from James and family"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"locationcode"</span><span class="p">:</span><span class="s2">"3835"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"storelocationcode"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"isselfship"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"channelrefcode"</span><span class="p">:</span><span class="mi">2338</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"channelorderid"</span><span class="p">:</span><span class="s2">"6068438350"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"sellerwroxorderid"</span><span class="p">:</span><span class="mi">2731792</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"deliveryslotcode"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"shippingmode"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"customfields"</span><span class="p">:{</span><span class="w">  
+               </span><span class="nt">"customfield"</span><span class="p">:[</span><span class="w">  
+                  </span><span class="p">{</span><span class="w">  
+                     </span><span class="nt">"orderrefno"</span><span class="p">:</span><span class="s2">"5"</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"id"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"PaymentDetails"</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"value"</span><span class="p">:</span><span class="s2">"12345678910"</span><span class="w">
+                  </span><span class="p">},</span><span class="w">
+                  </span><span class="p">{</span><span class="w">  
+                     </span><span class="nt">"orderrefno"</span><span class="p">:</span><span class="s2">"5"</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"id"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"PaymentDetails"</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"value"</span><span class="p">:</span><span class="s2">"COD"</span><span class="w">
+                  </span><span class="p">}</span><span class="w">
+               </span><span class="p">]</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"items"</span><span class="p">:{</span><span class="w">  
+               </span><span class="nt">"item"</span><span class="p">:[</span><span class="w">  
+                  </span><span class="p">{</span><span class="w">  
+                     </span><span class="nt">"tax"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"sku"</span><span class="p">:</span><span class="s2">"FS4656"</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"shippingamount"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"shippingdiscount"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"variantsku"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"qty"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"unitprice"</span><span class="p">:</span><span class="mi">9495</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"orderrefno"</span><span class="p">:</span><span class="mi">2731792</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"linediscount"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"itemcustomfields"</span><span class="p">:{</span><span class="w">  
+                        </span><span class="nt">"itemcustomfield"</span><span class="p">:[</span><span class="w">  
+                           </span><span class="p">{</span><span class="w">  
+                              </span><span class="nt">"Name"</span><span class="p">:</span><span class="s2">"CustomRefOrderLineID"</span><span class="p">,</span><span class="w">
+                              </span><span class="nt">"Value"</span><span class="p">:</span><span class="s2">"2850981410"</span><span class="w">
+                           </span><span class="p">}</span><span class="w">
+                        </span><span class="p">]</span><span class="w">
+                     </span><span class="p">}</span><span class="w">
+                  </span><span class="p">},</span><span class="w">
+                  </span><span class="p">{</span><span class="w">  
+                     </span><span class="nt">"orderrefno"</span><span class="p">:</span><span class="mi">2731792</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"sku"</span><span class="p">:</span><span class="s2">"IN-PZ-VG-VEGGIEITALINO"</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"variantsku"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"qty"</span><span class="p">:</span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"unitprice"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"shippingamount"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"tax"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"shippingdiscount"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"linediscount"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"catalogcode"</span><span class="p">:</span><span class="s2">"P"</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"bundleparentproduct"</span><span class="p">:</span><span class="s2">"IN-PZ-VG-VEGGIEITALINO"</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"isdefault"</span><span class="p">:</span><span class="s2">"NO"</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"portion"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"deliverymode"</span><span class="p">:</span><span class="s2">"S"</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"itemcustomfields"</span><span class="p">:{</span><span class="w">  
+                        </span><span class="nt">"itemcustomfield"</span><span class="p">:[</span><span class="w">  
+                           </span><span class="p">{</span><span class="w">  
+                              </span><span class="nt">"Name"</span><span class="p">:</span><span class="s2">"CustomRefOrderLineID"</span><span class="p">,</span><span class="w">
+                              </span><span class="nt">"Value"</span><span class="p">:</span><span class="s2">"2850981410"</span><span class="w">
+                           </span><span class="p">}</span><span class="w">
+                        </span><span class="p">]</span><span class="w">
+                     </span><span class="p">},</span><span class="w">
+                     </span><span class="nt">"bundleitems"</span><span class="p">:{</span><span class="w">  
+                        </span><span class="nt">"item"</span><span class="p">:[</span><span class="w">  
+                           </span><span class="p">{</span><span class="w">  
+                              </span><span class="nt">"orderrefno"</span><span class="p">:</span><span class="mi">2731792</span><span class="p">,</span><span class="w">
+                              </span><span class="nt">"sku"</span><span class="p">:</span><span class="s2">"IN-PZ-VG-VEGGIEITALINO"</span><span class="p">,</span><span class="w">
+                              </span><span class="nt">"variantsku"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+                              </span><span class="nt">"qty"</span><span class="p">:</span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+                              </span><span class="nt">"unitprice"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+                              </span><span class="nt">"shippingamount"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+                              </span><span class="nt">"tax"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+                              </span><span class="nt">"shippingdiscount"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+                              </span><span class="nt">"linediscount"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+                              </span><span class="nt">"catalogcode"</span><span class="p">:</span><span class="s2">"B"</span><span class="p">,</span><span class="w">
+                              </span><span class="nt">"bundleparentproduct"</span><span class="p">:</span><span class="s2">"IN-PZ-VG-VEGGIEITALINO"</span><span class="p">,</span><span class="w">
+                              </span><span class="nt">"isdefault"</span><span class="p">:</span><span class="s2">"NO"</span><span class="p">,</span><span class="w">
+                              </span><span class="nt">"deliverymode"</span><span class="p">:</span><span class="s2">"S"</span><span class="p">,</span><span class="w">
+                              </span><span class="nt">"portion"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+                              </span><span class="nt">"itemcustomfields"</span><span class="p">:{</span><span class="w">  
+                                 </span><span class="nt">"itemcustomfield"</span><span class="p">:[</span><span class="w">  
+                                    </span><span class="p">{</span><span class="w">  
+                                       </span><span class="nt">"Name"</span><span class="p">:</span><span class="s2">"CustomRefOrderLineID"</span><span class="p">,</span><span class="w">
+                                       </span><span class="nt">"Value"</span><span class="p">:</span><span class="s2">"2850981410"</span><span class="w">
+                                    </span><span class="p">}</span><span class="w">
+                                 </span><span class="p">]</span><span class="w">
+                              </span><span class="p">}</span><span class="w">
+                           </span><span class="p">},</span><span class="w">
+                           </span><span class="p">{</span><span class="w">  
+                              </span><span class="nt">"orderrefno"</span><span class="p">:</span><span class="mi">2731792</span><span class="p">,</span><span class="w">
+                              </span><span class="nt">"sku"</span><span class="p">:</span><span class="s2">"IN-Crt-Veggie Italiano"</span><span class="p">,</span><span class="w">
+                              </span><span class="nt">"variantsku"</span><span class="p">:</span><span class="s2">"IN-Crt-Veggie Italiano-Pan-Mdm"</span><span class="p">,</span><span class="w">
+                              </span><span class="nt">"qty"</span><span class="p">:</span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+                              </span><span class="nt">"unitprice"</span><span class="p">:</span><span class="s2">"545"</span><span class="p">,</span><span class="w">
+                              </span><span class="nt">"shippingamount"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+                              </span><span class="nt">"tax"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+                              </span><span class="nt">"shippingdiscount"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+                              </span><span class="nt">"linediscount"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+                              </span><span class="nt">"catalogcode"</span><span class="p">:</span><span class="s2">"B"</span><span class="p">,</span><span class="w">
+                              </span><span class="nt">"bundleparentproduct"</span><span class="p">:</span><span class="s2">"IN-PZ-VG-VEGGIEITALINO"</span><span class="p">,</span><span class="w">
+                              </span><span class="nt">"isdefault"</span><span class="p">:</span><span class="s2">"YES"</span><span class="p">,</span><span class="w">
+                              </span><span class="nt">"deliverymode"</span><span class="p">:</span><span class="s2">"S"</span><span class="p">,</span><span class="w">
+                              </span><span class="nt">"portion"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+                              </span><span class="nt">"itemcustomfields"</span><span class="p">:{</span><span class="w">  
+                                 </span><span class="nt">"itemcustomfield"</span><span class="p">:[</span><span class="w">  
+                                    </span><span class="p">{</span><span class="w">  
+                                       </span><span class="nt">"Name"</span><span class="p">:</span><span class="s2">"CustomRefOrderLineID"</span><span class="p">,</span><span class="w">
+                                       </span><span class="nt">"Value"</span><span class="p">:</span><span class="s2">"2850981410"</span><span class="w">
+                                    </span><span class="p">}</span><span class="w">
+                                 </span><span class="p">]</span><span class="w">
+                              </span><span class="p">}</span><span class="w">
+                           </span><span class="p">}</span><span class="w">
+                        </span><span class="p">]</span><span class="w">
+                     </span><span class="p">}</span><span class="w">
+                  </span><span class="p">}</span><span class="w">
+               </span><span class="p">]</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"payments"</span><span class="p">:{</span><span class="w">  
+               </span><span class="nt">"payment"</span><span class="p">:[</span><span class="w">  
+                  </span><span class="p">{</span><span class="w">  
+                     </span><span class="nt">"orderrefno"</span><span class="p">:</span><span class="mi">2731792</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"checkouttype"</span><span class="p">:</span><span class="s2">"Online Payment"</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"paymentno"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"amount"</span><span class="p">:</span><span class="mi">9495</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"transaciondate"</span><span class="p">:</span><span class="s2">"07\/26\/2018"</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"paymentstatus"</span><span class="p">:</span><span class="s2">"Authorized"</span><span class="w">
+                  </span><span class="p">}</span><span class="w">
+               </span><span class="p">]</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+         </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
+
 
 </span></code></pre><pre class="highlight json"><code><span class="err">#</span><span class="w"> </span><span class="err">Sample</span><span class="w"> </span><span class="err">Response</span><span class="w">
 
-</span><span class="p">{</span><span class="w">
-</span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">24335250</span><span class="p">,</span><span class="w">
-</span><span class="nt">"profiles"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-</span><span class="nt">"firstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tom"</span><span class="p">,</span><span class="w">
-</span><span class="nt">"lastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sawyer"</span><span class="p">,</span><span class="w">
-</span><span class="nt">"attribution"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span><span class="nt">"createDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-06-22T00:00:00+05:30"</span><span class="p">,</span><span class="w">
-</span><span class="nt">"createdBy"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"org2.till1"</span><span class="p">,</span><span class="w">
-
-
-
-</span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"org2.till1"</span><span class="p">,</span><span class="w">
-</span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TILL"</span><span class="w">
-</span><span class="p">},</span><span class="w">
-</span><span class="nt">"modifiedBy"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TILL"</span><span class="w">
-</span><span class="p">},</span><span class="w">
-</span><span class="nt">"modifiedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-12-05T13:04:22+05:30"</span><span class="w">
-</span><span class="p">},</span><span class="w">
-</span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
-</span><span class="nt">"identifiers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-</span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"email"</span><span class="p">,</span><span class="w">
-</span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"autoemail734253194812111111@gmail.com"</span><span class="w">
-</span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-</span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"externalId"</span><span class="p">,</span><span class="w">
-</span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ext_id7342531948111"</span><span class="w">
+</span><span class="p">{</span><span class="w">  
+   </span><span class="nt">"messageCode"</span><span class="p">:</span><span class="s2">"1018"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"Message"</span><span class="p">:</span><span class="s2">"Data update added to task queue. You can view the status of update in control panel. Also email will be send to merchant registered email after task completion."</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"Taskid"</span><span class="p">:</span><span class="s2">"2156"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="mi">0</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span><span class="p">],</span><span class="w">
-</span><span class="nt">"commChannels"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-</span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"email"</span><span class="p">,</span><span class="w">
-</span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"autoemail734253194812111111@gmail.com"</span><span class="p">,</span><span class="w">
-</span><span class="nt">"primary"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-</span><span class="nt">"verified"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-</span><span class="nt">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span><span class="nt">"residence"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-</span><span class="nt">"office"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
-</span><span class="p">},</span><span class="w">
-</span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span><span class="p">],</span><span class="w">
-</span><span class="nt">"source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"INSTORE"</span><span class="p">,</span><span class="w">
-</span><span class="nt">"userId"</span><span class="p">:</span><span class="w"> </span><span class="mi">24335250</span><span class="p">,</span><span class="w">
-</span><span class="nt">"accountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-</span><span class="nt">"conflictingProfileList"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-</span><span class="nt">"autoUpdateTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-08-04T11:12:14+05:30"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span><span class="p">],</span><span class="w">
-</span><span class="nt">"loyaltyInfo"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span><span class="nt">"loyaltyType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"loyalty"</span><span class="p">,</span><span class="w">
-</span><span class="nt">"attributionV2"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span><span class="nt">"createDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-06-22T00:00:00+05:30"</span><span class="p">,</span><span class="w">
-</span><span class="nt">"createdBy"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"org2.till1"</span><span class="p">,</span><span class="w">
-</span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"org2.till1"</span><span class="p">,</span><span class="w">
-</span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TILL"</span><span class="w">
-</span><span class="p">},</span><span class="w">
-</span><span class="nt">"modifiedBy"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TILL"</span><span class="w">
-</span><span class="p">},</span><span class="w">
-</span><span class="nt">"modifiedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-12-05T13:04:22+05:30"</span><span class="w">
-</span><span class="p">},</span><span class="w">
-</span><span class="nt">"lifetimePurchases"</span><span class="p">:</span><span class="w"> </span><span class="mi">2000</span><span class="p">,</span><span class="w">
-</span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mi">97</span><span class="w">
-</span><span class="p">},</span><span class="w">
-</span><span class="nt">"segments"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
-</span><span class="nt">"warnings"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-</span><span class="err">}</span><span class="w">
 
 
 </span></code></pre>
-<p>Allows the org&rsquo;s InStore customers to register on their web page or mobile app. You need to use only the mobile number/email id that is registered on InStore.</p>
-
 <h3 id="resource-information">Resource Information</h3>
 
 <table><thead>
@@ -355,7 +464,7 @@ https://us.api.capillarytech.com/v2/user_auth/register
 </thead><tbody>
 <tr>
 <td>URI</td>
-<td>`/user_auth/register&rsquo;</td>
+<td><code class="prettyprint">Order/BulkOrderCreation</code></td>
 </tr>
 <tr>
 <td>Authentication</td>
@@ -367,87 +476,13 @@ https://us.api.capillarytech.com/v2/user_auth/register
 </tr>
 <tr>
 <td>Batch Support</td>
-<td>No</td>
-</tr>
-</tbody></table>
-
-<h3 id="request-url">Request URL</h3>
-
-<p><code class="prettyprint">https://&lt;Respective cluster’s API URL&gt;/v2/user_auth/register</code></p>
-
-<h3 id="request-attributes">Request Attributes</h3>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>mobile</td>
-<td>Specify a valid mobile number of the user that is already registered with your org (in any source)</td>
-</tr>
-<tr>
-<td>email</td>
-<td>Specify a valid email id of the user that is already registered with your org (in any source)</td>
-</tr>
-<tr>
-<td>password</td>
-<td>Specify a password for the user account as a MD5 hash</td>
-</tr>
-</tbody></table>
-
-<h2 id="user-authentication">User Authentication</h2>
-<pre class="highlight html"><code># Sample Request
-
-https://us.api.capillarytech.com/v2/user_auth/authorize_user
-</code></pre><pre class="highlight json"><code><span class="err">#</span><span class="w"> </span><span class="err">Sample</span><span class="w"> </span><span class="err">POST</span><span class="w"> </span><span class="err">Request</span><span class="w">
-
-</span><span class="p">{</span><span class="w">
-  </span><span class="nt">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"71000000000"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tom.sawyer@example.com"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tom1234"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-
-</span></code></pre><pre class="highlight json"><code><span class="err">#</span><span class="w"> </span><span class="err">Sample</span><span class="w"> </span><span class="err">Response</span><span class="w">
-
-</span><span class="p">{</span><span class="w">
-    </span><span class="nt">"entity"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"warnings"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-
-</span></code></pre>
-<p>Validates whether the provided user credentials are valid or not.</p>
-
-<h3 id="resource-information">Resource Information</h3>
-
-<table><thead>
-<tr>
-<th>Information</th>
-<th>Value</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>URI</td>
-<td>`/user_auth/authorize_user&rsquo;</td>
-</tr>
-<tr>
-<td>Authentication</td>
 <td>Yes</td>
 </tr>
-<tr>
-<td>HTTP Method</td>
-<td>POST</td>
-</tr>
-<tr>
-<td>Batch Support</td>
-<td>No</td>
-</tr>
 </tbody></table>
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://&lt;Respective cluster’s API URL&gt;/v2/user_auth/authorize_user</code></p>
+<p><code class="prettyprint">https://{host}/developerapi/Order/BulkOrderCreation</code></p>
 
 <h3 id="request-attributes">Request Attributes</h3>
 
@@ -458,143 +493,84 @@ https://us.api.capillarytech.com/v2/user_auth/authorize_user
 </tr>
 </thead><tbody>
 <tr>
-<td>mobile</td>
-<td>Provide the registered mobile number of the user</td>
+<td>orderrefno*</td>
+<td>Reference number of the order</td>
 </tr>
 <tr>
-<td>email</td>
-<td>Provide the registered email id of the user</td>
+<td>orderdate*</td>
+<td>Date on which the order is made in <code class="prettyprint">d/m/y</code> format</td>
 </tr>
 <tr>
-<td>password</td>
-<td>Provice the password in md5 hash form</td>
-</tr>
-</tbody></table>
-
-<h2 id="update-password">Update Password</h2>
-<pre class="highlight html"><code># Sample Request
-
-https://us.api.capillarytech.com/v2/user_auth/update
-</code></pre><pre class="highlight json"><code><span class="err">#</span><span class="w"> </span><span class="err">Sample</span><span class="w"> </span><span class="err">PUT</span><span class="w"> </span><span class="err">Request</span><span class="w">
-
-</span><span class="p">{</span><span class="w">
-  </span><span class="nt">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"71000000000"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tom.sawyer@example.com"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tom12345"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-
-</span></code></pre><pre class="highlight json"><code><span class="err">#</span><span class="w"> </span><span class="err">Sample</span><span class="w"> </span><span class="err">Response</span><span class="w">
-
-</span><span class="p">{</span><span class="w">
-    </span><span class="nt">"entity"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"warnings"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>Allows updating password of an user account.</p>
-
-<h3 id="resource-information">Resource Information</h3>
-
-<table><thead>
-<tr>
-<th>Information</th>
-<th>Value</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>URI</td>
-<td>`/user_auth/update&rsquo;</td>
+<td>deliveredon*</td>
+<td></td>
 </tr>
 <tr>
-<td>Authentication</td>
-<td>Yes</td>
+<td>customertype</td>
+<td>Type of the user as per the Martjack system. Supported Values: Guest User (for all marketplace), Registered User (If registered on Martjack platform)</td>
 </tr>
 <tr>
-<td>HTTP Method</td>
-<td>PUT</td>
+<td>userid</td>
+<td>Registered identifier of the customer. Required when <code class="prettyprint">customertype=&quot;Registered User&quot;</code></td>
 </tr>
 <tr>
-<td>Batch Support</td>
-<td>No</td>
-</tr>
-</tbody></table>
-
-<h3 id="request-url">Request URL</h3>
-
-<p><code class="prettyprint">https://&lt;Respective cluster’s API URL&gt;/v2/user_auth/update</code></p>
-
-<h3 id="request-attributes">Request Attributes</h3>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>mobile</td>
-<td>Provide the registered mobile number of the user</td>
+<td>ordervalue</td>
+<td>Net order amount</td>
 </tr>
 <tr>
-<td>email</td>
-<td>Provide the registered email id of the user</td>
+<td>orderstatus</td>
+<td>Supported values: Pending, Authorized</td>
 </tr>
 <tr>
-<td>password</td>
-<td>Provide the new password in md5 hash form</td>
-</tr>
-</tbody></table>
-
-<h2 id="response-codes">Response Codes</h2>
-
-<h3 id="success-codes">Success Codes</h3>
-
-<table><thead>
-<tr>
-<th>Code</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>91025</td>
-<td>Password updated successfully</td>
+<td>orderconfirmationmail</td>
+<td>Supported values: Yes, No. If set to <code class="prettyprint">Yes</code>, an order confirmation email is sent to the customer</td>
 </tr>
 <tr>
-<td>91030</td>
-<td>User is registered successfully</td>
-</tr>
-</tbody></table>
-
-<h3 id="error-codes">Error Codes</h3>
-
-<table><thead>
-<tr>
-<th>Code</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>91024</td>
-<td>Authentation failed. Unable to authorize user with the given credentials</td>
+<td>paymentlinkstatus</td>
+<td></td>
 </tr>
 <tr>
-<td>91026</td>
-<td>Unable to update password</td>
+<td>calculateshippingtax</td>
+<td>Supported values: Yes, No. Set to <code class="prettyprint">No</code> if the order value includes all the tax and service charges. Else, you need to specify other charges separately.</td>
 </tr>
 <tr>
-<td>91027</td>
-<td>Invalid username (mobile number/email id)</td>
+<td>shipfirstname, shiplastname, shipaddress1 &hellip;</td>
+<td>Specify the customer&rsquo;s shipping address related information in these fields</td>
 </tr>
 <tr>
-<td>91028</td>
-<td>Invalid password format. Pass the password in MD5 Hash format</td>
+<td>billfirstname, billlastname, billaddress1 &hellip;</td>
+<td>Specify the customer&rsquo;s billing address related information in these fields</td>
 </tr>
 <tr>
-<td>91029</td>
-<td>User is registered already</td>
+<td>giftmsg</td>
+<td>In case of gift orders, specify the customer&rsquo;s personalized message that needs to sent to the recipient</td>
 </tr>
 <tr>
-<td>91031</td>
-<td>Unable to register user</td>
+<td>locationcode</td>
+<td>Reference code of the  order fulfillment location</td>
+</tr>
+<tr>
+<td>isselfship</td>
+<td>Supported Value: True, False. If the order shipment is handled by marketplace such as Amazon or Flipkart specify False. If the shipment is handled by the merchant himself, set the value to True</td>
+</tr>
+<tr>
+<td>channelrefcode</td>
+<td>Channel from which the order has come from (specific to Sellerworx). A channel is an instance of marketplace. A seller can have multiple channels.</td>
+</tr>
+<tr>
+<td>channelorderid</td>
+<td>Order id as maintained by that specific channel  (pecific to Sellerworx)</td>
+</tr>
+<tr>
+<td>sellerwroxorderid</td>
+<td>Order id generated at Sellerworx. Maps Channel order id to Sellerworx order id</td>
+</tr>
+<tr>
+<td>items*</td>
+<td>Specify the details of each line-item in <code class="prettyprint">item</code> attribute</td>
+</tr>
+<tr>
+<td>Payments*</td>
+<td>Specify the payment details and <code class="prettyprint">orderrefno</code> of the order in <code class="prettyprint">payment</code>. The orderrefno value at payment level should be same as that of the order level</td>
 </tr>
 </tbody></table>
 

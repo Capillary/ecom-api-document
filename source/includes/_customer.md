@@ -1,12 +1,6 @@
 # Customer
 A Customer is a user of a merchant's online store. This resource consists of APIs to create new customer accounts and manage their details and preferences.
 
-### Important parameters in customer resource
-Parameter | Description
---------- | -----------
-City ID | 
-City Name | 
-City Code |  
 
 
 ## Register Customer Account
