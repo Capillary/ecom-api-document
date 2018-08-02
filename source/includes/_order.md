@@ -1,260 +1,257 @@
-# User Authentication
-The userAuth resource allows existing customers of InStore to register on the org's web page/mobile app, authenticate login credentials, and update user details.
+# Order
+An order is a completed purchase request of a customer. This resource consists APIs related to creating and managing orders of a merchant shop. 
 
 
-## Register Users
+## Create Bulk Order
+This API lets you create batch orders. You can also captute vertical specific product attributes such as variants, bundle, and combo.
+
 
 ```html
 # Sample Request
- 
-https://us.api.capillarytech.com/v2/user_auth/register
+
+http://www.martjack.com/developerapi/Order/BulkOrderCreation
+
 ```
 
 
 ```json
 # Sample POST Request
 
-{
-  "mobile": "71000000000",
-  "email": "tom.sawyer@example.com",
-  "password": "tom123"
+{  
+   "orders":{  
+      "order":[  
+         {  
+            "orderrefno":2731792,
+            "orderdate":"07/26/2018",
+            "deliveredon":"07/26/2018",
+            "customertype":"Guest User",
+            "userid":"tom.sawyer@example.com",
+            "orderamountstatus":"NO",
+            "ordervalue":9495,
+            "orderstatus":"Authorized",
+            "orderconfirmationmail":"NO",
+            "paymentlinkstatus":"YES",
+            "calculateshippingtax":"NO",
+            "vouchercode":"",
+            "shipfirstname":"Tom",
+            "shiplastname":"Sawyer",
+            "shipaddress1":"H.no.6-51, plot.31",
+            "shipaddress2":"",
+            "shipcity":"Hyderabad",
+            "shipstate":"Telangana",
+            "shipcountry":"India",
+            "shipzip":"500062",
+            "shiplandline":"8500000000",
+            "shipmobile":"8500111111",
+            "shipemail":"tom.sawyer@example.com",
+            "billfirstname":"Tom",
+            "billlastname":"Sawyer",
+            "billaddress1":"H.no.6-51, ECIL",
+            "billaddress2":"",
+            "billcity":"Hyderabad",
+            "billstate":"Telangana",
+            "billcountry":"India",
+            "billzip":"500062",
+            "billlandline":"8500000000",
+            "billmobile":"8500111111",
+            "billemail":"tom.sawyer@example.com",
+            "giftmsg":"Many happy returns of the  day from James and family",
+            "locationcode":"3835",
+            "storelocationcode":"",
+            "isselfship":false,
+            "channelrefcode":2338,
+            "channelorderid":"6068438350",
+            "sellerwroxorderid":2731792,
+            "deliveryslotcode":"",
+            "shippingmode":"",
+            "customfields":{  
+               "customfield":[  
+                  {  
+                     "orderrefno":"5",
+                     "id":"0",
+                     "name":"PaymentDetails",
+                     "value":"12345678910"
+                  },
+                  {  
+                     "orderrefno":"5",
+                     "id":"0",
+                     "name":"PaymentDetails",
+                     "value":"COD"
+                  }
+               ]
+            },
+            "items":{  
+               "item":[  
+                  {  
+                     "tax":null,
+                     "sku":"FS4656",
+                     "shippingamount":0,
+                     "shippingdiscount":0,
+                     "variantsku":null,
+                     "qty":1,
+                     "unitprice":9495,
+                     "orderrefno":2731792,
+                     "linediscount":0,
+                     "itemcustomfields":{  
+                        "itemcustomfield":[  
+                           {  
+                              "Name":"CustomRefOrderLineID",
+                              "Value":"2850981410"
+                           }
+                        ]
+                     }
+                  },
+                  {  
+                     "orderrefno":2731792,
+                     "sku":"IN-PZ-VG-VEGGIEITALINO",
+                     "variantsku":"",
+                     "qty":"1",
+                     "unitprice":"0",
+                     "shippingamount":"0",
+                     "tax":"0",
+                     "shippingdiscount":"0",
+                     "linediscount":"0",
+                     "catalogcode":"P",
+                     "bundleparentproduct":"IN-PZ-VG-VEGGIEITALINO",
+                     "isdefault":"NO",
+                     "portion":"",
+                     "deliverymode":"S",
+                     "itemcustomfields":{  
+                        "itemcustomfield":[  
+                           {  
+                              "Name":"CustomRefOrderLineID",
+                              "Value":"2850981410"
+                           }
+                        ]
+                     },
+                     "bundleitems":{  
+                        "item":[  
+                           {  
+                              "orderrefno":2731792,
+                              "sku":"IN-PZ-VG-VEGGIEITALINO",
+                              "variantsku":"",
+                              "qty":"1",
+                              "unitprice":"0",
+                              "shippingamount":"0",
+                              "tax":"0",
+                              "shippingdiscount":"0",
+                              "linediscount":"0",
+                              "catalogcode":"B",
+                              "bundleparentproduct":"IN-PZ-VG-VEGGIEITALINO",
+                              "isdefault":"NO",
+                              "deliverymode":"S",
+                              "portion":"",
+                              "itemcustomfields":{  
+                                 "itemcustomfield":[  
+                                    {  
+                                       "Name":"CustomRefOrderLineID",
+                                       "Value":"2850981410"
+                                    }
+                                 ]
+                              }
+                           },
+                           {  
+                              "orderrefno":2731792,
+                              "sku":"IN-Crt-Veggie Italiano",
+                              "variantsku":"IN-Crt-Veggie Italiano-Pan-Mdm",
+                              "qty":"1",
+                              "unitprice":"545",
+                              "shippingamount":"0",
+                              "tax":"0",
+                              "shippingdiscount":"0",
+                              "linediscount":"0",
+                              "catalogcode":"B",
+                              "bundleparentproduct":"IN-PZ-VG-VEGGIEITALINO",
+                              "isdefault":"YES",
+                              "deliverymode":"S",
+                              "portion":"",
+                              "itemcustomfields":{  
+                                 "itemcustomfield":[  
+                                    {  
+                                       "Name":"CustomRefOrderLineID",
+                                       "Value":"2850981410"
+                                    }
+                                 ]
+                              }
+                           }
+                        ]
+                     }
+                  }
+               ]
+            },
+            "payments":{  
+               "payment":[  
+                  {  
+                     "orderrefno":2731792,
+                     "checkouttype":"Online Payment",
+                     "paymentno":"",
+                     "amount":9495,
+                     "transaciondate":"07\/26\/2018",
+                     "paymentstatus":"Authorized"
+                  }
+               ]
+            }
+         }
+      ]
+   }
 }
+
 
 ```
 
 ```json
 # Sample Response
 
-{
-"id": 24335250,
-"profiles": [
-  {
-"firstName": "Tom",
-"lastName": "Sawyer",
-"attribution": {
-"createDate": "2016-06-22T00:00:00+05:30",
-"createdBy": {
-"code": "org2.till1",
-
-
-
-"name": "org2.till1",
-"type": "TILL"
-},
-"modifiedBy": {
-"type": "TILL"
-},
-"modifiedDate": "2016-12-05T13:04:22+05:30"
-},
-"fields": {},
-"identifiers": [
-  {
-"type": "email",
-"value": "autoemail734253194812111111@gmail.com"
-},
-  {
-"type": "externalId",
-"value": "ext_id7342531948111"
-}
-],
-"commChannels": [
-  {
-"type": "email",
-"value": "autoemail734253194812111111@gmail.com",
-"primary": true,
-"verified": false,
-"meta": {
-"residence": false,
-"office": false
-},
-"attributes": {}
-}
-],
-"source": "INSTORE",
-"userId": 24335250,
-"accountId": "",
-"conflictingProfileList": [],
-"autoUpdateTime": "2017-08-04T11:12:14+05:30"
-}
-],
-"loyaltyInfo": {
-"loyaltyType": "loyalty",
-"attributionV2": {
-"createDate": "2016-06-22T00:00:00+05:30",
-"createdBy": {
-"code": "org2.till1",
-"name": "org2.till1",
-"type": "TILL"
-},
-"modifiedBy": {
-"type": "TILL"
-},
-"modifiedDate": "2016-12-05T13:04:22+05:30"
-},
-"lifetimePurchases": 2000,
-"score": 97
-},
-"segments": {},
-"warnings": [],
+{  
+   "messageCode":"1018",
+   "Message":"Data update added to task queue. You can view the status of update in control panel. Also email will be send to merchant registered email after task completion.",
+   "Taskid":"2156",
+   "ErrorCode":0
 }
 
 
 ```
 
-Allows the org's InStore customers to register on their web page or mobile app. You need to use only the mobile number/email id that is registered on InStore.
+
 
 
 
 ### Resource Information
 Information | Value
 ----------- | -----
-URI | `/user_auth/register'
+URI | `Order/BulkOrderCreation`
 Authentication | Yes
 HTTP Method | POST
-Batch Support | No
+Batch Support | Yes
 
 
 ### Request URL
 
-`https://<Respective cluster’s API URL>/v2/user_auth/register`
+`https://{host}/developerapi/Order/BulkOrderCreation`
 
 ### Request Attributes
 Parameter | Description
 --------- | -----------
-mobile | Specify a valid mobile number of the user that is already registered with your org (in any source)
-email | Specify a valid email id of the user that is already registered with your org (in any source)
-password | Specify a password for the user account as a MD5 hash
-
-
-
-## User Authentication
-
-```html
-# Sample Request
+orderrefno* | Reference number of the order
+orderdate* | Date on which the order is made in `d/m/y` format
+deliveredon* | 
+customertype | Type of the user as per the Martjack system. Supported Values: Guest User (for all marketplace), Registered User (If registered on Martjack platform)
+userid | Registered identifier of the customer. Required when `customertype="Registered User"`
+ordervalue | Net order amount
+orderstatus | Supported values: Pending, Authorized
+orderconfirmationmail | Supported values: Yes, No. If set to `Yes`, an order confirmation email is sent to the customer
+paymentlinkstatus | 
+calculateshippingtax | Supported values: Yes, No. Set to `No` if the order value includes all the tax and service charges. Else, you need to specify other charges separately.
+shipfirstname, shiplastname, shipaddress1 ... | Specify the customer's shipping address related information in these fields
+billfirstname, billlastname, billaddress1 ... | Specify the customer's billing address related information in these fields
+giftmsg | In case of gift orders, specify the customer's personalized message that needs to sent to the recipient
+locationcode | Reference code of the  order fulfillment location
+isselfship | Supported Value: True, False. If the order shipment is handled by marketplace such as Amazon or Flipkart specify False. If the shipment is handled by the merchant himself, set the value to True
+channelrefcode | Channel from which the order has come from (specific to Sellerworx). A channel is an instance of marketplace. A seller can have multiple channels.
+channelorderid | Order id as maintained by that specific channel  (pecific to Sellerworx)
+sellerwroxorderid | Order id generated at Sellerworx. Maps Channel order id to Sellerworx order id
+items* | Specify the details of each line-item in `item` attribute
+Payments* | Specify the payment details and `orderrefno` of the order in `payment`. The orderrefno value at payment level should be same as that of the order level
  
-https://us.api.capillarytech.com/v2/user_auth/authorize_user
-```
-
-
-```json
-# Sample POST Request
-
-{
-  "mobile": "71000000000",
-  "email": "tom.sawyer@example.com",
-  "password": "tom1234"
-}
-
-```
-
-```json
-# Sample Response
-
-{
-    "entity": true,
-    "warnings": []
-}
-
-```
-
-Validates whether the provided user credentials are valid or not.
-
-
-### Resource Information
-Information | Value
------------ | -----
-URI | `/user_auth/authorize_user'
-Authentication | Yes
-HTTP Method | POST
-Batch Support | No
-
-### Request URL
-
-`https://<Respective cluster’s API URL>/v2/user_auth/authorize_user`
-
-### Request Attributes
-Parameter | Description
---------- | -----------
-mobile | Provide the registered mobile number of the user
-email | Provide the registered email id of the user
-password | Provice the password in md5 hash form
-
-
-
-
-
-
-## Update Password
-
-```html
-# Sample Request
  
-https://us.api.capillarytech.com/v2/user_auth/update
-```
 
-
-```json
-# Sample PUT Request
-
-{
-  "mobile": "71000000000",
-  "email": "tom.sawyer@example.com",
-  "password": "tom12345"
-}
-
-```
-
-```json
-# Sample Response
-
-{
-    "entity": true,
-    "warnings": []
-}
-```
-
-Allows updating password of an user account.
-
-
-### Resource Information
-Information | Value
------------ | -----
-URI | `/user_auth/update'
-Authentication | Yes
-HTTP Method | PUT
-Batch Support | No
-
-
-### Request URL
-
-`https://<Respective cluster’s API URL>/v2/user_auth/update`
-
-
-### Request Attributes
-Parameter | Description
---------- | -----------
-mobile | Provide the registered mobile number of the user
-email | Provide the registered email id of the user
-password | Provide the new password in md5 hash form
-
-
-
-## Response Codes
-
-### Success Codes
-
-Code | Description
----- | -----------
-91025 | Password updated successfully
-91030 | User is registered successfully 
-
-### Error Codes
-
-Code | Description
----- | -----------
-91024 | Authentation failed. Unable to authorize user with the given credentials
-91026 | Unable to update password
-91027 | Invalid username (mobile number/email id)
-91028 | Invalid password format. Pass the password in MD5 Hash format
-91029 | User is registered already
-91031 | Unable to register user

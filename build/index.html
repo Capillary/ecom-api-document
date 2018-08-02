@@ -234,7 +234,7 @@
 </tr>
 <tr>
 <td>Host</td>
-<td>The server to which the API calls are made. This should be the URL of the respective cluster from where the calls are made. <br> <strong>India</strong>: <code class="prettyprint">www.martjack.com</code> <br> <strong>YUM</strong>: <code class="prettyprint">www9.martjack.com</code> <br> <strong>AM</strong>: <code class="prettyprint">www1.martjack.com</code> <br> <strong>PH India</strong>: <code class="prettyprint">www2.martjack.com</code>  <br> <strong>Walmart</strong>: <code class="prettyprint">www8.martjack.com</code> <br> <strong>LuLu</strong>:&#39;www3.martjack.com&rsquo;</td>
+<td>The server to which the API calls are made. This should be the URL of the respective cluster from where the calls are made. <br> - <strong>India</strong>: <code class="prettyprint">www.martjack.com</code> <br> - <strong>YUM</strong>: <code class="prettyprint">www9.martjack.com</code> <br> - <strong>AM</strong>: <code class="prettyprint">www1.martjack.com</code> <br> - <strong>PH India</strong>: <code class="prettyprint">www2.martjack.com</code>  <br> - <strong>Walmart</strong>: <code class="prettyprint">www8.martjack.com</code> <br> - <strong>LuLu</strong>: <code class="prettyprint">www3.martjack.com</code></td>
 </tr>
 <tr>
 <td>Resource</td>
@@ -602,7 +602,29 @@ https://us.api.capillarytech.com/v2/user_auth/update
 
 <p>A Customer is a user of a merchant&rsquo;s online store. This resource consists of APIs to create new customer accounts and manage their details and preferences.</p>
 
-<h2 id="create-customer-account">Create Customer Account</h2>
+<h3 id="important-parameters-in-customer-resource">Important parameters in customer resource</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>City ID</td>
+<td></td>
+</tr>
+<tr>
+<td>City Name</td>
+<td></td>
+</tr>
+<tr>
+<td>City Code</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2 id="register-customer-account">Register Customer Account</h2>
 
 <p>This API lets you create a new user account on MartJack platform for a specific merchant.</p>
 
@@ -621,10 +643,10 @@ https://us.api.capillarytech.com/v2/user_auth/update
       </span><span class="nt">"LastName"</span><span class="p">:</span><span class="s2">"Sawyer"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"PostalAddress"</span><span class="p">:</span><span class="s2">"100, Santa Plaza"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"AlternateEmail"</span><span class="p">:</span><span class="s2">"alternateEmail@gmail.com"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"City"</span><span class="p">:</span><span class="s2">"Bangalore"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"City"</span><span class="p">:</span><span class="s2">"3451"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"Pin"</span><span class="p">:</span><span class="s2">"560001"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"State"</span><span class="p">:</span><span class="s2">"Karnataka"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"Country"</span><span class="p">:</span><span class="s2">"India"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"State"</span><span class="p">:</span><span class="s2">"KA"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Country"</span><span class="p">:</span><span class="s2">"IN"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"PhoneNo"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="nt">"Street"</span><span class="p">:</span><span class="s2">"MG Road"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"MobileNo"</span><span class="p">:</span><span class="s2">"917000000000"</span><span class="p">,</span><span class="w">
@@ -752,6 +774,30 @@ https://us.api.capillarytech.com/v2/user_auth/update
 <tr>
 <td>CommunicationType</td>
 <td>The preferred communication channel(s) of the customer. Possible Values: SMS, EMAIL</td>
+</tr>
+<tr>
+<td>City</td>
+<td>Unique code of the city (as saved in the system). Example: 0562 (for Agra), 250 (Victoria) etc.</td>
+</tr>
+<tr>
+<td>CityName</td>
+<td>Full name of the city. Example: Bangalore,</td>
+</tr>
+<tr>
+<td>State</td>
+<td>State&rsquo;s postal abbreviation. Example: KA (for Karnataka), CA (for California), IN (for Indiana)</td>
+</tr>
+<tr>
+<td>StateName</td>
+<td>Full name of the state. Example: Karnataka, California, Indiana etc.</td>
+</tr>
+<tr>
+<td>Country</td>
+<td>alpha-2 code of the country. Example: IN (for India), AU (for Australia), BR (for Brazil) etc.</td>
+</tr>
+<tr>
+<td>CountryName</td>
+<td>Full name of the country. Example: India, Australia, Brazil etc.</td>
 </tr>
 </tbody></table>
 
@@ -974,7 +1020,7 @@ https://us.api.capillarytech.com/v2/user_auth/update
 <pre class="highlight json"><code><span class="p">{</span><span class="w">  
    </span><span class="nt">"customer"</span><span class="p">:{</span><span class="w">  
       </span><span class="nt">"UserInfoId"</span><span class="p">:</span><span class="s2">"021e57ca-f19a-42c4-8214-180ad7202044"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"UserId"</span><span class="p">:</span><span class="s2">"1142e724-0f59-4b43-ace6-f10e0e2f3c21"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"UserId"</span><span class="p">:</span><span class="s2">"1142e724-0f59-4b43-ace6-f10e0e2fxxxx"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"merchantId"</span><span class="p">:</span><span class="s2">"7c778337-4652-4944-934f-09e0fe56xxxx"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"UserName"</span><span class="p">:</span><span class="s2">"tom.sawyer@capillarytech.com"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"FirstName"</span><span class="p">:</span><span class="s2">"Tom"</span><span class="p">,</span><span class="w">
@@ -1055,6 +1101,34 @@ https://us.api.capillarytech.com/v2/user_auth/update
 <th>Description</th>
 </tr>
 </thead><tbody>
+<tr>
+<td>UserId</td>
+<td>Unique identifier of the customer as generated by the MartJack system.</td>
+</tr>
+<tr>
+<td>City</td>
+<td>Unique code of the city (as saved in the system). Example: 0562 (for Agra), 250 (Victoria) etc.</td>
+</tr>
+<tr>
+<td>CityName</td>
+<td>Full name of the city. Example: Bangalore,</td>
+</tr>
+<tr>
+<td>State</td>
+<td>State&rsquo;s postal abbreviation. Example: KA (for Karnataka), CA (for California), IN (for Indiana)</td>
+</tr>
+<tr>
+<td>StateName</td>
+<td>Full name of the state. Example: Karnataka, California, Indiana etc.</td>
+</tr>
+<tr>
+<td>Country</td>
+<td>alpha-2 code of the country. Example: IN (for India), AU (for Australia), BR (for Brazil) etc.</td>
+</tr>
+<tr>
+<td>CountryName</td>
+<td>Full name of the country. Example: India, Australia, Brazil etc.</td>
+</tr>
 </tbody></table>
 
 <h2 id="update-profile-attributes-custom-fields">Update Profile Attributes (Custom Fields)</h2>
