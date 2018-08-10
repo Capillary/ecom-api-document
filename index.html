@@ -850,6 +850,234 @@
 </tr>
 </tbody></table>
 
+<h2 id="customer-registration-through-otp">Customer Registration through OTP</h2>
+
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td><code class="prettyprint">/Customer/{merchantId}/</code></td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>POST</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>No</td>
+</tr>
+</tbody></table>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">https://{host}/developerapi/Customer/{merchantId}</code></p>
+
+<p>SendOTP
+ValidateOTP</p>
+
+<h2 id="login-with-otp">Login with OTP</h2>
+
+<h2 id="reset-password-using-otp">Reset Password using OTP</h2>
+
+<p>ResetPasswordWithOTP</p>
+
+<p>Retrieves the shipping address of a specific customer.</p>
+
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td><code class="prettyprint">/Customer/{merchantId}/GetShippingAddress/{UserId}</code></td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>POST</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>No</td>
+</tr>
+</tbody></table>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">https://{host}/developerapi/Customer/{merchantId}</code></p>
+
+<h2 id="update-customer-details">Update Customer Details</h2>
+
+<h2 id="add-shipping-address">Add Shipping Address</h2>
+
+<p>AddShippingAddress</p>
+
+<h2 id="get-customer-39-s-shipping-address">Get Customer&rsquo;s Shipping Address</h2>
+<pre class="highlight html"><code>&gt; Sample Request
+
+http://www.martjack.com/developerapi/Customer/GetShippingAddress//81e77da2-723b-483d-8c0d-49f800c1xxxx/4cded968-8ee1-4591-a50b-41649387bxxx
+
+</code></pre><pre class="highlight json"><code><span class="err">&gt;</span><span class="w"> </span><span class="err">Sample</span><span class="w"> </span><span class="err">Response</span><span class="w">
+
+</span><span class="p">{</span><span class="w">
+   </span><span class="nt">"messageCode"</span><span class="p">:</span><span class="s2">"1004"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"Message"</span><span class="p">:</span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"ShippingAddresses"</span><span class="p">:[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+         </span><span class="nt">"shippingaddressid"</span><span class="p">:</span><span class="mi">1711980</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"userId"</span><span class="p">:</span><span class="s2">"4cded968-8ee1-4591-a50b-41649387bxxx"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"firstname"</span><span class="p">:</span><span class="s2">"Tom"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"lastname"</span><span class="p">:</span><span class="s2">"Sawyer"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"address1"</span><span class="p">:</span><span class="s2">"H.no.6-51, plot.31, ECIL"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"address2"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"state"</span><span class="p">:</span><span class="s2">"KA"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"pin"</span><span class="p">:</span><span class="s2">"560068"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"countrycode"</span><span class="p">:</span><span class="s2">"IN"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"citycode"</span><span class="p">:</span><span class="s2">"32"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"phoneno"</span><span class="p">:</span><span class="s2">"91-"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"mobileno"</span><span class="p">:</span><span class="s2">"91-7411000000"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"email"</span><span class="p">:</span><span class="s2">"tom.sawyer@example.com"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"othercity"</span><span class="p">:</span><span class="s2">"Bangalore"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"CityName"</span><span class="p">:</span><span class="s2">"Bangalore"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"StateName"</span><span class="p">:</span><span class="s2">"Karnataka"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"CountryName"</span><span class="p">:</span><span class="s2">"India"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"AddressType"</span><span class="p">:</span><span class="s2">"1"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+         </span><span class="nt">"shippingaddressid"</span><span class="p">:</span><span class="mi">1714178</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"userId"</span><span class="p">:</span><span class="s2">"4cded968-8ee1-4591-a50b-41649387bxxx"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"firstname"</span><span class="p">:</span><span class="s2">"Tom"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"lastname"</span><span class="p">:</span><span class="s2">"Sawyer"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"address1"</span><span class="p">:</span><span class="s2">"Door: 12, 4th Floor, #12"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"address2"</span><span class="p">:</span><span class="s2">"3rd cross, Roopena agrahara"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"state"</span><span class="p">:</span><span class="s2">"KA"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"pin"</span><span class="p">:</span><span class="s2">"560068"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"countrycode"</span><span class="p">:</span><span class="s2">"IN"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"citycode"</span><span class="p">:</span><span class="s2">"32"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"phoneno"</span><span class="p">:</span><span class="s2">"91-"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"mobileno"</span><span class="p">:</span><span class="s2">"91-7411000000"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"email"</span><span class="p">:</span><span class="s2">"tom.sawyer@example.com"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"othercity"</span><span class="p">:</span><span class="s2">"Bangalore"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"CityName"</span><span class="p">:</span><span class="s2">"Bangalore"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"StateName"</span><span class="p">:</span><span class="s2">"Karnataka"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"CountryName"</span><span class="p">:</span><span class="s2">"India"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"AddressType"</span><span class="p">:</span><span class="s2">"1"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+   </span><span class="p">],</span><span class="w">
+   </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="mi">0</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Retrieves shipping address of a specific customer.</p>
+
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td><code class="prettyprint">/Customer/{merchantId}/</code></td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>No</td>
+</tr>
+</tbody></table>
+
+<h3 id="additional-header-required">Additional Header Required</h3>
+
+<table><thead>
+<tr>
+<th>Header Name</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>apiversion</td>
+<td>4</td>
+</tr>
+</tbody></table>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">https://{host}/developerapi/Customer/{merchantId}/GetShippingAddress/{UserId}</code></p>
+
+<h3 id="request-parameters">Request Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>merchantId*</td>
+<td>The unique id (GUID) of the merchant from which you want to fetch the customer&rsquo;s shipping address</td>
+</tr>
+<tr>
+<td>UserId*</td>
+<td>The unique user identifier of the customer whose details need to be retrieved</td>
+</tr>
+</tbody></table>
+
+<h2 id="delete-shipping-address">Delete Shipping Address</h2>
+
+<p>DeleteShippingAddress</p>
+
+<h2 id="logout">Logout</h2>
+
           <h1 id="order">Order</h1>
 
 <p>An order is a completed purchase request of a customer. This resource consists APIs related to creating and managing orders of a merchant shop. </p>
