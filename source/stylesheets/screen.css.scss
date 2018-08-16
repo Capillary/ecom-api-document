@@ -628,3 +628,89 @@ html, body {
 .highlight, .highlight .w {
   background-color: $code-bg;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.page-wrapper .dark-box{
+    width: 40% !important;
+}
+
+
+.content pre, .content blockquote{
+    width: 40% !important;
+}
+
+
+.tocify-wrapper{
+width: 250px   !important;
+}
+
+
+.content>h1, .content>h2, .content>h3, .content>h4, .content>h5, .content>h6, .content>p, .content>table, .content>ul, .content>ol, .content>aside, .content>dl{
+
+margin-right: 41%  !important;
+}
+
+body {
+   font-family: "Lato","proxima-nova","Helvetica Neue",Arial,sans-serif  !important;
+
+    font-weight: normal  !important;
+    color: #404040  !important;
+	}
+
+.tocify-wrapper{
+font-size: 90%  !important;
+    font-weight: 500   !important;
+}
+.tocify-wrapper .tocify-focus {
+    background-color: #79bb43  !important;
+	
+	}
+	
+.content h1 {
+font-size: 175% !important;
+}
+
+
+
+.content table th {
+    border-bottom: 1px solid #b0ef7cf2  !important;
+   color: #1c1c1c  !important;
+    font-weight: 700 !important;
+    background-color: #b0ef7cf2  !important;
+}
+
+
+
+.content pre, .content blockquote {
+    
+    padding-left: 24px  !important;
+    padding-top: 23px  !important;
+    padding-bottom: 0px  !important;
+	
+	}
