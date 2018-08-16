@@ -264,8 +264,8 @@ Batch Support | No
 ### Request Parameters
 Parameter | Description
 --------- | -----------
-merchantId | The unique id (GUID) of the merchant account from which you want to fetch customer details
-UserId | The unique user identifier of the customer whose details need to be retrieved
+merchantId* | The unique id (GUID) of the merchant account from which you want to fetch customer details
+UserId* | The unique user identifier of the customer whose details need to be retrieved
 
 
 
@@ -441,7 +441,7 @@ Batch Support | No
 `https://{host}/developerapi/Customer/{merchantId}`
 
 
-## Login with OTP
+
 
 ## Reset Password using OTP
 ResetPasswordWithOTP
@@ -455,17 +455,17 @@ Retrieves the shipping address of a specific customer.
 ### Resource Information
 Parameter | Description
 --------- | -----------
-URI | `/Customer/{merchantId}/GetShippingAddress/{UserId}`
+URI | ``
 Rate Limited? | Yes
 Authentication | Yes
 Response Formats | JSON
-HTTP Methods | POST
+HTTP Methods | 
 Batch Support | No
 
 
 
 ### Request URL
-`https://{host}/developerapi/Customer/{merchantId}`
+`https://{host}/developerapi/Customer/`
 
 
 
@@ -473,15 +473,20 @@ Batch Support | No
 
 
 ## Get Customer's Shipping Address
-```html
+
+
 > Sample Request
+
+```html
 
 http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-483d-8c0d-49f800c1xxxx/4cded968-8ee1-4591-a50b-41649387bxxx
 
 ```
 
-```json
+
 > Sample Response
+
+```json
 
 {
    "messageCode":"1004",

@@ -272,15 +272,22 @@ http://{{url}}/developerapi/Order/PlaceOrder/{{MerchantId}}
    "PaymentType":"COD",
    "GateWayId":"0",
    "skipDeliveryAreaValidation":true,
-   "ClearCart"=true,
-   "transaction"=true,
+   "ClearCart":true,
+   "transaction":true
 }
 ```
 
 > Sample Response
 
 ```json
-
+{  
+   "messageCode":"1004",
+   "Message":"Successful",
+   "OrderCreationResponse":{  
+      "OrderID":2744271,
+      "ValidationResponse":null
+   }
+}
 ```
 
 Lets you add payment details and submit a transaction. You can use this API for checkout process. 
@@ -300,7 +307,7 @@ Batch Support | No
 ### Request URL
 `http://{host}/developerapi/Order/PlaceOrder/{{MerchantId}}`
 
-**Additional Header**:
+### Additional Header
 Header | Description
 ------ | -----------
 CKey | Specify the customer key that you want to Consumer Key
@@ -490,6 +497,7 @@ http://www.martjack.com/DeveloperAPI/Order/Authorize
 }
 ```
 
+Authorizes a pending order, i.e., updates an order status from `Pending` to `Authorized`.
 
 ### Resource Information
 Parameter | Description
@@ -749,16 +757,19 @@ http://www.martjack.com/DeveloperAPI/Order/Ship
             "Quantity":2
          }
       ],
-	  "ShipmentTrip":{  
-      "RiderID":2,
-      "RiderCode":"",
-      "TripRefNo":"WRWGG123456",
-      "VehicleNumber":"1234",
-      "Comments":"Sample comment",
-      "Attributes":[  
-         {  
-            "Name":"Mobile",
-            "Value":"9090000000"
+      "ShipmentTrip":{  
+         "RiderID":2,
+         "RiderCode":"",
+         "TripRefNo":"WRWGG123456",
+         "VehicleNumber":"1234",
+         "Comments":"Sample comment",
+         "Attributes":[  
+            {  
+               "Name":"Mobile",
+               "Value":"9090000000"
+            }
+         ]
+      }
    }
 }
 ```
