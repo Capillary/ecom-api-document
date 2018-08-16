@@ -628,11 +628,11 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>merchantId</td>
+<td>merchantId*</td>
 <td>The unique id (GUID) of the merchant account from which you want to fetch customer details</td>
 </tr>
 <tr>
-<td>UserId</td>
+<td>UserId*</td>
 <td>The unique user identifier of the customer whose details need to be retrieved</td>
 </tr>
 </tbody></table>
@@ -905,8 +905,6 @@
 
 <p><code class="prettyprint">https://{host}/developerapi/Customer/{merchantId}</code></p>
 
-<h2 id="login-with-otp">Login with OTP</h2>
-
 <h2 id="reset-password-using-otp">Reset Password using OTP</h2>
 
 <p>ResetPasswordWithOTP</p>
@@ -923,7 +921,7 @@
 </thead><tbody>
 <tr>
 <td>URI</td>
-<td><code class="prettyprint">/Customer/{merchantId}/GetShippingAddress/{UserId}</code></td>
+<td>&ldquo;</td>
 </tr>
 <tr>
 <td>Rate Limited?</td>
@@ -939,7 +937,7 @@
 </tr>
 <tr>
 <td>HTTP Methods</td>
-<td>POST</td>
+<td></td>
 </tr>
 <tr>
 <td>Batch Support</td>
@@ -949,15 +947,21 @@
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Customer/{merchantId}</code></p>
+<p><code class="prettyprint">https://{host}/developerapi/Customer/</code></p>
 
 <h2 id="get-customer-39-s-shipping-address">Get Customer&rsquo;s Shipping Address</h2>
-<pre class="highlight html"><code>&gt; Sample Request
 
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
+<pre class="highlight html"><code>
 http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-483d-8c0d-49f800c1xxxx/4cded968-8ee1-4591-a50b-41649387bxxx
 
-</code></pre><pre class="highlight json"><code><span class="err">&gt;</span><span class="w"> </span><span class="err">Sample</span><span class="w"> </span><span class="err">Response</span><span class="w">
-
+</code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="w">
 </span><span class="p">{</span><span class="w">
    </span><span class="nt">"messageCode"</span><span class="p">:</span><span class="s2">"1004"</span><span class="p">,</span><span class="w">
    </span><span class="nt">"Message"</span><span class="p">:</span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
@@ -1496,14 +1500,21 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
    </span><span class="nt">"PaymentType"</span><span class="p">:</span><span class="s2">"COD"</span><span class="p">,</span><span class="w">
    </span><span class="nt">"GateWayId"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
    </span><span class="nt">"skipDeliveryAreaValidation"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
-   </span><span class="nt">"ClearCart"</span><span class="err">=true,</span><span class="w">
-   </span><span class="nt">"transaction"</span><span class="err">=true,</span><span class="w">
-</span><span class="err">}</span><span class="w">
+   </span><span class="nt">"ClearCart"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"transaction"</span><span class="p">:</span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre>
 <blockquote>
 <p>Sample Response</p>
 </blockquote>
-<pre class="highlight json"><code><span class="w">
+<pre class="highlight json"><code><span class="p">{</span><span class="w">  
+   </span><span class="nt">"messageCode"</span><span class="p">:</span><span class="s2">"1004"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"Message"</span><span class="p">:</span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"OrderCreationResponse"</span><span class="p">:{</span><span class="w">  
+      </span><span class="nt">"OrderID"</span><span class="p">:</span><span class="mi">2744271</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ValidationResponse"</span><span class="p">:</span><span class="kc">null</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>Lets you add payment details and submit a transaction. You can use this API for checkout process. </p>
 
@@ -1545,10 +1556,19 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <p><code class="prettyprint">http://{host}/developerapi/Order/PlaceOrder/{{MerchantId}}</code></p>
 
-<p><strong>Additional Header</strong>:
-Header | Description
-&mdash;&mdash; | &mdash;&mdash;&mdash;&ndash;
-CKey | Specify the customer key that you want to Consumer Key</p>
+<h3 id="additional-header">Additional Header</h3>
+
+<table><thead>
+<tr>
+<th>Header</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>CKey</td>
+<td>Specify the customer key that you want to Consumer Key</td>
+</tr>
+</tbody></table>
 
 <h3 id="request-attributes">Request Attributes</h3>
 
@@ -1817,6 +1837,8 @@ CKey | Specify the customer key that you want to Consumer Key</p>
    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Order Authorized successfully."</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
+<p>Authorizes a pending order, i.e., updates an order status from <code class="prettyprint">Pending</code> to <code class="prettyprint">Authorized</code>.</p>
+
 <h3 id="resource-information">Resource Information</h3>
 
 <table><thead>
@@ -2154,17 +2176,20 @@ CKey | Specify the customer key that you want to Consumer Key</p>
          </span><span class="p">}</span><span class="w">
       </span><span class="p">],</span><span class="w">
       </span><span class="nt">"ShipmentTrip"</span><span class="p">:{</span><span class="w">  
-      </span><span class="nt">"RiderID"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"RiderCode"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"TripRefNo"</span><span class="p">:</span><span class="s2">"WRWGG123456"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"VehicleNumber"</span><span class="p">:</span><span class="s2">"1234"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"Comments"</span><span class="p">:</span><span class="s2">"Sample comment"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"Attributes"</span><span class="p">:[</span><span class="w">  
-         </span><span class="p">{</span><span class="w">  
-            </span><span class="nt">"Name"</span><span class="p">:</span><span class="s2">"Mobile"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"Value"</span><span class="p">:</span><span class="s2">"9090000000"</span><span class="w">
+         </span><span class="nt">"RiderID"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"RiderCode"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"TripRefNo"</span><span class="p">:</span><span class="s2">"WRWGG123456"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"VehicleNumber"</span><span class="p">:</span><span class="s2">"1234"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"Comments"</span><span class="p">:</span><span class="s2">"Sample comment"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"Attributes"</span><span class="p">:[</span><span class="w">  
+            </span><span class="p">{</span><span class="w">  
+               </span><span class="nt">"Name"</span><span class="p">:</span><span class="s2">"Mobile"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"Value"</span><span class="p">:</span><span class="s2">"9090000000"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+         </span><span class="p">]</span><span class="w">
+      </span><span class="p">}</span><span class="w">
    </span><span class="p">}</span><span class="w">
-</span><span class="err">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre>
 <blockquote>
 <p>Sample Response</p>
