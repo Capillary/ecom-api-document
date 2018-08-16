@@ -407,11 +407,11 @@
 </tr>
 <tr>
 <td>City</td>
-<td>Unique code of the city (as saved in the system). Example: 0562 (for Agra), 250 (Victoria) etc.</td>
+<td>Unique code of the city (as saved in the system) such as 0562 (for Agra), and 250 (Victoria)</td>
 </tr>
 <tr>
 <td>CityName</td>
-<td>Full name of the city. Example: Bangalore,</td>
+<td>Full name of the city. Example: Bangalore, Delhi, Tokyo, Singapore and Paris</td>
 </tr>
 <tr>
 <td>State</td>
@@ -419,15 +419,15 @@
 </tr>
 <tr>
 <td>StateName</td>
-<td>Full name of the state. Example: Karnataka, California, Indiana etc.</td>
+<td>Full name of the state. Example: Karnataka, California, and Indiana</td>
 </tr>
 <tr>
 <td>Country</td>
-<td>alpha-2 code of the country. Example: IN (for India), AU (for Australia), BR (for Brazil) etc.</td>
+<td>alpha-2 code of the country. Example: IN (for India), AU (for Australia), and BR (for Brazil)</td>
 </tr>
 <tr>
 <td>CountryName</td>
-<td>Full name of the country. Example: India, Australia, Brazil etc.</td>
+<td>Full name of the country. Example: India, Australia, and Brazil</td>
 </tr>
 </tbody></table>
 
@@ -461,7 +461,7 @@
    </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="mi">0</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Logs in a registered customer to the merchant&rsquo;s e-commerce store. Customer has to be logged in to perform any other customer tasks such as fetching customer details, modifying customer details and updating profile attributes. Upon successful login, you will receive a <code class="prettyprint">UserId</code> which is required to fetch customer details.</p>
+<p>Logs in a registered customer to the merchant&rsquo;s e-commerce store. A customer has to log in to perform customer tasks such as fetching customer details, modifying customer details and updating profile attributes. Upon successful login, user receives a <code class="prettyprint">UserId</code> which is required to fetch customer details.</p>
 
 <h3 id="resource-information">Resource Information</h3>
 
@@ -511,7 +511,7 @@
 </thead><tbody>
 <tr>
 <td>username*</td>
-<td>User name of the customer account</td>
+<td>Username of the customer account</td>
 </tr>
 <tr>
 <td>password*</td>
@@ -629,7 +629,7 @@
 </thead><tbody>
 <tr>
 <td>merchantId</td>
-<td>The unique id (GUID) of the merchant account from which the customer details need to be fetched</td>
+<td>The unique id (GUID) of the merchant account from which you want to fetch customer details</td>
 </tr>
 <tr>
 <td>UserId</td>
@@ -737,7 +737,7 @@
 </tr>
 <tr>
 <td>City</td>
-<td>Unique code of the city (as saved in the system). Example: 0562 (for Agra), 250 (Victoria) etc.</td>
+<td>Unique code of the city (as saved in the system) Example: 0562 (for Agra), 250 (Victoria)</td>
 </tr>
 <tr>
 <td>CityName</td>
@@ -749,15 +749,15 @@
 </tr>
 <tr>
 <td>StateName</td>
-<td>Full name of the state. Example: Karnataka, California, Indiana etc.</td>
+<td>Full name of the state such as Karnataka, California, and Indiana</td>
 </tr>
 <tr>
 <td>Country</td>
-<td>alpha-2 code of the country. Example: IN (for India), AU (for Australia), BR (for Brazil) etc.</td>
+<td>alpha-2 code of the country such as IN (for India), AU (for Australia), BR (for Brazil)</td>
 </tr>
 <tr>
 <td>CountryName</td>
-<td>Full name of the country. Example: India, Australia, Brazil etc.</td>
+<td>Full name of the country such as India, Australia, and Brazil</td>
 </tr>
 </tbody></table>
 
@@ -1000,7 +1000,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress//81e77da2-723b-
    </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="mi">0</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Retrieves shipping address of a specific customer.</p>
+<p>Retrieves the shipping address of a specific customer.</p>
 
 <h3 id="resource-information">Resource Information</h3>
 
@@ -1080,11 +1080,11 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress//81e77da2-723b-
 
           <h1 id="order">Order</h1>
 
-<p>An order is a completed purchase request of a customer. This resource consists APIs related to creating and managing orders of a merchant shop. </p>
+<p>An order is a completed purchase request of a customer. This resource consists of APIs related to creating and managing orders of a merchant shop. </p>
 
 <h2 id="create-bulk-order">Create Bulk Order</h2>
 
-<p>This API lets you create batch orders. You can also captute vertical specific product attributes such as variants, bundle, and combo.</p>
+<p>This API lets you create batch orders. You can also capture vertical specific product attributes such as variants, bundle, and combo.</p>
 <pre class="highlight html"><code># Sample Request
 
 http://www.martjack.com/developerapi/Order/BulkOrderCreation
@@ -1282,6 +1282,8 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 
 </span></code></pre>
+<p>Creates a new order with complete details.</p>
+
 <h3 id="resource-information">Resource Information</h3>
 
 <table><thead>
@@ -1326,11 +1328,11 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 </tr>
 <tr>
 <td>orderdate*</td>
-<td>Date on which the order is made in <code class="prettyprint">d/m/y</code> format</td>
+<td>Ordered date in <code class="prettyprint">d/m/y</code> format</td>
 </tr>
 <tr>
-<td>deliveredon*</td>
-<td></td>
+<td>deliveredon</td>
+<td>Specify the estimated delivery of the item if applicable for the merchant in &rsquo;d/m/y&rsquo; format</td>
 </tr>
 <tr>
 <td>customertype</td>
@@ -1354,7 +1356,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 </tr>
 <tr>
 <td>paymentlinkstatus</td>
-<td></td>
+<td>Status of the payment. Values: Pending (Bank transfer, Cheque,), Authorized (COD, Prepaid)</td>
 </tr>
 <tr>
 <td>calculateshippingtax</td>
@@ -1386,7 +1388,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 </tr>
 <tr>
 <td>channelorderid</td>
-<td>Order id as maintained by that specific channel  (pecific to Sellerworx)</td>
+<td>Order id as maintained by that specific channel  (specific to Sellerworx)</td>
 </tr>
 <tr>
 <td>sellerwroxorderid</td>
@@ -1401,6 +1403,257 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <td>Specify the payment details and <code class="prettyprint">orderrefno</code> of the order in <code class="prettyprint">payment</code>. The orderrefno value at payment level should be same as that of the order level</td>
 </tr>
 </tbody></table>
+
+<h2 id="place-order">Place Order</h2>
+
+<p>&ldquo;&lsquo;html
+http://{{url}}/developerapi/Order/PlaceOrder/{{MerchantId}}
+&rdquo;`</p>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">  
+   </span><span class="nt">"PaymentOption"</span><span class="p">:</span><span class="s2">"COD"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"PaymentType"</span><span class="p">:</span><span class="s2">"COD"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"gatewayId"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"skipDeliveryAreaValidation"</span><span class="p">:</span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Adds payment details and submits a transaction. Checkout process. </p>
+
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td><code class="prettyprint">/Order/PlaceOrder/{merchantId}/</code></td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>POST</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>No</td>
+</tr>
+</tbody></table>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">http://{host url}/developerapi/Order/PlaceOrder/{{MerchantId}}</code></p>
+
+<p><strong>Additional Header</strong>: <code class="prettyprint">Access Token</code> - Pass the access token of the customer in the Header</p>
+
+<h3 id="request-attributes">Request Attributes</h3>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+</tbody></table>
+
+<h2 id="get-order-information">Get Order Information</h2>
+<pre class="highlight html"><code># Sample Request
+
+</code></pre><pre class="highlight json"><code><span class="err">#</span><span class="w"> </span><span class="err">Sample</span><span class="w"> </span><span class="err">Response</span><span class="w">
+
+</span></code></pre>
+<p>Retrieves details of a specific order.</p>
+
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td>&ldquo;</td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>No</td>
+</tr>
+</tbody></table>
+
+<h3 id="additional-header-required">Additional Header Required</h3>
+
+<table><thead>
+<tr>
+<th>Header Name</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>token_secret</td>
+<td>Unique authentication key generated for the request</td>
+</tr>
+</tbody></table>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">https://{host}/developerapi/Order/{merchant id}/{order id}</code></p>
+
+<h3 id="request-parameters">Request Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>merchant id</td>
+<td></td>
+</tr>
+<tr>
+<td>order id</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2 id="get-order-history">Get Order History</h2>
+<pre class="highlight html"><code>http://{{url}}/developerapi/Order/History/{{MerchantId}}
+</code></pre><pre class="highlight json"><code><span class="w">
+</span></code></pre>
+<p>Retrieves the history of orders of a merchant or customer based on the input parameters.</p>
+
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td><code class="prettyprint">Order/History/{{MerchantId}}</code></td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>POST</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>No</td>
+</tr>
+</tbody></table>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">https://{host url}/developerapi/Order/History/{{MerchantId}}</code></p>
+
+<h3 id="request-parameters">Request Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>UserId</td>
+<td>The unique user identifier of the customer whose details need to be retrieved</td>
+</tr>
+<tr>
+<td>FromDate</td>
+<td>Specify the duration for which you want to fetch the order history (mm-dd-yyyy hh:mm:ss format) in FromDate and ToDate</td>
+</tr>
+<tr>
+<td>ToDate</td>
+<td>Specify the duration for which you want to fetch the order history (mm-dd-yyyy hh:mm:ss format) in FromDate and ToDate</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Filter the search results by order status(P=Pending, F=Cancel, A=Approved)</td>
+</tr>
+<tr>
+<td>ShipDateFrom</td>
+<td>Filter the search results by shipped date range - from (ShipDateFrom) and to (ShipDateTo) in  (mm-dd-yyyy hh:mm:ss format). If ShipDateFrom is specified, then you also need to specify ShipDateTo</td>
+</tr>
+<tr>
+<td>ShipDateTo</td>
+<td>Filter the search results by shipped date range - from (ShipDateFrom) and to (ShipDateTo) in  (mm-dd-yyyy hh:mm:ss format). If ShipDateFrom is specified, then you also need to specify ShipDateTo</td>
+</tr>
+</tbody></table>
+
+<p>String</p>
+
+<p>Ship order to date
+Sku
+String
+100
+Product SKU. To get order where given sku matches
+OrderId
+Int64</p>
+
+<p>Order Id / Number
+FromOrder
+Int64</p>
+
+<p>Order Id / Number (can use to get the latest orders )
+store
+String</p>
+
+<p>Store type it can be a keyword are merchantid(It can be optional)
+WithRewards
+String </p>
+
+<p>Send  ‘True’ if you required reward/loyalty details.
+By default value will be ‘False’
+OperatorId
+GUID </p>
+
+<p>Store OperatorId
+LocationId
+String</p>
 
       </div>
       <div class="dark-box">
