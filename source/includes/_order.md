@@ -5,17 +5,17 @@ An order is a completed purchase request of a customer. This resource consists o
 ## Create Bulk Order
 This API lets you create batch orders. You can also capture vertical specific product attributes such as variants, bundle, and combo.
 
+> Sample Request
 
 ```html
-# Sample Request
 
 http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 ```
 
+> Sample POST Request
 
 ```json
-# Sample POST Request
 
 {  
    "orders":{  
@@ -199,8 +199,9 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 ```
 
+> Sample Response
+
 ```json
-# Sample Response
 
 {  
    "messageCode":"1018",
@@ -261,7 +262,7 @@ Payments* | Specify the payment details and `orderrefno` of the order in `paymen
 > Sample Request
 
 ```html
-http://{{url}}/developerapi/Order/PlaceOrder/{{MerchantId}}
+http://{{url}}/developerapi/Order/PlaceOrder/81e77da2-723b-483d-8c0d-49f800c1exxx
 ```
 
 > Sample POST Request
@@ -331,9 +332,13 @@ skipDeliveryAreaValidation | Specify `true` to validate delivery location before
 
 
 ## Fetch Order History
+
+> Sample Request
 ```html
-http://{{url}}/developerapi/Order/History/{{MerchantId}}
+http://{www.martjack.com/developerapi/Order/History/81e77da2-723b-483d-8c0d-49f800c1exxx
 ```
+
+> Sample POST Request
 
 ```json
 {  
@@ -342,6 +347,8 @@ http://{{url}}/developerapi/Order/History/{{MerchantId}}
    "ToDate":"20-02-2018 23:59:45"
 }
 ```
+
+> Sample Response
 
 ```json
 {  
@@ -364,7 +371,7 @@ http://{{url}}/developerapi/Order/History/{{MerchantId}}
          "DeliveryOption":"ship",
          "IsGift":false,
          "LeadTime":"",
-         "MerchantId":"2c58c9c6-c9c9-49cf-b424-7acbc4e10f7d",
+         "MerchantId":"2c58c9c6-c9c9-49cf-b424-7acbc4e1xxx",
          "OrderDate":"02-02-2018 16:08:45",
          "OrderId":567282,
          "OrderLineId":null,
