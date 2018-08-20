@@ -311,18 +311,18 @@ Batch Support | No
 ### Additional Header
 Header | Description
 ------ | -----------
-CKey | Specify the customer key that you want to Consumer Key
+Access token* | The access token generated for the  current user session
 
 ### Request Attributes
 Attribute | Description
 --------- | -----------
 merchantId* | The unique id (GUID) of the merchant in which you want to place order
-PaymentOption* | The mode of payment for the order. Value: OnlineBankTransfer, COD, CreditCard, ChequeDD, Wallet, eGiftVoucher
-paymentType* | OBT,  TPG, Credit, 
+PaymentOption* | The name of the payment gateway. For example, RazorPay, EBS, OnlineBankTransfer, COD, CreditCard, ChequeDD, Wallet, and eGiftVoucher
+paymentType* | The payment type used for the order - OBT (Online bank transfer),  TPG (Third party gateway), Credit, GV (Gift voucher) and so on
 gatewayId* | Gateway id through which the payment is made
 channelType* | 
-payBackPoints | 
-payBackCardNo | 
+payBackPoints |  
+payBackCardNo |  
 bankCode | 
 capillaryMobileNo | 
 skipDeliveryAreaValidation | Specify `true` to validate delivery location before order creation, `false` to ignore validating
@@ -927,34 +927,31 @@ https://www.martjack.com/developerapi/Order/Cancel
 {
    "merchantId":"f48fdd16-92db-4188-854d-1ecd9b62d066",
    "OrderId":"6261090",
-   "Comment":"Needs to buy another item",
+   "Comment":"Ordered wrong item",
    "PGResponse":"",
    "OperatorID":"f48fdd16-92db-4188-854d-1ecd9b62d066",
    "DisplayCommentToUser":"false",
    "date":"01/24/2018 4:12:32 PM",
-   "CancelReason":"NDA",
-   "TobeCancelledOrderItems":[
-      {
-         "OrderItemID":23127510,
-         "CancelQuantity":1
-      }
-   ]
+   "CancelReason":"NDA"
 }
 
 ```
-
-Cancels a specific order placed from the merchant store.
 
 > Sample Response
 
 ```json
 {
-   "messageCode": "1002",
-   "message": "Order canceled."
+  "messageCode": "1002",
+  "Message": "Cancelled successfully"
 }
 ```
 
-Cancels an order that is already placed. You can either cancel all items or part items.
+Cancels a specific order of a customer placed on a merchant store. However, an order can be canceled only if
+ 
+* The logged in user has sufficient permission to cancel the order
+* The order is either in Authorized (A) or Pending (P) Status
+* The order is not shipped
+
 
 ### Resource Information
 Parameter | Description
@@ -979,8 +976,80 @@ Date* | The date on which the order is created in mm/dd/yy format
 Comment | Specify the customer's reason for the order cancellation
 DisplayCommentToUser | Value: True/False. Specify whether to make the comment visible or invisible to the customer 
 PGResponse | The response received from the payment gateway
-OperatorID | Current user id - It could be store, admin, manager, example
-DisplayCommentToUser | 
-CancelReason* | Value: Auto populated reason.
-TobeCancelledOrderItems | 
+OperatorID | Current user id - It could be store, admin, manager
+DisplayCommentToUser | Value: true, false
+CancelReason* | Value: Auto populated reason
  
+ 
+## Cancel Order Lineitem
+> Sample Request
+
+```html
+https://www.martjack.com/developerapi/Order/CancelItem
+```
+
+> Sample POST Request
+
+```json
+{  
+   "merchantId":"98d18d82-ba59-4957-9c92-3f89207a3xxx",
+   "OrderId":"2658242",
+   "Comment":"Test",
+   "PGResponse":"",
+   "OperatorID":"98d18d82-ba59-4957-9c92-3f89207a3xxx",
+   "DisplayCommentToUser":"false",
+   "date":"11/08/2017 4:12:32 PM",
+   "CancelReason":"NDA",
+   "TobeCancelledOrderItems":[  
+      {  
+         "OrderItemID":8518882,
+         "CancelQuantity":1
+      }
+   ]
+}
+
+```
+
+> Sample Response
+
+```json
+{
+  "messageCode": "1002",
+  "Message": "Cancelled successfully"
+}
+```
+
+ 
+ Lets you cancel specific items of an order (partial cancellation). However, you can cancel an order item only if
+ 
+* The logged in user has sufficient permission to cancel
+* The order is either in Authorized (A) or Pending (P) Status
+* The order item is not shipped
+
+### Resource Information
+Parameter | Description
+--------- | -----------
+URI | `Order/CancelItem`
+Rate Limited? | Yes
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | POST
+Batch Support | No
+
+### Request URL
+
+`http://{host}/developerapi/Order/CancelItem`
+
+### Request Parameters
+Parameter | Description
+--------- | -----------
+Merchant Id* | The unique id (GUID) of the merchant in which the order is placed
+OrderId* | Provide the order id that you want to cancel
+Date* | The date on which the order is created in mm/dd/yy format
+Comment | Specify the customer's reason for the order cancellation
+DisplayCommentToUser | Value: True/False. Specify whether to make the comment visible or invisible to the customer 
+PGResponse | The response received from the payment gateway for that specific order
+OperatorID | Current user id - It could be store's, admin's, or manager's
+DisplayCommentToUser | Specify `true` to show the user's comment to the end-user
+CancelReason* | Specify the reason for order cancellation. In UI, these are auto-populated in the UI.
+TobeCancelledOrderItems | Specify the items that you want to cancel in `OrderItemID` and `CancelQuantity`

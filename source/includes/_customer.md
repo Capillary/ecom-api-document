@@ -3,7 +3,7 @@ A Customer is a user of a merchant's online store. This resource consists of API
 
 
 
-## Register Customer Account
+## Create Customer Account
 
 This API lets you create a new user account on MartJack platform for a specific merchant.
 
@@ -124,6 +124,100 @@ Country | alpha-2 code of the country. Example: IN (for India), AU (for Australi
 CountryName |  Full name of the country. Example: India, Australia, and Brazil
 
 
+
+
+## Register Customer through OTP
+
+> Sample Request
+
+```html
+
+```
+
+> Sample POST Request
+
+```json
+
+```
+
+> Sample Response
+
+```json
+
+```
+
+
+### Resource Information
+Parameter | Description
+--------- | -----------
+URI | `/Customer/{merchantId}/`
+Rate Limited? | Yes
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | POST
+Batch Support | No
+
+
+
+### Request URL
+`https://{host}/developerapi/Customer/{merchantId}`
+
+
+
+
+
+
+## Validate OTP
+> Sample POST Request
+
+```json
+
+```
+
+> Sample POST Request
+
+```json
+
+```
+
+
+Validates the OTP sent to the customer.
+
+
+### Resource Information
+Parameter | Description
+--------- | -----------
+URI | ``
+Rate Limited? | Yes
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | 
+Batch Support | No
+
+
+### Additional Header Required
+Header Name | Value
+----------- | ------
+
+
+
+### Request URL
+
+``
+
+### Request Parameters
+Parameter | Description
+--------- | -----------
+
+
+
+
+
+## Reset Password using OTP
+
+
+
+
 ## Customer Login
 
 
@@ -151,8 +245,8 @@ https://www.martjack.com/developerapi/Customer/12345678-1234-1234-1234-123456789
    "Token":{  
       "AccessToken":"i1z1ouqyb3roglpei1vmpowe",
       "issued_at":"/Date(1533029929318+0530)/",
-      "UserId":"132d3c1d-7d71-4b87-9a69-a4d216d634fa",
-      "MerchantId":"81e77da2-723b-483d-8c0d-49f800c1e288"
+      "UserId":"132d3c1d-7d71-4b87-9a69-a4d216d63xxx",
+      "MerchantId":"81e77da2-723b-483d-8c0d-49f800c1exxx"
    },
    "ErrorCode":0
 }
@@ -181,6 +275,160 @@ Parameter | Description
 --------- | -----------
 username* | Username of the customer account
 password* | Password of the customer account
+
+
+
+
+## Customer Logout
+
+> Sample Request
+
+```html
+https://www.martjack.com/DeveloperAPI/Customer/81e77da2-723b-483d-8c0d-49f800c1exxx/Logout
+
+```
+
+> Sample Response
+
+```json
+{
+  "messageCode": "1004",
+  "Message": "Logout Successfully",
+  "ErrorCode": 0
+}
+```
+
+Logs out current user. No POST body is required for this API.
+
+### Resource Information
+Parameter | Description
+--------- | -----------
+URI | `/Customer/{{MerchantId}}/Logout`
+Rate Limited? | Yes
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | POST (No POST body is required)
+Batch Support | No
+
+
+
+### Request URL
+
+`https://{host}/developerapi/Customer/{merchantId}/Logout`
+
+
+Additional Header Required
+Header | Description
+------ | -----------
+accesstoken* | Access token of the logged in user that you want to logout
+
+
+### Request Parameters
+Parameter | Description
+--------- | -----------
+merchantId* | The unique id (GUID) of the merchant from which you want to logout user
+
+
+
+
+
+
+
+
+
+## Get Access Token
+
+> Sample POST Request
+
+```html
+ https://www.martjack.com/developerapi/Customer/GetAccessToken/6c57599f-2c43-4c82-806a-e07c3410xxx
+```
+
+
+
+> Sample Response
+
+```json
+{
+  "messageCode": "1004",
+  "Message": "Logged In successfully",
+  "Token": {
+    "AccessToken": "gmah4uer4x5clfm1pxczhxxx",
+    "issued_at": "/Date(1534759560943+0530)/",
+    "UserId": "f72da7b6-9566-4c99-b0e6-aa882e7acxxx",
+    "MerchantId": "6c57599f-2c43-4c82-806a-e07c3410xxx"
+  },
+  "ErrorCode": 0
+}
+```
+
+
+Creates a dummy access token for non-logged in user of the merchant store. No POST body is required for this API.
+
+
+### Resource Information
+Parameter | Description
+--------- | -----------
+URI | `Customer/GetAccessToken/{MerchantId}`
+Rate Limited? | Yes
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | POST (No POST body is required)
+Batch Support | No
+
+
+### Request URL
+
+`https://{host}/developerapi/Customer/GetAccessToken/{MerchantId}`
+
+### Request Parameters
+Parameter | Description
+--------- | -----------
+merchantId* | The unique id (GUID) of the merchant
+
+
+
+## Validate Access Token
+> Sample POST Request
+
+```html
+https://www.martjack.com/developerapi/Customer/81e77da2-723b-483d-8c0d-49f800c1exxx/gmah4uer4x5clfm1pxczhxxx/ValidateToken
+```
+
+> Sample Response
+
+```json
+
+```
+
+Verifies if the provided access token is valid or invalid.
+
+### Resource Information
+Parameter | Description
+--------- | -----------
+URI | `/Customer/{merchantId}/{accesstoken}/ValidateToken`
+Rate Limited? | Yes
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | GET
+Batch Support | No
+
+
+### Request URL
+
+`https://{host}/developerapi/Customer/{merchantId}/{accesstoken}/ValidateToken`
+
+### Request Parameters
+Parameter | Description
+--------- | -----------
+merchantId* | The unique id (GUID) of the merchant in which you want to validate access token
+accesstoken* | The access token generated for an user session (use `/Customer/GetAccessToken/` to get access token of a user session)
+
+
+
+
+
+
 
 
 ## Get Customer Details
@@ -346,6 +594,7 @@ StateName | Full name of the state such as Karnataka, California, and Indiana
 Country | alpha-2 code of the country such as IN (for India), AU (for Australia), BR (for Brazil)
 CountryName |  Full name of the country such as India, Australia, and Brazil
 
+
 ## Update Profile Attributes (Custom Fields)
 
 > Sample Request
@@ -404,47 +653,6 @@ ProfileAttributeId* | ID of the attribute that needs to be updated
 ProfileAttributeValue | Customer's preferred attribute value 
 
 
-## Register Customer through OTP
-
-> Sample Request
-
-```html
-
-```
-
-> Sample POST Request
-
-```json
-
-```
-
-> Sample Response
-
-```json
-
-```
-
-
-### Resource Information
-Parameter | Description
---------- | -----------
-URI | `/Customer/{merchantId}/`
-Rate Limited? | Yes
-Authentication | Yes
-Response Formats | JSON
-HTTP Methods | POST
-Batch Support | No
-
-
-
-### Request URL
-`https://{host}/developerapi/Customer/{merchantId}`
-
-
-
-
-## Reset Password using OTP
-ResetPasswordWithOTP
 
 
 
@@ -469,6 +677,65 @@ Batch Support | No
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Add Shipping Address
+> Sample Request
+
+```html
+
+```
+
+> Sample POST Request
+
+```json
+
+```
+
+> Sample POST Request
+
+```json
+
+```
+
+### Resource Information
+Parameter | Description
+--------- | -----------
+URI | ``
+Rate Limited? | Yes
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | 
+Batch Support | No
+
+
+### Additional Header Required
+Header Name | Value
+----------- | ------
+
+
+
+### Request URL
+
+``
+
+### Request Parameters
+Parameter | Description
+--------- | -----------
 
 
 
@@ -565,7 +832,10 @@ merchantId* | The unique id (GUID) of the merchant from which you want to fetch 
 UserId* | The unique user identifier of the customer whose details need to be retrieved
 
 
-## Delete Shipping Address
+
+
+
+## Delete Customer's Shipping Address
 > Sample Request
 
 ```html
@@ -601,8 +871,20 @@ Batch Support | No
 ### Request Parameters
 Parameter | Description
 --------- | -----------
-MerchantId | The unique id (GUID) of the merchant in which you want the order is created
-UserId | The unique user identifier of the customer to which the order is associated
-ShippingAddressId | Unique id of the order shipment that you want to delete
+MerchantId* | The unique id (GUID) of the merchant in which you want the order is created
+UserId* | The unique user identifier of the customer to which the order is associated
+ShippingAddressId* | Unique id of the order shipment that you want to delete
 
 
+
+
+
+
+
+
+
+
+
+
+Reset Password with OTP
+Generate Lead

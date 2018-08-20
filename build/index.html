@@ -1166,12 +1166,18 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <h2 id="create-bulk-order">Create Bulk Order</h2>
 
 <p>This API lets you create batch orders. You can also capture vertical specific product attributes such as variants, bundle, and combo.</p>
-<pre class="highlight html"><code># Sample Request
 
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
+<pre class="highlight html"><code>
 http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
-</code></pre><pre class="highlight json"><code><span class="err">#</span><span class="w"> </span><span class="err">Sample</span><span class="w"> </span><span class="err">POST</span><span class="w"> </span><span class="err">Request</span><span class="w">
-
+</code></pre>
+<blockquote>
+<p>Sample POST Request</p>
+</blockquote>
+<pre class="highlight json"><code><span class="w">
 </span><span class="p">{</span><span class="w">  
    </span><span class="nt">"orders"</span><span class="p">:{</span><span class="w">  
       </span><span class="nt">"order"</span><span class="p">:[</span><span class="w">  
@@ -1352,8 +1358,11 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 </span><span class="p">}</span><span class="w">
 
 
-</span></code></pre><pre class="highlight json"><code><span class="err">#</span><span class="w"> </span><span class="err">Sample</span><span class="w"> </span><span class="err">Response</span><span class="w">
-
+</span></code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="w">
 </span><span class="p">{</span><span class="w">  
    </span><span class="nt">"messageCode"</span><span class="p">:</span><span class="s2">"1018"</span><span class="p">,</span><span class="w">
    </span><span class="nt">"Message"</span><span class="p">:</span><span class="s2">"Data update added to task queue. You can view the status of update in control panel. Also email will be send to merchant registered email after task completion."</span><span class="p">,</span><span class="w">
@@ -1490,7 +1499,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <blockquote>
 <p>Sample Request</p>
 </blockquote>
-<pre class="highlight html"><code>http://{{url}}/developerapi/Order/PlaceOrder/{{MerchantId}}
+<pre class="highlight html"><code>http://{{url}}/developerapi/Order/PlaceOrder/81e77da2-723b-483d-8c0d-49f800c1exxx
 </code></pre>
 <blockquote>
 <p>Sample POST Request</p>
@@ -1621,13 +1630,25 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 </tbody></table>
 
 <h2 id="fetch-order-history">Fetch Order History</h2>
-<pre class="highlight html"><code>http://{{url}}/developerapi/Order/History/{{MerchantId}}
-</code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">  
+
+<blockquote>
+<p>Sample Request
+<code class="prettyprint">html
+http://{www.martjack.com/developerapi/Order/History/81e77da2-723b-483d-8c0d-49f800c1exxx
+</code></p>
+
+<p>Sample POST Request</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">  
    </span><span class="nt">"UserId"</span><span class="p">:</span><span class="s2">"94b5215f-28d4-44f5-a1db-c47c5e1c9477"</span><span class="p">,</span><span class="w">
    </span><span class="nt">"FromDate"</span><span class="p">:</span><span class="s2">"02-02-2018 16:08:45"</span><span class="p">,</span><span class="w">
    </span><span class="nt">"ToDate"</span><span class="p">:</span><span class="s2">"20-02-2018 23:59:45"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">  
+</span></code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">  
    </span><span class="nt">"Message"</span><span class="p">:</span><span class="s2">"Successful "</span><span class="p">,</span><span class="w">
    </span><span class="nt">"Orders"</span><span class="p">:[</span><span class="w">  
       </span><span class="p">{</span><span class="w">  
@@ -1647,7 +1668,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
          </span><span class="nt">"DeliveryOption"</span><span class="p">:</span><span class="s2">"ship"</span><span class="p">,</span><span class="w">
          </span><span class="nt">"IsGift"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
          </span><span class="nt">"LeadTime"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"MerchantId"</span><span class="p">:</span><span class="s2">"2c58c9c6-c9c9-49cf-b424-7acbc4e10f7d"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"MerchantId"</span><span class="p">:</span><span class="s2">"2c58c9c6-c9c9-49cf-b424-7acbc4e1xxx"</span><span class="p">,</span><span class="w">
          </span><span class="nt">"OrderDate"</span><span class="p">:</span><span class="s2">"02-02-2018 16:08:45"</span><span class="p">,</span><span class="w">
          </span><span class="nt">"OrderId"</span><span class="p">:</span><span class="mi">567282</span><span class="p">,</span><span class="w">
          </span><span class="nt">"OrderLineId"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
