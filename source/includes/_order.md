@@ -329,11 +329,503 @@ skipDeliveryAreaValidation | Specify `true` to validate delivery location before
 
 
 
+## Process Order
+
+> Sample Request
+
+```html
+https://www.martjack.com/developerapi/Order/ProcessTransaction/81e77da2-723b-483d-8c0d-49f800c1xxxx
+```
+
+> Sample POST Request
+
+```json
+{  
+   "Transaction":{  
+      "OrderID":3146000,
+      "ID":"",
+      "PaymentType":"TPG",
+      "Provider":"RAZORPAY",
+      "GatewayID":"10033",
+      "CPUserID":"",
+      "PaymentDetails":[  
+         {  
+            "GVCode":"",
+            "RespCode":"",
+            "RespMessage":"",
+            "PointsBurned":"",
+            "BankCode":"",
+            "BankEMICharges":"",
+            "PGReferenceId":"",
+            "ChequeRefNo":"",
+            "DrawnOn":"",
+            "PaidAmount":"",
+            "BankName":"",
+            "IFSC":""
+         }
+      ]
+   }
+}
+```
+
+> Sample POST Request
+
+```json
+{  
+   "messageCode":"1004",
+   "Message":"Successful",
+   "Transaction":{  
+      "TransactionID":3157xxx,
+      "Amount":40425.0,
+      "PaymentMessage":[  
+         {  
+            "Key":"ProviderAccountID",
+            "Value":"rzp_live_1Rvb6UCZhctxxx"
+         },
+         {  
+            "Key":"ProviderOrderID",
+            "Value":"{\r\n  \"id\": \"order_Ap0o1g0hKYpxxx\",\r\n  \"entity\": \"order\",\r\n  \"amount\": 40425,\r\n  \"amount_paid\": 0,\r\n  \"amount_due\": 40425,\r\n  \"currency\": \"INR\",\r\n  \"receipt\": \"3146817\",\r\n  \"offer_id\": null,\r\n  \"status\": \"created\",\r\n  \"attempts\": 0,\r\n  \"notes\": {\r\n    \"MJOrderID\": \"3146817\",\r\n    \"StoreID\": \"15648\"\r\n  },\r\n  \"created_at\": 1535043452\r\n}"
+         },
+         {  
+            "Key":null,
+            "Value":null
+         }
+      ]
+   },
+   "ErrorCode":0
+}
+```
+
+Process Pending Transactions, i.e., if an order is placed (other than COD ), just an order instance is created and will be in `Pending` state by default. You need to process the order by validating the payment details against the transaction. 
+
+### Resource Information
+Parameter | Description
+--------- | -----------
+URI | `/ProcessTransaction/{MerchantId}`
+Rate Limited? | Yes
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | POST
+Batch Support | No
+
+
+
+
+### Request URL
+
+`http://{host}/developerapi/Order/ProcessTransaction/{MerchantId}`
+
+### Request Attributes
+Parameter | Description
+--------- | -----------
+OrderID* | The order id that you want to process
+ID | 
+PaymentType* | The payment type used for the order - OBT (Online bank transfer), TPG (Third party gateway), Credit, GV (Gift voucher) and so on
+Provider* | The provider of the payment gateway service
+GatewayID* | The respective payment gateway id
+CPUserID | 
+PaymentDetails* | Pass the payment details 
+ GVCode | The gift voucher code used for the transaction (if any)
+ RespCode | 
+ RespMessage | 
+ PointsBurned | The number of points redeemed for the transaction (if any) 
+ BankCode | 
+ BankEMICharges | 
+ PGReferenceId | 
+ ChequeRefNo | The reference number of the cheque if the payment is made through cheque
+ DrawnOn | 
+ PaidAmount | 
+ BankName | 
+ IFSC | 
+
+
+
+
+
+
+
+
+
+
+
+
+## Reorder
+> Sample Request
+
+```html
+https://www.martjack.com/DeveloperAPI/order/ReOrder/98d18d82-ba59-4957-9c92-3f89207a34f6 98d18d82-ba59-4957-9c92-3f89207xxxx
+```
+> Sample POST Request
+
+```json
+orderId=3146xxx&orderItemId=0&userId=3cdd1838-7028-40c9-b5c2-bef371fexxxx
+
+```
+
+
+> Sample Response
+
+```json
+{  
+   "messageCode":"1004",
+   "Message":"Successful",
+   "Carts":{  
+      "MerchantId":"98d18d82-ba59-4957-9c92-3f89207axxxx",
+      "ProductCost":325.0,
+      "ShippingCost":0.0,
+      "VoucherDiscount":0.0,
+      "PromotionDiscount":0.0,
+      "TaxAmount":16.25,
+      "OrderTotal":341.25,
+      "VoucherCode":"",
+      "UserSelectedCurrency":"INR",
+      "Bill_FirstName":"Tom Sawyer",
+      "Bill_LastName":"",
+      "Bill_Address1":"",
+      "Bill_Address2":"",
+      "Bill_CountryCode":"",
+      "_Bill_StateCode":"",
+      "Bill_City":"Bangalore",
+      "Bill_CityCode":"554",
+      "Bill_OtherCityName":"",
+      "Bill_Telephone":"",
+      "Bill_Mobile":"7355000000",
+      "Bill_PostCode":"",
+      "Bill_Email":"tom.sawyer@example.com",
+      "Ship_FirstName":"Tom Sawyer",
+      "Ship_LastName":"",
+      "Ship_Address1":"",
+      "Ship_Address2":"",
+      "Ship_CountryCode":"",
+      "Ship_StateCode":"",
+      "Ship_City":"554",
+      "Ship_CityCode":"554",
+      "Ship_OtherCityName":"",
+      "Ship_Telephone":"",
+      "Ship_Mobile":"7355000000",
+      "Ship_PostCode":"",
+      "Ship_Email":"tom.sawyer@example.com",
+      "CartItems":[  
+         {  
+            "ProductId":8284702,
+            "VariantProductId":0,
+            "MRP":325.0,
+            "WebPrice":0.0,
+            "Quantity":1.0,
+            "description":"Paneer Soya Supreme",
+            "SupplierId":"98d18d82-ba59-4957-9c92-3f89207a34f6",
+            "CartReferenceKey":"b1fdc6b5-edc1-4e82-9b5b-ed5358f84202",
+            "PriceCapped":false,
+            "IsFreeProduct":false,
+            "TotalCap":0,
+            "CappedRefKey":"00000000-0000-0000-0000-000000000000",
+            "CatalogpromotionDiscount":0.0,
+            "BundleCartReferenceKey":"00000000-0000-0000-0000-000000000000",
+            "BundleCartItems":[  
+               {  
+                  "ProductId":8284692,
+                  "VariantProductId":29085,
+                  "MRP":545.0,
+                  "WebPrice":325.0,
+                  "Quantity":1.0,
+                  "description":"Paneer Soya Supreme",
+                  "SupplierId":"98d18d82-ba59-4957-9c92-3f89207axxxx",
+                  "CartReferenceKey":"d2e73ea4-6e92-4a69-8379-3e5decd6xxxx",
+                  "TotalCap":0,
+                  "CatalogpromotionDiscount":0.0,
+                  "BundleCartReferenceKey":"b1fdc6b5-edc1-4e82-9b5b-ed5358f8xxxx",
+                  "ItemPromotionDiscountAmount":0.0,
+                  "IsPrimaryProduct":true,
+                  "IsPromotionProduct":false,
+                  "VariantsInfo":[  
+                     {  
+                        "PropertyName":"Crust",
+                        "Value":"Pan"
+                     },
+                     {  
+                        "PropertyName":"Size",
+                        "Value":"Personal | Serves 1"
+                     }
+                  ],
+                  "Por":"w",
+                  "IsDefaultBundleItem":true,
+                  "CartPromotionRules":[  
+
+                  ],
+                  "CategoryId":"CU00216554",
+                  "CategoryName":null,
+                  "BrandId":"207294",
+                  "BrandName":"Capillary",
+                  "GroupId":9984
+               },
+               {  
+                  "ProductId":8283286,
+                  "VariantProductId":27706,
+                  "MRP":70.0,
+                  "WebPrice":0.0,
+                  "Quantity":1.0,
+                  "description":"Paneer",
+                  "SupplierId":"98d18d82-ba59-4957-9c92-3f89207axxxx",
+                  "CartReferenceKey":"1e1458f2-877d-4148-9f77-7ce3112cxxx",
+                  "TotalCap":0,
+                  "CatalogpromotionDiscount":0.0,
+                  "BundleCartReferenceKey":"b1fdc6b5-edc1-4e82-9b5b-ed5358f8xxxx",
+                  "ItemPromotionDiscountAmount":0.0,
+                  "IsPrimaryProduct":false,
+                  "IsPromotionProduct":false,
+                  "VariantsInfo":[  
+                     {  
+                        "PropertyName":"Size",
+                        "Value":"Personal | Serves 1"
+                     },
+                     {  
+                        "PropertyName":"Strength",
+                        "Value":"Regular"
+                     }
+                  ],
+                  "Por":"w",
+                  "IsDefaultBundleItem":true,
+                  "CartPromotionRules":[  
+
+                  ],
+                  "CategoryId":"CU00216550",
+                  "CategoryName":null,
+                  "BrandId":"207294",
+                  "BrandName":"Capillary",
+                  "GroupId":9985
+               },
+               {  
+                  "ProductId":8283298,
+                  "VariantProductId":27754,
+                  "MRP":70.0,
+                  "WebPrice":0.0,
+                  "Quantity":1.0,
+                  "description":"",
+                  "SupplierId":"98d18d82-ba59-4957-9c92-3f89207axxxx",
+                  "CartReferenceKey":"9a05622e-61f6-47c0-bc71-888db53bxxxx",
+                  "TotalCap":0,
+                  "CatalogpromotionDiscount":0.0,
+                  "BundleCartReferenceKey":"b1fdc6b5-edc1-4e82-9b5b-ed5358f8xxxx",
+                  "ItemPromotionDiscountAmount":0.0,
+                  "IsPrimaryProduct":false,
+                  "IsPromotionProduct":false,
+                  "VariantsInfo":[  
+                     {  
+                        "PropertyName":"Size",
+                        "Value":"Personal | Serves 1"
+                     },
+                     {  
+                        "PropertyName":"Strength",
+                        "Value":"Regular"
+                     }
+                  ],
+                  "Por":"w",
+                  "IsDefaultBundleItem":true,
+                  "CartPromotionRules":[  
+
+                  ],
+                  "CategoryId":"CU00216550",
+                  "CategoryName":null,
+                  "BrandId":"207294",
+                  "BrandName":"Capillary",
+                  "GroupId":9985
+               },
+               {  
+                  "ProductId":8283304,
+                  "VariantProductId":27778,
+                  "MRP":70.0,
+                  "WebPrice":0.0,
+                  "Quantity":1.0,
+                  "description":"Red Paprika",
+                  "SupplierId":"98d18d82-ba59-4957-9c92-3f89207axxxx",
+                  "CartReferenceKey":"7b4ba0bb-e388-4c9a-be26-62a9518bxxxx",
+                  "TotalCap":0,
+                  "CatalogpromotionDiscount":0.0,
+                  "BundleCartReferenceKey":"b1fdc6b5-edc1-4e82-9b5b-ed5358f8xxxx",
+                  "ItemPromotionDiscountAmount":0.0,
+                  "IsPrimaryProduct":false,
+                  "IsPromotionProduct":false,
+                  "VariantsInfo":[  
+                     {  
+                        "PropertyName":"Size",
+                        "Value":"Personal | Serves 1"
+                     },
+                     {  
+                        "PropertyName":"Strength",
+                        "Value":"Regular"
+                     }
+                  ],
+                  "Por":"w",
+                  "IsDefaultBundleItem":true,
+                  "CartPromotionRules":[  
+
+                  ],
+                  "CategoryId":"CU00216550",
+                  "CategoryName":null,
+                  "BrandId":"207294",
+                  "BrandName":"Capillary",
+                  "GroupId":9985
+               },
+               {  
+                  "ProductId":8284396,
+                  "VariantProductId":28734,
+                  "MRP":70.0,
+                  "WebPrice":0.0,
+                  "Quantity":1.0,
+                  "description":"Green Capsicum",
+                  "SupplierId":"98d18d82-ba59-4957-9c92-3f89207axxxx",
+                  "CartReferenceKey":"4e5f0efe-2b24-42bb-a1cd-95c23256xxxx",
+                  "TotalCap":0,
+                  "CatalogpromotionDiscount":0.0,
+                  "BundleCartReferenceKey":"b1fdc6b5-edc1-4e82-9b5b-ed5358f8xxxx",
+                  "ItemPromotionDiscountAmount":0.0,
+                  "IsPrimaryProduct":false,
+                  "IsPromotionProduct":false,
+                  "VariantsInfo":[  
+                     {  
+                        "PropertyName":"Size",
+                        "Value":"Personal | Serves 1"
+                     },
+                     {  
+                        "PropertyName":"Strength",
+                        "Value":"Regular"
+                     }
+                  ],
+                  "Por":"w",
+                  "IsDefaultBundleItem":true,
+                  "CartPromotionRules":[  
+
+                  ],
+                  "CategoryId":"CU00216550",
+                  "CategoryName":null,
+                  "BrandId":"207294",
+                  "BrandName":"Capillary",
+                  "GroupId":9985
+               },
+               {  
+                  "ProductId":8284687,
+                  "VariantProductId":29062,
+                  "MRP":70.0,
+                  "WebPrice":0.0,
+                  "Quantity":1.0,
+                  "description":"Masala Soya Chunk",
+                  "SupplierId":"98d18d82-ba59-4957-9c92-3f89207axxxx",
+                  "CartReferenceKey":"6fafa915-45d2-4c70-a24b-18da4af8xxxx",
+                  "TotalCap":0,
+                  "CatalogpromotionDiscount":0.0,
+                  "BundleCartReferenceKey":"b1fdc6b5-edc1-4e82-9b5b-ed5358f8xxxx",
+                  "ItemPromotionDiscountAmount":0.0,
+                  "IsPrimaryProduct":false,
+                  "IsPromotionProduct":false,
+                  "VariantsInfo":[  
+                     {  
+                        "PropertyName":"Size",
+                        "Value":"Personal | Serves 1"
+                     },
+                     {  
+                        "PropertyName":"Strength",
+                        "Value":"Regular"
+                     }
+                  ],
+                  "Por":"w",
+                  "IsDefaultBundleItem":true,
+                  "CartPromotionRules":[  
+
+                  ],
+                  "CategoryId":"CU00216550",
+                  "CategoryName":null,
+                  "BrandId":"207294",
+                  "BrandName":"Capillary",
+                  "GroupId":9985
+               }
+            ],
+            "ItemPromotionDiscountAmount":0.0,
+            "IsPrimaryProduct":false,
+            "IsPromotionProduct":false,
+            "Por":"",
+            "IsDefaultBundleItem":false,
+            "ProductImage":"/inc-yum-resources/98d18d82-ba59-4957-9c92-3f89207a34f6/Images/ProductImages/Source/1-aug-new-Paneer-Soya-Supreme.png;width=100;height=100;scale=canvas;anchor=bottomcenter",
+            "CartPromotionRules":[  
+
+            ],
+            "CategoryId":"CU00216600",
+            "CategoryName":"Pizza",
+            "BrandId":"207294",
+            "BrandName":"Capillary",
+            "ParentCartItems":null
+         }
+      ],
+      "Suppliers":[  
+         {  
+            "SupplierId":"98d18d82-ba59-4957-9c92-3f89207axxxx",
+            "SupplierName":"PizzaHut",
+            "IsSelected":false,
+            "OrderStatus":null
+         }
+      ],
+      "ShippingOptions":[  
+         {  
+            "SupplierId":"98d18d82-ba59-4957-9c92-3f89207axxxx",
+            "ShippingMode":"0",
+            "ShippingModeId":0,
+            "isselected":true
+         }
+      ],
+      "PaymentOptionsChannel":[  
+         {  
+            "MerchantId":"98d18d82-ba59-4957-9c92-3f89207axxxx",
+            "PaymentType":"COD",
+            "Paymentoption":"COD",
+            "GatewayId":"0",
+            "GatewayTitle":"COD",
+            "PaidAmount":0.0,
+            "EnalbeOTP":false
+         },
+         {  
+            "MerchantId":"98d18d82-ba59-4957-9c92-3f89207axxxx",
+            "PaymentType":"Credit",
+            "Paymentoption":"<div style=\"padding-left:30px;\"><img src=\"/images/paymentoptions/Payment_RazorPay.jpg\" style=\"margin-left:4px;\" /><div >You can pay using RazorPay</div"
+         }
+      ]
+   }
+}
+```
+
+Adds existing order items of the respective customer to the cart.
+
+
+### Resource Information
+Parameter | Description
+--------- | -----------
+URI | `order/ReOrder/{merchantId}`
+Rate Limited? | Yes
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | POST
+Batch Support | No
+
+
+
+### Request URL
+
+`https://{host}/developerapi/Order/ReOrder/{merchantId}`
+
+`merchantId*`: Pass the unique merchant id (GUID) in which the order is placed
+
+### Request Attributes
+Parameter | Description
+--------- | -----------
+OrderId* | Existing Order id of the customer that you want to order again
+UserId* | The unique identifier of the customer associated to the order
+
+
+
 
 
 ## Fetch Order History
 
 > Sample Request
+
 ```html
 http://{www.martjack.com/developerapi/Order/History/81e77da2-723b-483d-8c0d-49f800c1exxx
 ```
@@ -387,7 +879,7 @@ http://{www.martjack.com/developerapi/Order/History/81e77da2-723b-483d-8c0d-49f8
                "PaymentDate":"1\/1\/1900",
                "PaymentDetailsId":539740,
                "PaymentOption":"OnlineBankTransfer",
-               "PaymentResponse":"",
+               "PaymentResponse":"{\"TransactionType\":\"TPG\",\"Mode\":\"TPG\",\"Card\":\"xxxxxxxxxxxx\",\"ResponseMessage\":\"{\\\"MID\\\":\\\"CPWHOL99145646120719\\\",\\\"ORDERID\\\":\\\"6979181\\\",\\\"TXNAMOUNT\\\":\\\"7801.00\\\",\\\"CURRENCY\\\":\\\"INR\\\",\\\"TXNID\\\":\\\"70001001203\\\",\\\"BANKTXNID\\\":\\\"1233957\\\",\\\"STATUS\\\":\\\"TXN_SUCCESS\\\",\\\"RESPCODE\\\":\\\"01\\\",\\\"RESPMSG\\\":\\\"Txn Successful.\\\",\\\"TXNDATE\\\":\\\"2018-07-26 18:49:23.0\\\",\\\"GATEWAYNAME\\\":\\\"WALLET\\\",\\\"BANKNAME\\\":\\\"\\\",\\\"PAYMENTMODE\\\":\\\"PPI\\\",\\\"CHECKSUMHASH\\\":\\\"qLXOxRBDS5SHAjZu1xLcQovmM4OLv7kYa93lZO76XqgXR8mHfK7KsxNIEYQA2KgU8B6eXf2ZzWf95k6DoKY34ZQa7S/TvP5gasePQDjS+fA=\\\",\\\"orderID\\\":\\\"6979181\\\"}\"}",
                "PaymentStatus":"",
                "PaymentType":"OBT",
                "PointsBurned":"0",
@@ -545,7 +1037,7 @@ PGResponse | Response payload received from the payment gateway for the specific
 https://www.martjack.com/developerapi/Order/Invoice/6c57599f-2c43-4c82-806a-e07c3410fxxx/invoice_hyc-2017-2018-00000127
 ```
 
-> Sample POST Request
+> Sample Response
 
 ```json
 {  
@@ -974,10 +1466,9 @@ Merchant Id* | The unique id (GUID) of the merchant in which the order is placed
 OrderId* | Provide the order id that you want to cancel
 Date* | The date on which the order is created in mm/dd/yy format
 Comment | Specify the customer's reason for the order cancellation
-DisplayCommentToUser | Value: True/False. Specify whether to make the comment visible or invisible to the customer 
+DisplayCommentToUser | Value: True/False. Specify whether to make the custom comment visible (True) or invisible (False) to the end-customer 
 PGResponse | The response received from the payment gateway
 OperatorID | Current user id - It could be store, admin, manager
-DisplayCommentToUser | Value: true, false
 CancelReason* | Value: Auto populated reason
  
  
@@ -1047,9 +1538,8 @@ Merchant Id* | The unique id (GUID) of the merchant in which the order is placed
 OrderId* | Provide the order id that you want to cancel
 Date* | The date on which the order is created in mm/dd/yy format
 Comment | Specify the customer's reason for the order cancellation
-DisplayCommentToUser | Value: True/False. Specify whether to make the comment visible or invisible to the customer 
+DisplayCommentToUser | Value: True/False. Specify whether to make the custom comment visible (True) or invisible (False) to the end-customer 
 PGResponse | The response received from the payment gateway for that specific order
 OperatorID | Current user id - It could be store's, admin's, or manager's
-DisplayCommentToUser | Specify `true` to show the user's comment to the end-user
 CancelReason* | Specify the reason for order cancellation. In UI, these are auto-populated in the UI.
 TobeCancelledOrderItems | Specify the items that you want to cancel in `OrderItemID` and `CancelQuantity`

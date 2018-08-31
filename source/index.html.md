@@ -1,5 +1,5 @@
 ---
-title: Capillary ECom API Document
+title: Capillary Anywhere Commerce API Document
 
 language_tabs:
   - json
@@ -7,7 +7,7 @@ language_tabs:
   
 
 toc_footers:
-  - <a href='#'>Capillary ECom API Documentation</a>
+  - <a href='#'>Capillary Anywhere Commerce API Documentat</a>
   - <a href=''></a>
 
 includes:
@@ -20,19 +20,19 @@ search: true
 
 # Introduction
 
-Capillary e-com APIs are RESTful APIs that can be used to configure merchant data, handle customer activities, and manage orders. ECOM APIs can be used for various in-house products and 3rd party integrations.
+Capillary Anywhere Commerce APIs are RESTful APIs that can be used to configure merchant data, handle customer activities, and manage orders. Anywhere Commerce APIs can be used for various in-house products and 3rd party integrations.
 
-This document provides detailed information about each e-com API with appropriate sample codes.
+This document provides detailed information about each Anywhere Commerce API with appropriate sample codes.
 
 
 # Authentication (Merchant Setup on Admin Portal)
-Capillary e-com APIs can be authenticated in two ways and the Authentication Headers differ based on the type you choose. 
+Capillary Anywhere Commerce APIs can be authenticated in two ways and the Authentication Headers differ based on the type you choose. 
 
 
 ## OAuth 1.0 Authentication
 OAuth protocol authenticates users via tokens (a unique string that identifies a user), that is, instead of sending actual credentials to the server on every request, you can first exchange your user credentials for a 'token', and then authenticate the user based on this 'token'. The frequency of users passing credentials over the network will be less.
 
-To access data through authorized e-com Developer APIs, it is required to use oAuth authentication as the input. 
+To access data through authorized Anywhere Commerce Developer APIs, it is required to use oAuth authentication as the input. 
 
 ### Headers
 |  | |

@@ -658,28 +658,6 @@ ProfileAttributeValue | Customer's preferred attribute value
 
 
 
-Retrieves the shipping address of a specific customer.
-
-### Resource Information
-Parameter | Description
---------- | -----------
-URI | ``
-Rate Limited? | Yes
-Authentication | Yes
-Response Formats | JSON
-HTTP Methods | 
-Batch Support | No
-
-
-
-### Request URL
-`https://{host}/developerapi/Customer/`
-
-
-
-
-
-
 
 
 
@@ -697,12 +675,34 @@ Batch Support | No
 > Sample Request
 
 ```html
-
+https://www.martjack.com/DeveloperAPI/Customer/AddShippingAddress/81e77da2-723b-483d-8c0d-49f800c1exxx
 ```
 
 > Sample POST Request
 
 ```json
+{  
+   "shippingaddress":{  
+      "shippingaddressid":1711980,
+      "userId":"4cded968-8ee1-4591-a50b-41649387bxxx",
+      "firstname":"Tom",
+      "lastname":"Sawyer",
+      "address1":"H.no.6-51, plot.31, ECIL",
+      "address2":"",
+      "state":"KA",
+      "pin":"560068",
+      "countrycode":"IN",
+      "citycode":"32",
+      "phoneno":"",
+      "mobileno":"91-7411000000",
+      "email":"tom.sawyer@example.com",
+      "othercity":"Bangalore",
+      "CityName":"Bangalore",
+      "StateName":"Karnataka",
+      "CountryName":"India",
+      "AddressType":"1"
+   }
+}
 
 ```
 
@@ -715,11 +715,11 @@ Batch Support | No
 ### Resource Information
 Parameter | Description
 --------- | -----------
-URI | ``
+URI | `/Customer/AddShippingAddress/{merchantId}`
 Rate Limited? | Yes
 Authentication | Yes
 Response Formats | JSON
-HTTP Methods | 
+HTTP Methods | POST
 Batch Support | No
 
 
@@ -731,11 +731,27 @@ Header Name | Value
 
 ### Request URL
 
-``
+`https://{host}/developerapi/Customer/AddShippingAddress/{merchantId}`
 
 ### Request Parameters
 Parameter | Description
 --------- | -----------
+ShippingAddressId* | Unique id of the order shipment
+userId* | Registered identifier of the customer
+firstname* | The first name of the customer
+lastname* | The last name of the customer 
+address1*, address2	 | Specify the customer’s shipping address related information
+state | State’s postal abbreviation. Example: KA (for Karnataka), CA (for California), IN (for Indiana)
+pin |  Specify the PIN of the shipping address
+countrycode | alpha-2 code of the country. Example: IN (for India), AU (for Australia), and BR (for Brazil)
+citycode | Unique code of the city (as saved in the system) such as 0562 (for Agra), and 250 (Victoria)
+phoneno | The landline number of the recipient
+mobileno | The mobile number of recipient 
+email | The email id of the recipient 
+othercity | 
+addressType | 
+
+
 
 
 
