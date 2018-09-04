@@ -395,10 +395,16 @@ merchantId* | The unique id (GUID) of the merchant
 https://www.martjack.com/developerapi/Customer/81e77da2-723b-483d-8c0d-49f800c1exxx/gmah4uer4x5clfm1pxczhxxx/ValidateToken
 ```
 
+
 > Sample Response
 
 ```json
-
+{
+    "messageCode": "1004",
+    "Message": "Successful",
+    "SessionValid": "true",
+    "ErrorCode": 0
+}
 ```
 
 Verifies if the provided access token is valid or invalid.

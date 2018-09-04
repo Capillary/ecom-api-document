@@ -7,12 +7,13 @@ language_tabs:
   
 
 toc_footers:
-  - <a href='#'>Capillary Anywhere Commerce API Documentat</a>
+  - <a href='#'>Capillary Anywhere Commerce API Document</a>
   - <a href=''></a>
 
 includes:
   - customer
   - order
+  - shoppingList
 
 
 search: true
