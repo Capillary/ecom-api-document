@@ -139,7 +139,8 @@ GetDefaultWishlist | Specify `true` to retrieve even the default wish list along
 
 
 ## Add Items to a Shopping List
-> Sample POST Request
+
+> Sample Request
 
 ```json
 https://www.martjack.com/developerapi/ShoppingList/items/add/81e77da2-723b-483d-8c0d-49f800c1exxx

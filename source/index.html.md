@@ -14,6 +14,7 @@ includes:
   - customer
   - order
   - shoppingList
+  - cart
 
 
 search: true

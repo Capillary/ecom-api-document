@@ -110,7 +110,7 @@
       <div id="toc">
       </div>
         <ul class="toc-footer">
-            <li><a href='#'>Capillary Anywhere Commerce API Documentat</a></li>
+            <li><a href='#'>Capillary Anywhere Commerce API Document</a></li>
             <li><a href=''></a></li>
         </ul>
     </div>
@@ -810,7 +810,12 @@ accesstoken* | Access token of the logged in user that you want to logout</p>
 <blockquote>
 <p>Sample Response</p>
 </blockquote>
-<pre class="highlight json"><code><span class="w">
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"messageCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1004"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"SessionValid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>Verifies if the provided access token is valid or invalid.</p>
 
@@ -3679,6 +3684,422 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>TobeCancelledOrderItems</td>
 <td>Specify the items that you want to cancel in <code class="prettyprint">OrderItemID</code> and <code class="prettyprint">CancelQuantity</code></td>
+</tr>
+</tbody></table>
+
+          <h1 id="shopping-list">Shopping List</h1>
+
+<p>Shopping list is a wish list or favorite list of a customer. This resource consists of APIs to add and manage a customer&rsquo;s wish list.</p>
+
+<h2 id="add-shopping-list">Add Shopping List</h2>
+
+<blockquote>
+<p>Sample POST Request</p>
+</blockquote>
+<pre class="highlight json"><code><span class="err">https://www.martjack.com/developerapi/ShoppingList/add/</span><span class="mi">81</span><span class="err">e</span><span class="mi">77</span><span class="err">da</span><span class="mi">2-723</span><span class="err">b</span><span class="mi">-483</span><span class="err">d</span><span class="mi">-8</span><span class="err">c</span><span class="mi">0</span><span class="err">d</span><span class="mi">-49</span><span class="err">f</span><span class="mi">800</span><span class="err">c</span><span class="mi">1</span><span class="err">exxx</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Sample POST Request</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+   </span><span class="nt">"ShoppingList"</span><span class="p">:{</span><span class="w">
+      </span><span class="nt">"UserId"</span><span class="p">:</span><span class="s2">"f4473f55-b6b0-4a4c-8ffa-fc1010abbb1f"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ShoppingListName"</span><span class="p">:</span><span class="s2">"AWS1"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"privacyLevel"</span><span class="p">:</span><span class="s2">"Private"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"refCode"</span><span class="p">:</span><span class="s2">"123456"</span><span class="w">
+
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Sample Response
+<code class="prettyprint">json
+{
+    &quot;messageCode&quot;: &quot;1004&quot;,
+    &quot;Message&quot;: &quot;Successful&quot;,
+    &quot;ErrorCode&quot;: 0
+}
+</code></p>
+</blockquote>
+
+<p>Creates a shopping list for a specific customer. This just creates a shopping list bucket and does not include any items in it. Use <code class="prettyprint">/ShoppingList/list</code> to add items.</p>
+
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td><code class="prettyprint">ShoppingList/add/{{MerchantId}}</code></td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>POST</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>No</td>
+</tr>
+</tbody></table>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">https://{host}/developerapi/ShoppingList/add/{{MerchantId}}</code></p>
+
+<h3 id="request-parameters">Request Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>UserId*</td>
+<td>The unique user identifier of the customer whose wish list details need to be added</td>
+</tr>
+<tr>
+<td>ShoppingListName*</td>
+<td>Specify a name for the current wish list</td>
+</tr>
+<tr>
+<td>privacyLevel</td>
+<td>Specify whether to make the wish list public to make it to everyone or private to make it visible only for you (Value: <code class="prettyprint">Pr</code>, <code class="prettyprint">Pu</code>). Default value: <code class="prettyprint">Pr</code></td>
+</tr>
+<tr>
+<td>refCode</td>
+<td>Specify a reference code for your wish list. It is a free flowing text and accepts any string that you pass</td>
+</tr>
+</tbody></table>
+
+<h2 id="get-shopping-list-details">Get Shopping List Details</h2>
+
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
+<pre class="highlight html"><code>https://www.martjack.com/developerapi/ShoppingList/add/81e77da2-723b-483d-8c0d-49f800c1exxx/f4473f55-b6b0-4a4c-8ffa-fc1010abxxxx/43700/true
+</code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"messageCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1004"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ShoppingList"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"ShoppingListId"</span><span class="p">:</span><span class="w"> </span><span class="mi">43787</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ShoppingListName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AWS1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"PrivacyLevel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pr"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"UserId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f4473f55-b6b0-4a4c-8ffa-fc1010abxxxx"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"81e77da2-723b-483d-8c0d-49f800c1xxxx"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"CreatedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/Date(1535913000000+0530)/"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ModifiedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/Date(1535913000000+0530)/"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"UserGroupId"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"AllowUserToAddItems"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"DisplayinMyAccount"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"CreatedBy"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"RefCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"ShoppingListId"</span><span class="p">:</span><span class="w"> </span><span class="mi">31852</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ShoppingListName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MyWishList"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"PrivacyLevel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pr"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"UserId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00000000-0000-0000-0000-000000000000"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"81e77da2-723b-483d-8c0d-49f800c1xxxx"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"CreatedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/Date(1457461800000+0530)/"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ModifiedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/Date(1457461800000+0530)/"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"UserGroupId"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"AllowUserToAddItems"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"DisplayinMyAccount"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"CreatedBy"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"RefCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Retrieves the details of a specific wish list of a customer.</p>
+
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td><code class="prettyprint">ShoppingList/{{MerchantId}}/UserId/{shopping list id}/true</code></td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>No</td>
+</tr>
+</tbody></table>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">https://{host}/developerapi/ShoppingList/add/{{MerchantId}}/{UserId}/{shoppinglistId}/{get default wish list - true/false}</code></p>
+
+<h3 id="request-parameters">Request Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>MerchantId*</td>
+<td>The unique id (GUID) of the merchant account from which you want to fetch customer&rsquo;s wish list</td>
+</tr>
+<tr>
+<td>UserId*</td>
+<td>The unique user identifier of the customer whose details need to be retrieved</td>
+</tr>
+<tr>
+<td>shoppinglistId</td>
+<td>The shopping list id that you want to fetch</td>
+</tr>
+<tr>
+<td>GetDefaultWishlist</td>
+<td>Specify <code class="prettyprint">true</code> to retrieve even the default wish list along with customer&rsquo;s (merchant level), <code class="prettyprint">false</code> to retrieve only the customer&rsquo;s wish list</td>
+</tr>
+</tbody></table>
+
+<h2 id="add-items-to-a-shopping-list">Add Items to a Shopping List</h2>
+
+<blockquote>
+<p>Sample POST Request</p>
+</blockquote>
+<pre class="highlight json"><code><span class="err">https://www.martjack.com/developerapi/ShoppingList/items/add/</span><span class="mi">81</span><span class="err">e</span><span class="mi">77</span><span class="err">da</span><span class="mi">2-723</span><span class="err">b</span><span class="mi">-483</span><span class="err">d</span><span class="mi">-8</span><span class="err">c</span><span class="mi">0</span><span class="err">d</span><span class="mi">-49</span><span class="err">f</span><span class="mi">800</span><span class="err">c</span><span class="mi">1</span><span class="err">exxx</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Sample POST Request</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+   </span><span class="nt">"ShoppingListView"</span><span class="p">:{</span><span class="w">
+      </span><span class="nt">"UserId"</span><span class="p">:</span><span class="s2">"f4473f55-b6b0-4a4c-8ffa-fc1010abxxxx"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"merchantId"</span><span class="p">:</span><span class="s2">"81e77da2-723b-483d-8c0d-49f800c1xxxx"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Item"</span><span class="p">:{</span><span class="w">
+         </span><span class="nt">"ShoppingListId"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"ProductId"</span><span class="p">:</span><span class="s2">"12688208"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"VarProductId"</span><span class="p">:</span><span class="s2">"9727843"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"Quantity"</span><span class="p">:</span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"IsSelected"</span><span class="p">:</span><span class="s2">"False"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"Status"</span><span class="p">:</span><span class="s2">"A"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Sample Response
+<code class="prettyprint">json
+{
+    &quot;messageCode&quot;: &quot;1004&quot;,
+    &quot;Message&quot;: &quot;Successful&quot;,
+    &quot;ErrorCode&quot;: 0
+}
+</code></p>
+</blockquote>
+
+<p>Adds items to an existing wish list of a customer</p>
+
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td><code class="prettyprint">ShoppingList/items/add/{{MerchantId}}</code></td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>POST</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>No</td>
+</tr>
+</tbody></table>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">https://{host}/developerapi/ShoppingList/items/add/{{MerchantId}}</code></p>
+
+<h3 id="request-attributes">Request Attributes</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>UserId*</td>
+<td>The unique user identifier of the customer whose wish list details need to be added</td>
+</tr>
+<tr>
+<td>merchantId*</td>
+<td>The unique id (GUID) of the merchant account in which the customer&rsquo;s wish list is created</td>
+</tr>
+<tr>
+<td>ShoppingListId*</td>
+<td>Specify a name for the current wish list</td>
+</tr>
+<tr>
+<td>ProductId</td>
+<td>The unique product id that you want to add to the wish list</td>
+</tr>
+<tr>
+<td>VarProductId</td>
+<td>The unique variant product id (if applicable)</td>
+</tr>
+<tr>
+<td>Quantity</td>
+<td>The quantity of the item that you want to add to the wish list</td>
+</tr>
+<tr>
+<td>IsSelected</td>
+<td>Value: true/false</td>
+</tr>
+</tbody></table>
+
+<h2 id="get-items-of-a-shopping-list">Get Items of a shopping list</h2>
+
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
+<pre class="highlight html"><code>https://www.martjack.com/developerapi/ShoppingList/items/81e77da2-723b-483d-8c0d-49f800c1exxx/2345/f4473f55-b6b0-4a4c-8ffa-fc1010abxxxx
+</code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"ShoppingListItems"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"ProductId"</span><span class="p">:</span><span class="w"> </span><span class="mi">12688208</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"VariantProductID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9727843"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ShoppingListId"</span><span class="p">:</span><span class="w"> </span><span class="mi">31852</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ShoppingListItemId"</span><span class="p">:</span><span class="w"> </span><span class="mi">47465921</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"IsSelected"</span><span class="p">:</span><span class="w"> </span><span class="s2">"False"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Items"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"messageCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1004"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Retrieves items of a specific wish list</p>
+
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td><code class="prettyprint">ShoppingList/{{MerchantId}}/UserId/{shopping list id}/true</code></td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>No</td>
+</tr>
+</tbody></table>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">https://{host}/developerapi/ShoppingList/items/{{MerchantId}}/{shoppinglistId}/{UserId}</code></p>
+
+<h3 id="request-parameters">Request Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>MerchantId*</td>
+<td>The unique id (GUID) of the merchant account from which you want to fetch customer&rsquo;s wish list</td>
+</tr>
+<tr>
+<td>UserId*</td>
+<td>The unique user identifier of the customer whose shopping list items need to be retrieved</td>
+</tr>
+<tr>
+<td>shoppinglistId</td>
+<td>The shopping list id that you want to fetch</td>
 </tr>
 </tbody></table>
 
