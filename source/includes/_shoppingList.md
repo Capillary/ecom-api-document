@@ -204,7 +204,7 @@ IsSelected | Value: true/false
  
 
 
-## Get Items of a shopping list
+## Get Shopping List Items 
 > Sample Request
 
 ```html
@@ -237,7 +237,7 @@ Retrieves items of a specific wish list
 ### Resource Information
 Parameter | Description
 --------- | -----------
-URI | `ShoppingList/{{MerchantId}}/UserId/{shopping list id}/true`
+URI | `ShoppingList/items/{{MerchantId}}/UserId/{shopping list id}`
 Rate Limited? | Yes
 Authentication | Yes
 Response Formats | JSON

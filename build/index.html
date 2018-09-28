@@ -3903,7 +3903,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <h2 id="add-items-to-a-shopping-list">Add Items to a Shopping List</h2>
 
 <blockquote>
-<p>Sample POST Request</p>
+<p>Sample Request</p>
 </blockquote>
 <pre class="highlight json"><code><span class="err">https://www.martjack.com/developerapi/ShoppingList/items/add/</span><span class="mi">81</span><span class="err">e</span><span class="mi">77</span><span class="err">da</span><span class="mi">2-723</span><span class="err">b</span><span class="mi">-483</span><span class="err">d</span><span class="mi">-8</span><span class="err">c</span><span class="mi">0</span><span class="err">d</span><span class="mi">-49</span><span class="err">f</span><span class="mi">800</span><span class="err">c</span><span class="mi">1</span><span class="err">exxx</span><span class="w">
 </span></code></pre>
@@ -4100,6 +4100,550 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>shoppinglistId</td>
 <td>The shopping list id that you want to fetch</td>
+</tr>
+</tbody></table>
+
+          <h1 id="carts">Carts</h1>
+
+<p>Cart keeps the record of the items that a customer selects from the merchant store to buy. The <code class="prettyprint">carts</code> resource provides APIs to make modifications to the cart items, shipping modes, coupons; and retrieve cart items, shipping modes, payment options, and online payment types.</p>
+
+<h2 id="send-otp">Send OTP</h2>
+
+<blockquote>
+<p>Sample POST Request</p>
+</blockquote>
+<pre class="highlight json"><code><span class="err">https://www.martjack.com/developerapi/carts/SendOTP/</span><span class="mi">81</span><span class="err">e</span><span class="mi">77</span><span class="err">da</span><span class="mi">2-723</span><span class="err">b</span><span class="mi">-483</span><span class="err">d</span><span class="mi">-8</span><span class="err">c</span><span class="mi">0</span><span class="err">d</span><span class="mi">-49</span><span class="err">f</span><span class="mi">800</span><span class="err">c</span><span class="mi">1</span><span class="err">exxx</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Sample POST Request</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"UserName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tom.sawyer@example.com"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"merchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"81e77da2-723b-483d-8c0d-49f800c1exxx"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"MobileNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"917000000000"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td><code class="prettyprint">carts/SendOTP/{{MerchantId}}</code></td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>POST</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>No</td>
+</tr>
+</tbody></table>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">https://{host}/developerapi/carts/SendOTP/{{MerchantId}}</code></p>
+
+<h3 id="request-parameters">Request Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>UserName*</td>
+<td>Username of the customer&rsquo;s account (mobile number or email id)</td>
+</tr>
+<tr>
+<td>merchantId*</td>
+<td>The unique id (GUID) of the merchant in which the customer has registered</td>
+</tr>
+<tr>
+<td>MobileNo*</td>
+<td>The registered mobile number to which the OTP has to be sent</td>
+</tr>
+</tbody></table>
+
+<h2 id="validate-otp">Validate OTP</h2>
+
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
+<pre class="highlight html"><code>
+</code></pre>
+<blockquote>
+<p>Sample POST Request</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+</span><span class="nt">"OTP"</span><span class="p">:</span><span class="w"> </span><span class="s2">"345432"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="err">"</span><span class="mi">7411000000</span><span class="err">”</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<blockquote>
+<p>Sample POST Request</p>
+</blockquote>
+<pre class="highlight json"><code><span class="w">
+</span></code></pre>
+<p>Validates OTP sent to a customer&rsquo;s registered mobile number.</p>
+
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td><code class="prettyprint">carts/V2/ValidateOTP/{{merchantId}}</code></td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>POST</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>No</td>
+</tr>
+</tbody></table>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">https://{host}/developerapi/carts/V2/ValidateOTP/{{merchantId}}</code></p>
+
+<h3 id="request-parameters">Request Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>OTP*</td>
+<td>The verification code received by the customer on his/her mobile number</td>
+</tr>
+<tr>
+<td>mobile*</td>
+<td>The registered mobile number to which the OTP has to be sent</td>
+</tr>
+</tbody></table>
+
+<h2 id="update-cart-properties">Update Cart Properties</h2>
+
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
+<pre class="highlight html"><code>https://www.martjack.com/developerapi/carts/UpdateCartProperties/81e77da2-723b-483d-8c0d-49f800c1exxx
+</code></pre>
+<blockquote>
+<p>Sample POST Request</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">  
+   </span><span class="nt">"DeliverySlotID"</span><span class="p">:</span><span class="mi">415329</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"DemandedDeliveryDate"</span><span class="p">:</span><span class="s2">"09-06-2018 15:15:00"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"ShippingModeId"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"locationID"</span><span class="p">:</span><span class="mi">121212</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"BillingAddress"</span><span class="p">:{</span><span class="w">  
+      </span><span class="nt">"FirstName"</span><span class="p">:</span><span class="s2">"Tom"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"LastName"</span><span class="p">:</span><span class="s2">"Sawyer"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Street"</span><span class="p">:</span><span class="s2">"MG Road"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Street1"</span><span class="p">:</span><span class="s2">"Sham Plaza, Bangalore, India"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Country"</span><span class="p">:</span><span class="s2">"IN"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"State"</span><span class="p">:</span><span class="s2">"KA"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"City"</span><span class="p">:</span><span class="s2">"23924"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"CityName"</span><span class="p">:</span><span class="s2">"23924"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"OtherCityName"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Phone"</span><span class="p">:</span><span class="s2">"9967819918"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Mobile"</span><span class="p">:</span><span class="s2">"9967819918"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"PIN"</span><span class="p">:</span><span class="s2">"744103"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"EmailID"</span><span class="p">:</span><span class="s2">"tom.sawyer@example.com"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Type"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"AddressType"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Latitude"</span><span class="p">:</span><span class="mf">11.6233774</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Longitude"</span><span class="p">:</span><span class="mf">92.7264828</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="nt">"ShippingAddress"</span><span class="p">:{</span><span class="w">  
+      </span><span class="nt">"FirstName"</span><span class="p">:</span><span class="s2">"Tom"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"LastName"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Street"</span><span class="p">:</span><span class="s2">"MG Road"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Street1"</span><span class="p">:</span><span class="s2">"Sham Plaza, Bangalore, India"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Country"</span><span class="p">:</span><span class="s2">"IN"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"State"</span><span class="p">:</span><span class="s2">"KA"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"City"</span><span class="p">:</span><span class="s2">"23924"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"CityName"</span><span class="p">:</span><span class="s2">"23924"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"OtherCityName"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Phone"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Mobile"</span><span class="p">:</span><span class="s2">"9967000000"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"PIN"</span><span class="p">:</span><span class="s2">"744103"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"EmailID"</span><span class="p">:</span><span class="s2">"tom.sawyer@example.com"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Type"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"AddressType"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Latitude"</span><span class="p">:</span><span class="mf">11.6233774</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Longitude"</span><span class="p">:</span><span class="mf">92.7264828</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="nt">"OrderAttributes"</span><span class="p">:[</span><span class="w">  
+      </span><span class="p">{</span><span class="w">  
+         </span><span class="nt">"EntityFieldID"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"MerchantID"</span><span class="p">:</span><span class="s2">"81e77da2-723b-483d-8c0d-49f800c1e288"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"EntityFieldName"</span><span class="p">:</span><span class="s2">"phIndiatest"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"Type"</span><span class="p">:</span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"IsPredefined"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"IsMandatory"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"SelectedValue"</span><span class="p">:</span><span class="s2">"test"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"lstOMSEntityFieldValues"</span><span class="p">:[</span><span class="w">  
+            </span><span class="p">{</span><span class="w">  
+               </span><span class="nt">"EntityFieldValueID"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"MerchantID"</span><span class="p">:</span><span class="s2">"81e77da2-723b-483d-8c0d-49f800c1e288"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"EntityFieldID"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"Value"</span><span class="p">:</span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"IsSelected"</span><span class="p">:</span><span class="kc">true</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+         </span><span class="p">]</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">  
+         </span><span class="nt">"EntityFieldID"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"MerchantID"</span><span class="p">:</span><span class="s2">"00000000-0000-0000-0000-000000000000"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"EntityFieldName"</span><span class="p">:</span><span class="s2">"channel"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"Type"</span><span class="p">:</span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"IsPredefined"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"IsMandatory"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"SelectedValue"</span><span class="p">:</span><span class="s2">"PWA,android"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"lstOMSEntityFieldValues"</span><span class="p">:[</span><span class="w">  
+            </span><span class="p">{</span><span class="w">  
+               </span><span class="nt">"EntityFieldValueID"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"MerchantID"</span><span class="p">:</span><span class="s2">"00000000-0000-0000-0000-000000000000"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"EntityFieldID"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"Value"</span><span class="p">:</span><span class="s2">"PWA,android"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"IsSelected"</span><span class="p">:</span><span class="kc">true</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+         </span><span class="p">]</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+   </span><span class="p">],</span><span class="w">
+   </span><span class="nt">"MerchantID"</span><span class="p">:</span><span class="s2">"81e77da2-723b-483d-8c0d-49f800c1e288"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"IsShippingAddressDifferent"</span><span class="p">:</span><span class="s2">"false"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"SkipDeliveryAreaValidation"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"SkipShippingModeValidation"</span><span class="p">:</span><span class="kc">false</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="w">
+</span></code></pre>
+<p>Updates existing checkout details such as Add delivery slot, add shipping address, and add order attributes. However, country, state, and city code has to be  as per the values specified by the customer before adding items to the cart.</p>
+
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td><code class="prettyprint">/carts/UpdateCartProperties/{merchantId}</code></td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>POST</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>No</td>
+</tr>
+</tbody></table>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">https://{host}/developerapi/carts/UpdateCartProperties/{{merchantId}}</code></p>
+
+<h3 id="request-attributes">Request Attributes</h3>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>DeliverySlotID</td>
+<td>The unique id of the delivery slot ((valid id)</td>
+</tr>
+<tr>
+<td>DemandedDeliveryDate</td>
+<td>The customer&rsquo;s preferred delivery date in <code class="prettyprint">MM-DD-YYYY HH:MM:SS</code> format</td>
+</tr>
+<tr>
+<td>ShippingModeId</td>
+<td></td>
+</tr>
+<tr>
+<td>locationID</td>
+<td>The location id of the store</td>
+</tr>
+<tr>
+<td>BillingAddress</td>
+<td>Specify the billing address of the customer in the respective attributes</td>
+</tr>
+<tr>
+<td>ShippingAddress</td>
+<td>Specify the preferred shipping address of the customer in the respective attributes</td>
+</tr>
+<tr>
+<td>OrderAttributes</td>
+<td>Provide the details of order attributes that you want to add/update in the parameters explained below</td>
+</tr>
+<tr>
+<td>EntityFieldID</td>
+<td>Specify the id of the order attribute that you want to update</td>
+</tr>
+<tr>
+<td>MerchantID</td>
+<td>The unique id (GUID) of the merchant</td>
+</tr>
+<tr>
+<td>EntityFieldName</td>
+<td>Specify the name of the order attribute that you want to update</td>
+</tr>
+<tr>
+<td>Type</td>
+<td>Specify the type of the field area. <code class="prettyprint">1</code> for single select drop-down box, <code class="prettyprint">2</code> for radio button, <code class="prettyprint">3</code> for check-box type</td>
+</tr>
+<tr>
+<td>IsPredefined</td>
+<td>Specify <code class="prettyprint">true</code> if the order attribute are predefined in the Control Panel, specify <code class="prettyprint">false</code> for free-flow values</td>
+</tr>
+<tr>
+<td>IsMandatory</td>
+<td>Specify <code class="prettyprint">true</code> if the order attribute is set as a mandatory field, else specify <code class="prettyprint">false</code></td>
+</tr>
+<tr>
+<td>SelectedValue</td>
+<td>Specify <code class="prettyprint">true</code> if the input for the order attribute is mandatory, else specify <code class="prettyprint">false</code></td>
+</tr>
+<tr>
+<td>lstOMSEntityFieldValues</td>
+<td>For predefined order attribute values (<code class="prettyprint">IsPredefined</code> is true) provide the attribute values as per options configured on Control Panel</td>
+</tr>
+<tr>
+<td>EntityFieldValueID</td>
+<td>Specify the unique id the order attribute value for predefined attribute name and values (<code class="prettyprint">IsPredefined</code> is true)</td>
+</tr>
+<tr>
+<td>EntityFieldID</td>
+<td>Specify the unique id the order attribute name that you want to input for predefined attribute name and values (<code class="prettyprint">IsPredefined</code> is true)</td>
+</tr>
+<tr>
+<td>Value</td>
+<td>Specify the value of the order attribute that you want to set for the customer. You can use this for free-flow attribute values (<code class="prettyprint">IsPredefined</code> is false)</td>
+</tr>
+<tr>
+<td>IsSelected</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2 id="get-cart-promotions">Get Cart Promotions</h2>
+
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
+<pre class="highlight html"><code>https://www.martjack.com/developerapi/carts/GetAllPromotions/81e77da2-723b-483d-8c0d-49f800c1exxx
+</code></pre>
+<blockquote>
+<p>Sample POST Request</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"locationcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"btm"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"deliverymode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ship"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"promotiontype"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cart"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"hasvouchers"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"fromdate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-09-13"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"todate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-09-13"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"activestatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"channeltype"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"totime"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">  
+  </span><span class="nt">"externalcouponmapped"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"userid"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Sample POST Request</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"messageCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1004"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"EligiblePromotions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"promotionid"</span><span class="p">:</span><span class="w"> </span><span class="mi">30136</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"promotionname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CRMTest"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"promotionrefcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9903"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CRMTest"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"locationcodes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="s2">"0"</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="nt">"starttime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/Date(1526992440000+0530)/"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"endtime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/Date(1582997160000+0530)/"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"repetitive"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"allowfurtherpromotions"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"voucherbased"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"firstactivevouchercode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"promotionid"</span><span class="p">:</span><span class="w"> </span><span class="mi">30198</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"promotionname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VoucherBasedPromotion"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"promotionrefcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VoucherBasedPromotion"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VoucherBasedPromotion"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"locationcodes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="s2">"BTM"</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="nt">"starttime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/Date(1536175860000+0530)/"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"endtime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/Date(1538328600000+0530)/"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"repetitive"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"allowfurtherpromotions"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"voucherbased"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"firstactivevouchercode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SmokeAutomation"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Retrieves the list of offers of the merchant based on the input parameters.</p>
+
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td><code class="prettyprint">/carts/GetAllPromotions/{merchantId}</code></td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>POST</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>No</td>
+</tr>
+</tbody></table>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">https://{host}/developerapi/carts/GetAllPromotions/{merchantId}</code></p>
+
+<h3 id="request-attributes">Request Attributes</h3>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>locationcode</td>
+<td>The location code of the store to fetch the offers associated to the specific store</td>
+</tr>
+<tr>
+<td>deliverymode</td>
+<td>Filter results (promotions) by delivery mode. Values: <code class="prettyprint">ship</code> for promotions on online orders, <code class="prettyprint">pickup</code> for promotions on store pickup orders</td>
+</tr>
+<tr>
+<td>promotiontype</td>
+<td>Filter results by promotion type. Values: <code class="prettyprint">cart</code> for cart items based promotions, <code class="prettyprint">catalogue</code> for catalogue based promotions</td>
+</tr>
+<tr>
+<td>hasvouchers</td>
+<td>Specify <code class="prettyprint">true</code> to get only the list of promotions having coupon codes, <code class="prettyprint">false</code> to get only promotions without coupon codes. You can leave it blank to see both kind of promotions</td>
+</tr>
+<tr>
+<td>fromdate</td>
+<td>Get promotions available for a specific duration. Pass the duration in MM/DD/YY format <code class="prettyprint">fromdate</code> and <code class="prettyprint">todate</code> respectively</td>
+</tr>
+<tr>
+<td>todate</td>
+<td>Get promotions available for a specific duration. Pass the duration in <code class="prettyprint">fromdate</code> and <code class="prettyprint">todate</code></td>
+</tr>
+<tr>
+<td>activestatus</td>
+<td>Specify <code class="prettyprint">true</code> to fetch the list of only active promotions, <code class="prettyprint">false</code> to fetch both active and inactive coupons</td>
+</tr>
+<tr>
+<td>channeltype</td>
+<td></td>
+</tr>
+<tr>
+<td>externalcouponmapped</td>
+<td>Specify <code class="prettyprint">true</code> to fetch the list of only promotions that are mapped to external coupons. For example, CRM coupons</td>
+</tr>
+<tr>
+<td>userid</td>
+<td>The unique identifier of the customer to fetch the list of promotions of a specific customer</td>
 </tr>
 </tbody></table>
 

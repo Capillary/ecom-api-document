@@ -10,7 +10,7 @@ This API lets you create a new user account on MartJack platform for a specific 
 > Sample Request
 
 ```html
-https://www.martjack.com/developerapi/Customer/12345678-1234-1234-1234-1234567890AB/Create
+https://www.martjack.com/developerapi/Customer/12345678-1234-1234-1234-123456789xxx/Create
 ```
 
 > Sample POST Request
@@ -42,7 +42,7 @@ https://www.martjack.com/developerapi/Customer/12345678-1234-1234-1234-123456789
       "OtherCity":"OtherCity",
       "IsReceiveOffers":false,
       "States":null,
-      "merchantId":"81e77da2-723b-483d-8c0d-49f800c1e288",
+      "merchantId":"81e77da2-723b-483d-8c0d-49f800c1xxxx",
       "Password":"ABG-704@cp",
       "CommunicationType":null
    }
