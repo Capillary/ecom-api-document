@@ -262,7 +262,7 @@ deliveryslotcode | Pass the delivery slot code if you want to associate a delive
 shippingmode |  Pass the shipping mode that you want to associate with the order. However, the API does not validate/calculate on the provided shipping mode
 shippingamount | Pass the shipping charge for the specific item (Order item level)
 shippingdiscount | Pass the discount amount on the shipping charge (Order item level discount)
-linediscount |  Pass the order item level line discount
+linediscount |  Pass the line item level discount of the order
 
 
 
@@ -330,7 +330,7 @@ merchantId* | The unique id (GUID) of the merchant in which you want to place or
 PaymentOption* | The name of the payment gateway. For example, RazorPay, EBS, OnlineBankTransfer, COD, CreditCard, ChequeDD, Wallet, and eGiftVoucher
 paymentType* | The payment type used for the order - OBT (Online bank transfer),  TPG (Third party gateway), Credit, GV (Gift voucher) and so on
 gatewayId* | Gateway id through which the payment is made
-channelType |  
+channelType |  The channel from which the order is placed. For example: amazon, myntra
 skipDeliveryAreaValidation | Specify `true` to validate delivery location before order creation, `false` to ignore validating
 
 

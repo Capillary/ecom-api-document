@@ -6,7 +6,7 @@ Shopping list is a wish list or favorite list of a customer. This resource consi
 ## Add Shopping List
 > Sample POST Request
 
-```json
+```html
 https://www.martjack.com/developerapi/ShoppingList/add/81e77da2-723b-483d-8c0d-49f800c1exxx
 ```
 
@@ -25,6 +25,7 @@ https://www.martjack.com/developerapi/ShoppingList/add/81e77da2-723b-483d-8c0d-4
 ```
 
 > Sample Response
+
 ```json
 {
     "messageCode": "1004",
@@ -142,7 +143,7 @@ GetDefaultWishlist | Specify `true` to retrieve even the default wish list along
 
 > Sample Request
 
-```json
+```html
 https://www.martjack.com/developerapi/ShoppingList/items/add/81e77da2-723b-483d-8c0d-49f800c1exxx
 ```
 
@@ -166,6 +167,7 @@ https://www.martjack.com/developerapi/ShoppingList/items/add/81e77da2-723b-483d-
 ```
 
 > Sample Response
+
 ```json
 {
     "messageCode": "1004",
