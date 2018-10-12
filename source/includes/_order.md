@@ -253,6 +253,16 @@ channelorderid | Order id as maintained by that specific channel  (specific to S
 sellerwroxorderid | Order id generated at Sellerworx. Maps Channel order id to Sellerworx order id
 items* | Specify the details of each line-item in `item` attribute
 Payments* | Specify the payment details and `orderrefno` of the order in `payment`. The orderrefno value at payment level should be same as that of the order level
+paymentstatus | The payment status of the current order. Values: Authorized, Pending
+paymentno | The reference number for order payment provided by the respective payment gateway
+vouchercode | Coupon code applied for the transaction if any. This is just for viewing purpose and the API does not do any calculation based on the voucher code
+customfield | Pass this only if you have preconfigured custom fields at the order level
+itemcustomfield | Pass line-item level custom fields. You do not need to have preconfigured custom fields at the order item level
+deliveryslotcode | Pass the delivery slot code if you want to associate a delivery slot with the order 
+shippingmode |  Pass the shipping mode that you want to associate with the order. However, the API does not validate/calculate on the provided shipping mode
+shippingamount | Pass the shipping charge for the specific item (Order item level)
+shippingdiscount | Pass the discount amount on the shipping charge (Order item level discount)
+linediscount |  Pass the order item level line discount
 
 
 
@@ -320,12 +330,46 @@ merchantId* | The unique id (GUID) of the merchant in which you want to place or
 PaymentOption* | The name of the payment gateway. For example, RazorPay, EBS, OnlineBankTransfer, COD, CreditCard, ChequeDD, Wallet, and eGiftVoucher
 paymentType* | The payment type used for the order - OBT (Online bank transfer),  TPG (Third party gateway), Credit, GV (Gift voucher) and so on
 gatewayId* | Gateway id through which the payment is made
-channelType* | 
-payBackPoints |  
-payBackCardNo |  
-bankCode | 
-capillaryMobileNo | 
+channelType |  
 skipDeliveryAreaValidation | Specify `true` to validate delivery location before order creation, `false` to ignore validating
+
+
+### Sample Validation Messages
+
+`{"OrderID":0,"ValidationResponse":[{"Validator":"CapillaryPGValidator","CheckoutValidationType":4,"Status":"False","ValidationMessage":""}]},"ErrorCode":0}` - INvalid Mobile number
+
+`{"OrderID":0,"ValidationResponse":[{"Validator":"DeliveryAreaValidator","CheckoutValidationType":14,"Status":"False","ValidationMessage":""}]},"ErrorCode":0}` -- delivery araea 
+
+`{"OrderID":0,"ValidationResponse":[{"Validator":"DeliveryModeValidator","CheckoutValidationType":16,"Status":"False","ValidationMessage":""}]},"ErrorCode":0}` -- delivery mode
+
+`{"OrderID":0,"ValidationResponse":[{"Validator":"DiscountVoucherValidator","CheckoutValidationType":7,"Status":"False","ValidationMessage":""}]},"ErrorCode":0}` -- discount vouher
+
+`{"OrderID":0,"ValidationResponse":[{"Validator":"GiftVoucherValidator","CheckoutValidationType":7,"Status":"False","ValidationMessage":""}]},"ErrorCode":0}` -- gift vouher
+
+`{"OrderID":0,"ValidationResponse":[{"Validator":"MerchantTransactionValidator","CheckoutValidationType":15,"Status":"False","ValidationMessage":""}]},"ErrorCode":0}` -- payments transactions
+
+`{"OrderID":0,"ValidationResponse":[{"Validator":"OrderAmountValidator","CheckoutValidationType":9,"Status":"False","ValidationMessage":"Min/Max/Both"}]},"ErrorCode":0}` -- order amount max min
+
+`{"OrderID":0,"ValidationResponse":[{"Validator":"OrderInputValidator","CheckoutValidationType":0,"Status":"False","ValidationMessage":""}]},"ErrorCode":0}` -- missing payment params
+
+`{"OrderID":0,"ValidationResponse":[{"Validator":"PartialOrderValidator","CheckoutValidationType":5,"Status":"False","ValidationMessage":""}]},"ErrorCode":0}` -- allowing offline payments in multy payments order
+
+`{"OrderID":0,"ValidationResponse":[{"Validator":"PaymentoptionValidator","CheckoutValidationType":21,"Status":"False","ValidationMessage":""}]},"ErrorCode":0}` -- payment option doent support selected currency
+
+`{"OrderID":0,"ValidationResponse":[{"Validator":"PincodeServiceablityValidator","CheckoutValidationType":17,"Status":"False","ValidationMessage":""}]},"ErrorCode":0}` --pincode not servicable
+
+`{"OrderID":0,"ValidationResponse":[{"Validator":"ShippingModeValidator","CheckoutValidationType":16,"Status":"False","ValidationMessage":""}]},"ErrorCode":0}` -- ShippingModeValidator
+
+`{"OrderID":0,"ValidationResponse":[{"Validator":"ShippingAddressValidator","CheckoutValidationType":18,"Status":"False","ValidationMessage":""}]},"ErrorCode":0}` --invalid address params
+
+`{"OrderID":0,"ValidationResponse":[{"Validator":"ShippingValidator","CheckoutValidationType":1,"Status":"False","ValidationMessage":""}]},"ErrorCode":0}` --zero shipping profile
+
+`{"OrderID":0,"ValidationResponse":[{"Validator":"StockValidator","CheckoutValidationType":13,"Status":"False","ValidationMessage":"Failed products"}]},"ErrorCode":0}` -- invalid max order qty
+
+`{"OrderID":0,"ValidationResponse":[{"Validator":"StockValidator","CheckoutValidationType":2,"Status":"False","ValidationMessage":"Failed products"}]},"ErrorCode":0}` --zero inventry
+
+`{"OrderID":0,"ValidationResponse":[{"Validator":"StoreTimingsValidator","CheckoutValidationType":19,"Status":"False","ValidationMessage":"DeliveryslotNotInStoreTime"}]},"ErrorCode":0}` -- StoreTimingsValidator
+
 
 
 
@@ -1388,7 +1432,7 @@ Attributes | Specify any additional information such as delivery guy's mobile nu
 
 
 
-## Get Specific Order Details
+## Get an Order Details
 
 > Sample Request
 
@@ -1599,3 +1643,70 @@ PGResponse | The response received from the payment gateway for that specific or
 OperatorID | Current user id - It could be store's, admin's, or manager's
 CancelReason* | Specify the reason for order cancellation. In UI, these are auto-populated in the UI.
 TobeCancelledOrderItems | Specify the items that you want to cancel in `OrderItemID` and `CancelQuantity`
+
+
+## Process Return
+
+```html
+https://www.martjack.com/developerapi/Order/ProcessReturn/f48fdd16-92db-4188-854d-1ecd9b62xxxx
+```
+
+> Sample Request
+
+```json
+{  
+   "OrderId":"6071567",
+   "ReturnRequestId":"72380",
+   "ReturnChangeAction":{  
+      "Substatus":"RA",
+      "SubstatusChangeComments":"QC done"
+   },
+   "returnrequestdetails":[  
+      {  
+         "ReturnRequestDetailId":"109134",
+         "ReturnItemChangeAction":{  
+            "Substatus":"RA",
+            "SubstatusChangeComments":"QC comment"
+         }
+      }
+   ]
+}
+```
+
+> Sample Response
+
+```json
+{
+    "messageCode": "1007",
+    "Message": "Updated Successfully",
+    "ErrorCode": 0
+}
+```
+
+Lets you process order returns and change the sub-status of the return order requests.
+
+
+For a return order a brand could configure multiple sub-statuses according to its work-flow.
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `/Order/ProcessReturn/{MerchantId}`
+Rate Limited? | Yes
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | POST
+Batch Support | No
+
+
+### Request URL
+
+`https://{host}/developerapi/Order/ProcessReturn/{MerchantId}`
+
+Request Attributes
+Attribute | Description
+-------- | ------------
+OrderId* | Order ID of the return items
+ReturnRequestId | Return Request ID of the return. Leave this blank if you want to just modify the return details
+Substatus | Sub-status code of the return request (Preconfigured values only). Leave this blank if you want to just modify the return details
+SubstatusChangeComments | Specify the reason for return sub-status change. You can enter up to 50 characters

@@ -7,14 +7,16 @@ language_tabs:
   
 
 toc_footers:
-  - <a href='#'>Capillary Anywhere Commerce API Document</a>
-  - <a href=''></a>
+  - <a href="https://capillary.github.io/v1.1-API-Documentation/">Capillary CRM API Documentation v1.1</a>
+  - <a href="https://capillary.github.io/api-documentation/">Capillary CRM API Documentation v2.0</a>
 
 includes:
   - customer
   - order
   - shoppingList
   - cart
+  - product
+  - merchant
 
 
 search: true
@@ -27,11 +29,11 @@ Capillary Anywhere Commerce APIs are RESTful APIs that can be used to configure 
 This document provides detailed information about each Anywhere Commerce API with appropriate sample codes.
 
 
-# Authentication (Merchant Setup on Admin Portal)
+## Authentication (Merchant Setup on Admin Portal)
 Capillary Anywhere Commerce APIs can be authenticated in two ways and the Authentication Headers differ based on the type you choose. 
 
 
-## OAuth 1.0 Authentication
+### OAuth 1.0 Authentication
 OAuth protocol authenticates users via tokens (a unique string that identifies a user), that is, instead of sending actual credentials to the server on every request, you can first exchange your user credentials for a 'token', and then authenticate the user based on this 'token'. The frequency of users passing credentials over the network will be less.
 
 To access data through authorized Anywhere Commerce Developer APIs, it is required to use oAuth authentication as the input. 
@@ -42,7 +44,8 @@ To access data through authorized Anywhere Commerce Developer APIs, it is requir
 Accept | application/json |
 Content-Type | application/x-www-form-urlencoded |
 
-### Authorization Header
+**Authorization Header**
+
 To obtain access, you first need to obtain customer key and consumer secret of the app from the MartJack's **Control Panel** > **Apps** > **App Store** and configure the header. 
 
 |  | |
@@ -51,14 +54,14 @@ Authorization Type | OAuth 1.0 |
 PublicKey | ${PublicKey} |
 Consumer Secret | {app's secret value} |
 
-## JWT Authentication
+### JWT Authentication
 **JSON Web Token (JWT) Authentication** is a new standard for creating token also called Token Based Authentication. This standard basically provides a set of rules for creating tokens in a very specific way, which makes tokens more useful for you in general.
 
 The developer APIs provide sample code to create oAuth authentication token which contains Merchant Secret Key, Public Key and a few other parameters. For each data request, you need to pass the query string parameter with new oAuth signature along with other input parameters to the REST API.
 
 To enable JWT for a merchant API integration app, you need to set the column `EnableJWT`=1 in the 'martjack.tblmerchantaddons` table for a specific merchant and public key combination.
 
-### Back-end configuration required
+** Back-end configuration required**
 To obtain access, you first need to add the app in the control panel and generate the Auth token (public key) for that app.
 
 To generate Auth token use the API
@@ -78,7 +81,7 @@ MerchantId | ${merchantId} |
 
 
 
-# Request Information
+## Request Information
 
 Entry | Description
 ----- | -----------

@@ -58,7 +58,7 @@ MobileNo* | The registered mobile number to which the OTP has to be sent
 ```json
 {
 "OTP": "345432",
-"mobile": "7411000000”
+"mobile": "7411000000"
 }	
 
 ```
@@ -957,8 +957,8 @@ Batch Support | No
 
 ### Request Attributes
 Attribute | Description
---------- | -----------
 locationID* | The location id of the store 
+--------- | -----------
 BillingAddress | Specify the billing address of the customer in the respective attributes
 ShippingAddress | Specify the preferred shipping address of the customer in the respective attributes
 BillMobile | Mobile number associated to billing address
