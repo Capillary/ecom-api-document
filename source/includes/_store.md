@@ -1,8 +1,8 @@
 # Store
 
+Store is a physical location in which a merchant operates business. This resource consists of APIs related to accessing store details. 
 
-
-## Get Operating Countries
+## Get Supported Countries
 
 > Sample Request
 
@@ -564,158 +564,7 @@ https://www.martjack.com/developerapi/Store/Countries/81e77da2-723b-483d-8c0d-49
          "CountryCode":"JP",
          "PhoneCode":"81"
       },
-      {  
-         "CountryName":"JERSEY",
-         "CountryCode":"JE",
-         "PhoneCode":"44"
-      },
-      {  
-         "CountryName":"LEBANON",
-         "CountryCode":"LB",
-         "PhoneCode":"961"
-      },
-      {  
-         "CountryName":"LESOTHO",
-         "CountryCode":"LS",
-         "PhoneCode":"266"
-      },
-      {  
-         "CountryName":"LIBERIA",
-         "CountryCode":"LR",
-         "PhoneCode":"231"
-      },
-      {  
-         "CountryName":"LIBYA",
-         "CountryCode":"LY",
-         "PhoneCode":"218"
-      },
-      {  
-         "CountryName":"LIECHTENSTEIN",
-         "CountryCode":"LI",
-         "PhoneCode":"423"
-      },
-      {  
-         "CountryName":"LITHUANIA",
-         "CountryCode":"LT",
-         "PhoneCode":"370"
-      },
-      {  
-         "CountryName":"LUXEMBOURG",
-         "CountryCode":"LU",
-         "PhoneCode":"352"
-      },
-      {  
-         "CountryName":"MAURITIUS",
-         "CountryCode":"MU",
-         "PhoneCode":"230"
-      },
-      {  
-         "CountryName":"MAYOTTE",
-         "CountryCode":"YT",
-         "PhoneCode":"269"
-      },
-      {  
-         "CountryName":"MEXICO",
-         "CountryCode":"MX",
-         "PhoneCode":"52"
-      },
      
-      {  
-         "CountryName":"MOZAMBIQUE",
-         "CountryCode":"MZ",
-         "PhoneCode":"258"
-      },
-      {  
-         "CountryName":"MYANMAR",
-         "CountryCode":"MM",
-         "PhoneCode":"95"
-      },
-      {  
-         "CountryName":"NAMIBIA",
-         "CountryCode":"NA",
-         "PhoneCode":"264"
-      },
-      {  
-         "CountryName":"NATO",
-         "CountryCode":"NATO",
-         "PhoneCode":"0"
-      },
-      {  
-         "CountryName":"NAURU",
-         "CountryCode":"NR",
-         "PhoneCode":"674"
-      },
-      {  
-         "CountryName":"NEPAL",
-         "CountryCode":"NP",
-         "PhoneCode":"977"
-      },
-      {  
-         "CountryName":"NETHERLANDS",
-         "CountryCode":"NL",
-         "PhoneCode":"31"
-      },
-      {  
-         "CountryName":"NETHERLANDS ANTILLES",
-         "CountryCode":"AN",
-         "PhoneCode":"599"
-      },
-      {  
-         "CountryName":"NETWORK",
-         "CountryCode":"NET",
-         "PhoneCode":"0"
-      },
-      {  
-         "CountryName":"NEUTRAL ZONE",
-         "CountryCode":"NT",
-         "PhoneCode":"0"
-      },
-      {  
-         "CountryName":"NEW CALEDONIA",
-         "CountryCode":"NC",
-         "PhoneCode":"687"
-      },
-      {  
-         "CountryName":"NEW ZEALAND",
-         "CountryCode":"NZ",
-         "PhoneCode":"64"
-      },
-     
-      {  
-         "CountryName":"NORTH KOREA",
-         "CountryCode":"KP",
-         "PhoneCode":"850"
-      },
-      {  
-         "CountryName":"NORTHERN MARIANA ISLANDS",
-         "CountryCode":"MP",
-         "PhoneCode":"1670"
-      },
-      {  
-         "CountryName":"NORWAY",
-         "CountryCode":"NO",
-         "PhoneCode":"47"
-      },
-      {  
-         "CountryName":"OLD STYLE ARPANET",
-         "CountryCode":"ARPA",
-         "PhoneCode":"0"
-      },
-      {  
-         "CountryName":"OMAN",
-         "CountryCode":"OM",
-         "PhoneCode":"968"
-      },
-      {  
-         "CountryName":"PAKISTAN",
-         "CountryCode":"PK",
-         "PhoneCode":"92"
-      },
-      {  
-         "CountryName":"PALAU",
-         "CountryCode":"PW",
-         "PhoneCode":"680"
-      },
       {  
          "CountryName":"PALESTINIAN TERRITORY, OCCUPIED",
          "CountryCode":"PS",
@@ -726,41 +575,7 @@ https://www.martjack.com/developerapi/Store/Countries/81e77da2-723b-483d-8c0d-49
          "CountryCode":"PA",
          "PhoneCode":"507"
       },
-      {  
-         "CountryName":"PAPUA NEW GUINEA",
-         "CountryCode":"PG",
-         "PhoneCode":"675"
-      },
-      {  
-         "CountryName":"PARAGUAY",
-         "CountryCode":"PY",
-         "PhoneCode":"595"
-      },
-      {  
-         "CountryName":"PERU",
-         "CountryCode":"PE",
-         "PhoneCode":"51"
-      },
-      {  
-         "CountryName":"PHILIPPINES",
-         "CountryCode":"PH",
-         "PhoneCode":"63"
-      },
-      {  
-         "CountryName":"PITCAIRN ISLAND",
-         "CountryCode":"PN",
-         "PhoneCode":"0"
-      },
-      {  
-         "CountryName":"POLAND",
-         "CountryCode":"PL",
-         "PhoneCode":"48"
-      },
-      {  
-         "CountryName":"POLYNESIA",
-         "CountryCode":"PF",
-         "PhoneCode":"689"
-      },
+      
       {  
          "CountryName":"PORTUGAL",
          "CountryCode":"PT",
@@ -786,71 +601,8 @@ https://www.martjack.com/developerapi/Store/Countries/81e77da2-723b-483d-8c0d-49
          "CountryCode":"RO",
          "PhoneCode":"40"
       },
-      {  
-         "CountryName":"RUSSIAN FEDERATION",
-         "CountryCode":"RU",
-         "PhoneCode":"7"
-      },
-      {  
-         "CountryName":"RWANDA",
-         "CountryCode":"RW",
-         "PhoneCode":"250"
-      },
-      {  
-         "CountryName":"S. GEORGIA",
-         "CountryCode":"GS",
-         "PhoneCode":"0"
-      },
-      {  
-         "CountryName":"SAINT BARTHELEMY",
-         "CountryCode":"BL",
-         "PhoneCode":"590"
-      },
-      {  
-         "CountryName":"SAINT HELENA",
-         "CountryCode":"SH",
-         "PhoneCode":"290"
-      },
-      {  
-         "CountryName":"SAINT KITTS & NEVIS ANGUILLA",
-         "CountryCode":"KN",
-         "PhoneCode":"1869"
-      },
-      {  
-         "CountryName":"SAINT LUCIA",
-         "CountryCode":"LC",
-         "PhoneCode":"1758"
-      },
-      {  
-         "CountryName":"SERBIA",
-         "CountryCode":"RS",
-         "PhoneCode":"381"
-      },
-      {  
-         "CountryName":"SEYCHELLES",
-         "CountryCode":"SC",
-         "PhoneCode":"248"
-      },
-      {  
-         "CountryName":"SIERRA LEONE",
-         "CountryCode":"SL",
-         "PhoneCode":"232"
-      },
-      {  
-         "CountryName":"SINGAPORE",
-         "CountryCode":"SG",
-         "PhoneCode":"65"
-      },
-      {  
-         "CountryName":"SINT MAARTEN (DUTCH PART)",
-         "CountryCode":"SX",
-         "PhoneCode":"1"
-      },
-      {  
-         "CountryName":"SLOVAK REPUBLIC",
-         "CountryCode":"SK",
-         "PhoneCode":"421"
-      },
+      
+      
       {  
          "CountryName":"SLOVENIA",
          "CountryCode":"SI",
@@ -861,71 +613,7 @@ https://www.martjack.com/developerapi/Store/Countries/81e77da2-723b-483d-8c0d-49
          "CountryCode":"SB",
          "PhoneCode":"677"
       },
-      {  
-         "CountryName":"SOMALIA",
-         "CountryCode":"SO",
-         "PhoneCode":"252"
-      },
-      {  
-         "CountryName":"SOUTH AFRICA",
-         "CountryCode":"ZA",
-         "PhoneCode":"27"
-      },
-      {  
-         "CountryName":"SOUTH KOREA",
-         "CountryCode":"KR",
-         "PhoneCode":"82"
-      },
-      {  
-         "CountryName":"SOUTH SUDAN",
-         "CountryCode":"SS",
-         "PhoneCode":"211"
-      },
-      {  
-         "CountryName":"SPAIN",
-         "CountryCode":"ES",
-         "PhoneCode":"34"
-      },
-      {  
-         "CountryName":"SRI LANKA",
-         "CountryCode":"LK",
-         "PhoneCode":"94"
-      },
-      {  
-         "CountryName":"SUDAN",
-         "CountryCode":"SD",
-         "PhoneCode":"249"
-      },
-      {  
-         "CountryName":"SURINAME",
-         "CountryCode":"SR",
-         "PhoneCode":"597"
-      },
-      {  
-         "CountryName":"SVALBARD AND JAN MAYEN ISLAND",
-         "CountryCode":"SJ",
-         "PhoneCode":"0"
-      },
-      {  
-         "CountryName":"SWAZILAND",
-         "CountryCode":"SZ",
-         "PhoneCode":"268"
-      },
-      {  
-         "CountryName":"SWEDEN",
-         "CountryCode":"SE",
-         "PhoneCode":"46"
-      },
-      {  
-         "CountryName":"SWITZERLAND",
-         "CountryCode":"CH",
-         "PhoneCode":"41"
-      },
-      {  
-         "CountryName":"SYRIA",
-         "CountryCode":"SY",
-         "PhoneCode":"963"
-      },
+      
      
       {  
          "CountryName":"UGANDA",
@@ -979,7 +667,7 @@ https://www.martjack.com/developerapi/Store/Countries/81e77da2-723b-483d-8c0d-49
 }
 ```
 
-Retrieves the order fulfillment countries (with country code and phone code) of a specific merchant.
+Retrieves all the countries (with country code and phone code) supported for a specific merchant.
 
 ### Resource Information
 |  |  |
@@ -1000,7 +688,7 @@ Batch Support | No
 ### Request Parameter
 Attribute | Description
 --------- | -----------
-merchantId* | The unique id (GUID) of the merchant for which you want to see operating countries
+merchantId* | The unique id (GUID) of the merchant for which you want to see supported countries
 
 
 
@@ -1115,66 +803,7 @@ https://www.martjack.com/developerapi/Store/Cities/81e77da2-723b-483d-8c0d-49f80
          "DefautPinCode":"",
          "StateCode":"KA"
       },
-      {  
-         "CityId":146,
-         "CityName":"Gangavathi",
-         "DefautPinCode":"",
-         "StateCode":"KA"
-      },
-      {  
-         "CityId":149,
-         "CityName":"Gauribidanur",
-         "DefautPinCode":"",
-         "StateCode":"KA"
-      },
-      {  
-         "CityId":156,
-         "CityName":"Gokak",
-         "DefautPinCode":"",
-         "StateCode":"KA"
-      },
-      {  
-         "CityId":165,
-         "CityName":"Gulbarga",
-         "DefautPinCode":"585101",
-         "StateCode":"KA"
-      },
-      {  
-         "CityId":181,
-         "CityName":"Hassan",
-         "DefautPinCode":"573101",
-         "StateCode":"KA"
-      },
-      {  
-         "CityId":187,
-         "CityName":"Honnavar",
-         "DefautPinCode":"",
-         "StateCode":"KA"
-      },
-      {  
-         "CityId":191,
-         "CityName":"Hoskote",
-         "DefautPinCode":"",
-         "StateCode":"KA"
-      },
-      {  
-         "CityId":192,
-         "CityName":"Hospet",
-         "DefautPinCode":"583273",
-         "StateCode":"KA"
-      },
-      {  
-         "CityId":194,
-         "CityName":"Hubli",
-         "DefautPinCode":"580010",
-         "StateCode":"KA"
-      },
-      {  
-         "CityId":196,
-         "CityName":"Ilkal",
-         "DefautPinCode":"",
-         "StateCode":"KA"
-      },
+      
       {  
          "CityId":217,
          "CityName":"Jigani",
@@ -1277,36 +906,7 @@ https://www.martjack.com/developerapi/Store/Cities/81e77da2-723b-483d-8c0d-49f80
          "DefautPinCode":"561202",
          "StateCode":"KA"
       },
-      {  
-         "CityId":17850,
-         "CityName":"Udupi",
-         "DefautPinCode":"574101",
-         "StateCode":"KA"
-      },
-      {  
-         "CityId":18116,
-         "CityName":"Bangalore Rural",
-         "DefautPinCode":"560035",
-         "StateCode":"KA"
-      },
-      {  
-         "CityId":18151,
-         "CityName":"Chamrajnagar",
-         "DefautPinCode":"571109",
-         "StateCode":"KA"
-      },
-      {  
-         "CityId":18242,
-         "CityName":"Haveri",
-         "DefautPinCode":"581101",
-         "StateCode":"KA"
-      },
-      {  
-         "CityId":18357,
-         "CityName":"Mandya",
-         "DefautPinCode":"571401",
-         "StateCode":"KA"
-      },
+     
       {  
          "CityId":18409,
          "CityName":"Gadag",
@@ -1447,7 +1047,7 @@ https://www.martjack.com/developerapi/Store/Cities/81e77da2-723b-483d-8c0d-49f80
 ```
 
 
-Retrieves all order fulfillment cities of a merchant in a specific state
+Retrieves all the  supported cities of a specific state
 
 ### Resource Information
 |  |  |
@@ -1468,5 +1068,5 @@ Batch Support | No
 ### Request Parameter
 Attribute | Description
 --------- | -----------
-merchantId* | The unique id (GUID) of the merchant for which you want to see the order fulfillment cities
-StateCode* | The state code for which you want to see the list of order fulfillment cities
+merchantId* | The unique id (GUID) of the merchant for which you want to see supported cities
+StateCode* | The state code for which you want to see the list of supported cities
