@@ -17,6 +17,8 @@ includes:
   - cart
   - product
   - merchant
+  - store
+  - location
 
 
 search: true
