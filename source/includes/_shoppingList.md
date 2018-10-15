@@ -37,8 +37,8 @@ https://www.martjack.com/developerapi/ShoppingList/add/81e77da2-723b-483d-8c0d-4
 Creates a shopping list for a specific customer. This just creates a shopping list bucket and does not include any items in it. Use `/ShoppingList/list` to add items.
 
 ### Resource Information
-Parameter | Description
---------- | -----------
+|  |  |
+--------- | ----------- |
 URI | `ShoppingList/add/{{MerchantId}}`
 Rate Limited? | Yes
 Authentication | Yes
@@ -114,8 +114,8 @@ Retrieves the details of a specific wish list of a customer.
 
 
 ### Resource Information
-Parameter | Description
---------- | -----------
+|  |  |
+--------- | ----------- |
 URI | `ShoppingList/{{MerchantId}}/UserId/{shopping list id}/true`
 Rate Limited? | Yes
 Authentication | Yes
@@ -179,8 +179,8 @@ https://www.martjack.com/developerapi/ShoppingList/items/add/81e77da2-723b-483d-
 Adds items to an existing wish list of a customer
 
 ### Resource Information
-Parameter | Description
---------- | -----------
+|  |  |
+--------- | ----------- |
 URI | `ShoppingList/items/add/{{MerchantId}}`
 Rate Limited? | Yes
 Authentication | Yes
@@ -237,8 +237,8 @@ https://www.martjack.com/developerapi/ShoppingList/items/81e77da2-723b-483d-8c0d
 Retrieves items of a specific wish list
 
 ### Resource Information
-Parameter | Description
---------- | -----------
+| |  |
+--------- | ----------- |
 URI | `ShoppingList/items/{{MerchantId}}/UserId/{shopping list id}`
 Rate Limited? | Yes
 Authentication | Yes

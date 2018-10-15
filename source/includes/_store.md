@@ -982,8 +982,8 @@ https://www.martjack.com/developerapi/Store/Countries/81e77da2-723b-483d-8c0d-49
 Retrieves the order fulfillment countries (with country code and phone code) of a specific merchant.
 
 ### Resource Information
-Parameter | Description
---------- | -----------
+|  |  |
+--------- | ----------- |
 URI | `/Store/Countries/{{MerchantId}}`
 Rate Limited? | Yes
 Authentication | Yes
@@ -1450,8 +1450,8 @@ https://www.martjack.com/developerapi/Store/Cities/81e77da2-723b-483d-8c0d-49f80
 Retrieves all order fulfillment cities of a merchant in a specific state
 
 ### Resource Information
-Parameter | Description
---------- | -----------
+|  |  |
+--------- | ----------- |
 URI | `/Store/Cities/{{MerchantId}}/{{StateCode}}`
 Rate Limited? | Yes
 Authentication | Yes
