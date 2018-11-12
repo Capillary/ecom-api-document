@@ -148,7 +148,7 @@ WebPrice | float | Selling price of the item
 TokenPrice | float | Minimum amount required for the customer to reserve the item and purchase later on
 
 
-## Update Product Details
+## Update Product Information
 
 > Sample Request
 
@@ -156,6 +156,7 @@ TokenPrice | float | Minimum amount required for the customer to reserve the ite
 https://www.martjack.com/developerapi/product/UpdateProductInfo	
 
 ```
+
 > Sample POST Request
 
 ```json
@@ -181,14 +182,16 @@ https://www.martjack.com/developerapi/product/UpdateProductInfo
 
 > Sample Response
 
-```html
+```json
 {
     "messageCode": "1018",
     "Message": "Data update added to task queue. You can view the status of update in control panel. Also email will be send to merchant registered email after task completion.",
     "Taskid": "2718747",
     "ErrorCode": 0
 }
+```
 
+Lets you update product details.
 
 ### Resource Information
 | | |
@@ -205,7 +208,7 @@ Batch Support | No
 
 `https://{host}/developerapi/Product/UpdateProductInfo`
 
-### Request Body Parameters Information
+### Request Body Parameters
 Parameter | Type | Description 
 -------- | --------- | -----------
 SKU* | string | Unique SKU of the product
