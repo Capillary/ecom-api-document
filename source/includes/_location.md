@@ -558,7 +558,7 @@ Batch Support | No
 ### Request Parameters
 Parameter | Description
 --------- | -----------
-MerchantId | string | The unique id (GUID) of the merchant concerning the location that you want to fetch
-LocationId | string | Unique location id for which you want to see details
+MerchantId | string | The unique id (GUID) of the merchant for which you want to fetch location details
+LocationId | int | Location id for which you want to see the details
 
 

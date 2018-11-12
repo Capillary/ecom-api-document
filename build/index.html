@@ -6010,7 +6010,7 @@ IsShippingAddressDifferent | Specify <code class="prettyprint">true</code> if sh
 </tr>
 </tbody></table>
 
-<h2 id="update-product-details">Update Product Details</h2>
+<h2 id="update-product-information">Update Product Information</h2>
 
 <blockquote>
 <p>Sample Request</p>
@@ -6042,54 +6042,135 @@ IsShippingAddressDifferent | Specify <code class="prettyprint">true</code> if sh
 <blockquote>
 <p>Sample Response</p>
 </blockquote>
-<pre class="highlight html"><code>{
-    "messageCode": "1018",
-    "Message": "Data update added to task queue. You can view the status of update in control panel. Also email will be send to merchant registered email after task completion.",
-    "Taskid": "2718747",
-    "ErrorCode": 0
-}
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"messageCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1018"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Data update added to task queue. You can view the status of update in control panel. Also email will be send to merchant registered email after task completion."</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Taskid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2718747"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Lets you update product details.</p>
 
+<h3 id="resource-information">Resource Information</h3>
 
-### Resource Information
-| | |
---------- | ----------- |
-URI | `Product/UpdateProductInfo`
-Rate Limited? | Yes
-Authentication | Yes
-Response Formats | JSON
-HTTP Methods | POST
-Batch Support | No
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td><code class="prettyprint">Product/UpdateProductInfo</code></td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>POST</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>No</td>
+</tr>
+</tbody></table>
 
+<h3 id="request-url">Request URL</h3>
 
-### Request URL
+<p><code class="prettyprint">https://{host}/developerapi/Product/UpdateProductInfo</code></p>
 
-`https://{host}/developerapi/Product/UpdateProductInfo`
+<h3 id="request-body-parameters">Request Body Parameters</h3>
 
-### Request Body Parameters Information
-Parameter | Type | Description 
--------- | --------- | -----------
-SKU* | string | Unique SKU of the product
-VariantSKU* | string  | Unique SKU of the variant product.
-VariantProperty | string | The property of the variant product such as size, color, and weight. *Required for Variant Product
-VariantValue | string | The value of the specified property. *Required for Variant Product
-BrandID* | string | Unique id of the brand to which you want to associate the product
-ProductTitle* | string | New title of the product
-ProductType* | string | Values: P, A, D, B. P for normal products, A for add-on products, D for deal product, and B for bundle product
-CategoryRefCode | string | Reference code of the product category
-Inventory | int |  The number of available products of the current SKU (stock)
-MRP | float  | Retail price of the product
-Webprice | float | Selling price of the product
-Availability | string | Values: Y, N. Specify `Y` if the product is available and `N` if unavailable
-BarCode | string | Bar code of the product
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>SKU*</td>
+<td>string</td>
+<td>Unique SKU of the product</td>
+</tr>
+<tr>
+<td>VariantSKU*</td>
+<td>string</td>
+<td>Unique SKU of the variant product.</td>
+</tr>
+<tr>
+<td>VariantProperty</td>
+<td>string</td>
+<td>The property of the variant product such as size, color, and weight. *Required for Variant Product</td>
+</tr>
+<tr>
+<td>VariantValue</td>
+<td>string</td>
+<td>The value of the specified property. *Required for Variant Product</td>
+</tr>
+<tr>
+<td>BrandID*</td>
+<td>string</td>
+<td>Unique id of the brand to which you want to associate the product</td>
+</tr>
+<tr>
+<td>ProductTitle*</td>
+<td>string</td>
+<td>New title of the product</td>
+</tr>
+<tr>
+<td>ProductType*</td>
+<td>string</td>
+<td>Values: P, A, D, B. P for normal products, A for add-on products, D for deal product, and B for bundle product</td>
+</tr>
+<tr>
+<td>CategoryRefCode</td>
+<td>string</td>
+<td>Reference code of the product category</td>
+</tr>
+<tr>
+<td>Inventory</td>
+<td>int</td>
+<td>The number of available products of the current SKU (stock)</td>
+</tr>
+<tr>
+<td>MRP</td>
+<td>float</td>
+<td>Retail price of the product</td>
+</tr>
+<tr>
+<td>Webprice</td>
+<td>float</td>
+<td>Selling price of the product</td>
+</tr>
+<tr>
+<td>Availability</td>
+<td>string</td>
+<td>Values: Y, N. Specify <code class="prettyprint">Y</code> if the product is available and <code class="prettyprint">N</code> if unavailable</td>
+</tr>
+<tr>
+<td>BarCode</td>
+<td>string</td>
+<td>Bar code of the product</td>
+</tr>
+</tbody></table>
 
+<h2 id="get-item-sku-price">Get Item (SKU) Price</h2>
 
-
-## Get Item (SKU) Price
-
-&gt; Sample Request
-
-```html
-https://www.martjack.com/developerapi/Product/GetReviews/81e77da2-723b-483d-8c0d-49f800c1exxx/PZLG-WM
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
+<pre class="highlight html"><code>https://www.martjack.com/developerapi/Product/GetReviews/81e77da2-723b-483d-8c0d-49f800c1exxx/PZLG-WM
 </code></pre>
 <blockquote>
 <p>Sample POST Request</p>
