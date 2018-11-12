@@ -1,5 +1,146 @@
 # Location
 
+Location is a determination of the place where a product is available or shipped from. It could be a physical store or just a warehouse. This resource contains APIs related to accessing and managing store/warehouse location details.
+
+
+## Store Delivery Area Mapping
+
+> Sample Request
+
+```html
+https://www.martjack.com/developerapi/Location/StoreDeliveryAreaMapping/f48fdd16-92db-4188-854d-1ecd9b62xxxx
+
+```
+
+> Sample POST Request
+
+```json
+{
+   "StoreDeliveryAreaMappings":{
+      "StoreDeliveryAreaMapping":[
+         {
+            "LocationRefCode":"Hyd001",
+            "DeliveryType":"H",
+            "AreaRefCode":"12146",
+            "Operation":"remove"
+         }
+      ]
+   }
+}
+```
+
+> Sample Response
+
+```json
+
+```
+
+
+Maps a store to a delivery area
+
+
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `/Location/StoreDeliveryAreaMapping/{{MerchantId}}`
+Rate Limited? | Yes
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | POST
+Batch Support | No
+
+
+### Request URL
+
+`https://{host}/developerapi/Location/StoreDeliveryAreaMapping/{{MerchantId}}`
+
+### Request Body Parameters
+Parameter | Datatype | Description
+--------- | -------- | ----------
+LocationRefCode | string | The location reference code that you want to map to a delivery area
+DeliveryType | string  | The type of delivery of the location.  Value: H (Home delivery), S (store pickup), N (for both pickup and delivery)
+AreaRefCode | string | Delivery area reference code that you want to assign
+Operation | string | Value: add, remove. Specify `add` delivery address to a location, 	`remove` to delete
+
+
+
+
+## Update Store Location
+
+> Sample Request
+
+```html
+https://www.martjack.com/developerapi/Location/UpdateLocation/f48fdd16-92db-4188-854d-1ecd9b62xxxx/12146
+
+```
+
+> Sample POST Request
+
+```json
+[  
+   {  
+      "op":"replace",
+      "path":"/LocationName",
+      "value":"ADELIYA1"
+   },
+   {  
+      "op":"replace",
+      "path":"/Latitude",
+      "value":"36.5"
+   },
+   {  
+      "op":"replace",
+      "path":"/AdditionalDetails",
+      "value":[  
+         {  
+            "Key":"isKDSEnabled",
+            "Value":"True"
+         }
+      ]
+   }
+]	
+```
+
+
+> Sample Response
+
+```json
+
+```
+
+Updates location of a specific store
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `/Location/UpdateLocation/{{MerchantId}}/{LocationrefCode}`
+Rate Limited? | Yes
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | PATCH
+Batch Support | No
+
+
+### Request URL
+
+`https://{host}/developerapi/Location/UpdateLocation/{{MerchantId}}/{LocationrefCode}`
+
+
+### Header Modification
+
+Pass `content-type` as `application/json-patch+json`
+
+### Request Body Parameters
+Parameter | Datatype | Description
+--------- | -------- | ----------
+op* | string | Specify `replace` to update the existing information
+path | string | Path of the key
+value |  | New value of the specified path
+
+
+
+
 
 
 ## Get Location Information
@@ -396,7 +537,7 @@ https://www.martjack.com/developerapi/Location/Information/f48fdd16-92db-4188-85
 }
 ```
 
-Retrieves the entire details of a specific location such as parent location, address & contact details, recent activities, supported delivery modes, and operation timing. 
+Retrieves the details of a specific store location such as parent location, address, contact details, recent activities, supported delivery modes, and business hours. 
 
 
 ### Resource Information

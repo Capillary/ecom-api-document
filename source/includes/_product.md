@@ -67,8 +67,256 @@ isGoLive* |
 
 
 
+## Update Location wise Stock
 
-## Get Reviews of a Product
+> Sample Request
+
+```html
+https://www.martjack.com/developerapi/product/UpdateLocationWiseStock/f48fdd16-92db-4188-854d-1ecd9b62xxxx/18340
+```
+
+> Sample Response
+
+
+```json
+{
+	"products": {
+		"product": {
+			"sku":"zara1234121",
+			"variantsku":"",
+			"stock":"10",
+			"locationrefcode":"4702",
+			"Quantity":"1",
+			"MRP":"444",
+			"WebPrice":"333",
+			"TokenPrice":"222"
+		},
+		"product": {
+			"sku":"sun1234121",
+			"variantsku":"",
+			"stock":"10",
+			"locationrefcode":"48976",
+			"Quantity":"2",
+			"MRP":"200",
+			"WebPrice":"190",
+			"TokenPrice":"50"
+		}
+	}
+  }
+
+```
+
+> Sample Response
+
+```json
+{
+   "messageCode":"1018",
+   "Message":"Data update added to task queue. You can view the status of update in control panel. Also email will be send to merchant registered email after task completion.",
+   "Taskid":"2718751",
+   "ErrorCode":0
+}
+
+```
+
+Updates item stock and price of a specific location.
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `/Location/LocationWiseStock/{{MerchantId}}`
+Rate Limited? | Yes
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | POST
+Batch Support | Yes
+
+
+### Request URL
+
+`https://{host}/developerapi/Location/UpdateLocationWiseStock/{{MerchantId}}`
+
+### Request Body Parameters
+Parameter | Datatype | Description
+--------- | -------- | ----------
+sku | string | SKU of the product of a specific location for which you want to update stock and price
+variantsku | string | The variant SKU of the current item
+stock | int | Number of available items of the current SKU. Specify NA if not applicable
+locationrefcode | string | Location reference code of the current item (physical store or warehouse)
+Quantity  | int | The quantity of the item for which you want to update the price
+MRP  | float | Retail price of the item
+WebPrice | float | Selling price of the item
+TokenPrice | float | Minimum amount required for the customer to reserve the item and purchase later on
+
+
+## Update Product Details
+
+> Sample Request
+
+```html
+https://www.martjack.com/developerapi/product/UpdateProductInfo	
+
+```
+> Sample POST Request
+
+```json
+{
+    "Products":{
+        "Product":
+    {
+        "SKU": "458636",
+        "VariantSKU": "",
+        "BrandID": "1756",
+        "ProductTitle": "TiTle test",
+        "Inventory": "2000",
+        "MRP": "499",
+        "Webprice": "499",
+        "Availability": "Y",
+        "BarCode":"TestBarcode111,testbarcode222"
+    }
+
+    }
+ }
+```
+
+
+> Sample Response
+
+```html
+{
+    "messageCode": "1018",
+    "Message": "Data update added to task queue. You can view the status of update in control panel. Also email will be send to merchant registered email after task completion.",
+    "Taskid": "2718747",
+    "ErrorCode": 0
+}
+
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `Product/UpdateProductInfo`
+Rate Limited? | Yes
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | POST
+Batch Support | No
+
+
+### Request URL
+
+`https://{host}/developerapi/Product/UpdateProductInfo`
+
+### Request Body Parameters Information
+Parameter | Type | Description 
+-------- | --------- | -----------
+SKU* | string | Unique SKU of the product
+VariantSKU* | string  | Unique SKU of the variant product.
+VariantProperty | string | The property of the variant product such as size, color, and weight. *Required for Variant Product
+VariantValue | string | The value of the specified property. *Required for Variant Product
+BrandID* | string | Unique id of the brand to which you want to associate the product
+ProductTitle* | string | New title of the product
+ProductType* | string | Values: P, A, D, B. P for normal products, A for add-on products, D for deal product, and B for bundle product
+CategoryRefCode | string | Reference code of the product category
+Inventory | int |  The number of available products of the current SKU (stock)
+MRP | float  | Retail price of the product
+Webprice | float | Selling price of the product
+Availability | string | Values: Y, N. Specify `Y` if the product is available and `N` if unavailable
+BarCode | string | Bar code of the product
+
+
+
+## Get Item (SKU) Price
+
+> Sample Request
+
+```html
+https://www.martjack.com/developerapi/Product/GetReviews/81e77da2-723b-483d-8c0d-49f800c1exxx/PZLG-WM
+```
+
+> Sample POST Request
+
+```json
+{
+  "sku": "TEQUILA11547BLK",
+  "variantsku": "11547BLK",
+  "usergroupid": 67,
+  "locationrefcode": "",
+  "channelrefcode": "string"
+}
+```
+
+
+> Sample Response
+
+```json
+{
+   "messageCode":"1004",
+   "Message":"Successful",
+   "CurrentPrice":[
+      {
+         "merchantid":"81e77da2-723b-483d-8c0d-49f800c1exxx",
+         "sku":"100002587",
+         "variantsku":"0",
+         "usergroupname":null,
+         "locationrefcode":"1001",
+         "channelrefcode":null,
+         "mrp":6402,
+         "webprice":6401,
+         "quantity":1,
+         "tokenprice":0
+      },
+      {
+         "merchantid":"f48fdd16-92db-4188-854d-1ecd9b62d066",
+         "sku":"100002587",
+         "variantsku":"0",
+         "usergroupname":null,
+         "locationrefcode":"Azmi Nagar",
+         "channelrefcode":null,
+         "mrp":6402,
+         "webprice":6401,
+         "quantity":1,
+         "tokenprice":0
+      }
+   ]
+}
+```
+
+
+
+
+Retrieves the price of a specific item
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `Product/Price/{MerchantId}`
+Rate Limited? | Yes
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | POST
+Batch Support | No
+
+
+### Request URL
+
+`https://{host}/developerapi/Product/Price/{MerchantId}`
+
+### Request Body Parameters Information
+Parameter | Datatype | Description 
+--------- | -------- | -----------
+sku* | string | SKU of the item
+variantsku | string | SKU of the variant product (required for variant product)
+usergroupid | int | Specify the user group id to associate the price list to a specific group
+locationrefcode  |  string | Location/store code associated to the price list
+channelrefcode | string  | Channel code to which the price list is associated
+
+
+
+
+
+
+
+
+## Get Product Reviews
 
 ```html
 https://www.martjack.com/developerapi/Product/GetReviews/81e77da2-723b-483d-8c0d-49f800c1exxx/PZLG-WM
