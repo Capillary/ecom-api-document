@@ -556,8 +556,8 @@ Batch Support | No
 `https://{host}/developerapi/Location/Information/{{MerchantId}}/{{LocationId}}`
 
 ### Request Parameters
-Parameter | Description
---------- | -----------
+Parameter | Type | Description
+--------- | ---- | -----------
 MerchantId | string | The unique id (GUID) of the merchant for which you want to fetch location details
 LocationId | int | Location id for which you want to see the details
 
