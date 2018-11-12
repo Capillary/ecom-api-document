@@ -136,7 +136,7 @@ Parameter | Datatype | Description
 --------- | -------- | ----------
 op* | string | Specify `replace` to update the existing information
 path | string | Path of the key
-value |  | New value of the specified path
+value | string | New value of the specified path
 
 
 
@@ -558,7 +558,7 @@ Batch Support | No
 ### Request Parameters
 Parameter | Description
 --------- | -----------
-MerchantId | The unique id (GUID) of the merchant concerning the location that you want to fetch
-LocationId | Unique location id for which you want to see details
+MerchantId | string | The unique id (GUID) of the merchant concerning the location that you want to fetch
+LocationId | string | Unique location id for which you want to see details
 
 

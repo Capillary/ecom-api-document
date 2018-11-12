@@ -50,11 +50,11 @@ Batch Support | No
 
 ### Request Parameters
 
-Parameter | Description
--------- | -----------
-MerchantId* | Specify the merchant id for which the review has to be associated
-UserId* | Specify the unique id of the customer that provided the review
-SKU* | Specify the product SKU for which the review has to be associated
+Parameter | Type | Description
+-------- | ----- | -----------
+MerchantId* | string | Specify the merchant id for which the review has to be associated
+UserId* | string | Specify the unique id of the customer that provided the review
+SKU* | string  | Specify the product SKU for which the review has to be associated
 
 ### Request Attributes
 
