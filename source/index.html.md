@@ -38,17 +38,19 @@ Capillary Anywhere Commerce APIs can be authenticated in two ways and the Authen
 ### OAuth 1.0 Authentication
 OAuth protocol authenticates users via tokens (a unique string that identifies a user), that is, instead of sending actual credentials to the server on every request, you can first exchange your user credentials for a 'token', and then authenticate the user based on this 'token'. The frequency of users passing credentials over the network will be less.
 
-To access data through authorized Anywhere Commerce Developer APIs, it is required to use oAuth authentication as the input. 
 
 ### Headers
+
+To use Anywhere Commerce Developer APIs, you need to include your application's `Authorization` in the header in every request. However, you might require additional headers for few APIs which are mentioned in the respective sections.
+
 |  | |
 ---|---|
 Accept | application/json |
 Content-Type | application/x-www-form-urlencoded |
 
-**Authorization Header**
+**Authorization**
 
-To obtain access, you first need to obtain customer key and consumer secret of the app from the MartJack's **Control Panel** > **Apps** > **App Store** and configure the header. 
+Authorization determines what permissions an authenticated identity has. To obtain access, you first need to obtain customer key and consumer secret of the app from the MartJack's **Control Panel** > **Apps** > **App Store** and configure the header. 
 
 |  | |
 ---|---|
