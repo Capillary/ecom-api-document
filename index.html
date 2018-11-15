@@ -132,9 +132,9 @@
 
 <p>OAuth protocol authenticates users via tokens (a unique string that identifies a user), that is, instead of sending actual credentials to the server on every request, you can first exchange your user credentials for a &lsquo;token&rsquo;, and then authenticate the user based on this &#39;token&rsquo;. The frequency of users passing credentials over the network will be less.</p>
 
-<p>To access data through authorized Anywhere Commerce Developer APIs, it is required to use oAuth authentication as the input. </p>
-
 <h3 id="headers">Headers</h3>
+
+<p>To use Anywhere Commerce Developer APIs, you need to include your application&rsquo;s <code class="prettyprint">Authorization</code> in the header in every request. However, you might require additional headers for few APIs which are mentioned in the respective sections.</p>
 
 <table><thead>
 <tr>
@@ -152,9 +152,9 @@
 </tr>
 </tbody></table>
 
-<p><strong>Authorization Header</strong></p>
+<p><strong>Authorization</strong></p>
 
-<p>To obtain access, you first need to obtain customer key and consumer secret of the app from the MartJack&rsquo;s <strong>Control Panel</strong> &gt; <strong>Apps</strong> &gt; <strong>App Store</strong> and configure the header. </p>
+<p>Authorization determines what permissions an authenticated identity has. To obtain access, you first need to obtain customer key and consumer secret of the app from the MartJack&rsquo;s <strong>Control Panel</strong> &gt; <strong>Apps</strong> &gt; <strong>App Store</strong> and configure the header. </p>
 
 <table><thead>
 <tr>
@@ -7562,7 +7562,6 @@ IsShippingAddressDifferent | Specify <code class="prettyprint">true</code> if sh
 <p>Sample Request</p>
 </blockquote>
 <pre class="highlight html"><code>https://www.martjack.com/developerapi/Location/StoreDeliveryAreaMapping/f48fdd16-92db-4188-854d-1ecd9b62xxxx
-
 </code></pre>
 <blockquote>
 <p>Sample POST Request</p>
@@ -7583,9 +7582,22 @@ IsShippingAddressDifferent | Specify <code class="prettyprint">true</code> if sh
 <blockquote>
 <p>Sample Response</p>
 </blockquote>
-<pre class="highlight json"><code><span class="w">
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+   </span><span class="nt">"messageCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1004"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"FailedStoreDeliveryAreaMapping"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+       </span><span class="p">{</span><span class="w">
+           </span><span class="nt">"LocationRefCode"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+           </span><span class="nt">"DeliveryType"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+           </span><span class="nt">"AreaRefCode"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+           </span><span class="nt">"Operation"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+           </span><span class="nt">"ErrorMessage"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+       </span><span class="p">}</span><span class="w">
+   </span><span class="p">],</span><span class="w">
+   </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Maps a store to a delivery area</p>
+<p>Maps a store location to a delivery area</p>
 
 <h3 id="resource-information">Resource Information</h3>
 
@@ -7665,7 +7677,7 @@ IsShippingAddressDifferent | Specify <code class="prettyprint">true</code> if sh
 
 </code></pre>
 <blockquote>
-<p>Sample POST Request</p>
+<p>Sample PATCH Request</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">[</span><span class="w">  
    </span><span class="p">{</span><span class="w">  
@@ -7693,7 +7705,11 @@ IsShippingAddressDifferent | Specify <code class="prettyprint">true</code> if sh
 <blockquote>
 <p>Sample Response</p>
 </blockquote>
-<pre class="highlight json"><code><span class="w">
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+   </span><span class="nt">"messageCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1004"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>Updates location of a specific store</p>
 
@@ -7762,6 +7778,207 @@ IsShippingAddressDifferent | Specify <code class="prettyprint">true</code> if sh
 <td>value</td>
 <td>string</td>
 <td>New value of the specified path</td>
+</tr>
+</tbody></table>
+
+<h2 id="fetch-locations">Fetch Locations</h2>
+
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
+<pre class="highlight html"><code>https://www.martjack.com/developerapi/Location/f48fdd16-92db-4188-854d-1ecd9b62xxxx/Search
+
+</code></pre>
+<blockquote>
+<p>Sample POST Request</p>
+</blockquote>
+<pre class="highlight json"><code><span class="w">
+
+</span></code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"messageCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1004"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"Locations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"DistancefromInputLatLong"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ParentLocationID"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"LocationId"</span><span class="p">:</span><span class="w"> </span><span class="mi">16696</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"LocationCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OCDEL"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"LocationName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Holisol Delhi"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Address1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Holisol Logistics Pvt. Ltd, Plot No. #434/2, Phirni Road (Budh Bazar Road), Mundka New Delhi - 110041\r\n"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Address2"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"19759"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"CityName"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Area"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DL"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"StateName"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IN"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"CountryName"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Pin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"110019"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Contact1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"91-9266604xxx"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Contact2"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Holisol Warehouse"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">28.6826</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">77.022</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"LocationType"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9820eca5-d11f-4df1-9b20-983a45eaxxxx"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"IsDistributionCenter"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"EmailId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"customercare@example.com"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"IsParticipateInStock"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"IsDefaultLocation"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"IsOfflinneCheckoutEnabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"IsPointOfSale"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"IsOfflineDeals"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"IsInStorePickup"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Remarks"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"CST"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HOLDCST"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"VAT"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HOLDVAT"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"TINNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HOLDTIN"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"GSTINNO"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HOLDGSTIN"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"IsReversePickupEnabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"IsDefaultLNG_LocationName"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"IsDefaultLNG_Description"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"IsDefaultLNG_Address1"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"StoreTimings"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"HomeDeliveryTimings"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"TakeawayTimings"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"DistancefromInputLatLong"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ParentLocationID"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"LocationId"</span><span class="p">:</span><span class="w"> </span><span class="mi">17430</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"LocationCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OCBLR"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"LocationName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Holisol Bangalore"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Address1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Holisol logistics Pvt Ltd - BIBA Apparels Pvt Ltd ,C/O Garuda Polyflex Foods Pvt. Ltd.No.11, Bommasandra Jigani Link Road, Anekal Taluk,Bangalore"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Address2"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"32"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"CityName"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Area"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KA"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"StateName"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IN"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"CountryName"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Pin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"560105"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Contact1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"011-39585715"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Contact2"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Holisol Warehouse bangalore"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">12.8032</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">77.661</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"LocationType"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9820eca5-d11f-4df1-9b20-983a45eaxxxx"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"IsDistributionCenter"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"EmailId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test@example.com"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"IsParticipateInStock"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"IsDefaultLocation"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"IsOfflinneCheckoutEnabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"IsPointOfSale"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"IsOfflineDeals"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"IsInStorePickup"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Remarks"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"CST"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"VAT"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"TINNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"GSTINNO"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"IsReversePickupEnabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"IsDefaultLNG_LocationName"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"IsDefaultLNG_Description"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"IsDefaultLNG_Address1"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"StoreTimings"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"HomeDeliveryTimings"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"TakeawayTimings"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<p>Retrieves the details of locations of a specific delivery area.</p>
+
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td><code class="prettyprint">/Location/{{MerchantId}}/Search</code></td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>POST</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>No</td>
+</tr>
+</tbody></table>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">https://{host}/developerapi/Location/UpdateLocation/{{MerchantId}}/Search</code></p>
+
+<h3 id="path-parameters">Path Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>merchantId*</td>
+<td>string</td>
+<td>Unique GUID of the merchant</td>
+</tr>
+</tbody></table>
+
+<h3 id="request-body-parameters">Request Body Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>zipcode*</td>
+<td>string</td>
+<td>Area PIN code that you want to fetch</td>
+</tr>
+<tr>
+<td>deliveryarea*</td>
+<td>string</td>
+<td>Name of the delivery area. Example: Karnataka</td>
+</tr>
+<tr>
+<td>deliveryareaId*</td>
+<td>int</td>
+<td>Unique id of the delivery area</td>
+</tr>
+<tr>
+<td>outputfield</td>
+<td></td>
+<td></td>
 </tr>
 </tbody></table>
 
@@ -8207,14 +8424,692 @@ IsShippingAddressDifferent | Specify <code class="prettyprint">true</code> if sh
 </tr>
 </thead><tbody>
 <tr>
-<td>MerchantId</td>
+<td>MerchantId*</td>
 <td>string</td>
 <td>The unique id (GUID) of the merchant for which you want to fetch location details</td>
 </tr>
 <tr>
-<td>LocationId</td>
+<td>LocationId*</td>
 <td>int</td>
 <td>Location id for which you want to see the details</td>
+</tr>
+</tbody></table>
+
+<h2 id="get-delivery-cities">Get Delivery Cities</h2>
+
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
+<pre class="highlight html"><code>https://www.martjack.com/developerapi/Location/f48fdd16-92db-4188-854d-1ecd9b62xxxx/GetCities
+</code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"messageCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1004"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"DeliveryCities"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"DeliveryAreaID"</span><span class="p">:</span><span class="w"> </span><span class="mi">2654</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"DeliveryCityID"</span><span class="p">:</span><span class="w"> </span><span class="mi">32</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"DeliveryCityName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bangalore"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"DeliveryAreaID"</span><span class="p">:</span><span class="w"> </span><span class="mi">2824</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"DeliveryCityID"</span><span class="p">:</span><span class="w"> </span><span class="mi">195</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"DeliveryCityName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hyderabad"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"DeliveryAreaID"</span><span class="p">:</span><span class="w"> </span><span class="mi">3226</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"DeliveryCityID"</span><span class="p">:</span><span class="w"> </span><span class="mi">241</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"DeliveryCityName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Karimnagar"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"DeliveryAreaID"</span><span class="p">:</span><span class="w"> </span><span class="mi">3004</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"DeliveryCityID"</span><span class="p">:</span><span class="w"> </span><span class="mi">250</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"DeliveryCityName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Khammam"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"DeliveryAreaID"</span><span class="p">:</span><span class="w"> </span><span class="mi">2824</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"DeliveryCityID"</span><span class="p">:</span><span class="w"> </span><span class="mi">263</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"DeliveryCityName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kothagudem"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Retrieves all the configured delivery cities of the merchant with details such as city id, city name, and delivery area id.</p>
+
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td><code class="prettyprint">/Location/Information/{{MerchantId}}/GetCities</code></td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>No</td>
+</tr>
+</tbody></table>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">https://{host}/developerapi/Location/Information/{{MerchantId}}/GetCities</code></p>
+
+<h3 id="request-parameters">Request Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>MerchantId</td>
+<td>string</td>
+<td>The unique id (GUID) of the merchant for which you want to fetch location details</td>
+</tr>
+</tbody></table>
+
+<h2 id="get-delivery-areas">Get Delivery Areas</h2>
+
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
+<pre class="highlight html"><code>https://www.martjack.com/developerapi/Location/DeliveryAreas/9820eca5-d11f-4df1-9b20-983a45eaxxxx/12343
+</code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"messageCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1004"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"DeliveryAreas"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"DeliveryAreaID"</span><span class="p">:</span><span class="w"> </span><span class="mi">3746</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"DeliveryAreaName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Holisol_Delhi"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"AreaType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ST"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"MerchantID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9820eca5-d11f-4df1-9b20-983a45eaxxxx"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"IsArchive"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"DeliveryRefCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Holisol_Del"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"AreaTypeIDs"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"DeliveryAreaID"</span><span class="p">:</span><span class="w"> </span><span class="mi">2498</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"DeliveryAreaName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jammu and kashmir"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"AreaType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ST"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"MerchantID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9820eca5-d11f-4df1-9b20-983a45eaxxxx"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"IsArchive"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"DeliveryRefCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"J &amp; K"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"AreaTypeIDs"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"DeliveryAreaID"</span><span class="p">:</span><span class="w"> </span><span class="mi">2500</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"DeliveryAreaName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Haryana"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"AreaType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ST"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"MerchantID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9820eca5-d11f-4df1-9b20-983a45eaxxxx"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"IsArchive"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"DeliveryRefCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"haryana"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"AreaTypeIDs"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"DeliveryAreaID"</span><span class="p">:</span><span class="w"> </span><span class="mi">2516</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"DeliveryAreaName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Uttar pradesh"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"AreaType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ST"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"MerchantID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9820eca5-d11f-4df1-9b20-983a45eaxxxx"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"IsArchive"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"DeliveryRefCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UP"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"AreaTypeIDs"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"DeliveryAreaID"</span><span class="p">:</span><span class="w"> </span><span class="mi">2520</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"DeliveryAreaName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"uttarakhand"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"AreaType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ST"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"MerchantID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9820eca5-d11f-4df1-9b20-983a45eaxxxx"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"IsArchive"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"DeliveryRefCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"uttarakhand"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"AreaTypeIDs"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"DeliveryAreaID"</span><span class="p">:</span><span class="w"> </span><span class="mi">2524</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"DeliveryAreaName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"himachal pradesh"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"AreaType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ST"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"MerchantID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9820eca5-d11f-4df1-9b20-983a45eaxxxx"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"IsArchive"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"DeliveryRefCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HP"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"AreaTypeIDs"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"Pincodes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"500032"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"500055"</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nt">"DeliveryAreaID"</span><span class="p">:</span><span class="w"> </span><span class="mi">2502</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"DeliveryAreaName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Telangana"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"AreaType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ST"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"MerchantID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9820eca5-d11f-4df1-9b20-983a45eaxxxx"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"IsArchive"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"DeliveryRefCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TS"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"AreaTypeIDs"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"Pincodes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"560029"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"560076"</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nt">"DeliveryAreaID"</span><span class="p">:</span><span class="w"> </span><span class="mi">2506</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"DeliveryAreaName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Karnataka"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"AreaType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ST"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"MerchantID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9820eca5-d11f-4df1-9b20-983a45eaxxxx"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"IsArchive"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"DeliveryRefCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KA"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"AreaTypeIDs"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Retrieves delivery areas of a specific location.</p>
+
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td><code class="prettyprint">/Location/DeliveryAreas/{merchantId}/{locationId}</code></td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>No</td>
+</tr>
+</tbody></table>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">https://{host}/developerapi/Location/DeliveryAreas/{merchantId}/{locationId}</code></p>
+
+<h3 id="request-parameters">Request Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>MerchantId*</td>
+<td>string</td>
+<td>The unique id (GUID) of the merchant for which you want to fetch location details</td>
+</tr>
+<tr>
+<td>locationId*</td>
+<td>int</td>
+<td>Unique id of the location for which you want to get delivery areas</td>
+</tr>
+</tbody></table>
+
+<h2 id="get-location-information">Get Location Information</h2>
+
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
+<pre class="highlight html"><code>https://www.martjack.com/developerapi/Location/Information/9820eca5-d11f-4df1-9b20-983a45eaxxxx/16696
+</code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"messageCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1004"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"Location"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"DistancefromInputLatLong"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ParentLocationID"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"LocationId"</span><span class="p">:</span><span class="w"> </span><span class="mi">16696</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"LocationCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OCDEL"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"LocationName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Holisol Delhi"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Address1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Holisol Logistics Pvt. Ltd, Plot No. #434/2, Phirni Road (Budh Bazar Road), Mundka New Delhi - 110041\r\n"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Address2"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"19759"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"CityName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"New Delhi"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Area"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DL"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"StateName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Delhi"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IN"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"CountryName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"India"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Pin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"110019"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Contact1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"91-9266604xxx"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Contact2"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Holisol Warehouse"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">28.6826</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">77.022</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"LocationType"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9820eca5-d11f-4df1-9b20-983a45eaxxxx"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"IsDistributionCenter"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"EmailId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"customercare@example.com"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"IsParticipateInStock"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"IsDefaultLocation"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"IsOfflinneCheckoutEnabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"IsPointOfSale"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"IsOfflineDeals"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"IsInStorePickup"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Remarks"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"CST"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HOLDCST"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"VAT"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HOLVAT"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"TINNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HOLTIN"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"GSTINNO"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HOLGSTIN"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"IsReversePickupEnabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"IsDefaultLNG_LocationName"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"IsDefaultLNG_Description"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"IsDefaultLNG_Address1"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"AdditionalDetails"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LocationId"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"16696"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IsDispatchEnable"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"False"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"StoreAuthKey"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LastSeen"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1/1/2000 12:00:00 PM"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"StoreOnTime"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00:00:00"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"StoreOffTime"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00:00:00"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lastlogout"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1/1/2000 12:00:00 PM"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VendorId"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00000000-0000-0000-0000-000000000000"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"lastloginafterStoreOn"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1/1/2000 12:00:00 PM"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"isEnablePromotion"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"False"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"isEnablePrivatelabel"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"False"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MaxPromotionPerDay"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"isDineIn"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"False"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LocationPrefix"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HD"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EnableReversePickup"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"False"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AdvanceTaxPrefix"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HOLDATV"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"isKDS"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"False"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"isDriverTracking"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"False"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"isStoreManagerApp"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"False"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JDECode"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ChamsId"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TechnologyCode"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HomeDeliveryETA"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{\"StartTime\":\"01\",\"EndTime\":\"0\",\"ETAType\":0,\"ETAUnits\":\"HOURS\"}"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TakeAwayETA"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{\"StartTime\":\"0\",\"EndTime\":\"0\",\"ETAType\":0,\"ETAUnits\":\"MIN\"}"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PickupPointsETA"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{\"StartTime\":\"0\",\"EndTime\":\"0\",\"ETAType\":0,\"ETAUnits\":\"MIN\"}"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"DeliveryModes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Mode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Home Delivery Timings"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"False"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"ReasonCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"StoreTimings"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"CloseLeadTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Deliverymode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"L"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"ID"</span><span class="p">:</span><span class="w"> </span><span class="mi">9388</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Locationid"</span><span class="p">:</span><span class="w"> </span><span class="mi">16696</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"OffTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"23:00:00"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"OnTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00:00:00"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"OpenLeadTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"WeekDayId"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"CloseLeadTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Deliverymode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"L"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"ID"</span><span class="p">:</span><span class="w"> </span><span class="mi">9390</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Locationid"</span><span class="p">:</span><span class="w"> </span><span class="mi">16696</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"OffTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"23:00:00"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"OnTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00:00:00"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"OpenLeadTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"WeekDayId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"CloseLeadTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Deliverymode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"L"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"ID"</span><span class="p">:</span><span class="w"> </span><span class="mi">9392</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Locationid"</span><span class="p">:</span><span class="w"> </span><span class="mi">16696</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"OffTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"23:00:00"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"OnTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00:00:00"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"OpenLeadTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"WeekDayId"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"CloseLeadTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Deliverymode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"L"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"ID"</span><span class="p">:</span><span class="w"> </span><span class="mi">9394</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Locationid"</span><span class="p">:</span><span class="w"> </span><span class="mi">16696</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"OffTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"23:00:00"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"OnTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00:00:00"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"OpenLeadTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"WeekDayId"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"CloseLeadTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Deliverymode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"L"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"ID"</span><span class="p">:</span><span class="w"> </span><span class="mi">9396</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Locationid"</span><span class="p">:</span><span class="w"> </span><span class="mi">16696</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"OffTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"23:00:00"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"OnTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00:00:00"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"OpenLeadTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"WeekDayId"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"CloseLeadTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Deliverymode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"L"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"ID"</span><span class="p">:</span><span class="w"> </span><span class="mi">9398</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Locationid"</span><span class="p">:</span><span class="w"> </span><span class="mi">16696</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"OffTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"23:00:00"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"OnTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00:00:00"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"OpenLeadTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"WeekDayId"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"CloseLeadTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Deliverymode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"L"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"ID"</span><span class="p">:</span><span class="w"> </span><span class="mi">9400</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Locationid"</span><span class="p">:</span><span class="w"> </span><span class="mi">16696</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"OffTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"23:00:00"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"OnTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00:00:00"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"OpenLeadTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"WeekDayId"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"HomeDeliveryTimings"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"CloseLeadTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Deliverymode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"H"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"ID"</span><span class="p">:</span><span class="w"> </span><span class="mi">20588</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Locationid"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"OffTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"17:00:00"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"OnTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12:00:00"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"OpenLeadTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"WeekDayId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"TakeawayTimings"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Retrieves the details of a specific location.</p>
+
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td><code class="prettyprint">/Location/Information/{merchantId}/{locationId}</code></td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>No</td>
+</tr>
+</tbody></table>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">https://{host}/developerapi/Location/Information/{merchantId}/{locationId}</code></p>
+
+<h3 id="request-path-parameters">Request Path Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>MerchantId*</td>
+<td>string</td>
+<td>The unique id (GUID) of the merchant</td>
+</tr>
+<tr>
+<td>locationId*</td>
+<td>int</td>
+<td>Unique id of the location that you want to fetch</td>
+</tr>
+</tbody></table>
+
+<h2 id="get-reason-codes">Get Reason Codes</h2>
+<pre class="highlight html"><code>https://www.martjack.com/developerapi/Location/ReasonCodes/f48fdd16-92db-4188-854d-1ecd9b62xxxx
+</code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"messageCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1004"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ReasonCodes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Operational Reasons"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ReasonCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OR"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Technical Reasons"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ReasonCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TR"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td><code class="prettyprint">/Location/ReasonCodes/{merchantId}</code></td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>No</td>
+</tr>
+</tbody></table>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">https://{host}/developerapi/Location/ReasonCodes/{merchantId}</code></p>
+
+<h3 id="request-parameters">Request Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>MerchantId*</td>
+<td>string</td>
+<td>The unique id (GUID) of the merchant</td>
+</tr>
+</tbody></table>
+
+<h2 id="response-codes">Response Codes</h2>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1000</td>
+<td>Unhandled Exception</td>
+</tr>
+<tr>
+<td>1003</td>
+<td>Authentication Failed</td>
+</tr>
+<tr>
+<td>1004</td>
+<td>Successful</td>
+</tr>
+<tr>
+<td>1009</td>
+<td>No Record Found</td>
+</tr>
+<tr>
+<td>1030</td>
+<td>Service is not Authorized</td>
 </tr>
 </tbody></table>
 
