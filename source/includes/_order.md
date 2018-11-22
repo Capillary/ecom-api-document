@@ -230,29 +230,29 @@ Batch Support | Yes
 
 `https://{host}/developerapi/Order/BulkOrderCreation`
 
-### Request Attributes
-Parameter | Description
---------- | -----------
-orderrefno* | Reference number of the order
-orderdate* | Ordered date in `dd/mm/yy` format
-deliveredon | Specify the estimated delivery of the item if applicable for the merchant in `dd/mm/yy` format
-customertype | Type of the user as per the Martjack system. Supported Values: Guest User (for all marketplace), Registered User (If registered on Martjack platform)
-userid | Registered identifier of the customer. Required when `customertype="Registered User"`
-ordervalue | Net order amount
-orderstatus | Supported values: Pending, Authorized
-orderconfirmationmail | Supported values: Yes, No. If set to `Yes`, an order confirmation email is sent to the customer
-paymentlinkstatus | Status of the payment. Values: Pending (Bank transfer, Cheque,), Authorized (COD, Prepaid)
-calculateshippingtax | Supported values: Yes, No. Set to `No` if the order value includes all the tax and service charges. Else, you need to specify other charges separately.
-shipfirstname, shiplastname, shipaddress1 ... | Specify the customer's shipping address related information in these fields
-billfirstname, billlastname, billaddress1 ... | Specify the customer's billing address related information in these fields
-giftmsg | In case of gift orders, specify the customer's personalized message that needs to sent to the recipient
-locationcode | Reference code of the  order fulfillment location
-isselfship | Supported Value: True, False. If the order shipment is handled by marketplace such as Amazon or Flipkart specify False. If the shipment is handled by the merchant himself, set the value to True
-channelrefcode | Channel from which the order has come from (specific to Sellerworx). A channel is an instance of marketplace. A seller can have multiple channels.
-channelorderid | Order id as maintained by that specific channel  (specific to Sellerworx)
-sellerwroxorderid | Order id generated at Sellerworx. Maps Channel order id to Sellerworx order id
-items* | Specify the details of each line-item in `item` attribute
-Payments* | Specify the payment details and `orderrefno` of the order in `payment`. The orderrefno value at payment level should be same as that of the order level
+### Request Body Parameters
+Parameter |  Type | Description
+--------- | ------ | --------
+orderrefno* |  | Reference number of the order
+orderdate* |  |  Ordered date in `dd/mm/yy` format
+deliveredon |  |  Specify the estimated delivery of the item if applicable for the merchant in `dd/mm/yy` format
+customertype |  |  Type of the user as per the Martjack system. Supported Values: Guest User (for all marketplace), Registered User (If registered on Martjack platform)
+userid |  |  Registered identifier of the customer. Required when `customertype="Registered User"`
+ordervalue |  |  Net order amount
+orderstatus |  |  Supported values: Pending, Authorized
+orderconfirmationmail |  |  Supported values: Yes, No. If set to `Yes`, an order confirmation email is sent to the customer
+paymentlinkstatus |  |  Status of the payment. Values: Pending (Bank transfer, Cheque,), Authorized (COD, Prepaid)
+calculateshippingtax |  |  Supported values: Yes, No. Set to `No` if the order value includes all the tax and service charges. Else, you need to specify other charges separately.
+shipfirstname, shiplastname, shipaddress1 ... |  |  Specify the customer's shipping address related information in these fields
+billfirstname, billlastname, billaddress1 ... |  |  Specify the customer's billing address related information in these fields
+giftmsg |  |  In case of gift orders, specify the customer's personalized message that needs to sent to the recipient
+locationcode |  |  Reference code of the  order fulfillment location
+isselfship |  |  Supported Value: True, False. If the order shipment is handled by marketplace such as Amazon or Flipkart specify False. If the shipment is handled by the merchant himself, set the value to True
+channelrefcode |  |  Channel from which the order has come from (specific to Sellerworx). A channel is an instance of marketplace. A seller can have multiple channels.
+channelorderid |  |  Order id as maintained by that specific channel  (specific to Sellerworx)
+sellerwroxorderid |  |  Order id generated at Sellerworx. Maps Channel order id to Sellerworx order id
+items* |  |  Specify the details of each line-item in `item` attribute
+Payments* |  |  Specify the payment details and `orderrefno` of the order in `payment`. The orderrefno value at payment level should be same as that of the order level
 paymentstatus | The payment status of the current order. Values: Authorized, Pending
 paymentno | The reference number for order payment provided by the respective payment gateway
 vouchercode | Coupon code applied for the transaction if any. This is just for viewing purpose and the API does not do any calculation based on the voucher code
@@ -323,15 +323,15 @@ Header | Description
 ------ | -----------
 Access token* | The access token generated for the  current user session
 
-### Request Attributes
+### Request Body Parameters
 Attribute | Description
 --------- | -----------
-merchantId* | The unique id (GUID) of the merchant in which you want to place order
-PaymentOption* | The name of the payment gateway. For example, RazorPay, EBS, OnlineBankTransfer, COD, CreditCard, ChequeDD, Wallet, and eGiftVoucher
-paymentType* | The payment type used for the order - OBT (Online bank transfer),  TPG (Third party gateway), Credit, GV (Gift voucher) and so on
-gatewayId* | Gateway id through which the payment is made
-channelType |  The channel from which the order is placed. For example: amazon, myntra
-skipDeliveryAreaValidation | Specify `true` to validate delivery location before order creation, `false` to ignore validating
+merchantId* |  |  The unique id (GUID) of the merchant in which you want to place order
+PaymentOption* |  |  The name of the payment gateway. For example, RazorPay, EBS, OnlineBankTransfer, COD, CreditCard, ChequeDD, Wallet, and eGiftVoucher
+paymentType* |  |  The payment type used for the order - OBT (Online bank transfer),  TPG (Third party gateway), Credit, GV (Gift voucher) and so on
+gatewayId* |  |  Gateway id through which the payment is made
+channelType |  |   The channel from which the order is placed. For example: amazon, myntra
+skipDeliveryAreaValidation |  |  Specify `true` to validate delivery location before order creation, `false` to ignore validating
 
 
 ### Sample Validation Messages
@@ -460,27 +460,20 @@ Batch Support | No
 `http://{host}/developerapi/Order/ProcessTransaction/{MerchantId}`
 
 ### Request Attributes
-Parameter | Description
---------- | -----------
-OrderID* | The order id that you want to process
-ID | The transaction id of the order 
-PaymentType* | The payment type used for the order - OBT (Online bank transfer), TPG (Third party gateway), Credit, GV (Gift voucher) and so on
-Provider* | The provider of the payment gateway service
-GatewayID* | The respective payment gateway id
-CPUserID | The unique CP user id generated by the system 
-PaymentDetails* | Pass the payment details 
- GVCode | The gift voucher code used for the transaction (if any)
- RespCode | The unique response code generated at the payment gateway for the transaction (to our system)
- RespMessage | The entire response payload generated at the payment gateway for the transaction (to our system)
- PointsBurned | The number of points redeemed for the transaction (if any) 
- BankCode | 
- BankEMICharges | 
- PGReferenceId | 
- ChequeRefNo | The reference number of the cheque if the payment is made through cheque
- DrawnOn | 
- PaidAmount | 
- BankName | 
- IFSC | 
+Parameter | Type | Description
+--------- | ---- | -----------
+OrderID* |  |  The order id that you want to process
+ID |  |  The transaction id of the order 
+PaymentType* |  |  The payment type used for the order - OBT (Online bank transfer), TPG (Third party gateway), Credit, GV (Gift voucher) and so on
+Provider* |  |  The provider of the payment gateway service
+GatewayID* |  |  The respective payment gateway id
+CPUserID |  |  The unique CP user id generated by the system 
+PaymentDetails* |  |  Pass the payment details 
+ GVCode |  |  The gift voucher code used for the transaction (if any)
+ RespCode |  |  The unique response code generated at the payment gateway for the transaction (to our system)
+ RespMessage |  |  The entire response payload generated at the payment gateway for the transaction (to our system)
+ PointsBurned |  |  The number of points redeemed for the transaction (if any) 
+ 
 
  
  
@@ -534,15 +527,15 @@ Batch Support | No
 
 `https://{host}/developerapi/order/SaveMerchantTransaction/{merchantId}`
 
-### Request Parameters
-Parameter | Description
---------- | -----------
-PaymentOption | The name of the payment gateway. For example, RazorPay, EBS, OnlineBankTransfer, COD, CreditCard, ChequeDD, Wallet, and eGiftVoucher
-PaymentType | The mode of payment chosen for the transaction. Values could be OBT (Online bank transfer), TPG (Third party gateway), Credit, GV (Gift voucher) and so on
-OrderId | The unique id of the order
-MerchantId | The unique id (GUID) of the merchant in which the order is registered
-status | The status of the current payment. Value: Pending, Authorized
-amount | The transaction amount paid through the current payment type
+### Request Body Parameters
+Parameter | Type | Description
+--------- | ---- | -----------
+PaymentOption |  |  The name of the payment gateway. For example, RazorPay, EBS, OnlineBankTransfer, COD, CreditCard, ChequeDD, Wallet, and eGiftVoucher
+PaymentType |  |  The mode of payment chosen for the transaction. Values could be OBT (Online bank transfer), TPG (Third party gateway), Credit, GV (Gift voucher) and so on
+OrderId |  |  The unique id of the order
+MerchantId |  |  The unique id (GUID) of the merchant in which the order is registered
+status |  |  The status of the current payment. Value: Pending, Authorized
+amount |  |  The transaction amount paid through the current payment type
 
 
 
@@ -912,11 +905,11 @@ Batch Support | No
 
 `merchantId*`: Pass the unique merchant id (GUID) in which the order is placed
 
-### Request Attributes
-Parameter | Description
---------- | -----------
-OrderId* | Existing Order id of the customer that you want to order again
-UserId* | The unique identifier of the customer associated to the order
+### Request Body Parameters
+Parameter | Type | Description
+--------- | ----- | ------
+OrderId* |  |  Existing Order id of the customer that you want to order again
+UserId* |   | The unique identifier of the customer associated to the order
 
 
 
@@ -1039,22 +1032,22 @@ Batch Support | No
 
 `https://{host url}/developerapi/Order/History/{{MerchantId}}`
 
-### Request Parameters
-Parameter | Description
---------- | -----------
-UserId | The unique user identifier of the customer whose details need to be retrieved
-FromDate | Specify the duration for which you want to fetch the order history (mm-dd-yyyy hh:mm:ss format) in FromDate and ToDate
-ToDate |  Specify the duration for which you want to fetch the order history (mm-dd-yyyy hh:mm:ss format) in FromDate and ToDate
-Status | Filter the search results by order status(P=Pending, F=Cancel, A=Approved)
-ShipDateFrom | Filter the search results by shipped date range - from (ShipDateFrom) and to (ShipDateTo) in  (mm-dd-yyyy hh:mm:ss format). If ShipDateFrom is specified, then you also need to specify ShipDateTo
-ShipDateTo | Filter the search results by shipped date range - from (ShipDateFrom) and to (ShipDateTo) in  (mm-dd-yyyy hh:mm:ss format). If ShipDateFrom is specified, then you also need to specify ShipDateTo
-Sku | Filter the search results by SKU id based on the ids matching the specified value. For example, if you specify 100,  you will get the list of orders with item SKU ids starting with 100. You can also fetch a specific ordered item by passing the exact SKU id.
-OrderId | Filter the search results by order id or order number. For example, if you specify 5550,  you will get the list of all orders with order ids starting with 5500. You can also fetch a specific order by passing the exact order id.
-FromOrder | Order Id / Number (can use to get the latest orders )
-store | Store type it can be a keyword are merchantid(It can be optional)
-WithRewards | Retrieve the list of orders with loyalty rewards. Send  ‘True’ if you required reward/loyalty details. By default value will be ‘False’
-OperatorId | ---
-LocationId | Order fulfillment location
+### Request Body Parameters
+Parameter | Type | Description
+--------- | ----- | ------
+UserId |  |  The unique user identifier of the customer whose details need to be retrieved
+FromDate |  |  Specify the duration for which you want to fetch the order history (mm-dd-yyyy hh:mm:ss format) in FromDate and ToDate
+ToDate |  |   Specify the duration for which you want to fetch the order history (mm-dd-yyyy hh:mm:ss format) in FromDate and ToDate
+Status |  |  Filter the search results by order status(P=Pending, F=Cancel, A=Approved)
+ShipDateFrom |  |  Filter the search results by shipped date range - from (ShipDateFrom) and to (ShipDateTo) in  (mm-dd-yyyy hh:mm:ss format). If ShipDateFrom is specified, then you also need to specify ShipDateTo
+ShipDateTo |  |  Filter the search results by shipped date range - from (ShipDateFrom) and to (ShipDateTo) in  (mm-dd-yyyy hh:mm:ss format). If ShipDateFrom is specified, then you also need to specify ShipDateTo
+Sku |  |  Filter the search results by SKU id based on the ids matching the specified value. For example, if you specify 100,  you will get the list of orders with item SKU ids starting with 100. You can also fetch a specific ordered item by passing the exact SKU id.
+OrderId |  |  Filter the search results by order id or order number. For example, if you specify 5550,  you will get the list of all orders with order ids starting with 5500. You can also fetch a specific order by passing the exact order id.
+FromOrder |  |  Order Id / Number (can use to get the latest orders )
+store |  |  Store type it can be a keyword are merchantid(It can be optional)
+WithRewards |  |  Retrieve the list of orders with loyalty rewards. Send  ‘True’ if you required reward/loyalty details. By default value will be ‘False’
+OperatorId |  |  ---
+LocationId |  |  Order fulfillment location
 
 
 
@@ -1115,17 +1108,17 @@ Batch Support | No
 
 `https://{host}/developerapi/Order/Authorize`
 
-### Request Parameters
-Parameter | Description
---------- | -----------
-Merchant Id* | The unique id (GUID) of the merchant in which the order is made
-Date* | Date of authorization
-Order Id* | The order id that you need to authorize
-Comment | 
-BankInstrumentNumber | The unique reference number generated at the banks or financial systems for payments other than CODs(Cards, credit transfers, direct debits, Cheques/DDs)
-BankName | Specify the bank name through which the transaction is made
-GatewayOption* | (GatewayOption=IVR/EBS/HDFC)
-PGResponse | Response payload received from the payment gateway for the specific order
+### Request Body Parameters
+Parameter | Type | Description
+--------- | ---- | ----------
+Merchant Id* |  |  The unique id (GUID) of the merchant in which the order is made
+Date* |  |  Date of authorization
+Order Id* |  |  The order id that you need to authorize
+Comment |   | 
+BankInstrumentNumber |  |  The unique reference number generated at the banks or financial systems for payments other than CODs(Cards, credit transfers, direct debits, Cheques/DDs)
+BankName |   | Specify the bank name through which the transaction is made
+GatewayOption* |  |  (GatewayOption=IVR/EBS/HDFC)
+PGResponse |   | Response payload received from the payment gateway for the specific order
 
 
 
@@ -1315,12 +1308,12 @@ Batch Support | No
 
 `https://{host}/developerapi/order/invoice/{merchantid}/{InvoiceNumber}/{LocationRefCode}`
 
-### Request Parameters
-Parameter | Description
---------- | -----------
-merchantid* | The unique id (GUID) of the merchant in which the invoice is available
-InvoiceNumber* | The invoice number that you want to fetch
-LocationRefCode* | The location code of the order fulfillment store
+### Request Path Parameters
+Parameter | Type | Description
+--------- | ----- | ------
+merchantid* |   | The unique id (GUID) of the merchant in which the invoice is available
+InvoiceNumber* |  |  The invoice number that you want to fetch
+LocationRefCode* |  |  The location code of the order fulfillment store
 
 
 
@@ -1400,23 +1393,23 @@ Batch Support | No
 
 `https://{host}/developerapi/Order/Ship`
 
-### Request Parameters
-Parameter | Description
---------- | -----------
-MerchantId* | The unique id (GUID) of the merchant in which the order is registered or placed
-OrderId* | The order id of the current shipment item 
-AWBNumber* | The air way bill number generated for the shipment
-CourierName* | The courier service used for shipment
-ShipDate* | The date on which the order is shipped in `dd/mm/yy` format
-ShipmentType* | The type of shipment. Values: normal, 
-LocationRefCode* | Location reference code of the order fulfillment store
-lineitems* | The details of each line item. Specify `OrderLineId` and `Quantity`
-ShipmentTrip | Provide more details details of the shipping using the parameters specified below. You can use this if applicable for the current merchant
-RiderID | Specify the rider id as available in the merchant system
-RiderCode | Specify the rider code as available in the merchant system
-TripRefNo | Specify the trp reference number as per the merchant system
-VehicleNumber | Specify the vehicle number delivery vehicle
-Attributes | Specify any additional information such as delivery guy's mobile number
+### Request Body Parameters
+Parameter | Type |  Description
+--------- | ---- | -------
+MerchantId* |  |  The unique id (GUID) of the merchant in which the order is registered or placed
+OrderId* |  |  The order id of the current shipment item 
+AWBNumber* |  |  The air way bill number generated for the shipment
+CourierName* |  |  The courier service used for shipment
+ShipDate* |  |  The date on which the order is shipped in `dd/mm/yy` format
+ShipmentType* |  |  The type of shipment. Values: normal, 
+LocationRefCode* |  |  Location reference code of the order fulfillment store
+lineitems* |  |  The details of each line item. Specify `OrderLineId` and `Quantity`
+ShipmentTrip |  |  Provide more details details of the shipping using the parameters specified below. You can use this if applicable for the current merchant
+RiderID |  |  Specify the rider id as available in the merchant system
+RiderCode |  |  Specify the rider code as available in the merchant system
+TripRefNo |  |  Specify the trp reference number as per the merchant system
+VehicleNumber |  |  Specify the vehicle number delivery vehicle
+Attributes |  |  Specify any additional information such as delivery guy's mobile number
  
 
 
@@ -1432,7 +1425,7 @@ Attributes | Specify any additional information such as delivery guy's mobile nu
 
 
 
-## Get an Order Details
+## Get Order Details
 
 > Sample Request
 
@@ -1499,10 +1492,266 @@ token_secret | Unique authentication key generated for the request
 `https://{host}/developerapi/Order/{merchant id}/{order id}`
 
 ### Request Parameters
-Parameter | Description
---------- | -----------
-merchantId* | The unique id (GUID) of the merchant from which you want to fetch order details
-order id* | The order id that you want to fetch
+Parameter | Type | Description
+--------- | ---- | -------
+merchantId* |   | The unique id (GUID) of the merchant from which you want to fetch order details
+order id* |   | The order id that you want to fetch
+
+
+
+## Get Order Information (V2)
+
+> Sample Request
+
+```html
+https://www.martjack.com/developerapi/Order/V2/81e77da2-723b-483d-8c0d-49f800c1xxxx/3390199
+```
+
+> Sample Response
+
+```json
+{
+	"messageCode": "1004",
+	"Message": "Successful",
+	"Orders": [
+    	{
+        	"OrderId": 3390199,
+        	"Status": "S",
+        	"MerchantId": "81e77da2-723b-483d-8c0d-49f800c1xxxx",
+        	"UserId": "7b0873e5-e8ed-45b4-bee8-204489a2axxx",
+        	"TotalAmount": 3.25,
+        	"AmountPayable": 3.25,
+        	"OrderDate": "/Date(1541771716000+0530)/",
+        	"BillFirstname": "Tom",
+        	"BillLastname": "Sawyer",
+        	"BillCountry": "الكويت",
+        	"BillingState": "حولي",
+        	"BillCity": "السالمية",
+        	"BillEmail": "tom.sawyer@example.com",
+        	"BillZIP": "0",
+        	"BillPhone": "97175040",
+        	"BillMobile": "97175040",
+        	"BillAddress1": "Block 12, Abo Horaira Street",
+        	"ShipFirstname": "Tom",
+        	"ShipLastname": "",
+        	"ShipCountry": "الكويت",
+        	"ShipState": "حولي",
+        	"ShipCity": "السالمية",
+        	"ShipEmail": "tom.sawyer@example.com",
+        	"ShipZip": "0",
+        	"ShipPhone": "97175040",
+        	"ShipMobile": "97175040",
+        	"ShipAddress1": "",
+        	"ShipOtherCity": null,
+        	"DeliveryOption": "pickup",
+        	"TAXTotal": 0,
+        	"VoucherCode": "",
+        	"LeadTime": "",
+        	"BillAddress2": "",
+        	"ShipAddress2": "",
+        	"IsGift": false,
+        	"SupplierID": "00000000-0000-0000-0000-000000000000",
+        	"ConversionFactor": "1",
+        	"cpuserid": "00000000-0000-0000-0000-000000000000",
+        	"OrderLineId": [
+            	{
+                	"OrderLineId": 21160149,
+                	"OrderId": 3390199,
+                	"ProductId": 8303029,
+                	"VariantProductId": 0,
+                	"IsParentProduct": false,
+                	"Description": "",
+                	"Quantity": 1,
+                	"ShippingCost": 0,
+                	"ProductPrice": 0,
+                	"TotalPromotionDiscount": 0,
+                	"ReturnReason": "",
+                	"ReturnAction": "",
+                	"StockAction": "",
+                	"ReturnQty": 0,
+                	"IsBackOrder": false,
+                	"TotalVoucherDiscount": 0,
+                	"TotalTaxAmount": 0,
+                	"ShippingVoucherDiscount": 0,
+                	"CustomFields": "",
+                	"VariantMasterProductId": 0,
+                	"LocationCode": "111",
+                	"ShippingStatus": "W",
+                	"DeliveryMode": "S",
+                	"VendorId": "2002cbfe-9adf-42ac-9bfd-8e013fee7gtr",
+                	"ItemStatus": "S",
+                	"SKU": "Dls-130031",
+                	"VariantSku": "",
+                	"ProductTitle": "BUY ONE GET ONE FREE- Medium",
+                	"BundleProductId": "8303029",
+                	"ParentReDetailsId": "0",
+                	"IsPrimaryProduct": "false",
+                	"Portion": "",
+                	"MRP": "0.0000",
+                	"TaxDetails": [],
+                	"LocationId": 13360,
+                	"CategoryId": "CU00215646",
+                	"CategoryName": "Deals",
+                	"CancelQuantity": 0,
+                	"DerivedStatus": "Waiting for Collection - Instore",
+                	"DerivedStatusCode": "W",
+                	"EstimatedDeliveryTime": "01-Jan-0001 12:00:00 AM",
+                	"PromotionIds": null,
+                	"SubStatus": ""
+            	},
+            	{
+                	"OrderLineId": 21160151,
+                	"OrderId": 3390199,
+                	"ProductId": 8303031,
+                	"VariantProductId": 0,
+                	"IsParentProduct": false,
+                	"Description": "",
+                	"Quantity": 1,
+                	"ShippingCost": 0,
+                	"ProductPrice": 0,
+                	"TotalPromotionDiscount": 0,
+                	"ReturnReason": "",
+                	"ReturnAction": "",
+                	"StockAction": "",
+                	"ReturnQty": 0,
+                	"IsBackOrder": false,
+                	"TotalVoucherDiscount": 0,
+                	"TotalTaxAmount": 0,
+                	"ShippingVoucherDiscount": 0,
+                	"CustomFields": "",
+                	"VariantMasterProductId": 0,
+                	"LocationCode": "111",
+                	"ShippingStatus": "W",
+                	"DeliveryMode": "S",
+                	"VendorId": "81e77da2-723b-483d-8c0d-49f800c1xxxx",
+                	"ItemStatus": "S",
+                	"SKU": "Pz-New-Spicy-Chicken-Ranch",
+                	"VariantSku": "",
+                	"ProductTitle": "New Spicy Chicken Ranch",
+                	"BundleProductId": "8303029",
+                	"ParentReDetailsId": "21160149",
+                	"IsPrimaryProduct": "false",
+                	"Portion": "W",
+                	"MRP": "0.0000",
+                	"TaxDetails": [],
+                	"LocationId": 13360,
+                	"CategoryId": "CU00215656",
+                	"CategoryName": "Chicken",
+                	"BundleCartReferenceKey": "00b623ee-cc01-4aaf-8b02-69c047fb4c66",
+                	"CancelQuantity": 0,
+                	"DerivedStatus": "Waiting for Collection - Instore",
+                	"DerivedStatusCode": "W",
+                	"EstimatedDeliveryTime": "01-Jan-0001 12:00:00 AM",
+                	"PromotionIds": null,
+                	"SubStatus": ""
+            	},
+            	
+        	],
+        	"PaymentDetails": [
+            	{
+                	"PointsBurned": "0",
+                	"AgentId": "",
+                	"GV": "",
+                	"Channel": "W",
+                	"CurrencyCode": "KWD",
+                	"PaymentResponse": "",
+                	"PaymentStatus": "A",
+                	"Amount": "3.2500",
+                	"PaymentDate": "11/9/2018 7:25:16 PM",
+                	"PaymentType": "COD",
+                	"OrderId": 3390199,
+                	"PaymentDetailsId": 3395813,
+                	"checkOutGroup": "",
+                	"PaymentOption": "COD",
+                	"clientIP": "",
+                	"ResponseCode": "N",
+                	"ClientUserAgent": "API"
+            	}
+        	],
+        	"Rewards": null,
+        	"ShippingDiscount": 0,
+        	"VoucherDiscount": 0,
+        	"PromotionDiscount": 0,
+        	"OriginalOrderId": "",
+        	"ReturnOrderId": "",
+        	"ReferenceNo": "",
+        	"DemandedDeliveryDate": "09-Nov-2018",
+        	"deliveryslots": {
+            	"StartTime": "08:00 PM",
+            	"EndTime": "08:15 PM",
+            	"DeliverySlotId": "14136"
+        	},
+        	"PickupFirstName": "",
+        	"PickupLastName": "",
+        	"PickupEmail": "",
+        	"PickupMobile": "",
+        	"Latitude": "0",
+        	"Longitude": "0",
+        	"GiftMessage": "جبن زيادة",
+        	"LanguageCode": "ar",
+        	"ShipCityCode": "39440",
+        	"ShipStateCode": "KW13",
+        	"BillCityCode": "39440",
+        	"ShipCountryCode": "KW",
+        	"BillStateCode": "KW13",
+        	"BillCountryCode": "KW",
+        	"RefundAmount": "0",
+        	"ChannelID": "0",
+        	"IsSelfShip": "False",
+        	"ChannelOrderID": "0",
+        	"Promotions": null,
+        	"SubStatus": "IK",
+        	"OrderAttributes": [
+            	{
+                	"OrderId": 3390199,
+                	"MerchantId": "81e77da2-723b-483d-8c0d-49f800c1xxxx",
+                	"AttributeID": 18,
+                	"AttributeName": "IsImmediateOrder",
+                	"Value": "true"
+            	},
+            	{
+                	"OrderId": 3390199,
+                	"MerchantId": "81e77da2-723b-483d-8c0d-49f800c1xxxx",
+                	"AttributeID": 32,
+                	"AttributeName": "channelid",
+                	"Value": "PWA,android"
+            	}
+        	],
+        	"SourceLocationID": "13360",
+        	"SourceLocationCode": "111",
+        	"OrderDateLocal": null,
+        	"AutoUpdateTime": "/Date(1541781700000+0530)/"
+    	}
+	],
+	"ErrorCode": 0
+}
+
+```
+
+
+Retrieves the details of a specific order of a merchant.
+
+
+| | |
+--------- | ----------- |
+URI | `order/V2/{{MerchantId}}/{orderID}`
+Rate Limited? | Yes
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | GET
+Batch Support | Yes
+
+### Request URL
+`http://{host}/developerapi/order/V2/{{MerchantId}}/{orderID}`
+
+### Request Parameters
+Parameter | Type | Description
+--------- | ----- | ------
+MerchantId* | string | Unique GUID of the merchant associated to the order
+orderID* | long | Order id for which you want to fetch details
+V2* | string | Supported API version
+
+
 
 
 
@@ -1546,8 +1795,8 @@ Cancels a specific order of a customer placed on a merchant store. However, an o
 
 
 ### Resource Information
-Parameter | Description
---------- | -----------
+ |  |  |
+--------- | ----------- | 
 URI | `Order/Cancel`
 Rate Limited? | Yes
 Authentication | Yes
@@ -1559,17 +1808,17 @@ Batch Support | No
 
 `http://{host}/developerapi/Order/Cancel`
 
-### Request Parameters
-Parameter | Description
---------- | -----------
-Merchant Id* | The unique id (GUID) of the merchant in which the order is placed
-OrderId* | Provide the order id that you want to cancel
-Date* | The date on which the order is created in mm/dd/yy format
-Comment | Specify the customer's reason for the order cancellation
-DisplayCommentToUser | Value: True/False. Specify whether to make the custom comment visible (True) or invisible (False) to the end-customer 
-PGResponse | The response received from the payment gateway
-OperatorID | Current user id - It could be store, admin, manager
-CancelReason* | Value: Auto populated reason
+### Request Body Parameters
+Parameter | Type | Description
+--------- | ----- | ------
+Merchant Id* |   | The unique id (GUID) of the merchant in which the order is placed
+OrderId* |   | Provide the order id that you want to cancel
+Date* |   | The date on which the order is created in mm/dd/yy format
+Comment |   | Specify the customer's reason for the order cancellation
+DisplayCommentToUser |   | Value: True/False. Specify whether to make the custom comment visible (True) or invisible (False) to the end-customer 
+PGResponse |   | The response received from the payment gateway
+OperatorID |   | Current user id - It could be store, admin, manager
+CancelReason* |   | Value: Auto populated reason
  
  
 ## Cancel Order Lineitem
@@ -1631,21 +1880,23 @@ Batch Support | No
 
 `http://{host}/developerapi/Order/CancelItem`
 
-### Request Parameters
-Parameter | Description
---------- | -----------
-Merchant Id* | The unique id (GUID) of the merchant in which the order is placed
-OrderId* | Provide the order id that you want to cancel
-Date* | The date on which the order is created in mm/dd/yy format
-Comment | Specify the customer's reason for the order cancellation
-DisplayCommentToUser | Value: True/False. Specify whether to make the custom comment visible (True) or invisible (False) to the end-customer 
-PGResponse | The response received from the payment gateway for that specific order
-OperatorID | Current user id - It could be store's, admin's, or manager's
-CancelReason* | Specify the reason for order cancellation. In UI, these are auto-populated in the UI.
-TobeCancelledOrderItems | Specify the items that you want to cancel in `OrderItemID` and `CancelQuantity`
+### Request Body Parameters
+Parameter | Type | Description
+--------- | ---- | -------
+Merchant Id* |   | The unique id (GUID) of the merchant in which the order is placed
+OrderId* |   | Provide the order id that you want to cancel
+Date* |   | The date on which the order is created in mm/dd/yy format
+Comment |   | Specify the customer's reason for the order cancellation
+DisplayCommentToUser |  |  Value: True/False. Specify whether to make the custom comment visible (True) or invisible (False) to the end-customer 
+PGResponse |  |  The response received from the payment gateway for that specific order
+OperatorID |  |  Current user id - It could be store's, admin's, or manager's
+CancelReason* |  |  Specify the reason for order cancellation. In UI, these are auto-populated in the UI.
+TobeCancelledOrderItems |  |  Specify the items that you want to cancel in `OrderItemID` and `CancelQuantity`
 
 
 ## Process Return
+
+> Sample Request
 
 ```html
 https://www.martjack.com/developerapi/Order/ProcessReturn/f48fdd16-92db-4188-854d-1ecd9b62xxxx
@@ -1703,10 +1954,167 @@ Batch Support | No
 
 `https://{host}/developerapi/Order/ProcessReturn/{MerchantId}`
 
-Request Attributes
-Attribute | Description
--------- | ------------
-OrderId* | Order ID of the return items
-ReturnRequestId | Return Request ID of the return. Leave this blank if you want to just modify the return details
-Substatus | Sub-status code of the return request (Preconfigured values only). Leave this blank if you want to just modify the return details
-SubstatusChangeComments | Specify the reason for return sub-status change. You can enter up to 50 characters
+Request Body Parameters
+Attribute | Type | Description
+-------- | ----- | -------
+OrderId* |   | Order ID of the return items
+ReturnRequestId |  |  Return Request ID of the return. Leave this blank if you want to just modify the return details
+Substatus |   | Sub-status code of the return request (Preconfigured values only). Leave this blank if you want to just modify the return details
+SubstatusChangeComments |   | Specify the reason for return sub-status change. You can enter up to 50 characters
+
+
+
+
+## Create Shipment Packages
+
+> Sample Request
+
+```html
+https://www.martjack.com/developerapi/Order/CreateShipmentPackages/f48fdd16-92db-4188-854d-1ecd9b62xxxx
+```
+
+> Sample POST Request
+
+```json
+{
+  "CreateShipmentPackages": {
+	"OrderID": "6402591",
+	"ShipmentType": "Normal",
+	"AirwayBillNo": "123456",
+	"CourierName": "Custom",
+	"ShipmentPickupDate": "2018\/10\/30",
+	"LocationCode": "1001",
+	"ShipmentPackageInputs": [
+  	{
+    		"PackageCode": "FN322",
+    		"PackingSupplyRefCode": "LOOSE",
+    		"PackageID": "16",
+    		"ShipmentPackageItems": [
+      		{
+        			"OrderItemId": "23356065",
+        			"Quantity": 1
+      		},
+      		{
+        			"OrderItemId": "23356068",
+        			"Quantity": 1
+      		}
+    	     ]
+  	},
+  	{
+    		"PackageCode": "NEW44",
+    		"PackingSupplyRefCode": "HIGH",
+    		"PackageID": "18",
+    		"ShipmentPackageItems": [
+      		{
+        			"OrderItemId": "23356080",
+        			"Quantity": 2
+      		},
+      		{
+        			"OrderItemId": "23356088",
+        			"Quantity": 1
+      		}
+    	    ]
+  	}
+       ]
+  }
+}
+
+```
+
+> Sample Response
+
+```json
+
+```
+
+Creates shipment packages for a specific order.
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `/Order/ShipmentPackages/{MerchantId}`
+Rate Limited? | Yes
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | POST
+Batch Support | No
+
+
+
+### Request URL
+
+`https://{host}/developerapi/Order/ShipmentPackages/{MerchantId}`
+
+
+### Request Body Parameters
+
+Parameter | Type | Description
+-------- | ----- | -----------
+OrderID | long | The order id for which you want to create shipment packages
+ShipmentType | string  | Type of shipment. Supported value: `Normal`
+AirwayBillNo | string | 
+CourierName | string | 
+ShipmentPickupDate | date-time | Pickup date of the shipment in `YYYY\/MM\/DD` format
+LocationCode | string | Reference code of the order fulfillment location
+PackageCode |  | 
+PackingSupplyRefCode |  | 
+PackageID |  | 
+OrderItemId |  | Line item id of the individual items of the order
+Quantity | int | Quantity of the current order item
+
+
+
+
+## Get Shipment Packages
+
+> Sample Request
+
+```html
+https://www.martjack.com/developerapi/Order/ShipmentPackages/f48fdd16-92db-4188-854d-1ecd9b62xxxx
+```
+
+> Sample Response
+
+```json
+{
+  "messageCode": "1004",
+  "Message": "Successful",
+  "ShipmentPackages": [
+	{
+  	"PackageId": 38,
+  	"PackageType": "HYC",
+  	"LWH": "1X1X1",
+  	"Weight": 10,
+  	"UOM": "Kgs",
+  	"PackingSupplyRefCode": "36478"
+	},
+	{
+  	"PackageId": 18,
+  	"PackageType": "test",
+  	"LWH": "",
+  	"Weight": 100,
+  	"UOM": "Gms",
+  	"PackingSupplyRefCode": "test"
+	}
+  ],
+  "ErrorCode": 0
+}
+
+```
+
+Retrieves shipment packages of the merchant.
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `/Order/ShipmentPackages/{MerchantId}`
+Rate Limited? | Yes
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | GET
+Batch Support | No
+
+
+### Request URL
+
+`https://{host}/developerapi/Order/ShipmentPackages/{MerchantId}`

@@ -22,6 +22,12 @@ https://www.martjack.com/developerapi/Location/StoreDeliveryAreaMapping/f48fdd16
             "DeliveryType":"H",
             "AreaRefCode":"12146",
             "Operation":"remove"
+         },
+		 {
+            "LocationRefCode":"Hyd001",
+            "DeliveryType":"H",
+            "AreaRefCode":"12146",
+            "Operation":"add"
          }
       ]
    }
@@ -797,7 +803,7 @@ Batch Support | No
 ### Request Parameters
 Parameter | Type | Description
 --------- | ---- | -----------
-MerchantId | string | The unique id (GUID) of the merchant for which you want to fetch location details
+MerchantId* | string | The unique id (GUID) of the merchant for which you want to fetch location details
 
 
 

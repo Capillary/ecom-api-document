@@ -19,6 +19,7 @@ includes:
   - merchant
   - store
   - location
+  - pricelist
 
 
 search: true
