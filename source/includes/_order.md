@@ -2118,3 +2118,135 @@ Batch Support | No
 ### Request URL
 
 `https://{host}/developerapi/Order/ShipmentPackages/{MerchantId}`
+
+
+
+
+
+## Get Activity History
+
+> Sample Request
+
+```html
+https://www.martjack.com/developerapi/Order/GetOrderActivityHistory/f48fdd16-92db-4188-854d-1ecd9b62xxxx
+```
+
+> Sample POST Request
+
+```json
+MerchantId=f48fdd16-92db-4188-854d-1ecd9b62xxxx&InputFormat=application/json&InputData={  
+   "orderfieldchangehistory":"false",
+   "activityhistory":"true",
+   "orderids":[  
+      3725777
+   ]
+}
+```
+
+> Sample Response
+
+```json
+{  
+   "messageCode":"1004",
+   "Message":"Successful",
+   "ErrorCode":0,
+   "ListOfOrderActivities":[  
+      {  
+         "OrderID":7124734,
+         "OrderItemFieldChangeHistory":null,
+         "OrderActivityHistory":[  
+            {  
+               "ConversationLogId":67677854,
+               "ConversationDate":"/Date(1536326104000+0530)/",
+               "ConversationText":"Payment through 'PAYTM' mode has been saved successfully.",
+               "RETransactionId":7124734,
+               "ConversationType":"SOL",
+               "CPUserId":"00000000-0000-0000-0000-000000000000",
+               "LogAction":"P",
+               "MerchantId":"f48fdd16-92db-4188-854d-1ecd9b62xxxx",
+               "UpdatedDate":"/Date(1536326104000+0530)/"
+            },
+            {  
+               "ConversationLogId":67677872,
+               "ConversationDate":"/Date(1536326217000+0530)/",
+               "ConversationText":"Order Payment Has been Authorized",
+               "RETransactionId":7124734,
+               "ConversationType":"SOL",
+               "CPUserId":"00000000-0000-0000-0000-000000000000",
+               "LogAction":"A",
+               "MerchantId":"f48fdd16-92db-4188-854d-1ecd9b62xxxx",
+               "UpdatedDate":"/Date(1536326217000+0530)/"
+            },
+            {  
+               "ConversationLogId":67677876,
+               "ConversationDate":"/Date(1536326217000+0530)/",
+               "ConversationText":"Response Code=200",
+               "RETransactionId":7124734,
+               "ConversationType":"SOL",
+               "CPUserId":"00000000-0000-0000-0000-000000000000",
+               "LogAction":"A",
+               "MerchantId":"f48fdd16-92db-4188-854d-1ecd9b62xxxx",
+               "UpdatedDate":"/Date(1536326217000+0530)/"
+            },
+            {  
+               "ConversationLogId":67741840,
+               "ConversationDate":"/Date(1536563066000+0530)/",
+               "ConversationText":"sku(s):  103694029  has been cancelled successfully.",
+               "RETransactionId":7124734,
+               "ConversationType":"SOL",
+               "CPUserId":"380a8f3b-b2c5-4bd7-9daa-5dad1476022b",
+               "LogAction":"F",
+               "MerchantId":"f48fdd16-92db-4188-854d-1ecd9b62xxxx",
+               "UpdatedDate":"/Date(1536563066000+0530)/"
+            },
+            {  
+               "ConversationLogId":67741842,
+               "ConversationDate":"/Date(1536563066000+0530)/",
+               "ConversationText":"Delivery Address out of Deliverable Pincode  ( Reason :Order not in delivery Area )",
+               "RETransactionId":7124734,
+               "ConversationType":"MUOL",
+               "CPUserId":"380a8f3b-b2c5-4bd7-9daa-5dad1476022b",
+               "LogAction":"C",
+               "MerchantId":"f48fdd16-92db-4188-854d-1ecd9b62xxxx",
+               "UpdatedDate":"/Date(1536563066000+0530)/"
+            },
+            {  
+               "ConversationLogId":67741844,
+               "ConversationDate":"/Date(1536563066000+0530)/",
+               "ConversationText":"Return request 201782 with Quantity 1  has been initiated from Cancel Order. comments:Delivery Address out of Deliverable Pincode  ( Reason :Order not in delivery Area )",
+               "RETransactionId":7124734,
+               "ConversationType":"Refunds",
+               "CPUserId":"380a8f3b-b2c5-4bd7-9daa-5dad1476022b",
+               "LogAction":"S",
+               "MerchantId":"f48fdd16-92db-4188-854d-1ecd9b62xxxx",
+               "UpdatedDate":"/Date(1536563066000+0530)/"
+            }
+         ]
+      }
+   ]
+}
+```
+
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `/Order/GetOrderActivityHistory/{MerchantId}`
+Rate Limited? | Yes
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | POST
+Batch Support | No
+
+
+### Request URL
+`https://{host}/developerapi/Order/GetOrderActivityHistory/{MerchantId}`
+
+
+
+### Request Body Parameters
+Parameter | Type | Description
+-------- | ---- | ----------
+orderfieldchangehistory | boolean | Specify `true` to retrieve the history of change in order or order item attributes. For example, order fulfillment location, order item fulfillment location and so on
+activityhistory | boolean | Specify `true` to retrieve activity log of an order such as order authorized, order shipped, and payment authorized
+orderids* | long | Specify the order id(s) that you want to fetch. 

@@ -110,18 +110,18 @@ Batch Support | No
 `https://{host}/developerapi/Customer/{merchantId}/Create`
 
 ### Request Attributes
-Parameter | Description
---------- | -----------
-UserName* | The unique identifier of the customer as configured for the merchant. It could be email, mobile, or any other identifier
-merchantId* | The unique id (GUID) of the merchant in which you want to register customer
-Password* | Password of the customer account. Password policy is as configured for the merchant on the Merchant Panel
-CommunicationType | The preferred communication channel(s) of the customer. Possible Values: SMS, EMAIL
-City | Unique code of the city (as saved in the system) such as 0562 (for Agra), and 250 (Victoria)
-CityName | Full name of the city. Example: Bangalore, Delhi, Tokyo, Singapore and Paris
-State | State's postal abbreviation. Example: KA (for Karnataka), CA (for California), IN (for Indiana)
-StateName | Full name of the state. Example: Karnataka, California, and Indiana
-Country | alpha-2 code of the country. Example: IN (for India), AU (for Australia), and BR (for Brazil)
-CountryName |  Full name of the country. Example: India, Australia, and Brazil
+Parameter | Type | Description
+--------- | ---- | -------
+UserName* | string |  The unique identifier of the customer as configured for the merchant. It could be email, mobile, or any other identifier
+merchantId* | string |  The unique id (GUID) of the merchant in which you want to register customer
+Password* | string |  Password of the customer account. Password policy is as configured for the merchant on the Merchant Panel
+CommunicationType |enum | The preferred communication channel(s) of the customer. Possible Values: SMS, EMAIL
+City |  | Unique code of the city (as saved in the system) such as 0562 (for Agra), and 250 (Victoria)
+CityName | string |  Full name of the city. Example: Bangalore, Delhi, Tokyo, Singapore and Paris
+State | string |  State's postal abbreviation. Example: KA (for Karnataka), CA (for California), IN (for Indiana)
+StateName | string |  Full name of the state. Example: Karnataka, California, and Indiana
+Country | string |  alpha-2 code of the country. Example: IN (for India), AU (for Australia), and BR (for Brazil)
+CountryName | string |   Full name of the country. Example: India, Australia, and Brazil
 
 
 
@@ -271,10 +271,10 @@ Batch Support | No
 `https://{host}/developerapi/Customer/{merchantId}/login`
 
 ### Request Attributes
-Parameter | Description
---------- | -----------
-username* | Username of the customer account
-password* | Password of the customer account
+Parameter | Type | Description
+--------- | ---- | -----------
+username* | string | Username of the customer account
+password* | string | Password of the customer account
 
 
 
@@ -319,14 +319,14 @@ Batch Support | No
 
 Additional Header Required
 Header | Description
------- | -----------
+------ | ------
 accesstoken* | Access token of the logged in user that you want to logout
 
 
 ### Request Parameters
-Parameter | Description
---------- | -----------
-merchantId* | The unique id (GUID) of the merchant from which you want to logout user
+Parameter | Type | Description
+--------- | ----- | ------
+merchantId* | string | The unique id (GUID) of the merchant from which you want to logout user
 
 
 
@@ -382,9 +382,9 @@ Batch Support | No
 `https://{host}/developerapi/Customer/GetAccessToken/{MerchantId}`
 
 ### Request Parameters
-Parameter | Description
---------- | -----------
-merchantId* | The unique id (GUID) of the merchant
+Parameter | Type | Description
+--------- | ---- | -------
+merchantId* | string | The unique id (GUID) of the merchant
 
 
 
@@ -425,10 +425,10 @@ Batch Support | No
 `https://{host}/developerapi/Customer/{merchantId}/{accesstoken}/ValidateToken`
 
 ### Request Parameters
-Parameter | Description
---------- | -----------
-merchantId* | The unique id (GUID) of the merchant in which you want to validate access token
-accesstoken* | The access token generated for an user session (use `/Customer/GetAccessToken/` to get access token of a user session)
+Parameter | Type | Description
+--------- | ----- | ------
+merchantId* | string | The unique id (GUID) of the merchant in which you want to validate access token
+accesstoken* | string | The access token generated for an user session (use `/Customer/GetAccessToken/` to get access token of a user session)
 
 
 
@@ -516,10 +516,10 @@ Batch Support | No
 `https://{host}/developerapi/Customer/{merchantId}/{UserId}`
 
 ### Request Parameters
-Parameter | Description
---------- | -----------
-merchantId* | The unique id (GUID) of the merchant account from which you want to fetch customer details
-UserId* | The unique user identifier of the customer whose details need to be retrieved
+Parameter | Type | Description
+--------- | ----- | ------
+merchantId* | string | The unique id (GUID) of the merchant account from which you want to fetch customer details
+UserId* | string | The unique user identifier of the customer whose details need to be retrieved
 
 
 
@@ -652,11 +652,11 @@ Batch Support | No
 ### Request URL
 `https://{host}/developerapi/Customer/{merchantId}/UpdateUserProfile`
 
-### Request Attributes
-Parameter | Description
---------- | -----------
-ProfileAttributeId* | ID of the attribute that needs to be updated 
-ProfileAttributeValue | Customer's preferred attribute value 
+### Request Body Parameters
+Parameter | Type | Description
+--------- | ----- | ------
+ProfileAttributeId* |  | ID of the attribute that needs to be updated 
+ProfileAttributeValue | string | Customer's preferred attribute value 
 
 
 
@@ -740,22 +740,22 @@ Header Name | Value
 `https://{host}/developerapi/Customer/AddShippingAddress/{merchantId}`
 
 ### Request Parameters
-Parameter | Description
---------- | -----------
-ShippingAddressId* | Unique id of the order shipment
-userId* | Registered identifier of the customer
-firstname* | The first name of the customer
-lastname* | The last name of the customer 
-address1*, address2	 | Specify the customer’s shipping address related information
-state | State’s postal abbreviation. Example: KA (for Karnataka), CA (for California), IN (for Indiana)
-pin |  Specify the PIN of the shipping address
-countrycode | alpha-2 code of the country. Example: IN (for India), AU (for Australia), and BR (for Brazil)
-citycode | Unique code of the city (as saved in the system) such as 0562 (for Agra), and 250 (Victoria)
-phoneno | The landline number of the recipient
-mobileno | The mobile number of recipient 
-email | The email id of the recipient 
-othercity | 
-addressType | 
+Parameter | Type | Description
+--------- | ---- | -------
+ShippingAddressId* |  | Unique id of the order shipment
+userId* | string |  Registered identifier of the customer
+firstname* | string |  The first name of the customer
+lastname* | string |  The last name of the customer 
+address1*, address2	 | string |  Specify the customer’s shipping address related information
+state | string |  State’s postal abbreviation. Example: KA (for Karnataka), CA (for California), IN (for Indiana)
+pin |  |  Specify the PIN of the shipping address
+countrycode | string |  alpha-2 code of the country. Example: IN (for India), AU (for Australia), and BR (for Brazil)
+citycode |  |  Unique code of the city (as saved in the system) such as 0562 (for Agra), and 250 (Victoria)
+phoneno |  |  The landline number of the recipient
+mobileno |  |  The mobile number of recipient 
+email | string |  The email id of the recipient 
+othercity | |  
+addressType |  | 
 
 
 
@@ -848,10 +848,10 @@ apiversion | 4
 
 
 ### Request Parameters
-Parameter | Description
---------- | -----------
-merchantId* | The unique id (GUID) of the merchant from which you want to fetch the customer's shipping address
-UserId* | The unique user identifier of the customer whose details need to be retrieved
+Parameter | Type | Description
+--------- | ---- | -------
+merchantId* | string |  The unique id (GUID) of the merchant from which you want to fetch the customer's shipping address
+UserId* | string |  The unique user identifier of the customer whose details need to be retrieved
 
 
 
@@ -893,20 +893,10 @@ Batch Support | No
 ### Request Parameters
 Parameter | Description
 --------- | -----------
-MerchantId* | The unique id (GUID) of the merchant in which you want the order is created
-UserId* | The unique user identifier of the customer to which the order is associated
-ShippingAddressId* | Unique id of the order shipment that you want to delete
+MerchantId* | string |  The unique id (GUID) of the merchant in which you want the order is created
+UserId* | string |  The unique user identifier of the customer to which the order is associated
+ShippingAddressId* | string |  Unique id of the order shipment that you want to delete
 
 
 
 
-
-
-
-
-
-
-
-
-Reset Password with OTP
-Generate Lead

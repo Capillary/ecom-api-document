@@ -386,47 +386,58 @@ To obtain access, you first need to add the app in the control panel and generat
 <table><thead>
 <tr>
 <th>Parameter</th>
+<th>Type</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>UserName*</td>
+<td>string</td>
 <td>The unique identifier of the customer as configured for the merchant. It could be email, mobile, or any other identifier</td>
 </tr>
 <tr>
 <td>merchantId*</td>
+<td>string</td>
 <td>The unique id (GUID) of the merchant in which you want to register customer</td>
 </tr>
 <tr>
 <td>Password*</td>
+<td>string</td>
 <td>Password of the customer account. Password policy is as configured for the merchant on the Merchant Panel</td>
 </tr>
 <tr>
 <td>CommunicationType</td>
+<td>enum</td>
 <td>The preferred communication channel(s) of the customer. Possible Values: SMS, EMAIL</td>
 </tr>
 <tr>
 <td>City</td>
+<td></td>
 <td>Unique code of the city (as saved in the system) such as 0562 (for Agra), and 250 (Victoria)</td>
 </tr>
 <tr>
 <td>CityName</td>
+<td>string</td>
 <td>Full name of the city. Example: Bangalore, Delhi, Tokyo, Singapore and Paris</td>
 </tr>
 <tr>
 <td>State</td>
+<td>string</td>
 <td>State&rsquo;s postal abbreviation. Example: KA (for Karnataka), CA (for California), IN (for Indiana)</td>
 </tr>
 <tr>
 <td>StateName</td>
+<td>string</td>
 <td>Full name of the state. Example: Karnataka, California, and Indiana</td>
 </tr>
 <tr>
 <td>Country</td>
+<td>string</td>
 <td>alpha-2 code of the country. Example: IN (for India), AU (for Australia), and BR (for Brazil)</td>
 </tr>
 <tr>
 <td>CountryName</td>
+<td>string</td>
 <td>Full name of the country. Example: India, Australia, and Brazil</td>
 </tr>
 </tbody></table>
@@ -635,15 +646,18 @@ To obtain access, you first need to add the app in the control panel and generat
 <table><thead>
 <tr>
 <th>Parameter</th>
+<th>Type</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>username*</td>
+<td>string</td>
 <td>Username of the customer account</td>
 </tr>
 <tr>
 <td>password*</td>
+<td>string</td>
 <td>Password of the customer account</td>
 </tr>
 </tbody></table>
@@ -707,7 +721,7 @@ To obtain access, you first need to add the app in the control panel and generat
 
 <p>Additional Header Required
 Header | Description
-&mdash;&mdash; | &mdash;&mdash;&mdash;&ndash;
+&mdash;&mdash; | &mdash;&mdash;
 accesstoken* | Access token of the logged in user that you want to logout</p>
 
 <h3 id="request-parameters">Request Parameters</h3>
@@ -715,11 +729,13 @@ accesstoken* | Access token of the logged in user that you want to logout</p>
 <table><thead>
 <tr>
 <th>Parameter</th>
+<th>Type</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>merchantId*</td>
+<td>string</td>
 <td>The unique id (GUID) of the merchant from which you want to logout user</td>
 </tr>
 </tbody></table>
@@ -791,11 +807,13 @@ accesstoken* | Access token of the logged in user that you want to logout</p>
 <table><thead>
 <tr>
 <th>Parameter</th>
+<th>Type</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>merchantId*</td>
+<td>string</td>
 <td>The unique id (GUID) of the merchant</td>
 </tr>
 </tbody></table>
@@ -862,15 +880,18 @@ accesstoken* | Access token of the logged in user that you want to logout</p>
 <table><thead>
 <tr>
 <th>Parameter</th>
+<th>Type</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>merchantId*</td>
+<td>string</td>
 <td>The unique id (GUID) of the merchant in which you want to validate access token</td>
 </tr>
 <tr>
 <td>accesstoken*</td>
+<td>string</td>
 <td>The access token generated for an user session (use <code class="prettyprint">/Customer/GetAccessToken/</code> to get access token of a user session)</td>
 </tr>
 </tbody></table>
@@ -980,15 +1001,18 @@ accesstoken* | Access token of the logged in user that you want to logout</p>
 <table><thead>
 <tr>
 <th>Parameter</th>
+<th>Type</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>merchantId*</td>
+<td>string</td>
 <td>The unique id (GUID) of the merchant account from which you want to fetch customer details</td>
 </tr>
 <tr>
 <td>UserId*</td>
+<td>string</td>
 <td>The unique user identifier of the customer whose details need to be retrieved</td>
 </tr>
 </tbody></table>
@@ -1188,20 +1212,23 @@ accesstoken* | Access token of the logged in user that you want to logout</p>
 
 <p><code class="prettyprint">https://{host}/developerapi/Customer/{merchantId}/UpdateUserProfile</code></p>
 
-<h3 id="request-attributes">Request Attributes</h3>
+<h3 id="request-body-parameters">Request Body Parameters</h3>
 
 <table><thead>
 <tr>
 <th>Parameter</th>
+<th>Type</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>ProfileAttributeId*</td>
+<td></td>
 <td>ID of the attribute that needs to be updated</td>
 </tr>
 <tr>
 <td>ProfileAttributeValue</td>
+<td>string</td>
 <td>Customer&rsquo;s preferred attribute value</td>
 </tr>
 </tbody></table>
@@ -1298,63 +1325,78 @@ accesstoken* | Access token of the logged in user that you want to logout</p>
 <table><thead>
 <tr>
 <th>Parameter</th>
+<th>Type</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>ShippingAddressId*</td>
+<td></td>
 <td>Unique id of the order shipment</td>
 </tr>
 <tr>
 <td>userId*</td>
+<td>string</td>
 <td>Registered identifier of the customer</td>
 </tr>
 <tr>
 <td>firstname*</td>
+<td>string</td>
 <td>The first name of the customer</td>
 </tr>
 <tr>
 <td>lastname*</td>
+<td>string</td>
 <td>The last name of the customer</td>
 </tr>
 <tr>
 <td>address1*, address2</td>
+<td>string</td>
 <td>Specify the customer’s shipping address related information</td>
 </tr>
 <tr>
 <td>state</td>
+<td>string</td>
 <td>State’s postal abbreviation. Example: KA (for Karnataka), CA (for California), IN (for Indiana)</td>
 </tr>
 <tr>
 <td>pin</td>
+<td></td>
 <td>Specify the PIN of the shipping address</td>
 </tr>
 <tr>
 <td>countrycode</td>
+<td>string</td>
 <td>alpha-2 code of the country. Example: IN (for India), AU (for Australia), and BR (for Brazil)</td>
 </tr>
 <tr>
 <td>citycode</td>
+<td></td>
 <td>Unique code of the city (as saved in the system) such as 0562 (for Agra), and 250 (Victoria)</td>
 </tr>
 <tr>
 <td>phoneno</td>
+<td></td>
 <td>The landline number of the recipient</td>
 </tr>
 <tr>
 <td>mobileno</td>
+<td></td>
 <td>The mobile number of recipient</td>
 </tr>
 <tr>
 <td>email</td>
+<td>string</td>
 <td>The email id of the recipient</td>
 </tr>
 <tr>
 <td>othercity</td>
 <td></td>
+<td></td>
 </tr>
 <tr>
 <td>addressType</td>
+<td></td>
 <td></td>
 </tr>
 </tbody></table>
@@ -1479,15 +1521,18 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <table><thead>
 <tr>
 <th>Parameter</th>
+<th>Type</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>merchantId*</td>
+<td>string</td>
 <td>The unique id (GUID) of the merchant from which you want to fetch the customer&rsquo;s shipping address</td>
 </tr>
 <tr>
 <td>UserId*</td>
+<td>string</td>
 <td>The unique user identifier of the customer whose details need to be retrieved</td>
 </tr>
 </tbody></table>
@@ -1557,20 +1602,17 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 </thead><tbody>
 <tr>
 <td>MerchantId*</td>
-<td>The unique id (GUID) of the merchant in which you want the order is created</td>
+<td>string</td>
 </tr>
 <tr>
 <td>UserId*</td>
-<td>The unique user identifier of the customer to which the order is associated</td>
+<td>string</td>
 </tr>
 <tr>
 <td>ShippingAddressId*</td>
-<td>Unique id of the order shipment that you want to delete</td>
+<td>string</td>
 </tr>
 </tbody></table>
-
-<p>Reset Password with OTP
-Generate Lead</p>
 
           <h1 id="order">Order</h1>
 
@@ -1817,133 +1859,164 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <p><code class="prettyprint">https://{host}/developerapi/Order/BulkOrderCreation</code></p>
 
-<h3 id="request-attributes">Request Attributes</h3>
+<h3 id="request-body-parameters">Request Body Parameters</h3>
 
 <table><thead>
 <tr>
 <th>Parameter</th>
+<th>Type</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>orderrefno*</td>
+<td></td>
 <td>Reference number of the order</td>
 </tr>
 <tr>
 <td>orderdate*</td>
+<td></td>
 <td>Ordered date in <code class="prettyprint">dd/mm/yy</code> format</td>
 </tr>
 <tr>
 <td>deliveredon</td>
+<td></td>
 <td>Specify the estimated delivery of the item if applicable for the merchant in <code class="prettyprint">dd/mm/yy</code> format</td>
 </tr>
 <tr>
 <td>customertype</td>
+<td></td>
 <td>Type of the user as per the Martjack system. Supported Values: Guest User (for all marketplace), Registered User (If registered on Martjack platform)</td>
 </tr>
 <tr>
 <td>userid</td>
+<td></td>
 <td>Registered identifier of the customer. Required when <code class="prettyprint">customertype=&quot;Registered User&quot;</code></td>
 </tr>
 <tr>
 <td>ordervalue</td>
+<td></td>
 <td>Net order amount</td>
 </tr>
 <tr>
 <td>orderstatus</td>
+<td></td>
 <td>Supported values: Pending, Authorized</td>
 </tr>
 <tr>
 <td>orderconfirmationmail</td>
+<td></td>
 <td>Supported values: Yes, No. If set to <code class="prettyprint">Yes</code>, an order confirmation email is sent to the customer</td>
 </tr>
 <tr>
 <td>paymentlinkstatus</td>
+<td></td>
 <td>Status of the payment. Values: Pending (Bank transfer, Cheque,), Authorized (COD, Prepaid)</td>
 </tr>
 <tr>
 <td>calculateshippingtax</td>
+<td></td>
 <td>Supported values: Yes, No. Set to <code class="prettyprint">No</code> if the order value includes all the tax and service charges. Else, you need to specify other charges separately.</td>
 </tr>
 <tr>
 <td>shipfirstname, shiplastname, shipaddress1 &hellip;</td>
+<td></td>
 <td>Specify the customer&rsquo;s shipping address related information in these fields</td>
 </tr>
 <tr>
 <td>billfirstname, billlastname, billaddress1 &hellip;</td>
+<td></td>
 <td>Specify the customer&rsquo;s billing address related information in these fields</td>
 </tr>
 <tr>
 <td>giftmsg</td>
+<td></td>
 <td>In case of gift orders, specify the customer&rsquo;s personalized message that needs to sent to the recipient</td>
 </tr>
 <tr>
 <td>locationcode</td>
+<td></td>
 <td>Reference code of the  order fulfillment location</td>
 </tr>
 <tr>
 <td>isselfship</td>
+<td></td>
 <td>Supported Value: True, False. If the order shipment is handled by marketplace such as Amazon or Flipkart specify False. If the shipment is handled by the merchant himself, set the value to True</td>
 </tr>
 <tr>
 <td>channelrefcode</td>
+<td></td>
 <td>Channel from which the order has come from (specific to Sellerworx). A channel is an instance of marketplace. A seller can have multiple channels.</td>
 </tr>
 <tr>
 <td>channelorderid</td>
+<td></td>
 <td>Order id as maintained by that specific channel  (specific to Sellerworx)</td>
 </tr>
 <tr>
 <td>sellerwroxorderid</td>
+<td></td>
 <td>Order id generated at Sellerworx. Maps Channel order id to Sellerworx order id</td>
 </tr>
 <tr>
 <td>items*</td>
+<td></td>
 <td>Specify the details of each line-item in <code class="prettyprint">item</code> attribute</td>
 </tr>
 <tr>
 <td>Payments*</td>
+<td></td>
 <td>Specify the payment details and <code class="prettyprint">orderrefno</code> of the order in <code class="prettyprint">payment</code>. The orderrefno value at payment level should be same as that of the order level</td>
 </tr>
 <tr>
 <td>paymentstatus</td>
 <td>The payment status of the current order. Values: Authorized, Pending</td>
+<td></td>
 </tr>
 <tr>
 <td>paymentno</td>
 <td>The reference number for order payment provided by the respective payment gateway</td>
+<td></td>
 </tr>
 <tr>
 <td>vouchercode</td>
 <td>Coupon code applied for the transaction if any. This is just for viewing purpose and the API does not do any calculation based on the voucher code</td>
+<td></td>
 </tr>
 <tr>
 <td>customfield</td>
 <td>Pass this only if you have preconfigured custom fields at the order level</td>
+<td></td>
 </tr>
 <tr>
 <td>itemcustomfield</td>
 <td>Pass line-item level custom fields. You do not need to have preconfigured custom fields at the order item level</td>
+<td></td>
 </tr>
 <tr>
 <td>deliveryslotcode</td>
 <td>Pass the delivery slot code if you want to associate a delivery slot with the order</td>
+<td></td>
 </tr>
 <tr>
 <td>shippingmode</td>
 <td>Pass the shipping mode that you want to associate with the order. However, the API does not validate/calculate on the provided shipping mode</td>
+<td></td>
 </tr>
 <tr>
 <td>shippingamount</td>
 <td>Pass the shipping charge for the specific item (Order item level)</td>
+<td></td>
 </tr>
 <tr>
 <td>shippingdiscount</td>
 <td>Pass the discount amount on the shipping charge (Order item level discount)</td>
+<td></td>
 </tr>
 <tr>
 <td>linediscount</td>
 <td>Pass the line item level discount of the order</td>
+<td></td>
 </tr>
 </tbody></table>
 
@@ -2032,7 +2105,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 </tr>
 </tbody></table>
 
-<h3 id="request-attributes">Request Attributes</h3>
+<h3 id="request-body-parameters">Request Body Parameters</h3>
 
 <table><thead>
 <tr>
@@ -2042,27 +2115,27 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 </thead><tbody>
 <tr>
 <td>merchantId*</td>
-<td>The unique id (GUID) of the merchant in which you want to place order</td>
+<td></td>
 </tr>
 <tr>
 <td>PaymentOption*</td>
-<td>The name of the payment gateway. For example, RazorPay, EBS, OnlineBankTransfer, COD, CreditCard, ChequeDD, Wallet, and eGiftVoucher</td>
+<td></td>
 </tr>
 <tr>
 <td>paymentType*</td>
-<td>The payment type used for the order - OBT (Online bank transfer),  TPG (Third party gateway), Credit, GV (Gift voucher) and so on</td>
+<td></td>
 </tr>
 <tr>
 <td>gatewayId*</td>
-<td>Gateway id through which the payment is made</td>
+<td></td>
 </tr>
 <tr>
 <td>channelType</td>
-<td>The channel from which the order is placed. For example: amazon, myntra</td>
+<td></td>
 </tr>
 <tr>
 <td>skipDeliveryAreaValidation</td>
-<td>Specify <code class="prettyprint">true</code> to validate delivery location before order creation, <code class="prettyprint">false</code> to ignore validating</td>
+<td></td>
 </tr>
 </tbody></table>
 
@@ -2211,84 +2284,64 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <table><thead>
 <tr>
 <th>Parameter</th>
+<th>Type</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>OrderID*</td>
+<td></td>
 <td>The order id that you want to process</td>
 </tr>
 <tr>
 <td>ID</td>
+<td></td>
 <td>The transaction id of the order</td>
 </tr>
 <tr>
 <td>PaymentType*</td>
+<td></td>
 <td>The payment type used for the order - OBT (Online bank transfer), TPG (Third party gateway), Credit, GV (Gift voucher) and so on</td>
 </tr>
 <tr>
 <td>Provider*</td>
+<td></td>
 <td>The provider of the payment gateway service</td>
 </tr>
 <tr>
 <td>GatewayID*</td>
+<td></td>
 <td>The respective payment gateway id</td>
 </tr>
 <tr>
 <td>CPUserID</td>
+<td></td>
 <td>The unique CP user id generated by the system</td>
 </tr>
 <tr>
 <td>PaymentDetails*</td>
+<td></td>
 <td>Pass the payment details</td>
 </tr>
 <tr>
 <td>GVCode</td>
+<td></td>
 <td>The gift voucher code used for the transaction (if any)</td>
 </tr>
 <tr>
 <td>RespCode</td>
+<td></td>
 <td>The unique response code generated at the payment gateway for the transaction (to our system)</td>
 </tr>
 <tr>
 <td>RespMessage</td>
+<td></td>
 <td>The entire response payload generated at the payment gateway for the transaction (to our system)</td>
 </tr>
 <tr>
 <td>PointsBurned</td>
+<td></td>
 <td>The number of points redeemed for the transaction (if any)</td>
-</tr>
-<tr>
-<td>BankCode</td>
-<td></td>
-</tr>
-<tr>
-<td>BankEMICharges</td>
-<td></td>
-</tr>
-<tr>
-<td>PGReferenceId</td>
-<td></td>
-</tr>
-<tr>
-<td>ChequeRefNo</td>
-<td>The reference number of the cheque if the payment is made through cheque</td>
-</tr>
-<tr>
-<td>DrawnOn</td>
-<td></td>
-</tr>
-<tr>
-<td>PaidAmount</td>
-<td></td>
-</tr>
-<tr>
-<td>BankName</td>
-<td></td>
-</tr>
-<tr>
-<td>IFSC</td>
-<td></td>
 </tr>
 </tbody></table>
 
@@ -2361,36 +2414,43 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <p><code class="prettyprint">https://{host}/developerapi/order/SaveMerchantTransaction/{merchantId}</code></p>
 
-<h3 id="request-parameters">Request Parameters</h3>
+<h3 id="request-body-parameters">Request Body Parameters</h3>
 
 <table><thead>
 <tr>
 <th>Parameter</th>
+<th>Type</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>PaymentOption</td>
+<td></td>
 <td>The name of the payment gateway. For example, RazorPay, EBS, OnlineBankTransfer, COD, CreditCard, ChequeDD, Wallet, and eGiftVoucher</td>
 </tr>
 <tr>
 <td>PaymentType</td>
+<td></td>
 <td>The mode of payment chosen for the transaction. Values could be OBT (Online bank transfer), TPG (Third party gateway), Credit, GV (Gift voucher) and so on</td>
 </tr>
 <tr>
 <td>OrderId</td>
+<td></td>
 <td>The unique id of the order</td>
 </tr>
 <tr>
 <td>MerchantId</td>
+<td></td>
 <td>The unique id (GUID) of the merchant in which the order is registered</td>
 </tr>
 <tr>
 <td>status</td>
+<td></td>
 <td>The status of the current payment. Value: Pending, Authorized</td>
 </tr>
 <tr>
 <td>amount</td>
+<td></td>
 <td>The transaction amount paid through the current payment type</td>
 </tr>
 </tbody></table>
@@ -2780,20 +2840,23 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <p><code class="prettyprint">merchantId*</code>: Pass the unique merchant id (GUID) in which the order is placed</p>
 
-<h3 id="request-attributes">Request Attributes</h3>
+<h3 id="request-body-parameters">Request Body Parameters</h3>
 
 <table><thead>
 <tr>
 <th>Parameter</th>
+<th>Type</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>OrderId*</td>
+<td></td>
 <td>Existing Order id of the customer that you want to order again</td>
 </tr>
 <tr>
 <td>UserId*</td>
+<td></td>
 <td>The unique identifier of the customer associated to the order</td>
 </tr>
 </tbody></table>
@@ -2933,64 +2996,78 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <p><code class="prettyprint">https://{host url}/developerapi/Order/History/{{MerchantId}}</code></p>
 
-<h3 id="request-parameters">Request Parameters</h3>
+<h3 id="request-body-parameters">Request Body Parameters</h3>
 
 <table><thead>
 <tr>
 <th>Parameter</th>
+<th>Type</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>UserId</td>
+<td></td>
 <td>The unique user identifier of the customer whose details need to be retrieved</td>
 </tr>
 <tr>
 <td>FromDate</td>
+<td></td>
 <td>Specify the duration for which you want to fetch the order history (mm-dd-yyyy hh:mm:ss format) in FromDate and ToDate</td>
 </tr>
 <tr>
 <td>ToDate</td>
+<td></td>
 <td>Specify the duration for which you want to fetch the order history (mm-dd-yyyy hh:mm:ss format) in FromDate and ToDate</td>
 </tr>
 <tr>
 <td>Status</td>
+<td></td>
 <td>Filter the search results by order status(P=Pending, F=Cancel, A=Approved)</td>
 </tr>
 <tr>
 <td>ShipDateFrom</td>
+<td></td>
 <td>Filter the search results by shipped date range - from (ShipDateFrom) and to (ShipDateTo) in  (mm-dd-yyyy hh:mm:ss format). If ShipDateFrom is specified, then you also need to specify ShipDateTo</td>
 </tr>
 <tr>
 <td>ShipDateTo</td>
+<td></td>
 <td>Filter the search results by shipped date range - from (ShipDateFrom) and to (ShipDateTo) in  (mm-dd-yyyy hh:mm:ss format). If ShipDateFrom is specified, then you also need to specify ShipDateTo</td>
 </tr>
 <tr>
 <td>Sku</td>
+<td></td>
 <td>Filter the search results by SKU id based on the ids matching the specified value. For example, if you specify 100,  you will get the list of orders with item SKU ids starting with 100. You can also fetch a specific ordered item by passing the exact SKU id.</td>
 </tr>
 <tr>
 <td>OrderId</td>
+<td></td>
 <td>Filter the search results by order id or order number. For example, if you specify 5550,  you will get the list of all orders with order ids starting with 5500. You can also fetch a specific order by passing the exact order id.</td>
 </tr>
 <tr>
 <td>FromOrder</td>
+<td></td>
 <td>Order Id / Number (can use to get the latest orders )</td>
 </tr>
 <tr>
 <td>store</td>
+<td></td>
 <td>Store type it can be a keyword are merchantid(It can be optional)</td>
 </tr>
 <tr>
 <td>WithRewards</td>
+<td></td>
 <td>Retrieve the list of orders with loyalty rewards. Send  ‘True’ if you required reward/loyalty details. By default value will be ‘False’</td>
 </tr>
 <tr>
 <td>OperatorId</td>
+<td></td>
 <td>&mdash;</td>
 </tr>
 <tr>
 <td>LocationId</td>
+<td></td>
 <td>Order fulfillment location</td>
 </tr>
 </tbody></table>
@@ -3067,44 +3144,53 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <p><code class="prettyprint">https://{host}/developerapi/Order/Authorize</code></p>
 
-<h3 id="request-parameters">Request Parameters</h3>
+<h3 id="request-body-parameters">Request Body Parameters</h3>
 
 <table><thead>
 <tr>
 <th>Parameter</th>
+<th>Type</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>Merchant Id*</td>
+<td></td>
 <td>The unique id (GUID) of the merchant in which the order is made</td>
 </tr>
 <tr>
 <td>Date*</td>
+<td></td>
 <td>Date of authorization</td>
 </tr>
 <tr>
 <td>Order Id*</td>
+<td></td>
 <td>The order id that you need to authorize</td>
 </tr>
 <tr>
 <td>Comment</td>
 <td></td>
+<td></td>
 </tr>
 <tr>
 <td>BankInstrumentNumber</td>
+<td></td>
 <td>The unique reference number generated at the banks or financial systems for payments other than CODs(Cards, credit transfers, direct debits, Cheques/DDs)</td>
 </tr>
 <tr>
 <td>BankName</td>
+<td></td>
 <td>Specify the bank name through which the transaction is made</td>
 </tr>
 <tr>
 <td>GatewayOption*</td>
+<td></td>
 <td>(GatewayOption=IVR/EBS/HDFC)</td>
 </tr>
 <tr>
 <td>PGResponse</td>
+<td></td>
 <td>Response payload received from the payment gateway for the specific order</td>
 </tr>
 </tbody></table>
@@ -3314,24 +3400,28 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <p><code class="prettyprint">https://{host}/developerapi/order/invoice/{merchantid}/{InvoiceNumber}/{LocationRefCode}</code></p>
 
-<h3 id="request-parameters">Request Parameters</h3>
+<h3 id="request-path-parameters">Request Path Parameters</h3>
 
 <table><thead>
 <tr>
 <th>Parameter</th>
+<th>Type</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>merchantid*</td>
+<td></td>
 <td>The unique id (GUID) of the merchant in which the invoice is available</td>
 </tr>
 <tr>
 <td>InvoiceNumber*</td>
+<td></td>
 <td>The invoice number that you want to fetch</td>
 </tr>
 <tr>
 <td>LocationRefCode*</td>
+<td></td>
 <td>The location code of the order fulfillment store</td>
 </tr>
 </tbody></table>
@@ -3429,73 +3519,88 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <p><code class="prettyprint">https://{host}/developerapi/Order/Ship</code></p>
 
-<h3 id="request-parameters">Request Parameters</h3>
+<h3 id="request-body-parameters">Request Body Parameters</h3>
 
 <table><thead>
 <tr>
 <th>Parameter</th>
+<th>Type</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>MerchantId*</td>
+<td></td>
 <td>The unique id (GUID) of the merchant in which the order is registered or placed</td>
 </tr>
 <tr>
 <td>OrderId*</td>
+<td></td>
 <td>The order id of the current shipment item</td>
 </tr>
 <tr>
 <td>AWBNumber*</td>
+<td></td>
 <td>The air way bill number generated for the shipment</td>
 </tr>
 <tr>
 <td>CourierName*</td>
+<td></td>
 <td>The courier service used for shipment</td>
 </tr>
 <tr>
 <td>ShipDate*</td>
+<td></td>
 <td>The date on which the order is shipped in <code class="prettyprint">dd/mm/yy</code> format</td>
 </tr>
 <tr>
 <td>ShipmentType*</td>
+<td></td>
 <td>The type of shipment. Values: normal,</td>
 </tr>
 <tr>
 <td>LocationRefCode*</td>
+<td></td>
 <td>Location reference code of the order fulfillment store</td>
 </tr>
 <tr>
 <td>lineitems*</td>
+<td></td>
 <td>The details of each line item. Specify <code class="prettyprint">OrderLineId</code> and <code class="prettyprint">Quantity</code></td>
 </tr>
 <tr>
 <td>ShipmentTrip</td>
+<td></td>
 <td>Provide more details details of the shipping using the parameters specified below. You can use this if applicable for the current merchant</td>
 </tr>
 <tr>
 <td>RiderID</td>
+<td></td>
 <td>Specify the rider id as available in the merchant system</td>
 </tr>
 <tr>
 <td>RiderCode</td>
+<td></td>
 <td>Specify the rider code as available in the merchant system</td>
 </tr>
 <tr>
 <td>TripRefNo</td>
+<td></td>
 <td>Specify the trp reference number as per the merchant system</td>
 </tr>
 <tr>
 <td>VehicleNumber</td>
+<td></td>
 <td>Specify the vehicle number delivery vehicle</td>
 </tr>
 <tr>
 <td>Attributes</td>
+<td></td>
 <td>Specify any additional information such as delivery guy&rsquo;s mobile number</td>
 </tr>
 </tbody></table>
 
-<h2 id="get-an-order-details">Get an Order Details</h2>
+<h2 id="get-order-details">Get Order Details</h2>
 
 <blockquote>
 <p>Sample Request</p>
@@ -3594,16 +3699,310 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <table><thead>
 <tr>
 <th>Parameter</th>
+<th>Type</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>merchantId*</td>
+<td></td>
 <td>The unique id (GUID) of the merchant from which you want to fetch order details</td>
 </tr>
 <tr>
 <td>order id*</td>
+<td></td>
 <td>The order id that you want to fetch</td>
+</tr>
+</tbody></table>
+
+<h2 id="get-order-information-v2">Get Order Information (V2)</h2>
+
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
+<pre class="highlight html"><code>https://www.martjack.com/developerapi/Order/V2/81e77da2-723b-483d-8c0d-49f800c1xxxx/3390199
+</code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"messageCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1004"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Orders"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"OrderId"</span><span class="p">:</span><span class="w"> </span><span class="mi">3390199</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"S"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"81e77da2-723b-483d-8c0d-49f800c1xxxx"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"UserId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7b0873e5-e8ed-45b4-bee8-204489a2axxx"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"TotalAmount"</span><span class="p">:</span><span class="w"> </span><span class="mf">3.25</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"AmountPayable"</span><span class="p">:</span><span class="w"> </span><span class="mf">3.25</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"OrderDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/Date(1541771716000+0530)/"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"BillFirstname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tom"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"BillLastname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sawyer"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"BillCountry"</span><span class="p">:</span><span class="w"> </span><span class="s2">"الكويت"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"BillingState"</span><span class="p">:</span><span class="w"> </span><span class="s2">"حولي"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"BillCity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"السالمية"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"BillEmail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tom.sawyer@example.com"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"BillZIP"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"BillPhone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"97175040"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"BillMobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"97175040"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"BillAddress1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Block 12, Abo Horaira Street"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ShipFirstname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tom"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ShipLastname"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ShipCountry"</span><span class="p">:</span><span class="w"> </span><span class="s2">"الكويت"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ShipState"</span><span class="p">:</span><span class="w"> </span><span class="s2">"حولي"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ShipCity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"السالمية"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ShipEmail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tom.sawyer@example.com"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ShipZip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ShipPhone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"97175040"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ShipMobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"97175040"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ShipAddress1"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ShipOtherCity"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"DeliveryOption"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pickup"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"TAXTotal"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"VoucherCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"LeadTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"BillAddress2"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ShipAddress2"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"IsGift"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"SupplierID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00000000-0000-0000-0000-000000000000"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ConversionFactor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"cpuserid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00000000-0000-0000-0000-000000000000"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"OrderLineId"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nt">"OrderLineId"</span><span class="p">:</span><span class="w"> </span><span class="mi">21160149</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"OrderId"</span><span class="p">:</span><span class="w"> </span><span class="mi">3390199</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"ProductId"</span><span class="p">:</span><span class="w"> </span><span class="mi">8303029</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"VariantProductId"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"IsParentProduct"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"Quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"ShippingCost"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"ProductPrice"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"TotalPromotionDiscount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"ReturnReason"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"ReturnAction"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"StockAction"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"ReturnQty"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"IsBackOrder"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"TotalVoucherDiscount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"TotalTaxAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"ShippingVoucherDiscount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"CustomFields"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"VariantMasterProductId"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"LocationCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"111"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"ShippingStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"W"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"DeliveryMode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"S"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"VendorId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2002cbfe-9adf-42ac-9bfd-8e013fee7gtr"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"ItemStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"S"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"SKU"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dls-130031"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"VariantSku"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"ProductTitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BUY ONE GET ONE FREE- Medium"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"BundleProductId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8303029"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"ParentReDetailsId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"IsPrimaryProduct"</span><span class="p">:</span><span class="w"> </span><span class="s2">"false"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"Portion"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"MRP"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0000"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"TaxDetails"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+                    </span><span class="nt">"LocationId"</span><span class="p">:</span><span class="w"> </span><span class="mi">13360</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"CategoryId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CU00215646"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"CategoryName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Deals"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"CancelQuantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"DerivedStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Waiting for Collection - Instore"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"DerivedStatusCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"W"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"EstimatedDeliveryTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01-Jan-0001 12:00:00 AM"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"PromotionIds"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"SubStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nt">"OrderLineId"</span><span class="p">:</span><span class="w"> </span><span class="mi">21160151</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"OrderId"</span><span class="p">:</span><span class="w"> </span><span class="mi">3390199</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"ProductId"</span><span class="p">:</span><span class="w"> </span><span class="mi">8303031</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"VariantProductId"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"IsParentProduct"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"Quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"ShippingCost"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"ProductPrice"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"TotalPromotionDiscount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"ReturnReason"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"ReturnAction"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"StockAction"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"ReturnQty"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"IsBackOrder"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"TotalVoucherDiscount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"TotalTaxAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"ShippingVoucherDiscount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"CustomFields"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"VariantMasterProductId"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"LocationCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"111"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"ShippingStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"W"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"DeliveryMode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"S"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"VendorId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"81e77da2-723b-483d-8c0d-49f800c1xxxx"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"ItemStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"S"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"SKU"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pz-New-Spicy-Chicken-Ranch"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"VariantSku"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"ProductTitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"New Spicy Chicken Ranch"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"BundleProductId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8303029"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"ParentReDetailsId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"21160149"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"IsPrimaryProduct"</span><span class="p">:</span><span class="w"> </span><span class="s2">"false"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"Portion"</span><span class="p">:</span><span class="w"> </span><span class="s2">"W"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"MRP"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0000"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"TaxDetails"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+                    </span><span class="nt">"LocationId"</span><span class="p">:</span><span class="w"> </span><span class="mi">13360</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"CategoryId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CU00215656"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"CategoryName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chicken"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"BundleCartReferenceKey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00b623ee-cc01-4aaf-8b02-69c047fb4c66"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"CancelQuantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"DerivedStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Waiting for Collection - Instore"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"DerivedStatusCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"W"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"EstimatedDeliveryTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01-Jan-0001 12:00:00 AM"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"PromotionIds"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"SubStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+
+            </span><span class="p">],</span><span class="w">
+            </span><span class="nt">"PaymentDetails"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nt">"PointsBurned"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"AgentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"GV"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"Channel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"W"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"CurrencyCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KWD"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"PaymentResponse"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"PaymentStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3.2500"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"PaymentDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11/9/2018 7:25:16 PM"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"PaymentType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"COD"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"OrderId"</span><span class="p">:</span><span class="w"> </span><span class="mi">3390199</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"PaymentDetailsId"</span><span class="p">:</span><span class="w"> </span><span class="mi">3395813</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"checkOutGroup"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"PaymentOption"</span><span class="p">:</span><span class="w"> </span><span class="s2">"COD"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"clientIP"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"ResponseCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"N"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"ClientUserAgent"</span><span class="p">:</span><span class="w"> </span><span class="s2">"API"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="nt">"Rewards"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ShippingDiscount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"VoucherDiscount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"PromotionDiscount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"OriginalOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ReturnOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ReferenceNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"DemandedDeliveryDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"09-Nov-2018"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"deliveryslots"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"StartTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"08:00 PM"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"EndTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"08:15 PM"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"DeliverySlotId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14136"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"PickupFirstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"PickupLastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"PickupEmail"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"PickupMobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Latitude"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Longitude"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"GiftMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"جبن زيادة"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"LanguageCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ar"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ShipCityCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"39440"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ShipStateCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KW13"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"BillCityCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"39440"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ShipCountryCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KW"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"BillStateCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KW13"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"BillCountryCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KW"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"RefundAmount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ChannelID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"IsSelfShip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"False"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ChannelOrderID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Promotions"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"SubStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IK"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"OrderAttributes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nt">"OrderId"</span><span class="p">:</span><span class="w"> </span><span class="mi">3390199</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"81e77da2-723b-483d-8c0d-49f800c1xxxx"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"AttributeID"</span><span class="p">:</span><span class="w"> </span><span class="mi">18</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"AttributeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IsImmediateOrder"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nt">"OrderId"</span><span class="p">:</span><span class="w"> </span><span class="mi">3390199</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"81e77da2-723b-483d-8c0d-49f800c1xxxx"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"AttributeID"</span><span class="p">:</span><span class="w"> </span><span class="mi">32</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"AttributeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"channelid"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PWA,android"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="nt">"SourceLocationID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"13360"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"SourceLocationCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"111"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"OrderDateLocal"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"AutoUpdateTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/Date(1541781700000+0530)/"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<p>Retrieves the details of a specific order of a merchant.</p>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td><code class="prettyprint">order/V2/{{MerchantId}}/{orderID}</code></td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>Yes</td>
+</tr>
+</tbody></table>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">http://{host}/developerapi/order/V2/{{MerchantId}}/{orderID}</code></p>
+
+<h3 id="request-parameters">Request Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>MerchantId*</td>
+<td>string</td>
+<td>Unique GUID of the merchant associated to the order</td>
+</tr>
+<tr>
+<td>orderID*</td>
+<td>long</td>
+<td>Order id for which you want to fetch details</td>
+</tr>
+<tr>
+<td>V2*</td>
+<td>string</td>
+<td>Supported API version</td>
 </tr>
 </tbody></table>
 
@@ -3647,80 +4046,66 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <h3 id="resource-information">Resource Information</h3>
 
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>URI</td>
-<td><code class="prettyprint">Order/Cancel</code></td>
-</tr>
-<tr>
-<td>Rate Limited?</td>
-<td>Yes</td>
-</tr>
-<tr>
-<td>Authentication</td>
-<td>Yes</td>
-</tr>
-<tr>
-<td>Response Formats</td>
-<td>JSON</td>
-</tr>
-<tr>
-<td>HTTP Methods</td>
-<td>POST</td>
-</tr>
-<tr>
-<td>Batch Support</td>
-<td>No</td>
-</tr>
-</tbody></table>
+<p>|  |  |
+&mdash;&mdash;&mdash; | &mdash;&mdash;&mdash;&ndash; | 
+URI | <code class="prettyprint">Order/Cancel</code>
+Rate Limited? | Yes
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | POST
+Batch Support | No</p>
 
 <h3 id="request-url">Request URL</h3>
 
 <p><code class="prettyprint">http://{host}/developerapi/Order/Cancel</code></p>
 
-<h3 id="request-parameters">Request Parameters</h3>
+<h3 id="request-body-parameters">Request Body Parameters</h3>
 
 <table><thead>
 <tr>
 <th>Parameter</th>
+<th>Type</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>Merchant Id*</td>
+<td></td>
 <td>The unique id (GUID) of the merchant in which the order is placed</td>
 </tr>
 <tr>
 <td>OrderId*</td>
+<td></td>
 <td>Provide the order id that you want to cancel</td>
 </tr>
 <tr>
 <td>Date*</td>
+<td></td>
 <td>The date on which the order is created in mm/dd/yy format</td>
 </tr>
 <tr>
 <td>Comment</td>
+<td></td>
 <td>Specify the customer&rsquo;s reason for the order cancellation</td>
 </tr>
 <tr>
 <td>DisplayCommentToUser</td>
+<td></td>
 <td>Value: True/False. Specify whether to make the custom comment visible (True) or invisible (False) to the end-customer</td>
 </tr>
 <tr>
 <td>PGResponse</td>
+<td></td>
 <td>The response received from the payment gateway</td>
 </tr>
 <tr>
 <td>OperatorID</td>
+<td></td>
 <td>Current user id - It could be store, admin, manager</td>
 </tr>
 <tr>
 <td>CancelReason*</td>
+<td></td>
 <td>Value: Auto populated reason</td>
 </tr>
 </tbody></table>
@@ -3807,53 +4192,67 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <p><code class="prettyprint">http://{host}/developerapi/Order/CancelItem</code></p>
 
-<h3 id="request-parameters">Request Parameters</h3>
+<h3 id="request-body-parameters">Request Body Parameters</h3>
 
 <table><thead>
 <tr>
 <th>Parameter</th>
+<th>Type</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>Merchant Id*</td>
+<td></td>
 <td>The unique id (GUID) of the merchant in which the order is placed</td>
 </tr>
 <tr>
 <td>OrderId*</td>
+<td></td>
 <td>Provide the order id that you want to cancel</td>
 </tr>
 <tr>
 <td>Date*</td>
+<td></td>
 <td>The date on which the order is created in mm/dd/yy format</td>
 </tr>
 <tr>
 <td>Comment</td>
+<td></td>
 <td>Specify the customer&rsquo;s reason for the order cancellation</td>
 </tr>
 <tr>
 <td>DisplayCommentToUser</td>
+<td></td>
 <td>Value: True/False. Specify whether to make the custom comment visible (True) or invisible (False) to the end-customer</td>
 </tr>
 <tr>
 <td>PGResponse</td>
+<td></td>
 <td>The response received from the payment gateway for that specific order</td>
 </tr>
 <tr>
 <td>OperatorID</td>
+<td></td>
 <td>Current user id - It could be store&rsquo;s, admin&rsquo;s, or manager&rsquo;s</td>
 </tr>
 <tr>
 <td>CancelReason*</td>
+<td></td>
 <td>Specify the reason for order cancellation. In UI, these are auto-populated in the UI.</td>
 </tr>
 <tr>
 <td>TobeCancelledOrderItems</td>
+<td></td>
 <td>Specify the items that you want to cancel in <code class="prettyprint">OrderItemID</code> and <code class="prettyprint">CancelQuantity</code></td>
 </tr>
 </tbody></table>
 
 <h2 id="process-return">Process Return</h2>
+
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
 <pre class="highlight html"><code>https://www.martjack.com/developerapi/Order/ProcessReturn/f48fdd16-92db-4188-854d-1ecd9b62xxxx
 </code></pre>
 <blockquote>
@@ -3928,13 +4327,418 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <p><code class="prettyprint">https://{host}/developerapi/Order/ProcessReturn/{MerchantId}</code></p>
 
-<p>Request Attributes
-Attribute | Description
-&mdash;&mdash;&ndash; | &mdash;&mdash;&mdash;&mdash;
-OrderId* | Order ID of the return items
-ReturnRequestId | Return Request ID of the return. Leave this blank if you want to just modify the return details
-Substatus | Sub-status code of the return request (Preconfigured values only). Leave this blank if you want to just modify the return details
-SubstatusChangeComments | Specify the reason for return sub-status change. You can enter up to 50 characters</p>
+<p>Request Body Parameters
+Attribute | Type | Description
+&mdash;&mdash;&ndash; | &mdash;&ndash; | &mdash;&mdash;-
+OrderId* |   | Order ID of the return items
+ReturnRequestId |  |  Return Request ID of the return. Leave this blank if you want to just modify the return details
+Substatus |   | Sub-status code of the return request (Preconfigured values only). Leave this blank if you want to just modify the return details
+SubstatusChangeComments |   | Specify the reason for return sub-status change. You can enter up to 50 characters</p>
+
+<h2 id="create-shipment-packages">Create Shipment Packages</h2>
+
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
+<pre class="highlight html"><code>https://www.martjack.com/developerapi/Order/CreateShipmentPackages/f48fdd16-92db-4188-854d-1ecd9b62xxxx
+</code></pre>
+<blockquote>
+<p>Sample POST Request</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"CreateShipmentPackages"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"OrderID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6402591"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ShipmentType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Normal"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"AirwayBillNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"CourierName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Custom"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ShipmentPickupDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018\/10\/30"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"LocationCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1001"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ShipmentPackageInputs"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"PackageCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FN322"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"PackingSupplyRefCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LOOSE"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"PackageID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"16"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ShipmentPackageItems"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                    </span><span class="nt">"OrderItemId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"23356065"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"Quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                    </span><span class="nt">"OrderItemId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"23356068"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"Quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+             </span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"PackageCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NEW44"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"PackingSupplyRefCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HIGH"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"PackageID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"18"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ShipmentPackageItems"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                    </span><span class="nt">"OrderItemId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"23356080"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"Quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                    </span><span class="nt">"OrderItemId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"23356088"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"Quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+       </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="w">
+</span></code></pre>
+<p>Creates shipment packages for a specific order.</p>
+
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td><code class="prettyprint">/Order/ShipmentPackages/{MerchantId}</code></td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>POST</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>No</td>
+</tr>
+</tbody></table>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">https://{host}/developerapi/Order/ShipmentPackages/{MerchantId}</code></p>
+
+<h3 id="request-body-parameters">Request Body Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>OrderID</td>
+<td>long</td>
+<td>The order id for which you want to create shipment packages</td>
+</tr>
+<tr>
+<td>ShipmentType</td>
+<td>string</td>
+<td>Type of shipment. Supported value: <code class="prettyprint">Normal</code></td>
+</tr>
+<tr>
+<td>AirwayBillNo</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>CourierName</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>ShipmentPickupDate</td>
+<td>date-time</td>
+<td>Pickup date of the shipment in <code class="prettyprint">YYYY\/MM\/DD</code> format</td>
+</tr>
+<tr>
+<td>LocationCode</td>
+<td>string</td>
+<td>Reference code of the order fulfillment location</td>
+</tr>
+<tr>
+<td>PackageCode</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>PackingSupplyRefCode</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>PackageID</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>OrderItemId</td>
+<td></td>
+<td>Line item id of the individual items of the order</td>
+</tr>
+<tr>
+<td>Quantity</td>
+<td>int</td>
+<td>Quantity of the current order item</td>
+</tr>
+</tbody></table>
+
+<h2 id="get-shipment-packages">Get Shipment Packages</h2>
+
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
+<pre class="highlight html"><code>https://www.martjack.com/developerapi/Order/ShipmentPackages/f48fdd16-92db-4188-854d-1ecd9b62xxxx
+</code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"messageCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1004"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ShipmentPackages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"PackageId"</span><span class="p">:</span><span class="w"> </span><span class="mi">38</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"PackageType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HYC"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"LWH"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1X1X1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Weight"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"UOM"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kgs"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"PackingSupplyRefCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"36478"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"PackageId"</span><span class="p">:</span><span class="w"> </span><span class="mi">18</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"PackageType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"LWH"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Weight"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"UOM"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Gms"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"PackingSupplyRefCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<p>Retrieves shipment packages of the merchant.</p>
+
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td><code class="prettyprint">/Order/ShipmentPackages/{MerchantId}</code></td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>No</td>
+</tr>
+</tbody></table>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">https://{host}/developerapi/Order/ShipmentPackages/{MerchantId}</code></p>
+
+<h2 id="get-activity-history">Get Activity History</h2>
+
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
+<pre class="highlight html"><code>https://www.martjack.com/developerapi/Order/GetOrderActivityHistory/f48fdd16-92db-4188-854d-1ecd9b62xxxx
+</code></pre>
+<blockquote>
+<p>Sample POST Request</p>
+</blockquote>
+<pre class="highlight json"><code><span class="err">MerchantId=f</span><span class="mi">48</span><span class="err">fdd</span><span class="mi">16-92</span><span class="err">db</span><span class="mi">-4188-854</span><span class="err">d</span><span class="mi">-1</span><span class="err">ecd</span><span class="mi">9</span><span class="err">b</span><span class="mi">62</span><span class="err">xxxx&amp;InputFormat=application/json&amp;InputData=</span><span class="p">{</span><span class="w">  
+   </span><span class="nt">"orderfieldchangehistory"</span><span class="p">:</span><span class="s2">"false"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"activityhistory"</span><span class="p">:</span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"orderids"</span><span class="p">:[</span><span class="w">  
+      </span><span class="mi">3725777</span><span class="w">
+   </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">  
+   </span><span class="nt">"messageCode"</span><span class="p">:</span><span class="s2">"1004"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"Message"</span><span class="p">:</span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"ListOfOrderActivities"</span><span class="p">:[</span><span class="w">  
+      </span><span class="p">{</span><span class="w">  
+         </span><span class="nt">"OrderID"</span><span class="p">:</span><span class="mi">7124734</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"OrderItemFieldChangeHistory"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"OrderActivityHistory"</span><span class="p">:[</span><span class="w">  
+            </span><span class="p">{</span><span class="w">  
+               </span><span class="nt">"ConversationLogId"</span><span class="p">:</span><span class="mi">67677854</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"ConversationDate"</span><span class="p">:</span><span class="s2">"/Date(1536326104000+0530)/"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"ConversationText"</span><span class="p">:</span><span class="s2">"Payment through 'PAYTM' mode has been saved successfully."</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"RETransactionId"</span><span class="p">:</span><span class="mi">7124734</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"ConversationType"</span><span class="p">:</span><span class="s2">"SOL"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"CPUserId"</span><span class="p">:</span><span class="s2">"00000000-0000-0000-0000-000000000000"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"LogAction"</span><span class="p">:</span><span class="s2">"P"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"MerchantId"</span><span class="p">:</span><span class="s2">"f48fdd16-92db-4188-854d-1ecd9b62xxxx"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"UpdatedDate"</span><span class="p">:</span><span class="s2">"/Date(1536326104000+0530)/"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">  
+               </span><span class="nt">"ConversationLogId"</span><span class="p">:</span><span class="mi">67677872</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"ConversationDate"</span><span class="p">:</span><span class="s2">"/Date(1536326217000+0530)/"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"ConversationText"</span><span class="p">:</span><span class="s2">"Order Payment Has been Authorized"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"RETransactionId"</span><span class="p">:</span><span class="mi">7124734</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"ConversationType"</span><span class="p">:</span><span class="s2">"SOL"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"CPUserId"</span><span class="p">:</span><span class="s2">"00000000-0000-0000-0000-000000000000"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"LogAction"</span><span class="p">:</span><span class="s2">"A"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"MerchantId"</span><span class="p">:</span><span class="s2">"f48fdd16-92db-4188-854d-1ecd9b62xxxx"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"UpdatedDate"</span><span class="p">:</span><span class="s2">"/Date(1536326217000+0530)/"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">  
+               </span><span class="nt">"ConversationLogId"</span><span class="p">:</span><span class="mi">67677876</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"ConversationDate"</span><span class="p">:</span><span class="s2">"/Date(1536326217000+0530)/"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"ConversationText"</span><span class="p">:</span><span class="s2">"Response Code=200"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"RETransactionId"</span><span class="p">:</span><span class="mi">7124734</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"ConversationType"</span><span class="p">:</span><span class="s2">"SOL"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"CPUserId"</span><span class="p">:</span><span class="s2">"00000000-0000-0000-0000-000000000000"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"LogAction"</span><span class="p">:</span><span class="s2">"A"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"MerchantId"</span><span class="p">:</span><span class="s2">"f48fdd16-92db-4188-854d-1ecd9b62xxxx"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"UpdatedDate"</span><span class="p">:</span><span class="s2">"/Date(1536326217000+0530)/"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">  
+               </span><span class="nt">"ConversationLogId"</span><span class="p">:</span><span class="mi">67741840</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"ConversationDate"</span><span class="p">:</span><span class="s2">"/Date(1536563066000+0530)/"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"ConversationText"</span><span class="p">:</span><span class="s2">"sku(s):  103694029  has been cancelled successfully."</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"RETransactionId"</span><span class="p">:</span><span class="mi">7124734</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"ConversationType"</span><span class="p">:</span><span class="s2">"SOL"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"CPUserId"</span><span class="p">:</span><span class="s2">"380a8f3b-b2c5-4bd7-9daa-5dad1476022b"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"LogAction"</span><span class="p">:</span><span class="s2">"F"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"MerchantId"</span><span class="p">:</span><span class="s2">"f48fdd16-92db-4188-854d-1ecd9b62xxxx"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"UpdatedDate"</span><span class="p">:</span><span class="s2">"/Date(1536563066000+0530)/"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">  
+               </span><span class="nt">"ConversationLogId"</span><span class="p">:</span><span class="mi">67741842</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"ConversationDate"</span><span class="p">:</span><span class="s2">"/Date(1536563066000+0530)/"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"ConversationText"</span><span class="p">:</span><span class="s2">"Delivery Address out of Deliverable Pincode  ( Reason :Order not in delivery Area )"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"RETransactionId"</span><span class="p">:</span><span class="mi">7124734</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"ConversationType"</span><span class="p">:</span><span class="s2">"MUOL"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"CPUserId"</span><span class="p">:</span><span class="s2">"380a8f3b-b2c5-4bd7-9daa-5dad1476022b"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"LogAction"</span><span class="p">:</span><span class="s2">"C"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"MerchantId"</span><span class="p">:</span><span class="s2">"f48fdd16-92db-4188-854d-1ecd9b62xxxx"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"UpdatedDate"</span><span class="p">:</span><span class="s2">"/Date(1536563066000+0530)/"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">  
+               </span><span class="nt">"ConversationLogId"</span><span class="p">:</span><span class="mi">67741844</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"ConversationDate"</span><span class="p">:</span><span class="s2">"/Date(1536563066000+0530)/"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"ConversationText"</span><span class="p">:</span><span class="s2">"Return request 201782 with Quantity 1  has been initiated from Cancel Order. comments:Delivery Address out of Deliverable Pincode  ( Reason :Order not in delivery Area )"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"RETransactionId"</span><span class="p">:</span><span class="mi">7124734</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"ConversationType"</span><span class="p">:</span><span class="s2">"Refunds"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"CPUserId"</span><span class="p">:</span><span class="s2">"380a8f3b-b2c5-4bd7-9daa-5dad1476022b"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"LogAction"</span><span class="p">:</span><span class="s2">"S"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"MerchantId"</span><span class="p">:</span><span class="s2">"f48fdd16-92db-4188-854d-1ecd9b62xxxx"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"UpdatedDate"</span><span class="p">:</span><span class="s2">"/Date(1536563066000+0530)/"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+         </span><span class="p">]</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+   </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td><code class="prettyprint">/Order/GetOrderActivityHistory/{MerchantId}</code></td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>POST</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>No</td>
+</tr>
+</tbody></table>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">https://{host}/developerapi/Order/GetOrderActivityHistory/{MerchantId}</code></p>
+
+<h3 id="request-body-parameters">Request Body Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>orderfieldchangehistory</td>
+<td>boolean</td>
+<td>Specify <code class="prettyprint">true</code> to retrieve the history of change in order or order item attributes. For example, order fulfillment location, order item fulfillment location and so on</td>
+</tr>
+<tr>
+<td>activityhistory</td>
+<td>boolean</td>
+<td>Specify <code class="prettyprint">true</code> to retrieve activity log of an order such as order authorized, order shipped, and payment authorized</td>
+</tr>
+<tr>
+<td>orderids*</td>
+<td>long</td>
+<td>Specify the order id(s) that you want to fetch.</td>
+</tr>
+</tbody></table>
 
           <h1 id="shopping-list">Shopping List</h1>
 
@@ -5824,7 +6628,7 @@ IsShippingAddressDifferent | Specify <code class="prettyprint">true</code> if sh
 
 <p><code class="prettyprint">https://{host}/developerapi/Product/AddReview/{MerchantId}/{UserId}/{SKU}</code></p>
 
-<h3 id="request-parameters">Request Parameters</h3>
+<h3 id="request-query-parameters">Request Query Parameters</h3>
 
 <table><thead>
 <tr>
@@ -5850,7 +6654,7 @@ IsShippingAddressDifferent | Specify <code class="prettyprint">true</code> if sh
 </tr>
 </tbody></table>
 
-<h3 id="request-attributes">Request Attributes</h3>
+<h3 id="request-body-parameters">Request Body Parameters</h3>
 
 <table><thead>
 <tr>
@@ -5877,12 +6681,12 @@ IsShippingAddressDifferent | Specify <code class="prettyprint">true</code> if sh
 <blockquote>
 <p>Sample Request</p>
 </blockquote>
-<pre class="highlight html"><code>https://www.martjack.com/developerapi/product/UpdateLocationWiseStock/f48fdd16-92db-4188-854d-1ecd9b62xxxx/18340
+<pre class="highlight html"><code>https://www.martjack.com/developerapi/product/UpdateLocationWiseStock
 </code></pre>
 <blockquote>
-<p>Sample Response</p>
+<p>Sample POST Body</p>
 </blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
+<pre class="highlight json"><code><span class="err">MerchantId=</span><span class="s2">"0639f7a6-34cc-48b2-9fd9-a80e2ed8xxxx"</span><span class="err">&amp;InputFormat=</span><span class="s2">"application/json"</span><span class="err">&amp;InputData=</span><span class="p">{</span><span class="w">
     </span><span class="nt">"products"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nt">"product"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="nt">"sku"</span><span class="p">:</span><span class="s2">"zara1234121"</span><span class="p">,</span><span class="w">
@@ -5931,7 +6735,7 @@ IsShippingAddressDifferent | Specify <code class="prettyprint">true</code> if sh
 </thead><tbody>
 <tr>
 <td>URI</td>
-<td><code class="prettyprint">/Location/LocationWiseStock/{{MerchantId}}</code></td>
+<td><code class="prettyprint">/product/LocationWiseStock</code></td>
 </tr>
 <tr>
 <td>Rate Limited?</td>
@@ -5957,7 +6761,7 @@ IsShippingAddressDifferent | Specify <code class="prettyprint">true</code> if sh
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Location/UpdateLocationWiseStock/{{MerchantId}}</code></p>
+<p><code class="prettyprint">https://{host}/developerapi/product/UpdateLocationWiseStock</code></p>
 
 <h3 id="request-body-parameters">Request Body Parameters</h3>
 
@@ -5969,14 +6773,14 @@ IsShippingAddressDifferent | Specify <code class="prettyprint">true</code> if sh
 </tr>
 </thead><tbody>
 <tr>
-<td>sku</td>
+<td>sku*</td>
 <td>string</td>
 <td>SKU of the product of a specific location for which you want to update stock and price</td>
 </tr>
 <tr>
-<td>variantsku</td>
+<td>variantsku*</td>
 <td>string</td>
-<td>The variant SKU of the current item</td>
+<td>The variant SKU of the current item (only for variant products)</td>
 </tr>
 <tr>
 <td>stock</td>
@@ -5984,7 +6788,7 @@ IsShippingAddressDifferent | Specify <code class="prettyprint">true</code> if sh
 <td>Number of available items of the current SKU. Specify NA if not applicable</td>
 </tr>
 <tr>
-<td>locationrefcode</td>
+<td>locationrefcode*</td>
 <td>string</td>
 <td>Location reference code of the current item (physical store or warehouse)</td>
 </tr>
@@ -6010,7 +6814,7 @@ IsShippingAddressDifferent | Specify <code class="prettyprint">true</code> if sh
 </tr>
 </tbody></table>
 
-<h2 id="update-product-information">Update Product Information</h2>
+<h2 id="update-product-information-normal-variant">Update Product Information (normal/variant)</h2>
 
 <blockquote>
 <p>Sample Request</p>
@@ -6021,23 +6825,98 @@ IsShippingAddressDifferent | Specify <code class="prettyprint">true</code> if sh
 <blockquote>
 <p>Sample POST Request</p>
 </blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-    </span><span class="nt">"Products"</span><span class="p">:{</span><span class="w">
-        </span><span class="nt">"Product"</span><span class="p">:</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"SKU"</span><span class="p">:</span><span class="w"> </span><span class="s2">"458636"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"VariantSKU"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"BrandID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1756"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"ProductTitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TiTle test"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"Inventory"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2000"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"MRP"</span><span class="p">:</span><span class="w"> </span><span class="s2">"499"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"Webprice"</span><span class="p">:</span><span class="w"> </span><span class="s2">"499"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"Availability"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Y"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"BarCode"</span><span class="p">:</span><span class="s2">"TestBarcode111,testbarcode222"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
+<pre class="highlight json"><code><span class="err">MerchantId=</span><span class="s2">"0639f7a6-34cc-48b2-9fd9-a80e2ed8xxxx"</span><span class="err">&amp;InputFormat=</span><span class="s2">"application/json"</span><span class="err">&amp;InputData=</span><span class="p">{</span><span class="w">  
+   </span><span class="nt">"products"</span><span class="p">:{</span><span class="w">  
+      </span><span class="nt">"product"</span><span class="p">:{</span><span class="w">  
+         </span><span class="nt">"sku"</span><span class="p">:</span><span class="s2">"458636"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"variantsku"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"BrandID"</span><span class="p">:</span><span class="s2">"1756"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"ProductTitle"</span><span class="p">:</span><span class="s2">"Capillary Mens Jeans"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"Inventory"</span><span class="p">:</span><span class="s2">"2000"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"MRP"</span><span class="p">:</span><span class="s2">"499"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"Webprice"</span><span class="p">:</span><span class="s2">"499"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"Availability"</span><span class="p">:</span><span class="s2">"Y"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"ProductType"</span><span class="p">:</span><span class="s2">"P"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"VariantProperty1"</span><span class="p">:</span><span class="s2">"color"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"value1"</span><span class="p">:</span><span class="s2">"red"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"VariantProperty2"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"value2"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"SmallImage"</span><span class="p">:</span><span class="s2">"filename.jpg"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"LargeImage"</span><span class="p">:</span><span class="s2">"image.jpg"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"ShortDescription"</span><span class="p">:</span><span class="s2">"Mens jeans blue denim"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"ProductDescription"</span><span class="p">:</span><span class="s2">"Example description"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"PaymentOptionOnline"</span><span class="p">:</span><span class="s2">"Y"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"PaymentOptionChequeOrDD"</span><span class="p">:</span><span class="s2">"Y"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"PaymentOptionBankTransfer"</span><span class="p">:</span><span class="s2">"N"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"PaymentOptionCOD"</span><span class="p">:</span><span class="s2">"Y"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"DeliveryOptionShip"</span><span class="p">:</span><span class="s2">"Y"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"DeliveryOptionOffline"</span><span class="p">:</span><span class="s2">"N"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"DeliveryOptionOnline"</span><span class="p">:</span><span class="s2">"Y"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"DeliveryOptionInStorePickup"</span><span class="p">:</span><span class="s2">"Y"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"LocationBased"</span><span class="p">:</span><span class="s2">"Y"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"ShippingCode"</span><span class="p">:</span><span class="s2">"flat"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"TaxCode"</span><span class="p">:</span><span class="s2">"GST"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"DeliveryTime"</span><span class="p">:</span><span class="s2">"2-5 business days"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"CatalogSequence"</span><span class="p">:</span><span class="s2">"50"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"ProductWeight"</span><span class="p">:</span><span class="s2">"200"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"VariantProperty3"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"Value3"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"VariantProperty4"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"Value4"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"VariantProperty5"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"Value5"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"BankProductId"</span><span class="p">:</span><span class="s2">"654786"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"OfferProductDescription"</span><span class="p">:</span><span class="s2">"example.xml"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"OfferProductImage"</span><span class="p">:</span><span class="s2">"image.jpg"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"PageTitle"</span><span class="p">:</span><span class="s2">"Mens Trousers"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"Keywords"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"KeywordDescription"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"SEOURL"</span><span class="p">:</span><span class="s2">"example.com"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"SmallImageAltText"</span><span class="p">:</span><span class="s2">"altimage.jpg"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"LargeImageAltText"</span><span class="p">:</span><span class="s2">"altimage.jpg"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"StartDate"</span><span class="p">:</span><span class="s2">"11/03/2018"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"EndDate"</span><span class="p">:</span><span class="s2">"1/03/2020"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"StartTime"</span><span class="p">:</span><span class="s2">"12:00:00"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"EndTime"</span><span class="p">:</span><span class="s2">"1:00:00"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"PeriodicityType"</span><span class="p">:</span><span class="s2">"monthly"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"PeriodicityRangeWeekly"</span><span class="p">:</span><span class="s2">"1-30"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"ShowExpired"</span><span class="p">:</span><span class="s2">"Y"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"UOM"</span><span class="p">:</span><span class="s2">"gms"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"LBH"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"BuyingWeight"</span><span class="p">:</span><span class="s2">"250"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"PkgQty"</span><span class="p">:</span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"MinimumOrderQuantity"</span><span class="p">:</span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"MaximumOrderQuantity"</span><span class="p">:</span><span class="s2">"5"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"PreOrder"</span><span class="p">:</span><span class="s2">"Y"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"BackOrder"</span><span class="p">:</span><span class="s2">"10"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"StockAvailableMessage"</span><span class="p">:</span><span class="s2">"Stock will be available in 2 days"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"ProductCondition"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"Warrantybearer"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"WarrantyInMonths"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"ReserveQuantity"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"Reorderstocklevel"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"StockAlertQuantity"</span><span class="p">:</span><span class="s2">"5"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"BarCode"</span><span class="p">:</span><span class="s2">"barcode123,barcode2"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"ModelNumber"</span><span class="p">:</span><span class="s2">"UG654"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"CatalogCode"</span><span class="p">:</span><span class="s2">"P"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"PurchaseDate"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"ProductNote"</span><span class="p">:</span><span class="s2">"Mens blue jeans"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"FormCode"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"CheckoutWithTokenPrice"</span><span class="p">:</span><span class="s2">"Y"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"TokenPrice"</span><span class="p">:</span><span class="s2">"50"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"CostPrice"</span><span class="p">:</span><span class="s2">"350"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"HidePrice"</span><span class="p">:</span><span class="s2">"N"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"FulfillmentServiceRefCode"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"SectionRefCode"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"StdProductCode"</span><span class="p">:</span><span class="s2">"72.02.01-01"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"MPN"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"Vendor"</span><span class="p">:</span><span class="s2">"SampleVendor"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"VendorSKU"</span><span class="p">:</span><span class="s2">"SV123"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"StdProductType"</span><span class="p">:</span><span class="s2">"HSN"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
 
-    </span><span class="p">}</span><span class="w">
- </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <blockquote>
 <p>Sample Response</p>
@@ -6104,9 +6983,9 @@ IsShippingAddressDifferent | Specify <code class="prettyprint">true</code> if sh
 <td>Unique SKU of the product</td>
 </tr>
 <tr>
-<td>VariantSKU*</td>
+<td>VariantSKU</td>
 <td>string</td>
-<td>Unique SKU of the variant product.</td>
+<td>Unique SKU of the variant product. *Required for a variant product</td>
 </tr>
 <tr>
 <td>VariantProperty</td>
@@ -6121,17 +7000,17 @@ IsShippingAddressDifferent | Specify <code class="prettyprint">true</code> if sh
 <tr>
 <td>BrandID*</td>
 <td>string</td>
-<td>Unique id of the brand to which you want to associate the product</td>
+<td>Unique id of the brand associated to the product</td>
 </tr>
 <tr>
 <td>ProductTitle*</td>
 <td>string</td>
-<td>New title of the product</td>
+<td>Title of the product to appear on the product&rsquo;s page</td>
 </tr>
 <tr>
 <td>ProductType*</td>
 <td>string</td>
-<td>Values: P, A, D, B. P for normal products, A for add-on products, D for deal product, and B for bundle product</td>
+<td>Type of the product. Values: <code class="prettyprint">P</code> for a normal product, <code class="prettyprint">A</code> for an add-on products, <code class="prettyprint">D</code> for a deal product, and <code class="prettyprint">B</code> for a bundle product</td>
 </tr>
 <tr>
 <td>CategoryRefCode</td>
@@ -6151,21 +7030,366 @@ IsShippingAddressDifferent | Specify <code class="prettyprint">true</code> if sh
 <tr>
 <td>Webprice</td>
 <td>float</td>
-<td>Selling price of the product</td>
+<td>Selling price of the product on the storefront</td>
 </tr>
 <tr>
 <td>Availability</td>
 <td>string</td>
-<td>Values: Y, N. Specify <code class="prettyprint">Y</code> if the product is available and <code class="prettyprint">N</code> if unavailable</td>
+<td>Specify the availability of the product. Values: <code class="prettyprint">Y</code> if available, <code class="prettyprint">N</code> if unavailable</td>
 </tr>
 <tr>
 <td>BarCode</td>
 <td>string</td>
 <td>Bar code of the product</td>
 </tr>
+<tr>
+<td>ProductType</td>
+<td>enum</td>
+<td>Type of the product. Values: P (normal product), B (bundle product), A (add-on product), D (deal product)</td>
+</tr>
+<tr>
+<td>VariantProperty</td>
+<td>string</td>
+<td>Specify the property name of the variant product. For example, color, size, weight, ram, harddisk. You can add more properties in VariantProperty1, VariantProperty2 and so on</td>
+</tr>
+<tr>
+<td>value</td>
+<td>string</td>
+<td>Value of the specified property. You can add each property value in value1, value2 and so on</td>
+</tr>
+<tr>
+<td>SmallImage</td>
+<td>string</td>
+<td>Source image of the product -  small size (supported formats: .png, jpg,jpeg, .svc, and .gif)</td>
+</tr>
+<tr>
+<td>LargeImage</td>
+<td>string</td>
+<td>Source image of the product - large size (supported formats: .png, jpg,jpeg, .svc, and .gif)</td>
+</tr>
+<tr>
+<td>ShortDescription</td>
+<td>string</td>
+<td>Short description of the product. This will appear on the product showcase page</td>
+</tr>
+<tr>
+<td>ProductDescription</td>
+<td>string</td>
+<td>Description of the product. This will appear on the product page</td>
+</tr>
+<tr>
+<td>PaymentOptionOnline</td>
+<td>enum</td>
+<td>Specify <code class="prettyprint">Y</code> if online payment is supported for the product; <code class="prettyprint">N</code> if not supported</td>
+</tr>
+<tr>
+<td>PaymentOptionChequeOrDD</td>
+<td>enum</td>
+<td>Specify <code class="prettyprint">Y</code> if payment through cheque or DD is supported for the product; <code class="prettyprint">N</code> if not supported</td>
+</tr>
+<tr>
+<td>PaymentOptionBankTransfer</td>
+<td>enum</td>
+<td>Specify <code class="prettyprint">Y</code> if payment through online bank transfer is supported for the product; <code class="prettyprint">N</code> if not supported</td>
+</tr>
+<tr>
+<td>PaymentOptionCOD</td>
+<td>enum</td>
+<td>Specify <code class="prettyprint">Y</code> if cash on delivery is supported for the product; <code class="prettyprint">N</code> if not supported</td>
+</tr>
+<tr>
+<td>DeliveryOptionShip</td>
+<td>enum</td>
+<td>Specify <code class="prettyprint">Y</code> if the product can be shipped outside the state, <code class="prettyprint">N</code> if not</td>
+</tr>
+<tr>
+<td>DeliveryOptionOffline</td>
+<td>enum</td>
+<td>pecify <code class="prettyprint">Y</code> if the product can be purchased offline else specify <code class="prettyprint">N</code></td>
+</tr>
+<tr>
+<td>DeliveryOptionOnline</td>
+<td>enum</td>
+<td>Y, N. If the product can be delivered online (home delivery)</td>
+</tr>
+<tr>
+<td>DeliveryOptionInStorePickup</td>
+<td>enum</td>
+<td>Specify <code class="prettyprint">Y</code> if the product is available in Store for pick up, else specify <code class="prettyprint">N</code></td>
+</tr>
+<tr>
+<td>LocationBased</td>
+<td>enum</td>
+<td>Specify <code class="prettyprint">Y</code> if the shipping price is on location basis, Specify <code class="prettyprint">N</code> for common shipping price to all locations</td>
+</tr>
+<tr>
+<td>ShippingCode</td>
+<td>enum</td>
+<td>The code of the the type of shipping charges. Most commonly used: flat, india, international, surfaceways, airways</td>
+</tr>
+<tr>
+<td>TaxCode</td>
+<td>enum</td>
+<td>The tax code applicable for the product. Value: CSST, IGST, SGST, USST</td>
+</tr>
+<tr>
+<td>DeliveryTime</td>
+<td>string</td>
+<td>The estimated delivery time to be shown on the product page. Example: This product will be delivered in 7 days from the date of order</td>
+</tr>
+<tr>
+<td>CatalogSequence</td>
+<td>int</td>
+<td>Rank of the product to show up on the storefront</td>
+</tr>
+<tr>
+<td>ProductWeight</td>
+<td>float</td>
+<td>Weight of the product</td>
+</tr>
+<tr>
+<td>BankProductId</td>
+<td>string</td>
+<td>System generated id for the product source</td>
+</tr>
+<tr>
+<td>OfferProductDescription</td>
+<td>string</td>
+<td>.xml file name related to the product offer. Use for sale items</td>
+</tr>
+<tr>
+<td>OfferProductImage</td>
+<td>string</td>
+<td>Preferred image of the offer product (supported formats: .png, jpg,jpeg, .svc, and .gif)</td>
+</tr>
+<tr>
+<td>PageTitle</td>
+<td>string</td>
+<td>Title of the product you prefer for SEO</td>
+</tr>
+<tr>
+<td>Keywords</td>
+<td>string</td>
+<td>Preferred search keyword for the product</td>
+</tr>
+<tr>
+<td>KeywordDescription</td>
+<td></td>
+<td>Description of the specified search keyword</td>
+</tr>
+<tr>
+<td>SEOURL</td>
+<td>string</td>
+<td>The redirect URL when searched on Google</td>
+</tr>
+<tr>
+<td>SmallImageAltText</td>
+<td>string</td>
+<td>The mouse hover text for small image</td>
+</tr>
+<tr>
+<td>LargeImageAltText</td>
+<td>string</td>
+<td>The mouse hover text for large image</td>
+</tr>
+<tr>
+<td>StartDate</td>
+<td>date</td>
+<td>From when the product has to be displayed on the storefront in <code class="prettyprint">DD/MM/YY</code> format</td>
+</tr>
+<tr>
+<td>EndDate</td>
+<td>date</td>
+<td>Until when you want to show the product on the storefront in <code class="prettyprint">DD/MM/YY</code> format</td>
+</tr>
+<tr>
+<td>StartTime</td>
+<td>time</td>
+<td>The time from when you want to show on the storefront on the specified start date. Format: <code class="prettyprint">HH:MM:SS</code></td>
+</tr>
+<tr>
+<td>EndTime</td>
+<td>time</td>
+<td>The time from when you want to stop showing the product on the storefront on the specified end date. Format: <code class="prettyprint">HH:MM:SS</code></td>
+</tr>
+<tr>
+<td>PeriodicityType</td>
+<td>enum</td>
+<td>Use this to show items on the storefront specific days. Values: Monthly, Weekly, oneTime</td>
+</tr>
+<tr>
+<td>PeriodicityRange</td>
+<td>string</td>
+<td>The days when you want to show the product. For example: in monthly, 1-30 to show on all days of a month, in weekly you can have 1, 3, 5, to display of Sun, Tue, and Thu respectively.  No value is required for <code class="prettyprint">oneTime</code>. To pass multiple days, use comma separated values. For example, 1,2,5,10</td>
+</tr>
+<tr>
+<td>ShowExpired</td>
+<td>enum</td>
+<td>Y, N. To show if the product has to be displayed irrespective of the periodicityRange</td>
+</tr>
+<tr>
+<td>UOM</td>
+<td>enum</td>
+<td>Unit of measurement of the product. Values: ltrs, kgs, gms</td>
+</tr>
+<tr>
+<td>LBH</td>
+<td>string</td>
+<td>Dimensions of the product (Length*Bredth*Height) or the product volume</td>
+</tr>
+<tr>
+<td>BuyingWeight</td>
+<td>float</td>
+<td>Weight of the product as per the specified UOM. For example, if UOM is kgs then it will consider the specified value in kilo grams</td>
+</tr>
+<tr>
+<td>PkgQty</td>
+<td>int</td>
+<td>Quantity of the product in each package</td>
+</tr>
+<tr>
+<td>MinimumOrderQuantity</td>
+<td>int</td>
+<td>Minimum allowed product quantity per order</td>
+</tr>
+<tr>
+<td>MaximumOrderQuantity</td>
+<td>int</td>
+<td>Maximum allowed product quantity per order</td>
+</tr>
+<tr>
+<td>PreOrder</td>
+<td>enum</td>
+<td>Specify <code class="prettyprint">Y</code> to allow the product booking in advance, else, specify <code class="prettyprint">N</code></td>
+</tr>
+<tr>
+<td>BackOrder</td>
+<td>enum</td>
+<td>Specify <code class="prettyprint">Y</code> if you want to allow users to place orders even in no stock (0). Specify <code class="prettyprint">N</code> to disable ordering in case of out of stock</td>
+</tr>
+<tr>
+<td>StockAvailableMessage</td>
+<td>string</td>
+<td>Specify the stock availability message to show on the priduct page when it goes out of stock. For example, &ldquo;Stock will be available in 2 days&rdquo;</td>
+</tr>
+<tr>
+<td>ProductCondition</td>
+<td>enum</td>
+<td>Current condition of the product. Value: New, Used</td>
+</tr>
+<tr>
+<td>Warrantybearer</td>
+<td>enum</td>
+<td>Warranty bearer. Value: No Warranty, Manufacturer</td>
+</tr>
+<tr>
+<td>WarrantyInMonths</td>
+<td>int</td>
+<td>Warranty period in months</td>
+</tr>
+<tr>
+<td>ReserveQuantity</td>
+<td>int</td>
+<td>Quantity of items the merchant can reserve in order to fulfill loyal customers</td>
+</tr>
+<tr>
+<td>StockAlertQuantity</td>
+<td>int</td>
+<td>Sends an alert when the quantity of the product is less than this value</td>
+</tr>
+<tr>
+<td>BarCode</td>
+<td>string</td>
+<td>Barcode of the product. You can pass comma separated values in case of multiple bar codes</td>
+</tr>
+<tr>
+<td>ModelNumber</td>
+<td>string</td>
+<td>Model number of the product</td>
+</tr>
+<tr>
+<td>CatalogCode</td>
+<td>string</td>
+<td>Classification code of the product in catalogue</td>
+</tr>
+<tr>
+<td>PurchaseDate</td>
+<td>date</td>
+<td>Required for the used product. Date when the used product is purchased in <code class="prettyprint">MM:DD:YY</code> format</td>
+</tr>
+<tr>
+<td>ProductNote</td>
+<td>string</td>
+<td>Additional information to mention about the product</td>
+</tr>
+<tr>
+<td>FormCode</td>
+<td>enum</td>
+<td>Predefined form codes for deal products</td>
+</tr>
+<tr>
+<td>CheckoutWithTokenPrice</td>
+<td>enum</td>
+<td>Specify <code class="prettyprint">Y</code> to enable checkout with token price (preorder amount)</td>
+</tr>
+<tr>
+<td>TokenPrice</td>
+<td>float</td>
+<td>The token amount required for preorder (if <code class="prettyprint">CheckoutWithTokenPrice</code> is enabled)</td>
+</tr>
+<tr>
+<td>CostPrice</td>
+<td>float</td>
+<td>The cost price of the product</td>
+</tr>
+<tr>
+<td>HidePrice</td>
+<td>enum</td>
+<td>Specify <code class="prettyprint">Y</code> to hide the price on the storefront, <code class="prettyprint">N</code> to show the product price</td>
+</tr>
+<tr>
+<td>StdProductCode</td>
+<td>int</td>
+<td>HSN (Homogeneous Serial Number) of the product</td>
+</tr>
+<tr>
+<td>MPN</td>
+<td>string</td>
+<td>Manufacturer&rsquo;s product number</td>
+</tr>
+<tr>
+<td>Vendor</td>
+<td>enum</td>
+<td>Vendor name associated to the measurement for the product (Predefined vendor)</td>
+</tr>
+<tr>
+<td>VendorSKU</td>
+<td>string</td>
+<td>SKU of the product in the vendor system</td>
+</tr>
+<tr>
+<td>StdProductType</td>
+<td>enum</td>
+<td>HSN of the product type. Values: UPC, EAN, GTIN, ASIIN, ISBN10, ISBN13</td>
+</tr>
+<tr>
+<td>FulfillmentServiceRefCode</td>
+<td>string</td>
+<td>Reference code of the order fulfillment location</td>
+</tr>
+<tr>
+<td>SectionRefCode</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Reorderstocklevel</td>
+<td></td>
+<td></td>
+</tr>
 </tbody></table>
 
-<h2 id="get-item-sku-price">Get Item (SKU) Price</h2>
+<h2 id="get-sku-price">Get SKU Price</h2>
 
 <blockquote>
 <p>Sample Request</p>
@@ -6262,7 +7486,7 @@ IsShippingAddressDifferent | Specify <code class="prettyprint">true</code> if sh
 <table><thead>
 <tr>
 <th>Parameter</th>
-<th>Datatype</th>
+<th>Type</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
@@ -6337,7 +7561,7 @@ IsShippingAddressDifferent | Specify <code class="prettyprint">true</code> if sh
 </thead><tbody>
 <tr>
 <td>URI</td>
-<td><code class="prettyprint">Product/GetReviews/{MerchantId}/{Sku10_ProductId}</code></td>
+<td><code class="prettyprint">Product/GetReviews/{MerchantId}/{Sku}</code></td>
 </tr>
 <tr>
 <td>Rate Limited?</td>
@@ -6363,7 +7587,28 @@ IsShippingAddressDifferent | Specify <code class="prettyprint">true</code> if sh
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Product/GetReviews/{MerchantId}/{Sku10_ProductId}</code></p>
+<p><code class="prettyprint">https://{host}/developerapi/Product/GetReviews/{MerchantId}/{Sku}</code></p>
+
+<h3 id="request-body-parameters">Request Body Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>MerchantId*</td>
+<td>string</td>
+<td>The unique GUID of the merchant</td>
+</tr>
+<tr>
+<td>Sku*</td>
+<td>string</td>
+<td>SKU of the product for which you want to fetch reviews</td>
+</tr>
+</tbody></table>
 
           <h1 id="merchant">Merchant</h1>
 
@@ -7574,6 +8819,12 @@ IsShippingAddressDifferent | Specify <code class="prettyprint">true</code> if sh
             </span><span class="nt">"DeliveryType"</span><span class="p">:</span><span class="s2">"H"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"AreaRefCode"</span><span class="p">:</span><span class="s2">"12146"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"Operation"</span><span class="p">:</span><span class="s2">"remove"</span><span class="w">
+         </span><span class="p">},</span><span class="w">
+         </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"LocationRefCode"</span><span class="p">:</span><span class="s2">"Hyd001"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"DeliveryType"</span><span class="p">:</span><span class="s2">"H"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"AreaRefCode"</span><span class="p">:</span><span class="s2">"12146"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Operation"</span><span class="p">:</span><span class="s2">"add"</span><span class="w">
          </span><span class="p">}</span><span class="w">
       </span><span class="p">]</span><span class="w">
    </span><span class="p">}</span><span class="w">
@@ -8528,7 +9779,7 @@ IsShippingAddressDifferent | Specify <code class="prettyprint">true</code> if sh
 </tr>
 </thead><tbody>
 <tr>
-<td>MerchantId</td>
+<td>MerchantId*</td>
 <td>string</td>
 <td>The unique id (GUID) of the merchant for which you want to fetch location details</td>
 </tr>
@@ -9110,6 +10361,133 @@ IsShippingAddressDifferent | Specify <code class="prettyprint">true</code> if sh
 <tr>
 <td>1030</td>
 <td>Service is not Authorized</td>
+</tr>
+</tbody></table>
+
+          <h1 id="pricelist">Pricelist</h1>
+
+<h2 id="update-pricelist">Update Pricelist</h2>
+
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
+<pre class="highlight html"><code>https://www.martjack.com/developerapi/Pricelist/f48fdd16-92db-4188-854d-1ecd9b62xxxx/ABC/upload
+
+</code></pre>
+<blockquote>
+<p>Sample POST Request</p>
+</blockquote>
+<pre class="highlight json"><code><span class="err">MerchantId=</span><span class="s2">"0639f7a6-34cc-48b2-9fd9-a80e2ed8xxxx"</span><span class="err">&amp;InputFormat=</span><span class="s2">"application/json"</span><span class="err">&amp;InputData=</span><span class="p">{</span><span class="w">  
+   </span><span class="nt">"pricelistitems"</span><span class="p">:{</span><span class="w">  
+      </span><span class="nt">"pricelistiem"</span><span class="p">:{</span><span class="w">  
+         </span><span class="nt">"sku"</span><span class="p">:</span><span class="s2">"zara1234121"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"variantsku"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"Quantity"</span><span class="p">:</span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"MRP"</span><span class="p">:</span><span class="s2">"444"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"WebPrice"</span><span class="p">:</span><span class="s2">"333"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"TokenPrice"</span><span class="p">:</span><span class="s2">"222"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"product"</span><span class="p">:{</span><span class="w">  
+         </span><span class="nt">"sku"</span><span class="p">:</span><span class="s2">"sun1234121"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"variantsku"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"Qty"</span><span class="p">:</span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"MRP"</span><span class="p">:</span><span class="s2">"200"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"WebPrice"</span><span class="p">:</span><span class="s2">"190"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"TokenPrice"</span><span class="p">:</span><span class="s2">"50"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+   </span><span class="nt">"messageCode"</span><span class="p">:</span><span class="s2">"1018"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"Message"</span><span class="p">:</span><span class="s2">"Data update added to task queue. You can view the status of update in control panel. Also email will be send to merchant registered email after task completion."</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"Taskid"</span><span class="p">:</span><span class="s2">"2718751"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="mi">0</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<p>Updates price of a SKU or variant SKU in a particular price list.</p>
+
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td><code class="prettyprint">Product/Pricelist/{MerchantId}/{PricelistRefCode}/upload</code></td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>POST</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>No</td>
+</tr>
+</tbody></table>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">https://{host}/developerapi/Product/Pricelist/{MerchantId}/{PricelistRefCode}/upload</code></p>
+
+<h3 id="request-body-parameters">Request Body Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>sku</td>
+<td>string</td>
+<td>SKU of the product of a specific location for which you want to update stock and price</td>
+</tr>
+<tr>
+<td>variantsku</td>
+<td>string</td>
+<td>The variant SKU of the current item</td>
+</tr>
+<tr>
+<td>Qty</td>
+<td>int</td>
+<td>The quantity of the item for which you want to update the price</td>
+</tr>
+<tr>
+<td>MRP</td>
+<td>float</td>
+<td>Retail price of the item</td>
+</tr>
+<tr>
+<td>WebPrice</td>
+<td>float</td>
+<td>Selling price of the item</td>
+</tr>
+<tr>
+<td>TokenPrice</td>
+<td>float</td>
+<td>Minimum amount required for the customer to reserve the item and purchase later on</td>
 </tr>
 </tbody></table>
 
