@@ -352,8 +352,9 @@ https://www.martjack.com/DeveloperAPI/Customer/81e77da2-723b-483d-8c0d-49f800c1e
 Logs out current user. No POST body is required for this API.
 
 ### Resource Information
-Parameter | Description
---------- | -----------
+
+| | |
+--------- | ----------- |
 URI | `/Customer/{{MerchantId}}/Logout`
 Rate Limited? | Yes
 Authentication | Yes
@@ -419,8 +420,9 @@ Creates a dummy access token for non-logged in user of the merchant store. No PO
 
 
 ### Resource Information
-Parameter | Description
---------- | -----------
+
+| | |
+--------- | ----------- |
 URI | `Customer/GetAccessToken/{MerchantId}`
 Rate Limited? | Yes
 Authentication | Yes
@@ -462,8 +464,9 @@ https://www.martjack.com/developerapi/Customer/81e77da2-723b-483d-8c0d-49f800c1e
 Verifies if the provided access token is valid or invalid.
 
 ### Resource Information
-Parameter | Description
---------- | -----------
+
+| | |
+--------- | ----------- |
 URI | `/Customer/{merchantId}/{accesstoken}/ValidateToken`
 Rate Limited? | Yes
 Authentication | Yes
@@ -641,8 +644,8 @@ https://www.martjack.com/developerapi/Customer/81e77da2-723b-483d-8c0d-49f800c1x
 Retrieves details of a specific customer.
 
 ### Resource Information
-Parameter | Description
---------- | -----------
+| | |
+--------- | ----------- |
 URI | `/Customer/{merchantId}/{UserId}`
 Rate Limited? | Yes
 Authentication | Yes
@@ -715,8 +718,8 @@ Modifies the existing details of a registered customer other than the customer's
 
 
 ### Resource Information
-Parameter | Description
---------- | -----------
+| | |
+--------- | ----------- |
 URI | `Customer/{merchantId}/Update`
 Rate Limited? | Yes
 Authentication | Yes
@@ -778,8 +781,8 @@ https://www.martjack.com/developerapi/Customer/7c778337-4652-4944-934f-09e0fe56x
 Captures or updates custom field details of a customer.
 
 ### Resource Information
-Parameter | Description
---------- | -----------
+| | |
+--------- | ----------- |
 URI | `/Customer/{merchantId}/UpdateUserProfile`
 Rate Limited? | Yes
 Authentication | Yes
@@ -859,8 +862,8 @@ https://www.martjack.com/DeveloperAPI/Customer/AddShippingAddress/81e77da2-723b-
 ```
 
 ### Resource Information
-Parameter | Description
---------- | -----------
+| | |
+--------- | ----------- |
 URI | `/Customer/AddShippingAddress/{merchantId}`
 Rate Limited? | Yes
 Authentication | Yes

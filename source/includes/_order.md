@@ -234,36 +234,36 @@ Batch Support | Yes
 ### Request Body Parameters
 Parameter |  Type | Description
 --------- | ------ | --------
-orderrefno* |  | Reference number of the order
-orderdate* |  |  Ordered date in `dd/mm/yy` format
+orderrefno* | string | Reference number of the order
+orderdate* | date |  Ordered date in `dd/mm/yy` format
 deliveredon |  |  Specify the estimated delivery of the item if applicable for the merchant in `dd/mm/yy` format
-customertype |  |  Type of the user as per the Martjack system. Supported Values: Guest User (for all marketplace), Registered User (If registered on Martjack platform)
-userid |  |  Registered identifier of the customer. Required when `customertype="Registered User"`
-ordervalue |  |  Net order amount
-orderstatus |  |  Supported values: Pending, Authorized
-orderconfirmationmail |  |  Supported values: Yes, No. If set to `Yes`, an order confirmation email is sent to the customer
-paymentlinkstatus |  |  Status of the payment. Values: Pending (Bank transfer, Cheque,), Authorized (COD, Prepaid)
-calculateshippingtax |  |  Supported values: Yes, No. Set to `No` if the order value includes all the tax and service charges. Else, you need to specify other charges separately.
-shipfirstname, shiplastname, shipaddress1 ... |  |  Specify the customer's shipping address related information in these fields
-billfirstname, billlastname, billaddress1 ... |  |  Specify the customer's billing address related information in these fields
-giftmsg |  |  In case of gift orders, specify the customer's personalized message that needs to sent to the recipient
-locationcode |  |  Reference code of the  order fulfillment location
-isselfship |  |  Supported Value: True, False. If the order shipment is handled by marketplace such as Amazon or Flipkart specify False. If the shipment is handled by the merchant himself, set the value to True
-channelrefcode |  |  Channel from which the order has come from (specific to Sellerworx). A channel is an instance of marketplace. A seller can have multiple channels.
-channelorderid |  |  Order id as maintained by that specific channel  (specific to Sellerworx)
-sellerwroxorderid |  |  Order id generated at Sellerworx. Maps Channel order id to Sellerworx order id
-items* |  |  Specify the details of each line-item in `item` attribute
-Payments* |  |  Specify the payment details and `orderrefno` of the order in `payment`. The orderrefno value at payment level should be same as that of the order level
-paymentstatus | The payment status of the current order. Values: Authorized, Pending
-paymentno | The reference number for order payment provided by the respective payment gateway
-vouchercode | Coupon code applied for the transaction if any. This is just for viewing purpose and the API does not do any calculation based on the voucher code
-customfield | Pass this only if you have preconfigured custom fields at the order level
-itemcustomfield | Pass line-item level custom fields. You do not need to have preconfigured custom fields at the order item level
-deliveryslotcode | Pass the delivery slot code if you want to associate a delivery slot with the order 
-shippingmode |  Pass the shipping mode that you want to associate with the order. However, the API does not validate/calculate on the provided shipping mode
-shippingamount | Pass the shipping charge for the specific item (Order item level)
-shippingdiscount | Pass the discount amount on the shipping charge (Order item level discount)
-linediscount |  Pass the line item level discount of the order
+customertype | enum |  Type of the user as per the Martjack system. Supported Values: Guest User (for all marketplace), Registered User (If registered on Martjack platform)
+userid | string |  Registered identifier of the customer. Required when `customertype="Registered User"`
+ordervalue | float |  Net order amount
+orderstatus |  enum |  Status of the order. Value: Pending, Authorized
+orderconfirmationmail | enum  |  Specify `Yes` to send an order confirmation email to the customer, else set `No`
+paymentlinkstatus | enum |  Status of the payment. Predefined enum values. Values: Pending (Bank transfer, Cheque,), Authorized (COD, Prepaid)
+calculateshippingtax | enum |  Specify ``NO` if the order value includes tax and service charges. Else, specify `YES` to add charges separately
+shipfirstname, shiplastname, shipaddress1 ... | string |  Specify the customer's shipping address related information in these fields
+billfirstname, billlastname, billaddress1 ... | string |  Specify the customer's billing address related information in these fields
+giftmsg | string  |  In case of gift orders, specify the customer's personalized message that needs to sent to the recipient
+locationcode | string |  Reference code of the  order fulfillment location
+isselfship | boolean |  If the order shipment is handled by marketplace such as Amazon or Flipkart specify `False` and if the shipment is handled by the merchant itself, set the value to `True`
+channelrefcode | string |  Channel from which the order has come from (specific to Sellerworx). A channel is an instance of marketplace. A seller can have multiple channels.
+channelorderid | string |  Order id as maintained by that specific channel  (specific to Sellerworx)
+sellerwroxorderid | string |  Order id generated at Sellerworx. Maps Channel order id to Sellerworx order id
+items* | - |  Specify the details of each line-item in `item` attribute
+Payments* | - |  Specify the payment details and `orderrefno` of the order in `payment`. The orderrefno value at payment level should be same as that of the order level
+paymentstatus | enum | The payment status of the current order. Value: Authorized, Pending
+paymentno | string | The reference number for order payment provided by the respective payment gateway
+vouchercode | string | Coupon code applied for the transaction if any. This is just for viewing purpose and the API does not do any calculation based on the voucher code
+customfield |  | Pass this only if you have preconfigured custom fields at the order level
+itemcustomfield | string | Pass line-item level custom fields. You do not need to have preconfigured custom fields at the order item level
+deliveryslotcode | string | Pass the delivery slot code if you want to associate a delivery slot with the order 
+shippingmode | string |  Pass the shipping mode that you want to associate with the order. Note that the API does not validate/calculate on the provided shipping mode
+shippingamount | float | Pass the shipping charge for the specific item (Order item level)
+shippingdiscount | int | Pass the discount amount on the shipping charge (Order item level discount)
+linediscount | int |  Pass the line item level discount of the order
 
 
 
@@ -328,12 +328,12 @@ Access token* | The access token generated for the  current user session
 ### Request Body Parameters
 Attribute | Description
 --------- | -----------
-merchantId* |  |  The unique id (GUID) of the merchant in which you want to place order
-PaymentOption* |  |  The name of the payment gateway. For example, RazorPay, EBS, OnlineBankTransfer, COD, CreditCard, ChequeDD, Wallet, and eGiftVoucher
-paymentType* |  |  The payment type used for the order - OBT (Online bank transfer),  TPG (Third party gateway), Credit, GV (Gift voucher) and so on
-gatewayId* |  |  Gateway id through which the payment is made
-channelType |  |   The channel from which the order is placed. For example: amazon, myntra
-skipDeliveryAreaValidation |  |  Specify `true` to validate delivery location before order creation, `false` to ignore validating
+merchantId* | string |  The unique id (GUID) of the merchant in which you want to place order
+PaymentOption* | string |  The name of the payment gateway. Pass only the supported modes configured in the back-end. For example, RazorPay, EBS, OnlineBankTransfer, COD, CreditCard, ChequeDD, Wallet, and eGiftVoucher
+paymentType* | string |  The payment type used for the order - OBT (Online bank transfer),  TPG (Third party gateway), Credit, GV (Gift voucher) and so on
+gatewayId* | string |  Gateway id through which the payment is made
+channelType | string |   The channel from which the order is placed. For example: amazon, myntra 
+skipDeliveryAreaValidation | boolean |  Specify `true` to validate delivery location before order creation, `false` to ignore validating
 
 
 ### Sample Validation Messages
@@ -414,7 +414,7 @@ https://www.martjack.com/developerapi/Order/ProcessTransaction/81e77da2-723b-483
 }
 ```
 
-> Sample POST Request
+> Sample Response
 
 ```json
 {  
@@ -462,20 +462,20 @@ Batch Support | No
 
 `http://{host}/developerapi/Order/ProcessTransaction/{MerchantId}`
 
-### Request Attributes
+### Request Body Parameters
 Parameter | Type | Description
 --------- | ---- | -----------
-OrderID* |  |  The order id that you want to process
-ID |  |  The transaction id of the order 
-PaymentType* |  |  The payment type used for the order - OBT (Online bank transfer), TPG (Third party gateway), Credit, GV (Gift voucher) and so on
-Provider* |  |  The provider of the payment gateway service
-GatewayID* |  |  The respective payment gateway id
-CPUserID |  |  The unique CP user id generated by the system 
+OrderID* | int |  The order id that you want to process
+ID | int |  The transaction id of the order 
+PaymentType* | string |  The payment type used for the order. Only  values predefined for the merchant in the back-end are supported. OBT (Online bank transfer), TPG (Third party gateway), Credit, GV (Gift voucher) and so on
+Provider* | string |  The provider of the payment gateway service
+GatewayID* | string |  The respective payment gateway id
+CPUserID | string |  The unique CP user id generated by the system 
 PaymentDetails* |  |  Pass the payment details 
- GVCode |  |  The gift voucher code used for the transaction (if any)
- RespCode |  |  The unique response code generated at the payment gateway for the transaction (to our system)
- RespMessage |  |  The entire response payload generated at the payment gateway for the transaction (to our system)
- PointsBurned |  |  The number of points redeemed for the transaction (if any) 
+ GVCode | string |  The gift voucher code used for the transaction (if any)
+ RespCode | string |  The unique response code generated at the payment gateway for the transaction (to our system)
+ RespMessage | string |  The entire response payload generated at the payment gateway for the transaction (to our system)
+ PointsBurned | int |  The number of points redeemed for the transaction (if any) 
  
 
  
@@ -534,12 +534,12 @@ Batch Support | No
 ### Request Body Parameters
 Parameter | Type | Description
 --------- | ---- | -----------
-PaymentOption |  |  The name of the payment gateway. For example, RazorPay, EBS, OnlineBankTransfer, COD, CreditCard, ChequeDD, Wallet, and eGiftVoucher
-PaymentType |  |  The mode of payment chosen for the transaction. Values could be OBT (Online bank transfer), TPG (Third party gateway), Credit, GV (Gift voucher) and so on
-OrderId |  |  The unique id of the order
-MerchantId |  |  The unique id (GUID) of the merchant in which the order is registered
-status |  |  The status of the current payment. Value: Pending, Authorized
-amount |  |  The transaction amount paid through the current payment type
+PaymentOption | string |  The name of the payment gateway. For example, RazorPay, EBS, OnlineBankTransfer, COD, CreditCard, ChequeDD, Wallet, and eGiftVoucher
+PaymentType | PaymentOption |  The mode of payment chosen for the transaction. Values could be OBT (Online bank transfer), TPG (Third party gateway), Credit, GV (Gift voucher) and so on
+OrderId | int |  The unique id of the order
+MerchantId | PaymentOption |  The unique id (GUID) of the merchant in which the order is registered
+status | enum |  The status of the current payment. Value: Pending, Authorized
+amount | float |  The amount paid through the current payment type for the transaction
 
 
 
@@ -913,8 +913,8 @@ Batch Support | No
 ### Request Body Parameters
 Parameter | Type | Description
 --------- | ----- | ------
-OrderId* |  |  Existing Order id of the customer that you want to order again
-UserId* |   | The unique identifier of the customer associated to the order
+OrderId* | int |  Existing Order id of the customer that you want to order again
+UserId* | string  | The unique identifier of the customer associated to the order
 
 
 
@@ -1041,19 +1041,19 @@ Batch Support | No
 ### Request Body Parameters
 Parameter | Type | Description
 --------- | ----- | ------
-UserId |  |  The unique user identifier of the customer whose details need to be retrieved
-FromDate |  |  Specify the duration for which you want to fetch the order history (mm-dd-yyyy hh:mm:ss format) in FromDate and ToDate
-ToDate |  |   Specify the duration for which you want to fetch the order history (mm-dd-yyyy hh:mm:ss format) in FromDate and ToDate
-Status |  |  Filter the search results by order status(P=Pending, F=Cancel, A=Approved)
-ShipDateFrom |  |  Filter the search results by shipped date range - from (ShipDateFrom) and to (ShipDateTo) in  (mm-dd-yyyy hh:mm:ss format). If ShipDateFrom is specified, then you also need to specify ShipDateTo
-ShipDateTo |  |  Filter the search results by shipped date range - from (ShipDateFrom) and to (ShipDateTo) in  (mm-dd-yyyy hh:mm:ss format). If ShipDateFrom is specified, then you also need to specify ShipDateTo
-Sku |  |  Filter the search results by SKU id based on the ids matching the specified value. For example, if you specify 100,  you will get the list of orders with item SKU ids starting with 100. You can also fetch a specific ordered item by passing the exact SKU id.
-OrderId |  |  Filter the search results by order id or order number. For example, if you specify 5550,  you will get the list of all orders with order ids starting with 5500. You can also fetch a specific order by passing the exact order id.
+UserId | string |  The unique user identifier of the customer whose details need to be retrieved
+FromDate | date-time |  Specify the duration for which you want to fetch the order history (mm-dd-yyyy hh:mm:ss format) in FromDate and ToDate
+ToDate | date-time |   Specify the duration for which you want to fetch the order history (mm-dd-yyyy hh:mm:ss format) in FromDate and ToDate
+Status | enum |  Filter the search results by order status(P=Pending, F=Cancel, A=Approved)
+ShipDateFrom | date-time |  Filter the search results by shipped date range - from (ShipDateFrom) and to (ShipDateTo) in  (mm-dd-yyyy hh:mm:ss format). If ShipDateFrom is specified, then you also need to specify ShipDateTo
+ShipDateTo | date-time |  Filter the search results by shipped date range - from (ShipDateFrom) and to (ShipDateTo) in  (mm-dd-yyyy hh:mm:ss format). If ShipDateFrom is specified, then you also need to specify ShipDateTo
+Sku | string |  Filter the search results by SKU id based on the ids matching the specified value. For example, if you specify 100,  you will get the list of orders with item SKU ids starting with 100. You can also fetch a specific ordered item by passing the exact SKU id.
+OrderId | int |  Filter the search results by order id or order number. For example, if you specify 5550,  you will get the list of all orders with order ids starting with 5500. You can also fetch a specific order by passing the exact order id.
 FromOrder |  |  Order Id / Number (can use to get the latest orders )
-store |  |  Store type it can be a keyword are merchantid(It can be optional)
-WithRewards |  |  Retrieve the list of orders with loyalty rewards. Send  ‘True’ if you required reward/loyalty details. By default value will be ‘False’
+store | string |  -
+WithRewards | boolean |  Retrieve the list of orders with loyalty rewards. Send  ‘True’ if you required reward/loyalty details. By default value will be ‘False’
+LocationId | string |  Order fulfillment location
 OperatorId |  |  ---
-LocationId |  |  Order fulfillment location
 
 
 
@@ -1250,9 +1250,9 @@ Batch Support | No
 ### Request Path Parameters
 Parameter | Type | Description
 --------- | ----- | ------
-merchantid* |   | The unique id (GUID) of the merchant in which the invoice is available
-InvoiceNumber* |  |  The invoice number that you want to fetch
-LocationRefCode* |  |  The location code of the order fulfillment store
+merchantid* | string  | The unique id (GUID) of the merchant in which the invoice is available
+InvoiceNumber* | string |  The invoice number that you want to fetch
+LocationRefCode* | string |  The location code of the order fulfillment store
 
 
 
@@ -1336,20 +1336,20 @@ Batch Support | No
 ### Request Body Parameters
 Parameter | Type |  Description
 --------- | ---- | -------
-MerchantId* |  |  The unique id (GUID) of the merchant in which the order is registered or placed
-OrderId* |  |  The order id of the current shipment item 
-AWBNumber* |  |  The air way bill number generated for the shipment
-CourierName* |  |  The courier service used for shipment
-ShipDate* |  |  The date on which the order is shipped in `dd/mm/yy` format
-ShipmentType* |  |  The type of shipment. Values: normal, 
-LocationRefCode* |  |  Location reference code of the order fulfillment store
-lineitems* |  |  The details of each line item. Specify `OrderLineId` and `Quantity`
-ShipmentTrip |  |  Provide more details details of the shipping using the parameters specified below. You can use this if applicable for the current merchant
-RiderID |  |  Specify the rider id as available in the merchant system
-RiderCode |  |  Specify the rider code as available in the merchant system
-TripRefNo |  |  Specify the trp reference number as per the merchant system
-VehicleNumber |  |  Specify the vehicle number delivery vehicle
-Attributes |  |  Specify any additional information such as delivery guy's mobile number
+MerchantId* | string |  The unique id (GUID) of the merchant in which the order is registered or placed
+OrderId* | int |  The order id of the current shipment item 
+AWBNumber* | string |  The air way bill number generated for the shipment
+CourierName* | string |  The courier service used for shipment
+ShipDate* | date |  The date on which the order is shipped in `dd/mm/yy` format
+ShipmentType* | enum |  The type of shipment. Current supported value: normal, 
+LocationRefCode* | string |  Location reference code of the order fulfillment store
+lineitems* | - |  The details of each line item. Specify `OrderLineId` and `Quantity`
+ShipmentTrip | - |  Provide more details details of the shipping using the parameters specified below. You can use this if applicable for the current merchant
+RiderID | int |  Specify the rider id as available in the merchant system
+RiderCode | string |  Specify the rider code as available in the merchant system
+TripRefNo | string |  Specify the trp reference number as per the merchant system
+VehicleNumber | string |  Specify the vehicle number delivery vehicle
+Attributes | - |  Specify any additional information such as delivery guy's mobile number
  
 
 
@@ -1430,13 +1430,13 @@ token_secret | Unique authentication key generated for the request
 
 ### Request URL
 
-`https://{host}/developerapi/Order/{merchant id}/{order id}`
+`https://{host}/developerapi/Order/{merchant id}/{orderID}`
 
 ### Request Parameters
 Parameter | Type | Description
 --------- | ---- | -------
-merchantId* |   | The unique id (GUID) of the merchant from which you want to fetch order details
-order id* |   | The order id that you want to fetch
+merchantId* |  string | The unique id (GUID) of the merchant from which you want to fetch order details
+orderID* |  int | The order id that you want to fetch
 
 
 
@@ -1689,7 +1689,7 @@ Batch Support | Yes
 Parameter | Type | Description
 --------- | ----- | ------
 MerchantId* | string | Unique GUID of the merchant associated to the order
-orderID* | long | Order id for which you want to fetch details
+orderID* | int | Order id for which you want to fetch details
 V2* | string | Supported API version
 
 
@@ -1752,14 +1752,14 @@ Batch Support | No
 ### Request Body Parameters
 Parameter | Type | Description
 --------- | ----- | ------
-Merchant Id* |   | The unique id (GUID) of the merchant in which the order is placed
-OrderId* |   | Provide the order id that you want to cancel
-Date* |   | The date on which the order is created in mm/dd/yy format
-Comment |   | Specify the customer's reason for the order cancellation
-DisplayCommentToUser |   | Value: True/False. Specify whether to make the custom comment visible (True) or invisible (False) to the end-customer 
-PGResponse |   | The response received from the payment gateway
-OperatorID |   | Current user id - It could be store, admin, manager
-CancelReason* |   | Value: Auto populated reason
+Merchant Id* | string  | The unique id (GUID) of the merchant in which the order is placed
+OrderId* | int  | Provide the order id that you want to cancel
+Date* | date  | The date on which the order is created in mm/dd/yy format
+Comment |  string | Specify the customer's reason for the order cancellation
+DisplayCommentToUser | boolean  | Value: True/False. Specify whether to make the custom comment visible (True) or invisible (False) to the end-customer 
+PGResponse |  string | The response received from the payment gateway
+OperatorID | string  | Current user id - It could be store, admin, manager
+CancelReason* | string  | Value: Auto populated reason
  
  
 ## Cancel Order Lineitem
@@ -1824,15 +1824,15 @@ Batch Support | No
 ### Request Body Parameters
 Parameter | Type | Description
 --------- | ---- | -------
-Merchant Id* |   | The unique id (GUID) of the merchant in which the order is placed
-OrderId* |   | Provide the order id that you want to cancel
-Date* |   | The date on which the order is created in mm/dd/yy format
-Comment |   | Specify the customer's reason for the order cancellation
-DisplayCommentToUser |  |  Value: True/False. Specify whether to make the custom comment visible (True) or invisible (False) to the end-customer 
-PGResponse |  |  The response received from the payment gateway for that specific order
-OperatorID |  |  Current user id - It could be store's, admin's, or manager's
-CancelReason* |  |  Specify the reason for order cancellation. In UI, these are auto-populated in the UI.
-TobeCancelledOrderItems |  |  Specify the items that you want to cancel in `OrderItemID` and `CancelQuantity`
+Merchant Id* | string  | The unique id (GUID) of the merchant in which the order is placed
+OrderId* |  int | Provide the order id that you want to cancel
+Date* | date  | The date on which the order is created in mm/dd/yy format
+Comment | string  | Specify the customer's reason for the order cancellation
+DisplayCommentToUser | boolean |  Value: True/False. Specify whether to make the custom comment visible (True) or invisible (False) to the end-customer 
+PGResponse | string |  The response received from the payment gateway for that specific order
+OperatorID | string |  Current user id - It could be store's, admin's, or manager's
+CancelReason* | string |  Specify the reason for order cancellation. In UI, these are auto-populated in the UI.
+TobeCancelledOrderItems | - |  Specify the items that you want to cancel in `OrderItemID` and `CancelQuantity`
 
 
 ## Process Return
@@ -1899,10 +1899,10 @@ Batch Support | No
 
 Attribute | Type | Description
 -------- | ----- | -------
-OrderId* |   | Order ID of the return items
-ReturnRequestId |  |  Return Request ID of the return. Leave this blank if you want to just modify the return details
-Substatus |   | Sub-status code of the return request (Preconfigured values only). Leave this blank if you want to just modify the return details
-SubstatusChangeComments |   | Specify the reason for return sub-status change. You can enter up to 50 characters
+OrderId* |  int | Order ID of the return items
+ReturnRequestId | int |  Return Request ID of the return. Leave this blank if you want to just modify the return details
+Substatus |  string | Sub-status code of the return request (Preconfigured values only). Leave this blank if you want to just modify the return details
+SubstatusChangeComments | string  | Specify the reason for return sub-status change. You can enter up to 50 characters
 
 
 
@@ -1996,16 +1996,16 @@ Batch Support | No
 
 Parameter | Type | Description
 -------- | ----- | -----------
-OrderID | long | The order id for which you want to create shipment packages
+OrderID | int | The order id for which you want to create shipment packages
 ShipmentType | string  | Type of shipment. Supported value: `Normal`
 AirwayBillNo | string | 
 CourierName | string | 
 ShipmentPickupDate | date-time | Pickup date of the shipment in `YYYY\/MM\/DD` format
 LocationCode | string | Reference code of the order fulfillment location
-PackageCode |  | 
-PackingSupplyRefCode |  | 
-PackageID |  | 
-OrderItemId |  | Line item id of the individual items of the order
+PackageCode | string | 
+PackingSupplyRefCode | string | 
+PackageID | int | 
+OrderItemId | int | Line item id of the individual items of the order
 Quantity | int | Quantity of the current order item
 
 
@@ -2133,7 +2133,7 @@ Batch Support | No
 Parameter | Type | Description
 --------- | ---- | -----------
 merchantId* | string | Unique GUID of the merchant
-shipmentId* | long | Unique id of the shipment that you want to retrieve
+shipmentId* | int | Unique id of the shipment that you want to retrieve
 
 
 ## Get Activity History
@@ -2144,6 +2144,7 @@ shipmentId* | long | Unique id of the shipment that you want to retrieve
 https://www.martjack.com/developerapi/Order/GetOrderActivityHistory/f48fdd16-92db-4188-854d-1ecd9b62xxxx
 ```
 
+> Sample POST Request
 > Sample POST Request
 
 ```json
@@ -2296,7 +2297,7 @@ Parameter | Type | Description
 -------- | ---- | ----------
 orderfieldchangehistory | boolean | Specify `true` to retrieve the history of change in order or order item attributes. For example, order fulfillment location, order item fulfillment location and so on
 activityhistory | boolean | Specify `true` to retrieve activity log of an order such as order authorized, order shipped, and payment authorized
-orderids* | long | Specify the order id(s) that you want to fetch
+orderids* | int | Specify the order id(s) that you want to fetch. You can specify multiple order ids separating each by a comma
 
 
 ## Get Shipments
@@ -2390,4 +2391,4 @@ Batch Support | No
 Parameter | Type | Description
 -------- | ----- | -----------
 merchantId* | string | Unique GUID of the merchant
-orderID* | long | Unique id the order for which you want to track shipment details
+orderID* | int | Unique id the order for which you want to track shipment details
