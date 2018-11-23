@@ -161,6 +161,79 @@ path | string | Path of the key
 value | string | New value of the specified path
 
 
+
+## Update Store Timings
+
+
+
+> Sample Request
+
+```html
+https://www.martjack.com/developerapi/Location/UpdateStoreTimings/f48fdd16-92db-4188-854d-1ecd9b62xxxx/OCDEL
+```
+
+> Sample POST Request
+
+```json
+{  
+   "LocationOpenandCloseTimings":{  
+      "DelveryMode":"H",
+      "OpenLeadTime":"1",
+      "CloseLeadTime":"10",
+      "WeekDayId":"0",
+      "OnTime":"11:10:10",
+      "OffTime":"22:11:11",
+      "userId":"f48fdd16-92db-4188-854d-1ecd9b62d066"
+   }
+}
+```
+
+> Sample Response
+
+```json
+{
+    "messageCode": "1007",
+    "Message": "Updated Successfully",
+    "ErrorCode": 0
+}
+```
+
+Lets you update the operation timings of a store location.
+
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `/Location/UpdateStoreTimings/{MerchantId}/{Locationrefcode}`
+Rate Limited? | Yes
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | POST
+Batch Support | Yes
+
+
+### Request URL
+`https://{host}/developerapi/Location/UpdateStoreTimings/{MerchantId}/{Locationrefcode}`
+
+### Request Query Parameters
+Parameter | Type | Description
+-------- | ----- | -----------
+MerchantId* | string | Unique GUID of the merchant for which you want to update location timings
+Locationrefcode* | string | The reference code of the location for which you want to update timings
+
+### Request Body Parameters
+Parameter | Type | Description
+-------- | ----- | -----------
+DelveryMode | enum | Specify the mode of delivery for the location. `S` for store pick up and `H` for home delivery 
+OpenLeadTime | int | The maximum delay time (in minutes) for the on time (store open time)
+CloseLeadTime | int | The maximum delay time (in minutes) for the off time (store close time)
+WeekDayId | int | Specify for which day of the week the current timing is configured. Supported values: 0, 1, 2, 3, 4, 5, 6. Where `0` for Sunday and `6` for Saturday (Multiple values not supported)
+OnTime | time | Store open time in `HH:MM:SS` format
+OffTime | time | Store close time in `HH:MM:SS` format 
+userId | string | CP user id who is updating the store timing
+
+
+
 ## Fetch Locations
 
 > Sample Request

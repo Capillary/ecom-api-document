@@ -82,7 +82,7 @@ Content-Type | application/x-www-form-urlencoded |
 PublicKey | ${PublicKey} |
 AuthToken | ${AuthToken} |
 MerchantId | ${merchantId} |
-
+languagecode | The language of the application chosen by the end user in case on multilingual application. For example: `en` or `ar`
 
 
 

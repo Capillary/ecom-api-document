@@ -213,8 +213,59 @@ Parameter | Description
 
 
 
-## Reset Password using OTP
+## Reset Password
 
+
+
+> Sample Request
+
+```html
+https://www.martjack.com/developerapi/Customer/f48fdd16-92db-4188-854d-1ecd9b62xxxx/132d3c1d-7d71-4b87-9a69-a4d216d63xxx/ChangePassword=1234
+```
+
+
+
+> Sample Response
+
+```json
+{  
+   "messageCode":"1004",
+   "Message":"Your Password changed Successfully",
+   "ErrorCode":0
+}
+```
+
+Resets the password of the customer's current account. 
+
+<aside class="notice"> No POST request payload is required for this API </aside>
+
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `/Customer/{merchantId}/{UserId}/ChangePassword={new password}`
+Rate Limited? | Yes
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | POST
+Batch Support | No
+
+
+### Request URL
+`https://{host}/developerapi/Customer/{merchantId}/{UserId}/ChangePassword={new password}`
+
+### Request Query Parameters
+
+
+Parameter | Type | Description
+-------- | ---- | -----------
+merchantId* | string | Unique GUID of the merchant associated to the user account
+UserId* | string | Unique GUID of the user for which password needs to be changed
+
+### Request Body Parameters
+
+Parameter | Type | Description
+-------- | ---- | -----------
 
 
 
@@ -317,7 +368,8 @@ Batch Support | No
 `https://{host}/developerapi/Customer/{merchantId}/Logout`
 
 
-Additional Header Required
+### Additional Header Required
+
 Header | Description
 ------ | ------
 accesstoken* | Access token of the logged in user that you want to logout
@@ -431,6 +483,94 @@ merchantId* | string | The unique id (GUID) of the merchant in which you want to
 accesstoken* | string | The access token generated for an user session (use `/Customer/GetAccessToken/` to get access token of a user session)
 
 
+## Fetch Customers (Search)
+
+
+> Sample Request
+
+```html
+https://www.martjack.com/developerapi/Customer/f48fdd16-92db-4188-854d-1ecd9b62xxxx/Search
+```
+
+> Sample POST Request
+
+```json
+{  
+   "customerSearch":{  
+      "UserName":"tom"
+   }
+}
+```
+
+
+> Sample Response
+
+```json
+{
+    "messageCode": "1004",
+    "Message": "Successful",
+    "Customers": [
+        {
+            "UserProfiles": [],
+            "UserInfoId": "4370d39c-d5e6-44e3-8fa3-2e3caf9432bf",
+            "UserId": "07e8f0eb-8c5d-4ad7-ab6e-ca7a72687d63",
+            "MerchantId": "f48fdd16-92db-4188-854d-1ecd9b62xxxx",
+            "UserName": "tom.sawyer@example.com",
+            "FirstName": "Pallav",
+            "LastName": "Kumar",
+            "PostalAddress": "silkboard",
+            "AlternateEmail": "",
+            "City": "32",
+            "Pin": "560068",
+            "State": "KA",
+            "Country": "IN",
+            "PhoneNo": "91-",
+            "Street": "",
+            "MobileNo": "91-7411639213",
+            "BirthDate": "1/1/1900",
+            "Gender": "",
+            "Occupation": "",
+            "Industry": "",
+            "OtherArea": "silkboard",
+            "CountryName": "India",
+            "StateName": "Karnataka",
+            "CityName": "Bangalore",
+            "AreaName": "",
+            "OtherCity": "",
+            "IsReceiveOffers": false,
+            "Password": null,
+            "ConfirmPassword": null,
+            "Countries": null,
+            "States": null,
+            "CommunicationType": null,
+            "MarketingNotificationType": null
+        }
+    ],
+    "ErrorCode": 0
+}
+```
+
+Retrieves the list of customers based on the search keyword (containing the search keyword )
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `/Customer/{merchantId}/Search`
+Rate Limited? | Yes
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | POST
+Batch Support | No
+
+
+### Request URL
+`https://{host}/developerapi/Customer/{merchantId}/Search`
+
+### Request Body Parameters
+
+Parameter | Type | Description
+-------- | ---- | -----------
+UserName | string | Fetches the list of customers matching the specified keyword in the username
 
 
 

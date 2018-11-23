@@ -218,8 +218,9 @@ Creates a new order with complete details.
 
 
 ### Resource Information
-Information | Value
------------ | -----
+
+| | |
+--------- | ----------- |
 URI | `Order/BulkOrderCreation`
 Authentication | Yes
 HTTP Method | POST
@@ -305,8 +306,9 @@ Lets you add payment details and submit a transaction. You can use this API for 
 
 
 ### Resource Information
-Parameter | Description
---------- | -----------
+
+| | |
+--------- | ----------- |
 URI | `/Order/PlaceOrder/{merchantId}`
 Rate Limited? | Yes
 Authentication | Yes
@@ -443,8 +445,9 @@ https://www.martjack.com/developerapi/Order/ProcessTransaction/81e77da2-723b-483
 Process Pending Transactions, i.e., if an order is placed (other than COD ), just an order instance is created and will be in `Pending` state by default. You need to process the order by validating the payment details against the transaction. 
 
 ### Resource Information
-Parameter | Description
---------- | -----------
+
+| | |
+--------- | ----------- |
 URI | `/ProcessTransaction/{MerchantId}`
 Rate Limited? | Yes
 Authentication | Yes
@@ -513,8 +516,9 @@ https://www.martjack.com/Order/SaveMerchantTransaction/81e77da2-723b-483d-8c0d-4
 Saves a merchant transaction.
 
 ### Resource Information
-Parameter | Description
---------- | -----------
+
+| | |
+--------- | ----------- |
 URI | `order/SaveMerchantTransaction/{merchantId}`
 Rate Limited? | Yes
 Authentication | Yes
@@ -888,8 +892,9 @@ Adds existing order items of the respective customer to the cart.
 
 
 ### Resource Information
-Parameter | Description
---------- | -----------
+
+| | |
+--------- | ----------- |
 URI | `order/ReOrder/{merchantId}`
 Rate Limited? | Yes
 Authentication | Yes
@@ -1016,8 +1021,9 @@ http://{www.martjack.com/developerapi/Order/History/81e77da2-723b-483d-8c0d-49f8
 Retrieves the history of orders of a merchant or customer based on the input parameters.
 
 ### Resource Information
-Parameter | Description
---------- | -----------
+
+| | |
+--------- | ----------- |
 URI | `Order/History/{{MerchantId}}`
 Rate Limited? | Yes
 Authentication | Yes
@@ -1051,74 +1057,6 @@ LocationId |  |  Order fulfillment location
 
 
 
-
-
-
-## Authorize Order
-
-> Sample Request
-
-```html
-http://www.martjack.com/DeveloperAPI/Order/Authorize
-```
-
-> Sample POST Request
-
-```json
-{  
-   "AuthorizeOrder":{  
-      "merchantId":"edc2b51f-b826-414d-9e52-e8331ddbxxxx",
-      "OrderId":"6390614",
-      "Date":"02-15-2018",
-      "Comment":"sample comment",
-      "PaymentType":"Credit Card-Visa",
-      "BankInstrumentNumber":"",
-      "BankName":"",
-      "PGResponse":"123456",
-      "PGReferenceID":"0255"
-   }
-}
-```
-
-> Sample Response
-
-```json
-{
-   "messageCode": "1001",
-   "message": "Order Authorized successfully."
-}
-```
-
-Authorizes a pending order, i.e., updates an order status from `Pending` to `Authorized`.
-
-### Resource Information
-Parameter | Description
---------- | -----------
-URI | `Order/Authorize`
-Rate Limited? | Yes
-Authentication | Yes
-Response Formats | JSON
-HTTP Methods | POST
-Batch Support | No
-
-
-
-
-### Request URL
-
-`https://{host}/developerapi/Order/Authorize`
-
-### Request Body Parameters
-Parameter | Type | Description
---------- | ---- | ----------
-Merchant Id* |  |  The unique id (GUID) of the merchant in which the order is made
-Date* |  |  Date of authorization
-Order Id* |  |  The order id that you need to authorize
-Comment |   | 
-BankInstrumentNumber |  |  The unique reference number generated at the banks or financial systems for payments other than CODs(Cards, credit transfers, direct debits, Cheques/DDs)
-BankName |   | Specify the bank name through which the transaction is made
-GatewayOption* |  |  (GatewayOption=IVR/EBS/HDFC)
-PGResponse |   | Response payload received from the payment gateway for the specific order
 
 
 
@@ -1292,8 +1230,9 @@ https://www.martjack.com/developerapi/Order/Invoice/6c57599f-2c43-4c82-806a-e07c
 Retrieves details of a specific invoice.
 
 ### Resource Information
-Parameter | Description
---------- | -----------
+
+| | |
+--------- | ----------- |
 URI | `Order/Invoice/{merchantId}/{InvoiceNumber}`
 Rate Limited? | Yes
 Authentication | Yes
@@ -1379,8 +1318,9 @@ Lets you create shipping details of a specific order (that is ready to ship).
 
 
 ### Resource Information
-Parameter | Description
---------- | -----------
+
+| | |
+--------- | ----------- |
 URI | `/Order/Ship`
 Rate Limited? | Yes
 Authentication | Yes
@@ -1471,8 +1411,9 @@ Retrieves details of a specific order.
 
 
 ### Resource Information
-Parameter | Description
---------- | -----------
+
+| | |
+--------- | ----------- |
 URI | `Order/Details/{MerchantId}/{OrderId}`
 Rate Limited? | Yes
 Authentication | Yes
@@ -1954,7 +1895,8 @@ Batch Support | No
 
 `https://{host}/developerapi/Order/ProcessReturn/{MerchantId}`
 
-Request Body Parameters
+### Request Body Parameters
+
 Attribute | Type | Description
 -------- | ----- | -------
 OrderId* |   | Order ID of the return items
@@ -2024,7 +1966,11 @@ https://www.martjack.com/developerapi/Order/CreateShipmentPackages/f48fdd16-92db
 > Sample Response
 
 ```json
-
+{  
+   "messageCode":"1004",
+   "Message":"Successful",
+   "ErrorCode":0
+}
 ```
 
 Creates shipment packages for a specific order.
@@ -2117,10 +2063,77 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Order/ShipmentPackages/{MerchantId}`
+`https://{host}/developerapi/Order/ShipmentDetails/9403244b-2231-4550-ae96-2dbb5d0c1694/5471021`
+
+
+## Get Shipment Details
+
+> Sample Request
+
+```html
+http://www.martjack.com/DeveloperAPI/Order/Authorize
+```
+
+> Sample POST Request
+
+```json
+{  
+   "messageCode":"1004",
+   "Message":"Successful",
+   "Shipments":[  
+      {  
+         "LocationId":25633,
+         "ShipmentType":"Normal",
+         "ReceivedBy":"",
+         "DeliveredDate":"01-Jan-1900",
+         "ShipmentId":5471021,
+         "OrderId":7405405,
+         "ServiceProvider":"ITOCHU",
+         "DocketNumber":"ABC",
+         "ShippingDate":"22-Nov-2018",
+         "ShippingCharges":"0",
+         "ShipmentItems":[  
+            {  
+               "OrderLineId":25937891,
+               "Quantity":2,
+               "ShipmentCustomFields":null
+            }
+         ]
+      }
+   ],
+   "ErrorCode":0
+}
+```
+
+Retrieves the details of a specific shipment.
+
+<aside class="notice"> No POST body is required for this API</aside>
+
+
+### Resource Information
+
+| | |
+--------- | ----------- |
+URI | `/Order/ShipmentDetails/{merchantId}/{shipmentId}`
+Rate Limited? | Yes
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | POST
+Batch Support | No
 
 
 
+
+### Request URL
+
+`https://{host}/developerapi/Order/ShipmentDetails/{merchantId}/{shipmentId}`
+
+### Request Query Parameters
+
+Parameter | Type | Description
+--------- | ---- | -----------
+merchantId* | string | Unique GUID of the merchant
+shipmentId* | long | Unique id of the shipment that you want to retrieve
 
 
 ## Get Activity History
@@ -2138,7 +2151,7 @@ MerchantId=f48fdd16-92db-4188-854d-1ecd9b62xxxx&InputFormat=application/json&Inp
    "orderfieldchangehistory":"false",
    "activityhistory":"true",
    "orderids":[  
-      3725777
+      3725777,7401027
    ]
 }
 ```
@@ -2152,74 +2165,108 @@ MerchantId=f48fdd16-92db-4188-854d-1ecd9b62xxxx&InputFormat=application/json&Inp
    "ErrorCode":0,
    "ListOfOrderActivities":[  
       {  
-         "OrderID":7124734,
-         "OrderItemFieldChangeHistory":null,
+         "OrderID":7401121,
+         "OrderFieldChangeHistory":[  
+
+         ],
+         "OrderItemFieldChangeHistory":[  
+
+         ],
          "OrderActivityHistory":[  
             {  
-               "ConversationLogId":67677854,
-               "ConversationDate":"/Date(1536326104000+0530)/",
-               "ConversationText":"Payment through 'PAYTM' mode has been saved successfully.",
-               "RETransactionId":7124734,
+               "ConversationLogId":69710993,
+               "ConversationDate":"/Date(1542770207000+0530)/",
+               "ConversationText":"Order ID: 7401121 has been created successfully. ",
+               "RETransactionId":7401121,
                "ConversationType":"SOL",
                "CPUserId":"00000000-0000-0000-0000-000000000000",
                "LogAction":"P",
-               "MerchantId":"f48fdd16-92db-4188-854d-1ecd9b62xxxx",
-               "UpdatedDate":"/Date(1536326104000+0530)/"
+               "MerchantId":"f48fdd16-92db-4188-854d-1ecd9b62d066",
+               "UpdatedDate":"/Date(1542770207000+0530)/"
             },
             {  
-               "ConversationLogId":67677872,
-               "ConversationDate":"/Date(1536326217000+0530)/",
-               "ConversationText":"Order Payment Has been Authorized",
-               "RETransactionId":7124734,
+               "ConversationLogId":69710995,
+               "ConversationDate":"/Date(1542770207000+0530)/",
+               "ConversationText":"Payment through 'RAZORPAY' mode has been saved successfully.",
+               "RETransactionId":7401121,
+               "ConversationType":"SOL",
+               "CPUserId":"00000000-0000-0000-0000-000000000000",
+               "LogAction":"P",
+               "MerchantId":"f48fdd16-92db-4188-854d-1ecd9b62d066",
+               "UpdatedDate":"/Date(1542770207000+0530)/"
+            },
+           
+            {  
+               "ConversationLogId":69711003,
+               "ConversationDate":"/Date(1542770227000+0530)/",
+               "ConversationText":"Inventory for SKU 100140259  has been reduced against the Order ID: 7401121 ",
+               "RETransactionId":7401121,
                "ConversationType":"SOL",
                "CPUserId":"00000000-0000-0000-0000-000000000000",
                "LogAction":"A",
-               "MerchantId":"f48fdd16-92db-4188-854d-1ecd9b62xxxx",
-               "UpdatedDate":"/Date(1536326217000+0530)/"
+               "MerchantId":"f48fdd16-92db-4188-854d-1ecd9b62d066",
+               "UpdatedDate":"/Date(1542770227000+0530)/"
+            }
+         ]
+      },
+      {  
+         "OrderID":7401027,
+         "OrderFieldChangeHistory":[  
+
+         ],
+         "OrderItemFieldChangeHistory":[  
+            {  
+               "Status":"A",
+               "OrderId":7401027,
+               "OrderItemId":25927549,
+               "Message":"",
+               "LogDateTime":"/Date(1542767189000+0530)/",
+               "OldQty":1,
+               "NewQty":0,
+               "OldPrice":0,
+               "NewPrice":0,
+               "OldDiscount":0,
+               "NewDiscount":0,
+               "MerchantId":"f48fdd16-92db-4188-854d-1ecd9b62d066",
+               "OldLocationId":0,
+               "NewLocationId":18340,
+               "OldMRP":0,
+               "NewMRP":0
+            }
+         ],
+         "OrderActivityHistory":[  
+            {  
+               "ConversationLogId":69710055,
+               "ConversationDate":"/Date(1542767153000+0530)/",
+               "ConversationText":"Order ID: 7401027 has been created successfully. (Processed by -  tom@example.com)",
+               "RETransactionId":7401027,
+               "ConversationType":"SOL",
+               "CPUserId":"5ed51807-e592-4cd2-85fe-34e80ffe0e2a",
+               "LogAction":"P",
+               "MerchantId":"f48fdd16-92db-4188-854d-1ecd9b62d066",
+               "UpdatedDate":"/Date(1542767153000+0530)/"
             },
             {  
-               "ConversationLogId":67677876,
-               "ConversationDate":"/Date(1536326217000+0530)/",
-               "ConversationText":"Response Code=200",
-               "RETransactionId":7124734,
+               "ConversationLogId":69710063,
+               "ConversationDate":"/Date(1542767189000+0530)/",
+               "ConversationText":"Payment through COD has been Saved successfully.Remarks:jjh(Processed by -  tom@example.com)",
+               "RETransactionId":7401027,
+               "ConversationType":"SOL",
+               "CPUserId":"5ed51807-e592-4cd2-85fe-34e80ffe0e2a",
+               "LogAction":"P",
+               "MerchantId":"f48fdd16-92db-4188-854d-1ecd9b62d066",
+               "UpdatedDate":"/Date(1542767189000+0530)/"
+            },
+            {  
+               "ConversationLogId":69710065,
+               "ConversationDate":"/Date(1542767189000+0530)/",
+               "ConversationText":"Inventory for SKU 100152015  has been reduced against the Order ID: 7401027 ",
+               "RETransactionId":7401027,
                "ConversationType":"SOL",
                "CPUserId":"00000000-0000-0000-0000-000000000000",
                "LogAction":"A",
-               "MerchantId":"f48fdd16-92db-4188-854d-1ecd9b62xxxx",
-               "UpdatedDate":"/Date(1536326217000+0530)/"
-            },
-            {  
-               "ConversationLogId":67741840,
-               "ConversationDate":"/Date(1536563066000+0530)/",
-               "ConversationText":"sku(s):  103694029  has been cancelled successfully.",
-               "RETransactionId":7124734,
-               "ConversationType":"SOL",
-               "CPUserId":"380a8f3b-b2c5-4bd7-9daa-5dad1476022b",
-               "LogAction":"F",
-               "MerchantId":"f48fdd16-92db-4188-854d-1ecd9b62xxxx",
-               "UpdatedDate":"/Date(1536563066000+0530)/"
-            },
-            {  
-               "ConversationLogId":67741842,
-               "ConversationDate":"/Date(1536563066000+0530)/",
-               "ConversationText":"Delivery Address out of Deliverable Pincode  ( Reason :Order not in delivery Area )",
-               "RETransactionId":7124734,
-               "ConversationType":"MUOL",
-               "CPUserId":"380a8f3b-b2c5-4bd7-9daa-5dad1476022b",
-               "LogAction":"C",
-               "MerchantId":"f48fdd16-92db-4188-854d-1ecd9b62xxxx",
-               "UpdatedDate":"/Date(1536563066000+0530)/"
-            },
-            {  
-               "ConversationLogId":67741844,
-               "ConversationDate":"/Date(1536563066000+0530)/",
-               "ConversationText":"Return request 201782 with Quantity 1  has been initiated from Cancel Order. comments:Delivery Address out of Deliverable Pincode  ( Reason :Order not in delivery Area )",
-               "RETransactionId":7124734,
-               "ConversationType":"Refunds",
-               "CPUserId":"380a8f3b-b2c5-4bd7-9daa-5dad1476022b",
-               "LogAction":"S",
-               "MerchantId":"f48fdd16-92db-4188-854d-1ecd9b62xxxx",
-               "UpdatedDate":"/Date(1536563066000+0530)/"
+               "MerchantId":"f48fdd16-92db-4188-854d-1ecd9b62d066",
+               "UpdatedDate":"/Date(1542767189000+0530)/"
             }
          ]
       }
@@ -2249,4 +2296,98 @@ Parameter | Type | Description
 -------- | ---- | ----------
 orderfieldchangehistory | boolean | Specify `true` to retrieve the history of change in order or order item attributes. For example, order fulfillment location, order item fulfillment location and so on
 activityhistory | boolean | Specify `true` to retrieve activity log of an order such as order authorized, order shipped, and payment authorized
-orderids* | long | Specify the order id(s) that you want to fetch. 
+orderids* | long | Specify the order id(s) that you want to fetch
+
+
+## Get Shipments
+
+> Sample Request
+
+```html
+https://www.martjack.com/developerapi/getshipments/389d3f1a-8c9a-41bd-9b3a-e6c2f031527d/6564132
+```
+
+
+
+> Sample Response
+
+```json
+{
+	"messageCode": "1004",
+	"Message": "Successful",
+	"Shipments": [{
+		"LocationId": 18576,
+		"ShipmentType": "normal",
+		"ReceivedBy": "",
+		"DeliveredDate": "01-Jan-1900",
+		"ShipmentId": 4908822,
+		"OrderId": 6564132,
+		"ServiceProvider": null,
+		"DocketNumber": null,
+		"ShippingDate": "15-Apr-2018",
+		"ReferenceNumber": "",
+		"ShippingCharges": "0",
+		"ShipmentItems": [{
+			"ShipmentId": "4908822",
+			"OrderLineId": 23995066,
+			"Quantity": 1,
+			"ShippingDetailsID": "20734158",
+			"ShipmentCustomFields": null
+		}],
+		"CourierName": "",
+		"AWBNumber": "",
+		"ShippingStatus": "S",
+		"StatusUpdatedDate": "15-Apr-2018",
+		"UseMailBoxAddress": "False",
+		"DeliveryMode": "H",
+		"VerificationMethod": "",
+		"VerificationValue": "",
+		"Remarks": "",
+		"ProviderCode": "",
+		"CMSID": "0",
+		"Width": "0",
+		"Length": "0",
+		"Height": "0",
+		"Weight": "0.00",
+		"ReturnRequestId": "0",
+		"InvoiceNumber": "00001320",
+		"InvoiceAmount": "9995",
+		"CollectableAmount": "0",
+		"IslabelReady": "False",
+		"LogisticID": "",
+		"LogisticResponse1": ""
+	}],
+	"ErrorCode": 0
+}
+```
+
+
+Retrieves shipment details of a specific order
+
+
+
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `Order/getshipments/{merchantId}/{orderID}`
+Rate Limited? | Yes
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | GET
+Batch Support | No
+
+
+
+
+### Request URL
+
+`https://{host}/developerapi/Order/getshipments/{merchantId}/{orderID}`
+
+
+### Request Query Parameters
+
+Parameter | Type | Description
+-------- | ----- | -----------
+merchantId* | string | Unique GUID of the merchant
+orderID* | long | Unique id the order for which you want to track shipment details
