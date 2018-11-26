@@ -777,8 +777,8 @@ To obtain access, you first need to add the app in the control panel and generat
 
 <table><thead>
 <tr>
-<th>Parameter</th>
-<th>Description</th>
+<th></th>
+<th></th>
 </tr>
 </thead><tbody>
 <tr>
@@ -869,8 +869,8 @@ To obtain access, you first need to add the app in the control panel and generat
 
 <table><thead>
 <tr>
-<th>Parameter</th>
-<th>Description</th>
+<th></th>
+<th></th>
 </tr>
 </thead><tbody>
 <tr>
@@ -942,8 +942,8 @@ To obtain access, you first need to add the app in the control panel and generat
 
 <table><thead>
 <tr>
-<th>Parameter</th>
-<th>Description</th>
+<th></th>
+<th></th>
 </tr>
 </thead><tbody>
 <tr>
@@ -1181,8 +1181,8 @@ To obtain access, you first need to add the app in the control panel and generat
 
 <table><thead>
 <tr>
-<th>Parameter</th>
-<th>Description</th>
+<th></th>
+<th></th>
 </tr>
 </thead><tbody>
 <tr>
@@ -1288,8 +1288,8 @@ To obtain access, you first need to add the app in the control panel and generat
 
 <table><thead>
 <tr>
-<th>Parameter</th>
-<th>Description</th>
+<th></th>
+<th></th>
 </tr>
 </thead><tbody>
 <tr>
@@ -1397,8 +1397,8 @@ To obtain access, you first need to add the app in the control panel and generat
 
 <table><thead>
 <tr>
-<th>Parameter</th>
-<th>Description</th>
+<th></th>
+<th></th>
 </tr>
 </thead><tbody>
 <tr>
@@ -1495,8 +1495,8 @@ To obtain access, you first need to add the app in the control panel and generat
 
 <table><thead>
 <tr>
-<th>Parameter</th>
-<th>Description</th>
+<th></th>
+<th></th>
 </tr>
 </thead><tbody>
 <tr>
@@ -2089,12 +2089,12 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 </thead><tbody>
 <tr>
 <td>orderrefno*</td>
-<td></td>
+<td>string</td>
 <td>Reference number of the order</td>
 </tr>
 <tr>
 <td>orderdate*</td>
-<td></td>
+<td>date</td>
 <td>Ordered date in <code class="prettyprint">dd/mm/yy</code> format</td>
 </tr>
 <tr>
@@ -2104,138 +2104,138 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 </tr>
 <tr>
 <td>customertype</td>
-<td></td>
+<td>enum</td>
 <td>Type of the user as per the Martjack system. Supported Values: Guest User (for all marketplace), Registered User (If registered on Martjack platform)</td>
 </tr>
 <tr>
 <td>userid</td>
-<td></td>
+<td>string</td>
 <td>Registered identifier of the customer. Required when <code class="prettyprint">customertype=&quot;Registered User&quot;</code></td>
 </tr>
 <tr>
 <td>ordervalue</td>
-<td></td>
+<td>float</td>
 <td>Net order amount</td>
 </tr>
 <tr>
 <td>orderstatus</td>
-<td></td>
-<td>Supported values: Pending, Authorized</td>
+<td>enum</td>
+<td>Status of the order. Value: Pending, Authorized</td>
 </tr>
 <tr>
 <td>orderconfirmationmail</td>
-<td></td>
-<td>Supported values: Yes, No. If set to <code class="prettyprint">Yes</code>, an order confirmation email is sent to the customer</td>
+<td>enum</td>
+<td>Specify <code class="prettyprint">Yes</code> to send an order confirmation email to the customer, else set <code class="prettyprint">No</code></td>
 </tr>
 <tr>
 <td>paymentlinkstatus</td>
-<td></td>
-<td>Status of the payment. Values: Pending (Bank transfer, Cheque,), Authorized (COD, Prepaid)</td>
+<td>enum</td>
+<td>Status of the payment. Predefined enum values. Values: Pending (Bank transfer, Cheque,), Authorized (COD, Prepaid)</td>
 </tr>
 <tr>
 <td>calculateshippingtax</td>
-<td></td>
-<td>Supported values: Yes, No. Set to <code class="prettyprint">No</code> if the order value includes all the tax and service charges. Else, you need to specify other charges separately.</td>
+<td>enum</td>
+<td>Specify `<code class="prettyprint">NO</code> if the order value includes tax and service charges. Else, specify <code class="prettyprint">YES</code> to add charges separately</td>
 </tr>
 <tr>
 <td>shipfirstname, shiplastname, shipaddress1 &hellip;</td>
-<td></td>
+<td>string</td>
 <td>Specify the customer&rsquo;s shipping address related information in these fields</td>
 </tr>
 <tr>
 <td>billfirstname, billlastname, billaddress1 &hellip;</td>
-<td></td>
+<td>string</td>
 <td>Specify the customer&rsquo;s billing address related information in these fields</td>
 </tr>
 <tr>
 <td>giftmsg</td>
-<td></td>
+<td>string</td>
 <td>In case of gift orders, specify the customer&rsquo;s personalized message that needs to sent to the recipient</td>
 </tr>
 <tr>
 <td>locationcode</td>
-<td></td>
+<td>string</td>
 <td>Reference code of the  order fulfillment location</td>
 </tr>
 <tr>
 <td>isselfship</td>
-<td></td>
-<td>Supported Value: True, False. If the order shipment is handled by marketplace such as Amazon or Flipkart specify False. If the shipment is handled by the merchant himself, set the value to True</td>
+<td>boolean</td>
+<td>If the order shipment is handled by marketplace such as Amazon or Flipkart specify <code class="prettyprint">False</code> and if the shipment is handled by the merchant itself, set the value to <code class="prettyprint">True</code></td>
 </tr>
 <tr>
 <td>channelrefcode</td>
-<td></td>
+<td>string</td>
 <td>Channel from which the order has come from (specific to Sellerworx). A channel is an instance of marketplace. A seller can have multiple channels.</td>
 </tr>
 <tr>
 <td>channelorderid</td>
-<td></td>
+<td>string</td>
 <td>Order id as maintained by that specific channel  (specific to Sellerworx)</td>
 </tr>
 <tr>
 <td>sellerwroxorderid</td>
-<td></td>
+<td>string</td>
 <td>Order id generated at Sellerworx. Maps Channel order id to Sellerworx order id</td>
 </tr>
 <tr>
 <td>items*</td>
-<td></td>
+<td>-</td>
 <td>Specify the details of each line-item in <code class="prettyprint">item</code> attribute</td>
 </tr>
 <tr>
 <td>Payments*</td>
-<td></td>
+<td>-</td>
 <td>Specify the payment details and <code class="prettyprint">orderrefno</code> of the order in <code class="prettyprint">payment</code>. The orderrefno value at payment level should be same as that of the order level</td>
 </tr>
 <tr>
 <td>paymentstatus</td>
-<td>The payment status of the current order. Values: Authorized, Pending</td>
-<td></td>
+<td>enum</td>
+<td>The payment status of the current order. Value: Authorized, Pending</td>
 </tr>
 <tr>
 <td>paymentno</td>
+<td>string</td>
 <td>The reference number for order payment provided by the respective payment gateway</td>
-<td></td>
 </tr>
 <tr>
 <td>vouchercode</td>
+<td>string</td>
 <td>Coupon code applied for the transaction if any. This is just for viewing purpose and the API does not do any calculation based on the voucher code</td>
-<td></td>
 </tr>
 <tr>
 <td>customfield</td>
-<td>Pass this only if you have preconfigured custom fields at the order level</td>
 <td></td>
+<td>Pass this only if you have preconfigured custom fields at the order level</td>
 </tr>
 <tr>
 <td>itemcustomfield</td>
+<td>string</td>
 <td>Pass line-item level custom fields. You do not need to have preconfigured custom fields at the order item level</td>
-<td></td>
 </tr>
 <tr>
 <td>deliveryslotcode</td>
+<td>string</td>
 <td>Pass the delivery slot code if you want to associate a delivery slot with the order</td>
-<td></td>
 </tr>
 <tr>
 <td>shippingmode</td>
-<td>Pass the shipping mode that you want to associate with the order. However, the API does not validate/calculate on the provided shipping mode</td>
-<td></td>
+<td>string</td>
+<td>Pass the shipping mode that you want to associate with the order. Note that the API does not validate/calculate on the provided shipping mode</td>
 </tr>
 <tr>
 <td>shippingamount</td>
+<td>float</td>
 <td>Pass the shipping charge for the specific item (Order item level)</td>
-<td></td>
 </tr>
 <tr>
 <td>shippingdiscount</td>
+<td>int</td>
 <td>Pass the discount amount on the shipping charge (Order item level discount)</td>
-<td></td>
 </tr>
 <tr>
 <td>linediscount</td>
+<td>int</td>
 <td>Pass the line item level discount of the order</td>
-<td></td>
 </tr>
 </tbody></table>
 
@@ -2334,27 +2334,27 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 </thead><tbody>
 <tr>
 <td>merchantId*</td>
-<td></td>
+<td>string</td>
 </tr>
 <tr>
 <td>PaymentOption*</td>
-<td></td>
+<td>string</td>
 </tr>
 <tr>
 <td>paymentType*</td>
-<td></td>
+<td>string</td>
 </tr>
 <tr>
 <td>gatewayId*</td>
-<td></td>
+<td>string</td>
 </tr>
 <tr>
 <td>channelType</td>
-<td></td>
+<td>string</td>
 </tr>
 <tr>
 <td>skipDeliveryAreaValidation</td>
-<td></td>
+<td>boolean</td>
 </tr>
 </tbody></table>
 
@@ -2432,7 +2432,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <blockquote>
-<p>Sample POST Request</p>
+<p>Sample Response</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">  
    </span><span class="nt">"messageCode"</span><span class="p">:</span><span class="s2">"1004"</span><span class="p">,</span><span class="w">
@@ -2498,7 +2498,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <p><code class="prettyprint">http://{host}/developerapi/Order/ProcessTransaction/{MerchantId}</code></p>
 
-<h3 id="request-attributes">Request Attributes</h3>
+<h3 id="request-body-parameters">Request Body Parameters</h3>
 
 <table><thead>
 <tr>
@@ -2509,32 +2509,32 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 </thead><tbody>
 <tr>
 <td>OrderID*</td>
-<td></td>
+<td>int</td>
 <td>The order id that you want to process</td>
 </tr>
 <tr>
 <td>ID</td>
-<td></td>
+<td>int</td>
 <td>The transaction id of the order</td>
 </tr>
 <tr>
 <td>PaymentType*</td>
-<td></td>
-<td>The payment type used for the order - OBT (Online bank transfer), TPG (Third party gateway), Credit, GV (Gift voucher) and so on</td>
+<td>string</td>
+<td>The payment type used for the order. Only  values predefined for the merchant in the back-end are supported. OBT (Online bank transfer), TPG (Third party gateway), Credit, GV (Gift voucher) and so on</td>
 </tr>
 <tr>
 <td>Provider*</td>
-<td></td>
+<td>string</td>
 <td>The provider of the payment gateway service</td>
 </tr>
 <tr>
 <td>GatewayID*</td>
-<td></td>
+<td>string</td>
 <td>The respective payment gateway id</td>
 </tr>
 <tr>
 <td>CPUserID</td>
-<td></td>
+<td>string</td>
 <td>The unique CP user id generated by the system</td>
 </tr>
 <tr>
@@ -2544,22 +2544,22 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 </tr>
 <tr>
 <td>GVCode</td>
-<td></td>
+<td>string</td>
 <td>The gift voucher code used for the transaction (if any)</td>
 </tr>
 <tr>
 <td>RespCode</td>
-<td></td>
+<td>string</td>
 <td>The unique response code generated at the payment gateway for the transaction (to our system)</td>
 </tr>
 <tr>
 <td>RespMessage</td>
-<td></td>
+<td>string</td>
 <td>The entire response payload generated at the payment gateway for the transaction (to our system)</td>
 </tr>
 <tr>
 <td>PointsBurned</td>
-<td></td>
+<td>int</td>
 <td>The number of points redeemed for the transaction (if any)</td>
 </tr>
 </tbody></table>
@@ -2644,33 +2644,33 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 </thead><tbody>
 <tr>
 <td>PaymentOption</td>
-<td></td>
+<td>string</td>
 <td>The name of the payment gateway. For example, RazorPay, EBS, OnlineBankTransfer, COD, CreditCard, ChequeDD, Wallet, and eGiftVoucher</td>
 </tr>
 <tr>
 <td>PaymentType</td>
-<td></td>
+<td>PaymentOption</td>
 <td>The mode of payment chosen for the transaction. Values could be OBT (Online bank transfer), TPG (Third party gateway), Credit, GV (Gift voucher) and so on</td>
 </tr>
 <tr>
 <td>OrderId</td>
-<td></td>
+<td>int</td>
 <td>The unique id of the order</td>
 </tr>
 <tr>
 <td>MerchantId</td>
-<td></td>
+<td>PaymentOption</td>
 <td>The unique id (GUID) of the merchant in which the order is registered</td>
 </tr>
 <tr>
 <td>status</td>
-<td></td>
+<td>enum</td>
 <td>The status of the current payment. Value: Pending, Authorized</td>
 </tr>
 <tr>
 <td>amount</td>
-<td></td>
-<td>The transaction amount paid through the current payment type</td>
+<td>float</td>
+<td>The amount paid through the current payment type for the transaction</td>
 </tr>
 </tbody></table>
 
@@ -3070,12 +3070,12 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 </thead><tbody>
 <tr>
 <td>OrderId*</td>
-<td></td>
+<td>int</td>
 <td>Existing Order id of the customer that you want to order again</td>
 </tr>
 <tr>
 <td>UserId*</td>
-<td></td>
+<td>string</td>
 <td>The unique identifier of the customer associated to the order</td>
 </tr>
 </tbody></table>
@@ -3226,42 +3226,42 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 </thead><tbody>
 <tr>
 <td>UserId</td>
-<td></td>
+<td>string</td>
 <td>The unique user identifier of the customer whose details need to be retrieved</td>
 </tr>
 <tr>
 <td>FromDate</td>
-<td></td>
+<td>date-time</td>
 <td>Specify the duration for which you want to fetch the order history (mm-dd-yyyy hh:mm:ss format) in FromDate and ToDate</td>
 </tr>
 <tr>
 <td>ToDate</td>
-<td></td>
+<td>date-time</td>
 <td>Specify the duration for which you want to fetch the order history (mm-dd-yyyy hh:mm:ss format) in FromDate and ToDate</td>
 </tr>
 <tr>
 <td>Status</td>
-<td></td>
+<td>enum</td>
 <td>Filter the search results by order status(P=Pending, F=Cancel, A=Approved)</td>
 </tr>
 <tr>
 <td>ShipDateFrom</td>
-<td></td>
+<td>date-time</td>
 <td>Filter the search results by shipped date range - from (ShipDateFrom) and to (ShipDateTo) in  (mm-dd-yyyy hh:mm:ss format). If ShipDateFrom is specified, then you also need to specify ShipDateTo</td>
 </tr>
 <tr>
 <td>ShipDateTo</td>
-<td></td>
+<td>date-time</td>
 <td>Filter the search results by shipped date range - from (ShipDateFrom) and to (ShipDateTo) in  (mm-dd-yyyy hh:mm:ss format). If ShipDateFrom is specified, then you also need to specify ShipDateTo</td>
 </tr>
 <tr>
 <td>Sku</td>
-<td></td>
+<td>string</td>
 <td>Filter the search results by SKU id based on the ids matching the specified value. For example, if you specify 100,  you will get the list of orders with item SKU ids starting with 100. You can also fetch a specific ordered item by passing the exact SKU id.</td>
 </tr>
 <tr>
 <td>OrderId</td>
-<td></td>
+<td>int</td>
 <td>Filter the search results by order id or order number. For example, if you specify 5550,  you will get the list of all orders with order ids starting with 5500. You can also fetch a specific order by passing the exact order id.</td>
 </tr>
 <tr>
@@ -3271,23 +3271,23 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 </tr>
 <tr>
 <td>store</td>
-<td></td>
-<td>Store type it can be a keyword are merchantid(It can be optional)</td>
+<td>string</td>
+<td>-</td>
 </tr>
 <tr>
 <td>WithRewards</td>
-<td></td>
+<td>boolean</td>
 <td>Retrieve the list of orders with loyalty rewards. Send  ‘True’ if you required reward/loyalty details. By default value will be ‘False’</td>
+</tr>
+<tr>
+<td>LocationId</td>
+<td>string</td>
+<td>Order fulfillment location</td>
 </tr>
 <tr>
 <td>OperatorId</td>
 <td></td>
 <td>&mdash;</td>
-</tr>
-<tr>
-<td>LocationId</td>
-<td></td>
-<td>Order fulfillment location</td>
 </tr>
 </tbody></table>
 
@@ -3507,17 +3507,17 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 </thead><tbody>
 <tr>
 <td>merchantid*</td>
-<td></td>
+<td>string</td>
 <td>The unique id (GUID) of the merchant in which the invoice is available</td>
 </tr>
 <tr>
 <td>InvoiceNumber*</td>
-<td></td>
+<td>string</td>
 <td>The invoice number that you want to fetch</td>
 </tr>
 <tr>
 <td>LocationRefCode*</td>
-<td></td>
+<td>string</td>
 <td>The location code of the order fulfillment store</td>
 </tr>
 </tbody></table>
@@ -3626,72 +3626,72 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 </thead><tbody>
 <tr>
 <td>MerchantId*</td>
-<td></td>
+<td>string</td>
 <td>The unique id (GUID) of the merchant in which the order is registered or placed</td>
 </tr>
 <tr>
 <td>OrderId*</td>
-<td></td>
+<td>int</td>
 <td>The order id of the current shipment item</td>
 </tr>
 <tr>
 <td>AWBNumber*</td>
-<td></td>
+<td>string</td>
 <td>The air way bill number generated for the shipment</td>
 </tr>
 <tr>
 <td>CourierName*</td>
-<td></td>
+<td>string</td>
 <td>The courier service used for shipment</td>
 </tr>
 <tr>
 <td>ShipDate*</td>
-<td></td>
+<td>date</td>
 <td>The date on which the order is shipped in <code class="prettyprint">dd/mm/yy</code> format</td>
 </tr>
 <tr>
 <td>ShipmentType*</td>
-<td></td>
-<td>The type of shipment. Values: normal,</td>
+<td>enum</td>
+<td>The type of shipment. Current supported value: normal,</td>
 </tr>
 <tr>
 <td>LocationRefCode*</td>
-<td></td>
+<td>string</td>
 <td>Location reference code of the order fulfillment store</td>
 </tr>
 <tr>
 <td>lineitems*</td>
-<td></td>
+<td>-</td>
 <td>The details of each line item. Specify <code class="prettyprint">OrderLineId</code> and <code class="prettyprint">Quantity</code></td>
 </tr>
 <tr>
 <td>ShipmentTrip</td>
-<td></td>
+<td>-</td>
 <td>Provide more details details of the shipping using the parameters specified below. You can use this if applicable for the current merchant</td>
 </tr>
 <tr>
 <td>RiderID</td>
-<td></td>
+<td>int</td>
 <td>Specify the rider id as available in the merchant system</td>
 </tr>
 <tr>
 <td>RiderCode</td>
-<td></td>
+<td>string</td>
 <td>Specify the rider code as available in the merchant system</td>
 </tr>
 <tr>
 <td>TripRefNo</td>
-<td></td>
+<td>string</td>
 <td>Specify the trp reference number as per the merchant system</td>
 </tr>
 <tr>
 <td>VehicleNumber</td>
-<td></td>
+<td>string</td>
 <td>Specify the vehicle number delivery vehicle</td>
 </tr>
 <tr>
 <td>Attributes</td>
-<td></td>
+<td>-</td>
 <td>Specify any additional information such as delivery guy&rsquo;s mobile number</td>
 </tr>
 </tbody></table>
@@ -3788,7 +3788,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Order/{merchant id}/{order id}</code></p>
+<p><code class="prettyprint">https://{host}/developerapi/Order/{merchant id}/{orderID}</code></p>
 
 <h3 id="request-parameters">Request Parameters</h3>
 
@@ -3801,12 +3801,12 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 </thead><tbody>
 <tr>
 <td>merchantId*</td>
-<td></td>
+<td>string</td>
 <td>The unique id (GUID) of the merchant from which you want to fetch order details</td>
 </tr>
 <tr>
-<td>order id*</td>
-<td></td>
+<td>orderID*</td>
+<td>int</td>
 <td>The order id that you want to fetch</td>
 </tr>
 </tbody></table>
@@ -4092,7 +4092,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 </tr>
 <tr>
 <td>orderID*</td>
-<td>long</td>
+<td>int</td>
 <td>Order id for which you want to fetch details</td>
 </tr>
 <tr>
@@ -4166,42 +4166,42 @@ Batch Support | No</p>
 </thead><tbody>
 <tr>
 <td>Merchant Id*</td>
-<td></td>
+<td>string</td>
 <td>The unique id (GUID) of the merchant in which the order is placed</td>
 </tr>
 <tr>
 <td>OrderId*</td>
-<td></td>
+<td>int</td>
 <td>Provide the order id that you want to cancel</td>
 </tr>
 <tr>
 <td>Date*</td>
-<td></td>
+<td>date</td>
 <td>The date on which the order is created in mm/dd/yy format</td>
 </tr>
 <tr>
 <td>Comment</td>
-<td></td>
+<td>string</td>
 <td>Specify the customer&rsquo;s reason for the order cancellation</td>
 </tr>
 <tr>
 <td>DisplayCommentToUser</td>
-<td></td>
+<td>boolean</td>
 <td>Value: True/False. Specify whether to make the custom comment visible (True) or invisible (False) to the end-customer</td>
 </tr>
 <tr>
 <td>PGResponse</td>
-<td></td>
+<td>string</td>
 <td>The response received from the payment gateway</td>
 </tr>
 <tr>
 <td>OperatorID</td>
-<td></td>
+<td>string</td>
 <td>Current user id - It could be store, admin, manager</td>
 </tr>
 <tr>
 <td>CancelReason*</td>
-<td></td>
+<td>string</td>
 <td>Value: Auto populated reason</td>
 </tr>
 </tbody></table>
@@ -4299,47 +4299,47 @@ Batch Support | No</p>
 </thead><tbody>
 <tr>
 <td>Merchant Id*</td>
-<td></td>
+<td>string</td>
 <td>The unique id (GUID) of the merchant in which the order is placed</td>
 </tr>
 <tr>
 <td>OrderId*</td>
-<td></td>
+<td>int</td>
 <td>Provide the order id that you want to cancel</td>
 </tr>
 <tr>
 <td>Date*</td>
-<td></td>
+<td>date</td>
 <td>The date on which the order is created in mm/dd/yy format</td>
 </tr>
 <tr>
 <td>Comment</td>
-<td></td>
+<td>string</td>
 <td>Specify the customer&rsquo;s reason for the order cancellation</td>
 </tr>
 <tr>
 <td>DisplayCommentToUser</td>
-<td></td>
+<td>boolean</td>
 <td>Value: True/False. Specify whether to make the custom comment visible (True) or invisible (False) to the end-customer</td>
 </tr>
 <tr>
 <td>PGResponse</td>
-<td></td>
+<td>string</td>
 <td>The response received from the payment gateway for that specific order</td>
 </tr>
 <tr>
 <td>OperatorID</td>
-<td></td>
+<td>string</td>
 <td>Current user id - It could be store&rsquo;s, admin&rsquo;s, or manager&rsquo;s</td>
 </tr>
 <tr>
 <td>CancelReason*</td>
-<td></td>
+<td>string</td>
 <td>Specify the reason for order cancellation. In UI, these are auto-populated in the UI.</td>
 </tr>
 <tr>
 <td>TobeCancelledOrderItems</td>
-<td></td>
+<td>-</td>
 <td>Specify the items that you want to cancel in <code class="prettyprint">OrderItemID</code> and <code class="prettyprint">CancelQuantity</code></td>
 </tr>
 </tbody></table>
@@ -4434,22 +4434,22 @@ Batch Support | No</p>
 </thead><tbody>
 <tr>
 <td>OrderId*</td>
-<td></td>
+<td>int</td>
 <td>Order ID of the return items</td>
 </tr>
 <tr>
 <td>ReturnRequestId</td>
-<td></td>
+<td>int</td>
 <td>Return Request ID of the return. Leave this blank if you want to just modify the return details</td>
 </tr>
 <tr>
 <td>Substatus</td>
-<td></td>
+<td>string</td>
 <td>Sub-status code of the return request (Preconfigured values only). Leave this blank if you want to just modify the return details</td>
 </tr>
 <tr>
 <td>SubstatusChangeComments</td>
-<td></td>
+<td>string</td>
 <td>Specify the reason for return sub-status change. You can enter up to 50 characters</td>
 </tr>
 </tbody></table>
@@ -4568,7 +4568,7 @@ Batch Support | No</p>
 </thead><tbody>
 <tr>
 <td>OrderID</td>
-<td>long</td>
+<td>int</td>
 <td>The order id for which you want to create shipment packages</td>
 </tr>
 <tr>
@@ -4598,22 +4598,22 @@ Batch Support | No</p>
 </tr>
 <tr>
 <td>PackageCode</td>
-<td></td>
+<td>string</td>
 <td></td>
 </tr>
 <tr>
 <td>PackingSupplyRefCode</td>
-<td></td>
+<td>string</td>
 <td></td>
 </tr>
 <tr>
 <td>PackageID</td>
-<td></td>
+<td>int</td>
 <td></td>
 </tr>
 <tr>
 <td>OrderItemId</td>
-<td></td>
+<td>int</td>
 <td>Line item id of the individual items of the order</td>
 </tr>
 <tr>
@@ -4793,7 +4793,7 @@ Batch Support | No</p>
 </tr>
 <tr>
 <td>shipmentId*</td>
-<td>long</td>
+<td>int</td>
 <td>Unique id of the shipment that you want to retrieve</td>
 </tr>
 </tbody></table>
@@ -4806,7 +4806,8 @@ Batch Support | No</p>
 <pre class="highlight html"><code>https://www.martjack.com/developerapi/Order/GetOrderActivityHistory/f48fdd16-92db-4188-854d-1ecd9b62xxxx
 </code></pre>
 <blockquote>
-<p>Sample POST Request</p>
+<p>Sample POST Request
+Sample POST Request</p>
 </blockquote>
 <pre class="highlight json"><code><span class="err">MerchantId=f</span><span class="mi">48</span><span class="err">fdd</span><span class="mi">16-92</span><span class="err">db</span><span class="mi">-4188-854</span><span class="err">d</span><span class="mi">-1</span><span class="err">ecd</span><span class="mi">9</span><span class="err">b</span><span class="mi">62</span><span class="err">xxxx&amp;InputFormat=application/json&amp;InputData=</span><span class="p">{</span><span class="w">  
    </span><span class="nt">"orderfieldchangehistory"</span><span class="p">:</span><span class="s2">"false"</span><span class="p">,</span><span class="w">
@@ -4992,8 +4993,8 @@ Batch Support | No</p>
 </tr>
 <tr>
 <td>orderids*</td>
-<td>long</td>
-<td>Specify the order id(s) that you want to fetch</td>
+<td>int</td>
+<td>Specify the order id(s) that you want to fetch. You can specify multiple order ids separating each by a comma</td>
 </tr>
 </tbody></table>
 
@@ -5111,7 +5112,7 @@ Batch Support | No</p>
 </tr>
 <tr>
 <td>orderID*</td>
-<td>long</td>
+<td>int</td>
 <td>Unique id the order for which you want to track shipment details</td>
 </tr>
 </tbody></table>

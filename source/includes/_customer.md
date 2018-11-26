@@ -1,11 +1,11 @@
 # Customer
-A Customer is a user of a merchant's online store. This resource consists of APIs to create new customer accounts and manage their details and preferences.
+A customer is an individual who buys products from a merchant's online store. This resource consists of APIs to create new customer accounts and manage their details and preferences.
 
 
 
 ## Create Customer Account
 
-This API lets you create a new user account on MartJack platform for a specific merchant.
+This API lets you create a new user account on the Capillary's Anywhere Commerce Platform for a specific merchant.
 
 > Sample Request
 
@@ -97,8 +97,8 @@ https://www.martjack.com/developerapi/Customer/12345678-1234-1234-1234-123456789
 
 
 ### Resource Information
-Parameter | Description
---------- | -----------
+| | |
+--------- | ----------- |
 URI | `Customer/{{merchantId}}/Create`
 Rate Limited? | Yes
 Authentication | Yes
@@ -148,8 +148,8 @@ CountryName | string |   Full name of the country. Example: India, Australia, an
 
 
 ### Resource Information
-Parameter | Description
---------- | -----------
+| | |
+--------- | ----------- |
 URI | `/Customer/{merchantId}/`
 Rate Limited? | Yes
 Authentication | Yes
@@ -185,8 +185,8 @@ Validates the OTP sent to the customer.
 
 
 ### Resource Information
-Parameter | Description
---------- | -----------
+| | |
+--------- | ----------- |
 URI | ``
 Rate Limited? | Yes
 Authentication | Yes
@@ -256,16 +256,13 @@ Batch Support | No
 
 ### Request Query Parameters
 
-
 Parameter | Type | Description
 -------- | ---- | -----------
 merchantId* | string | Unique GUID of the merchant associated to the user account
 UserId* | string | Unique GUID of the user for which password needs to be changed
+newPassword* | string | New password that you want to have for the account
 
-### Request Body Parameters
 
-Parameter | Type | Description
--------- | ---- | -----------
 
 
 
@@ -304,7 +301,11 @@ https://www.martjack.com/developerapi/Customer/12345678-1234-1234-1234-123456789
 ```
 
 
-Logs in a registered customer to the merchant's e-commerce store. A customer has to log in to perform customer tasks such as fetching customer details, modifying customer details and updating profile attributes. Upon successful login, user receives a `UserId` which is required to fetch customer details.
+Authorizes login of a registered user on the merchant's e-commerce store. Once the customer logs in with the OTP, he receives a unique `UserId` which is required to make customer API calls. 
+
+<aside class="notice">The customer has to be logged in to his account to perform to perform any task tasks such as fetching customer details, modifying customer details or updating profile attributes. 
+
+.</aside>
 
 ### Resource Information
 Parameter | Description
@@ -416,8 +417,7 @@ merchantId* | string | The unique id (GUID) of the merchant from which you want 
 ```
 
 
-Creates a dummy access token for non-logged in user of the merchant store. No POST body is required for this API.
-
+Creates a dummy access token for a user who did not log in to the merchant store. No POST body is required for this API.
 
 ### Resource Information
 
@@ -483,7 +483,7 @@ Batch Support | No
 Parameter | Type | Description
 --------- | ----- | ------
 merchantId* | string | The unique id (GUID) of the merchant in which you want to validate access token
-accesstoken* | string | The access token generated for an user session (use `/Customer/GetAccessToken/` to get access token of a user session)
+accesstoken* | string | The access token generated for a user session (use `/Customer/GetAccessToken/` to get access token of a user session)
 
 
 ## Fetch Customers (Search)
@@ -553,7 +553,7 @@ https://www.martjack.com/developerapi/Customer/f48fdd16-92db-4188-854d-1ecd9b62x
 }
 ```
 
-Retrieves the list of customers based on the search keyword (containing the search keyword )
+Retrieves customers based on the search keyword (containing the search keyword )
 
 ### Resource Information
 | | |
@@ -573,7 +573,7 @@ Batch Support | No
 
 Parameter | Type | Description
 -------- | ---- | -----------
-UserName | string | Fetches the list of customers matching the specified keyword in the username
+UserName | string | Fetches all customers matching the specified keyword in the username
 
 
 
@@ -641,7 +641,7 @@ https://www.martjack.com/developerapi/Customer/81e77da2-723b-483d-8c0d-49f800c1x
 
 ```
 
-Retrieves details of a specific customer.
+Retrieves the details of a specific customer.
 
 ### Resource Information
 | | |
@@ -714,8 +714,7 @@ https://www.martjack.com/developerapi/Customer/7c778337-4652-4944-934f-09e0fe56x
 }
 ```
 
-Modifies the existing details of a registered customer other than the customer's unique identifier.
-
+Lets you update the details of a registered customer other than the customer’s unique identifier.
 
 ### Resource Information
 | | |
@@ -735,7 +734,7 @@ Batch Support | No
 ### Request Attributes
 Parameter | Description
 --------- | -----------
-UserId | Unique identifier of the customer as generated by the MartJack system.
+UserId | Unique id of the customer that is generated in the system.
 City | Unique code of the city (as saved in the system) Example: 0562 (for Agra), 250 (Victoria) 
 CityName | Full name of the city. Example: Bangalore, 
 State | State's postal abbreviation. Example: KA (for Karnataka), CA (for California), IN (for Indiana)
@@ -861,6 +860,9 @@ https://www.martjack.com/DeveloperAPI/Customer/AddShippingAddress/81e77da2-723b-
 
 ```
 
+
+Lets you add a new shipping address to the customer's account. 
+
 ### Resource Information
 | | |
 --------- | ----------- |
@@ -972,8 +974,8 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 Retrieves the shipping address of a specific customer.
 
 ### Resource Information
-Parameter | Description
---------- | -----------
+| | |
+--------- | ----------- |
 URI | `/Customer/{merchantId}/`
 Rate Limited? | Yes
 Authentication | Yes
@@ -1019,8 +1021,8 @@ http://www.martjack.com/DeveloperAPI/Customer/DeleteShippingAddress/81e77da2-723
 Deletes customer's shipping address for the current session that is logged in.
 
 ### Resource Information
-Parameter | Description
---------- | -----------
+| | |
+--------- | ----------- |
 URI | `Customer/DeleteShippingAddress/{MerchantId}/{UserId}/{ShippingAddressId}`
 Rate Limited? | Yes
 Authentication | Yes

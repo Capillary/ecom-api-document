@@ -3,7 +3,8 @@ An order is a completed purchase request of a customer. This resource consists o
 
 
 ## Create Bulk Order
-This API lets you create batch orders. You can also capture vertical specific product attributes such as variants, bundle, and combo.
+
+
 
 > Sample Request
 
@@ -213,7 +214,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 ```
 
-Creates a new order with complete details.
+This API lets you create batch orders. You can also capture vertical specific product attributes such as variants, bundle, and combo.
 
 
 

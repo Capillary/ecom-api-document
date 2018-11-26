@@ -870,7 +870,7 @@ https://www.martjack.com/developerapi/carts/UpdateCartProperties/81e77da2-723b-4
 
 ```
 
-Updates existing checkout details such as Add delivery slot, add shipping address, and add order attributes. However, country, state, and city code has to be  as per the values specified by the customer before adding items to the cart.
+Updates existing checkout details such as Add delivery slot, add shipping address, add order attributes, and location id. However, country, state, and city code has to be  as per the values specified by the customer before adding items to the cart.
 
 ### Resource Information
 Parameter | Description
@@ -1648,6 +1648,7 @@ Retrieves the payment options supported for the current cart of the user.
 
 
 ### Resource Information
+
 | | |
 --------- | ----------- |
 URI | `/Carts/PaymentOptions/{merchantId}`
@@ -1668,4 +1669,251 @@ Header | Description
 accesstoken* | Access token of the logged in user to validate the session
 
 
+## Update Shipping Mode
 
+> Sample Request
+
+```html
+https://www.martjack.com/developerapi/Carts/ShippingMode/81e77da2-723b-483d-8c0d-49f800c1e288/2323/Change/false
+```
+
+> Sample Response
+
+```json
+{
+    "messageCode": "1004",
+    "Message": "Successful",
+    "Carts": {
+        "MerchantId": "81e77da2-723b-483d-8c0d-49f800c1e288",
+        "ProductCost": 60.528000000000006,
+        "ShippingCost": 12.9,
+        "VoucherDiscount": 0,
+        "PromotionDiscount": 0,
+        "TaxAmount": 0,
+        "OrderTotal": 73.428,
+        "VoucherCode": "",
+        "UserSelectedCurrency": "OMR",
+        "Bill_FirstName": "AutoTestNameBillg23fff",
+        "Bill_LastName": "AutoTestLastNameBill",
+        "Bill_Address1": "AutoTestAddres1Bill",
+        "Bill_Address2": "",
+        "Bill_CountryCode": "OM",
+        "_Bill_StateCode": "OM1",
+        "Bill_City": "AL KHUWAIR",
+        "Bill_CityCode": "2148",
+        "Bill_Telephone": "9967819918",
+        "Bill_Mobile": "9967819918",
+        "Bill_PostCode": "",
+        "Bill_Email": "",
+        "Ship_FirstName": "AutoTestNameBillg23fff",
+        "Ship_LastName": "AutoTestLastNameBill",
+        "Ship_Address1": "AutoTestAddres1Bill",
+        "Ship_Address2": "",
+        "Ship_CountryCode": "OM",
+        "Ship_StateCode": "OM1",
+        "Ship_City": "2148",
+        "Ship_CityCode": "2148",
+        "Ship_OtherCityName": "",
+        "Ship_Telephone": "9967819918",
+        "Ship_Mobile": "9967819918",
+        "Ship_PostCode": "",
+        "Ship_Email": "",
+        "CartItems": [
+            {
+                "ProductId": 12688208,
+                "VariantProductId": 0,
+                "MRP": 4.5,
+                "WebPrice": 0,
+                "Quantity": 1,
+                "description": "Seafood Supreme",
+                "SupplierId": "81e77da2-723b-483d-8c0d-49f800c1e288",
+                "CartReferenceKey": "18e18f60-a1a9-44f0-b256-536e2fe0a3a7",
+                "IsFreeProduct": false,
+                "PriceCapped": false,
+                "TotalCap": 0,
+                "CappedRefKey": "00000000-0000-0000-0000-000000000000",
+                "CatalogpromotionDiscount": 0,
+                "BundleCartReferenceKey": "00000000-0000-0000-0000-000000000000",
+                "BundleCartItems": [
+                    {
+                        "ProductId": 12688172,
+                        "VariantProductId": 9727843,
+                        "MRP": 5.9,
+                        "WebPrice": 4.5,
+                        "Quantity": 1,
+                        "description": "Seafood Supreme Crust",
+                        "SupplierId": "81e77da2-723b-483d-8c0d-49f800c1e288",
+                        "CartReferenceKey": "752b5193-af86-43ea-86e4-b9e5ccb8a941",
+                        "TotalCap": 0,
+                        "CatalogpromotionDiscount": 0,
+                        "BundleCartReferenceKey": "18e18f60-a1a9-44f0-b256-536e2fe0a3a7",
+                        "ItemPromotionDiscountAmount": 0,
+                        "IsPrimaryProduct": true,
+                        "IsPromotionProduct": false,
+                        "VariantsInfo": [
+                            {
+                                "PropertyName": "Crust",
+                                "Value": "Pan"
+                            },
+                            {
+                                "PropertyName": "Size",
+                                "Value": "Medium"
+                            }
+                        ],
+                        "Por": "",
+                        "IsDefaultBundleItem": true,
+                        "CartPromotionRules": [],
+                        "CategoryId": "CN00215782",
+                        "CategoryName": null,
+                        "BrandId": "311548",
+                        "BrandName": "PizzaHut",
+                        "GroupId": 0
+                    }
+                ],
+                "IsPrimaryProduct": false,
+                "ItemPromotionDiscountAmount": 0,
+                "IsPromotionProduct": false,
+                "Por": "",
+                "IsDefaultBundleItem": false,
+                "ProductImage": "//images-cdn-test.azureedge.net/azure/test-resources/81e77da2-723b-483d-8c0d-49f800c1e288/Images/ProductImages/Source/Opt-SEAFOOD_ISLAND_showcase.png;width=100;height=100;scale=canvas;anchor=bottomcenter",
+                "CartPromotionRules": [],
+                "CategoryId": "CN00215794",
+                "CategoryName": null,
+                "BrandId": "311548",
+                "BrandName": "PizzaHut",
+                "ParentCartItems": null
+            },
+            {
+                "ProductId": 12688220,
+                "VariantProductId": 0,
+                "MRP": 90.567,
+                "WebPrice": 50.328,
+                "Quantity": 1,
+                "description": "Classic Pepperoni",
+                "SupplierId": "81e77da2-723b-483d-8c0d-49f800c1e288",
+                "CartReferenceKey": "ff462a81-699f-4798-9b73-4f9d97536099",
+                "IsFreeProduct": false,
+                "PriceCapped": false,
+                "TotalCap": 0,
+                "CappedRefKey": "00000000-0000-0000-0000-000000000000",
+                "CatalogpromotionDiscount": 0,
+                "BundleCartReferenceKey": "00000000-0000-0000-0000-000000000000",
+                "BundleCartItems": [
+                    {
+                        "ProductId": 12688160,
+                        "VariantProductId": 0,
+                        "MRP": 5.7,
+                        "WebPrice": 5.7,
+                        "Quantity": 1,
+                        "description": "Classic Pepperoni Crust",
+                        "SupplierId": "81e77da2-723b-483d-8c0d-49f800c1e288",
+                        "CartReferenceKey": "ab59003f-81b5-45ea-8de8-4cd76f9be21e",
+                        "TotalCap": 0,
+                        "CatalogpromotionDiscount": 0,
+                        "BundleCartReferenceKey": "ff462a81-699f-4798-9b73-4f9d97536099",
+                        "ItemPromotionDiscountAmount": 0,
+                        "IsPrimaryProduct": false,
+                        "IsPromotionProduct": false,
+                        "VariantsInfo": [],
+                        "Por": "",
+                        "IsDefaultBundleItem": true,
+                        "CartPromotionRules": [],
+                        "CategoryId": "CN00215782",
+                        "CategoryName": null,
+                        "BrandId": "311548",
+                        "BrandName": "PizzaHut",
+                        "GroupId": 0
+                    }
+                ],
+                "IsPrimaryProduct": false,
+                "ItemPromotionDiscountAmount": 0,
+                "IsPromotionProduct": false,
+                "Por": "",
+                "IsDefaultBundleItem": false,
+                "ProductImage": "//images-cdn-test.azureedge.net/azure/test-resources/81e77da2-723b-483d-8c0d-49f800c1e288/Images/ProductImages/Source/Opt-Classic_Pepperoni_showcase.png;width=100;height=100;scale=canvas;anchor=bottomcenter",
+                "CartPromotionRules": [],
+                "CategoryId": "CN00215792",
+                "CategoryName": null,
+                "BrandId": "311548",
+                "BrandName": "PizzaHut",
+                "ParentCartItems": null
+            }
+        ],
+        "Suppliers": [
+            {
+                "SupplierId": "81e77da2-723b-483d-8c0d-49f800c11e288",
+                "SupplierName": "Pizza Hut test",
+                "IsSelected": false,
+                "OrderStatus": null
+            }
+        ],
+        "ShippingOptions": [
+            {
+                "SupplierId": "81e77da2-723b-483d-8c0d-49f800c1e288,
+                "ShippingMode": "2323",
+                "ShippingModeId": 2323,
+                "isselected": true
+            }
+        ],
+        "PaymentOptionsChannel": [
+            {
+                "MerchantId": "81e77da2-723b-483d-8c0d-49f800c1e288",
+                "PaymentType": "COD",
+                "Paymentoption": "COD",
+                "GatewayId": "0",
+                "GatewayTitle": "COD",
+                "PaidAmount": 0,
+                "EnalbeOTP": false
+            }
+        ],
+        "ErrorCollection": null,
+        "GiftMsg": "",
+        "DemandedDeliveryDate": "/Date(1536228000000+0530)/",
+        "RemainTotal": 0,
+        "ShippingZoneType": null,
+        "DeliverySlotID": 0,
+        "FailedProducts": null,
+        "PickupFirstName": "AutoTestNameBillg23fff",
+        "PickupLastName": "AutoTestLastNameBill",
+        "PickupEmail": "",
+        "PickupMobile": "9967819918",
+        "LocationId": "22612",
+        "TaxDetail": [],
+        "ComboSuggestion": [],
+        "ConvertedDeals": []
+    },
+    "ErrorCode": 0
+}
+```
+
+Updates shipping mode of the cart of the current customer.
+
+### Resource Information
+
+| | |
+--------- | ----------- |
+URI | `/Carts/ShippingMode/{merchantId}/{shippingModeID}/Change/{ispickupshippingMode}`
+Rate Limited? | Yes
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | GET
+Batch Support | No
+
+
+### Request URL
+`https://{host}/developerapi/Carts/ShippingMode/{merchantId}/{shippingModeID}/Change/{ispickupshippingMode}`
+
+### Additional Header Required
+
+Header | Description
+------ | -----------
+accesstoken* | Access token of the logged in user to validate the session
+
+
+### Request Query Parameters
+
+Parameter | Type | Description
+-------- | ----- | -----------
+merchantId* | string | Unique GUID of the merchant
+shippingModeID* | int | Unique id of the new shipment mode
+ispickupshippingMode* | boolean | 

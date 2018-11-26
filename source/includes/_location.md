@@ -1296,6 +1296,8 @@ locationId* | int | Unique id of the location that you want to fetch
 
 ## Get Reason Codes
 
+> Sample Request
+
 ```html
 https://www.martjack.com/developerapi/Location/ReasonCodes/f48fdd16-92db-4188-854d-1ecd9b62xxxx
 ```
@@ -1346,6 +1348,157 @@ MerchantId* | string | The unique id (GUID) of the merchant
 
 
 
+## Update Location ETA
+
+> Sample Request
+
+```html
+https://www.martjack.com/developerapi/Location/Information/f48fdd16-92db-4188-854d-1ecd9b62e234/110/ALL
+```
+
+> Sample POST Response
+
+```json
+InputFormat=application/json&MerchantId=f48fdd16-92db-4188-854d-1ecd9b62e234&ETAfor=ALL&InputData={  
+   "LocationCode":"110",
+   "HomeDeliveryETA":{  
+      "StartTime":"10",
+      "EndTime":"20",
+      "ETAType":0,
+      "ETAUnits":"Min"
+   },
+   "TakeAwayETA":{  
+      "StartTime":"10",
+      "EndTime":"50",
+      "ETAType":0,
+      "ETAUnits":"Min"
+   },
+   "PickupPointsETA":{  
+      "StartTime":"10",
+      "EndTime":"30",
+      "ETAType":0,
+      "ETAUnits":"Min"
+   }
+}
+```
+
+> Sample Response
+
+```json
+{
+	"messageCode": "1004",
+	"Message": "Location ETA details Updated Successfully",
+	"ErrorCode": 0
+}
+
+```
+
+Lets you add or update order ETA (Estimated Time of Arrival) for a location including the type of delivery location with location code.
+
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `/Location/UpdateLocationETA/{merchantId}/{OrderDeliveryType}
+/{merchantId}`
+Rate Limited? | Yes
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | POST
+Batch Support | No
+
+
+### Request URL
+
+`https://{host}/developerapi/Location/UpdateLocationETA/{merchantId}/{OrderDeliveryType}`
+
+### Request Query Parameters
+Parameter | Type | Description
+--------- | ---- | -----------
+merchantId* | string | Unique GUID of the merchant
+OrderDeliveryType | enum | Type of order delivery. Supported values: ALL, H, T, P where `H` for HomeDelivery, `T` for TakeAway, `P` for store pickup, and `ALL` for all types
+
+### Request Body Parameters
+Parameter | Type | Description
+--------- | ---- | -----------
+LocationCode* | string | Location code for which you want to update order ETA
+HomeDeliveryETA* | - | Updates ETA for home delivery orders
+TakeAwayETA | - | Updated ETA for take away orders
+PickupPointsETA | - | Updates ETA for store pick up orders
+StartTime* | string | Estimated minimum delivery time as per the selected ETA units
+EndTime* | string | Estimated maximum delivery time as per the selected ETA units
+ETAType* | enum | Soecify `0` for a fixed ETA. For example 2 days from the ordered date. <br> Specify `1` for ETA within a specified period from the ordered date. For example, 5-7 days
+ETAUnits* | enum | Preferred unit for time - minutes, hours, or days. Value: `Min`, `Hours`, `Days`
+
+
+
+## Get Location ETA
+
+> Sample Request
+
+```html
+https://www.martjack.com/developerapi/Location/Information/f48fdd16-92db-4188-854d-1ecd9b62e234/110/ALL
+```
+
+> Sample Response
+
+```json
+{
+	"messageCode": "1004",
+	"Message": "Successful",
+	"ErrorCode": 0,
+	"LocationETA": {
+    	"HomeDeliveryETA": {
+        	"ETAType": 1,
+        	"ETAUnits": "MIN",
+        	"EndTime": "20",
+        	"StartTime": "10"
+    	},
+    	"LocationCode": "BTM",
+    	"PickupPointsEta": {
+        	"ETAType": 1,
+        	"ETAUnits": "MIN",
+        	"EndTime": "30",
+        	"StartTime": "15"
+    	},
+    	"TakeAwayETA": {
+        	"ETAType": 0,
+        	"ETAUnits": "MIN",
+        	"EndTime": "0",
+        	"StartTime": "45"
+    	}
+	}
+}
+
+```
+
+Retrieves Estimated Time of Arrival (ETA) of an order for a specific location and the type of location delivery with location code
+
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `/Location/UpdateLocationETA/{merchantId}/{LocationCode}/{OrderDeliveryType}`
+Rate Limited? | Yes
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | GET
+Batch Support | No
+
+
+### Request URL
+
+`https://{host}/developerapi/Location/UpdateLocationETA/{merchantId}/{LocationCode}/{OrderDeliveryType}`
+
+### Request Query Parameters
+
+Parameter | Type | Description
+-------- | ---- | -----------
+merchantId* | string | Unique GUID of the merchant
+LocationCode* | string | Location code for which you want to fetch order ETA details
+OrderDeliveryType* | string | Specific order type for which you want to fetch ETA. Values `H` for HomeDelivery, `T` for TakeAway, `P` for Pickup, `ALL` for all types
+
+
 ## Response Codes
 
 Code | Description
@@ -1355,3 +1508,6 @@ Code | Description
 1004 | Successful
 1009 | No Record Found
 1030 | Service is not Authorized
+
+
+
