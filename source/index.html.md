@@ -12,14 +12,14 @@ toc_footers:
 
 includes:
   - customer
-  - order
-  - shoppingList
-  - cart
   - product
-  - merchant
+  - cart
+  - order
+  - pricelist
+  - shoppingList
   - store
   - location
-  - pricelist
+  - merchant
 
 
 search: true

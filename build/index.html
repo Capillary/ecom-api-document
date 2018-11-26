@@ -256,11 +256,11 @@ To obtain access, you first need to add the app in the control panel and generat
 
           <h1 id="customer">Customer</h1>
 
-<p>A Customer is a user of a merchant&rsquo;s online store. This resource consists of APIs to create new customer accounts and manage their details and preferences.</p>
+<p>A customer is an individual who buys products from a merchant&rsquo;s online store. This resource consists of APIs to create new customer accounts and manage their details and preferences.</p>
 
 <h2 id="create-customer-account">Create Customer Account</h2>
 
-<p>This API lets you create a new user account on MartJack platform for a specific merchant.</p>
+<p>This API lets you create a new user account on the Capillary&rsquo;s Anywhere Commerce Platform for a specific merchant.</p>
 
 <blockquote>
 <p>Sample Request</p>
@@ -351,8 +351,8 @@ To obtain access, you first need to add the app in the control panel and generat
 
 <table><thead>
 <tr>
-<th>Parameter</th>
-<th>Description</th>
+<th></th>
+<th></th>
 </tr>
 </thead><tbody>
 <tr>
@@ -467,8 +467,8 @@ To obtain access, you first need to add the app in the control panel and generat
 
 <table><thead>
 <tr>
-<th>Parameter</th>
-<th>Description</th>
+<th></th>
+<th></th>
 </tr>
 </thead><tbody>
 <tr>
@@ -519,8 +519,8 @@ To obtain access, you first need to add the app in the control panel and generat
 
 <table><thead>
 <tr>
-<th>Parameter</th>
-<th>Description</th>
+<th></th>
+<th></th>
 </tr>
 </thead><tbody>
 <tr>
@@ -650,17 +650,11 @@ To obtain access, you first need to add the app in the control panel and generat
 <td>string</td>
 <td>Unique GUID of the user for which password needs to be changed</td>
 </tr>
-</tbody></table>
-
-<h3 id="request-body-parameters">Request Body Parameters</h3>
-
-<table><thead>
 <tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
+<td>newPassword*</td>
+<td>string</td>
+<td>New password that you want to have for the account</td>
 </tr>
-</thead><tbody>
 </tbody></table>
 
 <h2 id="customer-login">Customer Login</h2>
@@ -693,7 +687,11 @@ To obtain access, you first need to add the app in the control panel and generat
    </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="mi">0</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Logs in a registered customer to the merchant&rsquo;s e-commerce store. A customer has to log in to perform customer tasks such as fetching customer details, modifying customer details and updating profile attributes. Upon successful login, user receives a <code class="prettyprint">UserId</code> which is required to fetch customer details.</p>
+<p>Authorizes login of a registered user on the merchant&rsquo;s e-commerce store. Once the customer logs in with the OTP, he receives a unique <code class="prettyprint">UserId</code> which is required to make customer API calls. </p>
+
+<aside class="notice">The customer has to be logged in to his account to perform to perform any task tasks such as fetching customer details, modifying customer details or updating profile attributes. 
+
+.</aside>
 
 <h3 id="resource-information">Resource Information</h3>
 
@@ -863,7 +861,7 @@ To obtain access, you first need to add the app in the control panel and generat
   </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Creates a dummy access token for non-logged in user of the merchant store. No POST body is required for this API.</p>
+<p>Creates a dummy access token for a user who did not log in to the merchant store. No POST body is required for this API.</p>
 
 <h3 id="resource-information">Resource Information</h3>
 
@@ -993,7 +991,7 @@ To obtain access, you first need to add the app in the control panel and generat
 <tr>
 <td>accesstoken*</td>
 <td>string</td>
-<td>The access token generated for an user session (use <code class="prettyprint">/Customer/GetAccessToken/</code> to get access token of a user session)</td>
+<td>The access token generated for a user session (use <code class="prettyprint">/Customer/GetAccessToken/</code> to get access token of a user session)</td>
 </tr>
 </tbody></table>
 
@@ -1059,7 +1057,7 @@ To obtain access, you first need to add the app in the control panel and generat
     </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Retrieves the list of customers based on the search keyword (containing the search keyword )</p>
+<p>Retrieves customers based on the search keyword (containing the search keyword )</p>
 
 <h3 id="resource-information">Resource Information</h3>
 
@@ -1111,7 +1109,7 @@ To obtain access, you first need to add the app in the control panel and generat
 <tr>
 <td>UserName</td>
 <td>string</td>
-<td>Fetches the list of customers matching the specified keyword in the username</td>
+<td>Fetches all customers matching the specified keyword in the username</td>
 </tr>
 </tbody></table>
 
@@ -1175,7 +1173,7 @@ To obtain access, you first need to add the app in the control panel and generat
 </span><span class="p">}</span><span class="w">
 
 </span></code></pre>
-<p>Retrieves details of a specific customer.</p>
+<p>Retrieves the details of a specific customer.</p>
 
 <h3 id="resource-information">Resource Information</h3>
 
@@ -1282,7 +1280,7 @@ To obtain access, you first need to add the app in the control panel and generat
     </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Modifies the existing details of a registered customer other than the customer&rsquo;s unique identifier.</p>
+<p>Lets you update the details of a registered customer other than the customer’s unique identifier.</p>
 
 <h3 id="resource-information">Resource Information</h3>
 
@@ -1332,7 +1330,7 @@ To obtain access, you first need to add the app in the control panel and generat
 </thead><tbody>
 <tr>
 <td>UserId</td>
-<td>Unique identifier of the customer as generated by the MartJack system.</td>
+<td>Unique id of the customer that is generated in the system.</td>
 </tr>
 <tr>
 <td>City</td>
@@ -1491,6 +1489,8 @@ To obtain access, you first need to add the app in the control panel and generat
 </blockquote>
 <pre class="highlight json"><code><span class="w">
 </span></code></pre>
+<p>Lets you add a new shipping address to the customer&rsquo;s account. </p>
+
 <h3 id="resource-information">Resource Information</h3>
 
 <table><thead>
@@ -1687,8 +1687,8 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <table><thead>
 <tr>
-<th>Parameter</th>
-<th>Description</th>
+<th></th>
+<th></th>
 </tr>
 </thead><tbody>
 <tr>
@@ -1777,8 +1777,8 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <table><thead>
 <tr>
-<th>Parameter</th>
-<th>Description</th>
+<th></th>
+<th></th>
 </tr>
 </thead><tbody>
 <tr>
@@ -1838,8 +1838,6 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <p>An order is a completed purchase request of a customer. This resource consists of APIs related to creating and managing orders of a marketplace, PWA or storefront. </p>
 
 <h2 id="create-bulk-order">Create Bulk Order</h2>
-
-<p>This API lets you create batch orders. You can also capture vertical specific product attributes such as variants, bundle, and combo.</p>
 
 <blockquote>
 <p>Sample Request</p>
@@ -2046,7 +2044,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 
 </span></code></pre>
-<p>Creates a new order with complete details.</p>
+<p>This API lets you create batch orders. You can also capture vertical specific product attributes such as variants, bundle, and combo.</p>
 
 <h3 id="resource-information">Resource Information</h3>
 
@@ -6637,7 +6635,7 @@ Quantity | string | Quantity of the items that you want to add or update in cart
 </blockquote>
 <pre class="highlight json"><code><span class="w">
 </span></code></pre>
-<p>Updates existing checkout details such as Add delivery slot, add shipping address, and add order attributes. However, country, state, and city code has to be  as per the values specified by the customer before adding items to the cart.</p>
+<p>Updates existing checkout details such as Add delivery slot, add shipping address, add order attributes, and location id. However, country, state, and city code has to be  as per the values specified by the customer before adding items to the cart.</p>
 
 <h3 id="resource-information">Resource Information</h3>
 
@@ -7658,6 +7656,301 @@ IsShippingAddressDifferent | Specify <code class="prettyprint">true</code> if sh
 <tr>
 <td>accesstoken*</td>
 <td>Access token of the logged in user to validate the session</td>
+</tr>
+</tbody></table>
+
+<h2 id="update-shipping-mode">Update Shipping Mode</h2>
+
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
+<pre class="highlight html"><code>https://www.martjack.com/developerapi/Carts/ShippingMode/81e77da2-723b-483d-8c0d-49f800c1e288/2323/Change/false
+</code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"messageCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1004"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Carts"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"81e77da2-723b-483d-8c0d-49f800c1e288"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"ProductCost"</span><span class="p">:</span><span class="w"> </span><span class="mf">60.528000000000006</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"ShippingCost"</span><span class="p">:</span><span class="w"> </span><span class="mf">12.9</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"VoucherDiscount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"PromotionDiscount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"TaxAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"OrderTotal"</span><span class="p">:</span><span class="w"> </span><span class="mf">73.428</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"VoucherCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"UserSelectedCurrency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OMR"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Bill_FirstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AutoTestNameBillg23fff"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Bill_LastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AutoTestLastNameBill"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Bill_Address1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AutoTestAddres1Bill"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Bill_Address2"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Bill_CountryCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OM"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"_Bill_StateCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OM1"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Bill_City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AL KHUWAIR"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Bill_CityCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2148"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Bill_Telephone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9967819918"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Bill_Mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9967819918"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Bill_PostCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Bill_Email"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Ship_FirstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AutoTestNameBillg23fff"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Ship_LastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AutoTestLastNameBill"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Ship_Address1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AutoTestAddres1Bill"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Ship_Address2"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Ship_CountryCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OM"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Ship_StateCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OM1"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Ship_City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2148"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Ship_CityCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2148"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Ship_OtherCityName"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Ship_Telephone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9967819918"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Ship_Mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9967819918"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Ship_PostCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Ship_Email"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"CartItems"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"ProductId"</span><span class="p">:</span><span class="w"> </span><span class="mi">12688208</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"VariantProductId"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"MRP"</span><span class="p">:</span><span class="w"> </span><span class="mf">4.5</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"WebPrice"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"Quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Seafood Supreme"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"SupplierId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"81e77da2-723b-483d-8c0d-49f800c1e288"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"CartReferenceKey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"18e18f60-a1a9-44f0-b256-536e2fe0a3a7"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"IsFreeProduct"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"PriceCapped"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"TotalCap"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"CappedRefKey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00000000-0000-0000-0000-000000000000"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"CatalogpromotionDiscount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"BundleCartReferenceKey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00000000-0000-0000-0000-000000000000"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"BundleCartItems"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                    </span><span class="p">{</span><span class="w">
+                        </span><span class="nt">"ProductId"</span><span class="p">:</span><span class="w"> </span><span class="mi">12688172</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"VariantProductId"</span><span class="p">:</span><span class="w"> </span><span class="mi">9727843</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"MRP"</span><span class="p">:</span><span class="w"> </span><span class="mf">5.9</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"WebPrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">4.5</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"Quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Seafood Supreme Crust"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"SupplierId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"81e77da2-723b-483d-8c0d-49f800c1e288"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"CartReferenceKey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"752b5193-af86-43ea-86e4-b9e5ccb8a941"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"TotalCap"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"CatalogpromotionDiscount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"BundleCartReferenceKey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"18e18f60-a1a9-44f0-b256-536e2fe0a3a7"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"ItemPromotionDiscountAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"IsPrimaryProduct"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"IsPromotionProduct"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"VariantsInfo"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                            </span><span class="p">{</span><span class="w">
+                                </span><span class="nt">"PropertyName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Crust"</span><span class="p">,</span><span class="w">
+                                </span><span class="nt">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pan"</span><span class="w">
+                            </span><span class="p">},</span><span class="w">
+                            </span><span class="p">{</span><span class="w">
+                                </span><span class="nt">"PropertyName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Size"</span><span class="p">,</span><span class="w">
+                                </span><span class="nt">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Medium"</span><span class="w">
+                            </span><span class="p">}</span><span class="w">
+                        </span><span class="p">],</span><span class="w">
+                        </span><span class="nt">"Por"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"IsDefaultBundleItem"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"CartPromotionRules"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+                        </span><span class="nt">"CategoryId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CN00215782"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"CategoryName"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"BrandId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"311548"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"BrandName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PizzaHut"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"GroupId"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+                    </span><span class="p">}</span><span class="w">
+                </span><span class="p">],</span><span class="w">
+                </span><span class="nt">"IsPrimaryProduct"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"ItemPromotionDiscountAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"IsPromotionProduct"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"Por"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"IsDefaultBundleItem"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"ProductImage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"//images-cdn-test.azureedge.net/azure/test-resources/81e77da2-723b-483d-8c0d-49f800c1e288/Images/ProductImages/Source/Opt-SEAFOOD_ISLAND_showcase.png;width=100;height=100;scale=canvas;anchor=bottomcenter"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"CartPromotionRules"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+                </span><span class="nt">"CategoryId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CN00215794"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"CategoryName"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"BrandId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"311548"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"BrandName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PizzaHut"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"ParentCartItems"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"ProductId"</span><span class="p">:</span><span class="w"> </span><span class="mi">12688220</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"VariantProductId"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"MRP"</span><span class="p">:</span><span class="w"> </span><span class="mf">90.567</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"WebPrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">50.328</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"Quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Classic Pepperoni"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"SupplierId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"81e77da2-723b-483d-8c0d-49f800c1e288"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"CartReferenceKey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ff462a81-699f-4798-9b73-4f9d97536099"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"IsFreeProduct"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"PriceCapped"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"TotalCap"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"CappedRefKey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00000000-0000-0000-0000-000000000000"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"CatalogpromotionDiscount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"BundleCartReferenceKey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00000000-0000-0000-0000-000000000000"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"BundleCartItems"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                    </span><span class="p">{</span><span class="w">
+                        </span><span class="nt">"ProductId"</span><span class="p">:</span><span class="w"> </span><span class="mi">12688160</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"VariantProductId"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"MRP"</span><span class="p">:</span><span class="w"> </span><span class="mf">5.7</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"WebPrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">5.7</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"Quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Classic Pepperoni Crust"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"SupplierId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"81e77da2-723b-483d-8c0d-49f800c1e288"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"CartReferenceKey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ab59003f-81b5-45ea-8de8-4cd76f9be21e"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"TotalCap"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"CatalogpromotionDiscount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"BundleCartReferenceKey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ff462a81-699f-4798-9b73-4f9d97536099"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"ItemPromotionDiscountAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"IsPrimaryProduct"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"IsPromotionProduct"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"VariantsInfo"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+                        </span><span class="nt">"Por"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"IsDefaultBundleItem"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"CartPromotionRules"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+                        </span><span class="nt">"CategoryId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CN00215782"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"CategoryName"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"BrandId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"311548"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"BrandName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PizzaHut"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"GroupId"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+                    </span><span class="p">}</span><span class="w">
+                </span><span class="p">],</span><span class="w">
+                </span><span class="nt">"IsPrimaryProduct"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"ItemPromotionDiscountAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"IsPromotionProduct"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"Por"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"IsDefaultBundleItem"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"ProductImage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"//images-cdn-test.azureedge.net/azure/test-resources/81e77da2-723b-483d-8c0d-49f800c1e288/Images/ProductImages/Source/Opt-Classic_Pepperoni_showcase.png;width=100;height=100;scale=canvas;anchor=bottomcenter"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"CartPromotionRules"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+                </span><span class="nt">"CategoryId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CN00215792"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"CategoryName"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"BrandId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"311548"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"BrandName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PizzaHut"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"ParentCartItems"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nt">"Suppliers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"SupplierId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"81e77da2-723b-483d-8c0d-49f800c11e288"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"SupplierName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pizza Hut test"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"IsSelected"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"OrderStatus"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nt">"ShippingOptions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"SupplierId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"81e77da2-723b-483d-8c0d-49f800c1e288,
+                "</span><span class="err">ShippingMode</span><span class="s2">": "</span><span class="mi">2323</span><span class="s2">",
+                "</span><span class="err">ShippingModeId</span><span class="s2">": 2323,
+                "</span><span class="err">isselected</span><span class="s2">": true
+            }
+        ],
+        "</span><span class="err">PaymentOptionsChannel</span><span class="s2">": [
+            {
+                "</span><span class="err">MerchantId</span><span class="s2">": "</span><span class="mi">81</span><span class="err">e</span><span class="mi">77</span><span class="err">da</span><span class="mi">2-723</span><span class="err">b</span><span class="mi">-483</span><span class="err">d</span><span class="mi">-8</span><span class="err">c</span><span class="mi">0</span><span class="err">d</span><span class="mi">-49</span><span class="err">f</span><span class="mi">800</span><span class="err">c</span><span class="mi">1</span><span class="err">e</span><span class="mi">288</span><span class="s2">",
+                "</span><span class="err">PaymentType</span><span class="s2">": "</span><span class="err">COD</span><span class="s2">",
+                "</span><span class="err">Paymentoption</span><span class="s2">": "</span><span class="err">COD</span><span class="s2">",
+                "</span><span class="err">GatewayId</span><span class="s2">": "</span><span class="mi">0</span><span class="s2">",
+                "</span><span class="err">GatewayTitle</span><span class="s2">": "</span><span class="err">COD</span><span class="s2">",
+                "</span><span class="err">PaidAmount</span><span class="s2">": 0,
+                "</span><span class="err">EnalbeOTP</span><span class="s2">": false
+            }
+        ],
+        "</span><span class="err">ErrorCollection</span><span class="s2">": null,
+        "</span><span class="err">GiftMsg</span><span class="s2">": "",
+        "</span><span class="err">DemandedDeliveryDate</span><span class="s2">": "</span><span class="err">/Date(</span><span class="mi">1536228000000</span><span class="err">+</span><span class="mi">0530</span><span class="err">)/</span><span class="s2">",
+        "</span><span class="err">RemainTotal</span><span class="s2">": 0,
+        "</span><span class="err">ShippingZoneType</span><span class="s2">": null,
+        "</span><span class="err">DeliverySlotID</span><span class="s2">": 0,
+        "</span><span class="err">FailedProducts</span><span class="s2">": null,
+        "</span><span class="err">PickupFirstName</span><span class="s2">": "</span><span class="err">AutoTestNameBillg</span><span class="mi">23</span><span class="err">fff</span><span class="s2">",
+        "</span><span class="err">PickupLastName</span><span class="s2">": "</span><span class="err">AutoTestLastNameBill</span><span class="s2">",
+        "</span><span class="err">PickupEmail</span><span class="s2">": "",
+        "</span><span class="err">PickupMobile</span><span class="s2">": "</span><span class="mi">9967819918</span><span class="s2">",
+        "</span><span class="err">LocationId</span><span class="s2">": "</span><span class="mi">22612</span><span class="s2">",
+        "</span><span class="err">TaxDetail</span><span class="s2">": [],
+        "</span><span class="err">ComboSuggestion</span><span class="s2">": [],
+        "</span><span class="err">ConvertedDeals</span><span class="s2">": []
+    },
+    "</span><span class="err">ErrorCode":</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Updates shipping mode of the cart of the current customer.</p>
+
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td><code class="prettyprint">/Carts/ShippingMode/{merchantId}/{shippingModeID}/Change/{ispickupshippingMode}</code></td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>No</td>
+</tr>
+</tbody></table>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">https://{host}/developerapi/Carts/ShippingMode/{merchantId}/{shippingModeID}/Change/{ispickupshippingMode}</code></p>
+
+<h3 id="additional-header-required">Additional Header Required</h3>
+
+<table><thead>
+<tr>
+<th>Header</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>accesstoken*</td>
+<td>Access token of the logged in user to validate the session</td>
+</tr>
+</tbody></table>
+
+<h3 id="request-query-parameters">Request Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>merchantId*</td>
+<td>string</td>
+<td>Unique GUID of the merchant</td>
+</tr>
+<tr>
+<td>shippingModeID*</td>
+<td>int</td>
+<td>Unique id of the new shipment mode</td>
+</tr>
+<tr>
+<td>ispickupshippingMode*</td>
+<td>boolean</td>
+<td></td>
 </tr>
 </tbody></table>
 
@@ -12463,6 +12756,10 @@ IsShippingAddressDifferent | Specify <code class="prettyprint">true</code> if sh
 </tbody></table>
 
 <h2 id="get-reason-codes">Get Reason Codes</h2>
+
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
 <pre class="highlight html"><code>https://www.martjack.com/developerapi/Location/ReasonCodes/f48fdd16-92db-4188-854d-1ecd9b62xxxx
 </code></pre>
 <blockquote>
@@ -12535,6 +12832,251 @@ IsShippingAddressDifferent | Specify <code class="prettyprint">true</code> if sh
 <td>MerchantId*</td>
 <td>string</td>
 <td>The unique id (GUID) of the merchant</td>
+</tr>
+</tbody></table>
+
+<h2 id="update-location-eta">Update Location ETA</h2>
+
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
+<pre class="highlight html"><code>https://www.martjack.com/developerapi/Location/Information/f48fdd16-92db-4188-854d-1ecd9b62e234/110/ALL
+</code></pre>
+<blockquote>
+<p>Sample POST Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="err">InputFormat=application/json&amp;MerchantId=f</span><span class="mi">48</span><span class="err">fdd</span><span class="mi">16-92</span><span class="err">db</span><span class="mi">-4188-854</span><span class="err">d</span><span class="mi">-1</span><span class="err">ecd</span><span class="mi">9</span><span class="err">b</span><span class="mi">62</span><span class="err">e</span><span class="mi">234</span><span class="err">&amp;ETAfor=ALL&amp;InputData=</span><span class="p">{</span><span class="w">  
+   </span><span class="nt">"LocationCode"</span><span class="p">:</span><span class="s2">"110"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"HomeDeliveryETA"</span><span class="p">:{</span><span class="w">  
+      </span><span class="nt">"StartTime"</span><span class="p">:</span><span class="s2">"10"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"EndTime"</span><span class="p">:</span><span class="s2">"20"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ETAType"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ETAUnits"</span><span class="p">:</span><span class="s2">"Min"</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="nt">"TakeAwayETA"</span><span class="p">:{</span><span class="w">  
+      </span><span class="nt">"StartTime"</span><span class="p">:</span><span class="s2">"10"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"EndTime"</span><span class="p">:</span><span class="s2">"50"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ETAType"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ETAUnits"</span><span class="p">:</span><span class="s2">"Min"</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="nt">"PickupPointsETA"</span><span class="p">:{</span><span class="w">  
+      </span><span class="nt">"StartTime"</span><span class="p">:</span><span class="s2">"10"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"EndTime"</span><span class="p">:</span><span class="s2">"30"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ETAType"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ETAUnits"</span><span class="p">:</span><span class="s2">"Min"</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"messageCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1004"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Location ETA details Updated Successfully"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<p>Lets you add or update order ETA (Estimated Time of Arrival) for a location including the type of delivery location with location code.</p>
+
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td>`/Location/UpdateLocationETA/{merchantId}/{OrderDeliveryType}</td>
+</tr>
+</tbody></table>
+
+<p>/{merchantId}`
+Rate Limited? | Yes
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | POST
+Batch Support | No</p>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">https://{host}/developerapi/Location/UpdateLocationETA/{merchantId}/{OrderDeliveryType}</code></p>
+
+<h3 id="request-query-parameters">Request Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>merchantId*</td>
+<td>string</td>
+<td>Unique GUID of the merchant</td>
+</tr>
+<tr>
+<td>OrderDeliveryType</td>
+<td>enum</td>
+<td>Type of order delivery. Supported values: ALL, H, T, P where <code class="prettyprint">H</code> for HomeDelivery, <code class="prettyprint">T</code> for TakeAway, <code class="prettyprint">P</code> for store pickup, and <code class="prettyprint">ALL</code> for all types</td>
+</tr>
+</tbody></table>
+
+<h3 id="request-body-parameters">Request Body Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>LocationCode*</td>
+<td>string</td>
+<td>Location code for which you want to update order ETA</td>
+</tr>
+<tr>
+<td>HomeDeliveryETA*</td>
+<td>-</td>
+<td>Updates ETA for home delivery orders</td>
+</tr>
+<tr>
+<td>TakeAwayETA</td>
+<td>-</td>
+<td>Updated ETA for take away orders</td>
+</tr>
+<tr>
+<td>PickupPointsETA</td>
+<td>-</td>
+<td>Updates ETA for store pick up orders</td>
+</tr>
+<tr>
+<td>StartTime*</td>
+<td>string</td>
+<td>Estimated minimum delivery time as per the selected ETA units</td>
+</tr>
+<tr>
+<td>EndTime*</td>
+<td>string</td>
+<td>Estimated maximum delivery time as per the selected ETA units</td>
+</tr>
+<tr>
+<td>ETAType*</td>
+<td>enum</td>
+<td>Soecify <code class="prettyprint">0</code> for a fixed ETA. For example 2 days from the ordered date. <br> Specify <code class="prettyprint">1</code> for ETA within a specified period from the ordered date. For example, 5-7 days</td>
+</tr>
+<tr>
+<td>ETAUnits*</td>
+<td>enum</td>
+<td>Preferred unit for time - minutes, hours, or days. Value: <code class="prettyprint">Min</code>, <code class="prettyprint">Hours</code>, <code class="prettyprint">Days</code></td>
+</tr>
+</tbody></table>
+
+<h2 id="get-location-eta">Get Location ETA</h2>
+
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
+<pre class="highlight html"><code>https://www.martjack.com/developerapi/Location/Information/f48fdd16-92db-4188-854d-1ecd9b62e234/110/ALL
+</code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"messageCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1004"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"LocationETA"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"HomeDeliveryETA"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"ETAType"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ETAUnits"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MIN"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"EndTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"StartTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"LocationCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTM"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"PickupPointsEta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"ETAType"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ETAUnits"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MIN"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"EndTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"30"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"StartTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"15"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"TakeAwayETA"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"ETAType"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ETAUnits"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MIN"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"EndTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"StartTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"45"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<p>Retrieves Estimated Time of Arrival (ETA) of an order for a specific location and the type of location delivery with location code</p>
+
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td><code class="prettyprint">/Location/UpdateLocationETA/{merchantId}/{LocationCode}/{OrderDeliveryType}</code></td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>No</td>
+</tr>
+</tbody></table>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">https://{host}/developerapi/Location/UpdateLocationETA/{merchantId}/{LocationCode}/{OrderDeliveryType}</code></p>
+
+<h3 id="request-query-parameters">Request Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>merchantId*</td>
+<td>string</td>
+<td>Unique GUID of the merchant</td>
+</tr>
+<tr>
+<td>LocationCode*</td>
+<td>string</td>
+<td>Location code for which you want to fetch order ETA details</td>
+</tr>
+<tr>
+<td>OrderDeliveryType*</td>
+<td>string</td>
+<td>Specific order type for which you want to fetch ETA. Values <code class="prettyprint">H</code> for HomeDelivery, <code class="prettyprint">T</code> for TakeAway, <code class="prettyprint">P</code> for Pickup, <code class="prettyprint">ALL</code> for all types</td>
 </tr>
 </tbody></table>
 
