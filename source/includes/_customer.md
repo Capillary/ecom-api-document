@@ -752,8 +752,9 @@ accesstoken* 	Access token of the logged in user to validate the session
 
 
 ### Request Body Parameters
+
 Parameter | Type | Description
---------- | -----------
+--------- | ---- | -----------
 UserId | string | Unique id of the customer that is generated in the system.
 City  string | Unique code of the city (as saved in the system) Example: 0562 (for Agra), 250 (Victoria) 
 CityName | string | Full name of the city. Example: Bangalore, 
@@ -1102,8 +1103,8 @@ Batch Support | No
 `http://{host}/developerapi/Customer/DeleteShippingAddress/{MerchantId}/{UserId}/{ShippingAddressId}`
 
 ### Request Parameters
-Parameter | Description
---------- | -----------
+Parameter | Type | Description
+--------- | ---- | -----------
 MerchantId* | string |  The unique id (GUID) of the merchant in which you want the order is created
 UserId* | string |  The unique user identifier of the customer to which the order is associated
 ShippingAddressId* | string |  Unique id of the order shipment that you want to delete
