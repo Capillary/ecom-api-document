@@ -2345,7 +2345,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 </blockquote>
 <pre class="highlight json"><code><span class="err">MerchantId=</span><span class="s2">"0639f7a6-34cc-48b2-9fd9-a80e2ed8xxxx"</span><span class="err">&amp;InputFormat=</span><span class="s2">"application/json"</span><span class="err">&amp;InputData=</span><span class="p">{</span><span class="w">  
    </span><span class="nt">"products"</span><span class="p">:{</span><span class="w">  
-      </span><span class="nt">"product"</span><span class="p">:{</span><span class="w">  
+      </span><span class="nt">"product"</span><span class="p">:[{</span><span class="w">  
          </span><span class="nt">"sku"</span><span class="p">:</span><span class="s2">"458636"</span><span class="p">,</span><span class="w">
          </span><span class="nt">"variantsku"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
          </span><span class="nt">"BrandID"</span><span class="p">:</span><span class="s2">"1756"</span><span class="p">,</span><span class="w">
@@ -2432,6 +2432,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
          </span><span class="nt">"VendorSKU"</span><span class="p">:</span><span class="s2">"SV123"</span><span class="p">,</span><span class="w">
          </span><span class="nt">"StdProductType"</span><span class="p">:</span><span class="s2">"HSN"</span><span class="w">
       </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
@@ -5946,7 +5947,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>Status</td>
 <td>enum</td>
-<td></td>
+<td>Status of the cart item. Specify A to add item to cart</td>
 </tr>
 <tr>
 <td>LocationId</td>
@@ -6692,7 +6693,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>Status</td>
 <td>enum</td>
-<td>Value: Status.</td>
+<td>Status of the cart item. Specify A to add item to cart</td>
 </tr>
 <tr>
 <td>LocationId</td>
@@ -9987,27 +9988,27 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <h3 id="sample-validation-messages">Sample Validation Messages</h3>
 
-<p><code class="prettyprint">{&quot;OrderID&quot;:0,&quot;ValidationResponse&quot;:[{&quot;Validator&quot;:&quot;CapillaryPGValidator&quot;,&quot;CheckoutValidationType&quot;:4,&quot;Status&quot;:&quot;False&quot;,&quot;ValidationMessage&quot;:&quot;&quot;}]},&quot;ErrorCode&quot;:0}</code> - INvalid Mobile number</p>
+<p><code class="prettyprint">{&quot;OrderID&quot;:0,&quot;ValidationResponse&quot;:[{&quot;Validator&quot;:&quot;CapillaryPGValidator&quot;,&quot;CheckoutValidationType&quot;:4,&quot;Status&quot;:&quot;False&quot;,&quot;ValidationMessage&quot;:&quot;&quot;}]},&quot;ErrorCode&quot;:0}</code> - Invalid mobile number</p>
 
-<p><code class="prettyprint">{&quot;OrderID&quot;:0,&quot;ValidationResponse&quot;:[{&quot;Validator&quot;:&quot;DeliveryAreaValidator&quot;,&quot;CheckoutValidationType&quot;:14,&quot;Status&quot;:&quot;False&quot;,&quot;ValidationMessage&quot;:&quot;&quot;}]},&quot;ErrorCode&quot;:0}</code> &ndash; delivery araea </p>
+<p><code class="prettyprint">{&quot;OrderID&quot;:0,&quot;ValidationResponse&quot;:[{&quot;Validator&quot;:&quot;DeliveryAreaValidator&quot;,&quot;CheckoutValidationType&quot;:14,&quot;Status&quot;:&quot;False&quot;,&quot;ValidationMessage&quot;:&quot;&quot;}]},&quot;ErrorCode&quot;:0}</code> &ndash; Delivery area </p>
 
-<p><code class="prettyprint">{&quot;OrderID&quot;:0,&quot;ValidationResponse&quot;:[{&quot;Validator&quot;:&quot;DeliveryModeValidator&quot;,&quot;CheckoutValidationType&quot;:16,&quot;Status&quot;:&quot;False&quot;,&quot;ValidationMessage&quot;:&quot;&quot;}]},&quot;ErrorCode&quot;:0}</code> &ndash; delivery mode</p>
+<p><code class="prettyprint">{&quot;OrderID&quot;:0,&quot;ValidationResponse&quot;:[{&quot;Validator&quot;:&quot;DeliveryModeValidator&quot;,&quot;CheckoutValidationType&quot;:16,&quot;Status&quot;:&quot;False&quot;,&quot;ValidationMessage&quot;:&quot;&quot;}]},&quot;ErrorCode&quot;:0}</code> &ndash; Delivery mode</p>
 
-<p><code class="prettyprint">{&quot;OrderID&quot;:0,&quot;ValidationResponse&quot;:[{&quot;Validator&quot;:&quot;DiscountVoucherValidator&quot;,&quot;CheckoutValidationType&quot;:7,&quot;Status&quot;:&quot;False&quot;,&quot;ValidationMessage&quot;:&quot;&quot;}]},&quot;ErrorCode&quot;:0}</code> &ndash; discount vouher</p>
+<p><code class="prettyprint">{&quot;OrderID&quot;:0,&quot;ValidationResponse&quot;:[{&quot;Validator&quot;:&quot;DiscountVoucherValidator&quot;,&quot;CheckoutValidationType&quot;:7,&quot;Status&quot;:&quot;False&quot;,&quot;ValidationMessage&quot;:&quot;&quot;}]},&quot;ErrorCode&quot;:0}</code> &ndash; Discount voucher</p>
 
-<p><code class="prettyprint">{&quot;OrderID&quot;:0,&quot;ValidationResponse&quot;:[{&quot;Validator&quot;:&quot;GiftVoucherValidator&quot;,&quot;CheckoutValidationType&quot;:7,&quot;Status&quot;:&quot;False&quot;,&quot;ValidationMessage&quot;:&quot;&quot;}]},&quot;ErrorCode&quot;:0}</code> &ndash; gift vouher</p>
+<p><code class="prettyprint">{&quot;OrderID&quot;:0,&quot;ValidationResponse&quot;:[{&quot;Validator&quot;:&quot;GiftVoucherValidator&quot;,&quot;CheckoutValidationType&quot;:7,&quot;Status&quot;:&quot;False&quot;,&quot;ValidationMessage&quot;:&quot;&quot;}]},&quot;ErrorCode&quot;:0}</code> &ndash; Gift voucher</p>
 
-<p><code class="prettyprint">{&quot;OrderID&quot;:0,&quot;ValidationResponse&quot;:[{&quot;Validator&quot;:&quot;MerchantTransactionValidator&quot;,&quot;CheckoutValidationType&quot;:15,&quot;Status&quot;:&quot;False&quot;,&quot;ValidationMessage&quot;:&quot;&quot;}]},&quot;ErrorCode&quot;:0}</code> &ndash; payments transactions</p>
+<p><code class="prettyprint">{&quot;OrderID&quot;:0,&quot;ValidationResponse&quot;:[{&quot;Validator&quot;:&quot;MerchantTransactionValidator&quot;,&quot;CheckoutValidationType&quot;:15,&quot;Status&quot;:&quot;False&quot;,&quot;ValidationMessage&quot;:&quot;&quot;}]},&quot;ErrorCode&quot;:0}</code> &ndash; Payment transactions</p>
 
-<p><code class="prettyprint">{&quot;OrderID&quot;:0,&quot;ValidationResponse&quot;:[{&quot;Validator&quot;:&quot;OrderAmountValidator&quot;,&quot;CheckoutValidationType&quot;:9,&quot;Status&quot;:&quot;False&quot;,&quot;ValidationMessage&quot;:&quot;Min/Max/Both&quot;}]},&quot;ErrorCode&quot;:0}</code> &ndash; order amount max min</p>
+<p><code class="prettyprint">{&quot;OrderID&quot;:0,&quot;ValidationResponse&quot;:[{&quot;Validator&quot;:&quot;OrderAmountValidator&quot;,&quot;CheckoutValidationType&quot;:9,&quot;Status&quot;:&quot;False&quot;,&quot;ValidationMessage&quot;:&quot;Min/Max/Both&quot;}]},&quot;ErrorCode&quot;:0}</code> &ndash; Order amount max min</p>
 
-<p><code class="prettyprint">{&quot;OrderID&quot;:0,&quot;ValidationResponse&quot;:[{&quot;Validator&quot;:&quot;OrderInputValidator&quot;,&quot;CheckoutValidationType&quot;:0,&quot;Status&quot;:&quot;False&quot;,&quot;ValidationMessage&quot;:&quot;&quot;}]},&quot;ErrorCode&quot;:0}</code> &ndash; missing payment params</p>
+<p><code class="prettyprint">{&quot;OrderID&quot;:0,&quot;ValidationResponse&quot;:[{&quot;Validator&quot;:&quot;OrderInputValidator&quot;,&quot;CheckoutValidationType&quot;:0,&quot;Status&quot;:&quot;False&quot;,&quot;ValidationMessage&quot;:&quot;&quot;}]},&quot;ErrorCode&quot;:0}</code> &ndash; Missing payment params</p>
 
-<p><code class="prettyprint">{&quot;OrderID&quot;:0,&quot;ValidationResponse&quot;:[{&quot;Validator&quot;:&quot;PartialOrderValidator&quot;,&quot;CheckoutValidationType&quot;:5,&quot;Status&quot;:&quot;False&quot;,&quot;ValidationMessage&quot;:&quot;&quot;}]},&quot;ErrorCode&quot;:0}</code> &ndash; allowing offline payments in multy payments order</p>
+<p><code class="prettyprint">{&quot;OrderID&quot;:0,&quot;ValidationResponse&quot;:[{&quot;Validator&quot;:&quot;PartialOrderValidator&quot;,&quot;CheckoutValidationType&quot;:5,&quot;Status&quot;:&quot;False&quot;,&quot;ValidationMessage&quot;:&quot;&quot;}]},&quot;ErrorCode&quot;:0}</code> &ndash; Allowing offline payments for an order with multiple payments</p>
 
-<p><code class="prettyprint">{&quot;OrderID&quot;:0,&quot;ValidationResponse&quot;:[{&quot;Validator&quot;:&quot;PaymentoptionValidator&quot;,&quot;CheckoutValidationType&quot;:21,&quot;Status&quot;:&quot;False&quot;,&quot;ValidationMessage&quot;:&quot;&quot;}]},&quot;ErrorCode&quot;:0}</code> &ndash; payment option doent support selected currency</p>
+<p><code class="prettyprint">{&quot;OrderID&quot;:0,&quot;ValidationResponse&quot;:[{&quot;Validator&quot;:&quot;PaymentoptionValidator&quot;,&quot;CheckoutValidationType&quot;:21,&quot;Status&quot;:&quot;False&quot;,&quot;ValidationMessage&quot;:&quot;&quot;}]},&quot;ErrorCode&quot;:0}</code> &ndash; Selected country is not supported for the payment option</p>
 
-<p><code class="prettyprint">{&quot;OrderID&quot;:0,&quot;ValidationResponse&quot;:[{&quot;Validator&quot;:&quot;PincodeServiceablityValidator&quot;,&quot;CheckoutValidationType&quot;:17,&quot;Status&quot;:&quot;False&quot;,&quot;ValidationMessage&quot;:&quot;&quot;}]},&quot;ErrorCode&quot;:0}</code> &ndash;pincode not servicable</p>
+<p><code class="prettyprint">{&quot;OrderID&quot;:0,&quot;ValidationResponse&quot;:[{&quot;Validator&quot;:&quot;PincodeServiceablityValidator&quot;,&quot;CheckoutValidationType&quot;:17,&quot;Status&quot;:&quot;False&quot;,&quot;ValidationMessage&quot;:&quot;&quot;}]},&quot;ErrorCode&quot;:0}</code> &ndash; PIN code not serviceable</p>
 
 <p><code class="prettyprint">{&quot;OrderID&quot;:0,&quot;ValidationResponse&quot;:[{&quot;Validator&quot;:&quot;ShippingModeValidator&quot;,&quot;CheckoutValidationType&quot;:16,&quot;Status&quot;:&quot;False&quot;,&quot;ValidationMessage&quot;:&quot;&quot;}]},&quot;ErrorCode&quot;:0}</code> &ndash; ShippingModeValidator</p>
 
@@ -10017,7 +10018,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <p><code class="prettyprint">{&quot;OrderID&quot;:0,&quot;ValidationResponse&quot;:[{&quot;Validator&quot;:&quot;StockValidator&quot;,&quot;CheckoutValidationType&quot;:13,&quot;Status&quot;:&quot;False&quot;,&quot;ValidationMessage&quot;:&quot;Failed products&quot;}]},&quot;ErrorCode&quot;:0}</code> &ndash; invalid max order qty</p>
 
-<p><code class="prettyprint">{&quot;OrderID&quot;:0,&quot;ValidationResponse&quot;:[{&quot;Validator&quot;:&quot;StockValidator&quot;,&quot;CheckoutValidationType&quot;:2,&quot;Status&quot;:&quot;False&quot;,&quot;ValidationMessage&quot;:&quot;Failed products&quot;}]},&quot;ErrorCode&quot;:0}</code> &ndash;zero inventry</p>
+<p><code class="prettyprint">{&quot;OrderID&quot;:0,&quot;ValidationResponse&quot;:[{&quot;Validator&quot;:&quot;StockValidator&quot;,&quot;CheckoutValidationType&quot;:2,&quot;Status&quot;:&quot;False&quot;,&quot;ValidationMessage&quot;:&quot;Failed products&quot;}]},&quot;ErrorCode&quot;:0}</code> &ndash;zero inventory</p>
 
 <p><code class="prettyprint">{&quot;OrderID&quot;:0,&quot;ValidationResponse&quot;:[{&quot;Validator&quot;:&quot;StoreTimingsValidator&quot;,&quot;CheckoutValidationType&quot;:19,&quot;Status&quot;:&quot;False&quot;,&quot;ValidationMessage&quot;:&quot;DeliveryslotNotInStoreTime&quot;}]},&quot;ErrorCode&quot;:0}</code> &ndash; StoreTimingsValidator</p>
 
@@ -10166,7 +10167,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 </tr>
 <tr>
 <td>PaymentDetails*</td>
-<td></td>
+<td>json obj</td>
 <td>Pass the payment details</td>
 </tr>
 <tr>
@@ -10684,7 +10685,21 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <p><code class="prettyprint">https://{host}/developerapi/Order/ReOrder/{merchantId}</code></p>
 
-<p><code class="prettyprint">merchantId*</code>: Pass the unique merchant id (GUID) in which the order is placed</p>
+<h3 id="request-query-parameters">Request Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>merchantId</td>
+<td>string</td>
+<td>Unique merchant id (GUID) in which the order is placed</td>
+</tr>
+</tbody></table>
 
 <h3 id="request-body-parameters">Request Body Parameters</h3>
 
@@ -12206,12 +12221,12 @@ Batch Support | No</p>
 <tr>
 <td>AirwayBillNo</td>
 <td>string</td>
-<td></td>
+<td>Airway bill number provided by the courier service</td>
 </tr>
 <tr>
 <td>CourierName</td>
 <td>string</td>
-<td></td>
+<td>Name of the courier service used for shipment</td>
 </tr>
 <tr>
 <td>ShipmentPickupDate</td>
@@ -12226,7 +12241,7 @@ Batch Support | No</p>
 <tr>
 <td>PackageCode</td>
 <td>string</td>
-<td></td>
+<td>Unique code generated for the package</td>
 </tr>
 <tr>
 <td>PackingSupplyRefCode</td>
