@@ -5816,23 +5816,74 @@ GroupID | The group id of the specific item. Applicable in case of a bundle or d
 <tr>
 <td>ShipCity</td>
 <td></td>
-<td>846,</td>
+<td>string</td>
+</tr>
+<tr>
+<td>ShipCountry</td>
+<td>string</td>
+<td>Alpha-2 code of the country with respect to billing address. Example: IN (for India), AU (for Australia), and BR (for Brazil)</td>
+</tr>
+<tr>
+<td>ShipState</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>DelveryMode</td>
+<td>enum</td>
+<td>The mode of delivery. Value: <code class="prettyprint">S</code> for store pick up and <code class="prettyprint">H</code> for home delivery</td>
+</tr>
+<tr>
+<td>ProductID</td>
+<td>int</td>
+<td>Unique id of the product that you want to add</td>
+</tr>
+<tr>
+<td>VariantProductID</td>
+<td>int</td>
+<td>Unique id of the variant product</td>
+</tr>
+<tr>
+<td>Quantity</td>
+<td>int</td>
+<td>Quantity of the current item that you want to add to cart</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>enum</td>
+<td></td>
+</tr>
+<tr>
+<td>LocationId</td>
+<td>int</td>
+<td>Unique id of the delivery location</td>
+</tr>
+<tr>
+<td>Portion</td>
+<td>enum</td>
+<td>The portion of the current child item. Value: <code class="prettyprint">W</code> for whole,<code class="prettyprint">L</code> for left, <code class="prettyprint">R</code> for right</td>
+</tr>
+<tr>
+<td>CartReferenceKey</td>
+<td>string</td>
+<td>Unique reference key associated to the cart item</td>
+</tr>
+<tr>
+<td>Price</td>
+<td>float</td>
+<td>Price of the current item</td>
+</tr>
+<tr>
+<td>ChildItem</td>
+<td>json obj</td>
+<td>All add&ndash;ons are child in a bundle. For example, crust, sauce, and toppings</td>
+</tr>
+<tr>
+<td>GroupID</td>
+<td>int</td>
+<td>Unique id associated to the product group. One group can have only one type of item. For example, in a group you can either add only pizzas, drinks, appetizers or deserts</td>
 </tr>
 </tbody></table>
-
-<p>ShipCountry&quot;: &ldquo;KW&rdquo;,
-ShipState&quot;: &ldquo;KW2&rdquo;,
-DelveryMode&quot;: &ldquo;H&rdquo;,
-ProductID  | int  |   13047461,
-VariantProductID  | int |   0,
-Quantity  | int |   1,
-Status  | enum |   A,
-LocationId  | int |   27299,
-Portion  | enum |   <code class="prettyprint">W</code> for whole, For toppings <code class="prettyprint">L</code> left, Right R,
-CartReferenceKey  | string |<br>
-Price  | float |   3.25,
-ChildItem  | json obj |   All add&ndash;ons are child in a bundle. For example, crust, sauce, and toppings
-GroupID  |  |   13317, One group can have only one type of item. For example, in a group you can either add only pizzas, drinks, appetizers or deserts.</p>
 
 <h2 id="add-items-to-cart-customized-bundle">Add Items to Cart (Customized Bundle)</h2>
 
@@ -6520,8 +6571,8 @@ GroupID  |  |   13317, One group can have only one type of item. For example, in
 </tr>
 <tr>
 <td>DelveryMode</td>
-<td></td>
-<td></td>
+<td>string</td>
+<td>Mode of delivery</td>
 </tr>
 <tr>
 <td>Item</td>
@@ -6530,17 +6581,32 @@ GroupID  |  |   13317, One group can have only one type of item. For example, in
 </tr>
 <tr>
 <td>ProductID</td>
+<td>int</td>
+<td>Unique id of the product</td>
+</tr>
+<tr>
+<td>VariantProductID</td>
+<td>int</td>
+<td>Unique id of the variant product</td>
+</tr>
+<tr>
+<td>Quantity</td>
+<td>int</td>
+<td>Number of the current items that you want to add to cart</td>
+</tr>
+<tr>
+<td>Status</td>
 <td></td>
 <td></td>
 </tr>
+<tr>
+<td>LocationId</td>
+<td>int</td>
+<td>Unique id of the location</td>
+</tr>
 </tbody></table>
 
-<p>VariantProductID
-Quantity
-Status
-LocationId
-  &ldquo;LocationId&rdquo;: 27299,
-        &ldquo;Portion&rdquo;: &ldquo;W&rdquo;,
+<p>&ldquo;Portion&rdquo;: &ldquo;W&rdquo;,
         &ldquo;CartReferenceKey&rdquo;: &ldquo;027ea92e-65f2-408c-b78f-42d860b59d32&rdquo;,
         &ldquo;Price&rdquo;: 7.25,</p>
 
