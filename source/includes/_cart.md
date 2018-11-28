@@ -1579,7 +1579,7 @@ DelveryMode | enum | The mode of delivery. Value: `S` for store pick up and `H` 
 ProductID | int | Unique id of the product that you want to add
 VariantProductID | int | Unique id of the variant product
 Quantity  | int | Quantity of the current item that you want to add to cart
-Status | enum | 
+Status | enum | Status of the cart item. Specify A to add item to cart
 LocationId | int | Unique id of the delivery location
 Portion  | enum | The portion of the current child item. Value: `W` for whole,`L` for left, `R` for right
 CartReferenceKey | string | Unique reference key associated to the cart item
@@ -2238,7 +2238,7 @@ Item | json obj | Item details
 ProductID | int | Unique id of the product
 VariantProductID | int | Unique id of the variant product
 Quantity | int | Number of the current items that you want to add to cart
-Status | enum | Value: Status.
+Status | enum | Status of the cart item. Specify A to add item to cart
 LocationId | int | Unique id of the location
 Portion | enum | 
 CartReferenceKey | string | 

@@ -164,7 +164,7 @@ https://www.martjack.com/developerapi/product/UpdateProductInfo
 ```json
 MerchantId="0639f7a6-34cc-48b2-9fd9-a80e2ed8xxxx"&InputFormat="application/json"&InputData={  
    "products":{  
-      "product":{  
+      "product":[{  
          "sku":"458636",
          "variantsku":"",
          "BrandID":"1756",
@@ -251,6 +251,7 @@ MerchantId="0639f7a6-34cc-48b2-9fd9-a80e2ed8xxxx"&InputFormat="application/json"
          "VendorSKU":"SV123",
          "StdProductType":"HSN"
       }
+	  ]
    }
 }
 

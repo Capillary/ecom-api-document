@@ -339,27 +339,27 @@ skipDeliveryAreaValidation | boolean |  Specify `true` to validate delivery loca
 
 ### Sample Validation Messages
 
-`{"OrderID":0,"ValidationResponse":[{"Validator":"CapillaryPGValidator","CheckoutValidationType":4,"Status":"False","ValidationMessage":""}]},"ErrorCode":0}` - INvalid Mobile number
+`{"OrderID":0,"ValidationResponse":[{"Validator":"CapillaryPGValidator","CheckoutValidationType":4,"Status":"False","ValidationMessage":""}]},"ErrorCode":0}` - Invalid mobile number
 
-`{"OrderID":0,"ValidationResponse":[{"Validator":"DeliveryAreaValidator","CheckoutValidationType":14,"Status":"False","ValidationMessage":""}]},"ErrorCode":0}` -- delivery araea 
+`{"OrderID":0,"ValidationResponse":[{"Validator":"DeliveryAreaValidator","CheckoutValidationType":14,"Status":"False","ValidationMessage":""}]},"ErrorCode":0}` -- Delivery area 
 
-`{"OrderID":0,"ValidationResponse":[{"Validator":"DeliveryModeValidator","CheckoutValidationType":16,"Status":"False","ValidationMessage":""}]},"ErrorCode":0}` -- delivery mode
+`{"OrderID":0,"ValidationResponse":[{"Validator":"DeliveryModeValidator","CheckoutValidationType":16,"Status":"False","ValidationMessage":""}]},"ErrorCode":0}` -- Delivery mode
 
-`{"OrderID":0,"ValidationResponse":[{"Validator":"DiscountVoucherValidator","CheckoutValidationType":7,"Status":"False","ValidationMessage":""}]},"ErrorCode":0}` -- discount vouher
+`{"OrderID":0,"ValidationResponse":[{"Validator":"DiscountVoucherValidator","CheckoutValidationType":7,"Status":"False","ValidationMessage":""}]},"ErrorCode":0}` -- Discount voucher
 
-`{"OrderID":0,"ValidationResponse":[{"Validator":"GiftVoucherValidator","CheckoutValidationType":7,"Status":"False","ValidationMessage":""}]},"ErrorCode":0}` -- gift vouher
+`{"OrderID":0,"ValidationResponse":[{"Validator":"GiftVoucherValidator","CheckoutValidationType":7,"Status":"False","ValidationMessage":""}]},"ErrorCode":0}` -- Gift voucher
 
-`{"OrderID":0,"ValidationResponse":[{"Validator":"MerchantTransactionValidator","CheckoutValidationType":15,"Status":"False","ValidationMessage":""}]},"ErrorCode":0}` -- payments transactions
+`{"OrderID":0,"ValidationResponse":[{"Validator":"MerchantTransactionValidator","CheckoutValidationType":15,"Status":"False","ValidationMessage":""}]},"ErrorCode":0}` -- Payment transactions
 
-`{"OrderID":0,"ValidationResponse":[{"Validator":"OrderAmountValidator","CheckoutValidationType":9,"Status":"False","ValidationMessage":"Min/Max/Both"}]},"ErrorCode":0}` -- order amount max min
+`{"OrderID":0,"ValidationResponse":[{"Validator":"OrderAmountValidator","CheckoutValidationType":9,"Status":"False","ValidationMessage":"Min/Max/Both"}]},"ErrorCode":0}` -- Order amount max min
 
-`{"OrderID":0,"ValidationResponse":[{"Validator":"OrderInputValidator","CheckoutValidationType":0,"Status":"False","ValidationMessage":""}]},"ErrorCode":0}` -- missing payment params
+`{"OrderID":0,"ValidationResponse":[{"Validator":"OrderInputValidator","CheckoutValidationType":0,"Status":"False","ValidationMessage":""}]},"ErrorCode":0}` -- Missing payment params
 
-`{"OrderID":0,"ValidationResponse":[{"Validator":"PartialOrderValidator","CheckoutValidationType":5,"Status":"False","ValidationMessage":""}]},"ErrorCode":0}` -- allowing offline payments in multy payments order
+`{"OrderID":0,"ValidationResponse":[{"Validator":"PartialOrderValidator","CheckoutValidationType":5,"Status":"False","ValidationMessage":""}]},"ErrorCode":0}` -- Allowing offline payments for an order with multiple payments
 
-`{"OrderID":0,"ValidationResponse":[{"Validator":"PaymentoptionValidator","CheckoutValidationType":21,"Status":"False","ValidationMessage":""}]},"ErrorCode":0}` -- payment option doent support selected currency
+`{"OrderID":0,"ValidationResponse":[{"Validator":"PaymentoptionValidator","CheckoutValidationType":21,"Status":"False","ValidationMessage":""}]},"ErrorCode":0}` -- Selected country is not supported for the payment option
 
-`{"OrderID":0,"ValidationResponse":[{"Validator":"PincodeServiceablityValidator","CheckoutValidationType":17,"Status":"False","ValidationMessage":""}]},"ErrorCode":0}` --pincode not servicable
+`{"OrderID":0,"ValidationResponse":[{"Validator":"PincodeServiceablityValidator","CheckoutValidationType":17,"Status":"False","ValidationMessage":""}]},"ErrorCode":0}` -- PIN code not serviceable
 
 `{"OrderID":0,"ValidationResponse":[{"Validator":"ShippingModeValidator","CheckoutValidationType":16,"Status":"False","ValidationMessage":""}]},"ErrorCode":0}` -- ShippingModeValidator
 
@@ -369,7 +369,7 @@ skipDeliveryAreaValidation | boolean |  Specify `true` to validate delivery loca
 
 `{"OrderID":0,"ValidationResponse":[{"Validator":"StockValidator","CheckoutValidationType":13,"Status":"False","ValidationMessage":"Failed products"}]},"ErrorCode":0}` -- invalid max order qty
 
-`{"OrderID":0,"ValidationResponse":[{"Validator":"StockValidator","CheckoutValidationType":2,"Status":"False","ValidationMessage":"Failed products"}]},"ErrorCode":0}` --zero inventry
+`{"OrderID":0,"ValidationResponse":[{"Validator":"StockValidator","CheckoutValidationType":2,"Status":"False","ValidationMessage":"Failed products"}]},"ErrorCode":0}` --zero inventory
 
 `{"OrderID":0,"ValidationResponse":[{"Validator":"StoreTimingsValidator","CheckoutValidationType":19,"Status":"False","ValidationMessage":"DeliveryslotNotInStoreTime"}]},"ErrorCode":0}` -- StoreTimingsValidator
 
@@ -472,7 +472,7 @@ PaymentType* | string |  The payment type used for the order. Only  values prede
 Provider* | string |  The provider of the payment gateway service
 GatewayID* | string |  The respective payment gateway id
 CPUserID | string |  The unique CP user id generated by the system 
-PaymentDetails* |  |  Pass the payment details 
+PaymentDetails* | json obj |  Pass the payment details 
  GVCode | string |  The gift voucher code used for the transaction (if any)
  RespCode | string |  The unique response code generated at the payment gateway for the transaction (to our system)
  RespMessage | string |  The entire response payload generated at the payment gateway for the transaction (to our system)
@@ -909,7 +909,11 @@ Batch Support | No
 
 `https://{host}/developerapi/Order/ReOrder/{merchantId}`
 
-`merchantId*`: Pass the unique merchant id (GUID) in which the order is placed
+### Request Query Parameters
+
+Parameter | Type | Description
+--------- | ----- | ----------
+merchantId | string | Unique merchant id (GUID) in which the order is placed
 
 ### Request Body Parameters
 Parameter | Type | Description
@@ -1999,11 +2003,11 @@ Parameter | Type | Description
 -------- | ----- | -----------
 OrderID | int | The order id for which you want to create shipment packages
 ShipmentType | string  | Type of shipment. Supported value: `Normal`
-AirwayBillNo | string | 
-CourierName | string | 
+AirwayBillNo | string | Airway bill number provided by the courier service
+CourierName | string | Name of the courier service used for shipment
 ShipmentPickupDate | date-time | Pickup date of the shipment in `YYYY\/MM\/DD` format
 LocationCode | string | Reference code of the order fulfillment location
-PackageCode | string | 
+PackageCode | string | Unique code generated for the package
 PackingSupplyRefCode | string | 
 PackageID | int | 
 OrderItemId | int | Line item id of the individual items of the order
