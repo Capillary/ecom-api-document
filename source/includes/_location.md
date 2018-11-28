@@ -1348,7 +1348,7 @@ MerchantId* | string | The unique id (GUID) of the merchant
 
 
 
-## Update Location ETA
+## Update Order ETA
 
 > Sample Request
 
@@ -1396,6 +1396,9 @@ InputFormat=application/json&MerchantId=f48fdd16-92db-4188-854d-1ecd9b62e234&ETA
 Lets you add or update order ETA (Estimated Time of Arrival) for a location including the type of delivery location with location code.
 
 
+<aside class="notice"> The ETA of the only type specified in the URL will be updated (If you do not want to update all,). So, you have to provide the specific ETA body that you want to update. </aside>
+
+
 ### Resource Information
 | | |
 --------- | ----------- |
@@ -1422,9 +1425,9 @@ OrderDeliveryType | enum | Type of order delivery. Supported values: ALL, H, T, 
 Parameter | Type | Description
 --------- | ---- | -----------
 LocationCode* | string | Location code for which you want to update order ETA
-HomeDeliveryETA* | - | Updates ETA for home delivery orders
-TakeAwayETA | - | Updated ETA for take away orders
-PickupPointsETA | - | Updates ETA for store pick up orders
+HomeDeliveryETA* | json obj | Updates ETA for home delivery orders
+TakeAwayETA | json obj | Updated ETA for take away orders
+PickupPointsETA | json obj | Updates ETA for store pick up orders
 StartTime* | string | Estimated minimum delivery time as per the selected ETA units
 EndTime* | string | Estimated maximum delivery time as per the selected ETA units
 ETAType* | enum | Soecify `0` for a fixed ETA. For example 2 days from the ordered date. <br> Specify `1` for ETA within a specified period from the ordered date. For example, 5-7 days

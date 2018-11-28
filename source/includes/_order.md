@@ -237,7 +237,7 @@ Parameter |  Type | Description
 --------- | ------ | --------
 orderrefno* | string | Reference number of the order
 orderdate* | date |  Ordered date in `dd/mm/yy` format
-deliveredon |  |  Specify the estimated delivery of the item if applicable for the merchant in `dd/mm/yy` format
+deliveredon | date  |  Specify the estimated delivery of the item if applicable for the merchant in `dd/mm/yy` format
 customertype | enum |  Type of the user as per the Martjack system. Supported Values: Guest User (for all marketplace), Registered User (If registered on Martjack platform)
 userid | string |  Registered identifier of the customer. Required when `customertype="Registered User"`
 ordervalue | float |  Net order amount
@@ -1050,7 +1050,7 @@ ShipDateFrom | date-time |  Filter the search results by shipped date range - fr
 ShipDateTo | date-time |  Filter the search results by shipped date range - from (ShipDateFrom) and to (ShipDateTo) in  (mm-dd-yyyy hh:mm:ss format). If ShipDateFrom is specified, then you also need to specify ShipDateTo
 Sku | string |  Filter the search results by SKU id based on the ids matching the specified value. For example, if you specify 100,  you will get the list of orders with item SKU ids starting with 100. You can also fetch a specific ordered item by passing the exact SKU id.
 OrderId | int |  Filter the search results by order id or order number. For example, if you specify 5550,  you will get the list of all orders with order ids starting with 5500. You can also fetch a specific order by passing the exact order id.
-FromOrder |  |  Order Id / Number (can use to get the latest orders )
+FromOrder | string | The orderId sequence from which you want to fetch orders.  For example, if you pass 34000, you will get all orders with orderId greater than or equal to 34000
 store | string |  -
 WithRewards | boolean |  Retrieve the list of orders with loyalty rewards. Send  ‘True’ if you required reward/loyalty details. By default value will be ‘False’
 LocationId | string |  Order fulfillment location

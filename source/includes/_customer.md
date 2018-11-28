@@ -168,6 +168,7 @@ Batch Support | No
 
 
 ## Validate OTP
+
 > Sample POST Request
 
 ```json
@@ -576,7 +577,7 @@ Parameter | Type | Description
 UserName | string | Fetches all customers matching the specified keyword in the username
 
 
-
+ 
 
 
 
@@ -664,6 +665,17 @@ Parameter | Type | Description
 merchantId* | string | The unique id (GUID) of the merchant account from which you want to fetch customer details
 UserId* | string | The unique user identifier of the customer whose details need to be retrieved
 
+### Success/Error Codes
+
+Status Code | Description
+--------- | ------------
+1000 | Unhandled Exception
+1003 | Authentication Failed
+1004 | Successful
+1009 | No Record Found
+1016 | Invalid Input
+1030 | Service is not Authorized
+
 
 
 ## Update Customer Details
@@ -731,16 +743,40 @@ Batch Support | No
 ### Request URL
 `https://{host}/developerapi/Customer/{merchantId}/Update`
 
-### Request Attributes
-Parameter | Description
+
+### Additional Header Required
+
+Header | Description
+----- | ----------
+accesstoken* 	Access token of the logged in user to validate the session
+
+
+### Request Body Parameters
+Parameter | Type | Description
 --------- | -----------
-UserId | Unique id of the customer that is generated in the system.
-City | Unique code of the city (as saved in the system) Example: 0562 (for Agra), 250 (Victoria) 
-CityName | Full name of the city. Example: Bangalore, 
-State | State's postal abbreviation. Example: KA (for Karnataka), CA (for California), IN (for Indiana)
-StateName | Full name of the state such as Karnataka, California, and Indiana
-Country | alpha-2 code of the country such as IN (for India), AU (for Australia), BR (for Brazil)
-CountryName |  Full name of the country such as India, Australia, and Brazil
+UserId | string | Unique id of the customer that is generated in the system.
+City  string | Unique code of the city (as saved in the system) Example: 0562 (for Agra), 250 (Victoria) 
+CityName | string | Full name of the city. Example: Bangalore, 
+State | string | State's postal abbreviation. Example: KA (for Karnataka), CA (for California), IN (for Indiana)
+StateName | string | Full name of the state such as Karnataka, California, and Indiana
+Country | string | alpha-2 code of the country such as IN (for India), AU (for Australia), BR (for Brazil)
+CountryName | string | Full name of the country such as India, Australia, and Brazil
+
+
+### Success/Error Codes
+
+Status Code | Description
+------------ | ---------
+1000 | Unhandled Exception
+1003 | Authentication Failed
+1004 | Successful
+1017 | User doesn't exit
+1030 | Service is not Authorized
+
+
+
+
+
 
 
 ## Update Profile Attributes (Custom Fields)
@@ -790,6 +826,12 @@ HTTP Methods | POST
 Batch Support | No
 
 
+### Additional Header Required
+
+Header | Description
+----- | ----------
+accesstoken* 	Access token of the logged in user to validate the session
+
 
 ### Request URL
 `https://{host}/developerapi/Customer/{merchantId}/UpdateUserProfile`
@@ -797,7 +839,7 @@ Batch Support | No
 ### Request Body Parameters
 Parameter | Type | Description
 --------- | ----- | ------
-ProfileAttributeId* |  | ID of the attribute that needs to be updated 
+ProfileAttributeId* | string | ID of the attribute that needs to be updated 
 ProfileAttributeValue | string | Customer's preferred attribute value 
 
 
@@ -844,7 +886,6 @@ https://www.martjack.com/DeveloperAPI/Customer/AddShippingAddress/81e77da2-723b-
       "phoneno":"",
       "mobileno":"91-7411000000",
       "email":"tom.sawyer@example.com",
-      "othercity":"Bangalore",
       "CityName":"Bangalore",
       "StateName":"Karnataka",
       "CountryName":"India",
@@ -857,7 +898,29 @@ https://www.martjack.com/DeveloperAPI/Customer/AddShippingAddress/81e77da2-723b-
 > Sample POST Request
 
 ```json
-
+{
+    "messageCode": "1004",
+    "Message": "Successful",
+    "ShippingAddresses": [
+        {
+            "shippingaddressid": 1714453,
+            "userId": "00000000-0000-0000-0000-000000000000",
+            "firstname": null,
+            "lastname": null,
+            "address1": null,
+            "address2": null,
+            "state": null,
+            "pin": null,
+            "countrycode": null,
+            "citycode": null,
+            "phoneno": null,
+            "mobileno": null,
+            "email": null,
+            "othercity": null
+        }
+    ],
+    "ErrorCode": 0
+}
 ```
 
 
@@ -874,10 +937,6 @@ HTTP Methods | POST
 Batch Support | No
 
 
-### Additional Header Required
-Header Name | Value
------------ | ------
-
 
 
 ### Request URL
@@ -893,14 +952,13 @@ firstname* | string |  The first name of the customer
 lastname* | string |  The last name of the customer 
 address1*, address2	 | string |  Specify the customer’s shipping address related information
 state | string |  State’s postal abbreviation. Example: KA (for Karnataka), CA (for California), IN (for Indiana)
-pin |  |  Specify the PIN of the shipping address
+pin | string |  Specify the PIN of the shipping address
 countrycode | string |  alpha-2 code of the country. Example: IN (for India), AU (for Australia), and BR (for Brazil)
-citycode |  |  Unique code of the city (as saved in the system) such as 0562 (for Agra), and 250 (Victoria)
-phoneno |  |  The landline number of the recipient
-mobileno |  |  The mobile number of recipient 
+citycode | string |  Unique code of the city (as saved in the system) such as 0562 (for Agra), and 250 (Victoria)
+phoneno | string |  The landline number of the recipient
+mobileno | string |  The mobile number of recipient 
 email | string |  The email id of the recipient 
-othercity | |  
-addressType |  | 
+addressType | string | Type of address. For example Home, Office
 
 
 
@@ -998,7 +1056,15 @@ Parameter | Type | Description
 merchantId* | string |  The unique id (GUID) of the merchant from which you want to fetch the customer's shipping address
 UserId* | string |  The unique user identifier of the customer whose details need to be retrieved
 
+### Success/Error Codes
 
+Status Code | Description
+----- | ---------
+1000 | Unhandled Exception
+1003 | Authentication Failed
+1004 | Successful
+1009 | No Record Found
+1030 | Service is not Authorized
 
 
 
@@ -1043,5 +1109,63 @@ UserId* | string |  The unique user identifier of the customer to which the orde
 ShippingAddressId* | string |  Unique id of the order shipment that you want to delete
 
 
+### Success/Error Codes
+
+Status Code | Description
+----- | ---------
+1000 | Unhandled Exception
+1003 | Authentication Failed
+1004 | Successful
+1009 | No Record Found
+1016 | Invalid Input
+1030 | Service is not Authorized
 
 
+## Get Customer Count
+
+Retrieves the number of registered customers of the merchant.
+
+> Sample Request
+
+```html
+https://www.martjack.com/DeveloperAPI/Customer/81e77da2-723b-483d-8c0d-49f800c1exxx/Count
+```
+
+> Sample Response
+
+```json
+{
+  "Count": 100,
+  "Message": "Successful",
+  "messageCode": "1004"
+}
+```
+
+
+
+
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `Customer/{MerchantId}/Count`
+Rate Limited? | Yes
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | GET
+Batch Support | No
+
+
+### Request URL
+
+`http://{host}/developerapi/Customer/{merchantId}/Counnt`
+
+### Success/Error Codes
+
+Code | Description
+----- | ---------
+1000 | Unhandled Exception
+1003 | Authentication Failed
+1004 | Successful
+1009 | No Record Found
+1030 | Service is not Authorized
