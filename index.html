@@ -1360,15 +1360,49 @@ Response Format | JSON</p>
 
 <h3 id="request-body-parameters">Request Body Parameters</h3>
 
-<p>Parameter | Type | Description
-&mdash;&mdash;&mdash; | &mdash;&mdash;&mdash;&ndash;
-UserId | string | Unique id of the customer that is generated in the system.
-City  string | Unique code of the city (as saved in the system) Example: 0562 (for Agra), 250 (Victoria) 
-CityName | string | Full name of the city. Example: Bangalore, 
-State | string | State&rsquo;s postal abbreviation. Example: KA (for Karnataka), CA (for California), IN (for Indiana)
-StateName | string | Full name of the state such as Karnataka, California, and Indiana
-Country | string | alpha-2 code of the country such as IN (for India), AU (for Australia), BR (for Brazil)
-CountryName | string | Full name of the country such as India, Australia, and Brazil</p>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>UserId</td>
+<td>string</td>
+<td>Unique id of the customer that is generated in the system.</td>
+</tr>
+<tr>
+<td>City  string</td>
+<td>Unique code of the city (as saved in the system) Example: 0562 (for Agra), 250 (Victoria)</td>
+<td></td>
+</tr>
+<tr>
+<td>CityName</td>
+<td>string</td>
+<td>Full name of the city. Example: Bangalore,</td>
+</tr>
+<tr>
+<td>State</td>
+<td>string</td>
+<td>State&rsquo;s postal abbreviation. Example: KA (for Karnataka), CA (for California), IN (for Indiana)</td>
+</tr>
+<tr>
+<td>StateName</td>
+<td>string</td>
+<td>Full name of the state such as Karnataka, California, and Indiana</td>
+</tr>
+<tr>
+<td>Country</td>
+<td>string</td>
+<td>alpha-2 code of the country such as IN (for India), AU (for Australia), BR (for Brazil)</td>
+</tr>
+<tr>
+<td>CountryName</td>
+<td>string</td>
+<td>Full name of the country such as India, Australia, and Brazil</td>
+</tr>
+</tbody></table>
 
 <h3 id="success-error-codes">Success/Error Codes</h3>
 
@@ -1906,20 +1940,24 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <table><thead>
 <tr>
 <th>Parameter</th>
+<th>Type</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>MerchantId*</td>
 <td>string</td>
+<td>The unique id (GUID) of the merchant in which you want the order is created</td>
 </tr>
 <tr>
 <td>UserId*</td>
 <td>string</td>
+<td>The unique user identifier of the customer to which the order is associated</td>
 </tr>
 <tr>
 <td>ShippingAddressId*</td>
 <td>string</td>
+<td>Unique id of the order shipment that you want to delete</td>
 </tr>
 </tbody></table>
 
@@ -6613,17 +6651,17 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 </thead><tbody>
 <tr>
 <td>ShipCity</td>
-<td></td>
+<td>string</td>
 <td></td>
 </tr>
 <tr>
 <td>ShipCountry</td>
-<td></td>
+<td>string</td>
 <td></td>
 </tr>
 <tr>
 <td>ShipState</td>
-<td></td>
+<td>string</td>
 <td></td>
 </tr>
 <tr>
@@ -6633,7 +6671,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 </tr>
 <tr>
 <td>Item</td>
-<td>-</td>
+<td>json obj</td>
 <td>Item details</td>
 </tr>
 <tr>
@@ -6653,27 +6691,50 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 </tr>
 <tr>
 <td>Status</td>
-<td></td>
-<td></td>
+<td>enum</td>
+<td>Value: Status.</td>
 </tr>
 <tr>
 <td>LocationId</td>
 <td>int</td>
 <td>Unique id of the location</td>
 </tr>
+<tr>
+<td>Portion</td>
+<td>enum</td>
+<td></td>
+</tr>
+<tr>
+<td>CartReferenceKey</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>Price</td>
+<td>float</td>
+<td>Price of the current item</td>
+</tr>
+<tr>
+<td>ChildItem</td>
+<td>json obj</td>
+<td>Details of the child item (bundle products)</td>
+</tr>
+<tr>
+<td>Quantity</td>
+<td>int</td>
+<td>Quantity of the current item</td>
+</tr>
+<tr>
+<td>Portion</td>
+<td>enum</td>
+<td>The portion for which the child product is applied. Value: <code class="prettyprint">W</code> for whole, <code class="prettyprint">R</code> for right, <code class="prettyprint">L</code> for left (left, right usually applies for toppings)</td>
+</tr>
+<tr>
+<td>GroupID</td>
+<td>int</td>
+<td>Group id of the specific item. Applicable in case of a bundle or deal products</td>
+</tr>
 </tbody></table>
-
-<p>&ldquo;Portion&rdquo;: &ldquo;W&rdquo;,
-        &ldquo;CartReferenceKey&rdquo;: &ldquo;027ea92e-65f2-408c-b78f-42d860b59d32&rdquo;,
-        &ldquo;Price&rdquo;: 7.25,</p>
-
-<p>ChildItem | - | 
-ProductID | int | 13047239,
-VariantProductID | int | 9757649,
-Quantity | int | 1
-Status | enum | A
-Portion | enum | W
-GroupID |  | 13245 </p>
 
 <h2 id="update-cart-item-quantity">Update Cart Item Quantity</h2>
 
@@ -7168,88 +7229,108 @@ GroupID |  | 13245 </p>
 </tr>
 </tbody></table>
 
-<h3 id="request-attributes">Request Attributes</h3>
+<h3 id="request-body-parameters">Request Body Parameters</h3>
 
 <table><thead>
 <tr>
-<th>Attribute</th>
+<th>Parameter</th>
+<th>Type</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>DeliverySlotID</td>
-<td>The unique id of the delivery slot ((valid id)</td>
+<td></td>
+<td>The unique id of the delivery slot (valid id)</td>
 </tr>
 <tr>
 <td>DemandedDeliveryDate</td>
+<td>date-time</td>
 <td>The customer&rsquo;s preferred delivery date in <code class="prettyprint">MM-DD-YYYY HH:MM:SS</code> format</td>
 </tr>
 <tr>
 <td>ShippingModeId</td>
 <td>-NA for now-</td>
+<td></td>
 </tr>
 <tr>
 <td>locationID</td>
+<td>int</td>
 <td>The location id of the store</td>
 </tr>
 <tr>
 <td>BillingAddress</td>
+<td>json obj</td>
 <td>Specify the billing address of the customer in the respective attributes</td>
 </tr>
 <tr>
 <td>ShippingAddress</td>
+<td>json obj</td>
 <td>Specify the preferred shipping address of the customer in the respective attributes</td>
 </tr>
 <tr>
 <td>OrderAttributes</td>
+<td>json obj</td>
 <td>Provide the details of order attributes that you want to add/update in the parameters explained below</td>
 </tr>
 <tr>
 <td>EntityFieldID</td>
+<td>int</td>
 <td>Specify the id of the order attribute that you want to update</td>
 </tr>
 <tr>
 <td>MerchantID</td>
+<td>string</td>
 <td>The unique id (GUID) of the merchant</td>
 </tr>
 <tr>
 <td>EntityFieldName</td>
+<td>string</td>
 <td>Specify the name of the order attribute that you want to update</td>
 </tr>
 <tr>
 <td>Type</td>
+<td>enum</td>
 <td>Specify the type of the field area. <code class="prettyprint">1</code> for single select drop-down box, <code class="prettyprint">2</code> for radio button, <code class="prettyprint">3</code> for check-box type</td>
 </tr>
 <tr>
 <td>IsPredefined</td>
+<td>boolean</td>
 <td>Specify <code class="prettyprint">true</code> if the order attribute are predefined in the Control Panel, specify <code class="prettyprint">false</code> for free-flow values</td>
 </tr>
 <tr>
 <td>IsMandatory</td>
+<td>boolean</td>
 <td>Specify <code class="prettyprint">true</code> if the order attribute is set as a mandatory field, else specify <code class="prettyprint">false</code></td>
 </tr>
 <tr>
 <td>SelectedValue</td>
+<td>boolean</td>
 <td>Specify <code class="prettyprint">true</code> if the input for the order attribute is mandatory, else specify <code class="prettyprint">false</code></td>
 </tr>
 <tr>
 <td>lstOMSEntityFieldValues</td>
+<td>string</td>
 <td>For predefined order attribute values (<code class="prettyprint">IsPredefined</code> is true) provide the attribute values as per options configured on Control Panel</td>
 </tr>
 <tr>
 <td>EntityFieldValueID</td>
+<td>string</td>
 <td>Specify the unique id the order attribute value for predefined attribute name and values (<code class="prettyprint">IsPredefined</code> is true)</td>
 </tr>
 <tr>
 <td>EntityFieldID</td>
+<td>string</td>
 <td>Specify the unique id the order attribute name that you want to input for predefined attribute name and values (<code class="prettyprint">IsPredefined</code> is true)</td>
 </tr>
 <tr>
 <td>Value</td>
+<td>string</td>
 <td>Specify the value of the order attribute that you want to set for the customer. You can use this for free-flow attribute values (<code class="prettyprint">IsPredefined</code> is false)</td>
 </tr>
 <tr>
 <td>IsSelected</td>
+<td></td>
 <td></td>
 </tr>
 </tbody></table>
@@ -7561,27 +7642,101 @@ GroupID |  | 13245 </p>
 </tr>
 </tbody></table>
 
-<h3 id="request-attributes">Request Attributes</h3>
+<h3 id="request-body-parameters">Request Body Parameters</h3>
 
-<p>Attribute | Description
-locationID* | The location id of the store 
-&mdash;&mdash;&mdash; | &mdash;&mdash;&mdash;&ndash;
-BillingAddress | Specify the billing address of the customer in the respective attributes
-ShippingAddress | Specify the preferred shipping address of the customer in the respective attributes
-BillMobile | Mobile number associated to billing address
-BillCountry | Full name of the country associated to the  billing address
-BillZip | ZIP code of the billing address
-BillCity | City name of the billing address
-BillCountryCode | Alpha-2 code of the country with respect to billing address. Example: IN (for India), AU (for Australia), and BR (for Brazil) 
-BillLastName | Customer&rsquo;s last name associated to the billing address 
-BillState | Full name of the state associated to the billing address
-BillAddress | Billing address - door number, building name, street, area and so on
-BillAddress1 | Any missing information in BillAddress. For example, landmark
-BillTelephone | Landline number associated to the billing address (without STD code)
-BillTelephoneCode | STD code of the landline number
-BillMobileCode, ShipLastName,ShipTelephone..  | Similar to the billing address details, specify the shipping address in respective fields
-SkipDeliveryAreaValidation | Specify <code class="prettyprint">true</code> to validate the delivery location before updating the details. Specify <code class="prettyprint">false</code> to ignore shipping area validation
-IsShippingAddressDifferent | Specify <code class="prettyprint">true</code> if shipping address is different from billing address, else, specify <code class="prettyprint">false</code>. If shipping address and billing address are same, you can just pass billing address details and make this attribute &lsquo;false&rsquo;. </p>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>locationID*</td>
+<td>int</td>
+<td>The location id of the store</td>
+</tr>
+<tr>
+<td>BillingAddress</td>
+<td>json obj</td>
+<td>Specify the billing address of the customer in the respective attributes</td>
+</tr>
+<tr>
+<td>ShippingAddress</td>
+<td>json obj</td>
+<td>Specify the preferred shipping address of the customer in the respective attributes</td>
+</tr>
+<tr>
+<td>BillMobile</td>
+<td>string</td>
+<td>Mobile number associated to billing address</td>
+</tr>
+<tr>
+<td>BillCountry</td>
+<td>string</td>
+<td>Full name of the country associated to the  billing address</td>
+</tr>
+<tr>
+<td>BillZip</td>
+<td>string</td>
+<td>ZIP code of the billing address</td>
+</tr>
+<tr>
+<td>BillCity</td>
+<td>string</td>
+<td>City name of the billing address</td>
+</tr>
+<tr>
+<td>BillCountryCode</td>
+<td>string</td>
+<td>Alpha-2 code of the country with respect to billing address. Example: IN (for India), AU (for Australia), and BR (for Brazil)</td>
+</tr>
+<tr>
+<td>BillLastName</td>
+<td>string</td>
+<td>Customer&rsquo;s last name associated to the billing address</td>
+</tr>
+<tr>
+<td>BillState</td>
+<td>string</td>
+<td>Full name of the state associated to the billing address</td>
+</tr>
+<tr>
+<td>BillAddress</td>
+<td>string</td>
+<td>Billing address - door number, building name, street, area and so on</td>
+</tr>
+<tr>
+<td>BillAddress1</td>
+<td>string</td>
+<td>Any missing information in BillAddress. For example, landmark</td>
+</tr>
+<tr>
+<td>BillTelephone</td>
+<td>string</td>
+<td>Land line number associated to the billing address (without STD code)</td>
+</tr>
+<tr>
+<td>BillTelephoneCode</td>
+<td>string</td>
+<td>STD code of the land line number</td>
+</tr>
+<tr>
+<td>BillMobileCode, ShipLastName,ShipTelephone..</td>
+<td>Similar to the billing address details, specify the shipping address in respective fields</td>
+<td></td>
+</tr>
+<tr>
+<td>SkipDeliveryAreaValidation</td>
+<td>boolean</td>
+<td>Specify <code class="prettyprint">true</code> to validate the delivery location before updating the details. Specify <code class="prettyprint">false</code> to ignore shipping area validation</td>
+</tr>
+<tr>
+<td>IsShippingAddressDifferent</td>
+<td>boolean</td>
+<td>Specify <code class="prettyprint">true</code> if shipping address is different from billing address, else, specify <code class="prettyprint">false</code>. If shipping address and billing address are same, you can just pass billing address details and make this attribute &lsquo;false&rsquo;.</td>
+</tr>
+</tbody></table>
 
 <h2 id="apply-voucher-to-cart-items">Apply Voucher to Cart Items</h2>
 
@@ -8245,7 +8400,7 @@ IsShippingAddressDifferent | Specify <code class="prettyprint">true</code> if sh
 </tr>
 <tr>
 <td>activestatus</td>
-<td>boolen</td>
+<td>boolean</td>
 <td>Specify <code class="prettyprint">true</code> to fetch the list of only active promotions, <code class="prettyprint">false</code> to fetch both active and inactive coupons</td>
 </tr>
 <tr>
@@ -8255,13 +8410,13 @@ IsShippingAddressDifferent | Specify <code class="prettyprint">true</code> if sh
 </tr>
 <tr>
 <td>externalcouponmapped</td>
+<td>boolean</td>
 <td>Specify <code class="prettyprint">true</code> to fetch the list of only promotions that are mapped to external coupons. For example, CRM coupons</td>
-<td></td>
 </tr>
 <tr>
 <td>userid</td>
+<td>string</td>
 <td>The unique identifier of the customer to fetch the list of promotions of a specific customer</td>
-<td></td>
 </tr>
 </tbody></table>
 
@@ -8428,209 +8583,225 @@ IsShippingAddressDifferent | Specify <code class="prettyprint">true</code> if sh
 <blockquote>
 <p>Sample Response</p>
 </blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-    </span><span class="nt">"messageCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1004"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"Carts"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"81e77da2-723b-483d-8c0d-49f800c1e288"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"ProductCost"</span><span class="p">:</span><span class="w"> </span><span class="mf">60.528000000000006</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"ShippingCost"</span><span class="p">:</span><span class="w"> </span><span class="mf">12.9</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"VoucherDiscount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"PromotionDiscount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"TaxAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"OrderTotal"</span><span class="p">:</span><span class="w"> </span><span class="mf">73.428</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"VoucherCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"UserSelectedCurrency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OMR"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"Bill_FirstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AutoTestNameBillg23fff"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"Bill_LastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AutoTestLastNameBill"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"Bill_Address1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AutoTestAddres1Bill"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"Bill_Address2"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"Bill_CountryCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OM"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"_Bill_StateCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OM1"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"Bill_City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AL KHUWAIR"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"Bill_CityCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2148"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"Bill_Telephone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9967819918"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"Bill_Mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9967819918"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"Bill_PostCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"Bill_Email"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"Ship_FirstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AutoTestNameBillg23fff"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"Ship_LastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AutoTestLastNameBill"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"Ship_Address1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AutoTestAddres1Bill"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"Ship_Address2"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"Ship_CountryCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OM"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"Ship_StateCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OM1"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"Ship_City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2148"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"Ship_CityCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2148"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"Ship_OtherCityName"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"Ship_Telephone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9967819918"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"Ship_Mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9967819918"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"Ship_PostCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"Ship_Email"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"CartItems"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-                </span><span class="nt">"ProductId"</span><span class="p">:</span><span class="w"> </span><span class="mi">12688208</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"VariantProductId"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"MRP"</span><span class="p">:</span><span class="w"> </span><span class="mf">4.5</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"WebPrice"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"Quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Seafood Supreme"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"SupplierId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"81e77da2-723b-483d-8c0d-49f800c1e288"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"CartReferenceKey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"18e18f60-a1a9-44f0-b256-536e2fe0a3a7"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"IsFreeProduct"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"PriceCapped"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"TotalCap"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"CappedRefKey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00000000-0000-0000-0000-000000000000"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"CatalogpromotionDiscount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"BundleCartReferenceKey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00000000-0000-0000-0000-000000000000"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"BundleCartItems"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-                    </span><span class="p">{</span><span class="w">
-                        </span><span class="nt">"ProductId"</span><span class="p">:</span><span class="w"> </span><span class="mi">12688172</span><span class="p">,</span><span class="w">
-                        </span><span class="nt">"VariantProductId"</span><span class="p">:</span><span class="w"> </span><span class="mi">9727843</span><span class="p">,</span><span class="w">
-                        </span><span class="nt">"MRP"</span><span class="p">:</span><span class="w"> </span><span class="mf">5.9</span><span class="p">,</span><span class="w">
-                        </span><span class="nt">"WebPrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">4.5</span><span class="p">,</span><span class="w">
-                        </span><span class="nt">"Quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-                        </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Seafood Supreme Crust"</span><span class="p">,</span><span class="w">
-                        </span><span class="nt">"SupplierId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"81e77da2-723b-483d-8c0d-49f800c1e288"</span><span class="p">,</span><span class="w">
-                        </span><span class="nt">"CartReferenceKey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"752b5193-af86-43ea-86e4-b9e5ccb8a941"</span><span class="p">,</span><span class="w">
-                        </span><span class="nt">"TotalCap"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-                        </span><span class="nt">"CatalogpromotionDiscount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-                        </span><span class="nt">"BundleCartReferenceKey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"18e18f60-a1a9-44f0-b256-536e2fe0a3a7"</span><span class="p">,</span><span class="w">
-                        </span><span class="nt">"ItemPromotionDiscountAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-                        </span><span class="nt">"IsPrimaryProduct"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-                        </span><span class="nt">"IsPromotionProduct"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-                        </span><span class="nt">"VariantsInfo"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-                            </span><span class="p">{</span><span class="w">
-                                </span><span class="nt">"PropertyName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Crust"</span><span class="p">,</span><span class="w">
-                                </span><span class="nt">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pan"</span><span class="w">
-                            </span><span class="p">},</span><span class="w">
-                            </span><span class="p">{</span><span class="w">
-                                </span><span class="nt">"PropertyName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Size"</span><span class="p">,</span><span class="w">
-                                </span><span class="nt">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Medium"</span><span class="w">
-                            </span><span class="p">}</span><span class="w">
-                        </span><span class="p">],</span><span class="w">
-                        </span><span class="nt">"Por"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-                        </span><span class="nt">"IsDefaultBundleItem"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-                        </span><span class="nt">"CartPromotionRules"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-                        </span><span class="nt">"CategoryId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CN00215782"</span><span class="p">,</span><span class="w">
-                        </span><span class="nt">"CategoryName"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-                        </span><span class="nt">"BrandId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"311548"</span><span class="p">,</span><span class="w">
-                        </span><span class="nt">"BrandName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PizzaHut"</span><span class="p">,</span><span class="w">
-                        </span><span class="nt">"GroupId"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
-                    </span><span class="p">}</span><span class="w">
-                </span><span class="p">],</span><span class="w">
-                </span><span class="nt">"IsPrimaryProduct"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"ItemPromotionDiscountAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"IsPromotionProduct"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"Por"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"IsDefaultBundleItem"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"ProductImage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"//images-cdn-test.azureedge.net/azure/test-resources/81e77da2-723b-483d-8c0d-49f800c1e288/Images/ProductImages/Source/Opt-SEAFOOD_ISLAND_showcase.png;width=100;height=100;scale=canvas;anchor=bottomcenter"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"CartPromotionRules"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-                </span><span class="nt">"CategoryId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CN00215794"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"CategoryName"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"BrandId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"311548"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"BrandName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PizzaHut"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"ParentCartItems"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-                </span><span class="nt">"ProductId"</span><span class="p">:</span><span class="w"> </span><span class="mi">12688220</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"VariantProductId"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"MRP"</span><span class="p">:</span><span class="w"> </span><span class="mf">90.567</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"WebPrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">50.328</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"Quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Classic Pepperoni"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"SupplierId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"81e77da2-723b-483d-8c0d-49f800c1e288"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"CartReferenceKey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ff462a81-699f-4798-9b73-4f9d97536099"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"IsFreeProduct"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"PriceCapped"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"TotalCap"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"CappedRefKey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00000000-0000-0000-0000-000000000000"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"CatalogpromotionDiscount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"BundleCartReferenceKey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00000000-0000-0000-0000-000000000000"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"BundleCartItems"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-                    </span><span class="p">{</span><span class="w">
-                        </span><span class="nt">"ProductId"</span><span class="p">:</span><span class="w"> </span><span class="mi">12688160</span><span class="p">,</span><span class="w">
-                        </span><span class="nt">"VariantProductId"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-                        </span><span class="nt">"MRP"</span><span class="p">:</span><span class="w"> </span><span class="mf">5.7</span><span class="p">,</span><span class="w">
-                        </span><span class="nt">"WebPrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">5.7</span><span class="p">,</span><span class="w">
-                        </span><span class="nt">"Quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-                        </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Classic Pepperoni Crust"</span><span class="p">,</span><span class="w">
-                        </span><span class="nt">"SupplierId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"81e77da2-723b-483d-8c0d-49f800c1e288"</span><span class="p">,</span><span class="w">
-                        </span><span class="nt">"CartReferenceKey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ab59003f-81b5-45ea-8de8-4cd76f9be21e"</span><span class="p">,</span><span class="w">
-                        </span><span class="nt">"TotalCap"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-                        </span><span class="nt">"CatalogpromotionDiscount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-                        </span><span class="nt">"BundleCartReferenceKey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ff462a81-699f-4798-9b73-4f9d97536099"</span><span class="p">,</span><span class="w">
-                        </span><span class="nt">"ItemPromotionDiscountAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-                        </span><span class="nt">"IsPrimaryProduct"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-                        </span><span class="nt">"IsPromotionProduct"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-                        </span><span class="nt">"VariantsInfo"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-                        </span><span class="nt">"Por"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-                        </span><span class="nt">"IsDefaultBundleItem"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-                        </span><span class="nt">"CartPromotionRules"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-                        </span><span class="nt">"CategoryId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CN00215782"</span><span class="p">,</span><span class="w">
-                        </span><span class="nt">"CategoryName"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-                        </span><span class="nt">"BrandId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"311548"</span><span class="p">,</span><span class="w">
-                        </span><span class="nt">"BrandName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PizzaHut"</span><span class="p">,</span><span class="w">
-                        </span><span class="nt">"GroupId"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
-                    </span><span class="p">}</span><span class="w">
-                </span><span class="p">],</span><span class="w">
-                </span><span class="nt">"IsPrimaryProduct"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"ItemPromotionDiscountAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"IsPromotionProduct"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"Por"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"IsDefaultBundleItem"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"ProductImage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"//images-cdn-test.azureedge.net/azure/test-resources/81e77da2-723b-483d-8c0d-49f800c1e288/Images/ProductImages/Source/Opt-Classic_Pepperoni_showcase.png;width=100;height=100;scale=canvas;anchor=bottomcenter"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"CartPromotionRules"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-                </span><span class="nt">"CategoryId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CN00215792"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"CategoryName"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"BrandId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"311548"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"BrandName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PizzaHut"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"ParentCartItems"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-            </span><span class="p">}</span><span class="w">
-        </span><span class="p">],</span><span class="w">
-        </span><span class="nt">"Suppliers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-                </span><span class="nt">"SupplierId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"81e77da2-723b-483d-8c0d-49f800c11e288"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"SupplierName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pizza Hut test"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"IsSelected"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"OrderStatus"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-            </span><span class="p">}</span><span class="w">
-        </span><span class="p">],</span><span class="w">
-        </span><span class="nt">"ShippingOptions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-                </span><span class="nt">"SupplierId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"81e77da2-723b-483d-8c0d-49f800c1e288,
-                "</span><span class="err">ShippingMode</span><span class="s2">": "</span><span class="mi">2323</span><span class="s2">",
-                "</span><span class="err">ShippingModeId</span><span class="s2">": 2323,
-                "</span><span class="err">isselected</span><span class="s2">": true
-            }
-        ],
-        "</span><span class="err">PaymentOptionsChannel</span><span class="s2">": [
-            {
-                "</span><span class="err">MerchantId</span><span class="s2">": "</span><span class="mi">81</span><span class="err">e</span><span class="mi">77</span><span class="err">da</span><span class="mi">2-723</span><span class="err">b</span><span class="mi">-483</span><span class="err">d</span><span class="mi">-8</span><span class="err">c</span><span class="mi">0</span><span class="err">d</span><span class="mi">-49</span><span class="err">f</span><span class="mi">800</span><span class="err">c</span><span class="mi">1</span><span class="err">e</span><span class="mi">288</span><span class="s2">",
-                "</span><span class="err">PaymentType</span><span class="s2">": "</span><span class="err">COD</span><span class="s2">",
-                "</span><span class="err">Paymentoption</span><span class="s2">": "</span><span class="err">COD</span><span class="s2">",
-                "</span><span class="err">GatewayId</span><span class="s2">": "</span><span class="mi">0</span><span class="s2">",
-                "</span><span class="err">GatewayTitle</span><span class="s2">": "</span><span class="err">COD</span><span class="s2">",
-                "</span><span class="err">PaidAmount</span><span class="s2">": 0,
-                "</span><span class="err">EnalbeOTP</span><span class="s2">": false
-            }
-        ],
-        "</span><span class="err">ErrorCollection</span><span class="s2">": null,
-        "</span><span class="err">GiftMsg</span><span class="s2">": "",
-        "</span><span class="err">DemandedDeliveryDate</span><span class="s2">": "</span><span class="err">/Date(</span><span class="mi">1536228000000</span><span class="err">+</span><span class="mi">0530</span><span class="err">)/</span><span class="s2">",
-        "</span><span class="err">RemainTotal</span><span class="s2">": 0,
-        "</span><span class="err">ShippingZoneType</span><span class="s2">": null,
-        "</span><span class="err">DeliverySlotID</span><span class="s2">": 0,
-        "</span><span class="err">FailedProducts</span><span class="s2">": null,
-        "</span><span class="err">PickupFirstName</span><span class="s2">": "</span><span class="err">AutoTestNameBillg</span><span class="mi">23</span><span class="err">fff</span><span class="s2">",
-        "</span><span class="err">PickupLastName</span><span class="s2">": "</span><span class="err">AutoTestLastNameBill</span><span class="s2">",
-        "</span><span class="err">PickupEmail</span><span class="s2">": "",
-        "</span><span class="err">PickupMobile</span><span class="s2">": "</span><span class="mi">9967819918</span><span class="s2">",
-        "</span><span class="err">LocationId</span><span class="s2">": "</span><span class="mi">22612</span><span class="s2">",
-        "</span><span class="err">TaxDetail</span><span class="s2">": [],
-        "</span><span class="err">ComboSuggestion</span><span class="s2">": [],
-        "</span><span class="err">ConvertedDeals</span><span class="s2">": []
-    },
-    "</span><span class="err">ErrorCode":</span><span class="w"> </span><span class="mi">0</span><span class="w">
+<pre class="highlight json"><code><span class="p">{</span><span class="w">  
+   </span><span class="nt">"messageCode"</span><span class="p">:</span><span class="s2">"1004"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"Message"</span><span class="p">:</span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"Carts"</span><span class="p">:{</span><span class="w">  
+      </span><span class="nt">"MerchantId"</span><span class="p">:</span><span class="s2">"81e77da2-723b-483d-8c0d-49f800c1e288"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ProductCost"</span><span class="p">:</span><span class="mf">60.528000000000006</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ShippingCost"</span><span class="p">:</span><span class="mf">12.9</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"VoucherDiscount"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"PromotionDiscount"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"TaxAmount"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"OrderTotal"</span><span class="p">:</span><span class="mf">73.428</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"VoucherCode"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"UserSelectedCurrency"</span><span class="p">:</span><span class="s2">"OMR"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Bill_FirstName"</span><span class="p">:</span><span class="s2">"AutoTestNameBillg23fff"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Bill_LastName"</span><span class="p">:</span><span class="s2">"AutoTestLastNameBill"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Bill_Address1"</span><span class="p">:</span><span class="s2">"AutoTestAddres1Bill"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Bill_Address2"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Bill_CountryCode"</span><span class="p">:</span><span class="s2">"OM"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"_Bill_StateCode"</span><span class="p">:</span><span class="s2">"OM1"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Bill_City"</span><span class="p">:</span><span class="s2">"AL KHUWAIR"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Bill_CityCode"</span><span class="p">:</span><span class="s2">"2148"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Bill_Telephone"</span><span class="p">:</span><span class="s2">"9967819918"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Bill_Mobile"</span><span class="p">:</span><span class="s2">"9967819918"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Bill_PostCode"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Bill_Email"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Ship_FirstName"</span><span class="p">:</span><span class="s2">"AutoTestNameBillg23fff"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Ship_LastName"</span><span class="p">:</span><span class="s2">"AutoTestLastNameBill"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Ship_Address1"</span><span class="p">:</span><span class="s2">"AutoTestAddres1Bill"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Ship_Address2"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Ship_CountryCode"</span><span class="p">:</span><span class="s2">"OM"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Ship_StateCode"</span><span class="p">:</span><span class="s2">"OM1"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Ship_City"</span><span class="p">:</span><span class="s2">"2148"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Ship_CityCode"</span><span class="p">:</span><span class="s2">"2148"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Ship_OtherCityName"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Ship_Telephone"</span><span class="p">:</span><span class="s2">"9967819918"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Ship_Mobile"</span><span class="p">:</span><span class="s2">"9967819918"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Ship_PostCode"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Ship_Email"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"CartItems"</span><span class="p">:[</span><span class="w">  
+         </span><span class="p">{</span><span class="w">  
+            </span><span class="nt">"ProductId"</span><span class="p">:</span><span class="mi">12688208</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"VariantProductId"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"MRP"</span><span class="p">:</span><span class="mf">4.5</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"WebPrice"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Quantity"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"description"</span><span class="p">:</span><span class="s2">"Seafood Supreme"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"SupplierId"</span><span class="p">:</span><span class="s2">"81e77da2-723b-483d-8c0d-49f800c1e288"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"CartReferenceKey"</span><span class="p">:</span><span class="s2">"18e18f60-a1a9-44f0-b256-536e2fe0a3a7"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"IsFreeProduct"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"PriceCapped"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"TotalCap"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"CappedRefKey"</span><span class="p">:</span><span class="s2">"00000000-0000-0000-0000-000000000000"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"CatalogpromotionDiscount"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"BundleCartReferenceKey"</span><span class="p">:</span><span class="s2">"00000000-0000-0000-0000-000000000000"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"BundleCartItems"</span><span class="p">:[</span><span class="w">  
+               </span><span class="p">{</span><span class="w">  
+                  </span><span class="nt">"ProductId"</span><span class="p">:</span><span class="mi">12688172</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"VariantProductId"</span><span class="p">:</span><span class="mi">9727843</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"MRP"</span><span class="p">:</span><span class="mf">5.9</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"WebPrice"</span><span class="p">:</span><span class="mf">4.5</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"Quantity"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"description"</span><span class="p">:</span><span class="s2">"Seafood Supreme Crust"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"SupplierId"</span><span class="p">:</span><span class="s2">"81e77da2-723b-483d-8c0d-49f800c1e288"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"CartReferenceKey"</span><span class="p">:</span><span class="s2">"752b5193-af86-43ea-86e4-b9e5ccb8a941"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"TotalCap"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"CatalogpromotionDiscount"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"BundleCartReferenceKey"</span><span class="p">:</span><span class="s2">"18e18f60-a1a9-44f0-b256-536e2fe0a3a7"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"ItemPromotionDiscountAmount"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"IsPrimaryProduct"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"IsPromotionProduct"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"VariantsInfo"</span><span class="p">:[</span><span class="w">  
+                     </span><span class="p">{</span><span class="w">  
+                        </span><span class="nt">"PropertyName"</span><span class="p">:</span><span class="s2">"Crust"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"Value"</span><span class="p">:</span><span class="s2">"Pan"</span><span class="w">
+                     </span><span class="p">},</span><span class="w">
+                     </span><span class="p">{</span><span class="w">  
+                        </span><span class="nt">"PropertyName"</span><span class="p">:</span><span class="s2">"Size"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"Value"</span><span class="p">:</span><span class="s2">"Medium"</span><span class="w">
+                     </span><span class="p">}</span><span class="w">
+                  </span><span class="p">],</span><span class="w">
+                  </span><span class="nt">"Por"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"IsDefaultBundleItem"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"CartPromotionRules"</span><span class="p">:[</span><span class="w">  
+
+                  </span><span class="p">],</span><span class="w">
+                  </span><span class="nt">"CategoryId"</span><span class="p">:</span><span class="s2">"CN00215782"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"CategoryName"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"BrandId"</span><span class="p">:</span><span class="s2">"311548"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"BrandName"</span><span class="p">:</span><span class="s2">"PizzaHut"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"GroupId"</span><span class="p">:</span><span class="mi">0</span><span class="w">
+               </span><span class="p">}</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="nt">"IsPrimaryProduct"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ItemPromotionDiscountAmount"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"IsPromotionProduct"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Por"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"IsDefaultBundleItem"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ProductImage"</span><span class="p">:</span><span class="s2">"//images-cdn-test.azureedge.net/azure/test-resources/81e77da2-723b-483d-8c0d-49f800c1e288/Images/ProductImages/Source/Opt-SEAFOOD_ISLAND_showcase.png;width=100;height=100;scale=canvas;anchor=bottomcenter"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"CartPromotionRules"</span><span class="p">:[</span><span class="w">  
+
+            </span><span class="p">],</span><span class="w">
+            </span><span class="nt">"CategoryId"</span><span class="p">:</span><span class="s2">"CN00215794"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"CategoryName"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"BrandId"</span><span class="p">:</span><span class="s2">"311548"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"BrandName"</span><span class="p">:</span><span class="s2">"PizzaHut"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ParentCartItems"</span><span class="p">:</span><span class="kc">null</span><span class="w">
+         </span><span class="p">},</span><span class="w">
+         </span><span class="p">{</span><span class="w">  
+            </span><span class="nt">"ProductId"</span><span class="p">:</span><span class="mi">12688220</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"VariantProductId"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"MRP"</span><span class="p">:</span><span class="mf">90.567</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"WebPrice"</span><span class="p">:</span><span class="mf">50.328</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Quantity"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"description"</span><span class="p">:</span><span class="s2">"Classic Pepperoni"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"SupplierId"</span><span class="p">:</span><span class="s2">"81e77da2-723b-483d-8c0d-49f800c1e288"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"CartReferenceKey"</span><span class="p">:</span><span class="s2">"ff462a81-699f-4798-9b73-4f9d97536099"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"IsFreeProduct"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"PriceCapped"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"TotalCap"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"CappedRefKey"</span><span class="p">:</span><span class="s2">"00000000-0000-0000-0000-000000000000"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"CatalogpromotionDiscount"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"BundleCartReferenceKey"</span><span class="p">:</span><span class="s2">"00000000-0000-0000-0000-000000000000"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"BundleCartItems"</span><span class="p">:[</span><span class="w">  
+               </span><span class="p">{</span><span class="w">  
+                  </span><span class="nt">"ProductId"</span><span class="p">:</span><span class="mi">12688160</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"VariantProductId"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"MRP"</span><span class="p">:</span><span class="mf">5.7</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"WebPrice"</span><span class="p">:</span><span class="mf">5.7</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"Quantity"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"description"</span><span class="p">:</span><span class="s2">"Classic Pepperoni Crust"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"SupplierId"</span><span class="p">:</span><span class="s2">"81e77da2-723b-483d-8c0d-49f800c1e288"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"CartReferenceKey"</span><span class="p">:</span><span class="s2">"ab59003f-81b5-45ea-8de8-4cd76f9be21e"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"TotalCap"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"CatalogpromotionDiscount"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"BundleCartReferenceKey"</span><span class="p">:</span><span class="s2">"ff462a81-699f-4798-9b73-4f9d97536099"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"ItemPromotionDiscountAmount"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"IsPrimaryProduct"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"IsPromotionProduct"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"VariantsInfo"</span><span class="p">:[</span><span class="w">  
+
+                  </span><span class="p">],</span><span class="w">
+                  </span><span class="nt">"Por"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"IsDefaultBundleItem"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"CartPromotionRules"</span><span class="p">:[</span><span class="w">  
+
+                  </span><span class="p">],</span><span class="w">
+                  </span><span class="nt">"CategoryId"</span><span class="p">:</span><span class="s2">"CN00215782"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"CategoryName"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"BrandId"</span><span class="p">:</span><span class="s2">"311548"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"BrandName"</span><span class="p">:</span><span class="s2">"PizzaHut"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"GroupId"</span><span class="p">:</span><span class="mi">0</span><span class="w">
+               </span><span class="p">}</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="nt">"IsPrimaryProduct"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ItemPromotionDiscountAmount"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"IsPromotionProduct"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Por"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"IsDefaultBundleItem"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ProductImage"</span><span class="p">:</span><span class="s2">"//images-cdn-test.azureedge.net/azure/test-resources/81e77da2-723b-483d-8c0d-49f800c1e288/Images/ProductImages/Source/Opt-Classic_Pepperoni_showcase.png;width=100;height=100;scale=canvas;anchor=bottomcenter"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"CartPromotionRules"</span><span class="p">:[</span><span class="w">  
+
+            </span><span class="p">],</span><span class="w">
+            </span><span class="nt">"CategoryId"</span><span class="p">:</span><span class="s2">"CN00215792"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"CategoryName"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"BrandId"</span><span class="p">:</span><span class="s2">"311548"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"BrandName"</span><span class="p">:</span><span class="s2">"PizzaHut"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ParentCartItems"</span><span class="p">:</span><span class="kc">null</span><span class="w">
+         </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nt">"Suppliers"</span><span class="p">:[</span><span class="w">  
+         </span><span class="p">{</span><span class="w">  
+            </span><span class="nt">"SupplierId"</span><span class="p">:</span><span class="s2">"81e77da2-723b-483d-8c0d-49f800c11e288"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"SupplierName"</span><span class="p">:</span><span class="s2">"Pizza Hut test"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"IsSelected"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"OrderStatus"</span><span class="p">:</span><span class="kc">null</span><span class="w">
+         </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nt">"ShippingOptions"</span><span class="p">:[</span><span class="w">  
+         </span><span class="p">{</span><span class="w">  
+            </span><span class="nt">"SupplierId"</span><span class="p">:</span><span class="s2">"81e77da2-723b-483d-8c0d-49f800c1e288"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ShippingMode"</span><span class="p">:</span><span class="s2">"2323"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ShippingModeId"</span><span class="p">:</span><span class="mi">2323</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"isselected"</span><span class="p">:</span><span class="kc">true</span><span class="w">
+         </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nt">"PaymentOptionsChannel"</span><span class="p">:[</span><span class="w">  
+         </span><span class="p">{</span><span class="w">  
+            </span><span class="nt">"MerchantId"</span><span class="p">:</span><span class="s2">"81e77da2-723b-483d-8c0d-49f800c1e288"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"PaymentType"</span><span class="p">:</span><span class="s2">"COD"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Paymentoption"</span><span class="p">:</span><span class="s2">"COD"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"GatewayId"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"GatewayTitle"</span><span class="p">:</span><span class="s2">"COD"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"PaidAmount"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"EnalbeOTP"</span><span class="p">:</span><span class="kc">false</span><span class="w">
+         </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nt">"ErrorCollection"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"GiftMsg"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"DemandedDeliveryDate"</span><span class="p">:</span><span class="s2">"/Date(1536228000000+0530)/"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"RemainTotal"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ShippingZoneType"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"DeliverySlotID"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"FailedProducts"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"PickupFirstName"</span><span class="p">:</span><span class="s2">"AutoTestNameBillg23fff"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"PickupLastName"</span><span class="p">:</span><span class="s2">"AutoTestLastNameBill"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"PickupEmail"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"PickupMobile"</span><span class="p">:</span><span class="s2">"9967819918"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"LocationId"</span><span class="p">:</span><span class="s2">"22612"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"TaxDetail"</span><span class="p">:[</span><span class="w">  
+
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nt">"ComboSuggestion"</span><span class="p">:[</span><span class="w">  
+
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nt">"ConvertedDeals"</span><span class="p">:[</span><span class="w">  
+
+      </span><span class="p">]</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="mi">0</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>Updates shipping mode of the cart of the current customer.</p>
