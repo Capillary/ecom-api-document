@@ -238,13 +238,39 @@ To obtain access, you first need to add the app in the control panel and generat
 </tr>
 <tr>
 <td>Host</td>
-<td>The server to which the API calls are made. This should be the URL of the respective cluster from where the calls are made. <br> - <strong>India</strong>: <code class="prettyprint">www.martjack.com</code> <br> - <strong>YUM</strong>: <code class="prettyprint">www9.martjack.com</code> <br> - <strong>AM</strong>: <code class="prettyprint">www1.martjack.com</code> <br> - <strong>PH India</strong>: <code class="prettyprint">www2.martjack.com</code>  <br> - <strong>Walmart</strong>: <code class="prettyprint">www8.martjack.com</code> <br> - <strong>LuLu</strong>: <code class="prettyprint">www3.martjack.com</code> <br> - <strong>Staging</strong>: <code class="prettyprint">staging.ecom.capillary.in</code> <br> - <strong>Nightly</strong>: <code class="prettyprint">nightly.ecom.capillary.in</code></td>
+<td>The server to which the API calls are made. This should be the URL of the respective cluster from where the calls are made. <br> - <strong>India</strong>: <code class="prettyprint">sg.ecom.capillary.in</code> <br> - <strong>YUM</strong>: <code class="prettyprint">eu.ecom.capillary.in</code> <br> - <strong>AM</strong>: <code class="prettyprint">www1.martjack.com</code> <br> - <strong>PH India</strong>: <code class="prettyprint">mb.ecom.capillary.in</code>  <br> - <strong>Walmart</strong>: <code class="prettyprint">www8.martjack.com</code> <br> - <strong>LuLu</strong>: <code class="prettyprint">www3.martjack.com</code> <br> - <strong>Staging</strong>: <code class="prettyprint">staging.ecom.capillary.in</code> <br> - <strong>Nightly</strong>: <code class="prettyprint">nightly.ecom.capillary.in</code></td>
+</tr>
+<tr>
+<td>Resource</td>
+<td>Resource for which you want to perform an action. <strong>Supported resources</strong>: Banners, Brand, Carts, Category, Customer, CustomerGroups,GiftVoucher, Location, MailList, Merchant, Navigation, Order, PickList, Post, Pricelist, Product, ProductTags, ShoppingList, Store, and Voucher</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>GET, POST</td>
+</tr>
+<tr>
+<td>Response Format</td>
+<td>JSON</td>
 </tr>
 </tbody></table>
 
-<p>Resource | Resource for which you want to perform an action. <strong>Supported resources</strong>: Banners, Brand, Carts, Category, Customer, CustomerGroups,GiftVoucher, Location, MailList, Merchant, Navigation, Order, PickList, Post, Pricelist, Product, ProductTags, ShoppingList, Store, and Voucher
-HTTP Methods | GET, POST
-Response Format | JSON</p>
+<h3 id="how-to-pass-post-body">How to pass POST body?</h3>
+
+<p>You always need to pass the POST body in the format specified below:</p>
+
+<p><code class="prettyprint">
+InputData={
+&lt;JSON PAYLOAD&gt;
+}&amp;InputFormat=application/json</code></p>
+
+<p>FOr example:</p>
+
+<p>InputData={
+&ldquo;customer&rdquo;:{
+&ldquo;MobileNo&rdquo;:&ldquo;917411639xxx&rdquo;,
+&ldquo;UserName&rdquo;:&ldquo;917411639xxx&rdquo;,
+&ldquo;merchantId&rdquo;:&ldquo;98d18d82-ba59-4957-9c92-3f89207a34f6
+&rdquo;}}&amp;InputFormat=application/json</p>
 
           <h1 id="customer">Customer</h1>
 
@@ -920,8 +946,8 @@ Response Format | JSON</p>
 
 <p>Parameter | Type | Description
 &mdash;&mdash;&ndash; | string | Unique GUID of the merchant
-provider | string | Login service provider
-profileId | string | 
+provider | string | Name of the third party login service provider
+profileId | string | Unique profile id of the service provider
 email | string | Email id of the user registered with the provider
 firstName | string | First name of the user
 lastName | string | Last name of the user<br>
@@ -4378,7 +4404,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 </tr>
 </tbody></table>
 
-<h3 id="additional-header-required">Additional Header Required</h3>
+<h3 id="additional-header">Additional Header</h3>
 
 <table><thead>
 <tr>
@@ -4387,8 +4413,8 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 </tr>
 </thead><tbody>
 <tr>
-<td>APISessionRequired</td>
-<td>Pass <code class="prettyprint">true</code></td>
+<td>APISessionRequired*</td>
+<td>Pass <code class="prettyprint">true</code> to not see OTP in the response. If not passed, you will see OTP sent to the customer in the response</td>
 </tr>
 </tbody></table>
 
