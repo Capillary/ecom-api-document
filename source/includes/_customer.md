@@ -267,7 +267,72 @@ newPassword* | string | New password that you want to have for the account
 
 
 
-## Customer Login
+
+## Customer Login (with OTP)
+
+
+> Sample Request
+
+```html
+https://www.martjack.com/developerapi/Customer/81e77da2-723b-483d-8c0d-49f800c1exxx/LoginWithOTP/true?username=599999999&oTP=2222
+```
+
+> Sample POST Request
+
+```json
+{
+"OTP": "2222", 
+"UserName": 599999999
+}
+```
+
+> Sample Response
+
+```json
+{  
+   "messageCode":"1004",
+   "Message":"Logged In successfully",
+   "Token":{  
+      "AccessToken":"i1z1ouqyb3roglpei1vmpowe",
+      "issued_at":"/Date(1533029929318+0530)/",
+      "UserId":"132d3c1d-7d71-4b87-9a69-a4d216d63xxx",
+      "MerchantId":"81e77da2-723b-483d-8c0d-49f800c1exxx"
+   },
+   "ErrorCode":0
+}
+```
+
+
+Authorizes OTP based customer login n the merchant's e-commerce store. Once the customer logs in with the OTP, he receives a unique `UserId` which is required to make customer API calls. 
+
+<aside class="notice">The customer has to be logged in to his account to perform to perform any task tasks such as fetching customer details, modifying customer details or updating profile attributes. 
+
+</aside>
+
+### Resource Information
+Parameter | Description
+--------- | -----------
+URI | `/Customer/{merchantId}/LoginWithOTP/true?username={username}&oTP={OTP}`
+Rate Limited? | Yes
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | POST
+Batch Support | No
+
+
+### Request URL
+
+`https://{host}/developerapi/Customer/{merchantId}/LoginWithOTP/true?username={username}&oTP={OTP}`
+
+### Request Attributes
+Parameter | Type | Description
+--------- | ---- | -----------
+username* | string | Username of the customer account
+oTP* | int | Unique verification code received to the customer's registered mobile number or email id (through SendOTP API)
+
+
+
+## Customer Login (with Credentials)
 
 
 > Sample Request
@@ -330,6 +395,77 @@ username* | string | Username of the customer account
 password* | string | Password of the customer account
 
 
+
+## Customer Login with Third Party Provider
+
+Lets you login customers to the merchant store with a third party provider.
+
+> Sample Request
+
+```html
+http://martjack.com/developerapi/Customer/9820eca5-d11f-4df1-9b20-983a45ea9631/LoginWithThirdPartyProvider
+```
+
+> Sample POST Request
+
+```json
+{
+   "provider":"gmail",
+   "profileId":"example123",
+   "email":"tom.sawyer@capillarytech.com",
+   "MobileNo":"91-7411600000",
+   "FirstName":"Tom",
+   "LastName":"Sawyer",
+   "gender":"M",
+   "loginId":"tom.sawyer@capillarytech.com",
+   "subscribeToOffers":"true"
+}
+```
+
+> Sample Response
+
+```json
+{
+  "messageCode": "1004",
+  "Message": "Logged In successfully",
+  "Token": {
+    "AccessToken": "50p2yjcmiizlfyltl3vrltvj",
+    "issued_at": "/Date(1543483006985+0530)/",
+    "UserId": "5820c36d-7148-4154-afa7-32b0798f21f6",
+    "MerchantId": "9820eca5-d11f-4df1-9b20-983a45ea9631"
+  },
+  "ErrorCode": 0
+}
+```
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `/Customer/{merchantId}/LoginWithThirdPartyProvider`
+Rate Limited? | Yes
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | POST
+Batch Support | No
+
+
+### Request URL
+
+`https://{host}/developerapi/Customer/{merchantId}/LoginWithThirdPartyProvider`
+
+### Request Body Parameters
+
+Parameter | Type | Description
+-------- | string | Unique GUID of the merchant
+provider | string | Login service provider
+profileId | string | 
+email | string | Email id of the user registered with the provider
+firstName | string | First name of the user
+lastName | string | Last name of the user	
+gender | string | `M` for make and `F` for female
+loginId	| string | Log in id of the user
+mobileNo | string | Registered mobile number of the user with the provider
+subscribeToOffers | enum | Specify `true` to subscribe user to merchant offers, else specify `false`
 
 
 ## Customer Logout

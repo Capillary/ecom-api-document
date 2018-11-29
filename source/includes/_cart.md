@@ -8,7 +8,7 @@ Cart keeps the record of the items that a customer selects from the merchant sto
 > Sample POST Request
 
 ```html
-https://www.martjack.com/developerapi/carts/SendOTP/81e77da2-723b-483d-8c0d-49f800c1exxx
+https://www.martjack.com/developerapi/carts/V2/SendOTP/81e77da2-723b-483d-8c0d-49f800c1exxx
 ```
 
 > Sample POST Request
@@ -26,7 +26,13 @@ https://www.martjack.com/developerapi/carts/SendOTP/81e77da2-723b-483d-8c0d-49f8
 > Sample Response
 
 ```json
-
+{
+   "messageCode":"1004",
+   "Message":"Successful",
+   "OTPToken":"x2yiqjhjhoqulghae2wtp4u2",
+   "ErrorCode":0,
+   "IsEmailSentToAlternateEmail":"True"
+}
 ```
 
 Sends OTP to the specified mobile number or email id.
@@ -35,7 +41,7 @@ Sends OTP to the specified mobile number or email id.
 ### Resource Information
 Parameter | Description
 --------- | -----------
-URI | `carts/SendOTP/{{MerchantId}}`
+URI | `carts/SendOTP/V2/{{MerchantId}}`
 Rate Limited? | Yes
 Authentication | Yes
 Response Formats | JSON
@@ -45,7 +51,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/carts/SendOTP/{{MerchantId}}`
+`https://{host}/developerapi/carts/SendOTP/V2/{{MerchantId}}`
 
 ### Request Parameters
 Parameter | Description
@@ -58,7 +64,16 @@ MobileNo* | The registered mobile number to which the OTP has to be sent
 
 Header | Description
 ------ | ------
-accesstoken* | Access token of the logged in user to validate the session
+APISessionRequired | Pass `true`
+
+### Request Body Parameters
+
+Parameter | Type | Description
+--------- | ---- | -----------
+UserName* | string | Registered username of the customer
+merchantId* | string | Unique GUID of the merchant
+MobileNo* | string | Registered mobile number of the user
+
 
 
 ## Validate OTP

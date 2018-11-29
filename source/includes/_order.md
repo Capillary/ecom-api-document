@@ -1755,8 +1755,9 @@ Batch Support | No
 `http://{host}/developerapi/Order/Cancel`
 
 ### Request Body Parameters
+
 Parameter | Type | Description
---------- | ----- | ------
+--------- | ---- | -----------
 Merchant Id* | string  | The unique id (GUID) of the merchant in which the order is placed
 OrderId* | int  | Provide the order id that you want to cancel
 Date* | date  | The date on which the order is created in mm/dd/yy format
@@ -2127,8 +2128,6 @@ HTTP Methods | POST
 Batch Support | No
 
 
-
-
 ### Request URL
 
 `https://{host}/developerapi/Order/ShipmentDetails/{merchantId}/{shipmentId}`
@@ -2139,6 +2138,7 @@ Parameter | Type | Description
 --------- | ---- | -----------
 merchantId* | string | Unique GUID of the merchant
 shipmentId* | int | Unique id of the shipment that you want to retrieve
+
 
 
 ## Get Activity History
