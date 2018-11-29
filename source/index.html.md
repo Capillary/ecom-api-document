@@ -91,14 +91,27 @@ languagecode | The language of the application chosen by the end user in case on
 Entry | Description
 ----- | -----------
 URL | https://<host>/developerapi/{resource}/. We recommend using secure HTTPS requests instead of http for all your calls
-Host | The server to which the API calls are made. This should be the URL of the respective cluster from where the calls are made. <br> - **India**: `www.martjack.com` <br> - **YUM**: `www9.martjack.com` <br> - **AM**: `www1.martjack.com` <br> - **PH India**: `www2.martjack.com`  <br> - **Walmart**: `www8.martjack.com` <br> - **LuLu**: `www3.martjack.com` <br> - **Staging**: `staging.ecom.capillary.in` <br> - **Nightly**: `nightly.ecom.capillary.in`
-
+Host | The server to which the API calls are made. This should be the URL of the respective cluster from where the calls are made. <br> - **India**: `sg.ecom.capillary.in` <br> - **YUM**: `eu.ecom.capillary.in` <br> - **AM**: `www1.martjack.com` <br> - **PH India**: `mb.ecom.capillary.in`  <br> - **Walmart**: `www8.martjack.com` <br> - **LuLu**: `www3.martjack.com` <br> - **Staging**: `staging.ecom.capillary.in` <br> - **Nightly**: `nightly.ecom.capillary.in`
 Resource | Resource for which you want to perform an action. **Supported resources**: Banners, Brand, Carts, Category, Customer, CustomerGroups,GiftVoucher, Location, MailList, Merchant, Navigation, Order, PickList, Post, Pricelist, Product, ProductTags, ShoppingList, Store, and Voucher
 HTTP Methods | GET, POST
 Response Format | JSON
 
 
+### How to pass POST body?
+You always need to pass the POST body in the format specified below:
 
+`
+InputData={
+<JSON PAYLOAD>
+}&InputFormat=application/json`
 
+FOr example:
+
+InputData={
+"customer":{
+"MobileNo":"917411639xxx",
+"UserName":"917411639xxx",
+"merchantId":"98d18d82-ba59-4957-9c92-3f89207a34f6
+"}}&InputFormat=application/json
 
 

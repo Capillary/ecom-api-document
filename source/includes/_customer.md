@@ -457,8 +457,8 @@ Batch Support | No
 
 Parameter | Type | Description
 -------- | string | Unique GUID of the merchant
-provider | string | Login service provider
-profileId | string | 
+provider | string | Name of the third party login service provider
+profileId | string | Unique profile id of the service provider
 email | string | Email id of the user registered with the provider
 firstName | string | First name of the user
 lastName | string | Last name of the user	

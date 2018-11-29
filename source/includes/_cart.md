@@ -60,11 +60,11 @@ UserName* | Username of the customer's account (mobile number or email id)
 merchantId* | The unique id (GUID) of the merchant in which the customer has registered
 MobileNo* | The registered mobile number to which the OTP has to be sent 
 
-### Additional Header Required
+### Additional Header
 
 Header | Description
 ------ | ------
-APISessionRequired | Pass `true`
+APISessionRequired* | Pass `true` to not see OTP in the response. If not passed, you will see OTP sent to the customer in the response
 
 ### Request Body Parameters
 
