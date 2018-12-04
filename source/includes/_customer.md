@@ -303,11 +303,16 @@ https://www.martjack.com/developerapi/Customer/81e77da2-723b-483d-8c0d-49f800c1e
 ```
 
 
-Authorizes OTP based customer login n the merchant's e-commerce store. Once the customer logs in with the OTP, he receives a unique `UserId` which is required to make customer API calls. 
+Authorizes login OTP of a registered customer.
 
-<aside class="notice">The customer has to be logged in to his account to perform to perform any task tasks such as fetching customer details, modifying customer details or updating profile attributes. 
+<aside class="notice">
+When a customer logs in, he receives a unique `UserId` which is required for using customer APIs. 
+
+The customer has to be logged in to his account to perform to perform any task tasks such as fetching customer details, modifying customer details or updating profile attributes. 
 
 </aside>
+
+
 
 ### Resource Information
 Parameter | Description
@@ -323,6 +328,13 @@ Batch Support | No
 ### Request URL
 
 `https://{host}/developerapi/Customer/{merchantId}/LoginWithOTP/true?username={username}&oTP={OTP}`
+
+### Additional Headers Required
+
+Header | Description
+------ | -----------
+AccessToken | Access token of the current session (generate using GET AccessToken API)
+otptoken | OTP token of the issued OTP (Generated in the SendOTP API response)
 
 ### Request Attributes
 Parameter | Type | Description
