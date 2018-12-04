@@ -705,9 +705,12 @@ InputData={
    </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="mi">0</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Authorizes OTP based customer login n the merchant&rsquo;s e-commerce store. Once the customer logs in with the OTP, he receives a unique <code class="prettyprint">UserId</code> which is required to make customer API calls. </p>
+<p>Authorizes login OTP of a registered customer.</p>
 
-<aside class="notice">The customer has to be logged in to his account to perform to perform any task tasks such as fetching customer details, modifying customer details or updating profile attributes. 
+<aside class="notice">
+When a customer logs in, he receives a unique `UserId` which is required for using customer APIs. 
+
+The customer has to be logged in to his account to perform to perform any task tasks such as fetching customer details, modifying customer details or updating profile attributes. 
 
 </aside>
 
@@ -748,6 +751,24 @@ InputData={
 <h3 id="request-url">Request URL</h3>
 
 <p><code class="prettyprint">https://{host}/developerapi/Customer/{merchantId}/LoginWithOTP/true?username={username}&amp;oTP={OTP}</code></p>
+
+<h3 id="additional-headers-required">Additional Headers Required</h3>
+
+<table><thead>
+<tr>
+<th>Header</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>AccessToken</td>
+<td>Access token of the current session (generate using GET AccessToken API)</td>
+</tr>
+<tr>
+<td>otptoken</td>
+<td>OTP token of the issued OTP (Generated in the SendOTP API response)</td>
+</tr>
+</tbody></table>
 
 <h3 id="request-attributes">Request Attributes</h3>
 
