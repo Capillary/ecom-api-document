@@ -1318,3 +1318,51 @@ Code | Description
 1004 | Successful
 1009 | No Record Found
 1030 | Service is not Authorized
+
+
+## Get Product Recommendations
+
+> Sample Request
+
+```html
+https://www.martjack.com/DeveloperAPI/Customer/TargetBlocks/81e77da2-723b-483d-8c0d-49f800c1exxx
+```
+
+> Sample Response
+
+```json
+{
+    "ProductIds": [
+        13067043,
+        13067125,
+        13067247
+    ],
+    "messageCode": "1004",
+    "Message": "Successful",
+    "ErrorCode": 0
+}
+```
+
+Retrieves product recommendations based on the cart items.
+
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `Customer/TargetBlocks/{merchantId}`
+Rate Limited? | Yes
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | GET
+Batch Support | No
+
+
+### Request URL
+
+`http://{host}/developerapi/Customer/TargetBlocks/{merchantId}`
+
+### Additional Header Required
+
+Header | Description
+----- | -----------
+AccessToken | Access token of the current session (you can generate using GET AccessToken API)
