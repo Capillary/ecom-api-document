@@ -95,7 +95,7 @@ https://www.martjack.com/developerapi/Customer/12345678-1234-1234-1234-123456789
 
 
 ### Resource Information
-| | | | 
+| | |
 --------- | ----------- | 
 URI | `Customer/{{merchantId}}/Create`
 Response Formats | JSON
