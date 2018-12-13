@@ -694,7 +694,7 @@ Reorderstocklevel | |
 > Sample Request
 
 ```html
-https://www.martjack.com/developerapi/Product/GetReviews/81e77da2-723b-483d-8c0d-49f800c1exxx/PZLG-WM
+https://www.martjack.com/developerapi/Product/Price/81e77da2-723b-483d-8c0d-49f800c1exxx/PZLG-WM
 ```
 
 > Sample POST Request

@@ -243,12 +243,12 @@ https://www.martjack.com/developerapi/Location/f48fdd16-92db-4188-854d-1ecd9b62x
 
 ```
 
-> Sample POST Request
+> Sample POST Request (RAW TEXT)
 
 ```json
-
-
+zipcode=500090&deliveryarea=hyderabad&deliveryareaid=16696&outputfield=additional,deliveryarea
 ```
+
 
 > Sample Response
 
@@ -351,7 +351,7 @@ https://www.martjack.com/developerapi/Location/f48fdd16-92db-4188-854d-1ecd9b62x
 
 ```
 
-Retrieves the details of locations of a specific delivery area.
+Retrieves locations of a specific delivery area.
 
 
 ### Resource Information
@@ -379,12 +379,13 @@ merchantId* | string | Unique GUID of the merchant
 
 
 ### Request Body Parameters
+
 Parameter | Type | Description
 --------- | ---- | -----------
-zipcode*	| string | Area PIN code that you want to fetch
+zipcode*	| string | Area PIN code that you want to fetch. Example value: 110019
 deliveryarea* | string | Name of the delivery area. Example: Karnataka
-deliveryareaId*	| int | Unique id of the delivery area 
-outputfield	| | 
+deliveryareaId*	| int | Unique id of the delivery area. Example: 234
+outputfield	| enum | Pass `additional` to include additional information, `deliveryarea` to include delivery areas in the response
 
 
 
@@ -1322,6 +1323,7 @@ https://www.martjack.com/developerapi/Location/ReasonCodes/f48fdd16-92db-4188-85
 }
 ```
 
+Retrieves configured reason codes for updating delivery modes of a store - open for available and close for unavailable. For example, you need to pass the specific reason code while updating the availability of a delivery mode of a store such as home delivery, or in-store pickup.
 
 
 ### Resource Information
@@ -1400,6 +1402,7 @@ Lets you add or update order ETA (Estimated Time of Arrival) for a location incl
 
 
 ### Resource Information
+
 | | |
 --------- | ----------- |
 URI | `/Location/UpdateLocationETA/{merchantId}/{OrderDeliveryType}

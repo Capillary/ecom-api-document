@@ -27,7 +27,6 @@ https://www.martjack.com/developerapi/Customer/12345678-1234-1234-1234-123456789
       "Pin":"560001",
       "State":"KA",
       "Country":"IN",
-      "PhoneNo":null,
       "Street":"MG Road",
       "MobileNo":"917000000000",
       "BirthDate":"1/1/1994 12:00:00",
@@ -69,7 +68,6 @@ https://www.martjack.com/developerapi/Customer/12345678-1234-1234-1234-123456789
         "Pin": "560001",
         "State": "KA",
         "Country": "IN",
-        "PhoneNo": "917411639213",
         "Street": "MG Road",
         "MobileNo": "917000000000",
         "BirthDate": "1/1/1994 12:00:00 PM",
@@ -122,6 +120,7 @@ State | string |  State's postal abbreviation. Example: KA (for Karnataka), CA (
 StateName | string |  Full name of the state. Example: Karnataka, California, and Indiana
 Country | string |  alpha-2 code of the country. Example: IN (for India), AU (for Australia), and BR (for Brazil)
 CountryName | string |   Full name of the country. Example: India, Australia, and Brazil
+IsReceiveOffers | boolean | For merchant with CRM enabled, Subscribe (`true`) or unsubscribe (`false`) customer's mobile number/email id in CRM
 
 
 
@@ -1010,7 +1009,7 @@ ProfileAttributeValue | string | Customer's preferred attribute value
 
 
 
-## Add Shipping Address
+## Add/Update Shipping Address
 > Sample Request
 
 ```html
@@ -1022,7 +1021,7 @@ https://www.martjack.com/DeveloperAPI/Customer/AddShippingAddress/81e77da2-723b-
 ```json
 {  
    "shippingaddress":{  
-      "shippingaddressid":1711980,
+      "shippingaddressid":"0",
       "userId":"4cded968-8ee1-4591-a50b-41649387bxxx",
       "firstname":"Tom",
       "lastname":"Sawyer",
@@ -1035,10 +1034,7 @@ https://www.martjack.com/DeveloperAPI/Customer/AddShippingAddress/81e77da2-723b-
       "phoneno":"",
       "mobileno":"91-7411000000",
       "email":"tom.sawyer@example.com",
-      "CityName":"Bangalore",
-      "StateName":"Karnataka",
-      "CountryName":"India",
-      "AddressType":"1"
+      "AddressType":"Home Address"
    }
 }
 
@@ -1073,7 +1069,7 @@ https://www.martjack.com/DeveloperAPI/Customer/AddShippingAddress/81e77da2-723b-
 ```
 
 
-Lets you add a new shipping address to the customer's account. 
+Lets you add a new shipping address to the customer's account or update existing shipping address. 
 
 ### Resource Information
 | | |
@@ -1095,7 +1091,7 @@ Batch Support | No
 ### Request Parameters
 Parameter | Type | Description
 --------- | ---- | -------
-ShippingAddressId* |  | Unique id of the order shipment
+ShippingAddressId* |  | Unique id of the order shipment that you want to update. Just pass `0` to create a new shipping address
 userId* | string |  Registered identifier of the customer
 firstname* | string |  The first name of the customer
 lastname* | string |  The last name of the customer 
@@ -1183,7 +1179,7 @@ Retrieves the shipping address of a specific customer.
 ### Resource Information
 | | |
 --------- | ----------- |
-URI | `/Customer/{merchantId}/`
+URI | `/Customer/GetShippingAddress/{merchantId}/{UserId}`
 Rate Limited? | Yes
 Authentication | Yes
 Response Formats | JSON
@@ -1196,7 +1192,7 @@ Header Name | Value
 apiversion | 4
 
 ### Request URL
-`https://{host}/developerapi/Customer/{merchantId}/GetShippingAddress/{UserId}`
+`https://{host}/developerapi/Customer/GetShippingAddress/{merchantId}{UserId}`
 
 
 ### Request Parameters
@@ -1307,7 +1303,7 @@ Batch Support | No
 
 ### Request URL
 
-`http://{host}/developerapi/Customer/{merchantId}/Counnt`
+`http://{host}/developerapi/Customer/{merchantId}/Count`
 
 ### Success/Error Codes
 

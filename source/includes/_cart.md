@@ -394,7 +394,7 @@ Batch Support | No
 Parameter | Type | Description
 --------- | ---- | -----------
 DelveryMode | enum | Values: `H` for home delivery and `S` for store pickup
-Status | enum | Status of the cart item. Specify `A` to add item to cart
+Status | enum | Status of the cart item. Specify `A` to add item to cart, `D` to delete item from cart
 VariantProductID | int | Unique id of the variant product 
 LocationId | int | Unique id of the current store location 
 CartReferenceKey | string | Unique id of the line item added to cart. It is used in updating item quantity in cart
@@ -522,7 +522,7 @@ Item | json obj | Details of the product with the attributes mentioned below
 ProductID | int | Unique id of the parent product that you want to add to cart
 VariantProductID | int | Unique id of the variant product that you want to add to cart
 Quantity | int | Number of the current item you want to add
-Status | enum | Status of the cart item. Specify A to add item to cart
+Status | enum | Status of the cart item. Specify `A` to add item to cart, `D` to delete item from cart
 LocationId | int | Unique if of the order fulfillment location
 Portion | enum | The portion for which the child product is applied. Value: `W` for whole, `R` for right, `L` for left (left, right usually applies for toppings)
 CartReferenceKey | string | Unique reference id of the specific cart item
@@ -1594,7 +1594,7 @@ DelveryMode | enum | The mode of delivery. Value: `S` for store pick up and `H` 
 ProductID | int | Unique id of the product that you want to add
 VariantProductID | int | Unique id of the variant product
 Quantity  | int | Quantity of the current item that you want to add to cart
-Status | enum | Status of the cart item. Specify A to add item to cart
+Status | enum | Status of the cart item. Specify `A` to add item to cart, `D` to delete item from cart
 LocationId | int | Unique id of the delivery location
 Portion  | enum | The portion of the current child item. Value: `W` for whole,`L` for left, `R` for right
 CartReferenceKey | string | Unique reference key associated to the cart item
@@ -2253,7 +2253,7 @@ Item | json obj | Item details
 ProductID | int | Unique id of the product
 VariantProductID | int | Unique id of the variant product
 Quantity | int | Number of the current items that you want to add to cart
-Status | enum | Status of the cart item. Specify A to add item to cart
+Status | enum | Status of the cart item. Specify `A` to add item to cart, `D` to delete item from cart
 LocationId | int | Unique id of the location
 Portion | enum | 
 CartReferenceKey | string | 
