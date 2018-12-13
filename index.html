@@ -299,7 +299,6 @@ InputData={
       </span><span class="nt">"Pin"</span><span class="p">:</span><span class="s2">"560001"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"State"</span><span class="p">:</span><span class="s2">"KA"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"Country"</span><span class="p">:</span><span class="s2">"IN"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"PhoneNo"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="nt">"Street"</span><span class="p">:</span><span class="s2">"MG Road"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"MobileNo"</span><span class="p">:</span><span class="s2">"917000000000"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"BirthDate"</span><span class="p">:</span><span class="s2">"1/1/1994 12:00:00"</span><span class="p">,</span><span class="w">
@@ -340,7 +339,6 @@ InputData={
         </span><span class="nt">"Pin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"560001"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KA"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IN"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"PhoneNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"917411639213"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"Street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MG Road"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"MobileNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"917000000000"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"BirthDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1/1/1994 12:00:00 PM"</span><span class="p">,</span><span class="w">
@@ -461,6 +459,11 @@ InputData={
 <td>CountryName</td>
 <td>string</td>
 <td>Full name of the country. Example: India, Australia, and Brazil</td>
+</tr>
+<tr>
+<td>IsReceiveOffers</td>
+<td>boolean</td>
+<td>For merchant with CRM enabled, Subscribe (<code class="prettyprint">true</code>) or unsubscribe (<code class="prettyprint">false</code>) customer&rsquo;s mobile number/email id in CRM</td>
 </tr>
 </tbody></table>
 
@@ -4919,7 +4922,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>Status</td>
 <td>enum</td>
-<td>Status of the cart item. Specify <code class="prettyprint">A</code> to add item to cart</td>
+<td>Status of the cart item. Specify <code class="prettyprint">A</code> to add item to cart, <code class="prettyprint">D</code> to delete item from cart</td>
 </tr>
 <tr>
 <td>VariantProductID</td>
@@ -5132,7 +5135,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>Status</td>
 <td>enum</td>
-<td>Status of the cart item. Specify A to add item to cart</td>
+<td>Status of the cart item. Specify <code class="prettyprint">A</code> to add item to cart, <code class="prettyprint">D</code> to delete item from cart</td>
 </tr>
 <tr>
 <td>LocationId</td>
@@ -6287,7 +6290,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>Status</td>
 <td>enum</td>
-<td>Status of the cart item. Specify A to add item to cart</td>
+<td>Status of the cart item. Specify <code class="prettyprint">A</code> to add item to cart, <code class="prettyprint">D</code> to delete item from cart</td>
 </tr>
 <tr>
 <td>LocationId</td>
@@ -7033,7 +7036,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>Status</td>
 <td>enum</td>
-<td>Status of the cart item. Specify A to add item to cart</td>
+<td>Status of the cart item. Specify <code class="prettyprint">A</code> to add item to cart, <code class="prettyprint">D</code> to delete item from cart</td>
 </tr>
 <tr>
 <td>LocationId</td>
@@ -15147,10 +15150,9 @@ Sample POST Request</p>
 
 </code></pre>
 <blockquote>
-<p>Sample POST Request</p>
+<p>Sample POST Request (RAW TEXT)</p>
 </blockquote>
-<pre class="highlight json"><code><span class="w">
-
+<pre class="highlight json"><code><span class="err">zipcode=</span><span class="mi">500090</span><span class="err">&amp;deliveryarea=hyderabad&amp;deliveryareaid=</span><span class="mi">123</span><span class="err">&amp;outputfield=additional,deliveryarea</span><span class="w">
 </span></code></pre>
 <blockquote>
 <p>Sample Response</p>
@@ -15320,7 +15322,7 @@ Sample POST Request</p>
 <tr>
 <td>zipcode*</td>
 <td>string</td>
-<td>Area PIN code that you want to fetch</td>
+<td>Area PIN code that you want to fetch. Example value: 110019</td>
 </tr>
 <tr>
 <td>deliveryarea*</td>
@@ -15330,12 +15332,12 @@ Sample POST Request</p>
 <tr>
 <td>deliveryareaId*</td>
 <td>int</td>
-<td>Unique id of the delivery area</td>
+<td>Unique id of the delivery area. Example: 234</td>
 </tr>
 <tr>
 <td>outputfield</td>
-<td></td>
-<td></td>
+<td>enum</td>
+<td>Pass <code class="prettyprint">additional</code> to include additional information, <code class="prettyprint">deliveryarea</code> to include delivery areas in the response</td>
 </tr>
 </tbody></table>
 
@@ -16390,6 +16392,8 @@ Sample POST Request</p>
   </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
+<p>Retrieves configured reason codes for updating delivery modes of a store - open for available and close for unavailable. For example, you need to pass the specific reason code while updating the availability of a delivery mode of a store such as home delivery, or in-store pickup.</p>
+
 <h3 id="resource-information">Resource Information</h3>
 
 <table><thead>
