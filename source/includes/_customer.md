@@ -98,18 +98,20 @@ https://www.martjack.com/developerapi/Customer/12345678-1234-1234-1234-123456789
 | | |
 --------- | ----------- |
 URI | `Customer/{{merchantId}}/Create`
-Rate Limited? | Yes
 Authentication | Yes
 Response Formats | JSON
-HTTP Methods | POST
+HTTP Method | POST
 Batch Support | No
+
+
 
 ### Request URL
 `https://{host}/developerapi/Customer/{merchantId}/Create`
 
-### Request Attributes
+### Request Body Parameters
+
 Parameter | Type | Description
---------- | ---- | -------
+--------- | ---- | -----------
 UserName* | string |  The unique identifier of the customer as configured for the merchant. It could be email, mobile, or any other identifier
 merchantId* | string |  The unique id (GUID) of the merchant in which you want to register customer
 Password* | string |  Password of the customer account. Password policy is as configured for the merchant on the Merchant Panel
@@ -122,7 +124,7 @@ Country | string |  alpha-2 code of the country. Example: IN (for India), AU (fo
 CountryName | string |   Full name of the country. Example: India, Australia, and Brazil
 IsReceiveOffers | boolean | For merchant with CRM enabled, Subscribe (`true`) or unsubscribe (`false`) customer's mobile number/email id in CRM
 
-
+<aside class=notice>All parameters marked by * are mandatory.</aside>
 
 
 ## Register Customer through OTP
@@ -188,7 +190,6 @@ Validates the OTP sent to the customer.
 | | |
 --------- | ----------- |
 URI | ``
-Rate Limited? | Yes
 Authentication | Yes
 Response Formats | JSON
 HTTP Methods | 
@@ -244,7 +245,6 @@ Resets the password of the customer's current account.
 | | |
 --------- | ----------- |
 URI | `/Customer/{merchantId}/{UserId}/ChangePassword={new password}`
-Rate Limited? | Yes
 Authentication | Yes
 Response Formats | JSON
 HTTP Methods | POST
@@ -317,7 +317,6 @@ The customer has to be logged in to his account to perform to perform any task t
 Parameter | Description
 --------- | -----------
 URI | `/Customer/{merchantId}/LoginWithOTP/true?username={username}&oTP={OTP}`
-Rate Limited? | Yes
 Authentication | Yes
 Response Formats | JSON
 HTTP Methods | POST
@@ -388,7 +387,6 @@ Authorizes login of a registered user on the merchant's e-commerce store. Once t
 Parameter | Description
 --------- | -----------
 URI | `/Customer/{merchantId}/login`
-Rate Limited? | Yes
 Authentication | Yes
 Response Formats | JSON
 HTTP Methods | POST
@@ -453,7 +451,6 @@ http://martjack.com/developerapi/Customer/9820eca5-d11f-4df1-9b20-983a45ea9631/L
 | | |
 --------- | ----------- |
 URI | `/Customer/{merchantId}/LoginWithThirdPartyProvider`
-Rate Limited? | Yes
 Authentication | Yes
 Response Formats | JSON
 HTTP Methods | POST
@@ -505,7 +502,6 @@ Logs out current user. No POST body is required for this API.
 | | |
 --------- | ----------- |
 URI | `/Customer/{{MerchantId}}/Logout`
-Rate Limited? | Yes
 Authentication | Yes
 Response Formats | JSON
 HTTP Methods | POST (No POST body is required)
@@ -572,7 +568,6 @@ Creates a dummy access token for a user who did not log in to the merchant store
 | | |
 --------- | ----------- |
 URI | `Customer/GetAccessToken/{MerchantId}`
-Rate Limited? | Yes
 Authentication | Yes
 Response Formats | JSON
 HTTP Methods | POST (No POST body is required)
@@ -616,7 +611,6 @@ Verifies if the provided access token is valid or invalid.
 | | |
 --------- | ----------- |
 URI | `/Customer/{merchantId}/{accesstoken}/ValidateToken`
-Rate Limited? | Yes
 Authentication | Yes
 Response Formats | JSON
 HTTP Methods | GET
@@ -707,7 +701,6 @@ Retrieves customers based on the search keyword (containing the search keyword )
 | | |
 --------- | ----------- |
 URI | `/Customer/{merchantId}/Search`
-Rate Limited? | Yes
 Authentication | Yes
 Response Formats | JSON
 HTTP Methods | POST
@@ -795,7 +788,6 @@ Retrieves the details of a specific customer.
 | | |
 --------- | ----------- |
 URI | `/Customer/{merchantId}/{UserId}`
-Rate Limited? | Yes
 Authentication | Yes
 Response Formats | JSON
 HTTP Methods | GET
@@ -879,7 +871,6 @@ Lets you update the details of a registered customer other than the customer’s
 | | |
 --------- | ----------- |
 URI | `Customer/{merchantId}/Update`
-Rate Limited? | Yes
 Authentication | Yes
 Response Formats | JSON
 HTTP Methods | POST
@@ -967,7 +958,6 @@ Captures or updates custom field details of a customer.
 | | |
 --------- | ----------- |
 URI | `/Customer/{merchantId}/UpdateUserProfile`
-Rate Limited? | Yes
 Authentication | Yes
 Response Formats | JSON
 HTTP Methods | POST
@@ -1075,7 +1065,6 @@ Lets you add a new shipping address to the customer's account or update existing
 | | |
 --------- | ----------- |
 URI | `/Customer/AddShippingAddress/{merchantId}`
-Rate Limited? | Yes
 Authentication | Yes
 Response Formats | JSON
 HTTP Methods | POST
@@ -1180,7 +1169,6 @@ Retrieves the shipping address of a specific customer.
 | | |
 --------- | ----------- |
 URI | `/Customer/GetShippingAddress/{merchantId}/{UserId}`
-Rate Limited? | Yes
 Authentication | Yes
 Response Formats | JSON
 HTTP Methods | GET
@@ -1294,7 +1282,6 @@ https://www.martjack.com/DeveloperAPI/Customer/81e77da2-723b-483d-8c0d-49f800c1e
 | | |
 --------- | ----------- |
 URI | `Customer/{MerchantId}/Count`
-Rate Limited? | Yes
 Authentication | Yes
 Response Formats | JSON
 HTTP Methods | GET
@@ -1346,7 +1333,6 @@ Retrieves product recommendations based on the cart items.
 | | |
 --------- | ----------- |
 URI | `Customer/TargetBlocks/{merchantId}`
-Rate Limited? | Yes
 Authentication | Yes
 Response Formats | JSON
 HTTP Methods | GET
@@ -1361,4 +1347,4 @@ Batch Support | No
 
 Header | Description
 ----- | -----------
-AccessToken | Access token of the current session (you can generate using GET AccessToken API)
+AccessToken* | Access token of the current session (you can generate using GET AccessToken API)
