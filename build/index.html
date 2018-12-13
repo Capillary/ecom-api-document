@@ -365,45 +365,36 @@ InputData={
 </span></code></pre>
 <h3 id="resource-information">Resource Information</h3>
 
-<table><thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead><tbody>
-<tr>
-<td>URI</td>
-<td><code class="prettyprint">Customer/{{merchantId}}/Create</code></td>
-</tr>
-<tr>
-<td>Rate Limited?</td>
-<td>Yes</td>
-</tr>
-<tr>
-<td>Authentication</td>
-<td>Yes</td>
-</tr>
-<tr>
-<td>Response Formats</td>
-<td>JSON</td>
-</tr>
-<tr>
-<td>HTTP Methods</td>
-<td>POST</td>
-</tr>
-<tr>
-<td>Batch Support</td>
-<td>No</td>
-</tr>
-</tbody></table>
+<p>| | | | 
+&mdash;&mdash;&mdash; | &mdash;&mdash;&mdash;&ndash; | 
+URI | <code class="prettyprint">Customer/{{merchantId}}/Create</code>
+Response Formats | JSON
+HTTP Method | POST | 
+Batch Support | No | 
+Rate Limited? | No | <strong>Rate limiter</strong> controls the number of incoming and outgoing traffic of a network
+Authentication | Yes | </p>
 
-<p><strong>Rate limiting</strong> is used to control the amount of incoming and outgoing traffic of a network.</p>
+<ul>
+<li><strong>Rate limiter</strong> controls the number of incoming and outgoing traffic of a network</li>
+<li><strong>Authentication</strong> verifies the identity of the current user or an integration</li>
+</ul>
+
+<aside class="notice">
+URI: End point of the APIs
+
+Authentication: Is authentication required to make the API call
+
+Response Formats: Supported response types for the APIs
+
+HTTP Method: 
+
+</aside> 
 
 <h3 id="request-url">Request URL</h3>
 
 <p><code class="prettyprint">https://{host}/developerapi/Customer/{merchantId}/Create</code></p>
 
-<h3 id="request-attributes">Request Attributes</h3>
+<h3 id="request-body-parameters">Request Body Parameters</h3>
 
 <table><thead>
 <tr>
@@ -469,7 +460,7 @@ InputData={
 </tr>
 </tbody></table>
 
-<aside class=notice>All params marked by * are mandatory.</aside>
+<aside class=notice>All parameters marked by * are mandatory.</aside>
 
 <h2 id="register-customer-through-otp">Register Customer through OTP</h2>
 
@@ -502,7 +493,7 @@ InputData={
 </tr>
 <tr>
 <td>Rate Limited?</td>
-<td>Yes</td>
+<td>No</td>
 </tr>
 <tr>
 <td>Authentication</td>
@@ -554,7 +545,7 @@ InputData={
 </tr>
 <tr>
 <td>Rate Limited?</td>
-<td>Yes</td>
+<td>No</td>
 </tr>
 <tr>
 <td>Authentication</td>
@@ -632,7 +623,7 @@ InputData={
 </tr>
 <tr>
 <td>Rate Limited?</td>
-<td>Yes</td>
+<td>No</td>
 </tr>
 <tr>
 <td>Authentication</td>
@@ -656,7 +647,7 @@ InputData={
 
 <p><code class="prettyprint">https://{host}/developerapi/Customer/{merchantId}/{UserId}/ChangePassword={new password}</code></p>
 
-<h3 id="request-query-parameters">Request Query Parameters</h3>
+<h3 id="request-path-parameters">Request Path Parameters</h3>
 
 <table><thead>
 <tr>
@@ -681,6 +672,8 @@ InputData={
 <td>New password that you want to have for the account</td>
 </tr>
 </tbody></table>
+
+<aside class=notice>All parameters marked by * are mandatory.</aside>
 
 <h2 id="customer-login-with-otp">Customer Login (with OTP)</h2>
 
@@ -735,7 +728,7 @@ The customer has to be logged in to his account to perform to perform any task t
 </tr>
 <tr>
 <td>Rate Limited?</td>
-<td>Yes</td>
+<td>No</td>
 </tr>
 <tr>
 <td>Authentication</td>
@@ -777,7 +770,7 @@ The customer has to be logged in to his account to perform to perform any task t
 </tr>
 </tbody></table>
 
-<h3 id="request-attributes">Request Attributes</h3>
+<h3 id="request-body-parameters">Request Body Parameters</h3>
 
 <table><thead>
 <tr>
@@ -797,6 +790,8 @@ The customer has to be logged in to his account to perform to perform any task t
 <td>Unique verification code received to the customer&rsquo;s registered mobile number or email id (through SendOTP API)</td>
 </tr>
 </tbody></table>
+
+<aside class=notice>All parameters marked by * are mandatory.</aside>
 
 <h2 id="customer-login-with-credentials">Customer Login (with Credentials)</h2>
 
@@ -848,7 +843,7 @@ The customer has to be logged in to his account to perform to perform any task t
 </tr>
 <tr>
 <td>Rate Limited?</td>
-<td>Yes</td>
+<td>No</td>
 </tr>
 <tr>
 <td>Authentication</td>
@@ -872,7 +867,7 @@ The customer has to be logged in to his account to perform to perform any task t
 
 <p><code class="prettyprint">https://{host}/developerapi/Customer/{merchantId}/login</code></p>
 
-<h3 id="request-attributes">Request Attributes</h3>
+<h3 id="request-body-parameters">Request Body Parameters</h3>
 
 <table><thead>
 <tr>
@@ -892,6 +887,8 @@ The customer has to be logged in to his account to perform to perform any task t
 <td>Password of the customer account</td>
 </tr>
 </tbody></table>
+
+<aside class=notice>All parameters marked by * are mandatory.</aside>
 
 <h2 id="customer-login-with-third-party-provider">Customer Login with Third Party Provider</h2>
 
@@ -946,7 +943,7 @@ The customer has to be logged in to his account to perform to perform any task t
 </tr>
 <tr>
 <td>Rate Limited?</td>
-<td>Yes</td>
+<td>No</td>
 </tr>
 <tr>
 <td>Authentication</td>
@@ -972,17 +969,66 @@ The customer has to be logged in to his account to perform to perform any task t
 
 <h3 id="request-body-parameters">Request Body Parameters</h3>
 
-<p>Parameter | Type | Description
-&mdash;&mdash;&ndash; | string | Unique GUID of the merchant
-provider | string | Name of the third party login service provider
-profileId | string | Unique profile id of the service provider
-email | string | Email id of the user registered with the provider
-firstName | string | First name of the user
-lastName | string | Last name of the user<br>
-gender | string | <code class="prettyprint">M</code> for make and <code class="prettyprint">F</code> for female
-loginId | string | Log in id of the user
-mobileNo | string | Registered mobile number of the user with the provider
-subscribeToOffers | enum | Specify <code class="prettyprint">true</code> to subscribe user to merchant offers, else specify <code class="prettyprint">false</code></p>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>merchantId*</td>
+<td>string</td>
+<td>Unique GUID of the merchant</td>
+</tr>
+<tr>
+<td>provider</td>
+<td>string</td>
+<td>Name of the third party login service provider</td>
+</tr>
+<tr>
+<td>profileId</td>
+<td>string</td>
+<td>Unique profile id of the service provider</td>
+</tr>
+<tr>
+<td>email</td>
+<td>string</td>
+<td>Email id of the user registered with the provider</td>
+</tr>
+<tr>
+<td>firstName</td>
+<td>string</td>
+<td>First name of the user</td>
+</tr>
+<tr>
+<td>lastName</td>
+<td>string</td>
+<td>Last name of the user</td>
+</tr>
+<tr>
+<td>gender</td>
+<td>string</td>
+<td><code class="prettyprint">M</code> for make and <code class="prettyprint">F</code> for female</td>
+</tr>
+<tr>
+<td>loginId</td>
+<td>string</td>
+<td>Log in id of the user</td>
+</tr>
+<tr>
+<td>mobileNo</td>
+<td>string</td>
+<td>Registered mobile number of the user with the provider</td>
+</tr>
+<tr>
+<td>subscribeToOffers</td>
+<td>enum</td>
+<td>Specify <code class="prettyprint">true</code> to subscribe user to merchant offers, else specify <code class="prettyprint">false</code></td>
+</tr>
+</tbody></table>
+
+<aside class=notice>All parameters marked by * are mandatory.</aside>
 
 <h2 id="customer-logout">Customer Logout</h2>
 
@@ -1017,7 +1063,7 @@ subscribeToOffers | enum | Specify <code class="prettyprint">true</code> to subs
 </tr>
 <tr>
 <td>Rate Limited?</td>
-<td>Yes</td>
+<td>No</td>
 </tr>
 <tr>
 <td>Authentication</td>
@@ -1071,6 +1117,8 @@ subscribeToOffers | enum | Specify <code class="prettyprint">true</code> to subs
 </tr>
 </tbody></table>
 
+<aside class=notice>All parameters and headers marked by * are mandatory.</aside>
+
 <h2 id="get-access-token">Get Access Token</h2>
 
 <blockquote>
@@ -1109,7 +1157,7 @@ subscribeToOffers | enum | Specify <code class="prettyprint">true</code> to subs
 </tr>
 <tr>
 <td>Rate Limited?</td>
-<td>Yes</td>
+<td>No</td>
 </tr>
 <tr>
 <td>Authentication</td>
@@ -1182,7 +1230,7 @@ subscribeToOffers | enum | Specify <code class="prettyprint">true</code> to subs
 </tr>
 <tr>
 <td>Rate Limited?</td>
-<td>Yes</td>
+<td>No</td>
 </tr>
 <tr>
 <td>Authentication</td>
@@ -1305,7 +1353,7 @@ subscribeToOffers | enum | Specify <code class="prettyprint">true</code> to subs
 </tr>
 <tr>
 <td>Rate Limited?</td>
-<td>Yes</td>
+<td>No</td>
 </tr>
 <tr>
 <td>Authentication</td>
@@ -1421,7 +1469,7 @@ subscribeToOffers | enum | Specify <code class="prettyprint">true</code> to subs
 </tr>
 <tr>
 <td>Rate Limited?</td>
-<td>Yes</td>
+<td>No</td>
 </tr>
 <tr>
 <td>Authentication</td>
@@ -1562,7 +1610,7 @@ subscribeToOffers | enum | Specify <code class="prettyprint">true</code> to subs
 </tr>
 <tr>
 <td>Rate Limited?</td>
-<td>Yes</td>
+<td>No</td>
 </tr>
 <tr>
 <td>Authentication</td>
@@ -1721,7 +1769,7 @@ subscribeToOffers | enum | Specify <code class="prettyprint">true</code> to subs
 </tr>
 <tr>
 <td>Rate Limited?</td>
-<td>Yes</td>
+<td>No</td>
 </tr>
 <tr>
 <td>Authentication</td>
@@ -1851,7 +1899,7 @@ subscribeToOffers | enum | Specify <code class="prettyprint">true</code> to subs
 </tr>
 <tr>
 <td>Rate Limited?</td>
-<td>Yes</td>
+<td>No</td>
 </tr>
 <tr>
 <td>Authentication</td>
@@ -2028,7 +2076,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 </tr>
 <tr>
 <td>Rate Limited?</td>
-<td>Yes</td>
+<td>No</td>
 </tr>
 <tr>
 <td>Authentication</td>
@@ -2148,7 +2196,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 </tr>
 <tr>
 <td>Rate Limited?</td>
-<td>Yes</td>
+<td>No</td>
 </tr>
 <tr>
 <td>Authentication</td>
@@ -2264,7 +2312,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 </tr>
 <tr>
 <td>Rate Limited?</td>
-<td>Yes</td>
+<td>No</td>
 </tr>
 <tr>
 <td>Authentication</td>
@@ -2355,7 +2403,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 </tr>
 <tr>
 <td>Rate Limited?</td>
-<td>Yes</td>
+<td>No</td>
 </tr>
 <tr>
 <td>Authentication</td>
@@ -2388,7 +2436,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 </tr>
 </thead><tbody>
 <tr>
-<td>AccessToken</td>
+<td>AccessToken*</td>
 <td>Access token of the current session (you can generate using GET AccessToken API)</td>
 </tr>
 </tbody></table>
