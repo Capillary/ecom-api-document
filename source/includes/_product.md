@@ -3,72 +3,13 @@
 A product is an item that a merchant sells on the Anywhere Commerce platform. This resource consists of APIs related managing product inventory of a merchant such as variable and bundle items, product categories, location, and promotions; and also to fetch product details.
 
 
-## Add Review
-
-```html
-https://www.martjack.com/developerapi/Product/AddReview/81e77da2-723b-483d-8c0d-49f800c1exxx/0639f7a6-34cc-48b2-9fd9-a80e2ed8xxxx/PZLG-WM
-```
-
-> Sample Request
-
-```json
-{
-	"title": "Title31",
-	"message": "message75",
-	"isGoLive": "True"
-}
-```
-
-> Sample Response
-
-```json
-{
-    "messageCode": "1004",
-    "Message": "Successful",
-    "ErrorCode": 0
-}
-```
-
-Publishes customer review for a specific product. 
-
-
-### Resource Information
-| | |
---------- | ----------- |
-URI | `Product/AddReview/{MerchantId}/{UserId}/{SKU}`
-Rate Limited? | Yes
-Authentication | Yes
-Response Formats | JSON
-HTTP Methods | POST
-Batch Support | No
-
-
-### Request URL
-
-`https://{host}/developerapi/Product/AddReview/{MerchantId}/{UserId}/{SKU}`
-
-
-
-### Request Query Parameters
-
-Parameter | Type | Description
--------- | ----- | -----------
-MerchantId* | string | Specify the merchant id for which the review has to be associated
-UserId* | string | Specify the unique id of the customer that provided the review
-SKU* | string  | Specify the product SKU for which the review has to be associated
-
-### Request Body Parameters
-
-Attribute | Description
--------- | ----------
-title* | Specify the title of the product review as provided by the customer
-message* | Specify the entire review content as entered by the customer
-isGoLive* | 
 
 
 
 
-## Update Location wise Stock
+
+
+## Update Location wise Stock & Price
 
 > Sample Request
 
@@ -83,7 +24,7 @@ https://www.martjack.com/developerapi/product/UpdateLocationWiseStock
 MerchantId="0639f7a6-34cc-48b2-9fd9-a80e2ed8xxxx"&InputFormat="application/json"&InputData={
 	"products": {
 		"product": {
-			"sku":"zara1234121",
+			"sku":"sku1234121",
 			"variantsku":"",
 			"stock":"10",
 			"locationrefcode":"4702",
@@ -124,8 +65,8 @@ Updates item stock and price of a specific location.
 ### Resource Information
 | | |
 --------- | ----------- |
-URI | `/product/LocationWiseStock`
-Rate Limited? | Yes
+URI | `/product/UpdateLocationWiseStock`
+Rate Limited? | No
 Authentication | Yes
 Response Formats | JSON
 HTTP Methods | POST
@@ -141,12 +82,24 @@ Parameter | Datatype | Description
 --------- | -------- | ----------
 sku* | string | SKU of the product of a specific location for which you want to update stock and price
 variantsku* | string | The variant SKU of the current item (only for variant products)
-stock | int | Number of available items of the current SKU. Specify NA if not applicable
-locationrefcode* | string | Location reference code of the current item (physical store or warehouse)
+stock | int | Number of available items of the current SKU. Specify NA for out of stock
+locationrefcode* | string | Location reference code of the location for which product stock/price update is made (physical store or warehouse)
 Quantity  | int | The quantity of the item for which you want to update the price
 MRP  | float | Retail price of the item
 WebPrice | float | Selling price of the item
 TokenPrice | float | Minimum amount required for the customer to reserve the item and purchase later on
+
+<aside class="notice"> All parameters marked by * are mandatory.</aside>
+
+
+### Response Parameters
+
+Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.
+
+
+Parameter | Type | Description
+--------- | ---- | -----------
+Taskid | int | Unique id generated for the current update location task
 
 
 ## Update Product Information (normal)
@@ -174,10 +127,6 @@ MerchantId="0639f7a6-34cc-48b2-9fd9-a80e2ed8xxxx"&InputFormat="application/json"
          "Webprice":"499",
          "Availability":"Y",
          "ProductType":"P",
-         "VariantProperty1":"color",
-         "value1":"red",
-         "VariantProperty2":"",
-         "value2":"",
          "SmallImage":"filename.jpg",
          "LargeImage":"image.jpg",
          "ShortDescription":"Mens jeans blue denim",
@@ -196,12 +145,6 @@ MerchantId="0639f7a6-34cc-48b2-9fd9-a80e2ed8xxxx"&InputFormat="application/json"
          "DeliveryTime":"2-5 business days",
          "CatalogSequence":"50",
          "ProductWeight":"200",
-         "VariantProperty3":"",
-         "Value3":"",
-         "VariantProperty4":"",
-         "Value4":"",
-         "VariantProperty5":"",
-         "Value5":"",
          "BankProductId":"654786",
          "OfferProductDescription":"example.xml",
          "OfferProductImage":"image.jpg",
@@ -296,16 +239,13 @@ VariantProperty | string | The property of the variant product such as size, col
 VariantValue | string | The value of the specified property. *Required for Variant Product
 BrandID* | string | Unique id of the brand associated to the product
 ProductTitle* | string | Title of the product to appear on the product's page
-ProductType* | string | Type of the product. Values: `P` for a normal product, `A` for an add-on products, `D` for a deal product, and `B` for a bundle product
+ProductType* | string | Type of the product. Values: `P` for a normal product, `A` for an add-on products, and `B` for a bundle product or deal product
 CategoryRefCode | string | Reference code of the product category
 Inventory | int |  The number of available products of the current SKU (stock)
 MRP | float  | Retail price of the product
 Webprice | float | Selling price of the product on the storefront
 Availability | string | Specify the availability of the product. Values: `Y` if available, `N` if unavailable
 BarCode | string | Bar code of the product
-ProductType | enum | Type of the product. Values: P (normal product), B (bundle product), A (add-on product), D (deal product)
-VariantProperty | string | Specify the property name of the variant product. For example, color, size, weight, ram, harddisk. You can add more properties in VariantProperty1, VariantProperty2 and so on
-value | string | Value of the specified property. You can add each property value in value1, value2 and so on
 SmallImage | string | Source image of the product -  small size (supported formats: .png, jpg,jpeg, .svc, and .gif)
 LargeImage | string | Source image of the product - large size (supported formats: .png, jpg,jpeg, .svc, and .gif)
 ShortDescription | string | Short description of the product. This will appear on the product showcase page
@@ -370,9 +310,29 @@ Vendor | enum | Vendor name associated to the measurement for the product (Prede
 VendorSKU | string | SKU of the product in the vendor system
 StdProductType | enum | HSN of the product type. Values: UPC, EAN, GTIN, ASIIN, ISBN10, ISBN13
 FulfillmentServiceRefCode | string | Reference code of the order fulfillment location
-SectionRefCode | | 
-Reorderstocklevel | | 
 
+<aside class="notice"> All parameters marked by * are mandatory.</aside>
+
+
+### Response Parameters
+
+Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.
+
+
+Parameter | Type | Description
+--------- | ---- | -----------
+Taskid | int | Unique id generated for the current update task
+
+<aside class="notice"> All parameters marked by * are mandatory.</aside>
+
+
+### Response Parameters
+
+Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.
+
+
+Parameter | Type | Description
+--------- | ---- | -----------
 
 
 ## Update Product Information (Variant)
@@ -400,10 +360,6 @@ MerchantId="0639f7a6-34cc-48b2-9fd9-a80e2ed8xxxx"&InputFormat="application/json"
          "Webprice":"499",
          "Availability":"Y",
          "ProductType":"P",
-         "VariantProperty1":"color",
-         "value1":"red",
-         "VariantProperty2":"",
-         "value2":"",
          "SmallImage":"filename.jpg",
          "LargeImage":"image.jpg",
          "ShortDescription":"Mens jeans blue denim",
@@ -422,12 +378,6 @@ MerchantId="0639f7a6-34cc-48b2-9fd9-a80e2ed8xxxx"&InputFormat="application/json"
          "DeliveryTime":"2-5 business days",
          "CatalogSequence":"50",
          "ProductWeight":"200",
-         "VariantProperty3":"",
-         "Value3":"",
-         "VariantProperty4":"",
-         "Value4":"",
-         "VariantProperty5":"",
-         "Value5":"",
          "BankProductId":"654786",
          "OfferProductDescription":"example.xml",
          "OfferProductImage":"image.jpg",
@@ -512,7 +462,7 @@ MerchantId="0639f7a6-34cc-48b2-9fd9-a80e2ed8xxxx"&InputFormat="application/json"
         "VariantProperty1":"Color",
         "Value1":"Red",
         "VariantProperty2":"Size",
-        "Value3":"S",
+        "Value2":"S",
         "VariantProperty3":"",
         "Value3":"",
         "BankProductId":"654786",
@@ -608,16 +558,13 @@ VariantProperty | string | The property of the variant product such as size, col
 VariantValue | string | The value of the specified property. *Required for Variant Product
 BrandID* | string | Unique id of the brand associated to the product
 ProductTitle* | string | Title of the product to appear on the product's page
-ProductType* | string | Type of the product. Values: `P` for a normal product, `A` for an add-on products, `D` for a deal product, and `B` for a bundle product
+ProductType* | string | Type of the product. Values: `P` for a normal product, `A` for an add-on products, and `B` for a bundle product or deal product
 CategoryRefCode | string | Reference code of the product category
 Inventory | int |  The number of available products of the current SKU (stock)
 MRP | float  | Retail price of the product
 Webprice | float | Selling price of the product on the storefront
 Availability | string | Specify the availability of the product. Values: `Y` if available, `N` if unavailable
 BarCode | string | Bar code of the product
-ProductType | enum | Type of the product. Values: P (normal product), B (bundle product), A (add-on product), D (deal product)
-VariantProperty | string | Specify the property name of the variant product. For example, color, size, weight, ram, harddisk. You can add more properties in VariantProperty1, VariantProperty2 and so on
-value | string | Value of the specified property. You can add each property value in value1, value2 and so on
 SmallImage | string | Source image of the product -  small size (supported formats: .png, jpg,jpeg, .svc, and .gif)
 LargeImage | string | Source image of the product - large size (supported formats: .png, jpg,jpeg, .svc, and .gif)
 ShortDescription | string | Short description of the product. This will appear on the product showcase page
@@ -682,11 +629,26 @@ Vendor | enum | Vendor name associated to the measurement for the product (Prede
 VendorSKU | string | SKU of the product in the vendor system
 StdProductType | enum | HSN of the product type. Values: UPC, EAN, GTIN, ASIIN, ISBN10, ISBN13
 FulfillmentServiceRefCode | string | Reference code of the order fulfillment location
-SectionRefCode | | 
-Reorderstocklevel | | 
+
+<aside class="notice"> All parameters marked by * are mandatory.</aside>
 
 
+### Response Parameters
 
+Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.
+
+
+Parameter | Type | Description
+--------- | ---- | -----------
+
+### Response Parameters
+
+Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.
+
+
+Parameter | Type | Description
+--------- | ---- | -----------
+Taskid | int | Unique id generated for the current update task
 
 
 ## Get SKU Price
@@ -774,7 +736,18 @@ usergroupid | int | Specify the user group id to associate the price list to a s
 locationrefcode  |  string | Location/store code associated to the price list
 channelrefcode | string  | Channel code to which the price list is associated
 
+<aside class="notice"> All parameters marked by * are mandatory.</aside>
 
+### Response Parameters
+
+Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.
+
+
+Parameter | Type | Description
+--------- | ---- | -----------
+usergroupname | string | 
+tokenprice | float | Minimum amount required for the customer to reserve the item and purchase later on
+channelrefcode | string | Channel code to which the price list is associated
 
 
 
@@ -844,6 +817,11 @@ Parameter | Type | Description
 MerchantId* | string | The unique GUID of the merchant
 Sku* | string | SKU of the product for which you want to fetch reviews
 
+<aside class="notice"> All parameters marked by * are mandatory.</aside>
+
+
+
+
 
 
 ## Attach Product Images
@@ -861,10 +839,10 @@ https://www.martjack.com/developerapi/Product/AttachImages/f48fdd16-92db-4188-85
 ```json
 [
   {
-    "sku": "Zara42134125",
+    "sku": "sku42134125",
     "variants": [
       {
-        "variantsku": "Zara4113231",
+        "variantsku": "sku4113231",
         "images": [
           {
             "filename": "filnemae.jpg",
@@ -984,7 +962,7 @@ Batch Support | Yes
 PageTitle | Type | Description
 ------- | ------ | ---------
 sku | string | SKU of the item for which you want to add images
-images | | | Image details to be attached based on the variant property and value
+images | json obj | Image details to be attached based on the variant property and value
 filename | string  | Name of the image file
 sequence| int | Sequence rank of the image. 1 appears 1st. 
 deepzoom | string | .xml file regarding the zooming effects on mouse hover or product clicks
@@ -1013,3 +991,577 @@ seoinfo | string | Search Engine Optimization for the 360 degree video
 filename | string | File name of the video with the respective extension
 sequence | 0 | Sequence order in which the view 360 video has to appear on the product page
 
+<aside class="notice"> All parameters marked by * are mandatory.</aside>
+
+### Response Parameters
+
+Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.
+
+
+Parameter | Type | Description
+--------- | ---- | -----------
+Taskid | int | Unique id generated for the current task
+
+## Get Product Details by Location
+
+> Sample Request
+
+```html
+https://www.martjack.com/developerapi/Product/Information/9820eca5-d11f-4df1-9b20-983a45ea9631/11982534/16696
+```
+
+> Sample Response
+
+```json
+"{
+    "messageCode":""1004"",
+    "Message":"Successful"",
+    "Product"":
+    {
+        "ProductId"":11982534,
+        ""ProductTitle"":""Mothers Dairy Safal Frozen Vegetables - Mixed Vegetables,"",
+        ""MRP"":50.0,
+        ""WebPrice"":50.0,
+        ""CostPrice"":0.0,
+        ""Rating"":0,
+        ""IsParentProduct"":false,
+        ""Availability"":true,
+        ""BrandId"":""0"",
+        ""CatlogSequence"":0,
+        ""CatalogCode":"",
+        "SKU":"100040621",
+        "Taxtotal":0,
+        "MarkupPrice":0,
+        "MarkupType":"",
+        "BulkQuantity":1,
+        "ProductWeight":0.0,
+        "ProductType":"P",
+        "SmallImageAltText":"0",
+        "IsShippingConfigured":false,
+        "IsTaxConfigured":false,
+        "StartDate":"\/Date(1537209000000+0530)\/",
+        "EndDate":"\/Date(1537295400000+0530)\/",
+        "SeoURL":"http:\/\/www.example.martjack.com\/mothers-dairy-safal-frozen-vegetables---mixed-vegetables\/p\/11982534",
+        "DeliveryTime":"Delivered in 5 Working days",
+        "TokenPriceCheckout":false,
+        "IsReferPrice":false,
+        "ShortDescription":"",
+        "TokenPrice":0.0,
+        "SmallImage":"",
+        "Brandname":"Safal",
+        "CategoryId":"CU00333866",
+        "CategoryName":"Frozen Mixed Vegetable",
+        "Fulldescription":"",
+        "NoofReview":"0",
+        "BarCode":"9876567892",
+        "Inventory":"120",
+        "PreOrder":"0",
+        "BackOrder":"0",
+        "OfferDescription":"",
+        "RefProductId":"0",
+        "Sellerid":"00000000-0000-0000-0000-000000000000",
+        "ShippingCodes":"Cart amount",
+        "IsInStock":"true",
+        "ProductSequence":0,
+        "UOM":"Pieces"
+    },
+    "ErrorCode":0
+}"
+
+
+```
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `/Product/Information/{merchantId}/{productId}/{locationId}`
+Response Formats | JSON
+HTTP Methods | POST
+Batch Support | Yes
+Rate Limited? | No
+Authentication | Yes
+
+
+### Request URL
+`https://{host}/developerapi/Product/Information/{merchantId}/{productId}/{locationId}`
+
+
+### Request Path Parameters
+
+Parameter | Type | Description
+--------- | ---- | -----------
+merchantId* | string | Unique GUID of the merchant
+productId* | int | Product id  of the SKU
+locationId* | int | Location id of the location
+
+<aside class="notice"> All parameters marked by * are mandatory.</aside>
+
+### Response Parameters
+
+Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.
+
+Parameter | Type | Description
+--------- | ---- | -----------
+CatlogSequence | int | Sequence of the product in catalog
+MarkupPrice | | 
+MarkupType | | 
+IsShippingConfigured | boolean | 
+IsTaxConfigured | boolean | 
+StartDate | | 
+EndDate | 
+SeoURL | 
+TokenPriceCheckout | float | Minimum amount required for the customer to reserve the item during checkout and purchase later on
+IsReferPrice | 
+NoofReview | 
+UOM | string | Unit of metrics. It could be the `pieces` for items that are sold as a piece and the respective measure for other items such as kgs, and gms 
+
+
+## Get Product Details (by SKU)
+
+> Sample Request
+
+```html
+https://www.martjack.com/developerapi/Product/SKU/81e77da2-723b-483d-8c0d-49f800c1exxx/100040621
+```
+
+> Sample Response
+
+```json
+
+"{
+    "messageCode":"1004",
+    "Message":"Successful",
+    "Product":
+    {
+        "ProductId":11982534,
+        "ProductTitle":"Mothers Dairy Safal Frozen Vegetables - Mixed Vegetables,",
+        "MRP":50.0,
+        "WebPrice":50.0,
+        "CostPrice":0.0,
+        "Rating":0,
+        "IsParentProduct":false,
+        "Availability":true,
+        "BrandId":"0",
+        "CatlogSequence":0,
+        "CatalogCode":"",
+        "SKU":"100040621",
+        "Taxtotal":0,
+        "MarkupPrice":0,
+        "MarkupType":"",
+        "BulkQuantity":0,
+        "ProductWeight":0.0,
+        "ProductType":"P",
+        "SmallImageAltText":"0",
+        "IsShippingConfigured":false,
+        "IsTaxConfigured":false,
+        "StartDate":"\/Date(1537209000000+0530)\/",
+        "EndDate":"\/Date(1537295400000+0530)\/",
+        "SeoURL":"",
+        "DeliveryTime":"Delivered in 5 Working days",
+        "TokenPriceCheckout":false,
+        "IsReferPrice":false,
+        "ShortDescription":"",
+        "TokenPrice":0.0,
+        "SmallImage":"",
+        "Brandname":null,
+        "CategoryId":"CU00333866",
+        "CategoryName":null,
+        "Fulldescription":null,
+        "NoofReview":null,
+        "BarCode":null,
+        "ProductSequence":0,
+        "UOM":null
+    },
+    "ErrorCode":0
+}"
+
+```
+
+
+
+Retrieves the details of a specific product by SKU.
+
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `/Product/SKU/{merchantId}/{sku}`
+Response Formats | JSON
+HTTP Methods | POST
+Batch Support | Yes
+Rate Limited? | No
+Authentication | Yes
+
+
+### Request URL
+`https://{host}/developerapi/Product/SKU/{merchantId}/{sku}`
+
+
+### Request Path Parameters
+
+Parameter | Type | Description
+--------- | ---- | -----------
+merchantId* | string | Unique GUID of the merchant
+sku* | string |  SKU of the product that you want to fetch
+
+
+<aside class="notice"> All parameters marked by * are mandatory.</aside>
+
+### Response Parameters
+
+Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.
+
+Parameter | Type | Description
+--------- | ---- | -----------
+CatlogSequence | | The sequence of the product in catalog
+MarkupPrice | | 
+MarkupType | | 
+BulkQuantity | | 
+NoofReview | | 
+UOM | | 
+
+
+
+
+
+## Get Product Variants
+
+> Sample Request
+
+```html
+https://www.martjack.com/developerapi/Product/9820eca5-d11f-4df1-9b20-983a45ea9631/12322048/true
+```
+
+
+> Sample Response
+
+```json
+"{
+    "messageCode":"1004",
+    "Message":"Successful",
+    "ProductVarient":
+    [
+        {
+            "variantProductId":"9076980",
+            "productId":12322048,
+            "MRP":400,
+            "WebPrice":400.0,
+            "SKU":"100309195",
+            "Inventory":110,
+            "ReferenceProductVariantId":0,
+            "productType":"",
+            "merchantId":"f48fdd16-92db-4188-854d-1ecd9b62d066",
+            "BulkQuantity":1,
+            "Availability":true,
+            "StartDate":"\/Date(-2209008600000+0530)\/",
+            "EndDate":"\/Date(-2209008600000+0530)\/",
+            "CostPrice":0,
+            "BarCode":"100309195,8906001020547",
+            "CatalogCode":"",
+            "IsDropShipping":false,
+            "MarkupPrice":0,
+            "MarkupType":"",
+            "IsReferProductInfo":false,
+            "IsReferPrice":false,
+            "TokenPrice":0,
+            "Flag":"",
+            "ReserveQuantity":0,
+            "ReOrderStockLevel":0,
+            "StockAlertQuantity":0,
+            "PreOrderMessage":"",
+            "PreOrder":false,
+            "BackOrder":false,
+            "IsStockEnabled":false,
+            "WebPriceWithoutDiscount":0,
+            "ProductVariantValueViews":
+            [
+                {
+                    "valueId":14870754,
+                    "variantProductId":9076980,
+                    "variantPropertyId":13068,
+                    "variantPropertyValueId":297444,
+                    "IsDisplaySwatch":false,
+                    "Rank":100375,
+                    "variantPropertyName":"Weight",
+                    "variantValue":"1kg Box",
+                    "flag":""
+                }
+            ]
+        },
+        {
+            "variantProductId":"9077536",
+            "productId":12322048,
+            "MRP":115,
+            "WebPrice":115.0,
+            "SKU":"100258508",
+            "Inventory":120,
+            "ReferenceProductVariantId":0,
+            "productType":"",
+            "merchantId":"f48fdd16-92db-4188-854d-1ecd9b62d066",
+            "BulkQuantity":1,
+            "Availability":true,
+            "StartDate":"\/Date(-2209008600000+0530)\/",
+            "EndDate":"\/Date(-2209008600000+0530)\/",
+            "CostPrice":0,
+            "BarCode":"100258508,8906001020431",
+            "CatalogCode":"",
+            "IsDropShipping":false,
+            "MarkupPrice":0,
+            "MarkupType":"",
+            "IsReferProductInfo":false,
+            "IsReferPrice":false,
+            "TokenPrice":0,
+            "Flag":"",
+            "ReserveQuantity":0,
+            "ReOrderStockLevel":0,
+            "StockAlertQuantity":0,
+            "PreOrderMessage":"",
+            "PreOrder":false,
+            "BackOrder":false,
+            "IsStockEnabled":false,
+            "WebPriceWithoutDiscount":0,
+            "ProductVariantValueViews":
+            [
+                {
+                    "valueId":14871310,
+                    "variantProductId":9077536,
+                    "variantPropertyId":13068,
+                    "variantPropertyValueId":297450,
+                    "IsDisplaySwatch":false,
+                    "Rank":100378,
+                    "variantPropertyName":"Weight",
+                    "variantValue":"200g Box",
+                    "flag":""
+                }
+            ]
+        }
+    ],
+    "ErrorCode":0
+}"
+
+
+```
+
+
+
+
+
+Retrieves all the available variants of a product.
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `/Product/Varients/{merchantId}/{productId}/{availability}`
+Response Formats | JSON
+HTTP Methods | POST
+Batch Support | Yes
+Rate Limited? | No
+Authentication | Yes
+
+
+### Request URL
+`https://{host}/developerapi/Product/Varients/{merchantId}/{productId}/{availability}`
+
+
+### Request Path Parameters
+
+Parameter | Type | Description
+--------- | ---- | -----------
+merchantId* | string | Unique GUID of the merchant
+productId* | string |  Unique id of the product for which you want to fetch available variants
+availability | boolean | Pass `true` to retrieve only active variant products, `false` to retrieve both active and inactive variant products
+
+<aside class="notice"> All parameters marked by * are mandatory.</aside>
+
+### Response Parameters
+
+Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.
+
+Parameter | Type | Description
+--------- | ---- | -----------
+ReferenceProductVariantId | | 
+StartDate | | 
+EndDate | | 
+MarkupPrice | | 
+MarkupType | | 
+IsReferProductInfo | | 
+IsReferPrice | | 
+ReserveQuantity | | 
+ReOrderStockLevel | | 
+IsDisplaySwatch | | 
+flag | | 
+
+
+
+
+
+## Get Product by Tag
+
+> Sample Request
+
+```html
+https://www.martjack.com/developerapi/Product/9820eca5-d11f-4df1-9b20-983a45ea9631/bestoffers/16654
+```
+
+> Sample Response
+
+```json
+{
+   "messageCode":"1004",
+   "Message":"Successful",
+   "Products":
+   [
+       {
+           "ProductId":11631476,
+           "ProductTitle":"Fresho Pomegranate - Peeled, 200 gm 12",
+           "MRP":1000.0,
+           "WebPrice":1000.0,
+           "CostPrice":0.0,
+           "Rating":0,
+           "IsParentProduct":false,
+           "Availability":false,
+           "BrandId":"282504",
+           "CatlogSequence":1,
+           "CatalogCode":"1234",
+           "SKU":"Fruits0001",
+           "Taxtotal":0,
+           "MarkupPrice":0,
+           "MarkupType":",
+           "BulkQuantity":1,
+           "ProductWeight":150.0,
+           "ProductType":"P",
+           "SmallImageAltText":"Fresho Pomegranate - Peeled, 200 gm 12",
+           "IsShippingConfigured":false,
+           "IsTaxConfigured":false,
+           "StartDate":"\/Date(1525372200000+0530)\/",
+           "EndDate":"\/Date(1528050600000+0530)\/",
+           "SeoURL":"http:\/\/www.hyctest.stagesites.capillary.in\/seo-url\/p\/11631476",
+           "DeliveryTime":"2-4 days",
+           "TokenPriceCheckout":false,
+           "IsReferPrice":false,
+           "ShortDescription":"api_test",
+           "TokenPrice":0.0,
+           "SmallImage":",
+           "Brandname":"Fresho",
+           "CategoryId":"CU00325882",
+           "CategoryName":"Cut & Peeled Fruits",
+           "Fulldescription":null,
+           "NoofReview":"0",
+           "BarCode":",
+           "ProductSequence":0,
+           "UOM":"Pieces"
+       }
+   ],
+   "ErrorCode":0
+}
+```
+
+
+
+Retrieves products of a specific tag.
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `/Product/{merchantId}/{productTag}/{locationId}`
+Response Formats | JSON
+HTTP Methods | POST
+Batch Support | Yes
+Rate Limited? | No
+Authentication | Yes
+
+
+### Request URL
+`https://{host}/developerapi/Product/{merchantId}/{productTag}/{locationId}`
+
+
+### Request Path Parameters
+
+Parameter | Type | Description
+--------- | ---- | -----------
+merchantId* | string | Unique GUID of the merchant
+productTag* | string | Tag name for which you want to fetch available products
+locationId* | int | Fetch products of a specific location. Pass `0` to choose the default location of the merchant
+
+
+<aside class="notice"> All parameters marked by * are mandatory.</aside>
+
+### Response Parameters
+
+Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.
+
+Parameter | Type | Description
+--------- | ---- | -----------
+MarkupPrice |  | 
+MarkupType | | 
+TokenPriceCheckout | | 
+IsReferPrice | | 
+UOM | | 
+
+
+
+
+
+## Add Review
+
+```html
+https://www.martjack.com/developerapi/Product/AddReview/81e77da2-723b-483d-8c0d-49f800c1exxx/0639f7a6-34cc-48b2-9fd9-a80e2ed8xxxx/PZLG-WM
+```
+
+> Sample Request
+
+```json
+{
+	"title": "Title31",
+	"message": "message75",
+	"isGoLive": "True"
+}
+```
+
+> Sample Response
+
+```json
+{
+    "messageCode": "1004",
+    "Message": "Successful",
+    "ErrorCode": 0
+}
+```
+
+Publishes customer review for a specific product. 
+
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `Product/AddReview/{MerchantId}/{UserId}/{SKU}`
+Rate Limited? | Yes
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | POST
+Batch Support | No
+
+
+### Request URL
+
+`https://{host}/developerapi/Product/AddReview/{MerchantId}/{UserId}/{SKU}`
+
+
+
+### Request Query Parameters
+
+Parameter | Type | Description
+-------- | ----- | -----------
+MerchantId* | string | Specify the merchant id for which the review has to be associated
+UserId* | string | Specify the unique id of the customer that provided the review
+SKU* | string  | Specify the product SKU for which the review has to be associated
+
+### Request Body Parameters
+
+Attribute | Description
+-------- | ----------
+title* | Specify the title of the product review as provided by the customer
+message* | Specify the entire review content as entered by the customer
+isGoLive* | 
+
+<aside class="notice"> All parameters marked by * are mandatory.</aside>

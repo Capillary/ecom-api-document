@@ -105,18 +105,8 @@ Rate Limited? | No
 Authentication | Yes
 
 * **Rate limiter** controls the number of incoming and outgoing traffic of a network
-* **Authentication** verifies the identity of the current user or an integration
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
 
-<aside class="notice">
-URI: End point of the APIs
-
-Authentication: Is authentication required to make the API call
-
-Response Formats: Supported response types for the APIs
-
-HTTP Method: 
-
-</aside> 
 
 
 
@@ -128,19 +118,34 @@ HTTP Method:
 
 Parameter | Type | Description
 --------- | ---- | -----------
-UserName* | string |  The unique identifier of the customer as configured for the merchant. It could be email, mobile, or any other identifier
-merchantId* | string |  The unique id (GUID) of the merchant in which you want to register customer
+UserName* | string | The unique identifier of the customer as configured for the merchant. It could be email, mobile, or any other identifier
+merchantId* | string | The unique id (GUID) of the merchant in which you want to register customer
 Password* | string |  Password of the customer account. Password policy is as configured for the merchant on the Merchant Panel
 CommunicationType |enum | The preferred communication channel(s) of the customer. Possible Values: SMS, EMAIL
-City |  | Unique code of the city (as saved in the system) such as 0562 (for Agra), and 250 (Victoria)
-CityName | string |  Full name of the city. Example: Bangalore, Delhi, Tokyo, Singapore and Paris
-State | string |  State's postal abbreviation. Example: KA (for Karnataka), CA (for California), IN (for Indiana)
-StateName | string |  Full name of the state. Example: Karnataka, California, and Indiana
-Country | string |  alpha-2 code of the country. Example: IN (for India), AU (for Australia), and BR (for Brazil)
-CountryName | string |   Full name of the country. Example: India, Australia, and Brazil
+City | int | Unique code of the city (as saved in the system) such as 0562 (for Agra), and 250 (Victoria)
+CityName | string | Full name of the city. Example: Bangalore, Delhi, Tokyo, Singapore and Paris
+State | string | State's postal abbreviation. Example: KA (for Karnataka), CA (for California), IN (for Indiana)
+StateName | string | Full name of the state. Example: Karnataka, California, and Indiana
+Country | string | alpha-2 code of the country. Example: IN (for India), AU (for Australia), and BR (for Brazil)
+CountryName | string | Full name of the country. Example: India, Australia, and Brazil
 IsReceiveOffers | boolean | For merchant with CRM enabled, Subscribe (`true`) or unsubscribe (`false`) customer's mobile number/email id in CRM
 
 <aside class=notice>All parameters marked by * are mandatory.</aside>
+
+
+### Response Parameters
+
+Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.
+
+
+
+Parameter | Type | Description
+-------- | ----- | ----------
+UserProfiles | array | Customer level custom field details
+UserInfoId | string | GUID generated for the customer internally. UserInfoId is used in APIs like customer update along with the UserId
+MarketingNotificationType | string | 
+
+
 
 
 ## Register Customer through OTP
@@ -168,13 +173,14 @@ IsReceiveOffers | boolean | For merchant with CRM enabled, Subscribe (`true`) or
 | | |
 --------- | ----------- |
 URI | `/Customer/{merchantId}/`
-Rate Limited? | No
-Authentication | Yes
 Response Formats | JSON
 HTTP Methods | POST
 Batch Support | No
+Rate Limited? | Yes
+Authentication | Yes
 
-
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
 
 ### Request URL
 `https://{host}/developerapi/Customer/{merchantId}`
@@ -206,12 +212,11 @@ Validates the OTP sent to the customer.
 | | |
 --------- | ----------- |
 URI | ``
-Rate Limited? | No
-Authentication | Yes
 Response Formats | JSON
 HTTP Methods | 
 Batch Support | No
-
+Rate Limited? | Yes
+Authentication | Yes
 
 ### Additional Header Required
 Header Name | Value
@@ -262,11 +267,15 @@ Resets the password of the customer's current account.
 | | |
 --------- | ----------- |
 URI | `/Customer/{merchantId}/{UserId}/ChangePassword={new password}`
-Rate Limited? | No
-Authentication | Yes
 Response Formats | JSON
 HTTP Methods | POST
 Batch Support | No
+Rate Limited? | No
+Authentication | Yes
+
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
 
 
 ### Request URL
@@ -330,16 +339,18 @@ The customer has to be logged in to his account to perform to perform any task t
 </aside>
 
 
-
 ### Resource Information
 Parameter | Description
 --------- | -----------
 URI | `/Customer/{merchantId}/LoginWithOTP/true?username={username}&oTP={OTP}`
-Rate Limited? | No
-Authentication | Yes
 Response Formats | JSON
 HTTP Methods | POST
 Batch Support | No
+Rate Limited? | No
+Authentication | Yes
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
 
 
 ### Request URL
@@ -360,6 +371,32 @@ username* | string | Username of the customer account
 oTP* | int | Unique verification code received to the customer's registered mobile number or email id (through SendOTP API)
 
 <aside class=notice>All parameters marked by * are mandatory.</aside>
+
+### Response Parameters
+
+Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.
+
+
+Parameter | Type | Description
+--------- | ---- | -----------
+AccessToken | string | An object or string that identifies the current user. Access token is required for making customer related API calls such as validate token, update customer details, update profile attributes, and so on
+issued_at | date-time | 
+
+
+
+
+
+### Response Parameters
+
+Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.
+
+
+Parameter | Type | Description
+-------- | ----- | ----------
+AccessToken | string | 
+issued_at | 
+
+
 
 
 ## Customer Login (with Credentials)
@@ -407,12 +444,14 @@ Authorizes login of a registered user on the merchant's e-commerce store. Once t
 Parameter | Description
 --------- | -----------
 URI | `/Customer/{merchantId}/login`
-Rate Limited? | No
-Authentication | Yes
 Response Formats | JSON
 HTTP Methods | POST
 Batch Support | No
+Rate Limited? | No
+Authentication | Yes
 
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
 
 ### Request URL
 
@@ -425,6 +464,18 @@ username* | string | Username of the customer account
 password* | string | Password of the customer account
 
 <aside class=notice>All parameters marked by * are mandatory.</aside>
+
+
+### Response Parameters
+
+Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.
+
+
+Parameter | Type | Description
+--------- | ---- | -----------
+AccessToken | string | An object or string that identifies the current user. Access token is required for making customer related API calls such as validate token, update customer details, update profile attributes, and so on
+issued_at | date-time | 
+
 
 
 ## Customer Login with Third Party Provider
@@ -473,12 +524,14 @@ http://martjack.com/developerapi/Customer/9820eca5-d11f-4df1-9b20-983a45ea9631/L
 | | |
 --------- | ----------- |
 URI | `/Customer/{merchantId}/LoginWithThirdPartyProvider`
-Rate Limited? | No
-Authentication | Yes
 Response Formats | JSON
 HTTP Methods | POST
 Batch Support | No
+Rate Limited? | No
+Authentication | Yes
 
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
 
 ### Request URL
 
@@ -500,6 +553,29 @@ mobileNo | string | Registered mobile number of the user with the provider
 subscribeToOffers | enum | Specify `true` to subscribe user to merchant offers, else specify `false`
 
 <aside class=notice>All parameters marked by * are mandatory.</aside>
+
+
+### Response Parameters
+
+Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.
+
+
+Parameter | Type | Description
+--------- | ---- | -----------
+AccessToken | string | An object or string that identifies the current user. Access token is required for making customer related API calls such as validate token, update customer details, update profile attributes, and so on
+issued_at | date-time | 
+
+
+### Response Parameters
+
+Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.
+
+
+Parameter | Type | Description
+--------- | ---- | -----------
+AccessToken | string | An object or string that identifies the current user. Access token is required for making customer related API calls such as validate token, update customer details, update profile attributes, and so on
+issued_at | date-time | 
+
 
 ## Customer Logout
 
@@ -527,12 +603,14 @@ Logs out current user. No POST body is required for this API.
 | | |
 --------- | ----------- |
 URI | `/Customer/{{MerchantId}}/Logout`
-Rate Limited? | No
-Authentication | Yes
 Response Formats | JSON
 HTTP Methods | POST (No POST body is required)
 Batch Support | No
+Rate Limited? | No
+Authentication | Yes
 
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
 
 
 ### Request URL
@@ -594,12 +672,14 @@ Creates a dummy access token for a user who did not log in to the merchant store
 | | |
 --------- | ----------- |
 URI | `Customer/GetAccessToken/{MerchantId}`
-Rate Limited? | No
-Authentication | Yes
 Response Formats | JSON
 HTTP Methods | POST (No POST body is required)
 Batch Support | No
+Rate Limited? | No
+Authentication | Yes
 
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
 
 ### Request URL
 
@@ -610,6 +690,17 @@ Parameter | Type | Description
 --------- | ---- | -------
 merchantId* | string | The unique id (GUID) of the merchant
 
+<aside class="notice"> All parameters marked by * are mandatory</aside>
+
+### Response Parameters
+
+Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.
+
+
+Parameter | Type | Description
+--------- | ---- | -----------
+AccessToken | string | An object or string that identifies the current session
+issued_at | date-time | 
 
 
 ## Validate Access Token
@@ -638,12 +729,14 @@ Verifies if the provided access token is valid or invalid.
 | | |
 --------- | ----------- |
 URI | `/Customer/{merchantId}/{accesstoken}/ValidateToken`
-Rate Limited? | No
-Authentication | Yes
 Response Formats | JSON
 HTTP Methods | GET
 Batch Support | No
+Rate Limited? | No
+Authentication | Yes
 
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
 
 ### Request URL
 
@@ -729,12 +822,14 @@ Retrieves customers based on the search keyword (containing the search keyword )
 | | |
 --------- | ----------- |
 URI | `/Customer/{merchantId}/Search`
-Rate Limited? | No
-Authentication | Yes
 Response Formats | JSON
 HTTP Methods | POST
 Batch Support | No
+Rate Limited? | No
+Authentication | Yes
 
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
 
 ### Request URL
 `https://{host}/developerapi/Customer/{merchantId}/Search`
@@ -817,13 +912,14 @@ Retrieves the details of a specific customer.
 | | |
 --------- | ----------- |
 URI | `/Customer/{merchantId}/{UserId}`
-Rate Limited? | No
-Authentication | Yes
 Response Formats | JSON
 HTTP Methods | GET
 Batch Support | No
+Rate Limited? | No
+Authentication | Yes
 
-
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
 
 ### Request URL
 `https://{host}/developerapi/Customer/{merchantId}/{UserId}`
@@ -901,13 +997,14 @@ Lets you update the details of a registered customer other than the customer’s
 | | |
 --------- | ----------- |
 URI | `Customer/{merchantId}/Update`
-Rate Limited? | No
-Authentication | Yes
 Response Formats | JSON
 HTTP Methods | POST
 Batch Support | No
+Rate Limited? | No
+Authentication | Yes
 
-
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
 
 ### Request URL
 `https://{host}/developerapi/Customer/{merchantId}/Update`
@@ -989,12 +1086,14 @@ Captures or updates custom field details of a customer.
 | | |
 --------- | ----------- |
 URI | `/Customer/{merchantId}/UpdateUserProfile`
-Rate Limited? | No
-Authentication | Yes
 Response Formats | JSON
 HTTP Methods | POST
 Batch Support | No
+Rate Limited? | No
+Authentication | Yes
 
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
 
 ### Additional Header Required
 
@@ -1097,13 +1196,14 @@ Lets you add a new shipping address to the customer's account or update existing
 | | |
 --------- | ----------- |
 URI | `/Customer/AddShippingAddress/{merchantId}`
-Rate Limited? | No
-Authentication | Yes
 Response Formats | JSON
 HTTP Methods | POST
 Batch Support | No
+Rate Limited? | No
+Authentication | Yes
 
-
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
 
 
 ### Request URL
@@ -1202,11 +1302,14 @@ Retrieves the shipping address of a specific customer.
 | | |
 --------- | ----------- |
 URI | `/Customer/GetShippingAddress/{merchantId}/{UserId}`
-Rate Limited? | No
-Authentication | Yes
 Response Formats | JSON
 HTTP Methods | GET
 Batch Support | No
+Rate Limited? | No
+Authentication | Yes
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
 
 ### Additional Header Required
 Header Name | Value
@@ -1257,12 +1360,14 @@ Deletes customer's shipping address for the current session that is logged in.
 | | |
 --------- | ----------- |
 URI | `Customer/DeleteShippingAddress/{MerchantId}/{UserId}/{ShippingAddressId}`
-Rate Limited? | No
-Authentication | Yes
 Response Formats | JSON
 HTTP Methods | GET
 Batch Support | No
+Rate Limited? | No
+Authentication | Yes
 
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
 
 ### Request URL
 
@@ -1316,12 +1421,14 @@ https://www.martjack.com/DeveloperAPI/Customer/81e77da2-723b-483d-8c0d-49f800c1e
 | | |
 --------- | ----------- |
 URI | `Customer/{MerchantId}/Count`
-Rate Limited? | No
-Authentication | Yes
 Response Formats | JSON
 HTTP Methods | GET
 Batch Support | No
+Rate Limited? | No
+Authentication | Yes
 
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
 
 ### Request URL
 
@@ -1368,12 +1475,14 @@ Retrieves product recommendations based on the cart items.
 | | |
 --------- | ----------- |
 URI | `Customer/TargetBlocks/{merchantId}`
-Rate Limited? | No
-Authentication | Yes
 Response Formats | JSON
 HTTP Methods | GET
 Batch Support | No
+Rate Limited? | No
+Authentication | Yes
 
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
 
 ### Request URL
 

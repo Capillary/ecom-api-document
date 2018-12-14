@@ -96,28 +96,39 @@ https://www.martjack.com/developerapi/Location/UpdateLocation/f48fdd16-92db-4188
 > Sample PATCH Request
 
 ```json
-[  
-   {  
+[
+   {
+      "op":"replace",
+      "path":"/IsParticipateInStock",
+      "value":"true"
+   },
+   {
+      "op":"replace",
+      "path":"/ReasonCode",
+      "value":"TR"
+   },
+   {
+      "op":"replace",
+      "path":"/isInStorePickup",
+      "value":"true"
+   },
+   {
       "op":"replace",
       "path":"/LocationName",
-      "value":"ADELIYA1"
+      "value":"Chennai"
    },
-   {  
+   {
       "op":"replace",
-      "path":"/Latitude",
-      "value":"36.5"
+      "path":"/Contact1",
+      "value":"9008000000"
    },
-   {  
+   {
       "op":"replace",
-      "path":"/AdditionalDetails",
-      "value":[  
-         {  
-            "Key":"isKDSEnabled",
-            "Value":"True"
-         }
-      ]
+      "path":"/Address1",
+      "value":"Near Silky Board1"
    }
-]	
+]
+	
 ```
 
 
@@ -224,7 +235,7 @@ Locationrefcode* | string | The reference code of the location for which you wan
 ### Request Body Parameters
 Parameter | Type | Description
 -------- | ----- | -----------
-DelveryMode | enum | Specify the mode of delivery for the location. `S` for store pick up and `H` for home delivery 
+DelveryMode | enum | Specify the mode of delivery for the location. `S` for store pick up and `H` for home delivery, `L` for store 
 OpenLeadTime | int | The maximum delay time (in minutes) for the on time (store open time)
 CloseLeadTime | int | The maximum delay time (in minutes) for the off time (store close time)
 WeekDayId | int | Specify for which day of the week the current timing is configured. Supported values: 0, 1, 2, 3, 4, 5, 6. Where `0` for Sunday and `6` for Saturday (Multiple values not supported)
@@ -1482,6 +1493,7 @@ Retrieves Estimated Time of Arrival (ETA) of an order for a specific location an
 
 
 ### Resource Information
+
 | | |
 --------- | ----------- |
 URI | `/Location/UpdateLocationETA/{merchantId}/{LocationCode}/{OrderDeliveryType}`
