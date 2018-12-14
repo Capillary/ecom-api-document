@@ -4253,12 +4253,12 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>tokenprice</td>
 <td>float</td>
-<td></td>
+<td>Minimum amount required for the customer to reserve the item and purchase later on</td>
 </tr>
 <tr>
 <td>channelrefcode</td>
-<td></td>
-<td></td>
+<td>string</td>
+<td>Channel code to which the price list is associated</td>
 </tr>
 </tbody></table>
 
@@ -4828,19 +4828,9 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 </tr>
 </thead><tbody>
 <tr>
-<td>IsParentProduct</td>
-<td>int</td>
-<td></td>
-</tr>
-<tr>
 <td>CatlogSequence</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>CatalogCode</td>
-<td></td>
-<td></td>
+<td>int</td>
+<td>Sequence of the product in catalog</td>
 </tr>
 <tr>
 <td>MarkupPrice</td>
@@ -4879,8 +4869,8 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 </tr>
 <tr>
 <td>TokenPriceCheckout</td>
-<td></td>
-<td></td>
+<td>float</td>
+<td>Minimum amount required for the customer to reserve the item during checkout and purchase later on</td>
 </tr>
 <tr>
 <td>IsReferPrice</td>
@@ -4894,8 +4884,8 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 </tr>
 <tr>
 <td>UOM</td>
-<td></td>
-<td></td>
+<td>string</td>
+<td>Unit of metrics. It could be the <code class="prettyprint">pieces</code> for items that are sold as a piece and the respective measure for other items such as kgs, and gms</td>
 </tr>
 </tbody></table>
 
