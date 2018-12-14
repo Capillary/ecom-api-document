@@ -72,6 +72,8 @@ Response Formats | JSON
 HTTP Methods | POST
 Batch Support | Yes
 
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
 
 ### Request URL
 
@@ -219,11 +221,14 @@ Lets you update normal product details.
 | | |
 --------- | ----------- |
 URI | `Product/UpdateProductInfo`
-Rate Limited? | Yes
+Rate Limited? | No
 Authentication | Yes
 Response Formats | JSON
 HTTP Methods | POST
 Batch Support | No
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
 
 
 ### Request URL
@@ -280,7 +285,7 @@ EndTime | time | The time from when you want to stop showing the product on the 
 PeriodicityType | enum | Use this to show items on the storefront specific days. Values: Monthly, Weekly, oneTime  
 PeriodicityRange | string | The days when you want to show the product. For example: in monthly, 1-30 to show on all days of a month, in weekly you can have 1, 3, 5, to display of Sun, Tue, and Thu respectively.  No value is required for `oneTime`. To pass multiple days, use comma separated values. For example, 1,2,5,10
 ShowExpired | enum | Y, N. To show if the product has to be displayed irrespective of the periodicityRange
-UOM | enum | Unit of measurement of the product. Values: ltrs, kgs, gms
+UOM | enum | Unit of measurement of the product. Values: ltrs, kgs, gms, pieces
 LBH | string | Dimensions of the product (Length*Bredth*Height) or the product volume
 BuyingWeight | float | Weight of the product as per the specified UOM. For example, if UOM is kgs then it will consider the specified value in kilo grams
 PkgQty | int |  Quantity of the product in each package
@@ -323,16 +328,6 @@ Parameter | Type | Description
 --------- | ---- | -----------
 Taskid | int | Unique id generated for the current update task
 
-<aside class="notice"> All parameters marked by * are mandatory.</aside>
-
-
-### Response Parameters
-
-Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.
-
-
-Parameter | Type | Description
---------- | ---- | -----------
 
 
 ## Update Product Information (Variant)
@@ -538,12 +533,14 @@ Lets you update variant product details.
 | | |
 --------- | ----------- |
 URI | `Product/UpdateProductInfo`
-Rate Limited? | Yes
+Rate Limited? | No
 Authentication | Yes
 Response Formats | JSON
 HTTP Methods | POST
 Batch Support | No
 
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
 
 ### Request URL
 
@@ -640,15 +637,8 @@ Following table contains descriptions of a few response parameters that require 
 
 Parameter | Type | Description
 --------- | ---- | -----------
+taskid | int | Unique id generated for the current update task
 
-### Response Parameters
-
-Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.
-
-
-Parameter | Type | Description
---------- | ---- | -----------
-Taskid | int | Unique id generated for the current update task
 
 
 ## Get SKU Price
@@ -716,12 +706,14 @@ Retrieves the price of a specific item
 | | |
 --------- | ----------- |
 URI | `Product/Price/{MerchantId}`
-Rate Limited? | Yes
+Rate Limited? | No
 Authentication | Yes
 Response Formats | JSON
 HTTP Methods | POST
 Batch Support | No
 
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
 
 ### Request URL
 
@@ -798,12 +790,14 @@ Retrieves the user reviews of a specific product.
 | | |
 --------- | ----------- |
 URI | `Product/GetReviews/{MerchantId}/{Sku}`
-Rate Limited? | Yes
+Rate Limited? | No
 Authentication | Yes
 Response Formats | JSON
 HTTP Methods | GET
 Batch Support | No
 
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
 
 ### Request URL
 
@@ -947,12 +941,14 @@ https://www.martjack.com/developerapi/Product/AttachImages/f48fdd16-92db-4188-85
 | | |
 --------- | ----------- |
 URI | `/Product/AttachImages/{{MerchantId}}`
-Rate Limited? | Yes
+Rate Limited? | No
 Authentication | Yes
 Response Formats | JSON
 HTTP Methods | POST
 Batch Support | Yes
 
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
 
 ### Request URL
 `https://{host}/developerapi/Product/AttachImages/{{MerchantId}}`
@@ -1002,6 +998,9 @@ Parameter | Type | Description
 --------- | ---- | -----------
 Taskid | int | Unique id generated for the current task
 
+
+
+
 ## Get Product Details by Location
 
 > Sample Request
@@ -1013,7 +1012,7 @@ https://www.martjack.com/developerapi/Product/Information/9820eca5-d11f-4df1-9b2
 > Sample Response
 
 ```json
-"{
+{
     "messageCode":"1004",
     "Message":"Successful",
     "Product":
@@ -1028,11 +1027,11 @@ https://www.martjack.com/developerapi/Product/Information/9820eca5-d11f-4df1-9b2
         "Availability":true,
         "BrandId":"0",
         "CatlogSequence":0,
-        "CatalogCode":",
+        "CatalogCode":"",
         "SKU":"100040621",
         "Taxtotal":0,
         "MarkupPrice":0,
-        "MarkupType":",
+        "MarkupType":"",
         "BulkQuantity":1,
         "ProductWeight":0.0,
         "ProductType":"P",
@@ -1045,19 +1044,19 @@ https://www.martjack.com/developerapi/Product/Information/9820eca5-d11f-4df1-9b2
         "DeliveryTime":"Delivered in 5 Working days",
         "TokenPriceCheckout":false,
         "IsReferPrice":false,
-        "ShortDescription":",
+        "ShortDescription":"",
         "TokenPrice":0.0,
-        "SmallImage":",
+        "SmallImage":"",
         "Brandname":"Safal",
         "CategoryId":"CU00333866",
         "CategoryName":"Frozen Mixed Vegetable",
-        "Fulldescription":",
+        "Fulldescription":"",
         "NoofReview":"0",
         "BarCode":"9876567892",
         "Inventory":"120",
         "PreOrder":"0",
         "BackOrder":"0",
-        "OfferDescription":",
+        "OfferDescription":"",
         "RefProductId":"0",
         "Sellerid":"00000000-0000-0000-0000-000000000000",
         "ShippingCodes":"Cart amount",
@@ -1066,7 +1065,7 @@ https://www.martjack.com/developerapi/Product/Information/9820eca5-d11f-4df1-9b2
         "UOM":"Pieces"
     },
     "ErrorCode":0
-}"
+}
 
 
 ```
@@ -1081,6 +1080,8 @@ Batch Support | Yes
 Rate Limited? | No
 Authentication | Yes
 
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
 
 ### Request URL
 `https://{host}/developerapi/Product/Information/{merchantId}/{productId}/{locationId}`
@@ -1096,6 +1097,7 @@ locationId* | int | Location id of the location
 
 <aside class="notice"> All parameters marked by * are mandatory.</aside>
 
+
 ### Response Parameters
 
 Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.
@@ -1107,13 +1109,13 @@ MarkupPrice | |
 MarkupType | | 
 IsShippingConfigured | boolean | 
 IsTaxConfigured | boolean | 
-StartDate | | 
-EndDate | 
-SeoURL | 
+StartDate | date-time | The duration for which the product is shown on the storefront (StartDate - EndDate)
+EndDate | date-time | The duration for which the product is shown on the storefront (StartDate - EndDate)
+SeoURL | string | The SEO friendly URL of the product 
 TokenPriceCheckout | float | Minimum amount required for the customer to reserve the item during checkout and purchase later on
 IsReferPrice | 
 NoofReview | 
-UOM | string | Unit of metrics. It could be the `pieces` for items that are sold as a piece and the respective measure for other items such as kgs, and gms 
+UOM | string | Unit of measurement of the product. It could be `pieces` for the items that are sold in numbers and the respective measure for other items such as kgs, and gms 
 
 
 ## Get Product Details (by SKU)
@@ -1143,11 +1145,11 @@ https://www.martjack.com/developerapi/Product/SKU/81e77da2-723b-483d-8c0d-49f800
         "Availability":true,
         "BrandId":"0",
         "CatlogSequence":0,
-        "CatalogCode":",
+        "CatalogCode":"",
         "SKU":"100040621",
         "Taxtotal":0,
         "MarkupPrice":0,
-        "MarkupType":",
+        "MarkupType":"",
         "BulkQuantity":0,
         "ProductWeight":0.0,
         "ProductType":"P",
@@ -1156,13 +1158,13 @@ https://www.martjack.com/developerapi/Product/SKU/81e77da2-723b-483d-8c0d-49f800
         "IsTaxConfigured":false,
         "StartDate":"\/Date(1537209000000+0530)\/",
         "EndDate":"\/Date(1537295400000+0530)\/",
-        "SeoURL":",
+        "SeoURL":"",
         "DeliveryTime":"Delivered in 5 Working days",
         "TokenPriceCheckout":false,
         "IsReferPrice":false,
-        "ShortDescription":",
+        "ShortDescription":"",
         "TokenPrice":0.0,
-        "SmallImage":",
+        "SmallImage":"",
         "Brandname":null,
         "CategoryId":"CU00333866",
         "CategoryName":null,
@@ -1192,6 +1194,8 @@ Batch Support | Yes
 Rate Limited? | No
 Authentication | Yes
 
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
 
 ### Request URL
 `https://{host}/developerapi/Product/SKU/{merchantId}/{sku}`
@@ -1203,7 +1207,8 @@ Parameter | Type | Description
 --------- | ---- | -----------
 merchantId* | string | Unique GUID of the merchant
 sku* | string |  SKU of the product that you want to fetch
-
+NoofReview | review | 
+UOM | string | Unit of measurement of the product. It could be `pieces` for items that are sold as a piece and the respective measure for other items such as kgs, and gms 
 
 <aside class="notice"> All parameters marked by * are mandatory.</aside>
 
@@ -1218,7 +1223,7 @@ MarkupPrice | |
 MarkupType | | 
 BulkQuantity | | 
 NoofReview | | 
-UOM | | 
+UOM | string | Unit of measurement of the product. It could be the `pieces` for items that are sold in numbers and the respective measure for other items such as kgs, and gms 
 
 
 
@@ -1358,6 +1363,8 @@ Batch Support | Yes
 Rate Limited? | No
 Authentication | Yes
 
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
 
 ### Request URL
 `https://{host}/developerapi/Product/Varients/{merchantId}/{productId}/{availability}`
@@ -1380,8 +1387,9 @@ Following table contains descriptions of a few response parameters that require 
 Parameter | Type | Description
 --------- | ---- | -----------
 ReferenceProductVariantId | | 
-StartDate | | 
-EndDate | | 
+StartDate | date-time | The duration (between `StartDate` and `EndDate`) for which the product is shown on the storefront 
+EndDate | date-time | The duration (between `StartDate` and `EndDate`) for which the product is shown on the storefront
+IsDropShipping |  | 
 MarkupPrice | | 
 MarkupType | | 
 IsReferProductInfo | | 
@@ -1435,19 +1443,19 @@ https://www.martjack.com/developerapi/Product/9820eca5-d11f-4df1-9b20-983a45ea96
            "IsTaxConfigured":false,
            "StartDate":"\/Date(1525372200000+0530)\/",
            "EndDate":"\/Date(1528050600000+0530)\/",
-           "SeoURL":"http:\/\/www.hyctest.stagesites.capillary.in\/seo-url\/p\/11631476",
+           "SeoURL":"http:\/\/www.test.stagesites.capillary.in\/seo-url\/p\/11631476",
            "DeliveryTime":"2-4 days",
            "TokenPriceCheckout":false,
            "IsReferPrice":false,
            "ShortDescription":"api_test",
            "TokenPrice":0.0,
-           "SmallImage":",
+           "SmallImage":"",
            "Brandname":"Fresho",
            "CategoryId":"CU00325882",
            "CategoryName":"Cut & Peeled Fruits",
            "Fulldescription":null,
            "NoofReview":"0",
-           "BarCode":",
+           "BarCode":"",
            "ProductSequence":0,
            "UOM":"Pieces"
        }
@@ -1470,6 +1478,8 @@ Batch Support | Yes
 Rate Limited? | No
 Authentication | Yes
 
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
 
 ### Request URL
 `https://{host}/developerapi/Product/{merchantId}/{productTag}/{locationId}`
@@ -1496,7 +1506,7 @@ MarkupPrice |  |
 MarkupType | | 
 TokenPriceCheckout | | 
 IsReferPrice | | 
-UOM | | 
+UOM | string | Unit of measurement of the product. It could be the `pieces` for items that are sold in numbers and the respective measure for other items such as kgs, and gms
 
 
 
@@ -1535,12 +1545,14 @@ Publishes customer review for a specific product.
 | | |
 --------- | ----------- |
 URI | `Product/AddReview/{MerchantId}/{UserId}/{SKU}`
-Rate Limited? | Yes
+Rate Limited? | No
 Authentication | Yes
 Response Formats | JSON
 HTTP Methods | POST
 Batch Support | No
 
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
 
 ### Request URL
 
@@ -1558,10 +1570,10 @@ SKU* | string  | Specify the product SKU for which the review has to be associat
 
 ### Request Body Parameters
 
-Attribute | Description
--------- | ----------
-title* | Specify the title of the product review as provided by the customer
-message* | Specify the entire review content as entered by the customer
-isGoLive* | 
+Parameter | Type | Description
+-------- | ----- | -----------
+title* | string | Specify the title of the product review as provided by the customer
+message* | string | Specify the entire review content as entered by the customer
+isGoLive* | boolean | Specify `true` to show the review on the storefront, `false` to hide it 
 
 <aside class="notice"> All parameters marked by * are mandatory.</aside>

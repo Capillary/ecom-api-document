@@ -62,12 +62,14 @@ Maps a store location to a delivery area
 | | |
 --------- | ----------- |
 URI | `/Location/StoreDeliveryAreaMapping/{{MerchantId}}`
-Rate Limited? | Yes
+Rate Limited? | No
 Authentication | Yes
 Response Formats | JSON
 HTTP Methods | POST
 Batch Support | No
 
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
 
 ### Request URL
 
@@ -148,12 +150,14 @@ Updates location of a specific store
 | | |
 --------- | ----------- |
 URI | `/Location/UpdateLocation/{{MerchantId}}/{LocationrefCode}`
-Rate Limited? | Yes
+Rate Limited? | No
 Authentication | Yes
 Response Formats | JSON
 HTTP Methods | PATCH
 Batch Support | No
 
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
 
 ### Request URL
 
@@ -216,12 +220,14 @@ Lets you update the operation timings of a store location.
 | | |
 --------- | ----------- |
 URI | `/Location/UpdateStoreTimings/{MerchantId}/{Locationrefcode}`
-Rate Limited? | Yes
+Rate Limited? | No
 Authentication | Yes
 Response Formats | JSON
 HTTP Methods | POST
 Batch Support | Yes
 
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
 
 ### Request URL
 `https://{host}/developerapi/Location/UpdateStoreTimings/{MerchantId}/{Locationrefcode}`
@@ -369,12 +375,14 @@ Retrieves locations of a specific delivery area.
 | | |
 --------- | ----------- |
 URI | `/Location/{{MerchantId}}/Search`
-Rate Limited? | Yes
+Rate Limited? | No
 Authentication | Yes
 Response Formats | JSON
 HTTP Methods | POST
 Batch Support | No
 
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
 
 ### Request URL
 
@@ -804,12 +812,14 @@ Retrieves the details of a specific store location such as parent location, addr
 | | |
 --------- | ----------- |
 URI | `/Location/Information/{{MerchantId}}/{{LocationId}}`
-Rate Limited? | Yes
+Rate Limited? | No
 Authentication | Yes
 Response Formats | JSON
 HTTP Methods | GET
 Batch Support | No
 
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
 
 ### Request URL
 
@@ -874,12 +884,14 @@ Retrieves all the configured delivery cities of the merchant with details such a
 | | |
 --------- | ----------- |
 URI | `/Location/Information/{{MerchantId}}/GetCities`
-Rate Limited? | Yes
+Rate Limited? | No
 Authentication | Yes
 Response Formats | JSON
 HTTP Methods | GET
 Batch Support | No
 
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
 
 ### Request URL
 
@@ -1004,12 +1016,14 @@ Retrieves delivery areas of a specific location.
 | | |
 --------- | ----------- |
 URI | `/Location/DeliveryAreas/{merchantId}/{locationId}`
-Rate Limited? | Yes
+Rate Limited? | No
 Authentication | Yes
 Response Formats | JSON
 HTTP Methods | GET
 Batch Support | No
 
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
 
 ### Request URL
 
@@ -1286,12 +1300,14 @@ Retrieves the details of a specific location.
 | | |
 --------- | ----------- |
 URI | `/Location/Information/{merchantId}/{locationId}`
-Rate Limited? | Yes
+Rate Limited? | No
 Authentication | Yes
 Response Formats | JSON
 HTTP Methods | GET
 Batch Support | No
 
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
 
 ### Request URL
 
@@ -1341,12 +1357,14 @@ Retrieves configured reason codes for updating delivery modes of a store - open 
 | | |
 --------- | ----------- |
 URI | `/Location/ReasonCodes/{merchantId}`
-Rate Limited? | Yes
+Rate Limited? | No
 Authentication | Yes
 Response Formats | JSON
 HTTP Methods | GET
 Batch Support | No
 
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
 
 ### Request URL
 
@@ -1417,12 +1435,14 @@ Lets you add or update order ETA (Estimated Time of Arrival) for a location incl
 | | |
 --------- | ----------- |
 URI | `/Location/UpdateLocationETA/{merchantId}/{OrderDeliveryType}/{merchantId}`
-Rate Limited? | Yes
+Rate Limited? | No
 Authentication | Yes
 Response Formats | JSON
 HTTP Methods | POST
 Batch Support | No
 
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
 
 ### Request URL
 
@@ -1496,12 +1516,14 @@ Retrieves Estimated Time of Arrival (ETA) of an order for a specific location an
 | | |
 --------- | ----------- |
 URI | `/Location/UpdateLocationETA/{merchantId}/{LocationCode}/{OrderDeliveryType}`
-Rate Limited? | Yes
+Rate Limited? | No
 Authentication | Yes
 Response Formats | JSON
 HTTP Methods | GET
 Batch Support | No
 
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
 
 ### Request URL
 
