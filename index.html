@@ -17688,16 +17688,29 @@ Sample POST Request</p>
 </thead><tbody>
 <tr>
 <td>URI</td>
-<td>`/Location/UpdateLocationETA/{merchantId}/{OrderDeliveryType}</td>
+<td><code class="prettyprint">/Location/UpdateLocationETA/{merchantId}/{OrderDeliveryType}/{merchantId}</code></td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>POST</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>No</td>
 </tr>
 </tbody></table>
-
-<p>/{merchantId}`
-Rate Limited? | Yes
-Authentication | Yes
-Response Formats | JSON
-HTTP Methods | POST
-Batch Support | No</p>
 
 <h3 id="request-url">Request URL</h3>
 
@@ -17813,7 +17826,7 @@ Batch Support | No</p>
 </span><span class="p">}</span><span class="w">
 
 </span></code></pre>
-<p>Retrieves Estimated Time of Arrival (ETA) of an order for a specific location and the type of location delivery with location code</p>
+<p>Retrieves Estimated Time of Arrival (ETA) of an order for a specific location and the type of location delivery with location code.</p>
 
 <h3 id="resource-information">Resource Information</h3>
 
