@@ -437,7 +437,7 @@ InputData={
 </tr>
 <tr>
 <td>City</td>
-<td>string</td>
+<td>int</td>
 <td>Unique code of the city (as saved in the system) such as 0562 (for Agra), and 250 (Victoria)</td>
 </tr>
 <tr>
@@ -476,7 +476,7 @@ InputData={
 
 <h3 id="response-parameters">Response Parameters</h3>
 
-<p>Following table contains descriptions only for certain parameters that require more information and does not include the parameters that are already in the request body.</p>
+<p>Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.</p>
 
 <table><thead>
 <tr>
@@ -545,7 +545,7 @@ InputData={
 </tr>
 <tr>
 <td>Rate Limited?</td>
-<td>No</td>
+<td>Yes</td>
 </tr>
 <tr>
 <td>Authentication</td>
@@ -602,7 +602,7 @@ InputData={
 </tr>
 <tr>
 <td>Rate Limited?</td>
-<td>No</td>
+<td>Yes</td>
 </tr>
 <tr>
 <td>Authentication</td>
@@ -850,7 +850,30 @@ The customer has to be logged in to his account to perform to perform any task t
 
 <h3 id="response-parameters">Response Parameters</h3>
 
-<p>Following table contains descriptions only for certain parameters that require more information and are not in the body parameters.</p>
+<p>Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>AccessToken</td>
+<td>string</td>
+<td>An object or string that identifies the current user. Access token is required for making customer related API calls such as validate token, update customer details, update profile attributes, and so on</td>
+</tr>
+<tr>
+<td>issued_at</td>
+<td>date-time</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h3 id="response-parameters">Response Parameters</h3>
+
+<p>Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.</p>
 
 <table><thead>
 <tr>
@@ -972,6 +995,29 @@ The customer has to be logged in to his account to perform to perform any task t
 </tbody></table>
 
 <aside class=notice>All parameters marked by * are mandatory.</aside>
+
+<h3 id="response-parameters">Response Parameters</h3>
+
+<p>Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>AccessToken</td>
+<td>string</td>
+<td>An object or string that identifies the current user. Access token is required for making customer related API calls such as validate token, update customer details, update profile attributes, and so on</td>
+</tr>
+<tr>
+<td>issued_at</td>
+<td>date-time</td>
+<td></td>
+</tr>
+</tbody></table>
 
 <h2 id="customer-login-with-third-party-provider">Customer Login with Third Party Provider</h2>
 
@@ -1117,6 +1163,52 @@ The customer has to be logged in to his account to perform to perform any task t
 </tbody></table>
 
 <aside class=notice>All parameters marked by * are mandatory.</aside>
+
+<h3 id="response-parameters">Response Parameters</h3>
+
+<p>Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>AccessToken</td>
+<td>string</td>
+<td>An object or string that identifies the current user. Access token is required for making customer related API calls such as validate token, update customer details, update profile attributes, and so on</td>
+</tr>
+<tr>
+<td>issued_at</td>
+<td>date-time</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h3 id="response-parameters">Response Parameters</h3>
+
+<p>Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>AccessToken</td>
+<td>string</td>
+<td>An object or string that identifies the current user. Access token is required for making customer related API calls such as validate token, update customer details, update profile attributes, and so on</td>
+</tr>
+<tr>
+<td>issued_at</td>
+<td>date-time</td>
+<td></td>
+</tr>
+</tbody></table>
 
 <h2 id="customer-logout">Customer Logout</h2>
 
@@ -1292,6 +1384,31 @@ The customer has to be logged in to his account to perform to perform any task t
 <td>merchantId*</td>
 <td>string</td>
 <td>The unique id (GUID) of the merchant</td>
+</tr>
+</tbody></table>
+
+<aside class="notice"> All parameters marked by * are mandatory</aside>
+
+<h3 id="response-parameters">Response Parameters</h3>
+
+<p>Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>AccessToken</td>
+<td>string</td>
+<td>An object or string that identifies the current session</td>
+</tr>
+<tr>
+<td>issued_at</td>
+<td>date-time</td>
+<td></td>
 </tr>
 </tbody></table>
 
@@ -2593,116 +2710,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <p>A product is an item that a merchant sells on the Anywhere Commerce platform. This resource consists of APIs related managing product inventory of a merchant such as variable and bundle items, product categories, location, and promotions; and also to fetch product details.</p>
 
-<h2 id="add-review">Add Review</h2>
-<pre class="highlight html"><code>https://www.martjack.com/developerapi/Product/AddReview/81e77da2-723b-483d-8c0d-49f800c1exxx/0639f7a6-34cc-48b2-9fd9-a80e2ed8xxxx/PZLG-WM
-</code></pre>
-<blockquote>
-<p>Sample Request</p>
-</blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-    </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Title31"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"message75"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"isGoLive"</span><span class="p">:</span><span class="w"> </span><span class="s2">"True"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<blockquote>
-<p>Sample Response</p>
-</blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-    </span><span class="nt">"messageCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1004"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>Publishes customer review for a specific product. </p>
-
-<h3 id="resource-information">Resource Information</h3>
-
-<table><thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead><tbody>
-<tr>
-<td>URI</td>
-<td><code class="prettyprint">Product/AddReview/{MerchantId}/{UserId}/{SKU}</code></td>
-</tr>
-<tr>
-<td>Rate Limited?</td>
-<td>Yes</td>
-</tr>
-<tr>
-<td>Authentication</td>
-<td>Yes</td>
-</tr>
-<tr>
-<td>Response Formats</td>
-<td>JSON</td>
-</tr>
-<tr>
-<td>HTTP Methods</td>
-<td>POST</td>
-</tr>
-<tr>
-<td>Batch Support</td>
-<td>No</td>
-</tr>
-</tbody></table>
-
-<h3 id="request-url">Request URL</h3>
-
-<p><code class="prettyprint">https://{host}/developerapi/Product/AddReview/{MerchantId}/{UserId}/{SKU}</code></p>
-
-<h3 id="request-query-parameters">Request Query Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>MerchantId*</td>
-<td>string</td>
-<td>Specify the merchant id for which the review has to be associated</td>
-</tr>
-<tr>
-<td>UserId*</td>
-<td>string</td>
-<td>Specify the unique id of the customer that provided the review</td>
-</tr>
-<tr>
-<td>SKU*</td>
-<td>string</td>
-<td>Specify the product SKU for which the review has to be associated</td>
-</tr>
-</tbody></table>
-
-<h3 id="request-body-parameters">Request Body Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Attribute</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>title*</td>
-<td>Specify the title of the product review as provided by the customer</td>
-</tr>
-<tr>
-<td>message*</td>
-<td>Specify the entire review content as entered by the customer</td>
-</tr>
-<tr>
-<td>isGoLive*</td>
-<td></td>
-</tr>
-</tbody></table>
-
-<h2 id="update-location-wise-stock">Update Location wise Stock</h2>
+<h2 id="update-location-wise-stock-amp-price">Update Location wise Stock &amp; Price</h2>
 
 <blockquote>
 <p>Sample Request</p>
@@ -2715,7 +2723,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <pre class="highlight json"><code><span class="err">MerchantId=</span><span class="s2">"0639f7a6-34cc-48b2-9fd9-a80e2ed8xxxx"</span><span class="err">&amp;InputFormat=</span><span class="s2">"application/json"</span><span class="err">&amp;InputData=</span><span class="p">{</span><span class="w">
     </span><span class="nt">"products"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nt">"product"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"sku"</span><span class="p">:</span><span class="s2">"zara1234121"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"sku"</span><span class="p">:</span><span class="s2">"sku1234121"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"variantsku"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
             </span><span class="nt">"stock"</span><span class="p">:</span><span class="s2">"10"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"locationrefcode"</span><span class="p">:</span><span class="s2">"4702"</span><span class="p">,</span><span class="w">
@@ -2761,11 +2769,11 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 </thead><tbody>
 <tr>
 <td>URI</td>
-<td><code class="prettyprint">/product/LocationWiseStock</code></td>
+<td><code class="prettyprint">/product/UpdateLocationWiseStock</code></td>
 </tr>
 <tr>
 <td>Rate Limited?</td>
-<td>Yes</td>
+<td>No</td>
 </tr>
 <tr>
 <td>Authentication</td>
@@ -2811,12 +2819,12 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>stock</td>
 <td>int</td>
-<td>Number of available items of the current SKU. Specify NA if not applicable</td>
+<td>Number of available items of the current SKU. Specify NA for out of stock</td>
 </tr>
 <tr>
 <td>locationrefcode*</td>
 <td>string</td>
-<td>Location reference code of the current item (physical store or warehouse)</td>
+<td>Location reference code of the location for which product stock/price update is made (physical store or warehouse)</td>
 </tr>
 <tr>
 <td>Quantity</td>
@@ -2837,6 +2845,26 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <td>TokenPrice</td>
 <td>float</td>
 <td>Minimum amount required for the customer to reserve the item and purchase later on</td>
+</tr>
+</tbody></table>
+
+<aside class="notice"> All parameters marked by * are mandatory.</aside>
+
+<h3 id="response-parameters">Response Parameters</h3>
+
+<p>Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Taskid</td>
+<td>int</td>
+<td>Unique id generated for the current update location task</td>
 </tr>
 </tbody></table>
 
@@ -2863,10 +2891,6 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
          </span><span class="nt">"Webprice"</span><span class="p">:</span><span class="s2">"499"</span><span class="p">,</span><span class="w">
          </span><span class="nt">"Availability"</span><span class="p">:</span><span class="s2">"Y"</span><span class="p">,</span><span class="w">
          </span><span class="nt">"ProductType"</span><span class="p">:</span><span class="s2">"P"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"VariantProperty1"</span><span class="p">:</span><span class="s2">"color"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"value1"</span><span class="p">:</span><span class="s2">"red"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"VariantProperty2"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"value2"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
          </span><span class="nt">"SmallImage"</span><span class="p">:</span><span class="s2">"filename.jpg"</span><span class="p">,</span><span class="w">
          </span><span class="nt">"LargeImage"</span><span class="p">:</span><span class="s2">"image.jpg"</span><span class="p">,</span><span class="w">
          </span><span class="nt">"ShortDescription"</span><span class="p">:</span><span class="s2">"Mens jeans blue denim"</span><span class="p">,</span><span class="w">
@@ -2885,12 +2909,6 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
          </span><span class="nt">"DeliveryTime"</span><span class="p">:</span><span class="s2">"2-5 business days"</span><span class="p">,</span><span class="w">
          </span><span class="nt">"CatalogSequence"</span><span class="p">:</span><span class="s2">"50"</span><span class="p">,</span><span class="w">
          </span><span class="nt">"ProductWeight"</span><span class="p">:</span><span class="s2">"200"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"VariantProperty3"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"Value3"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"VariantProperty4"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"Value4"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"VariantProperty5"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"Value5"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
          </span><span class="nt">"BankProductId"</span><span class="p">:</span><span class="s2">"654786"</span><span class="p">,</span><span class="w">
          </span><span class="nt">"OfferProductDescription"</span><span class="p">:</span><span class="s2">"example.xml"</span><span class="p">,</span><span class="w">
          </span><span class="nt">"OfferProductImage"</span><span class="p">:</span><span class="s2">"image.jpg"</span><span class="p">,</span><span class="w">
@@ -3037,7 +3055,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>ProductType*</td>
 <td>string</td>
-<td>Type of the product. Values: <code class="prettyprint">P</code> for a normal product, <code class="prettyprint">A</code> for an add-on products, <code class="prettyprint">D</code> for a deal product, and <code class="prettyprint">B</code> for a bundle product</td>
+<td>Type of the product. Values: <code class="prettyprint">P</code> for a normal product, <code class="prettyprint">A</code> for an add-on products, and <code class="prettyprint">B</code> for a bundle product or deal product</td>
 </tr>
 <tr>
 <td>CategoryRefCode</td>
@@ -3068,21 +3086,6 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <td>BarCode</td>
 <td>string</td>
 <td>Bar code of the product</td>
-</tr>
-<tr>
-<td>ProductType</td>
-<td>enum</td>
-<td>Type of the product. Values: P (normal product), B (bundle product), A (add-on product), D (deal product)</td>
-</tr>
-<tr>
-<td>VariantProperty</td>
-<td>string</td>
-<td>Specify the property name of the variant product. For example, color, size, weight, ram, harddisk. You can add more properties in VariantProperty1, VariantProperty2 and so on</td>
-</tr>
-<tr>
-<td>value</td>
-<td>string</td>
-<td>Value of the specified property. You can add each property value in value1, value2 and so on</td>
 </tr>
 <tr>
 <td>SmallImage</td>
@@ -3404,16 +3407,41 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <td>string</td>
 <td>Reference code of the order fulfillment location</td>
 </tr>
+</tbody></table>
+
+<aside class="notice"> All parameters marked by * are mandatory.</aside>
+
+<h3 id="response-parameters">Response Parameters</h3>
+
+<p>Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.</p>
+
+<table><thead>
 <tr>
-<td>SectionRefCode</td>
-<td></td>
-<td></td>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
 </tr>
+</thead><tbody>
 <tr>
-<td>Reorderstocklevel</td>
-<td></td>
-<td></td>
+<td>Taskid</td>
+<td>int</td>
+<td>Unique id generated for the current update task</td>
 </tr>
+</tbody></table>
+
+<aside class="notice"> All parameters marked by * are mandatory.</aside>
+
+<h3 id="response-parameters">Response Parameters</h3>
+
+<p>Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
 </tbody></table>
 
 <h2 id="update-product-information-variant">Update Product Information (Variant)</h2>
@@ -3439,10 +3467,6 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
          </span><span class="nt">"Webprice"</span><span class="p">:</span><span class="s2">"499"</span><span class="p">,</span><span class="w">
          </span><span class="nt">"Availability"</span><span class="p">:</span><span class="s2">"Y"</span><span class="p">,</span><span class="w">
          </span><span class="nt">"ProductType"</span><span class="p">:</span><span class="s2">"P"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"VariantProperty1"</span><span class="p">:</span><span class="s2">"color"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"value1"</span><span class="p">:</span><span class="s2">"red"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"VariantProperty2"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"value2"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
          </span><span class="nt">"SmallImage"</span><span class="p">:</span><span class="s2">"filename.jpg"</span><span class="p">,</span><span class="w">
          </span><span class="nt">"LargeImage"</span><span class="p">:</span><span class="s2">"image.jpg"</span><span class="p">,</span><span class="w">
          </span><span class="nt">"ShortDescription"</span><span class="p">:</span><span class="s2">"Mens jeans blue denim"</span><span class="p">,</span><span class="w">
@@ -3461,12 +3485,6 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
          </span><span class="nt">"DeliveryTime"</span><span class="p">:</span><span class="s2">"2-5 business days"</span><span class="p">,</span><span class="w">
          </span><span class="nt">"CatalogSequence"</span><span class="p">:</span><span class="s2">"50"</span><span class="p">,</span><span class="w">
          </span><span class="nt">"ProductWeight"</span><span class="p">:</span><span class="s2">"200"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"VariantProperty3"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"Value3"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"VariantProperty4"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"Value4"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"VariantProperty5"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"Value5"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
          </span><span class="nt">"BankProductId"</span><span class="p">:</span><span class="s2">"654786"</span><span class="p">,</span><span class="w">
          </span><span class="nt">"OfferProductDescription"</span><span class="p">:</span><span class="s2">"example.xml"</span><span class="p">,</span><span class="w">
          </span><span class="nt">"OfferProductImage"</span><span class="p">:</span><span class="s2">"image.jpg"</span><span class="p">,</span><span class="w">
@@ -3551,7 +3569,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
         </span><span class="nt">"VariantProperty1"</span><span class="p">:</span><span class="s2">"Color"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"Value1"</span><span class="p">:</span><span class="s2">"Red"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"VariantProperty2"</span><span class="p">:</span><span class="s2">"Size"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"Value3"</span><span class="p">:</span><span class="s2">"S"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Value2"</span><span class="p">:</span><span class="s2">"S"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"VariantProperty3"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
         </span><span class="nt">"Value3"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
         </span><span class="nt">"BankProductId"</span><span class="p">:</span><span class="s2">"654786"</span><span class="p">,</span><span class="w">
@@ -3699,7 +3717,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>ProductType*</td>
 <td>string</td>
-<td>Type of the product. Values: <code class="prettyprint">P</code> for a normal product, <code class="prettyprint">A</code> for an add-on products, <code class="prettyprint">D</code> for a deal product, and <code class="prettyprint">B</code> for a bundle product</td>
+<td>Type of the product. Values: <code class="prettyprint">P</code> for a normal product, <code class="prettyprint">A</code> for an add-on products, and <code class="prettyprint">B</code> for a bundle product or deal product</td>
 </tr>
 <tr>
 <td>CategoryRefCode</td>
@@ -3730,21 +3748,6 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <td>BarCode</td>
 <td>string</td>
 <td>Bar code of the product</td>
-</tr>
-<tr>
-<td>ProductType</td>
-<td>enum</td>
-<td>Type of the product. Values: P (normal product), B (bundle product), A (add-on product), D (deal product)</td>
-</tr>
-<tr>
-<td>VariantProperty</td>
-<td>string</td>
-<td>Specify the property name of the variant product. For example, color, size, weight, ram, harddisk. You can add more properties in VariantProperty1, VariantProperty2 and so on</td>
-</tr>
-<tr>
-<td>value</td>
-<td>string</td>
-<td>Value of the specified property. You can add each property value in value1, value2 and so on</td>
 </tr>
 <tr>
 <td>SmallImage</td>
@@ -4066,15 +4069,38 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <td>string</td>
 <td>Reference code of the order fulfillment location</td>
 </tr>
+</tbody></table>
+
+<aside class="notice"> All parameters marked by * are mandatory.</aside>
+
+<h3 id="response-parameters">Response Parameters</h3>
+
+<p>Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.</p>
+
+<table><thead>
 <tr>
-<td>SectionRefCode</td>
-<td></td>
-<td></td>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
 </tr>
+</thead><tbody>
+</tbody></table>
+
+<h3 id="response-parameters">Response Parameters</h3>
+
+<p>Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.</p>
+
+<table><thead>
 <tr>
-<td>Reorderstocklevel</td>
-<td></td>
-<td></td>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Taskid</td>
+<td>int</td>
+<td>Unique id generated for the current update task</td>
 </tr>
 </tbody></table>
 
@@ -4206,6 +4232,36 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 </tr>
 </tbody></table>
 
+<aside class="notice"> All parameters marked by * are mandatory.</aside>
+
+<h3 id="response-parameters">Response Parameters</h3>
+
+<p>Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>usergroupname</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>tokenprice</td>
+<td>float</td>
+<td></td>
+</tr>
+<tr>
+<td>channelrefcode</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+
 <h2 id="get-product-reviews">Get Product Reviews</h2>
 <pre class="highlight html"><code>https://www.martjack.com/developerapi/Product/GetReviews/81e77da2-723b-483d-8c0d-49f800c1exxx/PZLG-WM
 </code></pre>
@@ -4299,6 +4355,8 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 </tr>
 </tbody></table>
 
+<aside class="notice"> All parameters marked by * are mandatory.</aside>
+
 <h2 id="attach-product-images">Attach Product Images</h2>
 
 <blockquote>
@@ -4311,10 +4369,10 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 </blockquote>
 <pre class="highlight json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Zara42134125"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sku42134125"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"variants"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
       </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"variantsku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Zara4113231"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"variantsku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sku4113231"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"images"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
           </span><span class="p">{</span><span class="w">
             </span><span class="nt">"filename"</span><span class="p">:</span><span class="w"> </span><span class="s2">"filnemae.jpg"</span><span class="p">,</span><span class="w">
@@ -4465,8 +4523,8 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 </tr>
 <tr>
 <td>images</td>
-<td></td>
-<td></td>
+<td>json obj</td>
+<td>Image details to be attached based on the variant property and value</td>
 </tr>
 <tr>
 <td>filename</td>
@@ -4605,7 +4663,27 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 </tr>
 </tbody></table>
 
-<h2 id="get-product-details">Get Product Details</h2>
+<aside class="notice"> All parameters marked by * are mandatory.</aside>
+
+<h3 id="response-parameters">Response Parameters</h3>
+
+<p>Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Taskid</td>
+<td>int</td>
+<td>Unique id generated for the current task</td>
+</tr>
+</tbody></table>
+
+<h2 id="get-product-details-by-location">Get Product Details by Location</h2>
 
 <blockquote>
 <p>Sample Request</p>
@@ -4616,58 +4694,58 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <p>Sample Response</p>
 </blockquote>
 <pre class="highlight json"><code><span class="s2">"{
-    ""messageCode"":""1004"",
-    ""Message"":""Successful"",
-    ""Product"":
+    "</span><span class="err">messageCode</span><span class="s2">":""1004"",
+    "</span><span class="err">Message</span><span class="s2">":"</span><span class="err">Successful</span><span class="s2">""</span><span class="err">,</span><span class="w">
+    </span><span class="s2">"Product"":
     {
-        ""ProductId"":11982534,
-        ""ProductTitle"":""Mothers Dairy Safal Frozen Vegetables - Mixed Vegetables,"",
-        ""MRP"":50.0,
-        ""WebPrice"":50.0,
-        ""CostPrice"":0.0,
-        ""Rating"":0,
-        ""IsParentProduct"":false,
-        ""Availability"":true,
-        ""BrandId"":""0"",
-        ""CatlogSequence"":0,
-        ""CatalogCode"":"""",
-        ""SKU"":""100040621"",
-        ""Taxtotal"":0,
-        ""MarkupPrice"":0,
-        ""MarkupType"":"""",
-        ""BulkQuantity"":1,
-        ""ProductWeight"":0.0,
-        ""ProductType"":""P"",
-        ""SmallImageAltText"":""0"",
-        ""IsShippingConfigured"":false,
-        ""IsTaxConfigured"":false,
-        ""StartDate"":""\/Date(1537209000000+0530)\/"",
-        ""EndDate"":""\/Date(1537295400000+0530)\/"",
-        ""SeoURL"":""http:\/\/www.example.martjack.com\/mothers-dairy-safal-frozen-vegetables---mixed-vegetables\/p\/11982534"",
-        ""DeliveryTime"":""Delivered in 5 Working days"",
-        ""TokenPriceCheckout"":false,
-        ""IsReferPrice"":false,
-        ""ShortDescription"":"""",
-        ""TokenPrice"":0.0,
-        ""SmallImage"":"""",
-        ""Brandname"":""Safal"",
-        ""CategoryId"":""CU00333866"",
-        ""CategoryName"":""Frozen Mixed Vegetable"",
-        ""Fulldescription"":"""",
-        ""NoofReview"":""0"",
-        ""BarCode"":""9876567892"",
-        ""Inventory"":""120"",
-        ""PreOrder"":""0"",
-        ""BackOrder"":""0"",
-        ""OfferDescription"":"""",
-        ""RefProductId"":""0"",
-        ""Sellerid"":""00000000-0000-0000-0000-000000000000"",
-        ""ShippingCodes"":""Cart amount"",
-        ""IsInStock"":""true"",
-        ""ProductSequence"":0,
-        ""UOM"":""Pieces""
+        "</span><span class="err">ProductId</span><span class="s2">""</span><span class="err">:</span><span class="mi">11982534</span><span class="err">,</span><span class="w">
+        </span><span class="s2">""</span><span class="err">ProductTitle</span><span class="s2">""</span><span class="err">:</span><span class="s2">""</span><span class="err">Mothers</span><span class="w"> </span><span class="err">Dairy</span><span class="w"> </span><span class="err">Safal</span><span class="w"> </span><span class="err">Frozen</span><span class="w"> </span><span class="err">Vegetables</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">Mixed</span><span class="w"> </span><span class="err">Vegetables,</span><span class="s2">""</span><span class="err">,</span><span class="w">
+        </span><span class="s2">""</span><span class="err">MRP</span><span class="s2">""</span><span class="err">:</span><span class="mf">50.0</span><span class="err">,</span><span class="w">
+        </span><span class="s2">""</span><span class="err">WebPrice</span><span class="s2">""</span><span class="err">:</span><span class="mf">50.0</span><span class="err">,</span><span class="w">
+        </span><span class="s2">""</span><span class="err">CostPrice</span><span class="s2">""</span><span class="err">:</span><span class="mf">0.0</span><span class="err">,</span><span class="w">
+        </span><span class="s2">""</span><span class="err">Rating</span><span class="s2">""</span><span class="err">:</span><span class="mi">0</span><span class="err">,</span><span class="w">
+        </span><span class="s2">""</span><span class="err">IsParentProduct</span><span class="s2">""</span><span class="err">:</span><span class="kc">false</span><span class="err">,</span><span class="w">
+        </span><span class="s2">""</span><span class="err">Availability</span><span class="s2">""</span><span class="err">:</span><span class="kc">true</span><span class="err">,</span><span class="w">
+        </span><span class="s2">""</span><span class="err">BrandId</span><span class="s2">""</span><span class="err">:</span><span class="s2">""</span><span class="mi">0</span><span class="s2">""</span><span class="err">,</span><span class="w">
+        </span><span class="s2">""</span><span class="err">CatlogSequence</span><span class="s2">""</span><span class="err">:</span><span class="mi">0</span><span class="err">,</span><span class="w">
+        </span><span class="s2">""</span><span class="err">CatalogCode</span><span class="s2">":"",
+        "</span><span class="err">SKU</span><span class="s2">":"</span><span class="mi">100040621</span><span class="s2">",
+        "</span><span class="err">Taxtotal</span><span class="s2">":0,
+        "</span><span class="err">MarkupPrice</span><span class="s2">":0,
+        "</span><span class="err">MarkupType</span><span class="s2">":"",
+        "</span><span class="err">BulkQuantity</span><span class="s2">":1,
+        "</span><span class="err">ProductWeight</span><span class="s2">":0.0,
+        "</span><span class="err">ProductType</span><span class="s2">":"</span><span class="err">P</span><span class="s2">",
+        "</span><span class="err">SmallImageAltText</span><span class="s2">":"</span><span class="mi">0</span><span class="s2">",
+        "</span><span class="err">IsShippingConfigured</span><span class="s2">":false,
+        "</span><span class="err">IsTaxConfigured</span><span class="s2">":false,
+        "</span><span class="err">StartDate</span><span class="s2">":"</span><span class="err">\/Date(</span><span class="mi">1537209000000</span><span class="err">+</span><span class="mi">0530</span><span class="err">)\/</span><span class="s2">",
+        "</span><span class="err">EndDate</span><span class="s2">":"</span><span class="err">\/Date(</span><span class="mi">1537295400000</span><span class="err">+</span><span class="mi">0530</span><span class="err">)\/</span><span class="s2">",
+        "</span><span class="err">SeoURL</span><span class="s2">":"</span><span class="err">http:\/\/www.example.martjack.com\/mothers-dairy-safal-frozen-vegetables---mixed-vegetables\/p\/</span><span class="mi">11982534</span><span class="s2">",
+        "</span><span class="err">DeliveryTime</span><span class="s2">":"</span><span class="err">Delivered</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="err">Working</span><span class="w"> </span><span class="err">days</span><span class="s2">",
+        "</span><span class="err">TokenPriceCheckout</span><span class="s2">":false,
+        "</span><span class="err">IsReferPrice</span><span class="s2">":false,
+        "</span><span class="err">ShortDescription</span><span class="s2">":"",
+        "</span><span class="err">TokenPrice</span><span class="s2">":0.0,
+        "</span><span class="err">SmallImage</span><span class="s2">":"",
+        "</span><span class="err">Brandname</span><span class="s2">":"</span><span class="err">Safal</span><span class="s2">",
+        "</span><span class="err">CategoryId</span><span class="s2">":"</span><span class="err">CU</span><span class="mi">00333866</span><span class="s2">",
+        "</span><span class="err">CategoryName</span><span class="s2">":"</span><span class="err">Frozen</span><span class="w"> </span><span class="err">Mixed</span><span class="w"> </span><span class="err">Vegetable</span><span class="s2">",
+        "</span><span class="err">Fulldescription</span><span class="s2">":"",
+        "</span><span class="err">NoofReview</span><span class="s2">":"</span><span class="mi">0</span><span class="s2">",
+        "</span><span class="err">BarCode</span><span class="s2">":"</span><span class="mi">9876567892</span><span class="s2">",
+        "</span><span class="err">Inventory</span><span class="s2">":"</span><span class="mi">120</span><span class="s2">",
+        "</span><span class="err">PreOrder</span><span class="s2">":"</span><span class="mi">0</span><span class="s2">",
+        "</span><span class="err">BackOrder</span><span class="s2">":"</span><span class="mi">0</span><span class="s2">",
+        "</span><span class="err">OfferDescription</span><span class="s2">":"",
+        "</span><span class="err">RefProductId</span><span class="s2">":"</span><span class="mi">0</span><span class="s2">",
+        "</span><span class="err">Sellerid</span><span class="s2">":"</span><span class="mi">00000000-0000-0000-0000-000000000000</span><span class="s2">",
+        "</span><span class="err">ShippingCodes</span><span class="s2">":"</span><span class="err">Cart</span><span class="w"> </span><span class="err">amount</span><span class="s2">",
+        "</span><span class="err">IsInStock</span><span class="s2">":"</span><span class="kc">true</span><span class="s2">",
+        "</span><span class="err">ProductSequence</span><span class="s2">":0,
+        "</span><span class="err">UOM</span><span class="s2">":"</span><span class="err">Pieces</span><span class="s2">"
     },
-    ""ErrorCode"":0
+    "</span><span class="err">ErrorCode</span><span class="s2">":0
 }"</span><span class="w">
 
 
@@ -4727,11 +4805,96 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>productId*</td>
 <td>int</td>
-<td></td>
+<td>Product id  of the SKU</td>
 </tr>
 <tr>
 <td>locationId*</td>
 <td>int</td>
+<td>Location id of the location</td>
+</tr>
+</tbody></table>
+
+<aside class="notice"> All parameters marked by * are mandatory.</aside>
+
+<h3 id="response-parameters">Response Parameters</h3>
+
+<p>Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>IsParentProduct</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td>CatlogSequence</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>CatalogCode</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>MarkupPrice</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>MarkupType</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>IsShippingConfigured</td>
+<td>boolean</td>
+<td></td>
+</tr>
+<tr>
+<td>IsTaxConfigured</td>
+<td>boolean</td>
+<td></td>
+</tr>
+<tr>
+<td>StartDate</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>EndDate</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>SeoURL</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>TokenPriceCheckout</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>IsReferPrice</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>NoofReview</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>UOM</td>
+<td></td>
 <td></td>
 </tr>
 </tbody></table>
@@ -4748,50 +4911,50 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 </blockquote>
 <pre class="highlight json"><code><span class="w">
 </span><span class="s2">"{
-    ""messageCode"":""1004"",
-    ""Message"":""Successful"",
-    ""Product"":
+    "</span><span class="err">messageCode</span><span class="s2">":"</span><span class="mi">1004</span><span class="s2">",
+    "</span><span class="err">Message</span><span class="s2">":"</span><span class="err">Successful</span><span class="s2">",
+    "</span><span class="err">Product</span><span class="s2">":
     {
-        ""ProductId"":11982534,
-        ""ProductTitle"":""Mothers Dairy Safal Frozen Vegetables - Mixed Vegetables,"",
-        ""MRP"":50.0,
-        ""WebPrice"":50.0,
-        ""CostPrice"":0.0,
-        ""Rating"":0,
-        ""IsParentProduct"":false,
-        ""Availability"":true,
-        ""BrandId"":""0"",
-        ""CatlogSequence"":0,
-        ""CatalogCode"":"""",
-        ""SKU"":""100040621"",
-        ""Taxtotal"":0,
-        ""MarkupPrice"":0,
-        ""MarkupType"":"""",
-        ""BulkQuantity"":0,
-        ""ProductWeight"":0.0,
-        ""ProductType"":""P"",
-        ""SmallImageAltText"":""0"",
-        ""IsShippingConfigured"":false,
-        ""IsTaxConfigured"":false,
-        ""StartDate"":""\/Date(1537209000000+0530)\/"",
-        ""EndDate"":""\/Date(1537295400000+0530)\/"",
-        ""SeoURL"":"""",
-        ""DeliveryTime"":""Delivered in 5 Working days"",
-        ""TokenPriceCheckout"":false,
-        ""IsReferPrice"":false,
-        ""ShortDescription"":"""",
-        ""TokenPrice"":0.0,
-        ""SmallImage"":"""",
-        ""Brandname"":null,
-        ""CategoryId"":""CU00333866"",
-        ""CategoryName"":null,
-        ""Fulldescription"":null,
-        ""NoofReview"":null,
-        ""BarCode"":null,
-        ""ProductSequence"":0,
-        ""UOM"":null
+        "</span><span class="err">ProductId</span><span class="s2">":11982534,
+        "</span><span class="err">ProductTitle</span><span class="s2">":"</span><span class="err">Mothers</span><span class="w"> </span><span class="err">Dairy</span><span class="w"> </span><span class="err">Safal</span><span class="w"> </span><span class="err">Frozen</span><span class="w"> </span><span class="err">Vegetables</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">Mixed</span><span class="w"> </span><span class="err">Vegetables,</span><span class="s2">",
+        "</span><span class="err">MRP</span><span class="s2">":50.0,
+        "</span><span class="err">WebPrice</span><span class="s2">":50.0,
+        "</span><span class="err">CostPrice</span><span class="s2">":0.0,
+        "</span><span class="err">Rating</span><span class="s2">":0,
+        "</span><span class="err">IsParentProduct</span><span class="s2">":false,
+        "</span><span class="err">Availability</span><span class="s2">":true,
+        "</span><span class="err">BrandId</span><span class="s2">":"</span><span class="mi">0</span><span class="s2">",
+        "</span><span class="err">CatlogSequence</span><span class="s2">":0,
+        "</span><span class="err">CatalogCode</span><span class="s2">":"",
+        "</span><span class="err">SKU</span><span class="s2">":"</span><span class="mi">100040621</span><span class="s2">",
+        "</span><span class="err">Taxtotal</span><span class="s2">":0,
+        "</span><span class="err">MarkupPrice</span><span class="s2">":0,
+        "</span><span class="err">MarkupType</span><span class="s2">":"",
+        "</span><span class="err">BulkQuantity</span><span class="s2">":0,
+        "</span><span class="err">ProductWeight</span><span class="s2">":0.0,
+        "</span><span class="err">ProductType</span><span class="s2">":"</span><span class="err">P</span><span class="s2">",
+        "</span><span class="err">SmallImageAltText</span><span class="s2">":"</span><span class="mi">0</span><span class="s2">",
+        "</span><span class="err">IsShippingConfigured</span><span class="s2">":false,
+        "</span><span class="err">IsTaxConfigured</span><span class="s2">":false,
+        "</span><span class="err">StartDate</span><span class="s2">":"</span><span class="err">\/Date(</span><span class="mi">1537209000000</span><span class="err">+</span><span class="mi">0530</span><span class="err">)\/</span><span class="s2">",
+        "</span><span class="err">EndDate</span><span class="s2">":"</span><span class="err">\/Date(</span><span class="mi">1537295400000</span><span class="err">+</span><span class="mi">0530</span><span class="err">)\/</span><span class="s2">",
+        "</span><span class="err">SeoURL</span><span class="s2">":"",
+        "</span><span class="err">DeliveryTime</span><span class="s2">":"</span><span class="err">Delivered</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="err">Working</span><span class="w"> </span><span class="err">days</span><span class="s2">",
+        "</span><span class="err">TokenPriceCheckout</span><span class="s2">":false,
+        "</span><span class="err">IsReferPrice</span><span class="s2">":false,
+        "</span><span class="err">ShortDescription</span><span class="s2">":"",
+        "</span><span class="err">TokenPrice</span><span class="s2">":0.0,
+        "</span><span class="err">SmallImage</span><span class="s2">":"",
+        "</span><span class="err">Brandname</span><span class="s2">":null,
+        "</span><span class="err">CategoryId</span><span class="s2">":"</span><span class="err">CU</span><span class="mi">00333866</span><span class="s2">",
+        "</span><span class="err">CategoryName</span><span class="s2">":null,
+        "</span><span class="err">Fulldescription</span><span class="s2">":null,
+        "</span><span class="err">NoofReview</span><span class="s2">":null,
+        "</span><span class="err">BarCode</span><span class="s2">":null,
+        "</span><span class="err">ProductSequence</span><span class="s2">":0,
+        "</span><span class="err">UOM</span><span class="s2">":null
     },
-    ""ErrorCode"":0
+    "</span><span class="err">ErrorCode</span><span class="s2">":0
 }"</span><span class="w">
 
 </span></code></pre>
@@ -4856,6 +5019,51 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 </tr>
 </tbody></table>
 
+<aside class="notice"> All parameters marked by * are mandatory.</aside>
+
+<h3 id="response-parameters">Response Parameters</h3>
+
+<p>Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>CatlogSequence</td>
+<td></td>
+<td>The sequence of the product in catalog</td>
+</tr>
+<tr>
+<td>MarkupPrice</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>MarkupType</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>BulkQuantity</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>NoofReview</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>UOM</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+
 <h2 id="get-product-variants">Get Product Variants</h2>
 
 <blockquote>
@@ -4867,106 +5075,106 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <p>Sample Response</p>
 </blockquote>
 <pre class="highlight json"><code><span class="s2">"{
-    ""messageCode"":""1004"",
-    ""Message"":""Successful"",
-    ""ProductVarient"":
+    "</span><span class="err">messageCode</span><span class="s2">":"</span><span class="mi">1004</span><span class="s2">",
+    "</span><span class="err">Message</span><span class="s2">":"</span><span class="err">Successful</span><span class="s2">",
+    "</span><span class="err">ProductVarient</span><span class="s2">":
     [
         {
-            ""variantProductId"":""9076980"",
-            ""productId"":12322048,
-            ""MRP"":400,
-            ""WebPrice"":400.0,
-            ""SKU"":""100309195"",
-            ""Inventory"":110,
-            ""ReferenceProductVariantId"":0,
-            ""productType"":"""",
-            ""merchantId"":""f48fdd16-92db-4188-854d-1ecd9b62d066"",
-            ""BulkQuantity"":1,
-            ""Availability"":true,
-            ""StartDate"":""\/Date(-2209008600000+0530)\/"",
-            ""EndDate"":""\/Date(-2209008600000+0530)\/"",
-            ""CostPrice"":0,
-            ""BarCode"":""100309195,8906001020547"",
-            ""CatalogCode"":"""",
-            ""IsDropShipping"":false,
-            ""MarkupPrice"":0,
-            ""MarkupType"":"""",
-            ""IsReferProductInfo"":false,
-            ""IsReferPrice"":false,
-            ""TokenPrice"":0,
-            ""Flag"":"""",
-            ""ReserveQuantity"":0,
-            ""ReOrderStockLevel"":0,
-            ""StockAlertQuantity"":0,
-            ""PreOrderMessage"":"""",
-            ""PreOrder"":false,
-            ""BackOrder"":false,
-            ""IsStockEnabled"":false,
-            ""WebPriceWithoutDiscount"":0,
-            ""ProductVariantValueViews"":
+            "</span><span class="err">variantProductId</span><span class="s2">":"</span><span class="mi">9076980</span><span class="s2">",
+            "</span><span class="err">productId</span><span class="s2">":12322048,
+            "</span><span class="err">MRP</span><span class="s2">":400,
+            "</span><span class="err">WebPrice</span><span class="s2">":400.0,
+            "</span><span class="err">SKU</span><span class="s2">":"</span><span class="mi">100309195</span><span class="s2">",
+            "</span><span class="err">Inventory</span><span class="s2">":110,
+            "</span><span class="err">ReferenceProductVariantId</span><span class="s2">":0,
+            "</span><span class="err">productType</span><span class="s2">":"",
+            "</span><span class="err">merchantId</span><span class="s2">":"</span><span class="err">f</span><span class="mi">48</span><span class="err">fdd</span><span class="mi">16-92</span><span class="err">db</span><span class="mi">-4188-854</span><span class="err">d</span><span class="mi">-1</span><span class="err">ecd</span><span class="mi">9</span><span class="err">b</span><span class="mi">62</span><span class="err">d</span><span class="mi">066</span><span class="s2">",
+            "</span><span class="err">BulkQuantity</span><span class="s2">":1,
+            "</span><span class="err">Availability</span><span class="s2">":true,
+            "</span><span class="err">StartDate</span><span class="s2">":"</span><span class="err">\/Date(</span><span class="mi">-2209008600000</span><span class="err">+</span><span class="mi">0530</span><span class="err">)\/</span><span class="s2">",
+            "</span><span class="err">EndDate</span><span class="s2">":"</span><span class="err">\/Date(</span><span class="mi">-2209008600000</span><span class="err">+</span><span class="mi">0530</span><span class="err">)\/</span><span class="s2">",
+            "</span><span class="err">CostPrice</span><span class="s2">":0,
+            "</span><span class="err">BarCode</span><span class="s2">":"</span><span class="mi">100309195</span><span class="err">,</span><span class="mi">8906001020547</span><span class="s2">",
+            "</span><span class="err">CatalogCode</span><span class="s2">":"",
+            "</span><span class="err">IsDropShipping</span><span class="s2">":false,
+            "</span><span class="err">MarkupPrice</span><span class="s2">":0,
+            "</span><span class="err">MarkupType</span><span class="s2">":"",
+            "</span><span class="err">IsReferProductInfo</span><span class="s2">":false,
+            "</span><span class="err">IsReferPrice</span><span class="s2">":false,
+            "</span><span class="err">TokenPrice</span><span class="s2">":0,
+            "</span><span class="err">Flag</span><span class="s2">":"",
+            "</span><span class="err">ReserveQuantity</span><span class="s2">":0,
+            "</span><span class="err">ReOrderStockLevel</span><span class="s2">":0,
+            "</span><span class="err">StockAlertQuantity</span><span class="s2">":0,
+            "</span><span class="err">PreOrderMessage</span><span class="s2">":"",
+            "</span><span class="err">PreOrder</span><span class="s2">":false,
+            "</span><span class="err">BackOrder</span><span class="s2">":false,
+            "</span><span class="err">IsStockEnabled</span><span class="s2">":false,
+            "</span><span class="err">WebPriceWithoutDiscount</span><span class="s2">":0,
+            "</span><span class="err">ProductVariantValueViews</span><span class="s2">":
             [
                 {
-                    ""valueId"":14870754,
-                    ""variantProductId"":9076980,
-                    ""variantPropertyId"":13068,
-                    ""variantPropertyValueId"":297444,
-                    ""IsDisplaySwatch"":false,
-                    ""Rank"":100375,
-                    ""variantPropertyName"":""Weight"",
-                    ""variantValue"":""1kg Box"",
-                    ""flag"":""""
+                    "</span><span class="err">valueId</span><span class="s2">":14870754,
+                    "</span><span class="err">variantProductId</span><span class="s2">":9076980,
+                    "</span><span class="err">variantPropertyId</span><span class="s2">":13068,
+                    "</span><span class="err">variantPropertyValueId</span><span class="s2">":297444,
+                    "</span><span class="err">IsDisplaySwatch</span><span class="s2">":false,
+                    "</span><span class="err">Rank</span><span class="s2">":100375,
+                    "</span><span class="err">variantPropertyName</span><span class="s2">":"</span><span class="err">Weight</span><span class="s2">",
+                    "</span><span class="err">variantValue</span><span class="s2">":"</span><span class="mi">1</span><span class="err">kg</span><span class="w"> </span><span class="err">Box</span><span class="s2">",
+                    "</span><span class="err">flag</span><span class="s2">":""
                 }
             ]
         },
         {
-            ""variantProductId"":""9077536"",
-            ""productId"":12322048,
-            ""MRP"":115,
-            ""WebPrice"":115.0,
-            ""SKU"":""100258508"",
-            ""Inventory"":120,
-            ""ReferenceProductVariantId"":0,
-            ""productType"":"""",
-            ""merchantId"":""f48fdd16-92db-4188-854d-1ecd9b62d066"",
-            ""BulkQuantity"":1,
-            ""Availability"":true,
-            ""StartDate"":""\/Date(-2209008600000+0530)\/"",
-            ""EndDate"":""\/Date(-2209008600000+0530)\/"",
-            ""CostPrice"":0,
-            ""BarCode"":""100258508,8906001020431"",
-            ""CatalogCode"":"""",
-            ""IsDropShipping"":false,
-            ""MarkupPrice"":0,
-            ""MarkupType"":"""",
-            ""IsReferProductInfo"":false,
-            ""IsReferPrice"":false,
-            ""TokenPrice"":0,
-            ""Flag"":"""",
-            ""ReserveQuantity"":0,
-            ""ReOrderStockLevel"":0,
-            ""StockAlertQuantity"":0,
-            ""PreOrderMessage"":"""",
-            ""PreOrder"":false,
-            ""BackOrder"":false,
-            ""IsStockEnabled"":false,
-            ""WebPriceWithoutDiscount"":0,
-            ""ProductVariantValueViews"":
+            "</span><span class="err">variantProductId</span><span class="s2">":"</span><span class="mi">9077536</span><span class="s2">",
+            "</span><span class="err">productId</span><span class="s2">":12322048,
+            "</span><span class="err">MRP</span><span class="s2">":115,
+            "</span><span class="err">WebPrice</span><span class="s2">":115.0,
+            "</span><span class="err">SKU</span><span class="s2">":"</span><span class="mi">100258508</span><span class="s2">",
+            "</span><span class="err">Inventory</span><span class="s2">":120,
+            "</span><span class="err">ReferenceProductVariantId</span><span class="s2">":0,
+            "</span><span class="err">productType</span><span class="s2">":"",
+            "</span><span class="err">merchantId</span><span class="s2">":"</span><span class="err">f</span><span class="mi">48</span><span class="err">fdd</span><span class="mi">16-92</span><span class="err">db</span><span class="mi">-4188-854</span><span class="err">d</span><span class="mi">-1</span><span class="err">ecd</span><span class="mi">9</span><span class="err">b</span><span class="mi">62</span><span class="err">d</span><span class="mi">066</span><span class="s2">",
+            "</span><span class="err">BulkQuantity</span><span class="s2">":1,
+            "</span><span class="err">Availability</span><span class="s2">":true,
+            "</span><span class="err">StartDate</span><span class="s2">":"</span><span class="err">\/Date(</span><span class="mi">-2209008600000</span><span class="err">+</span><span class="mi">0530</span><span class="err">)\/</span><span class="s2">",
+            "</span><span class="err">EndDate</span><span class="s2">":"</span><span class="err">\/Date(</span><span class="mi">-2209008600000</span><span class="err">+</span><span class="mi">0530</span><span class="err">)\/</span><span class="s2">",
+            "</span><span class="err">CostPrice</span><span class="s2">":0,
+            "</span><span class="err">BarCode</span><span class="s2">":"</span><span class="mi">100258508</span><span class="err">,</span><span class="mi">8906001020431</span><span class="s2">",
+            "</span><span class="err">CatalogCode</span><span class="s2">":"",
+            "</span><span class="err">IsDropShipping</span><span class="s2">":false,
+            "</span><span class="err">MarkupPrice</span><span class="s2">":0,
+            "</span><span class="err">MarkupType</span><span class="s2">":"",
+            "</span><span class="err">IsReferProductInfo</span><span class="s2">":false,
+            "</span><span class="err">IsReferPrice</span><span class="s2">":false,
+            "</span><span class="err">TokenPrice</span><span class="s2">":0,
+            "</span><span class="err">Flag</span><span class="s2">":"",
+            "</span><span class="err">ReserveQuantity</span><span class="s2">":0,
+            "</span><span class="err">ReOrderStockLevel</span><span class="s2">":0,
+            "</span><span class="err">StockAlertQuantity</span><span class="s2">":0,
+            "</span><span class="err">PreOrderMessage</span><span class="s2">":"",
+            "</span><span class="err">PreOrder</span><span class="s2">":false,
+            "</span><span class="err">BackOrder</span><span class="s2">":false,
+            "</span><span class="err">IsStockEnabled</span><span class="s2">":false,
+            "</span><span class="err">WebPriceWithoutDiscount</span><span class="s2">":0,
+            "</span><span class="err">ProductVariantValueViews</span><span class="s2">":
             [
                 {
-                    ""valueId"":14871310,
-                    ""variantProductId"":9077536,
-                    ""variantPropertyId"":13068,
-                    ""variantPropertyValueId"":297450,
-                    ""IsDisplaySwatch"":false,
-                    ""Rank"":100378,
-                    ""variantPropertyName"":""Weight"",
-                    ""variantValue"":""200g Box"",
-                    ""flag"":""""
+                    "</span><span class="err">valueId</span><span class="s2">":14871310,
+                    "</span><span class="err">variantProductId</span><span class="s2">":9077536,
+                    "</span><span class="err">variantPropertyId</span><span class="s2">":13068,
+                    "</span><span class="err">variantPropertyValueId</span><span class="s2">":297450,
+                    "</span><span class="err">IsDisplaySwatch</span><span class="s2">":false,
+                    "</span><span class="err">Rank</span><span class="s2">":100378,
+                    "</span><span class="err">variantPropertyName</span><span class="s2">":"</span><span class="err">Weight</span><span class="s2">",
+                    "</span><span class="err">variantValue</span><span class="s2">":"</span><span class="mi">200</span><span class="err">g</span><span class="w"> </span><span class="err">Box</span><span class="s2">",
+                    "</span><span class="err">flag</span><span class="s2">":""
                 }
             ]
         }
     ],
-    ""ErrorCode"":0
+    "</span><span class="err">ErrorCode</span><span class="s2">":0
 }"</span><span class="w">
 
 
@@ -5037,6 +5245,76 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 </tr>
 </tbody></table>
 
+<aside class="notice"> All parameters marked by * are mandatory.</aside>
+
+<h3 id="response-parameters">Response Parameters</h3>
+
+<p>Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ReferenceProductVariantId</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>StartDate</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>EndDate</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>MarkupPrice</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>MarkupType</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>IsReferProductInfo</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>IsReferPrice</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>ReserveQuantity</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>ReOrderStockLevel</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>IsDisplaySwatch</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>flag</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+
 <h2 id="get-product-by-tag">Get Product by Tag</h2>
 
 <blockquote>
@@ -5067,33 +5345,33 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
            </span><span class="nt">"SKU"</span><span class="p">:</span><span class="s2">"Fruits0001"</span><span class="p">,</span><span class="w">
            </span><span class="nt">"Taxtotal"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
            </span><span class="nt">"MarkupPrice"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
-           </span><span class="nt">"MarkupType"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-           </span><span class="nt">"BulkQuantity"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
-           </span><span class="nt">"ProductWeight"</span><span class="p">:</span><span class="mf">150.0</span><span class="p">,</span><span class="w">
-           </span><span class="nt">"ProductType"</span><span class="p">:</span><span class="s2">"P"</span><span class="p">,</span><span class="w">
-           </span><span class="nt">"SmallImageAltText"</span><span class="p">:</span><span class="s2">"Fresho Pomegranate - Peeled, 200 gm 12"</span><span class="p">,</span><span class="w">
-           </span><span class="nt">"IsShippingConfigured"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
-           </span><span class="nt">"IsTaxConfigured"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
-           </span><span class="nt">"StartDate"</span><span class="p">:</span><span class="s2">"\/Date(1525372200000+0530)\/"</span><span class="p">,</span><span class="w">
-           </span><span class="nt">"EndDate"</span><span class="p">:</span><span class="s2">"\/Date(1528050600000+0530)\/"</span><span class="p">,</span><span class="w">
-           </span><span class="nt">"SeoURL"</span><span class="p">:</span><span class="s2">"http:\/\/www.hyctest.stagesites.capillary.in\/seo-url\/p\/11631476"</span><span class="p">,</span><span class="w">
-           </span><span class="nt">"DeliveryTime"</span><span class="p">:</span><span class="s2">"2-4 days"</span><span class="p">,</span><span class="w">
-           </span><span class="nt">"TokenPriceCheckout"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
-           </span><span class="nt">"IsReferPrice"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
-           </span><span class="nt">"ShortDescription"</span><span class="p">:</span><span class="s2">"api_test"</span><span class="p">,</span><span class="w">
-           </span><span class="nt">"TokenPrice"</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span><span class="w">
-           </span><span class="nt">"SmallImage"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+           </span><span class="nt">"MarkupType"</span><span class="p">:</span><span class="s2">",
+           "</span><span class="err">BulkQuantity</span><span class="s2">":1,
+           "</span><span class="err">ProductWeight</span><span class="s2">":150.0,
+           "</span><span class="err">ProductType</span><span class="s2">":"</span><span class="err">P</span><span class="s2">",
+           "</span><span class="err">SmallImageAltText</span><span class="s2">":"</span><span class="err">Fresho</span><span class="w"> </span><span class="err">Pomegranate</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">Peeled</span><span class="p">,</span><span class="w"> </span><span class="err">200</span><span class="w"> </span><span class="err">gm</span><span class="w"> </span><span class="err">12</span><span class="nt">",
+           "</span><span class="err">IsShippingConfigured</span><span class="nt">":false,
+           "</span><span class="err">IsTaxConfigured</span><span class="nt">":false,
+           "</span><span class="err">StartDate</span><span class="nt">":"</span><span class="err">\/Date(1525372200000+0530)\/</span><span class="nt">",
+           "</span><span class="err">EndDate</span><span class="nt">":"</span><span class="err">\/Date(1528050600000+0530)\/</span><span class="nt">",
+           "</span><span class="err">SeoURL</span><span class="nt">":"</span><span class="err">http</span><span class="p">:</span><span class="err">\/\/www.hyctest.stagesites.capillary.in\/seo-url\/p\/</span><span class="mi">11631476</span><span class="s2">",
+           "</span><span class="err">DeliveryTime</span><span class="s2">":"</span><span class="mi">2-4</span><span class="w"> </span><span class="err">days</span><span class="s2">",
+           "</span><span class="err">TokenPriceCheckout</span><span class="s2">":false,
+           "</span><span class="err">IsReferPrice</span><span class="s2">":false,
+           "</span><span class="err">ShortDescription</span><span class="s2">":"</span><span class="err">api_test</span><span class="s2">",
+           "</span><span class="err">TokenPrice</span><span class="s2">":0.0,
+           "</span><span class="err">SmallImage</span><span class="s2">":"</span><span class="p">,</span><span class="w">
            </span><span class="nt">"Brandname"</span><span class="p">:</span><span class="s2">"Fresho"</span><span class="p">,</span><span class="w">
            </span><span class="nt">"CategoryId"</span><span class="p">:</span><span class="s2">"CU00325882"</span><span class="p">,</span><span class="w">
            </span><span class="nt">"CategoryName"</span><span class="p">:</span><span class="s2">"Cut &amp; Peeled Fruits"</span><span class="p">,</span><span class="w">
            </span><span class="nt">"Fulldescription"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
            </span><span class="nt">"NoofReview"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-           </span><span class="nt">"BarCode"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-           </span><span class="nt">"ProductSequence"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
-           </span><span class="nt">"UOM"</span><span class="p">:</span><span class="s2">"Pieces"</span><span class="w">
-       </span><span class="p">}</span><span class="w">
-   </span><span class="p">],</span><span class="w">
-   </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="mi">0</span><span class="w">
+           </span><span class="nt">"BarCode"</span><span class="p">:</span><span class="s2">",
+           "</span><span class="err">ProductSequence</span><span class="s2">":0,
+           "</span><span class="err">UOM</span><span class="s2">":"</span><span class="err">Pieces</span><span class="s2">"
+       }
+   ],
+   "</span><span class="err">ErrorCode":</span><span class="mi">0</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>Retrieves products of a specific tag.</p>
@@ -5161,6 +5439,157 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <td>Fetch products of a specific location. Pass <code class="prettyprint">0</code> to choose the default location of the merchant</td>
 </tr>
 </tbody></table>
+
+<aside class="notice"> All parameters marked by * are mandatory.</aside>
+
+<h3 id="response-parameters">Response Parameters</h3>
+
+<p>Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>MarkupPrice</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>MarkupType</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>TokenPriceCheckout</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>IsReferPrice</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>UOM</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2 id="add-review">Add Review</h2>
+<pre class="highlight html"><code>https://www.martjack.com/developerapi/Product/AddReview/81e77da2-723b-483d-8c0d-49f800c1exxx/0639f7a6-34cc-48b2-9fd9-a80e2ed8xxxx/PZLG-WM
+</code></pre>
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Title31"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"message75"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"isGoLive"</span><span class="p">:</span><span class="w"> </span><span class="s2">"True"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"messageCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1004"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Publishes customer review for a specific product. </p>
+
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td><code class="prettyprint">Product/AddReview/{MerchantId}/{UserId}/{SKU}</code></td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>POST</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>No</td>
+</tr>
+</tbody></table>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">https://{host}/developerapi/Product/AddReview/{MerchantId}/{UserId}/{SKU}</code></p>
+
+<h3 id="request-query-parameters">Request Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>MerchantId*</td>
+<td>string</td>
+<td>Specify the merchant id for which the review has to be associated</td>
+</tr>
+<tr>
+<td>UserId*</td>
+<td>string</td>
+<td>Specify the unique id of the customer that provided the review</td>
+</tr>
+<tr>
+<td>SKU*</td>
+<td>string</td>
+<td>Specify the product SKU for which the review has to be associated</td>
+</tr>
+</tbody></table>
+
+<h3 id="request-body-parameters">Request Body Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>title*</td>
+<td>Specify the title of the product review as provided by the customer</td>
+</tr>
+<tr>
+<td>message*</td>
+<td>Specify the entire review content as entered by the customer</td>
+</tr>
+<tr>
+<td>isGoLive*</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<aside class="notice"> All parameters marked by * are mandatory.</aside>
 
           <h1 id="carts">Carts</h1>
 
@@ -15655,28 +16084,39 @@ Sample POST Request</p>
 <blockquote>
 <p>Sample PATCH Request</p>
 </blockquote>
-<pre class="highlight json"><code><span class="p">[</span><span class="w">  
-   </span><span class="p">{</span><span class="w">  
+<pre class="highlight json"><code><span class="p">[</span><span class="w">
+   </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"op"</span><span class="p">:</span><span class="s2">"replace"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"path"</span><span class="p">:</span><span class="s2">"/IsParticipateInStock"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"value"</span><span class="p">:</span><span class="s2">"true"</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"op"</span><span class="p">:</span><span class="s2">"replace"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"path"</span><span class="p">:</span><span class="s2">"/ReasonCode"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"value"</span><span class="p">:</span><span class="s2">"TR"</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"op"</span><span class="p">:</span><span class="s2">"replace"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"path"</span><span class="p">:</span><span class="s2">"/isInStorePickup"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"value"</span><span class="p">:</span><span class="s2">"true"</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="p">{</span><span class="w">
       </span><span class="nt">"op"</span><span class="p">:</span><span class="s2">"replace"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"path"</span><span class="p">:</span><span class="s2">"/LocationName"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"value"</span><span class="p">:</span><span class="s2">"ADELIYA1"</span><span class="w">
+      </span><span class="nt">"value"</span><span class="p">:</span><span class="s2">"Chennai"</span><span class="w">
    </span><span class="p">},</span><span class="w">
-   </span><span class="p">{</span><span class="w">  
+   </span><span class="p">{</span><span class="w">
       </span><span class="nt">"op"</span><span class="p">:</span><span class="s2">"replace"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"path"</span><span class="p">:</span><span class="s2">"/Latitude"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"value"</span><span class="p">:</span><span class="s2">"36.5"</span><span class="w">
+      </span><span class="nt">"path"</span><span class="p">:</span><span class="s2">"/Contact1"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"value"</span><span class="p">:</span><span class="s2">"9008000000"</span><span class="w">
    </span><span class="p">},</span><span class="w">
-   </span><span class="p">{</span><span class="w">  
+   </span><span class="p">{</span><span class="w">
       </span><span class="nt">"op"</span><span class="p">:</span><span class="s2">"replace"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"path"</span><span class="p">:</span><span class="s2">"/AdditionalDetails"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"value"</span><span class="p">:[</span><span class="w">  
-         </span><span class="p">{</span><span class="w">  
-            </span><span class="nt">"Key"</span><span class="p">:</span><span class="s2">"isKDSEnabled"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"Value"</span><span class="p">:</span><span class="s2">"True"</span><span class="w">
-         </span><span class="p">}</span><span class="w">
-      </span><span class="p">]</span><span class="w">
+      </span><span class="nt">"path"</span><span class="p">:</span><span class="s2">"/Address1"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"value"</span><span class="p">:</span><span class="s2">"Near Silky Board1"</span><span class="w">
    </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">   
+</span><span class="p">]</span><span class="w">
+
 </span></code></pre>
 <blockquote>
 <p>Sample Response</p>
@@ -15861,7 +16301,7 @@ Sample POST Request</p>
 <tr>
 <td>DelveryMode</td>
 <td>enum</td>
-<td>Specify the mode of delivery for the location. <code class="prettyprint">S</code> for store pick up and <code class="prettyprint">H</code> for home delivery</td>
+<td>Specify the mode of delivery for the location. <code class="prettyprint">S</code> for store pick up and <code class="prettyprint">H</code> for home delivery, <code class="prettyprint">L</code> for store</td>
 </tr>
 <tr>
 <td>OpenLeadTime</td>
