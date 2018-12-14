@@ -1014,25 +1014,25 @@ https://www.martjack.com/developerapi/Product/Information/9820eca5-d11f-4df1-9b2
 
 ```json
 "{
-    "messageCode":""1004"",
-    "Message":"Successful"",
-    "Product"":
+    "messageCode":"1004",
+    "Message":"Successful",
+    "Product":
     {
-        "ProductId"":11982534,
-        ""ProductTitle"":""Mothers Dairy Safal Frozen Vegetables - Mixed Vegetables,"",
-        ""MRP"":50.0,
-        ""WebPrice"":50.0,
-        ""CostPrice"":0.0,
-        ""Rating"":0,
-        ""IsParentProduct"":false,
-        ""Availability"":true,
-        ""BrandId"":""0"",
-        ""CatlogSequence"":0,
-        ""CatalogCode":"",
+        "ProductId":11982534,
+        "ProductTitle":"Mothers Dairy Safal Frozen Vegetables - Mixed Vegetables,",
+        "MRP":50.0,
+        "WebPrice":50.0,
+        "CostPrice":0.0,
+        "Rating":0,
+        "IsParentProduct":false,
+        "Availability":true,
+        "BrandId":"0",
+        "CatlogSequence":0,
+        "CatalogCode":",
         "SKU":"100040621",
         "Taxtotal":0,
         "MarkupPrice":0,
-        "MarkupType":"",
+        "MarkupType":",
         "BulkQuantity":1,
         "ProductWeight":0.0,
         "ProductType":"P",
@@ -1045,19 +1045,19 @@ https://www.martjack.com/developerapi/Product/Information/9820eca5-d11f-4df1-9b2
         "DeliveryTime":"Delivered in 5 Working days",
         "TokenPriceCheckout":false,
         "IsReferPrice":false,
-        "ShortDescription":"",
+        "ShortDescription":",
         "TokenPrice":0.0,
-        "SmallImage":"",
+        "SmallImage":",
         "Brandname":"Safal",
         "CategoryId":"CU00333866",
         "CategoryName":"Frozen Mixed Vegetable",
-        "Fulldescription":"",
+        "Fulldescription":",
         "NoofReview":"0",
         "BarCode":"9876567892",
         "Inventory":"120",
         "PreOrder":"0",
         "BackOrder":"0",
-        "OfferDescription":"",
+        "OfferDescription":",
         "RefProductId":"0",
         "Sellerid":"00000000-0000-0000-0000-000000000000",
         "ShippingCodes":"Cart amount",
@@ -1128,7 +1128,7 @@ https://www.martjack.com/developerapi/Product/SKU/81e77da2-723b-483d-8c0d-49f800
 
 ```json
 
-"{
+{
     "messageCode":"1004",
     "Message":"Successful",
     "Product":
@@ -1143,11 +1143,11 @@ https://www.martjack.com/developerapi/Product/SKU/81e77da2-723b-483d-8c0d-49f800
         "Availability":true,
         "BrandId":"0",
         "CatlogSequence":0,
-        "CatalogCode":"",
+        "CatalogCode":",
         "SKU":"100040621",
         "Taxtotal":0,
         "MarkupPrice":0,
-        "MarkupType":"",
+        "MarkupType":",
         "BulkQuantity":0,
         "ProductWeight":0.0,
         "ProductType":"P",
@@ -1156,13 +1156,13 @@ https://www.martjack.com/developerapi/Product/SKU/81e77da2-723b-483d-8c0d-49f800
         "IsTaxConfigured":false,
         "StartDate":"\/Date(1537209000000+0530)\/",
         "EndDate":"\/Date(1537295400000+0530)\/",
-        "SeoURL":"",
+        "SeoURL":",
         "DeliveryTime":"Delivered in 5 Working days",
         "TokenPriceCheckout":false,
         "IsReferPrice":false,
-        "ShortDescription":"",
+        "ShortDescription":",
         "TokenPrice":0.0,
-        "SmallImage":"",
+        "SmallImage":",
         "Brandname":null,
         "CategoryId":"CU00333866",
         "CategoryName":null,
@@ -1173,7 +1173,7 @@ https://www.martjack.com/developerapi/Product/SKU/81e77da2-723b-483d-8c0d-49f800
         "UOM":null
     },
     "ErrorCode":0
-}"
+}
 
 ```
 
@@ -1236,7 +1236,7 @@ https://www.martjack.com/developerapi/Product/9820eca5-d11f-4df1-9b20-983a45ea96
 > Sample Response
 
 ```json
-"{
+{
     "messageCode":"1004",
     "Message":"Successful",
     "ProductVarient":
@@ -1311,7 +1311,7 @@ https://www.martjack.com/developerapi/Product/9820eca5-d11f-4df1-9b20-983a45ea96
             "IsReferProductInfo":false,
             "IsReferPrice":false,
             "TokenPrice":0,
-            "Flag":"",
+            "Flag":"""""""",
             "ReserveQuantity":0,
             "ReOrderStockLevel":0,
             "StockAlertQuantity":0,
@@ -1337,7 +1337,7 @@ https://www.martjack.com/developerapi/Product/9820eca5-d11f-4df1-9b20-983a45ea96
         }
     ],
     "ErrorCode":0
-}"
+}
 
 
 ```
@@ -1426,7 +1426,7 @@ https://www.martjack.com/developerapi/Product/9820eca5-d11f-4df1-9b20-983a45ea96
            "SKU":"Fruits0001",
            "Taxtotal":0,
            "MarkupPrice":0,
-           "MarkupType":",
+           "MarkupType":"",
            "BulkQuantity":1,
            "ProductWeight":150.0,
            "ProductType":"P",

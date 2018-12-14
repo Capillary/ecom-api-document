@@ -1416,8 +1416,7 @@ Lets you add or update order ETA (Estimated Time of Arrival) for a location incl
 
 | | |
 --------- | ----------- |
-URI | `/Location/UpdateLocationETA/{merchantId}/{OrderDeliveryType}
-/{merchantId}`
+URI | `/Location/UpdateLocationETA/{merchantId}/{OrderDeliveryType}/{merchantId}`
 Rate Limited? | Yes
 Authentication | Yes
 Response Formats | JSON
@@ -1489,7 +1488,7 @@ https://www.martjack.com/developerapi/Location/Information/f48fdd16-92db-4188-85
 
 ```
 
-Retrieves Estimated Time of Arrival (ETA) of an order for a specific location and the type of location delivery with location code
+Retrieves Estimated Time of Arrival (ETA) of an order for a specific location and the type of location delivery with location code.
 
 
 ### Resource Information
