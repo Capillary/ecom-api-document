@@ -399,19 +399,8 @@ InputData={
 
 <ul>
 <li><strong>Rate limiter</strong> controls the number of incoming and outgoing traffic of a network</li>
-<li><strong>Authentication</strong> verifies the identity of the current user or an integration</li>
+<li><strong>Authentication</strong> verifies the identity of the current user or integration. See Introduction &gt; Authentication (Merchant Setup on Admin Portal) for more details</li>
 </ul>
-
-<aside class="notice">
-URI: End point of the APIs
-
-Authentication: Is authentication required to make the API call
-
-Response Formats: Supported response types for the APIs
-
-HTTP Method: 
-
-</aside> 
 
 <h3 id="request-url">Request URL</h3>
 
@@ -485,6 +474,34 @@ HTTP Method:
 
 <aside class=notice>All parameters marked by * are mandatory.</aside>
 
+<h3 id="response-parameters">Response Parameters</h3>
+
+<p>Following table contains descriptions only for certain parameters that require more information and does not include the parameters that are already in the request body.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>UserProfiles</td>
+<td>array</td>
+<td>Customer level custom field details</td>
+</tr>
+<tr>
+<td>UserInfoId</td>
+<td></td>
+<td>string</td>
+</tr>
+<tr>
+<td>MarketingNotificationType</td>
+<td>string</td>
+<td></td>
+</tr>
+</tbody></table>
+
 <h2 id="register-customer-through-otp">Register Customer through OTP</h2>
 
 <blockquote>
@@ -515,14 +532,6 @@ HTTP Method:
 <td><code class="prettyprint">/Customer/{merchantId}/</code></td>
 </tr>
 <tr>
-<td>Rate Limited?</td>
-<td>No</td>
-</tr>
-<tr>
-<td>Authentication</td>
-<td>Yes</td>
-</tr>
-<tr>
 <td>Response Formats</td>
 <td>JSON</td>
 </tr>
@@ -534,7 +543,20 @@ HTTP Method:
 <td>Batch Support</td>
 <td>No</td>
 </tr>
+<tr>
+<td>Rate Limited?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
 </tbody></table>
+
+<ul>
+<li><strong>Rate limiter</strong> controls the number of incoming and outgoing traffic of a network</li>
+<li><strong>Authentication</strong> verifies the identity of the current user or integration. See Introduction &gt; Authentication (Merchant Setup on Admin Portal) for more details</li>
+</ul>
 
 <h3 id="request-url">Request URL</h3>
 
@@ -567,14 +589,6 @@ HTTP Method:
 <td>&ldquo;</td>
 </tr>
 <tr>
-<td>Rate Limited?</td>
-<td>No</td>
-</tr>
-<tr>
-<td>Authentication</td>
-<td>Yes</td>
-</tr>
-<tr>
 <td>Response Formats</td>
 <td>JSON</td>
 </tr>
@@ -585,6 +599,14 @@ HTTP Method:
 <tr>
 <td>Batch Support</td>
 <td>No</td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
 </tr>
 </tbody></table>
 
@@ -645,14 +667,6 @@ HTTP Method:
 <td><code class="prettyprint">/Customer/{merchantId}/{UserId}/ChangePassword={new password}</code></td>
 </tr>
 <tr>
-<td>Rate Limited?</td>
-<td>No</td>
-</tr>
-<tr>
-<td>Authentication</td>
-<td>Yes</td>
-</tr>
-<tr>
 <td>Response Formats</td>
 <td>JSON</td>
 </tr>
@@ -664,7 +678,20 @@ HTTP Method:
 <td>Batch Support</td>
 <td>No</td>
 </tr>
+<tr>
+<td>Rate Limited?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
 </tbody></table>
+
+<ul>
+<li><strong>Rate limiter</strong> controls the number of incoming and outgoing traffic of a network</li>
+<li><strong>Authentication</strong> verifies the identity of the current user or integration. See Introduction &gt; Authentication (Merchant Setup on Admin Portal) for more details</li>
+</ul>
 
 <h3 id="request-url">Request URL</h3>
 
@@ -750,14 +777,6 @@ The customer has to be logged in to his account to perform to perform any task t
 <td><code class="prettyprint">/Customer/{merchantId}/LoginWithOTP/true?username={username}&amp;oTP={OTP}</code></td>
 </tr>
 <tr>
-<td>Rate Limited?</td>
-<td>No</td>
-</tr>
-<tr>
-<td>Authentication</td>
-<td>Yes</td>
-</tr>
-<tr>
 <td>Response Formats</td>
 <td>JSON</td>
 </tr>
@@ -769,7 +788,20 @@ The customer has to be logged in to his account to perform to perform any task t
 <td>Batch Support</td>
 <td>No</td>
 </tr>
+<tr>
+<td>Rate Limited?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
 </tbody></table>
+
+<ul>
+<li><strong>Rate limiter</strong> controls the number of incoming and outgoing traffic of a network</li>
+<li><strong>Authentication</strong> verifies the identity of the current user or integration. See Introduction &gt; Authentication (Merchant Setup on Admin Portal) for more details</li>
+</ul>
 
 <h3 id="request-url">Request URL</h3>
 
@@ -815,6 +847,29 @@ The customer has to be logged in to his account to perform to perform any task t
 </tbody></table>
 
 <aside class=notice>All parameters marked by * are mandatory.</aside>
+
+<h3 id="response-parameters">Response Parameters</h3>
+
+<p>Following table contains descriptions only for certain parameters that require more information and are not in the body parameters.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>AccessToken</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>issued_at</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
 
 <h2 id="customer-login-with-credentials">Customer Login (with Credentials)</h2>
 
@@ -865,14 +920,6 @@ The customer has to be logged in to his account to perform to perform any task t
 <td><code class="prettyprint">/Customer/{merchantId}/login</code></td>
 </tr>
 <tr>
-<td>Rate Limited?</td>
-<td>No</td>
-</tr>
-<tr>
-<td>Authentication</td>
-<td>Yes</td>
-</tr>
-<tr>
 <td>Response Formats</td>
 <td>JSON</td>
 </tr>
@@ -884,7 +931,20 @@ The customer has to be logged in to his account to perform to perform any task t
 <td>Batch Support</td>
 <td>No</td>
 </tr>
+<tr>
+<td>Rate Limited?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
 </tbody></table>
+
+<ul>
+<li><strong>Rate limiter</strong> controls the number of incoming and outgoing traffic of a network</li>
+<li><strong>Authentication</strong> verifies the identity of the current user or integration. See Introduction &gt; Authentication (Merchant Setup on Admin Portal) for more details</li>
+</ul>
 
 <h3 id="request-url">Request URL</h3>
 
@@ -965,14 +1025,6 @@ The customer has to be logged in to his account to perform to perform any task t
 <td><code class="prettyprint">/Customer/{merchantId}/LoginWithThirdPartyProvider</code></td>
 </tr>
 <tr>
-<td>Rate Limited?</td>
-<td>No</td>
-</tr>
-<tr>
-<td>Authentication</td>
-<td>Yes</td>
-</tr>
-<tr>
 <td>Response Formats</td>
 <td>JSON</td>
 </tr>
@@ -984,7 +1036,20 @@ The customer has to be logged in to his account to perform to perform any task t
 <td>Batch Support</td>
 <td>No</td>
 </tr>
+<tr>
+<td>Rate Limited?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
 </tbody></table>
+
+<ul>
+<li><strong>Rate limiter</strong> controls the number of incoming and outgoing traffic of a network</li>
+<li><strong>Authentication</strong> verifies the identity of the current user or integration. See Introduction &gt; Authentication (Merchant Setup on Admin Portal) for more details</li>
+</ul>
 
 <h3 id="request-url">Request URL</h3>
 
@@ -1085,14 +1150,6 @@ The customer has to be logged in to his account to perform to perform any task t
 <td><code class="prettyprint">/Customer/{{MerchantId}}/Logout</code></td>
 </tr>
 <tr>
-<td>Rate Limited?</td>
-<td>No</td>
-</tr>
-<tr>
-<td>Authentication</td>
-<td>Yes</td>
-</tr>
-<tr>
 <td>Response Formats</td>
 <td>JSON</td>
 </tr>
@@ -1104,7 +1161,20 @@ The customer has to be logged in to his account to perform to perform any task t
 <td>Batch Support</td>
 <td>No</td>
 </tr>
+<tr>
+<td>Rate Limited?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
 </tbody></table>
+
+<ul>
+<li><strong>Rate limiter</strong> controls the number of incoming and outgoing traffic of a network</li>
+<li><strong>Authentication</strong> verifies the identity of the current user or integration. See Introduction &gt; Authentication (Merchant Setup on Admin Portal) for more details</li>
+</ul>
 
 <h3 id="request-url">Request URL</h3>
 
@@ -1179,14 +1249,6 @@ The customer has to be logged in to his account to perform to perform any task t
 <td><code class="prettyprint">Customer/GetAccessToken/{MerchantId}</code></td>
 </tr>
 <tr>
-<td>Rate Limited?</td>
-<td>No</td>
-</tr>
-<tr>
-<td>Authentication</td>
-<td>Yes</td>
-</tr>
-<tr>
 <td>Response Formats</td>
 <td>JSON</td>
 </tr>
@@ -1198,7 +1260,20 @@ The customer has to be logged in to his account to perform to perform any task t
 <td>Batch Support</td>
 <td>No</td>
 </tr>
+<tr>
+<td>Rate Limited?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
 </tbody></table>
+
+<ul>
+<li><strong>Rate limiter</strong> controls the number of incoming and outgoing traffic of a network</li>
+<li><strong>Authentication</strong> verifies the identity of the current user or integration. See Introduction &gt; Authentication (Merchant Setup on Admin Portal) for more details</li>
+</ul>
 
 <h3 id="request-url">Request URL</h3>
 
@@ -1252,14 +1327,6 @@ The customer has to be logged in to his account to perform to perform any task t
 <td><code class="prettyprint">/Customer/{merchantId}/{accesstoken}/ValidateToken</code></td>
 </tr>
 <tr>
-<td>Rate Limited?</td>
-<td>No</td>
-</tr>
-<tr>
-<td>Authentication</td>
-<td>Yes</td>
-</tr>
-<tr>
 <td>Response Formats</td>
 <td>JSON</td>
 </tr>
@@ -1271,7 +1338,20 @@ The customer has to be logged in to his account to perform to perform any task t
 <td>Batch Support</td>
 <td>No</td>
 </tr>
+<tr>
+<td>Rate Limited?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
 </tbody></table>
+
+<ul>
+<li><strong>Rate limiter</strong> controls the number of incoming and outgoing traffic of a network</li>
+<li><strong>Authentication</strong> verifies the identity of the current user or integration. See Introduction &gt; Authentication (Merchant Setup on Admin Portal) for more details</li>
+</ul>
 
 <h3 id="request-url">Request URL</h3>
 
@@ -1375,14 +1455,6 @@ The customer has to be logged in to his account to perform to perform any task t
 <td><code class="prettyprint">/Customer/{merchantId}/Search</code></td>
 </tr>
 <tr>
-<td>Rate Limited?</td>
-<td>No</td>
-</tr>
-<tr>
-<td>Authentication</td>
-<td>Yes</td>
-</tr>
-<tr>
 <td>Response Formats</td>
 <td>JSON</td>
 </tr>
@@ -1394,7 +1466,20 @@ The customer has to be logged in to his account to perform to perform any task t
 <td>Batch Support</td>
 <td>No</td>
 </tr>
+<tr>
+<td>Rate Limited?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
 </tbody></table>
+
+<ul>
+<li><strong>Rate limiter</strong> controls the number of incoming and outgoing traffic of a network</li>
+<li><strong>Authentication</strong> verifies the identity of the current user or integration. See Introduction &gt; Authentication (Merchant Setup on Admin Portal) for more details</li>
+</ul>
 
 <h3 id="request-url">Request URL</h3>
 
@@ -1491,14 +1576,6 @@ The customer has to be logged in to his account to perform to perform any task t
 <td><code class="prettyprint">/Customer/{merchantId}/{UserId}</code></td>
 </tr>
 <tr>
-<td>Rate Limited?</td>
-<td>No</td>
-</tr>
-<tr>
-<td>Authentication</td>
-<td>Yes</td>
-</tr>
-<tr>
 <td>Response Formats</td>
 <td>JSON</td>
 </tr>
@@ -1510,7 +1587,20 @@ The customer has to be logged in to his account to perform to perform any task t
 <td>Batch Support</td>
 <td>No</td>
 </tr>
+<tr>
+<td>Rate Limited?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
 </tbody></table>
+
+<ul>
+<li><strong>Rate limiter</strong> controls the number of incoming and outgoing traffic of a network</li>
+<li><strong>Authentication</strong> verifies the identity of the current user or integration. See Introduction &gt; Authentication (Merchant Setup on Admin Portal) for more details</li>
+</ul>
 
 <h3 id="request-url">Request URL</h3>
 
@@ -1632,14 +1722,6 @@ The customer has to be logged in to his account to perform to perform any task t
 <td><code class="prettyprint">Customer/{merchantId}/Update</code></td>
 </tr>
 <tr>
-<td>Rate Limited?</td>
-<td>No</td>
-</tr>
-<tr>
-<td>Authentication</td>
-<td>Yes</td>
-</tr>
-<tr>
 <td>Response Formats</td>
 <td>JSON</td>
 </tr>
@@ -1651,7 +1733,20 @@ The customer has to be logged in to his account to perform to perform any task t
 <td>Batch Support</td>
 <td>No</td>
 </tr>
+<tr>
+<td>Rate Limited?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
 </tbody></table>
+
+<ul>
+<li><strong>Rate limiter</strong> controls the number of incoming and outgoing traffic of a network</li>
+<li><strong>Authentication</strong> verifies the identity of the current user or integration. See Introduction &gt; Authentication (Merchant Setup on Admin Portal) for more details</li>
+</ul>
 
 <h3 id="request-url">Request URL</h3>
 
@@ -1791,14 +1886,6 @@ The customer has to be logged in to his account to perform to perform any task t
 <td><code class="prettyprint">/Customer/{merchantId}/UpdateUserProfile</code></td>
 </tr>
 <tr>
-<td>Rate Limited?</td>
-<td>No</td>
-</tr>
-<tr>
-<td>Authentication</td>
-<td>Yes</td>
-</tr>
-<tr>
 <td>Response Formats</td>
 <td>JSON</td>
 </tr>
@@ -1810,7 +1897,20 @@ The customer has to be logged in to his account to perform to perform any task t
 <td>Batch Support</td>
 <td>No</td>
 </tr>
+<tr>
+<td>Rate Limited?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
 </tbody></table>
+
+<ul>
+<li><strong>Rate limiter</strong> controls the number of incoming and outgoing traffic of a network</li>
+<li><strong>Authentication</strong> verifies the identity of the current user or integration. See Introduction &gt; Authentication (Merchant Setup on Admin Portal) for more details</li>
+</ul>
 
 <h3 id="additional-header-required">Additional Header Required</h3>
 
@@ -1921,14 +2021,6 @@ The customer has to be logged in to his account to perform to perform any task t
 <td><code class="prettyprint">/Customer/AddShippingAddress/{merchantId}</code></td>
 </tr>
 <tr>
-<td>Rate Limited?</td>
-<td>No</td>
-</tr>
-<tr>
-<td>Authentication</td>
-<td>Yes</td>
-</tr>
-<tr>
 <td>Response Formats</td>
 <td>JSON</td>
 </tr>
@@ -1940,7 +2032,20 @@ The customer has to be logged in to his account to perform to perform any task t
 <td>Batch Support</td>
 <td>No</td>
 </tr>
+<tr>
+<td>Rate Limited?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
 </tbody></table>
+
+<ul>
+<li><strong>Rate limiter</strong> controls the number of incoming and outgoing traffic of a network</li>
+<li><strong>Authentication</strong> verifies the identity of the current user or integration. See Introduction &gt; Authentication (Merchant Setup on Admin Portal) for more details</li>
+</ul>
 
 <h3 id="request-url">Request URL</h3>
 
@@ -2098,14 +2203,6 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <td><code class="prettyprint">/Customer/GetShippingAddress/{merchantId}/{UserId}</code></td>
 </tr>
 <tr>
-<td>Rate Limited?</td>
-<td>No</td>
-</tr>
-<tr>
-<td>Authentication</td>
-<td>Yes</td>
-</tr>
-<tr>
 <td>Response Formats</td>
 <td>JSON</td>
 </tr>
@@ -2117,7 +2214,20 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <td>Batch Support</td>
 <td>No</td>
 </tr>
+<tr>
+<td>Rate Limited?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
 </tbody></table>
+
+<ul>
+<li><strong>Rate limiter</strong> controls the number of incoming and outgoing traffic of a network</li>
+<li><strong>Authentication</strong> verifies the identity of the current user or integration. See Introduction &gt; Authentication (Merchant Setup on Admin Portal) for more details</li>
+</ul>
 
 <h3 id="additional-header-required">Additional Header Required</h3>
 
@@ -2218,14 +2328,6 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <td><code class="prettyprint">Customer/DeleteShippingAddress/{MerchantId}/{UserId}/{ShippingAddressId}</code></td>
 </tr>
 <tr>
-<td>Rate Limited?</td>
-<td>No</td>
-</tr>
-<tr>
-<td>Authentication</td>
-<td>Yes</td>
-</tr>
-<tr>
 <td>Response Formats</td>
 <td>JSON</td>
 </tr>
@@ -2237,7 +2339,20 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <td>Batch Support</td>
 <td>No</td>
 </tr>
+<tr>
+<td>Rate Limited?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
 </tbody></table>
+
+<ul>
+<li><strong>Rate limiter</strong> controls the number of incoming and outgoing traffic of a network</li>
+<li><strong>Authentication</strong> verifies the identity of the current user or integration. See Introduction &gt; Authentication (Merchant Setup on Admin Portal) for more details</li>
+</ul>
 
 <h3 id="request-url">Request URL</h3>
 
@@ -2334,14 +2449,6 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <td><code class="prettyprint">Customer/{MerchantId}/Count</code></td>
 </tr>
 <tr>
-<td>Rate Limited?</td>
-<td>No</td>
-</tr>
-<tr>
-<td>Authentication</td>
-<td>Yes</td>
-</tr>
-<tr>
 <td>Response Formats</td>
 <td>JSON</td>
 </tr>
@@ -2353,7 +2460,20 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <td>Batch Support</td>
 <td>No</td>
 </tr>
+<tr>
+<td>Rate Limited?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
 </tbody></table>
+
+<ul>
+<li><strong>Rate limiter</strong> controls the number of incoming and outgoing traffic of a network</li>
+<li><strong>Authentication</strong> verifies the identity of the current user or integration. See Introduction &gt; Authentication (Merchant Setup on Admin Portal) for more details</li>
+</ul>
 
 <h3 id="request-url">Request URL</h3>
 
@@ -2425,14 +2545,6 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <td><code class="prettyprint">Customer/TargetBlocks/{merchantId}</code></td>
 </tr>
 <tr>
-<td>Rate Limited?</td>
-<td>No</td>
-</tr>
-<tr>
-<td>Authentication</td>
-<td>Yes</td>
-</tr>
-<tr>
 <td>Response Formats</td>
 <td>JSON</td>
 </tr>
@@ -2444,7 +2556,20 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <td>Batch Support</td>
 <td>No</td>
 </tr>
+<tr>
+<td>Rate Limited?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
 </tbody></table>
+
+<ul>
+<li><strong>Rate limiter</strong> controls the number of incoming and outgoing traffic of a network</li>
+<li><strong>Authentication</strong> verifies the identity of the current user or integration. See Introduction &gt; Authentication (Merchant Setup on Admin Portal) for more details</li>
+</ul>
 
 <h3 id="request-url">Request URL</h3>
 
@@ -4477,6 +4602,563 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <td>sequence</td>
 <td>0</td>
 <td>Sequence order in which the view 360 video has to appear on the product page</td>
+</tr>
+</tbody></table>
+
+<h2 id="get-product-details">Get Product Details</h2>
+
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
+<pre class="highlight html"><code>https://www.martjack.com/developerapi/Product/Information/9820eca5-d11f-4df1-9b20-983a45ea9631/11982534/16696
+</code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="s2">"{
+    ""messageCode"":""1004"",
+    ""Message"":""Successful"",
+    ""Product"":
+    {
+        ""ProductId"":11982534,
+        ""ProductTitle"":""Mothers Dairy Safal Frozen Vegetables - Mixed Vegetables,"",
+        ""MRP"":50.0,
+        ""WebPrice"":50.0,
+        ""CostPrice"":0.0,
+        ""Rating"":0,
+        ""IsParentProduct"":false,
+        ""Availability"":true,
+        ""BrandId"":""0"",
+        ""CatlogSequence"":0,
+        ""CatalogCode"":"""",
+        ""SKU"":""100040621"",
+        ""Taxtotal"":0,
+        ""MarkupPrice"":0,
+        ""MarkupType"":"""",
+        ""BulkQuantity"":1,
+        ""ProductWeight"":0.0,
+        ""ProductType"":""P"",
+        ""SmallImageAltText"":""0"",
+        ""IsShippingConfigured"":false,
+        ""IsTaxConfigured"":false,
+        ""StartDate"":""\/Date(1537209000000+0530)\/"",
+        ""EndDate"":""\/Date(1537295400000+0530)\/"",
+        ""SeoURL"":""http:\/\/www.example.martjack.com\/mothers-dairy-safal-frozen-vegetables---mixed-vegetables\/p\/11982534"",
+        ""DeliveryTime"":""Delivered in 5 Working days"",
+        ""TokenPriceCheckout"":false,
+        ""IsReferPrice"":false,
+        ""ShortDescription"":"""",
+        ""TokenPrice"":0.0,
+        ""SmallImage"":"""",
+        ""Brandname"":""Safal"",
+        ""CategoryId"":""CU00333866"",
+        ""CategoryName"":""Frozen Mixed Vegetable"",
+        ""Fulldescription"":"""",
+        ""NoofReview"":""0"",
+        ""BarCode"":""9876567892"",
+        ""Inventory"":""120"",
+        ""PreOrder"":""0"",
+        ""BackOrder"":""0"",
+        ""OfferDescription"":"""",
+        ""RefProductId"":""0"",
+        ""Sellerid"":""00000000-0000-0000-0000-000000000000"",
+        ""ShippingCodes"":""Cart amount"",
+        ""IsInStock"":""true"",
+        ""ProductSequence"":0,
+        ""UOM"":""Pieces""
+    },
+    ""ErrorCode"":0
+}"</span><span class="w">
+
+
+</span></code></pre>
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td><code class="prettyprint">/Product/Information/{merchantId}/{productId}/{locationId}</code></td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>POST</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+</tbody></table>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">https://{host}/developerapi/Product/Information/{merchantId}/{productId}/{locationId}</code></p>
+
+<h3 id="request-path-parameters">Request Path Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>merchantId*</td>
+<td>string</td>
+<td>Unique GUID of the merchant</td>
+</tr>
+<tr>
+<td>productId*</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td>locationId*</td>
+<td>int</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2 id="get-product-details-by-sku">Get Product Details (by SKU)</h2>
+
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
+<pre class="highlight html"><code>https://www.martjack.com/developerapi/Product/SKU/81e77da2-723b-483d-8c0d-49f800c1exxx/100040621
+</code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="w">
+</span><span class="s2">"{
+    ""messageCode"":""1004"",
+    ""Message"":""Successful"",
+    ""Product"":
+    {
+        ""ProductId"":11982534,
+        ""ProductTitle"":""Mothers Dairy Safal Frozen Vegetables - Mixed Vegetables,"",
+        ""MRP"":50.0,
+        ""WebPrice"":50.0,
+        ""CostPrice"":0.0,
+        ""Rating"":0,
+        ""IsParentProduct"":false,
+        ""Availability"":true,
+        ""BrandId"":""0"",
+        ""CatlogSequence"":0,
+        ""CatalogCode"":"""",
+        ""SKU"":""100040621"",
+        ""Taxtotal"":0,
+        ""MarkupPrice"":0,
+        ""MarkupType"":"""",
+        ""BulkQuantity"":0,
+        ""ProductWeight"":0.0,
+        ""ProductType"":""P"",
+        ""SmallImageAltText"":""0"",
+        ""IsShippingConfigured"":false,
+        ""IsTaxConfigured"":false,
+        ""StartDate"":""\/Date(1537209000000+0530)\/"",
+        ""EndDate"":""\/Date(1537295400000+0530)\/"",
+        ""SeoURL"":"""",
+        ""DeliveryTime"":""Delivered in 5 Working days"",
+        ""TokenPriceCheckout"":false,
+        ""IsReferPrice"":false,
+        ""ShortDescription"":"""",
+        ""TokenPrice"":0.0,
+        ""SmallImage"":"""",
+        ""Brandname"":null,
+        ""CategoryId"":""CU00333866"",
+        ""CategoryName"":null,
+        ""Fulldescription"":null,
+        ""NoofReview"":null,
+        ""BarCode"":null,
+        ""ProductSequence"":0,
+        ""UOM"":null
+    },
+    ""ErrorCode"":0
+}"</span><span class="w">
+
+</span></code></pre>
+<p>Retrieves the details of a specific product by SKU.</p>
+
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td><code class="prettyprint">/Product/SKU/{merchantId}/{sku}</code></td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>POST</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+</tbody></table>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">https://{host}/developerapi/Product/SKU/{merchantId}/{sku}</code></p>
+
+<h3 id="request-path-parameters">Request Path Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>merchantId*</td>
+<td>string</td>
+<td>Unique GUID of the merchant</td>
+</tr>
+<tr>
+<td>sku*</td>
+<td>string</td>
+<td>SKU of the product that you want to fetch</td>
+</tr>
+</tbody></table>
+
+<h2 id="get-product-variants">Get Product Variants</h2>
+
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
+<pre class="highlight html"><code>https://www.martjack.com/developerapi/Product/9820eca5-d11f-4df1-9b20-983a45ea9631/12322048/true
+</code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="s2">"{
+    ""messageCode"":""1004"",
+    ""Message"":""Successful"",
+    ""ProductVarient"":
+    [
+        {
+            ""variantProductId"":""9076980"",
+            ""productId"":12322048,
+            ""MRP"":400,
+            ""WebPrice"":400.0,
+            ""SKU"":""100309195"",
+            ""Inventory"":110,
+            ""ReferenceProductVariantId"":0,
+            ""productType"":"""",
+            ""merchantId"":""f48fdd16-92db-4188-854d-1ecd9b62d066"",
+            ""BulkQuantity"":1,
+            ""Availability"":true,
+            ""StartDate"":""\/Date(-2209008600000+0530)\/"",
+            ""EndDate"":""\/Date(-2209008600000+0530)\/"",
+            ""CostPrice"":0,
+            ""BarCode"":""100309195,8906001020547"",
+            ""CatalogCode"":"""",
+            ""IsDropShipping"":false,
+            ""MarkupPrice"":0,
+            ""MarkupType"":"""",
+            ""IsReferProductInfo"":false,
+            ""IsReferPrice"":false,
+            ""TokenPrice"":0,
+            ""Flag"":"""",
+            ""ReserveQuantity"":0,
+            ""ReOrderStockLevel"":0,
+            ""StockAlertQuantity"":0,
+            ""PreOrderMessage"":"""",
+            ""PreOrder"":false,
+            ""BackOrder"":false,
+            ""IsStockEnabled"":false,
+            ""WebPriceWithoutDiscount"":0,
+            ""ProductVariantValueViews"":
+            [
+                {
+                    ""valueId"":14870754,
+                    ""variantProductId"":9076980,
+                    ""variantPropertyId"":13068,
+                    ""variantPropertyValueId"":297444,
+                    ""IsDisplaySwatch"":false,
+                    ""Rank"":100375,
+                    ""variantPropertyName"":""Weight"",
+                    ""variantValue"":""1kg Box"",
+                    ""flag"":""""
+                }
+            ]
+        },
+        {
+            ""variantProductId"":""9077536"",
+            ""productId"":12322048,
+            ""MRP"":115,
+            ""WebPrice"":115.0,
+            ""SKU"":""100258508"",
+            ""Inventory"":120,
+            ""ReferenceProductVariantId"":0,
+            ""productType"":"""",
+            ""merchantId"":""f48fdd16-92db-4188-854d-1ecd9b62d066"",
+            ""BulkQuantity"":1,
+            ""Availability"":true,
+            ""StartDate"":""\/Date(-2209008600000+0530)\/"",
+            ""EndDate"":""\/Date(-2209008600000+0530)\/"",
+            ""CostPrice"":0,
+            ""BarCode"":""100258508,8906001020431"",
+            ""CatalogCode"":"""",
+            ""IsDropShipping"":false,
+            ""MarkupPrice"":0,
+            ""MarkupType"":"""",
+            ""IsReferProductInfo"":false,
+            ""IsReferPrice"":false,
+            ""TokenPrice"":0,
+            ""Flag"":"""",
+            ""ReserveQuantity"":0,
+            ""ReOrderStockLevel"":0,
+            ""StockAlertQuantity"":0,
+            ""PreOrderMessage"":"""",
+            ""PreOrder"":false,
+            ""BackOrder"":false,
+            ""IsStockEnabled"":false,
+            ""WebPriceWithoutDiscount"":0,
+            ""ProductVariantValueViews"":
+            [
+                {
+                    ""valueId"":14871310,
+                    ""variantProductId"":9077536,
+                    ""variantPropertyId"":13068,
+                    ""variantPropertyValueId"":297450,
+                    ""IsDisplaySwatch"":false,
+                    ""Rank"":100378,
+                    ""variantPropertyName"":""Weight"",
+                    ""variantValue"":""200g Box"",
+                    ""flag"":""""
+                }
+            ]
+        }
+    ],
+    ""ErrorCode"":0
+}"</span><span class="w">
+
+
+</span></code></pre>
+<p>Retrieves all the available variants of a product.</p>
+
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td><code class="prettyprint">/Product/Varients/{merchantId}/{productId}/{availability}</code></td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>POST</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+</tbody></table>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">https://{host}/developerapi/Product/Varients/{merchantId}/{productId}/{availability}</code></p>
+
+<h3 id="request-path-parameters">Request Path Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>merchantId*</td>
+<td>string</td>
+<td>Unique GUID of the merchant</td>
+</tr>
+<tr>
+<td>productId*</td>
+<td>string</td>
+<td>Unique id of the product for which you want to fetch available variants</td>
+</tr>
+<tr>
+<td>availability</td>
+<td>boolean</td>
+<td>Pass <code class="prettyprint">true</code> to retrieve only active variant products, <code class="prettyprint">false</code> to retrieve both active and inactive variant products</td>
+</tr>
+</tbody></table>
+
+<h2 id="get-product-by-tag">Get Product by Tag</h2>
+
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
+<pre class="highlight html"><code>https://www.martjack.com/developerapi/Product/9820eca5-d11f-4df1-9b20-983a45ea9631/bestoffers/16654
+</code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+   </span><span class="nt">"messageCode"</span><span class="p">:</span><span class="s2">"1004"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"Message"</span><span class="p">:</span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"Products"</span><span class="p">:</span><span class="w">
+   </span><span class="p">[</span><span class="w">
+       </span><span class="p">{</span><span class="w">
+           </span><span class="nt">"ProductId"</span><span class="p">:</span><span class="mi">11631476</span><span class="p">,</span><span class="w">
+           </span><span class="nt">"ProductTitle"</span><span class="p">:</span><span class="s2">"Fresho Pomegranate - Peeled, 200 gm 12"</span><span class="p">,</span><span class="w">
+           </span><span class="nt">"MRP"</span><span class="p">:</span><span class="mf">1000.0</span><span class="p">,</span><span class="w">
+           </span><span class="nt">"WebPrice"</span><span class="p">:</span><span class="mf">1000.0</span><span class="p">,</span><span class="w">
+           </span><span class="nt">"CostPrice"</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+           </span><span class="nt">"Rating"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+           </span><span class="nt">"IsParentProduct"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+           </span><span class="nt">"Availability"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+           </span><span class="nt">"BrandId"</span><span class="p">:</span><span class="s2">"282504"</span><span class="p">,</span><span class="w">
+           </span><span class="nt">"CatlogSequence"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+           </span><span class="nt">"CatalogCode"</span><span class="p">:</span><span class="s2">"1234"</span><span class="p">,</span><span class="w">
+           </span><span class="nt">"SKU"</span><span class="p">:</span><span class="s2">"Fruits0001"</span><span class="p">,</span><span class="w">
+           </span><span class="nt">"Taxtotal"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+           </span><span class="nt">"MarkupPrice"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+           </span><span class="nt">"MarkupType"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+           </span><span class="nt">"BulkQuantity"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+           </span><span class="nt">"ProductWeight"</span><span class="p">:</span><span class="mf">150.0</span><span class="p">,</span><span class="w">
+           </span><span class="nt">"ProductType"</span><span class="p">:</span><span class="s2">"P"</span><span class="p">,</span><span class="w">
+           </span><span class="nt">"SmallImageAltText"</span><span class="p">:</span><span class="s2">"Fresho Pomegranate - Peeled, 200 gm 12"</span><span class="p">,</span><span class="w">
+           </span><span class="nt">"IsShippingConfigured"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+           </span><span class="nt">"IsTaxConfigured"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+           </span><span class="nt">"StartDate"</span><span class="p">:</span><span class="s2">"\/Date(1525372200000+0530)\/"</span><span class="p">,</span><span class="w">
+           </span><span class="nt">"EndDate"</span><span class="p">:</span><span class="s2">"\/Date(1528050600000+0530)\/"</span><span class="p">,</span><span class="w">
+           </span><span class="nt">"SeoURL"</span><span class="p">:</span><span class="s2">"http:\/\/www.hyctest.stagesites.capillary.in\/seo-url\/p\/11631476"</span><span class="p">,</span><span class="w">
+           </span><span class="nt">"DeliveryTime"</span><span class="p">:</span><span class="s2">"2-4 days"</span><span class="p">,</span><span class="w">
+           </span><span class="nt">"TokenPriceCheckout"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+           </span><span class="nt">"IsReferPrice"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+           </span><span class="nt">"ShortDescription"</span><span class="p">:</span><span class="s2">"api_test"</span><span class="p">,</span><span class="w">
+           </span><span class="nt">"TokenPrice"</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+           </span><span class="nt">"SmallImage"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+           </span><span class="nt">"Brandname"</span><span class="p">:</span><span class="s2">"Fresho"</span><span class="p">,</span><span class="w">
+           </span><span class="nt">"CategoryId"</span><span class="p">:</span><span class="s2">"CU00325882"</span><span class="p">,</span><span class="w">
+           </span><span class="nt">"CategoryName"</span><span class="p">:</span><span class="s2">"Cut &amp; Peeled Fruits"</span><span class="p">,</span><span class="w">
+           </span><span class="nt">"Fulldescription"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+           </span><span class="nt">"NoofReview"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+           </span><span class="nt">"BarCode"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+           </span><span class="nt">"ProductSequence"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+           </span><span class="nt">"UOM"</span><span class="p">:</span><span class="s2">"Pieces"</span><span class="w">
+       </span><span class="p">}</span><span class="w">
+   </span><span class="p">],</span><span class="w">
+   </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="mi">0</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Retrieves products of a specific tag.</p>
+
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td><code class="prettyprint">/Product/{merchantId}/{productTag}/{locationId}</code></td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>POST</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+</tbody></table>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">https://{host}/developerapi/Product/{merchantId}/{productTag}/{locationId}</code></p>
+
+<h3 id="request-path-parameters">Request Path Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>merchantId*</td>
+<td>string</td>
+<td>Unique GUID of the merchant</td>
+</tr>
+<tr>
+<td>productTag*</td>
+<td>string</td>
+<td>Tag name for which you want to fetch available products</td>
+</tr>
+<tr>
+<td>locationId*</td>
+<td>int</td>
+<td>Fetch products of a specific location. Pass <code class="prettyprint">0</code> to choose the default location of the merchant</td>
 </tr>
 </tbody></table>
 
