@@ -867,30 +867,7 @@ The customer has to be logged in to his account to perform to perform any task t
 <tr>
 <td>issued_at</td>
 <td>date-time</td>
-<td></td>
-</tr>
-</tbody></table>
-
-<h3 id="response-parameters">Response Parameters</h3>
-
-<p>Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.</p>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>AccessToken</td>
-<td>string</td>
-<td></td>
-</tr>
-<tr>
-<td>issued_at</td>
-<td></td>
-<td></td>
+<td>The date and time when the access token was generated for the user</td>
 </tr>
 </tbody></table>
 
@@ -1015,7 +992,7 @@ The customer has to be logged in to his account to perform to perform any task t
 <tr>
 <td>issued_at</td>
 <td>date-time</td>
-<td></td>
+<td>The date and time when the access token was generated for the user</td>
 </tr>
 </tbody></table>
 
@@ -1183,30 +1160,7 @@ The customer has to be logged in to his account to perform to perform any task t
 <tr>
 <td>issued_at</td>
 <td>date-time</td>
-<td></td>
-</tr>
-</tbody></table>
-
-<h3 id="response-parameters">Response Parameters</h3>
-
-<p>Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.</p>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>AccessToken</td>
-<td>string</td>
-<td>An object or string that identifies the current user. Access token is required for making customer related API calls such as validate token, update customer details, update profile attributes, and so on</td>
-</tr>
-<tr>
-<td>issued_at</td>
-<td>date-time</td>
-<td></td>
+<td>The date and time when the access token was generated for the user</td>
 </tr>
 </tbody></table>
 
@@ -1408,7 +1362,7 @@ The customer has to be logged in to his account to perform to perform any task t
 <tr>
 <td>issued_at</td>
 <td>date-time</td>
-<td></td>
+<td>Date and time when the access token is generated</td>
 </tr>
 </tbody></table>
 
@@ -1494,6 +1448,8 @@ The customer has to be logged in to his account to perform to perform any task t
 <td>The access token generated for a user session (use <code class="prettyprint">/Customer/GetAccessToken/</code> to get access token of a user session)</td>
 </tr>
 </tbody></table>
+
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
 
 <h2 id="fetch-customers-search">Fetch Customers (Search)</h2>
 
@@ -1612,9 +1568,44 @@ The customer has to be logged in to his account to perform to perform any task t
 </tr>
 </thead><tbody>
 <tr>
-<td>UserName</td>
+<td>UserName*</td>
 <td>string</td>
 <td>Fetches all customers matching the specified keyword in the username</td>
+</tr>
+</tbody></table>
+
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
+
+<h3 id="response-parameters">Response Parameters</h3>
+
+<p>Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>UserProfiles</td>
+<td>array</td>
+<td>Customer level custom field details</td>
+</tr>
+<tr>
+<td>UserInfoId</td>
+<td>string</td>
+<td>GUID generated for the customer internally. UserInfoId is used in APIs like customer update along with the UserId</td>
+</tr>
+<tr>
+<td>CommunicationType</td>
+<td>string</td>
+<td>The preferred communication channel(s) of the customer. Possible Values: SMS, EMAIL</td>
+</tr>
+<tr>
+<td>MarketingNotificationType</td>
+<td>string</td>
+<td></td>
 </tr>
 </tbody></table>
 
@@ -1644,7 +1635,7 @@ The customer has to be logged in to his account to perform to perform any task t
       </span><span class="nt">"UserInfoId"</span><span class="p">:</span><span class="s2">"08a0dffe-86f0-45b6-9fae-df276fe9abb5"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"UserId"</span><span class="p">:</span><span class="s2">"132d3c1d-7d71-4b87-9a69-a4d216d634fa"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"MerchantId"</span><span class="p">:</span><span class="s2">"81e77da2-723b-483d-8c0d-49f800c1xxxx"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"UserName"</span><span class="p">:</span><span class="s2">"NewTeatUser19@capillarytech.com"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"UserName"</span><span class="p">:</span><span class="s2">"tom.sawyer@capillarytech.com"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"FirstName"</span><span class="p">:</span><span class="s2">"Tom"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"LastName"</span><span class="p">:</span><span class="s2">"Sawyer"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"PostalAddress"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
@@ -1741,6 +1732,41 @@ The customer has to be logged in to his account to perform to perform any task t
 <td>UserId*</td>
 <td>string</td>
 <td>The unique user identifier of the customer whose details need to be retrieved</td>
+</tr>
+</tbody></table>
+
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
+
+<h3 id="response-parameters">Response Parameters</h3>
+
+<p>Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>UserProfiles</td>
+<td>array</td>
+<td>Customer level custom field details</td>
+</tr>
+<tr>
+<td>UserInfoId</td>
+<td>string</td>
+<td>GUID generated for the customer internally. UserInfoId is used in APIs like customer update along with the UserId</td>
+</tr>
+<tr>
+<td>CommunicationType</td>
+<td>string</td>
+<td>The preferred communication channel(s) of the customer. Possible Values: SMS, EMAIL</td>
+</tr>
+<tr>
+<td>MarketingNotificationType</td>
+<td>string</td>
+<td></td>
 </tr>
 </tbody></table>
 
@@ -1891,7 +1917,7 @@ The customer has to be logged in to his account to perform to perform any task t
 </tr>
 </thead><tbody>
 <tr>
-<td>UserId</td>
+<td>UserId*</td>
 <td>string</td>
 <td>Unique id of the customer that is generated in the system.</td>
 </tr>
@@ -1924,6 +1950,26 @@ The customer has to be logged in to his account to perform to perform any task t
 <td>CountryName</td>
 <td>string</td>
 <td>Full name of the country such as India, Australia, and Brazil</td>
+</tr>
+</tbody></table>
+
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
+
+<h3 id="response-parameters">Response Parameters</h3>
+
+<p>Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>IsReceiveOffers</td>
+<td>boolean</td>
+<td>Whether the user is subscribed to receive offers from the merchant</td>
 </tr>
 </tbody></table>
 
@@ -2037,9 +2083,11 @@ The customer has to be logged in to his account to perform to perform any task t
 <th>Description</th>
 </tr>
 </thead><tbody>
+<tr>
+<td>accesstoken*</td>
+<td>Access token of the logged in user to validate the session</td>
+</tr>
 </tbody></table>
-
-<p>accesstoken*    Access token of the logged in user to validate the session</p>
 
 <h3 id="request-url">Request URL</h3>
 
@@ -2168,7 +2216,7 @@ The customer has to be logged in to his account to perform to perform any task t
 
 <p><code class="prettyprint">https://{host}/developerapi/Customer/AddShippingAddress/{merchantId}</code></p>
 
-<h3 id="request-parameters">Request Parameters</h3>
+<h3 id="request-body-parameters">Request Body Parameters</h3>
 
 <table><thead>
 <tr>
@@ -2364,7 +2412,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <p><code class="prettyprint">https://{host}/developerapi/Customer/GetShippingAddress/{merchantId}{UserId}</code></p>
 
-<h3 id="request-parameters">Request Parameters</h3>
+<h3 id="request-path-parameters">Request Path Parameters</h3>
 
 <table><thead>
 <tr>
@@ -2500,6 +2548,8 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <td>Unique id of the order shipment that you want to delete</td>
 </tr>
 </tbody></table>
+
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
 
 <h3 id="success-error-codes">Success/Error Codes</h3>
 
@@ -4610,8 +4660,8 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 </tr>
 <tr>
 <td>sequence</td>
-<td>0</td>
-<td>Sequence order of the document to appear on the product page</td>
+<td>int</td>
+<td>Sequence order of the document/picture/video to appear on the product page</td>
 </tr>
 <tr>
 <td>videos</td>
@@ -4634,11 +4684,6 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <td>Filename of the video with extension</td>
 </tr>
 <tr>
-<td>sequence</td>
-<td>0</td>
-<td>Sequence order of the video</td>
-</tr>
-<tr>
 <td>view360</td>
 <td></td>
 <td>3d images of the product</td>
@@ -4657,11 +4702,6 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <td>filename</td>
 <td>string</td>
 <td>File name of the video with the respective extension</td>
-</tr>
-<tr>
-<td>sequence</td>
-<td>0</td>
-<td>Sequence order in which the view 360 video has to appear on the product page</td>
 </tr>
 </tbody></table>
 
@@ -5046,7 +5086,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 </thead><tbody>
 <tr>
 <td>CatlogSequence</td>
-<td></td>
+<td>int</td>
 <td>The sequence of the product in catalog</td>
 </tr>
 <tr>
@@ -16468,7 +16508,7 @@ Sample POST Request</p>
       </span><span class="nt">"Pin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"560105"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"Contact1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"011-39585715"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"Contact2"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Holisol Warehouse bangalore"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Holisol Warehouse Bangalore"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"Latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">12.8032</span><span class="p">,</span><span class="w">
       </span><span class="nt">"Longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">77.661</span><span class="p">,</span><span class="w">
       </span><span class="nt">"LocationType"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -16588,6 +16628,41 @@ Sample POST Request</p>
 <td>outputfield</td>
 <td>enum</td>
 <td>Pass <code class="prettyprint">additional</code> to include additional information, <code class="prettyprint">deliveryarea</code> to include delivery areas in the response</td>
+</tr>
+</tbody></table>
+
+<aside class="notice"> All parameters marked by * are mandatory.</aside>
+
+<h3 id="response-parameters">Response Parameters</h3>
+
+<p>Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>DistancefromInputLatLong</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>IsParticipateInStock</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>IsOfflinneCheckoutEnabled</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>IsOfflineDeals</td>
+<td></td>
+<td></td>
 </tr>
 </tbody></table>
 
@@ -17049,6 +17124,55 @@ Sample POST Request</p>
 </tr>
 </tbody></table>
 
+<aside class="notice"> All parameters marked by * are mandatory.</aside>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>DistancefromInputLatLong</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>IsParticipateInStock</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>IsOfflinneCheckoutEnabled</td>
+<td>boolean</td>
+<td></td>
+</tr>
+<tr>
+<td>IsDefaultLNG_LocationName</td>
+<td>boolean</td>
+<td></td>
+</tr>
+<tr>
+<td>AdditionalDetails</td>
+<td>json obj</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h3 id="response-parameters">Response Parameters</h3>
+
+<p>Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+</tbody></table>
+
 <h2 id="get-delivery-cities">Get Delivery Cities</h2>
 
 <blockquote>
@@ -17137,7 +17261,7 @@ Sample POST Request</p>
 
 <p><code class="prettyprint">https://{host}/developerapi/Location/Information/{{MerchantId}}/GetCities</code></p>
 
-<h3 id="request-parameters">Request Parameters</h3>
+<h3 id="request-path-parameters">Request Path Parameters</h3>
 
 <table><thead>
 <tr>
@@ -17152,6 +17276,8 @@ Sample POST Request</p>
 <td>The unique id (GUID) of the merchant for which you want to fetch location details</td>
 </tr>
 </tbody></table>
+
+<aside class="notice"> All parameters marked by * are mandatory.</aside>
 
 <h2 id="get-delivery-areas">Get Delivery Areas</h2>
 
@@ -17298,7 +17424,7 @@ Sample POST Request</p>
 
 <p><code class="prettyprint">https://{host}/developerapi/Location/DeliveryAreas/{merchantId}/{locationId}</code></p>
 
-<h3 id="request-parameters">Request Parameters</h3>
+<h3 id="request-path-parameters">Request Path Parameters</h3>
 
 <table><thead>
 <tr>
@@ -17316,6 +17442,46 @@ Sample POST Request</p>
 <td>locationId*</td>
 <td>int</td>
 <td>Unique id of the location for which you want to get delivery areas</td>
+</tr>
+</tbody></table>
+
+<aside class="notice"> All parameters marked by * are mandatory.</aside>
+
+<h3 id="response-parameters">Response Parameters</h3>
+
+<p>Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>DistancefromInputLatLong</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>AdditionalDetails</td>
+<td>json obj</td>
+<td></td>
+</tr>
+<tr>
+<td>IsParticipateInStock</td>
+<td>boolean</td>
+<td></td>
+</tr>
+<tr>
+<td>IsOfflinneCheckoutEnabled</td>
+<td>boolean</td>
+<td></td>
+</tr>
+<tr>
+<td>IsDefaultLNG_LocationName</td>
+<td>boolean</td>
+<td></td>
 </tr>
 </tbody></table>
 
@@ -17636,6 +17802,46 @@ Sample POST Request</p>
 </tr>
 </tbody></table>
 
+<aside class="notice"> All parameters marked by * are mandatory.</aside>
+
+<h3 id="response-parameters">Response Parameters</h3>
+
+<p>Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>DistancefromInputLatLong</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>AdditionalDetails</td>
+<td>json obj</td>
+<td></td>
+</tr>
+<tr>
+<td>IsParticipateInStock</td>
+<td>boolean</td>
+<td></td>
+</tr>
+<tr>
+<td>IsOfflinneCheckoutEnabled</td>
+<td>boolean</td>
+<td></td>
+</tr>
+<tr>
+<td>IsDefaultLNG_LocationName</td>
+<td>boolean</td>
+<td></td>
+</tr>
+</tbody></table>
+
 <h2 id="get-reason-codes">Get Reason Codes</h2>
 
 <blockquote>
@@ -17722,6 +17928,8 @@ Sample POST Request</p>
 <td>The unique id (GUID) of the merchant</td>
 </tr>
 </tbody></table>
+
+<aside class="notice"> All parameters marked by * are mandatory.</aside>
 
 <h2 id="update-order-eta">Update Order ETA</h2>
 
@@ -17875,7 +18083,7 @@ Sample POST Request</p>
 <tr>
 <td>ETAType*</td>
 <td>enum</td>
-<td>Soecify <code class="prettyprint">0</code> for a fixed ETA. For example 2 days from the ordered date. <br> Specify <code class="prettyprint">1</code> for ETA within a specified period from the ordered date. For example, 5-7 days</td>
+<td>Specify <code class="prettyprint">0</code> for a fixed ETA. For example 2 days from the ordered date. <br> Specify <code class="prettyprint">1</code> for ETA within a specified period from the ordered date. For example, 5-7 days</td>
 </tr>
 <tr>
 <td>ETAUnits*</td>
@@ -17883,6 +18091,8 @@ Sample POST Request</p>
 <td>Preferred unit for time - minutes, hours, or days. Value: <code class="prettyprint">Min</code>, <code class="prettyprint">Hours</code>, <code class="prettyprint">Days</code></td>
 </tr>
 </tbody></table>
+
+<aside class="notice"> All parameters marked by * are mandatory.</aside>
 
 <h2 id="get-location-eta">Get Location ETA</h2>
 
@@ -17990,6 +18200,31 @@ Sample POST Request</p>
 <td>OrderDeliveryType*</td>
 <td>string</td>
 <td>Specific order type for which you want to fetch ETA. Values <code class="prettyprint">H</code> for HomeDelivery, <code class="prettyprint">T</code> for TakeAway, <code class="prettyprint">P</code> for Pickup, <code class="prettyprint">ALL</code> for all types</td>
+</tr>
+</tbody></table>
+
+<aside class="notice"> All parameters marked by * are mandatory.</aside>
+
+<h3 id="response-parameters">Response Parameters</h3>
+
+<p>Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ETAType</td>
+<td>enum</td>
+<td>Specifies whether a fixed ETA or not. <code class="prettyprint">0</code> for a fixed ETA and <code class="prettyprint">1</code> for ETA between <code class="prettyprint">StartTime</code> and <code class="prettyprint">EndTime</code></td>
+</tr>
+<tr>
+<td>ETAUnits</td>
+<td>enum</td>
+<td>The unit of measurement of time for the ETA for <code class="prettyprint">StartTime</code> and <code class="prettyprint">EndTime</code>. It could be <code class="prettyprint">Min</code> (for minutes), <code class="prettyprint">Hours</code>, or <code class="prettyprint">Days</code></td>
 </tr>
 </tbody></table>
 
