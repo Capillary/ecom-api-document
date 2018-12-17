@@ -380,21 +380,7 @@ Following table contains descriptions of a few response parameters that require 
 Parameter | Type | Description
 --------- | ---- | -----------
 AccessToken | string | An object or string that identifies the current user. Access token is required for making customer related API calls such as validate token, update customer details, update profile attributes, and so on
-issued_at | date-time | 
-
-
-
-
-
-### Response Parameters
-
-Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.
-
-
-Parameter | Type | Description
--------- | ----- | ----------
-AccessToken | string | 
-issued_at | 
+issued_at | date-time | The date and time when the access token was generated for the user
 
 
 
@@ -470,11 +456,10 @@ password* | string | Password of the customer account
 
 Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.
 
-
 Parameter | Type | Description
 --------- | ---- | -----------
 AccessToken | string | An object or string that identifies the current user. Access token is required for making customer related API calls such as validate token, update customer details, update profile attributes, and so on
-issued_at | date-time | 
+issued_at | date-time | The date and time when the access token was generated for the user
 
 
 
@@ -563,18 +548,9 @@ Following table contains descriptions of a few response parameters that require 
 Parameter | Type | Description
 --------- | ---- | -----------
 AccessToken | string | An object or string that identifies the current user. Access token is required for making customer related API calls such as validate token, update customer details, update profile attributes, and so on
-issued_at | date-time | 
+issued_at | date-time | The date and time when the access token was generated for the user
 
 
-### Response Parameters
-
-Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.
-
-
-Parameter | Type | Description
---------- | ---- | -----------
-AccessToken | string | An object or string that identifies the current user. Access token is required for making customer related API calls such as validate token, update customer details, update profile attributes, and so on
-issued_at | date-time | 
 
 
 ## Customer Logout
@@ -700,10 +676,12 @@ Following table contains descriptions of a few response parameters that require 
 Parameter | Type | Description
 --------- | ---- | -----------
 AccessToken | string | An object or string that identifies the current session
-issued_at | date-time | 
+issued_at | date-time | Date and time when the access token is generated
+
 
 
 ## Validate Access Token
+
 > Sample POST Request
 
 ```html
@@ -747,6 +725,10 @@ Parameter | Type | Description
 --------- | ----- | ------
 merchantId* | string | The unique id (GUID) of the merchant in which you want to validate access token
 accesstoken* | string | The access token generated for a user session (use `/Customer/GetAccessToken/` to get access token of a user session)
+
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
+
+
 
 
 ## Fetch Customers (Search)
@@ -838,10 +820,21 @@ Authentication | Yes
 
 Parameter | Type | Description
 -------- | ---- | -----------
-UserName | string | Fetches all customers matching the specified keyword in the username
+UserName* | string | Fetches all customers matching the specified keyword in the username
 
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
 
- 
+### Response Parameters
+
+Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.
+
+Parameter | Type | Description
+--------- | ---- | -----------
+UserProfiles | array | Customer level custom field details
+UserInfoId | string | GUID generated for the customer internally. UserInfoId is used in APIs like customer update along with the UserId
+CommunicationType | string | The preferred communication channel(s) of the customer. Possible Values: SMS, EMAIL
+MarketingNotificationType | string | 
+
 
 
 
@@ -871,7 +864,7 @@ https://www.martjack.com/developerapi/Customer/81e77da2-723b-483d-8c0d-49f800c1x
       "UserInfoId":"08a0dffe-86f0-45b6-9fae-df276fe9abb5",
       "UserId":"132d3c1d-7d71-4b87-9a69-a4d216d634fa",
       "MerchantId":"81e77da2-723b-483d-8c0d-49f800c1xxxx",
-      "UserName":"NewTeatUser19@capillarytech.com",
+      "UserName":"tom.sawyer@capillarytech.com",
       "FirstName":"Tom",
       "LastName":"Sawyer",
       "PostalAddress":"",
@@ -930,6 +923,21 @@ Parameter | Type | Description
 merchantId* | string | The unique id (GUID) of the merchant account from which you want to fetch customer details
 UserId* | string | The unique user identifier of the customer whose details need to be retrieved
 
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
+
+### Response Parameters
+
+Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.
+
+Parameter | Type | Description
+--------- | ---- | -----------
+UserProfiles | array | Customer level custom field details
+UserInfoId | string | GUID generated for the customer internally. UserInfoId is used in APIs like customer update along with the UserId
+CommunicationType | string | The preferred communication channel(s) of the customer. Possible Values: SMS, EMAIL
+MarketingNotificationType | string | 
+
+
+
 ### Success/Error Codes
 
 Status Code | Description
@@ -944,6 +952,7 @@ Status Code | Description
 
 
 ## Update Customer Details
+
 > Sample Request
 
 ```html
@@ -1021,13 +1030,24 @@ accesstoken* 	Access token of the logged in user to validate the session
 
 Parameter | Type | Description
 --------- | ---- | -----------
-UserId | string | Unique id of the customer that is generated in the system.
+UserId* | string | Unique id of the customer that is generated in the system.
 City  string | Unique code of the city (as saved in the system) Example: 0562 (for Agra), 250 (Victoria) 
 CityName | string | Full name of the city. Example: Bangalore, 
 State | string | State's postal abbreviation. Example: KA (for Karnataka), CA (for California), IN (for Indiana)
 StateName | string | Full name of the state such as Karnataka, California, and Indiana
 Country | string | alpha-2 code of the country such as IN (for India), AU (for Australia), BR (for Brazil)
 CountryName | string | Full name of the country such as India, Australia, and Brazil
+
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
+
+### Response Parameters
+
+Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.
+
+Parameter | Type | Description
+--------- | ---- | -----------
+IsReceiveOffers | boolean | Whether the user is subscribed to receive offers from the merchant 
+
 
 
 ### Success/Error Codes
@@ -1099,7 +1119,7 @@ Authentication | Yes
 
 Header | Description
 ----- | ----------
-accesstoken* 	Access token of the logged in user to validate the session
+accesstoken* | Access token of the logged in user to validate the session
 
 
 ### Request URL
@@ -1110,21 +1130,6 @@ Parameter | Type | Description
 --------- | ----- | ------
 ProfileAttributeId* | string | ID of the attribute that needs to be updated 
 ProfileAttributeValue | string | Customer's preferred attribute value 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -1210,7 +1215,7 @@ Authentication | Yes
 
 `https://{host}/developerapi/Customer/AddShippingAddress/{merchantId}`
 
-### Request Parameters
+### Request Body Parameters
 Parameter | Type | Description
 --------- | ---- | -------
 ShippingAddressId* |  | Unique id of the order shipment that you want to update. Just pass `0` to create a new shipping address
@@ -1320,7 +1325,7 @@ apiversion | 4
 `https://{host}/developerapi/Customer/GetShippingAddress/{merchantId}{UserId}`
 
 
-### Request Parameters
+### Request Path Parameters
 Parameter | Type | Description
 --------- | ---- | -------
 merchantId* | string |  The unique id (GUID) of the merchant from which you want to fetch the customer's shipping address
@@ -1379,6 +1384,9 @@ Parameter | Type | Description
 MerchantId* | string |  The unique id (GUID) of the merchant in which you want the order is created
 UserId* | string |  The unique user identifier of the customer to which the order is associated
 ShippingAddressId* | string |  Unique id of the order shipment that you want to delete
+
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
+
 
 
 ### Success/Error Codes

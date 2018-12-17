@@ -975,17 +975,15 @@ documents | | Documents of the product pertaining to the product information
 type | string | Document purpose. Supported Values: Overview, Product Tour, Specifications, Menu, How it works, Terms and Conditions
 seoinfo | string | Search Engine Optimization of the document
 filename | string | Document type with extension. Supported formats: .doc, .docx, .pdf
-sequence | 0 | Sequence order of the document to appear on the product page
+sequence | int | Sequence order of the document/picture/video to appear on the product page
 videos | | Videos related to the product   
 type | string | Source of the video. Supported Values: YouTube, Vimeo, Scribd, 
 seoinfo | string | Search Engine Optimization information of the video
 filename | string | Filename of the video with extension
-sequence | 0 | Sequence order of the video
 view360 | | 3d images of the product
 type | string | Type of the view 360 degree file name. Value: `local_flash`
 seoinfo | string | Search Engine Optimization for the 360 degree video
 filename | string | File name of the video with the respective extension
-sequence | 0 | Sequence order in which the view 360 video has to appear on the product page
 
 <aside class="notice"> All parameters marked by * are mandatory.</aside>
 
@@ -1218,7 +1216,7 @@ Following table contains descriptions of a few response parameters that require 
 
 Parameter | Type | Description
 --------- | ---- | -----------
-CatlogSequence | | The sequence of the product in catalog
+CatlogSequence | int | The sequence of the product in catalog
 MarkupPrice | | 
 MarkupType | | 
 BulkQuantity | | 
@@ -1503,7 +1501,7 @@ Following table contains descriptions of a few response parameters that require 
 Parameter | Type | Description
 --------- | ---- | -----------
 MarkupPrice |  | 
-MarkupType | | 
+MarkupType |  | 
 TokenPriceCheckout | | 
 IsReferPrice | | 
 UOM | string | Unit of measurement of the product. It could be the `pieces` for items that are sold in numbers and the respective measure for other items such as kgs, and gms

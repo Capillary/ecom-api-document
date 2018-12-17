@@ -336,7 +336,7 @@ zipcode=500090&deliveryarea=hyderabad&deliveryareaid=16696&outputfield=additiona
       "Pin": "560105",
       "Contact1": "011-39585715",
       "Contact2": "",
-      "Description": "Holisol Warehouse bangalore",
+      "Description": "Holisol Warehouse Bangalore",
       "Latitude": 12.8032,
       "Longitude": 77.661,
       "LocationType": null,
@@ -405,6 +405,21 @@ zipcode*	| string | Area PIN code that you want to fetch. Example value: 110019
 deliveryarea* | string | Name of the delivery area. Example: Karnataka
 deliveryareaId*	| int | Unique id of the delivery area. Example: 234
 outputfield	| enum | Pass `additional` to include additional information, `deliveryarea` to include delivery areas in the response
+
+<aside class="notice"> All parameters marked by * are mandatory.</aside>
+
+
+### Response Parameters
+
+Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.
+
+Parameter | Type | Description
+--------- | ---- | -----------
+DistancefromInputLatLong | | 
+IsParticipateInStock | | 
+IsOfflinneCheckoutEnabled | | 
+IsOfflineDeals | | 
+
 
 
 
@@ -832,6 +847,29 @@ MerchantId* | string | The unique id (GUID) of the merchant for which you want t
 LocationId* | int | Location id for which you want to see the details
 
 
+<aside class="notice"> All parameters marked by * are mandatory.</aside>
+
+Parameter | Type | Description
+--------- | ---- | -----------
+DistancefromInputLatLong |  | 
+IsParticipateInStock | | 
+IsOfflinneCheckoutEnabled | boolean | 
+IsDefaultLNG_LocationName | boolean | 
+AdditionalDetails | json obj | 
+
+
+### Response Parameters
+
+Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.
+
+Parameter | Type | Description
+--------- | ---- | -----------
+
+
+
+
+
+
 ## Get Delivery Cities
 
 > Sample Request
@@ -897,10 +935,12 @@ Batch Support | No
 
 `https://{host}/developerapi/Location/Information/{{MerchantId}}/GetCities`
 
-### Request Parameters
+### Request Path Parameters
 Parameter | Type | Description
 --------- | ---- | -----------
 MerchantId* | string | The unique id (GUID) of the merchant for which you want to fetch location details
+
+<aside class="notice"> All parameters marked by * are mandatory.</aside>
 
 
 
@@ -1029,13 +1069,26 @@ Batch Support | No
 
 `https://{host}/developerapi/Location/DeliveryAreas/{merchantId}/{locationId}`
 
-### Request Parameters
+### Request Path Parameters
 Parameter | Type | Description
 --------- | ---- | -----------
 MerchantId* | string | The unique id (GUID) of the merchant for which you want to fetch location details
 locationId* | int | Unique id of the location for which you want to get delivery areas
 
+<aside class="notice"> All parameters marked by * are mandatory.</aside>
 
+
+### Response Parameters
+
+Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.
+
+Parameter | Type | Description
+--------- | ---- | -----------
+DistancefromInputLatLong |  | 
+AdditionalDetails | json obj | 
+IsParticipateInStock | boolean | 
+IsOfflinneCheckoutEnabled | boolean | 
+IsDefaultLNG_LocationName | boolean | 
 
 
 
@@ -1320,6 +1373,22 @@ Parameter | Type | Description
 MerchantId* | string | The unique id (GUID) of the merchant
 locationId* | int | Unique id of the location that you want to fetch
 
+<aside class="notice"> All parameters marked by * are mandatory.</aside>
+
+
+### Response Parameters
+
+Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.
+
+Parameter | Type | Description
+--------- | ---- | -----------
+DistancefromInputLatLong |  | 
+AdditionalDetails | json obj | 
+IsParticipateInStock | boolean | 
+IsOfflinneCheckoutEnabled | boolean | 
+IsDefaultLNG_LocationName | boolean |
+
+
 
 
 ## Get Reason Codes
@@ -1374,6 +1443,8 @@ Batch Support | No
 Parameter | Type | Description
 --------- | ---- | -----------
 MerchantId* | string | The unique id (GUID) of the merchant
+
+<aside class="notice"> All parameters marked by * are mandatory.</aside>
 
 
 
@@ -1463,8 +1534,12 @@ TakeAwayETA | json obj | Updated ETA for take away orders
 PickupPointsETA | json obj | Updates ETA for store pick up orders
 StartTime* | string | Estimated minimum delivery time as per the selected ETA units
 EndTime* | string | Estimated maximum delivery time as per the selected ETA units
-ETAType* | enum | Soecify `0` for a fixed ETA. For example 2 days from the ordered date. <br> Specify `1` for ETA within a specified period from the ordered date. For example, 5-7 days
+ETAType* | enum | Specify `0` for a fixed ETA. For example 2 days from the ordered date. <br> Specify `1` for ETA within a specified period from the ordered date. For example, 5-7 days
 ETAUnits* | enum | Preferred unit for time - minutes, hours, or days. Value: `Min`, `Hours`, `Days`
+
+<aside class="notice"> All parameters marked by * are mandatory.</aside>
+
+
 
 
 
@@ -1536,6 +1611,18 @@ Parameter | Type | Description
 merchantId* | string | Unique GUID of the merchant
 LocationCode* | string | Location code for which you want to fetch order ETA details
 OrderDeliveryType* | string | Specific order type for which you want to fetch ETA. Values `H` for HomeDelivery, `T` for TakeAway, `P` for Pickup, `ALL` for all types
+
+<aside class="notice"> All parameters marked by * are mandatory.</aside>
+
+
+### Response Parameters
+
+Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.
+
+Parameter | Type | Description
+--------- | ---- | -----------
+ETAType | enum | Specifies whether a fixed ETA or not. `0` for a fixed ETA and `1` for ETA between `StartTime` and `EndTime`
+ETAUnits | enum | The unit of measurement of time for the ETA for `StartTime` and `EndTime`. It could be `Min` (for minutes), `Hours`, or `Days` 
 
 
 ## Response Codes
