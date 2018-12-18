@@ -2,7 +2,7 @@
 An order is a completed purchase request of a customer. This resource consists of APIs related to creating and managing orders of a marketplace, PWA or storefront. 
 
 
-## Create Bulk Order
+## Create Bulk Order (Normal)
 
 
 
@@ -18,7 +18,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 ```json
 
-{  
+MerchantID=81e77da2-723b-483d-8c0d-49f800c1exxx&InputFormat=application/json&InputData{  
    "orders":{  
       "order":[  
          {  
@@ -124,58 +124,6 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
                               "Value":"2850981410"
                            }
                         ]
-                     },
-                     "bundleitems":{  
-                        "item":[  
-                           {  
-                              "orderrefno":2731792,
-                              "sku":"IN-PZ-VG-VEGGIEITALINO",
-                              "variantsku":"",
-                              "qty":"1",
-                              "unitprice":"0",
-                              "shippingamount":"0",
-                              "tax":"0",
-                              "shippingdiscount":"0",
-                              "linediscount":"0",
-                              "catalogcode":"B",
-                              "bundleparentproduct":"IN-PZ-VG-VEGGIEITALINO",
-                              "isdefault":"NO",
-                              "deliverymode":"S",
-                              "portion":"",
-                              "itemcustomfields":{  
-                                 "itemcustomfield":[  
-                                    {  
-                                       "Name":"CustomRefOrderLineID",
-                                       "Value":"2850981410"
-                                    }
-                                 ]
-                              }
-                           },
-                           {  
-                              "orderrefno":2731792,
-                              "sku":"IN-Crt-Veggie Italiano",
-                              "variantsku":"IN-Crt-Veggie Italiano-Pan-Mdm",
-                              "qty":"1",
-                              "unitprice":"545",
-                              "shippingamount":"0",
-                              "tax":"0",
-                              "shippingdiscount":"0",
-                              "linediscount":"0",
-                              "catalogcode":"B",
-                              "bundleparentproduct":"IN-PZ-VG-VEGGIEITALINO",
-                              "isdefault":"YES",
-                              "deliverymode":"S",
-                              "portion":"",
-                              "itemcustomfields":{  
-                                 "itemcustomfield":[  
-                                    {  
-                                       "Name":"CustomRefOrderLineID",
-                                       "Value":"2850981410"
-                                    }
-                                 ]
-                              }
-                           }
-                        ]
                      }
                   }
                ]
@@ -223,6 +171,7 @@ This API lets you create batch orders. You can also capture vertical specific pr
 | | |
 --------- | ----------- |
 URI | `Order/BulkOrderCreation`
+Rate Limited? | No
 Authentication | Yes
 HTTP Method | POST
 Batch Support | Yes
@@ -255,8 +204,8 @@ isselfship | boolean |  If the order shipment is handled by marketplace such as 
 channelrefcode | string |  Channel from which the order has come from (specific to Sellerworx). A channel is an instance of marketplace. A seller can have multiple channels.
 channelorderid | string |  Order id as maintained by that specific channel  (specific to Sellerworx)
 sellerwroxorderid | string |  Order id generated at Sellerworx. Maps Channel order id to Sellerworx order id
-items* | - |  Specify the details of each line-item in `item` attribute
-Payments* | - |  Specify the payment details and `orderrefno` of the order in `payment`. The orderrefno value at payment level should be same as that of the order level
+items* | obj |  Specify the details of each line-item in `item` attribute
+Payments* | obj |  Specify the payment details and `orderrefno` of the order in `payment`. The orderrefno value at payment level should be same as that of the order level
 paymentstatus | enum | The payment status of the current order. Value: Authorized, Pending
 paymentno | string | The reference number for order payment provided by the respective payment gateway
 vouchercode | string | Coupon code applied for the transaction if any. This is just for viewing purpose and the API does not do any calculation based on the voucher code
@@ -268,7 +217,253 @@ shippingamount | float | Pass the shipping charge for the specific item (Order i
 shippingdiscount | int | Pass the discount amount on the shipping charge (Order item level discount)
 linediscount | int |  Pass the line item level discount of the order
 
+<aside class="notice">All parameters marked by * are mandatory.</aside>
 
+
+
+
+
+
+## Create Bulk Order (Deal & Bundle)
+
+> Sample Request
+
+```html
+http://www.martjack.com/developerapi/Order/BulkOrderCreation
+```
+
+
+> Sample POST Request
+
+```json
+MerchantID=81e77da2-723b-483d-8c0d-49f800c1exxx&InputFormat=application/json&InputData{  
+   "orders":{  
+      "order":{  
+         "orderrefno":"5455",
+         "orderdate":"2018-12-13",
+         "customertype":"Guest User",
+         "userid":"tom.sawyer@capillarytech.com",
+         "orderamountstatus":"Authorized",
+         "ordervalue":4.750,
+         "orderstatus":"Authorized",
+         "orderconfirmationmail":"No",
+         "paymentlinkstatus":"NO",
+         "calculateshippingtax":"No",
+         "vouchercode":"",
+         "shipfirstname":"Tom",
+         "shiplastname":"Sawyer",
+         "shipaddress1":"test",
+         "shipaddress2":"test23233",
+         "shipcity":"Al Qurain",
+         "shipstate":"Kuwait City",
+         "shipcountry":"Kuwait",
+         "shipzip":"1",
+         "shiplandline":"55555555",
+         "shipmobile":"55555555",
+         "shipemail":"tom.sawyer@capillarytech.com",
+         "billfirstname":"Tom",
+         "billlastname":"Sawyer",
+         "billaddress1":"example address",
+         "billaddress2":"example address2",
+         "billcity":"Al Qurain",
+         "billstate":"Kuwait City",
+         "billcountry":"Kuwait",
+         "billzip":"1",
+         "billlandline":"55555555",
+         "billmobile":"55555555",
+         "billemail":"tom.sawyer@capillarytech.com",
+         "giftmsg":"Happy wedding anniversary",
+         "deliveredon":"2018-12-13",
+         "locationcode":"SURRA",
+         "storelocationcode":"PH Adeliya",
+         "isselfship":"NO",
+         "channelrefcode":"",
+         "channelorderid":"",
+         "sellerwroxorderid":"",
+         "deliveryslotcode":"",
+         "shippingmode":"H",
+         "items":{  
+            "item":[  
+               {  
+                  "orderrefno":"5455",
+                  "sku":"Dls-130032",
+                  "variantsku":"",
+                  "qty":1,
+                  "unitprice":0,
+                  "shippingamount":0,
+                  "tax":0,
+                  "shippingdiscount":0,
+                  "linediscount":0,
+                  "catalogcode":"D",
+                  "bundleparentproduct":"",
+                  "isdefault":"NO",
+                  "portion":"",
+                  "deliverymode":"H",
+                  "bundleitems":{  
+                     "item":[  
+                        {  
+                           "orderrefno":"5455",
+                           "sku":"Pz-Chicken-Supreme",
+                           "variantsku":"",
+                           "qty":1,
+                           "unitprice":0,
+                           "shippingamount":0,
+                           "tax":0,
+                           "shippingdiscount":0,
+                           "linediscount":0,
+                           "catalogcode":"D",
+                           "bundleparentproduct":"Dls-130032",
+                           "isdefault":"NO",
+                           "portion":"",
+                           "deliverymode":"H",
+                           "bundleitems":{  
+                              "item":[  
+                                 {  
+                                    "orderrefno":"5455",
+                                    "sku":"Crt-10",
+                                    "variantsku":"Crt-10-102580-Pan-Large",
+                                    "qty":1,
+                                    "unitprice":4.25,
+                                    "shippingamount":0.50,
+                                    "tax":0,
+                                    "shippingdiscount":0,
+                                    "linediscount":0,
+                                    "catalogcode":"B",
+                                    "bundleparentproduct":"Pz-Chicken-Supreme",
+                                    "isdefault":"NO",
+                                    "deliverymode":"H",
+                                    "portion":"W"
+                                 },
+                                 {  
+                                    "orderrefno":"5455",
+                                    "sku":"Mozarella_30",
+                                    "variantsku":"Mozarella_30_111100_Large",
+                                    "qty":1,
+                                    "unitprice":0,
+                                    "shippingamount":0,
+                                    "tax":0,
+                                    "shippingdiscount":0,
+                                    "linediscount":0,
+                                    "catalogcode":"B",
+                                    "bundleparentproduct":"Pz-Chicken-Supreme",
+                                    "isdefault":"NO",
+                                    "deliverymode":"H",
+                                    "portion":"W"
+                                 }
+                              ]
+                           }
+                        },
+                        {  
+                           "orderrefno":"4452",
+                           "sku":"Omn-App-GlcBrd",
+                           "variantsku":"Omn-App-GlcBrd-2-NCH",
+                           "qty":1,
+                           "unitprice":0,
+                           "shippingamount":0,
+                           "tax":0,
+                           "shippingdiscount":0,
+                           "linediscount":0,
+                           "catalogcode":"D",
+                           "bundleparentproduct":"OmnDls-FmlyBx",
+                           "isdefault":"NO",
+                           "portion":"",
+                           "deliverymode":"H"
+                        }
+                     ]
+                  }
+               }
+            ]
+         },
+         "payments":{  
+            "payment":{  
+               "orderrefno":"5455",
+               "checkouttype":"Cash on Delivery",
+               "paymentno":"123",
+               "amount":4.750,
+               "transaciondate":"2018-12-13",
+               "paymentstatus":"Authorized"
+            }
+         }
+      }
+   }
+}
+```
+
+> Sample Response
+
+```json
+{  
+   "messageCode":"1018",
+   "Message":"Data update added to task queue. You can view the status of update in control panel. Also email will be send to merchant registered email after task completion.",
+   "Taskid":"2156",
+   "ErrorCode":0
+}
+
+```
+
+This API lets you create batch orders for deal and bundle products.
+
+
+
+### Resource Information
+
+| | |
+--------- | ----------- |
+URI | `Order/BulkOrderCreation`
+Authentication | Yes
+HTTP Method | POST
+Batch Support | Yes
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+### Request URL
+
+`https://{host}/developerapi/Order/BulkOrderCreation`
+
+### Request Body Parameters
+Parameter |  Type | Description
+--------- | ------ | --------
+orderrefno* | string | Reference number of the order
+orderdate* | date | Ordered date in `dd/mm/yy` format
+deliveredon | date  | Specify the estimated delivery of the item if applicable for the merchant in `dd/mm/yy` format
+customertype | enum | Type of the user as per the Martjack system. Supported Values: Guest User (for all marketplace), Registered User (If registered on Martjack platform)
+userid | string | Registered identifier of the customer. Required when `customertype="Registered User"`
+ordervalue | float | Net order amount
+orderstatus |  enum | Status of the order. Value: Pending, Authorized
+orderconfirmationmail | enum  | Specify `Yes` to send an order confirmation email to the customer, else set `No`
+paymentlinkstatus | enum | Status of the payment. Predefined enum values. Values: Pending (Bank transfer, Cheque,), Authorized (COD, Prepaid)
+calculateshippingtax | enum | Specify ``NO` if the order value includes tax and service charges. Else, specify `YES` to add charges separately
+shipfirstname, shiplastname, shipaddress1 ... | string |  Specify the customer's shipping address related information in these fields
+billfirstname, billlastname, billaddress1 ... | string |  Specify the customer's billing address related information in these fields
+giftmsg | string  | In case of gift orders, specify the customer's personalized message that needs to sent to the recipient
+locationcode | string | Reference code of the  order fulfillment location
+isselfship | boolean | If the order shipment is handled by marketplace such as Amazon or Flipkart specify `False` and if the shipment is handled by the merchant itself, set the value to `True`
+channelrefcode | string | Channel from which the order has come from (specific to Sellerworx). A channel is an instance of marketplace. A seller can have multiple channels
+channelorderid | string | Order id as maintained by that specific channel  (specific to Sellerworx)
+sellerwroxorderid | string | Order id generated at Sellerworx. Maps Channel order id to Sellerworx order id
+items* | obj | Specify the details of each line-item in `item` attribute
+bundleitems | obj | Details of bundle items
+Payments* | obj | Specify the payment details and `orderrefno` of the order in `payment`. The orderrefno value at payment level should be same as that of the order level
+paymentstatus | enum | The payment status of the current order. Value: Authorized, Pending
+paymentno | string | The reference number for order payment provided by the respective payment gateway
+vouchercode | string | Coupon code applied for the transaction if any. This is just for viewing purpose and the API does not do any calculation based on the voucher code
+customfield | json obj | Pass this only if you have preconfigured custom fields at the order level
+itemcustomfield | json obj | Pass line-item level custom fields. You do not need to have preconfigured custom fields at the order item level
+deliveryslotcode | string | Pass the delivery slot code if you want to associate a delivery slot with the order 
+shippingmode | string | Pass the shipping mode that you want to associate with the order. Note that the API does not validate/calculate on the provided shipping mode
+shippingamount | float | Pass the shipping charge for the specific item (Order item level)
+shippingdiscount | int | Pass the discount amount on the shipping charge (Order item level discount)
+linediscount | int | Pass the line item level discount of the order
+catalogcode | enum | Type of the prouct category, Value: `D` for deal, `B` for bundle, `P` product, `A` for add-on product 
+unitprice | float | Price of a single item
+bundleparentproduct | string | SKU of the parent bundle product
+isdefault | enum | Is the item default for the bundle. Value: `Yes`, `No`
+portion | enum | The portion for which the child product is applied. Value: `W` for whole, `R` for right, `L` for left (left, right usually applies for toppings)
+deliverymode | enum | Mode of delivery of the item. Values: `H` for home delivery, `S` for store pick-up
+
+
+<aside class="notice">All Parameters marked by * are mandatory.</aside>
 
 
 
@@ -331,8 +526,9 @@ Header | Description
 Access token* | The access token generated for the  current user session
 
 ### Request Body Parameters
-Attribute | Description
---------- | -----------
+
+Parameter | Type | Description
+--------- | ---- | -----------
 merchantId* | string |  The unique id (GUID) of the merchant in which you want to place order
 PaymentOption* | string |  The name of the payment gateway. Pass only the supported modes configured in the back-end. For example, RazorPay, EBS, OnlineBankTransfer, COD, CreditCard, ChequeDD, Wallet, and eGiftVoucher
 paymentType* | string |  The payment type used for the order - OBT (Online bank transfer),  TPG (Third party gateway), Credit, GV (Gift voucher) and so on
@@ -380,9 +576,12 @@ skipDeliveryAreaValidation | boolean |  Specify `true` to validate delivery loca
 
 ### Response Parameters
 
+Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.
+
+
 Parameter | Type | Description
 --------- | ---- | -----------
-ValidationResponse | obj | 
+ValidationResponse | json obj | Response object received from the payment gateway
 
 
 
@@ -485,17 +684,18 @@ Provider* | string |  The provider of the payment gateway service
 GatewayID* | string |  The respective payment gateway id
 CPUserID | string |  The unique CP user id generated by the system 
 PaymentDetails* | json obj |  Pass the payment details 
- GVCode | string |  The gift voucher code used for the transaction (if any)
- RespCode | string |  The unique response code generated at the payment gateway for the transaction (to our system)
- RespMessage | string |  The entire response payload generated at the payment gateway for the transaction (to our system)
- PointsBurned | int |  The number of points redeemed for the transaction (if any) 
+GVCode | string |  The gift voucher code used for the transaction (if any)
+RespCode | string |  The unique response code generated at the payment gateway for the transaction (to our system)
+RespMessage | string |  The entire response payload generated at the payment gateway for the transaction (to our system)
+PointsBurned | int |  The number of points redeemed for the transaction (if any) 
+ 
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
+ 
  
 
  
+## Save Merchant Transaction
  
-
- 
- ## Save Merchant Transaction
 > Sample Request
  
 ```html
@@ -526,7 +726,7 @@ https://www.martjack.com/Order/SaveMerchantTransaction/81e77da2-723b-483d-8c0d-4
 }
 ```
 
-Saves a merchant transaction.
+Saves the current merchant transaction.
 
 ### Resource Information
 
@@ -549,12 +749,14 @@ Batch Support | No
 ### Request Body Parameters
 Parameter | Type | Description
 --------- | ---- | -----------
-PaymentOption | string |  The name of the payment gateway. For example, RazorPay, EBS, OnlineBankTransfer, COD, CreditCard, ChequeDD, Wallet, and eGiftVoucher
-PaymentType | PaymentOption |  The mode of payment chosen for the transaction. Values could be OBT (Online bank transfer), TPG (Third party gateway), Credit, GV (Gift voucher) and so on
-OrderId | int |  The unique id of the order
-MerchantId | PaymentOption |  The unique id (GUID) of the merchant in which the order is registered
-status | enum |  The status of the current payment. Value: Pending, Authorized
-amount | float |  The amount paid through the current payment type for the transaction
+PaymentOption* | string |  The name of the payment gateway. For example, RazorPay, EBS, OnlineBankTransfer, COD, CreditCard, ChequeDD, Wallet, and eGiftVoucher
+PaymentType* | PaymentOption |  The mode of payment chosen for the transaction. Values could be OBT (Online bank transfer), TPG (Third party gateway), Credit, GV (Gift voucher) and so on
+OrderId* | int |  The unique id of the order
+MerchantId* | PaymentOption |  The unique id (GUID) of the merchant in which the order is registered
+status* | enum |  The status of the current payment. Value: Pending, Authorized
+amount* | float |  The amount paid through the current payment type for the transaction
+
+<aside class="notice"> All parameters marked by * are mandatory.</aside>
 
 
 
@@ -946,8 +1148,9 @@ Parameter | Type | Description
 PriceCapped | | 
 TotalCap | | 
 CappedRefKey | | 
-Por | | `w`
-GroupId | | 
+Por | enum | The portion for which the child product is applied. Value: `W` for whole, `R` for right, `L` for left (left, right usually applies for toppings)
+GroupId | int | 
+IsFreeProduct | enum | Whether the current item is a free gift item. Value: Yes, No
 
 
 ## Fetch Order History
@@ -1073,26 +1276,29 @@ Batch Support | No
 Parameter | Type | Description
 --------- | ----- | ------
 UserId | string |  The unique user identifier of the customer whose details need to be retrieved
-FromDate | date-time |  Specify the duration for which you want to fetch the order history (mm-dd-yyyy hh:mm:ss format) in FromDate and ToDate
-ToDate | date-time |   Specify the duration for which you want to fetch the order history (mm-dd-yyyy hh:mm:ss format) in FromDate and ToDate
-Status | enum |  Filter the search results by order status(P=Pending, F=Cancel, A=Approved)
-ShipDateFrom | date-time |  Filter the search results by shipped date range - from (ShipDateFrom) and to (ShipDateTo) in  (mm-dd-yyyy hh:mm:ss format). If ShipDateFrom is specified, then you also need to specify ShipDateTo
-ShipDateTo | date-time |  Filter the search results by shipped date range - from (ShipDateFrom) and to (ShipDateTo) in  (mm-dd-yyyy hh:mm:ss format). If ShipDateFrom is specified, then you also need to specify ShipDateTo
-Sku | string |  Filter the search results by SKU id based on the ids matching the specified value. For example, if you specify 100,  you will get the list of orders with item SKU ids starting with 100. You can also fetch a specific ordered item by passing the exact SKU id.
-OrderId | int |  Filter the search results by order id or order number. For example, if you specify 5550,  you will get the list of all orders with order ids starting with 5500. You can also fetch a specific order by passing the exact order id.
+FromDate | date-time | Specify the duration for which you want to fetch the order history (mm-dd-yyyy hh:mm:ss format) in FromDate and ToDate
+ToDate | date-time | Specify the duration for which you want to fetch the order history (mm-dd-yyyy hh:mm:ss format) in FromDate and ToDate
+Status | enum | Filter the search results by order status(P=Pending, F=Cancel, A=Approved)
+ShipDateFrom | date-time | Filter the search results by shipped date range - from (ShipDateFrom) and to (ShipDateTo) in  (mm-dd-yyyy hh:mm:ss format). If ShipDateFrom is specified, then you also need to specify ShipDateTo
+ShipDateTo | date-time | Filter the search results by shipped date range - from (ShipDateFrom) and to (ShipDateTo) in  (mm-dd-yyyy hh:mm:ss format). If ShipDateFrom is specified, then you also need to specify ShipDateTo
+Sku | string | Filter the search results by SKU id based on the ids matching the specified value. For example, if you specify 100,  you will get the list of orders with item SKU ids starting with 100. You can also fetch a specific ordered item by passing the exact SKU id.
+OrderId | int | Filter the search results by order id or order number. For example, if you specify 5550,  you will get the list of all orders with order ids starting with 5500. You can also fetch a specific order by passing the exact order id.
 FromOrder | string | The orderId sequence from which you want to fetch orders.  For example, if you pass 34000, you will get all orders with orderId greater than or equal to 34000
-store | string |  -
-WithRewards | boolean |  Retrieve the list of orders with loyalty rewards. Send  ‘True’ if you required reward/loyalty details. By default value will be ‘False’
-LocationId | string |  Order fulfillment location
-OperatorId |  |  ---
+store | string |  
+WithRewards | boolean | Retrieve the list of orders with loyalty rewards. Send  ‘True’ if you required reward/loyalty details. By default value will be ‘False’
+LocationId | string | Order fulfillment location
+OperatorId | string | The logged in user id of Anywhere Commerce's Control Panel.
 
-
+<aside class="notice"> Any one among the above parameters is mandatory.</aside>
 
 ### Response Parameters
 
+Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.
+
+
 Parameter | Type | Description
 -------- | ----- | -----------
-LeadTime | | 
+LeadTime | int | In minutes. Booking is allowed at least x minutes before the booking slot 
 
 
 ## Get Invoice Details
@@ -1100,7 +1306,7 @@ LeadTime | |
 > Sample Request
 
 ```html
-https://www.martjack.com/developerapi/Order/Invoice/6c57599f-2c43-4c82-806a-e07c3410fxxx/invoice_hyc-2017-2018-00000127
+https://www.martjack.com/developerapi/Order/Invoice/6c57599f-2c43-4c82-806a-e07c3410fxxx/invoice_hyc-2017-2018-00000127/1435
 ```
 
 > Sample Response
@@ -1288,16 +1494,21 @@ Parameter | Type | Description
 --------- | ----- | ------
 merchantid* | string  | The unique id (GUID) of the merchant in which the invoice is available
 InvoiceNumber* | string |  The invoice number that you want to fetch
-LocationRefCode | string |  The location code of the order fulfillment store
+LocationRefCode* | string |  The location code of the order fulfillment store
+
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
 
 ### Response Parameters
 
+Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.
+
+
 Parameter | Type | Description
 -------- | ----- | -----------
-LeadTime | | 
-ConversionFactor | | 
+LeadTime | int | In minutes. Booking is allowed at least x minutes before the booking slot
+ConversionFactor | float | The currency conversion ratio for merchants with multiple currencies, 
 StockAction | | 
-IsBackOrder | | 
+IsBackOrder | enum | Can the item be ordered even when out of stock. Value: `true`, or `false`
 
 
 
@@ -1389,15 +1600,15 @@ CourierName* | string |  The courier service used for shipment
 ShipDate* | date |  The date on which the order is shipped in `dd/mm/yy` format
 ShipmentType* | enum |  The type of shipment. Current supported value: normal, 
 LocationRefCode* | string |  Location reference code of the order fulfillment store
-lineitems* | - |  The details of each line item. Specify `OrderLineId` and `Quantity`
-ShipmentTrip | - |  Provide more details details of the shipping using the parameters specified below. You can use this if applicable for the current merchant
+lineitems* | obj |  The details of each line item. Specify `OrderLineId` and `Quantity`
+ShipmentTrip | obj |  Provide more details details of the shipping using the parameters specified below. You can use this if applicable for the current merchant
 RiderID | int |  Specify the rider id as available in the merchant system
 RiderCode | string |  Specify the rider code as available in the merchant system
 TripRefNo | string |  Specify the trp reference number as per the merchant system
 VehicleNumber | string |  Specify the vehicle number delivery vehicle
-Attributes | - |  Specify any additional information such as delivery guy's mobile number
+Attributes | obj |  Specify any additional information such as delivery guy's mobile number
  
-
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
 
 
 
@@ -1487,13 +1698,18 @@ Parameter | Type | Description
 merchantId* |  string | The unique id (GUID) of the merchant from which you want to fetch order details
 orderID* |  int | The order id that you want to fetch
 
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
+
 
 ### Response Parameters
 
+Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.
+
+
 Parameter | Type | Description
 -------- | ----- | -----------
-VariantMasterProductId | int | 
-VariantProductId | int | 
+VariantMasterProductId | int | Master product id of the variant product
+VariantProductId | int | ID of the variant product
 
 
 ## Get Order Information (V2)
@@ -1744,20 +1960,24 @@ Batch Support | Yes
 ### Request URL
 `http://{host}/developerapi/order/V2/{{MerchantId}}/{orderID}`
 
-### Request Parameters
+### Request Path Parameters
 Parameter | Type | Description
 --------- | ----- | ------
 MerchantId* | string | Unique GUID of the merchant associated to the order
 orderID* | int | Order id for which you want to fetch details
 V2* | string | Supported API version
 
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
 
 ### Response Parameters
 
+Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.
+
+
 Parameter | Type | Description
 -------- | ----- | -----------
-IsBackOrder | 
-VariantMasterProductId | 
+IsBackOrder | enum | Can the item be ordered even when out of stock. Value: `true`, or `false`
+VariantMasterProductId | int | Unique id of the master product for the current variant
 
 
 
@@ -1900,14 +2120,14 @@ Batch Support | No
 Parameter | Type | Description
 --------- | ---- | -------
 Merchant Id* | string  | The unique id (GUID) of the merchant in which the order is placed
-OrderId* |  int | Provide the order id that you want to cancel
-Date* | date  | The date on which the order is created in mm/dd/yy format
-Comment | string  | Specify the customer's reason for the order cancellation
+OrderId* | int | Provide the order id that you want to cancel
+Date* | date | The date on which the order is created in mm/dd/yy format
+Comment | string | Specify the customer's reason for the order cancellation
 DisplayCommentToUser | boolean |  Value: True/False. Specify whether to make the custom comment visible (True) or invisible (False) to the end-customer 
-PGResponse | string |  The response received from the payment gateway for that specific order
-OperatorID | string |  Current user id - It could be store's, admin's, or manager's
-CancelReason* | string |  Specify the reason for order cancellation. In UI, these are auto-populated in the UI.
-TobeCancelledOrderItems | - |  Specify the items that you want to cancel in `OrderItemID` and `CancelQuantity`
+PGResponse | string | The response received from the payment gateway for that specific order
+OperatorID | string | Current user id - It could be store's, admin's, or manager's
+CancelReason* | string | Specify the reason for order cancellation. In UI, these are auto-populated in the UI.
+TobeCancelledOrderItems | obj | Specify the items that you want to cancel in `OrderItemID` and `CancelQuantity`
 
 <aside class="notice"> All parameters marked by * are mandatory. </aside>
 
@@ -1977,7 +2197,7 @@ Batch Support | No
 
 ### Request Body Parameters
 
-Attribute | Type | Description
+Parameter | Type | Description
 -------- | ----- | -------
 OrderId* |  int | Order ID of the return items
 ReturnRequestId | int |  Return Request ID of the return. Leave this blank if you want to just modify the return details
@@ -2078,17 +2298,17 @@ Batch Support | No
 
 Parameter | Type | Description
 -------- | ----- | -----------
-OrderID | int | The order id for which you want to create shipment packages
-ShipmentType | string  | Type of shipment. Supported value: `Normal`
-AirwayBillNo | string | Airway bill number provided by the courier service
-CourierName | string | Name of the courier service used for shipment
-ShipmentPickupDate | date-time | Pickup date of the shipment in `YYYY\/MM\/DD` format
-LocationCode | string | Reference code of the order fulfillment location
+OrderID* | int | The order id for which you want to create shipment packages
+ShipmentType* | string  | Type of shipment. Supported value: `Normal`
+AirwayBillNo* | string | Airway bill number provided by the courier service
+CourierName* | string | Name of the courier service used for shipment
+ShipmentPickupDate* | date-time | Pickup date of the shipment in `YYYY\/MM\/DD` format
+LocationCode* | string | Reference code of the order fulfillment location
 PackageCode | string | Unique code generated for the package
-PackingSupplyRefCode | string | 
-PackageID | int | 
-OrderItemId | int | Line item id of the individual items of the order
-Quantity | int | Quantity of the current order item
+PackingSupplyRefCode | string | Unique reference code generated for the package while creating
+PackageID | int | Unique id of the package 
+OrderItemId* | int | Line item id of the individual items of the order
+Quantity* | int | Quantity of the current order item
 
 <aside class="notice"> All parameters marked by * are mandatory. </aside>
 
@@ -2158,9 +2378,9 @@ Following table contains descriptions of a few response parameters that require 
 
 Parameter | Type | Description
 -------- | ----- | -----------
-PackageType | | 
-PackingSupplyRefCode | 
-UOM | | 
+PackageType | string | Name of the package supply
+PackingSupplyRefCode | string | Unique reference code generated for the package while creating
+UOM | string | Unit of measurement of the product. Values: ltrs, kgs, gms, pieces
 
 
 ## Get Shipment Details
@@ -2236,7 +2456,13 @@ shipmentId* | int | Unique id of the shipment that you want to retrieve
 <aside class="notice"> All parameters marked by * are mandatory. </aside>
 
 
+### Response Parameters
 
+Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.
+
+Parameter | Type | Description
+-------- | ----- | -----------
+DocketNumber | string | AWB number of the shipment
 
 
 
@@ -2414,10 +2640,10 @@ Following table contains descriptions of a few response parameters that require 
 
 Parameter | Type | Description
 --------- | ---- | ----------
-ConversationLogId | | 
-RETransactionId | | 
+ConversationLogId | int | Unique id of the activity for internal reference
+RETransactionId | int | Order id
 ConversationType | | 
-LogAction | | P
+LogAction | enum | P | 
 
 
 
@@ -2526,8 +2752,8 @@ Following table contains descriptions of a few response parameters that require 
 
 Parameter | Type | Description
 --------- | ---- | -----------
-DocketNumber |  | 
-UseMailBoxAddress | 
-VerificationMethod | 
-VerificationValue | 
+DocketNumber | string | AWB number of the shipment
+UseMailBoxAddress | enum | Value: 
+VerificationMethod |  | 
+VerificationValue |  | 
 CMSID | | 

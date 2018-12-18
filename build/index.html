@@ -11383,7 +11383,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <p>An order is a completed purchase request of a customer. This resource consists of APIs related to creating and managing orders of a marketplace, PWA or storefront. </p>
 
-<h2 id="create-bulk-order">Create Bulk Order</h2>
+<h2 id="create-bulk-order-normal">Create Bulk Order (Normal)</h2>
 
 <blockquote>
 <p>Sample Request</p>
@@ -11396,7 +11396,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <p>Sample POST Request</p>
 </blockquote>
 <pre class="highlight json"><code><span class="w">
-</span><span class="p">{</span><span class="w">  
+</span><span class="err">MerchantID=</span><span class="mi">81</span><span class="err">e</span><span class="mi">77</span><span class="err">da</span><span class="mi">2-723</span><span class="err">b</span><span class="mi">-483</span><span class="err">d</span><span class="mi">-8</span><span class="err">c</span><span class="mi">0</span><span class="err">d</span><span class="mi">-49</span><span class="err">f</span><span class="mi">800</span><span class="err">c</span><span class="mi">1</span><span class="err">exxx&amp;InputFormat=application/json&amp;InputData</span><span class="p">{</span><span class="w">  
    </span><span class="nt">"orders"</span><span class="p">:{</span><span class="w">  
       </span><span class="nt">"order"</span><span class="p">:[</span><span class="w">  
          </span><span class="p">{</span><span class="w">  
@@ -11502,58 +11502,6 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
                               </span><span class="nt">"Value"</span><span class="p">:</span><span class="s2">"2850981410"</span><span class="w">
                            </span><span class="p">}</span><span class="w">
                         </span><span class="p">]</span><span class="w">
-                     </span><span class="p">},</span><span class="w">
-                     </span><span class="nt">"bundleitems"</span><span class="p">:{</span><span class="w">  
-                        </span><span class="nt">"item"</span><span class="p">:[</span><span class="w">  
-                           </span><span class="p">{</span><span class="w">  
-                              </span><span class="nt">"orderrefno"</span><span class="p">:</span><span class="mi">2731792</span><span class="p">,</span><span class="w">
-                              </span><span class="nt">"sku"</span><span class="p">:</span><span class="s2">"IN-PZ-VG-VEGGIEITALINO"</span><span class="p">,</span><span class="w">
-                              </span><span class="nt">"variantsku"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-                              </span><span class="nt">"qty"</span><span class="p">:</span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-                              </span><span class="nt">"unitprice"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-                              </span><span class="nt">"shippingamount"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-                              </span><span class="nt">"tax"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-                              </span><span class="nt">"shippingdiscount"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-                              </span><span class="nt">"linediscount"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-                              </span><span class="nt">"catalogcode"</span><span class="p">:</span><span class="s2">"B"</span><span class="p">,</span><span class="w">
-                              </span><span class="nt">"bundleparentproduct"</span><span class="p">:</span><span class="s2">"IN-PZ-VG-VEGGIEITALINO"</span><span class="p">,</span><span class="w">
-                              </span><span class="nt">"isdefault"</span><span class="p">:</span><span class="s2">"NO"</span><span class="p">,</span><span class="w">
-                              </span><span class="nt">"deliverymode"</span><span class="p">:</span><span class="s2">"S"</span><span class="p">,</span><span class="w">
-                              </span><span class="nt">"portion"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-                              </span><span class="nt">"itemcustomfields"</span><span class="p">:{</span><span class="w">  
-                                 </span><span class="nt">"itemcustomfield"</span><span class="p">:[</span><span class="w">  
-                                    </span><span class="p">{</span><span class="w">  
-                                       </span><span class="nt">"Name"</span><span class="p">:</span><span class="s2">"CustomRefOrderLineID"</span><span class="p">,</span><span class="w">
-                                       </span><span class="nt">"Value"</span><span class="p">:</span><span class="s2">"2850981410"</span><span class="w">
-                                    </span><span class="p">}</span><span class="w">
-                                 </span><span class="p">]</span><span class="w">
-                              </span><span class="p">}</span><span class="w">
-                           </span><span class="p">},</span><span class="w">
-                           </span><span class="p">{</span><span class="w">  
-                              </span><span class="nt">"orderrefno"</span><span class="p">:</span><span class="mi">2731792</span><span class="p">,</span><span class="w">
-                              </span><span class="nt">"sku"</span><span class="p">:</span><span class="s2">"IN-Crt-Veggie Italiano"</span><span class="p">,</span><span class="w">
-                              </span><span class="nt">"variantsku"</span><span class="p">:</span><span class="s2">"IN-Crt-Veggie Italiano-Pan-Mdm"</span><span class="p">,</span><span class="w">
-                              </span><span class="nt">"qty"</span><span class="p">:</span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-                              </span><span class="nt">"unitprice"</span><span class="p">:</span><span class="s2">"545"</span><span class="p">,</span><span class="w">
-                              </span><span class="nt">"shippingamount"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-                              </span><span class="nt">"tax"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-                              </span><span class="nt">"shippingdiscount"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-                              </span><span class="nt">"linediscount"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-                              </span><span class="nt">"catalogcode"</span><span class="p">:</span><span class="s2">"B"</span><span class="p">,</span><span class="w">
-                              </span><span class="nt">"bundleparentproduct"</span><span class="p">:</span><span class="s2">"IN-PZ-VG-VEGGIEITALINO"</span><span class="p">,</span><span class="w">
-                              </span><span class="nt">"isdefault"</span><span class="p">:</span><span class="s2">"YES"</span><span class="p">,</span><span class="w">
-                              </span><span class="nt">"deliverymode"</span><span class="p">:</span><span class="s2">"S"</span><span class="p">,</span><span class="w">
-                              </span><span class="nt">"portion"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-                              </span><span class="nt">"itemcustomfields"</span><span class="p">:{</span><span class="w">  
-                                 </span><span class="nt">"itemcustomfield"</span><span class="p">:[</span><span class="w">  
-                                    </span><span class="p">{</span><span class="w">  
-                                       </span><span class="nt">"Name"</span><span class="p">:</span><span class="s2">"CustomRefOrderLineID"</span><span class="p">,</span><span class="w">
-                                       </span><span class="nt">"Value"</span><span class="p">:</span><span class="s2">"2850981410"</span><span class="w">
-                                    </span><span class="p">}</span><span class="w">
-                                 </span><span class="p">]</span><span class="w">
-                              </span><span class="p">}</span><span class="w">
-                           </span><span class="p">}</span><span class="w">
-                        </span><span class="p">]</span><span class="w">
                      </span><span class="p">}</span><span class="w">
                   </span><span class="p">}</span><span class="w">
                </span><span class="p">]</span><span class="w">
@@ -11603,6 +11551,10 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>URI</td>
 <td><code class="prettyprint">Order/BulkOrderCreation</code></td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>No</td>
 </tr>
 <tr>
 <td>Authentication</td>
@@ -11728,12 +11680,12 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 </tr>
 <tr>
 <td>items*</td>
-<td>-</td>
+<td>obj</td>
 <td>Specify the details of each line-item in <code class="prettyprint">item</code> attribute</td>
 </tr>
 <tr>
 <td>Payments*</td>
-<td>-</td>
+<td>obj</td>
 <td>Specify the payment details and <code class="prettyprint">orderrefno</code> of the order in <code class="prettyprint">payment</code>. The orderrefno value at payment level should be same as that of the order level</td>
 </tr>
 <tr>
@@ -11787,6 +11739,416 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <td>Pass the line item level discount of the order</td>
 </tr>
 </tbody></table>
+
+<aside class="notice">All parameters marked by * are mandatory.</aside>
+
+<h2 id="create-bulk-order-deal-amp-bundle">Create Bulk Order (Deal &amp; Bundle)</h2>
+
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
+<pre class="highlight html"><code>http://www.martjack.com/developerapi/Order/BulkOrderCreation
+</code></pre>
+<blockquote>
+<p>Sample POST Request</p>
+</blockquote>
+<pre class="highlight json"><code><span class="err">MerchantID=</span><span class="mi">81</span><span class="err">e</span><span class="mi">77</span><span class="err">da</span><span class="mi">2-723</span><span class="err">b</span><span class="mi">-483</span><span class="err">d</span><span class="mi">-8</span><span class="err">c</span><span class="mi">0</span><span class="err">d</span><span class="mi">-49</span><span class="err">f</span><span class="mi">800</span><span class="err">c</span><span class="mi">1</span><span class="err">exxx&amp;InputFormat=application/json&amp;InputData</span><span class="p">{</span><span class="w">  
+   </span><span class="nt">"orders"</span><span class="p">:{</span><span class="w">  
+      </span><span class="nt">"order"</span><span class="p">:{</span><span class="w">  
+         </span><span class="nt">"orderrefno"</span><span class="p">:</span><span class="s2">"5455"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"orderdate"</span><span class="p">:</span><span class="s2">"2018-12-13"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"customertype"</span><span class="p">:</span><span class="s2">"Guest User"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"userid"</span><span class="p">:</span><span class="s2">"tom.sawyer@capillarytech.com"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"orderamountstatus"</span><span class="p">:</span><span class="s2">"Authorized"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"ordervalue"</span><span class="p">:</span><span class="mf">4.750</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"orderstatus"</span><span class="p">:</span><span class="s2">"Authorized"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"orderconfirmationmail"</span><span class="p">:</span><span class="s2">"No"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"paymentlinkstatus"</span><span class="p">:</span><span class="s2">"NO"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"calculateshippingtax"</span><span class="p">:</span><span class="s2">"No"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"vouchercode"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"shipfirstname"</span><span class="p">:</span><span class="s2">"Tom"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"shiplastname"</span><span class="p">:</span><span class="s2">"Sawyer"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"shipaddress1"</span><span class="p">:</span><span class="s2">"test"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"shipaddress2"</span><span class="p">:</span><span class="s2">"test23233"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"shipcity"</span><span class="p">:</span><span class="s2">"Al Qurain"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"shipstate"</span><span class="p">:</span><span class="s2">"Kuwait City"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"shipcountry"</span><span class="p">:</span><span class="s2">"Kuwait"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"shipzip"</span><span class="p">:</span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"shiplandline"</span><span class="p">:</span><span class="s2">"55555555"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"shipmobile"</span><span class="p">:</span><span class="s2">"55555555"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"shipemail"</span><span class="p">:</span><span class="s2">"tom.sawyer@capillarytech.com"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"billfirstname"</span><span class="p">:</span><span class="s2">"Tom"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"billlastname"</span><span class="p">:</span><span class="s2">"Sawyer"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"billaddress1"</span><span class="p">:</span><span class="s2">"example address"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"billaddress2"</span><span class="p">:</span><span class="s2">"example address2"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"billcity"</span><span class="p">:</span><span class="s2">"Al Qurain"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"billstate"</span><span class="p">:</span><span class="s2">"Kuwait City"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"billcountry"</span><span class="p">:</span><span class="s2">"Kuwait"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"billzip"</span><span class="p">:</span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"billlandline"</span><span class="p">:</span><span class="s2">"55555555"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"billmobile"</span><span class="p">:</span><span class="s2">"55555555"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"billemail"</span><span class="p">:</span><span class="s2">"tom.sawyer@capillarytech.com"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"giftmsg"</span><span class="p">:</span><span class="s2">"Happy wedding anniversary"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"deliveredon"</span><span class="p">:</span><span class="s2">"2018-12-13"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"locationcode"</span><span class="p">:</span><span class="s2">"SURRA"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"storelocationcode"</span><span class="p">:</span><span class="s2">"PH Adeliya"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"isselfship"</span><span class="p">:</span><span class="s2">"NO"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"channelrefcode"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"channelorderid"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"sellerwroxorderid"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"deliveryslotcode"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"shippingmode"</span><span class="p">:</span><span class="s2">"H"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"items"</span><span class="p">:{</span><span class="w">  
+            </span><span class="nt">"item"</span><span class="p">:[</span><span class="w">  
+               </span><span class="p">{</span><span class="w">  
+                  </span><span class="nt">"orderrefno"</span><span class="p">:</span><span class="s2">"5455"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"sku"</span><span class="p">:</span><span class="s2">"Dls-130032"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"variantsku"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"qty"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"unitprice"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"shippingamount"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"tax"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"shippingdiscount"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"linediscount"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"catalogcode"</span><span class="p">:</span><span class="s2">"D"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"bundleparentproduct"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"isdefault"</span><span class="p">:</span><span class="s2">"NO"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"portion"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"deliverymode"</span><span class="p">:</span><span class="s2">"H"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"bundleitems"</span><span class="p">:{</span><span class="w">  
+                     </span><span class="nt">"item"</span><span class="p">:[</span><span class="w">  
+                        </span><span class="p">{</span><span class="w">  
+                           </span><span class="nt">"orderrefno"</span><span class="p">:</span><span class="s2">"5455"</span><span class="p">,</span><span class="w">
+                           </span><span class="nt">"sku"</span><span class="p">:</span><span class="s2">"Pz-Chicken-Supreme"</span><span class="p">,</span><span class="w">
+                           </span><span class="nt">"variantsku"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+                           </span><span class="nt">"qty"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+                           </span><span class="nt">"unitprice"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+                           </span><span class="nt">"shippingamount"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+                           </span><span class="nt">"tax"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+                           </span><span class="nt">"shippingdiscount"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+                           </span><span class="nt">"linediscount"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+                           </span><span class="nt">"catalogcode"</span><span class="p">:</span><span class="s2">"D"</span><span class="p">,</span><span class="w">
+                           </span><span class="nt">"bundleparentproduct"</span><span class="p">:</span><span class="s2">"Dls-130032"</span><span class="p">,</span><span class="w">
+                           </span><span class="nt">"isdefault"</span><span class="p">:</span><span class="s2">"NO"</span><span class="p">,</span><span class="w">
+                           </span><span class="nt">"portion"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+                           </span><span class="nt">"deliverymode"</span><span class="p">:</span><span class="s2">"H"</span><span class="p">,</span><span class="w">
+                           </span><span class="nt">"bundleitems"</span><span class="p">:{</span><span class="w">  
+                              </span><span class="nt">"item"</span><span class="p">:[</span><span class="w">  
+                                 </span><span class="p">{</span><span class="w">  
+                                    </span><span class="nt">"orderrefno"</span><span class="p">:</span><span class="s2">"5455"</span><span class="p">,</span><span class="w">
+                                    </span><span class="nt">"sku"</span><span class="p">:</span><span class="s2">"Crt-10"</span><span class="p">,</span><span class="w">
+                                    </span><span class="nt">"variantsku"</span><span class="p">:</span><span class="s2">"Crt-10-102580-Pan-Large"</span><span class="p">,</span><span class="w">
+                                    </span><span class="nt">"qty"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+                                    </span><span class="nt">"unitprice"</span><span class="p">:</span><span class="mf">4.25</span><span class="p">,</span><span class="w">
+                                    </span><span class="nt">"shippingamount"</span><span class="p">:</span><span class="mf">0.50</span><span class="p">,</span><span class="w">
+                                    </span><span class="nt">"tax"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+                                    </span><span class="nt">"shippingdiscount"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+                                    </span><span class="nt">"linediscount"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+                                    </span><span class="nt">"catalogcode"</span><span class="p">:</span><span class="s2">"B"</span><span class="p">,</span><span class="w">
+                                    </span><span class="nt">"bundleparentproduct"</span><span class="p">:</span><span class="s2">"Pz-Chicken-Supreme"</span><span class="p">,</span><span class="w">
+                                    </span><span class="nt">"isdefault"</span><span class="p">:</span><span class="s2">"NO"</span><span class="p">,</span><span class="w">
+                                    </span><span class="nt">"deliverymode"</span><span class="p">:</span><span class="s2">"H"</span><span class="p">,</span><span class="w">
+                                    </span><span class="nt">"portion"</span><span class="p">:</span><span class="s2">"W"</span><span class="w">
+                                 </span><span class="p">},</span><span class="w">
+                                 </span><span class="p">{</span><span class="w">  
+                                    </span><span class="nt">"orderrefno"</span><span class="p">:</span><span class="s2">"5455"</span><span class="p">,</span><span class="w">
+                                    </span><span class="nt">"sku"</span><span class="p">:</span><span class="s2">"Mozarella_30"</span><span class="p">,</span><span class="w">
+                                    </span><span class="nt">"variantsku"</span><span class="p">:</span><span class="s2">"Mozarella_30_111100_Large"</span><span class="p">,</span><span class="w">
+                                    </span><span class="nt">"qty"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+                                    </span><span class="nt">"unitprice"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+                                    </span><span class="nt">"shippingamount"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+                                    </span><span class="nt">"tax"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+                                    </span><span class="nt">"shippingdiscount"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+                                    </span><span class="nt">"linediscount"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+                                    </span><span class="nt">"catalogcode"</span><span class="p">:</span><span class="s2">"B"</span><span class="p">,</span><span class="w">
+                                    </span><span class="nt">"bundleparentproduct"</span><span class="p">:</span><span class="s2">"Pz-Chicken-Supreme"</span><span class="p">,</span><span class="w">
+                                    </span><span class="nt">"isdefault"</span><span class="p">:</span><span class="s2">"NO"</span><span class="p">,</span><span class="w">
+                                    </span><span class="nt">"deliverymode"</span><span class="p">:</span><span class="s2">"H"</span><span class="p">,</span><span class="w">
+                                    </span><span class="nt">"portion"</span><span class="p">:</span><span class="s2">"W"</span><span class="w">
+                                 </span><span class="p">}</span><span class="w">
+                              </span><span class="p">]</span><span class="w">
+                           </span><span class="p">}</span><span class="w">
+                        </span><span class="p">},</span><span class="w">
+                        </span><span class="p">{</span><span class="w">  
+                           </span><span class="nt">"orderrefno"</span><span class="p">:</span><span class="s2">"4452"</span><span class="p">,</span><span class="w">
+                           </span><span class="nt">"sku"</span><span class="p">:</span><span class="s2">"Omn-App-GlcBrd"</span><span class="p">,</span><span class="w">
+                           </span><span class="nt">"variantsku"</span><span class="p">:</span><span class="s2">"Omn-App-GlcBrd-2-NCH"</span><span class="p">,</span><span class="w">
+                           </span><span class="nt">"qty"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+                           </span><span class="nt">"unitprice"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+                           </span><span class="nt">"shippingamount"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+                           </span><span class="nt">"tax"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+                           </span><span class="nt">"shippingdiscount"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+                           </span><span class="nt">"linediscount"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+                           </span><span class="nt">"catalogcode"</span><span class="p">:</span><span class="s2">"D"</span><span class="p">,</span><span class="w">
+                           </span><span class="nt">"bundleparentproduct"</span><span class="p">:</span><span class="s2">"OmnDls-FmlyBx"</span><span class="p">,</span><span class="w">
+                           </span><span class="nt">"isdefault"</span><span class="p">:</span><span class="s2">"NO"</span><span class="p">,</span><span class="w">
+                           </span><span class="nt">"portion"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+                           </span><span class="nt">"deliverymode"</span><span class="p">:</span><span class="s2">"H"</span><span class="w">
+                        </span><span class="p">}</span><span class="w">
+                     </span><span class="p">]</span><span class="w">
+                  </span><span class="p">}</span><span class="w">
+               </span><span class="p">}</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+         </span><span class="p">},</span><span class="w">
+         </span><span class="nt">"payments"</span><span class="p">:{</span><span class="w">  
+            </span><span class="nt">"payment"</span><span class="p">:{</span><span class="w">  
+               </span><span class="nt">"orderrefno"</span><span class="p">:</span><span class="s2">"5455"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"checkouttype"</span><span class="p">:</span><span class="s2">"Cash on Delivery"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"paymentno"</span><span class="p">:</span><span class="s2">"123"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"amount"</span><span class="p">:</span><span class="mf">4.750</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"transaciondate"</span><span class="p">:</span><span class="s2">"2018-12-13"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"paymentstatus"</span><span class="p">:</span><span class="s2">"Authorized"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+         </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">  
+   </span><span class="nt">"messageCode"</span><span class="p">:</span><span class="s2">"1018"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"Message"</span><span class="p">:</span><span class="s2">"Data update added to task queue. You can view the status of update in control panel. Also email will be send to merchant registered email after task completion."</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"Taskid"</span><span class="p">:</span><span class="s2">"2156"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="mi">0</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<p>This API lets you create batch orders for deal and bundle products.</p>
+
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td><code class="prettyprint">Order/BulkOrderCreation</code></td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>HTTP Method</td>
+<td>POST</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>Yes</td>
+</tr>
+</tbody></table>
+
+<ul>
+<li><strong>Rate limiter</strong> controls the number of incoming and outgoing traffic of a network</li>
+<li><strong>Authentication</strong> verifies the identity of the current user or integration. See Introduction &gt; Authentication (Merchant Setup on Admin Portal) for more details</li>
+</ul>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">https://{host}/developerapi/Order/BulkOrderCreation</code></p>
+
+<h3 id="request-body-parameters">Request Body Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>orderrefno*</td>
+<td>string</td>
+<td>Reference number of the order</td>
+</tr>
+<tr>
+<td>orderdate*</td>
+<td>date</td>
+<td>Ordered date in <code class="prettyprint">dd/mm/yy</code> format</td>
+</tr>
+<tr>
+<td>deliveredon</td>
+<td>date</td>
+<td>Specify the estimated delivery of the item if applicable for the merchant in <code class="prettyprint">dd/mm/yy</code> format</td>
+</tr>
+<tr>
+<td>customertype</td>
+<td>enum</td>
+<td>Type of the user as per the Martjack system. Supported Values: Guest User (for all marketplace), Registered User (If registered on Martjack platform)</td>
+</tr>
+<tr>
+<td>userid</td>
+<td>string</td>
+<td>Registered identifier of the customer. Required when <code class="prettyprint">customertype=&quot;Registered User&quot;</code></td>
+</tr>
+<tr>
+<td>ordervalue</td>
+<td>float</td>
+<td>Net order amount</td>
+</tr>
+<tr>
+<td>orderstatus</td>
+<td>enum</td>
+<td>Status of the order. Value: Pending, Authorized</td>
+</tr>
+<tr>
+<td>orderconfirmationmail</td>
+<td>enum</td>
+<td>Specify <code class="prettyprint">Yes</code> to send an order confirmation email to the customer, else set <code class="prettyprint">No</code></td>
+</tr>
+<tr>
+<td>paymentlinkstatus</td>
+<td>enum</td>
+<td>Status of the payment. Predefined enum values. Values: Pending (Bank transfer, Cheque,), Authorized (COD, Prepaid)</td>
+</tr>
+<tr>
+<td>calculateshippingtax</td>
+<td>enum</td>
+<td>Specify `<code class="prettyprint">NO</code> if the order value includes tax and service charges. Else, specify <code class="prettyprint">YES</code> to add charges separately</td>
+</tr>
+<tr>
+<td>shipfirstname, shiplastname, shipaddress1 &hellip;</td>
+<td>string</td>
+<td>Specify the customer&rsquo;s shipping address related information in these fields</td>
+</tr>
+<tr>
+<td>billfirstname, billlastname, billaddress1 &hellip;</td>
+<td>string</td>
+<td>Specify the customer&rsquo;s billing address related information in these fields</td>
+</tr>
+<tr>
+<td>giftmsg</td>
+<td>string</td>
+<td>In case of gift orders, specify the customer&rsquo;s personalized message that needs to sent to the recipient</td>
+</tr>
+<tr>
+<td>locationcode</td>
+<td>string</td>
+<td>Reference code of the  order fulfillment location</td>
+</tr>
+<tr>
+<td>isselfship</td>
+<td>boolean</td>
+<td>If the order shipment is handled by marketplace such as Amazon or Flipkart specify <code class="prettyprint">False</code> and if the shipment is handled by the merchant itself, set the value to <code class="prettyprint">True</code></td>
+</tr>
+<tr>
+<td>channelrefcode</td>
+<td>string</td>
+<td>Channel from which the order has come from (specific to Sellerworx). A channel is an instance of marketplace. A seller can have multiple channels</td>
+</tr>
+<tr>
+<td>channelorderid</td>
+<td>string</td>
+<td>Order id as maintained by that specific channel  (specific to Sellerworx)</td>
+</tr>
+<tr>
+<td>sellerwroxorderid</td>
+<td>string</td>
+<td>Order id generated at Sellerworx. Maps Channel order id to Sellerworx order id</td>
+</tr>
+<tr>
+<td>items*</td>
+<td>obj</td>
+<td>Specify the details of each line-item in <code class="prettyprint">item</code> attribute</td>
+</tr>
+<tr>
+<td>bundleitems</td>
+<td>obj</td>
+<td>Details of bundle items</td>
+</tr>
+<tr>
+<td>Payments*</td>
+<td>obj</td>
+<td>Specify the payment details and <code class="prettyprint">orderrefno</code> of the order in <code class="prettyprint">payment</code>. The orderrefno value at payment level should be same as that of the order level</td>
+</tr>
+<tr>
+<td>paymentstatus</td>
+<td>enum</td>
+<td>The payment status of the current order. Value: Authorized, Pending</td>
+</tr>
+<tr>
+<td>paymentno</td>
+<td>string</td>
+<td>The reference number for order payment provided by the respective payment gateway</td>
+</tr>
+<tr>
+<td>vouchercode</td>
+<td>string</td>
+<td>Coupon code applied for the transaction if any. This is just for viewing purpose and the API does not do any calculation based on the voucher code</td>
+</tr>
+<tr>
+<td>customfield</td>
+<td>json obj</td>
+<td>Pass this only if you have preconfigured custom fields at the order level</td>
+</tr>
+<tr>
+<td>itemcustomfield</td>
+<td>json obj</td>
+<td>Pass line-item level custom fields. You do not need to have preconfigured custom fields at the order item level</td>
+</tr>
+<tr>
+<td>deliveryslotcode</td>
+<td>string</td>
+<td>Pass the delivery slot code if you want to associate a delivery slot with the order</td>
+</tr>
+<tr>
+<td>shippingmode</td>
+<td>string</td>
+<td>Pass the shipping mode that you want to associate with the order. Note that the API does not validate/calculate on the provided shipping mode</td>
+</tr>
+<tr>
+<td>shippingamount</td>
+<td>float</td>
+<td>Pass the shipping charge for the specific item (Order item level)</td>
+</tr>
+<tr>
+<td>shippingdiscount</td>
+<td>int</td>
+<td>Pass the discount amount on the shipping charge (Order item level discount)</td>
+</tr>
+<tr>
+<td>linediscount</td>
+<td>int</td>
+<td>Pass the line item level discount of the order</td>
+</tr>
+<tr>
+<td>catalogcode</td>
+<td>enum</td>
+<td>Type of the prouct category, Value: <code class="prettyprint">D</code> for deal, <code class="prettyprint">B</code> for bundle, <code class="prettyprint">P</code> product, <code class="prettyprint">A</code> for add-on product</td>
+</tr>
+<tr>
+<td>unitprice</td>
+<td>float</td>
+<td>Price of a single item</td>
+</tr>
+<tr>
+<td>bundleparentproduct</td>
+<td>string</td>
+<td>SKU of the parent bundle product</td>
+</tr>
+<tr>
+<td>isdefault</td>
+<td>enum</td>
+<td>Is the item default for the bundle. Value: <code class="prettyprint">Yes</code>, <code class="prettyprint">No</code></td>
+</tr>
+<tr>
+<td>portion</td>
+<td>enum</td>
+<td>The portion for which the child product is applied. Value: <code class="prettyprint">W</code> for whole, <code class="prettyprint">R</code> for right, <code class="prettyprint">L</code> for left (left, right usually applies for toppings)</td>
+</tr>
+<tr>
+<td>deliverymode</td>
+<td>enum</td>
+<td>Mode of delivery of the item. Values: <code class="prettyprint">H</code> for home delivery, <code class="prettyprint">S</code> for store pick-up</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">All Parameters marked by * are mandatory.</aside>
 
 <h2 id="place-order-single">Place Order (Single)</h2>
 
@@ -11882,33 +12244,40 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <table><thead>
 <tr>
-<th>Attribute</th>
+<th>Parameter</th>
+<th>Type</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>merchantId*</td>
 <td>string</td>
+<td>The unique id (GUID) of the merchant in which you want to place order</td>
 </tr>
 <tr>
 <td>PaymentOption*</td>
 <td>string</td>
+<td>The name of the payment gateway. Pass only the supported modes configured in the back-end. For example, RazorPay, EBS, OnlineBankTransfer, COD, CreditCard, ChequeDD, Wallet, and eGiftVoucher</td>
 </tr>
 <tr>
 <td>paymentType*</td>
 <td>string</td>
+<td>The payment type used for the order - OBT (Online bank transfer),  TPG (Third party gateway), Credit, GV (Gift voucher) and so on</td>
 </tr>
 <tr>
 <td>gatewayId*</td>
 <td>string</td>
+<td>Gateway id through which the payment is made</td>
 </tr>
 <tr>
 <td>channelType</td>
 <td>string</td>
+<td>The channel from which the order is placed. For example: amazon, myntra</td>
 </tr>
 <tr>
 <td>skipDeliveryAreaValidation</td>
 <td>boolean</td>
+<td>Specify <code class="prettyprint">true</code> to validate delivery location before order creation, <code class="prettyprint">false</code> to ignore validating</td>
 </tr>
 </tbody></table>
 
@@ -11950,6 +12319,8 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <h3 id="response-parameters">Response Parameters</h3>
 
+<p>Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.</p>
+
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -11959,8 +12330,8 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 </thead><tbody>
 <tr>
 <td>ValidationResponse</td>
-<td>obj</td>
-<td></td>
+<td>json obj</td>
+<td>Response object received from the payment gateway</td>
 </tr>
 </tbody></table>
 
@@ -12139,7 +12510,10 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 </tr>
 </tbody></table>
 
-<p>## Save Merchant Transaction</p>
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
+ 
+
+<h2 id="save-merchant-transaction">Save Merchant Transaction</h2>
 
 <blockquote>
 <p>Sample Request</p>
@@ -12168,7 +12542,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
    </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="mi">0</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Saves a merchant transaction.</p>
+<p>Saves the current merchant transaction.</p>
 
 <h3 id="resource-information">Resource Information</h3>
 
@@ -12223,36 +12597,38 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 </tr>
 </thead><tbody>
 <tr>
-<td>PaymentOption</td>
+<td>PaymentOption*</td>
 <td>string</td>
 <td>The name of the payment gateway. For example, RazorPay, EBS, OnlineBankTransfer, COD, CreditCard, ChequeDD, Wallet, and eGiftVoucher</td>
 </tr>
 <tr>
-<td>PaymentType</td>
+<td>PaymentType*</td>
 <td>PaymentOption</td>
 <td>The mode of payment chosen for the transaction. Values could be OBT (Online bank transfer), TPG (Third party gateway), Credit, GV (Gift voucher) and so on</td>
 </tr>
 <tr>
-<td>OrderId</td>
+<td>OrderId*</td>
 <td>int</td>
 <td>The unique id of the order</td>
 </tr>
 <tr>
-<td>MerchantId</td>
+<td>MerchantId*</td>
 <td>PaymentOption</td>
 <td>The unique id (GUID) of the merchant in which the order is registered</td>
 </tr>
 <tr>
-<td>status</td>
+<td>status*</td>
 <td>enum</td>
 <td>The status of the current payment. Value: Pending, Authorized</td>
 </tr>
 <tr>
-<td>amount</td>
+<td>amount*</td>
 <td>float</td>
 <td>The amount paid through the current payment type for the transaction</td>
 </tr>
 </tbody></table>
+
+<aside class="notice"> All parameters marked by * are mandatory.</aside>
 
 <h2 id="reorder">Reorder</h2>
 
@@ -12681,6 +13057,8 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <h3 id="response-parameters">Response Parameters</h3>
 
+<p>Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.</p>
+
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -12705,13 +13083,18 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 </tr>
 <tr>
 <td>Por</td>
-<td></td>
-<td><code class="prettyprint">w</code></td>
+<td>enum</td>
+<td>The portion for which the child product is applied. Value: <code class="prettyprint">W</code> for whole, <code class="prettyprint">R</code> for right, <code class="prettyprint">L</code> for left (left, right usually applies for toppings)</td>
 </tr>
 <tr>
 <td>GroupId</td>
+<td>int</td>
 <td></td>
-<td></td>
+</tr>
+<tr>
+<td>IsFreeProduct</td>
+<td>enum</td>
+<td>Whether the current item is a free gift item. Value: Yes, No</td>
 </tr>
 </tbody></table>
 
@@ -12912,7 +13295,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>store</td>
 <td>string</td>
-<td>-</td>
+<td></td>
 </tr>
 <tr>
 <td>WithRewards</td>
@@ -12926,12 +13309,16 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 </tr>
 <tr>
 <td>OperatorId</td>
-<td></td>
-<td>&mdash;</td>
+<td>string</td>
+<td>The logged in user id of Anywhere Commerce&rsquo;s Control Panel.</td>
 </tr>
 </tbody></table>
 
+<aside class="notice"> Any one among the above parameters is mandatory.</aside>
+
 <h3 id="response-parameters">Response Parameters</h3>
+
+<p>Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.</p>
 
 <table><thead>
 <tr>
@@ -12942,8 +13329,8 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 </thead><tbody>
 <tr>
 <td>LeadTime</td>
-<td></td>
-<td></td>
+<td>int</td>
+<td>In minutes. Booking is allowed at least x minutes before the booking slot</td>
 </tr>
 </tbody></table>
 
@@ -12952,7 +13339,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <blockquote>
 <p>Sample Request</p>
 </blockquote>
-<pre class="highlight html"><code>https://www.martjack.com/developerapi/Order/Invoice/6c57599f-2c43-4c82-806a-e07c3410fxxx/invoice_hyc-2017-2018-00000127
+<pre class="highlight html"><code>https://www.martjack.com/developerapi/Order/Invoice/6c57599f-2c43-4c82-806a-e07c3410fxxx/invoice_hyc-2017-2018-00000127/1435
 </code></pre>
 <blockquote>
 <p>Sample Response</p>
@@ -13177,13 +13564,17 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <td>The invoice number that you want to fetch</td>
 </tr>
 <tr>
-<td>LocationRefCode</td>
+<td>LocationRefCode*</td>
 <td>string</td>
 <td>The location code of the order fulfillment store</td>
 </tr>
 </tbody></table>
 
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
+
 <h3 id="response-parameters">Response Parameters</h3>
+
+<p>Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.</p>
 
 <table><thead>
 <tr>
@@ -13194,13 +13585,13 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 </thead><tbody>
 <tr>
 <td>LeadTime</td>
-<td></td>
-<td></td>
+<td>int</td>
+<td>In minutes. Booking is allowed at least x minutes before the booking slot</td>
 </tr>
 <tr>
 <td>ConversionFactor</td>
-<td></td>
-<td></td>
+<td>float</td>
+<td>The currency conversion ratio for merchants with multiple currencies,</td>
 </tr>
 <tr>
 <td>StockAction</td>
@@ -13209,8 +13600,8 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 </tr>
 <tr>
 <td>IsBackOrder</td>
-<td></td>
-<td></td>
+<td>enum</td>
+<td>Is the current item available for order even when out of stock (order can be placed even when no stock) . Value: <code class="prettyprint">true</code>, or <code class="prettyprint">false</code></td>
 </tr>
 </tbody></table>
 
@@ -13358,12 +13749,12 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 </tr>
 <tr>
 <td>lineitems*</td>
-<td>-</td>
+<td>obj</td>
 <td>The details of each line item. Specify <code class="prettyprint">OrderLineId</code> and <code class="prettyprint">Quantity</code></td>
 </tr>
 <tr>
 <td>ShipmentTrip</td>
-<td>-</td>
+<td>obj</td>
 <td>Provide more details details of the shipping using the parameters specified below. You can use this if applicable for the current merchant</td>
 </tr>
 <tr>
@@ -13388,10 +13779,12 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 </tr>
 <tr>
 <td>Attributes</td>
-<td>-</td>
+<td>obj</td>
 <td>Specify any additional information such as delivery guy&rsquo;s mobile number</td>
 </tr>
 </tbody></table>
+
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
 
 <h2 id="get-order-details">Get Order Details</h2>
 
@@ -13513,7 +13906,11 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 </tr>
 </tbody></table>
 
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
+
 <h3 id="response-parameters">Response Parameters</h3>
+
+<p>Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.</p>
 
 <table><thead>
 <tr>
@@ -13525,12 +13922,12 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>VariantMasterProductId</td>
 <td>int</td>
-<td></td>
+<td>Master product id of the variant product</td>
 </tr>
 <tr>
 <td>VariantProductId</td>
 <td>int</td>
-<td></td>
+<td>ID of the variant product</td>
 </tr>
 </tbody></table>
 
@@ -13832,6 +14229,8 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <h3 id="response-parameters">Response Parameters</h3>
 
+<p>Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.</p>
+
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -13846,8 +14245,8 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 </tr>
 <tr>
 <td>VariantMasterProductId</td>
-<td></td>
-<td></td>
+<td>int</td>
+<td>Unique id of the master product for the current variant</td>
 </tr>
 </tbody></table>
 
@@ -14342,32 +14741,32 @@ Batch Support | No</p>
 </tr>
 </thead><tbody>
 <tr>
-<td>OrderID</td>
+<td>OrderID*</td>
 <td>int</td>
 <td>The order id for which you want to create shipment packages</td>
 </tr>
 <tr>
-<td>ShipmentType</td>
+<td>ShipmentType*</td>
 <td>string</td>
 <td>Type of shipment. Supported value: <code class="prettyprint">Normal</code></td>
 </tr>
 <tr>
-<td>AirwayBillNo</td>
+<td>AirwayBillNo*</td>
 <td>string</td>
 <td>Airway bill number provided by the courier service</td>
 </tr>
 <tr>
-<td>CourierName</td>
+<td>CourierName*</td>
 <td>string</td>
 <td>Name of the courier service used for shipment</td>
 </tr>
 <tr>
-<td>ShipmentPickupDate</td>
+<td>ShipmentPickupDate*</td>
 <td>date-time</td>
 <td>Pickup date of the shipment in <code class="prettyprint">YYYY\/MM\/DD</code> format</td>
 </tr>
 <tr>
-<td>LocationCode</td>
+<td>LocationCode*</td>
 <td>string</td>
 <td>Reference code of the order fulfillment location</td>
 </tr>
@@ -14379,20 +14778,20 @@ Batch Support | No</p>
 <tr>
 <td>PackingSupplyRefCode</td>
 <td>string</td>
-<td></td>
+<td>Unique reference code generated for the package while creating</td>
 </tr>
 <tr>
 <td>PackageID</td>
 <td>int</td>
-<td></td>
+<td>Unique id of the package</td>
 </tr>
 <tr>
-<td>OrderItemId</td>
+<td>OrderItemId*</td>
 <td>int</td>
 <td>Line item id of the individual items of the order</td>
 </tr>
 <tr>
-<td>Quantity</td>
+<td>Quantity*</td>
 <td>int</td>
 <td>Quantity of the current order item</td>
 </tr>
@@ -14493,8 +14892,8 @@ Batch Support | No</p>
 </thead><tbody>
 <tr>
 <td>PackageType</td>
-<td></td>
-<td></td>
+<td>string</td>
+<td>Name of the package supply</td>
 </tr>
 <tr>
 <td>PackingSupplyRefCode</td>
@@ -14835,13 +15234,13 @@ Sample POST Request</p>
 </thead><tbody>
 <tr>
 <td>ConversationLogId</td>
-<td></td>
-<td></td>
+<td>int</td>
+<td>Unique id of the activity for internal reference</td>
 </tr>
 <tr>
 <td>RETransactionId</td>
-<td></td>
-<td></td>
+<td>int</td>
+<td>Order id</td>
 </tr>
 <tr>
 <td>ConversationType</td>
@@ -14850,7 +15249,7 @@ Sample POST Request</p>
 </tr>
 <tr>
 <td>LogAction</td>
-<td></td>
+<td>enum</td>
 <td>P</td>
 </tr>
 </tbody></table>
@@ -14994,13 +15393,13 @@ Sample POST Request</p>
 </thead><tbody>
 <tr>
 <td>DocketNumber</td>
-<td></td>
-<td></td>
+<td>string</td>
+<td>AWB number of the shipment</td>
 </tr>
 <tr>
 <td>UseMailBoxAddress</td>
-<td></td>
-<td></td>
+<td>enum</td>
+<td>Value:</td>
 </tr>
 <tr>
 <td>VerificationMethod</td>
