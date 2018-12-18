@@ -2757,3 +2757,87 @@ UseMailBoxAddress | enum | Value:
 VerificationMethod |  | 
 VerificationValue |  | 
 CMSID | | 
+
+
+
+## Get Shipment History 
+
+> Sample Request
+
+```html
+
+```
+
+> Sample POST Request
+
+```json
+MerchantId={{Mid}}&InputFormat=application/json&InputData={
+  "CreatedDateTo": "2018-12-17",
+  "ShippingStatus": "S,R,D",
+  "CreatedDateFrom": "2018-12-17"
+}
+
+
+```
+
+> Sample Response
+
+```json
+{  
+   "messageCode":"1004",
+   "Message":"Successful",
+   "ShipmentIds":{  
+      "OrderID":[  
+         7499817,
+         7499777,
+         7499599,
+         7498383,
+         7497987
+      ],
+      "ShipmentID":[  
+         5515529,
+         5515515,
+         5515339,
+         5514925,
+         5513479
+      ]
+   },
+   "ErrorCode":0
+}
+
+```
+
+
+
+Retrieves shipment ids and order ids the merchant based on the input parameters.
+
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `Order/GetShipmentHistory/{merchantId}`
+Rate Limited? | No
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | POST
+Batch Support | No
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+
+
+### Request URL
+
+`https://{host}/developerapi/Order/GetShipmentHistory/{merchantId}`
+
+
+### Request Body Parameters
+
+Parameter | Type | Description
+-------- | ----- | -----------
+CreatedDateFrom | date | Get shipments created in a specific duration between `CreatedDateFrom` and `CreatedDateTo`
+CreatedDateTo | date | Get shipments created in a specific duration between `CreatedDateFrom` and `CreatedDateTo`
+ShippingStatus | enum | Get shipments by shipment status. Values: S, R, D
+
+
