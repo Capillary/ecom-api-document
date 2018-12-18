@@ -12510,6 +12510,9 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 </tr>
 </tbody></table>
 
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
+ 
+
 <h2 id="save-merchant-transaction">Save Merchant Transaction</h2>
 
 <blockquote>
@@ -12539,7 +12542,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
    </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="mi">0</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Saves a merchant transaction.</p>
+<p>Saves the current merchant transaction.</p>
 
 <h3 id="resource-information">Resource Information</h3>
 
@@ -12594,36 +12597,38 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 </tr>
 </thead><tbody>
 <tr>
-<td>PaymentOption</td>
+<td>PaymentOption*</td>
 <td>string</td>
 <td>The name of the payment gateway. For example, RazorPay, EBS, OnlineBankTransfer, COD, CreditCard, ChequeDD, Wallet, and eGiftVoucher</td>
 </tr>
 <tr>
-<td>PaymentType</td>
+<td>PaymentType*</td>
 <td>PaymentOption</td>
 <td>The mode of payment chosen for the transaction. Values could be OBT (Online bank transfer), TPG (Third party gateway), Credit, GV (Gift voucher) and so on</td>
 </tr>
 <tr>
-<td>OrderId</td>
+<td>OrderId*</td>
 <td>int</td>
 <td>The unique id of the order</td>
 </tr>
 <tr>
-<td>MerchantId</td>
+<td>MerchantId*</td>
 <td>PaymentOption</td>
 <td>The unique id (GUID) of the merchant in which the order is registered</td>
 </tr>
 <tr>
-<td>status</td>
+<td>status*</td>
 <td>enum</td>
 <td>The status of the current payment. Value: Pending, Authorized</td>
 </tr>
 <tr>
-<td>amount</td>
+<td>amount*</td>
 <td>float</td>
 <td>The amount paid through the current payment type for the transaction</td>
 </tr>
 </tbody></table>
+
+<aside class="notice"> All parameters marked by * are mandatory.</aside>
 
 <h2 id="reorder">Reorder</h2>
 
@@ -13078,13 +13083,18 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 </tr>
 <tr>
 <td>Por</td>
-<td></td>
-<td><code class="prettyprint">w</code></td>
+<td>enum</td>
+<td>The portion for which the child product is applied. Value: <code class="prettyprint">W</code> for whole, <code class="prettyprint">R</code> for right, <code class="prettyprint">L</code> for left (left, right usually applies for toppings)</td>
 </tr>
 <tr>
 <td>GroupId</td>
+<td>int</td>
 <td></td>
-<td></td>
+</tr>
+<tr>
+<td>IsFreeProduct</td>
+<td>enum</td>
+<td>Whether the current item is a free gift item. Value: Yes, No</td>
 </tr>
 </tbody></table>
 
@@ -13285,7 +13295,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>store</td>
 <td>string</td>
-<td>-</td>
+<td></td>
 </tr>
 <tr>
 <td>WithRewards</td>
@@ -13299,10 +13309,12 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 </tr>
 <tr>
 <td>OperatorId</td>
-<td></td>
-<td>&mdash;</td>
+<td>string</td>
+<td>The logged in user id of Anywhere Commerce&rsquo;s Control Panel.</td>
 </tr>
 </tbody></table>
+
+<aside class="notice"> Any one among the above parameters is mandatory.</aside>
 
 <h3 id="response-parameters">Response Parameters</h3>
 
@@ -13317,8 +13329,8 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 </thead><tbody>
 <tr>
 <td>LeadTime</td>
-<td></td>
-<td></td>
+<td>int</td>
+<td>In minutes. Booking is allowed at least x minutes before the booking slot</td>
 </tr>
 </tbody></table>
 
@@ -13327,7 +13339,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <blockquote>
 <p>Sample Request</p>
 </blockquote>
-<pre class="highlight html"><code>https://www.martjack.com/developerapi/Order/Invoice/6c57599f-2c43-4c82-806a-e07c3410fxxx/invoice_hyc-2017-2018-00000127
+<pre class="highlight html"><code>https://www.martjack.com/developerapi/Order/Invoice/6c57599f-2c43-4c82-806a-e07c3410fxxx/invoice_hyc-2017-2018-00000127/1435
 </code></pre>
 <blockquote>
 <p>Sample Response</p>
@@ -13552,11 +13564,13 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <td>The invoice number that you want to fetch</td>
 </tr>
 <tr>
-<td>LocationRefCode</td>
+<td>LocationRefCode*</td>
 <td>string</td>
 <td>The location code of the order fulfillment store</td>
 </tr>
 </tbody></table>
+
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
 
 <h3 id="response-parameters">Response Parameters</h3>
 
@@ -13571,13 +13585,13 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 </thead><tbody>
 <tr>
 <td>LeadTime</td>
-<td></td>
-<td></td>
+<td>int</td>
+<td>In minutes. Booking is allowed at least x minutes before the booking slot</td>
 </tr>
 <tr>
 <td>ConversionFactor</td>
-<td></td>
-<td></td>
+<td>float</td>
+<td>The currency conversion ratio for merchants with multiple currencies,</td>
 </tr>
 <tr>
 <td>StockAction</td>
@@ -13586,8 +13600,8 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 </tr>
 <tr>
 <td>IsBackOrder</td>
-<td></td>
-<td></td>
+<td>enum</td>
+<td>Is the current item available for order even when out of stock (order can be placed even when no stock) . Value: <code class="prettyprint">true</code>, or <code class="prettyprint">false</code></td>
 </tr>
 </tbody></table>
 
@@ -13735,12 +13749,12 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 </tr>
 <tr>
 <td>lineitems*</td>
-<td>-</td>
+<td>obj</td>
 <td>The details of each line item. Specify <code class="prettyprint">OrderLineId</code> and <code class="prettyprint">Quantity</code></td>
 </tr>
 <tr>
 <td>ShipmentTrip</td>
-<td>-</td>
+<td>obj</td>
 <td>Provide more details details of the shipping using the parameters specified below. You can use this if applicable for the current merchant</td>
 </tr>
 <tr>
@@ -13765,10 +13779,12 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 </tr>
 <tr>
 <td>Attributes</td>
-<td>-</td>
+<td>obj</td>
 <td>Specify any additional information such as delivery guy&rsquo;s mobile number</td>
 </tr>
 </tbody></table>
+
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
 
 <h2 id="get-order-details">Get Order Details</h2>
 
@@ -13890,6 +13906,8 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 </tr>
 </tbody></table>
 
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
+
 <h3 id="response-parameters">Response Parameters</h3>
 
 <p>Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.</p>
@@ -13904,12 +13922,12 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>VariantMasterProductId</td>
 <td>int</td>
-<td></td>
+<td>Master product id of the variant product</td>
 </tr>
 <tr>
 <td>VariantProductId</td>
 <td>int</td>
-<td></td>
+<td>ID of the variant product</td>
 </tr>
 </tbody></table>
 
@@ -14227,8 +14245,8 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 </tr>
 <tr>
 <td>VariantMasterProductId</td>
-<td></td>
-<td></td>
+<td>int</td>
+<td>Unique id of the master product for the current variant</td>
 </tr>
 </tbody></table>
 
@@ -14723,32 +14741,32 @@ Batch Support | No</p>
 </tr>
 </thead><tbody>
 <tr>
-<td>OrderID</td>
+<td>OrderID*</td>
 <td>int</td>
 <td>The order id for which you want to create shipment packages</td>
 </tr>
 <tr>
-<td>ShipmentType</td>
+<td>ShipmentType*</td>
 <td>string</td>
 <td>Type of shipment. Supported value: <code class="prettyprint">Normal</code></td>
 </tr>
 <tr>
-<td>AirwayBillNo</td>
+<td>AirwayBillNo*</td>
 <td>string</td>
 <td>Airway bill number provided by the courier service</td>
 </tr>
 <tr>
-<td>CourierName</td>
+<td>CourierName*</td>
 <td>string</td>
 <td>Name of the courier service used for shipment</td>
 </tr>
 <tr>
-<td>ShipmentPickupDate</td>
+<td>ShipmentPickupDate*</td>
 <td>date-time</td>
 <td>Pickup date of the shipment in <code class="prettyprint">YYYY\/MM\/DD</code> format</td>
 </tr>
 <tr>
-<td>LocationCode</td>
+<td>LocationCode*</td>
 <td>string</td>
 <td>Reference code of the order fulfillment location</td>
 </tr>
@@ -14760,20 +14778,20 @@ Batch Support | No</p>
 <tr>
 <td>PackingSupplyRefCode</td>
 <td>string</td>
-<td></td>
+<td>Unique reference code generated for the package while creating</td>
 </tr>
 <tr>
 <td>PackageID</td>
 <td>int</td>
-<td></td>
+<td>Unique id of the package</td>
 </tr>
 <tr>
-<td>OrderItemId</td>
+<td>OrderItemId*</td>
 <td>int</td>
 <td>Line item id of the individual items of the order</td>
 </tr>
 <tr>
-<td>Quantity</td>
+<td>Quantity*</td>
 <td>int</td>
 <td>Quantity of the current order item</td>
 </tr>
@@ -14874,8 +14892,8 @@ Batch Support | No</p>
 </thead><tbody>
 <tr>
 <td>PackageType</td>
-<td></td>
-<td></td>
+<td>string</td>
+<td>Name of the package supply</td>
 </tr>
 <tr>
 <td>PackingSupplyRefCode</td>
@@ -15216,13 +15234,13 @@ Sample POST Request</p>
 </thead><tbody>
 <tr>
 <td>ConversationLogId</td>
-<td></td>
-<td></td>
+<td>int</td>
+<td>Unique id of the activity for internal reference</td>
 </tr>
 <tr>
 <td>RETransactionId</td>
-<td></td>
-<td></td>
+<td>int</td>
+<td>Order id</td>
 </tr>
 <tr>
 <td>ConversationType</td>
@@ -15231,7 +15249,7 @@ Sample POST Request</p>
 </tr>
 <tr>
 <td>LogAction</td>
-<td></td>
+<td>enum</td>
 <td>P</td>
 </tr>
 </tbody></table>
@@ -15375,13 +15393,13 @@ Sample POST Request</p>
 </thead><tbody>
 <tr>
 <td>DocketNumber</td>
-<td></td>
-<td></td>
+<td>string</td>
+<td>AWB number of the shipment</td>
 </tr>
 <tr>
 <td>UseMailBoxAddress</td>
-<td></td>
-<td></td>
+<td>enum</td>
+<td>Value:</td>
 </tr>
 <tr>
 <td>VerificationMethod</td>
