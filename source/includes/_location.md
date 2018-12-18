@@ -232,11 +232,12 @@ Batch Support | Yes
 ### Request URL
 `https://{host}/developerapi/Location/UpdateStoreTimings/{MerchantId}/{Locationrefcode}`
 
-### Request Query Parameters
+### Request Path Parameters
 Parameter | Type | Description
 -------- | ----- | -----------
 MerchantId* | string | Unique GUID of the merchant for which you want to update location timings
 Locationrefcode* | string | The reference code of the location for which you want to update timings
+
 
 ### Request Body Parameters
 Parameter | Type | Description

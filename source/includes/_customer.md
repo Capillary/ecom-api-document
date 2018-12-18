@@ -1131,7 +1131,7 @@ Parameter | Type | Description
 ProfileAttributeId* | string | ID of the attribute that needs to be updated 
 ProfileAttributeValue | string | Customer's preferred attribute value 
 
-
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
 
 
 
@@ -1231,6 +1231,8 @@ phoneno | string |  The landline number of the recipient
 mobileno | string |  The mobile number of recipient 
 email | string |  The email id of the recipient 
 addressType | string | Type of address. For example Home, Office
+
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
 
 
 

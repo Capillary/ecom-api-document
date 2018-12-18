@@ -227,6 +227,8 @@ Authentication | Yes
 HTTP Method | POST
 Batch Support | Yes
 
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
 
 ### Request URL
 
@@ -311,12 +313,14 @@ Lets you add payment details and submit a transaction. You can use this API for 
 | | |
 --------- | ----------- |
 URI | `/Order/PlaceOrder/{merchantId}`
-Rate Limited? | Yes
+Rate Limited? | No
 Authentication | Yes
 Response Formats | JSON
 HTTP Methods | POST
 Batch Support | No
 
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
 
 ### Request URL
 `http://{host}/developerapi/Order/PlaceOrder/{{MerchantId}}`
@@ -372,6 +376,13 @@ skipDeliveryAreaValidation | boolean |  Specify `true` to validate delivery loca
 `{"OrderID":0,"ValidationResponse":[{"Validator":"StockValidator","CheckoutValidationType":2,"Status":"False","ValidationMessage":"Failed products"}]},"ErrorCode":0}` --zero inventory
 
 `{"OrderID":0,"ValidationResponse":[{"Validator":"StoreTimingsValidator","CheckoutValidationType":19,"Status":"False","ValidationMessage":"DeliveryslotNotInStoreTime"}]},"ErrorCode":0}` -- StoreTimingsValidator
+
+
+### Response Parameters
+
+Parameter | Type | Description
+--------- | ---- | -----------
+ValidationResponse | obj | 
 
 
 
@@ -450,13 +461,14 @@ Process Pending Transactions, i.e., if an order is placed (other than COD ), jus
 | | |
 --------- | ----------- |
 URI | `/ProcessTransaction/{MerchantId}`
-Rate Limited? | Yes
+Rate Limited? | No
 Authentication | Yes
 Response Formats | JSON
 HTTP Methods | POST
 Batch Support | No
 
-
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
 
 
 ### Request URL
@@ -521,12 +533,14 @@ Saves a merchant transaction.
 | | |
 --------- | ----------- |
 URI | `order/SaveMerchantTransaction/{merchantId}`
-Rate Limited? | Yes
+Rate Limited? | No
 Authentication | Yes
 Response Formats | JSON
 HTTP Methods | POST
 Batch Support | No
 
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
 
 ### Request URL
 
@@ -897,19 +911,20 @@ Adds existing order items of the respective customer to the cart.
 | | |
 --------- | ----------- |
 URI | `order/ReOrder/{merchantId}`
-Rate Limited? | Yes
+Rate Limited? | No
 Authentication | Yes
 Response Formats | JSON
 HTTP Methods | POST
 Batch Support | No
 
-
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
 
 ### Request URL
 
 `https://{host}/developerapi/Order/ReOrder/{merchantId}`
 
-### Request Query Parameters
+### Request Path Parameters
 
 Parameter | Type | Description
 --------- | ----- | ----------
@@ -921,8 +936,18 @@ Parameter | Type | Description
 OrderId* | int |  Existing Order id of the customer that you want to order again
 UserId* | string  | The unique identifier of the customer associated to the order
 
+### Response Parameters
+
+Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.
 
 
+Parameter | Type | Description
+-------- | ----- | -----------
+PriceCapped | | 
+TotalCap | | 
+CappedRefKey | | 
+Por | | `w`
+GroupId | | 
 
 
 ## Fetch Order History
@@ -1030,13 +1055,14 @@ Retrieves the history of orders of a merchant or customer based on the input par
 | | |
 --------- | ----------- |
 URI | `Order/History/{{MerchantId}}`
-Rate Limited? | Yes
+Rate Limited? | No
 Authentication | Yes
 Response Formats | JSON
 HTTP Methods | POST
 Batch Support | No
 
-
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
 
 
 ### Request URL
@@ -1062,7 +1088,11 @@ OperatorId |  |  ---
 
 
 
+### Response Parameters
 
+Parameter | Type | Description
+-------- | ----- | -----------
+LeadTime | | 
 
 
 ## Get Invoice Details
@@ -1238,14 +1268,15 @@ Retrieves details of a specific invoice.
 
 | | |
 --------- | ----------- |
-URI | `Order/Invoice/{merchantId}/{InvoiceNumber}`
-Rate Limited? | Yes
+URI | `Order/Invoice/{merchantId}/{InvoiceNumber}/{LocationRefCode}`
+Rate Limited? | No
 Authentication | Yes
 Response Formats | JSON
 HTTP Methods | GET
 Batch Support | No
 
-
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
 
 
 ### Request URL
@@ -1257,8 +1288,16 @@ Parameter | Type | Description
 --------- | ----- | ------
 merchantid* | string  | The unique id (GUID) of the merchant in which the invoice is available
 InvoiceNumber* | string |  The invoice number that you want to fetch
-LocationRefCode* | string |  The location code of the order fulfillment store
+LocationRefCode | string |  The location code of the order fulfillment store
 
+### Response Parameters
+
+Parameter | Type | Description
+-------- | ----- | -----------
+LeadTime | | 
+ConversionFactor | | 
+StockAction | | 
+IsBackOrder | | 
 
 
 
@@ -1327,12 +1366,14 @@ Lets you create shipping details of a specific order (that is ready to ship).
 | | |
 --------- | ----------- |
 URI | `/Order/Ship`
-Rate Limited? | Yes
+Rate Limited? | No
 Authentication | Yes
 Response Formats | JSON
 HTTP Methods | POST
 Batch Support | No
 
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
 
 ### Request URL
 
@@ -1420,17 +1461,20 @@ Retrieves details of a specific order.
 | | |
 --------- | ----------- |
 URI | `Order/Details/{MerchantId}/{OrderId}`
-Rate Limited? | Yes
+Rate Limited? | No
 Authentication | Yes
 Response Formats | JSON
 HTTP Methods | GET
 Batch Support | No
 
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
 
 ### Additional Header Required
 Header Name | Value
 ----------- | ------
 token_secret | Unique authentication key generated for the request
+
 
 
 ### Request URL
@@ -1443,6 +1487,13 @@ Parameter | Type | Description
 merchantId* |  string | The unique id (GUID) of the merchant from which you want to fetch order details
 orderID* |  int | The order id that you want to fetch
 
+
+### Response Parameters
+
+Parameter | Type | Description
+-------- | ----- | -----------
+VariantMasterProductId | int | 
+VariantProductId | int | 
 
 
 ## Get Order Information (V2)
@@ -1681,11 +1732,14 @@ Retrieves the details of a specific order of a merchant.
 | | |
 --------- | ----------- |
 URI | `order/V2/{{MerchantId}}/{orderID}`
-Rate Limited? | Yes
+Rate Limited? | No
 Authentication | Yes
 Response Formats | JSON
 HTTP Methods | GET
 Batch Support | Yes
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
 
 ### Request URL
 `http://{host}/developerapi/order/V2/{{MerchantId}}/{orderID}`
@@ -1698,6 +1752,12 @@ orderID* | int | Order id for which you want to fetch details
 V2* | string | Supported API version
 
 
+### Response Parameters
+
+Parameter | Type | Description
+-------- | ----- | -----------
+IsBackOrder | 
+VariantMasterProductId | 
 
 
 
@@ -1744,11 +1804,14 @@ Cancels a specific order of a customer placed on a merchant store. However, an o
  |  |  |
 --------- | ----------- | 
 URI | `Order/Cancel`
-Rate Limited? | Yes
+Rate Limited? | No
 Authentication | Yes
 Response Formats | JSON
 HTTP Methods | POST
 Batch Support | No
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
 
 ### Request URL
 
@@ -1766,7 +1829,10 @@ DisplayCommentToUser | boolean  | Value: True/False. Specify whether to make the
 PGResponse |  string | The response received from the payment gateway
 OperatorID | string  | Current user id - It could be store, admin, manager
 CancelReason* | string  | Value: Auto populated reason
- 
+
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
+
+
  
 ## Cancel Order Lineitem
 > Sample Request
@@ -1817,11 +1883,14 @@ https://www.martjack.com/developerapi/Order/CancelItem
 Parameter | Description
 --------- | -----------
 URI | `Order/CancelItem`
-Rate Limited? | Yes
+Rate Limited? | No
 Authentication | Yes
 Response Formats | JSON
 HTTP Methods | POST
 Batch Support | No
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
 
 ### Request URL
 
@@ -1839,6 +1908,9 @@ PGResponse | string |  The response received from the payment gateway for that s
 OperatorID | string |  Current user id - It could be store's, admin's, or manager's
 CancelReason* | string |  Specify the reason for order cancellation. In UI, these are auto-populated in the UI.
 TobeCancelledOrderItems | - |  Specify the items that you want to cancel in `OrderItemID` and `CancelQuantity`
+
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
+
 
 
 ## Process Return
@@ -1890,12 +1962,14 @@ For a return order a brand could configure multiple sub-statuses according to it
 | | |
 --------- | ----------- |
 URI | `/Order/ProcessReturn/{MerchantId}`
-Rate Limited? | Yes
+Rate Limited? | No
 Authentication | Yes
 Response Formats | JSON
 HTTP Methods | POST
 Batch Support | No
 
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
 
 ### Request URL
 
@@ -1910,6 +1984,7 @@ ReturnRequestId | int |  Return Request ID of the return. Leave this blank if yo
 Substatus |  string | Sub-status code of the return request (Preconfigured values only). Leave this blank if you want to just modify the return details
 SubstatusChangeComments | string  | Specify the reason for return sub-status change. You can enter up to 50 characters
 
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
 
 
 
@@ -1985,13 +2060,14 @@ Creates shipment packages for a specific order.
 | | |
 --------- | ----------- |
 URI | `/Order/ShipmentPackages/{MerchantId}`
-Rate Limited? | Yes
+Rate Limited? | No
 Authentication | Yes
 Response Formats | JSON
 HTTP Methods | POST
 Batch Support | No
 
-
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
 
 ### Request URL
 
@@ -2013,6 +2089,8 @@ PackingSupplyRefCode | string |
 PackageID | int | 
 OrderItemId | int | Line item id of the individual items of the order
 Quantity | int | Quantity of the current order item
+
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
 
 
 
@@ -2060,16 +2138,29 @@ Retrieves shipment packages of the merchant.
 | | |
 --------- | ----------- |
 URI | `/Order/ShipmentPackages/{MerchantId}`
-Rate Limited? | Yes
+Rate Limited? | No
 Authentication | Yes
 Response Formats | JSON
 HTTP Methods | GET
 Batch Support | No
 
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
 
 ### Request URL
 
 `https://{host}/developerapi/Order/ShipmentDetails/9403244b-2231-4550-ae96-2dbb5d0c1694/5471021`
+
+
+### Response Parameters
+
+Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.
+
+Parameter | Type | Description
+-------- | ----- | -----------
+PackageType | | 
+PackingSupplyRefCode | 
+UOM | | 
 
 
 ## Get Shipment Details
@@ -2121,23 +2212,31 @@ Retrieves the details of a specific shipment.
 | | |
 --------- | ----------- |
 URI | `/Order/ShipmentDetails/{merchantId}/{shipmentId}`
-Rate Limited? | Yes
+Rate Limited? | No
 Authentication | Yes
 Response Formats | JSON
 HTTP Methods | POST
 Batch Support | No
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See **Introduction** > **Authentication (Merchant Setup on Admin Portal)** for more details
 
 
 ### Request URL
 
 `https://{host}/developerapi/Order/ShipmentDetails/{merchantId}/{shipmentId}`
 
-### Request Query Parameters
+### Request Path Parameters
 
 Parameter | Type | Description
 --------- | ---- | -----------
 merchantId* | string | Unique GUID of the merchant
 shipmentId* | int | Unique id of the shipment that you want to retrieve
+
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
+
+
+
 
 
 
@@ -2285,12 +2384,14 @@ MerchantId=f48fdd16-92db-4188-854d-1ecd9b62xxxx&InputFormat=application/json&Inp
 | | |
 --------- | ----------- |
 URI | `/Order/GetOrderActivityHistory/{MerchantId}`
-Rate Limited? | Yes
+Rate Limited? | No
 Authentication | Yes
 Response Formats | JSON
 HTTP Methods | POST
 Batch Support | No
 
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
 
 ### Request URL
 `https://{host}/developerapi/Order/GetOrderActivityHistory/{MerchantId}`
@@ -2303,6 +2404,23 @@ Parameter | Type | Description
 orderfieldchangehistory | boolean | Specify `true` to retrieve the history of change in order or order item attributes. For example, order fulfillment location, order item fulfillment location and so on
 activityhistory | boolean | Specify `true` to retrieve activity log of an order such as order authorized, order shipped, and payment authorized
 orderids* | int | Specify the order id(s) that you want to fetch. You can specify multiple order ids separating each by a comma
+
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
+
+
+### Response Parameters
+
+Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.
+
+Parameter | Type | Description
+--------- | ---- | ----------
+ConversationLogId | | 
+RETransactionId | | 
+ConversationType | | 
+LogAction | | P
+
+
+
 
 
 ## Get Shipments
@@ -2377,12 +2495,14 @@ Retrieves shipment details of a specific order
 | | |
 --------- | ----------- |
 URI | `Order/getshipments/{merchantId}/{orderID}`
-Rate Limited? | Yes
+Rate Limited? | No
 Authentication | Yes
 Response Formats | JSON
 HTTP Methods | GET
 Batch Support | No
 
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
 
 
 
@@ -2391,9 +2511,23 @@ Batch Support | No
 `https://{host}/developerapi/Order/getshipments/{merchantId}/{orderID}`
 
 
-### Request Query Parameters
+### Request Path Parameters
 
 Parameter | Type | Description
 -------- | ----- | -----------
 merchantId* | string | Unique GUID of the merchant
 orderID* | int | Unique id the order for which you want to track shipment details
+
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
+
+### Response Parameters
+
+Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.
+
+Parameter | Type | Description
+--------- | ---- | -----------
+DocketNumber |  | 
+UseMailBoxAddress | 
+VerificationMethod | 
+VerificationValue | 
+CMSID | | 
