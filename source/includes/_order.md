@@ -2838,6 +2838,6 @@ Parameter | Type | Description
 -------- | ----- | -----------
 CreatedDateFrom | date | Get shipments created in a specific duration between `CreatedDateFrom` and `CreatedDateTo`
 CreatedDateTo | date | Get shipments created in a specific duration between `CreatedDateFrom` and `CreatedDateTo`
-ShippingStatus | enum | Get shipments by shipment status. Values: S, R, D
+ShippingStatus | enum | Get shipments by shipment status. You can pass multiple values separated by comma. Values: `I` - RTO initiated, `O`	- RTO Received, `L`	- RTO Lost, `X`	- Others, `S` - Shipment created, `R`	- Dispatched, `T`	- In transit, `U`	- Out for delivery, `D` - Delivered, `C`	- RTO Closed, `F`	- Cancelled, `E`	- RTO Refunded/Replacement closed, `W`	- Waiting for Collection  (in-store), `G`	- At Gate
 
 

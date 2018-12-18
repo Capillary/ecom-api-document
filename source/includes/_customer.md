@@ -190,49 +190,6 @@ Authentication | Yes
 
 
 
-## Validate OTP
-
-> Sample POST Request
-
-```json
-
-```
-
-> Sample POST Request
-
-```json
-
-```
-
-
-Validates the OTP sent to the customer.
-
-
-### Resource Information
-| | |
---------- | ----------- |
-URI | ``
-Response Formats | JSON
-HTTP Methods | 
-Batch Support | No
-Rate Limited? | Yes
-Authentication | Yes
-
-### Additional Header Required
-Header Name | Value
------------ | ------
-
-
-
-### Request URL
-
-``
-
-### Request Parameters
-Parameter | Description
---------- | -----------
-
-
 
 
 
@@ -1031,7 +988,7 @@ accesstoken* 	Access token of the logged in user to validate the session
 Parameter | Type | Description
 --------- | ---- | -----------
 UserId* | string | Unique id of the customer that is generated in the system.
-City  string | Unique code of the city (as saved in the system) Example: 0562 (for Agra), 250 (Victoria) 
+City | string | Unique code of the city (as saved in the system) Example: 0562 (for Agra), 250 (Victoria) 
 CityName | string | Full name of the city. Example: Bangalore, 
 State | string | State's postal abbreviation. Example: KA (for Karnataka), CA (for California), IN (for Indiana)
 StateName | string | Full name of the state such as Karnataka, California, and Indiana

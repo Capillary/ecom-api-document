@@ -82,7 +82,7 @@ MobileNo* | string | Registered mobile number of the user
 > Sample Request
 
 ```html
-
+https://www.martjack.com/developerapi/carts/V2/ValidateOTP/81e77da2-723b-483d-8c0d-49f800c1exxx
 ```
 
 > Sample POST Request
@@ -125,6 +125,9 @@ Parameter | Description
 --------- | -----------
 OTP* | The verification code received by the customer on his/her mobile number
 mobile* | The registered mobile number to which the OTP has to be sent 
+
+
+
 
 
 
@@ -415,8 +418,18 @@ Following table contains descriptions of a few response parameters that require 
 
 Parameter | Type | Description
 --------- | ---- | -----------
-
-
+CartReferenceKey | string | Unique ID of each item in the cart
+IsFreeProduct | boolean | Whether the item is a free gift item
+Por | enum | The portion of the product applied for which the topping is applied. Value: W for whole, R for right, L for left (left, right usually applies for toppings)
+CartPromotionRules | array | The rules that are applied to the cart items
+DemandedDeliveryDate | date | Date and time of delivery as requested by the customer
+RemainTotal | float | 
+ShippingZoneType | 
+ComboSuggestion | array | Suggestions related the deal items based on the items in the cart
+ConvertedDeals | array | The cart items that are converted to deal items 
+PriceCapped | | 
+TotalCap | | 
+CappedRefKey | | 
 
 
 ## Add Items to Cart (Default Deal) 
@@ -552,6 +565,18 @@ Following table contains descriptions of a few response parameters that require 
 
 Parameter | Type | Description
 --------- | ---- | -----------
+CartReferenceKey | string | Unique ID of each item in the cart
+IsFreeProduct | boolean | Whether the item is a free gift item
+Por | enum | The portion of the product applied for which the topping is applied. Value: W for whole, R for right, L for left (left, right usually applies for toppings)
+CartPromotionRules | array | The rules that are applied to the cart items
+DemandedDeliveryDate | date | Date and time of delivery as requested by the customer
+RemainTotal | float | 
+ShippingZoneType | 
+ComboSuggestion | array | Suggestions related the deal items based on the items in the cart
+ConvertedDeals | array | The cart items that are converted to deal items 
+PriceCapped | | 
+TotalCap | | 
+CappedRefKey | | 
 
 
 
@@ -1637,6 +1662,18 @@ Following table contains descriptions of a few response parameters that require 
 
 Parameter | Type | Description
 --------- | ---- | -----------
+CartReferenceKey | string | Unique ID of each item in the cart
+IsFreeProduct | boolean | Whether the item is a free gift item
+Por | enum | The portion of the product applied for which the topping is applied. Value: W for whole, R for right, L for left (left, right usually applies for toppings)
+CartPromotionRules | array | The rules that are applied to the cart items
+DemandedDeliveryDate | date | Date and time of delivery as requested by the customer
+RemainTotal | float | 
+ShippingZoneType | 
+ComboSuggestion | array | Suggestions related the deal items based on the items in the cart
+ConvertedDeals | array | The cart items that are converted to deal items 
+PriceCapped | | 
+TotalCap | | 
+CappedRefKey | | 
 
 
 
@@ -2307,6 +2344,18 @@ Following table contains descriptions of a few response parameters that require 
 
 Parameter | Type | Description
 --------- | ---- | -----------
+CartReferenceKey | string | Unique ID of each item in the cart
+IsFreeProduct | boolean | Whether the item is a free gift item
+Por | enum | The portion of the product applied for which the topping is applied. Value: W for whole, R for right, L for left (left, right usually applies for toppings)
+CartPromotionRules | array | The rules that are applied to the cart items
+DemandedDeliveryDate | date | Date and time of delivery as requested by the customer
+RemainTotal | float | 
+ShippingZoneType | 
+ComboSuggestion | array | Suggestions related the deal items based on the items in the cart
+ConvertedDeals | array | The cart items that are converted to deal items 
+PriceCapped | | 
+TotalCap | | 
+CappedRefKey | | 
 
 
 
@@ -2531,6 +2580,8 @@ Following table contains descriptions of a few response parameters that require 
 
 Parameter | Type | Description
 --------- | ---- | -----------
+SupplierId | | 
+IsFreeProduct | boolean | Whether the product is a gift item or deal item available for free
 
 
 ## Remove Cart Items
@@ -3067,6 +3118,18 @@ Following table contains descriptions of a few response parameters that require 
 
 Parameter | Type | Description
 --------- | ---- | -----------
+IsFreeProduct | boolean | If the item is a gift item and is given for free of cost
+PriceCapped | | 
+TotalCap | | 
+CappedRefKey | | 
+SupplierId | string | Unique GUID of the supplier of the product
+Por | enum | 
+GroupId | int | 
+
+
+
+
+
 
 ## Apply Voucher to Cart Items
 
@@ -3289,6 +3352,14 @@ Following table contains descriptions of a few response parameters that require 
 
 Parameter | Type | Description
 --------- | ---- | -----------
+IsFreeProduct | boolean | If the item is a gift item and is given for free of cost
+PriceCapped | | 
+TotalCap | | 
+CappedRefKey | | 
+SupplierId | string | Unique GUID of the supplier of the product
+Por | enum | 
+GroupId | int | 
+ComboSuggestion | | 
 
 
 
@@ -3512,7 +3583,10 @@ Following table contains descriptions of a few response parameters that require 
 
 Parameter | Type | Description
 --------- | ---- | -----------
-
+ComboSuggestion | array | Suggestions related the deal items based on the items in the cart
+ConvertedDeals | array | The cart items that are converted to deal items 
+Por | enum | The portion for which the product is applied. Value: `W` for whole, `R` for right, `L` for left (left, right usually applies for toppings)
+IsDefaultBundleItem | boolean | Whether the current item is in the default bundle item or customized bundle item 
 
 
 ## Get Cart Promotions
@@ -3632,6 +3706,10 @@ Following table contains descriptions of a few response parameters that require 
 
 Parameter | Type | Description
 --------- | ---- | -----------
+starttime | date-time | Start date of the current promotion
+endtime | date-time | End date of the current promotion
+repetitive | boolean | 
+allowfurtherpromotions | | 
 
 
 
@@ -3774,6 +3852,7 @@ Following table contains descriptions of a few response parameters that require 
 
 Parameter | Type | Description
 --------- | ---- | -----------
+EnalbeOTP | boolean | 
 
 
 ## Update Shipping Mode
@@ -4051,6 +4130,13 @@ Following table contains descriptions of a few response parameters that require 
 
 Parameter | Type | Description
 --------- | ---- | -----------
+IsFreeProduct | boolean | Whether the current item is a gift product that is given for free or along with other product
+PriceCapped | boolean | 
+TotalCap | | 
+CappedRefKey | | 
+CatalogpromotionDiscount | | 
+
+
 
 
 ## Set Delivery Slot
@@ -4297,7 +4383,13 @@ Following table contains descriptions of a few response parameters that require 
 
 Parameter | Type | Description
 --------- | ---- | -----------
-
+IsFreeProduct | boolean | Whether the item is a free gift item
+Por | enum | The portion of the product applied for which the topping is applied. Value: W for whole, R for right, L for left (left, right usually applies for toppings)
+ComboSuggestion | array | Suggestions related the deal items based on the items in the cart
+ConvertedDeals | array | The cart items that are converted to deal items 
+PriceCapped | | 
+TotalCap | | 
+CappedRefKey | | 
 
 
 
@@ -4580,3 +4672,10 @@ Following table contains descriptions of a few response parameters that require 
 
 Parameter | Type | Description
 --------- | ---- | -----------
+IsFreeProduct | boolean | Whether the item is a free gift item
+Por | enum | The portion of the product applied for which the topping is applied. Value: W for whole, R for right, L for left (left, right usually applies for toppings)
+ComboSuggestion | array | Suggestions related the deal items based on the items in the cart
+ConvertedDeals | array | The cart items that are converted to deal items 
+PriceCapped | | 
+TotalCap | | 
+CappedRefKey | | 
