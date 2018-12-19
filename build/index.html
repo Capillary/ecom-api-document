@@ -562,78 +562,6 @@ InputData={
 
 <p><code class="prettyprint">https://{host}/developerapi/Customer/{merchantId}</code></p>
 
-<h2 id="validate-otp">Validate OTP</h2>
-
-<blockquote>
-<p>Sample POST Request</p>
-</blockquote>
-<pre class="highlight json"><code><span class="w">
-</span></code></pre>
-<blockquote>
-<p>Sample POST Request</p>
-</blockquote>
-<pre class="highlight json"><code><span class="w">
-</span></code></pre>
-<p>Validates the OTP sent to the customer.</p>
-
-<h3 id="resource-information">Resource Information</h3>
-
-<table><thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead><tbody>
-<tr>
-<td>URI</td>
-<td>&ldquo;</td>
-</tr>
-<tr>
-<td>Response Formats</td>
-<td>JSON</td>
-</tr>
-<tr>
-<td>HTTP Methods</td>
-<td></td>
-</tr>
-<tr>
-<td>Batch Support</td>
-<td>No</td>
-</tr>
-<tr>
-<td>Rate Limited?</td>
-<td>Yes</td>
-</tr>
-<tr>
-<td>Authentication</td>
-<td>Yes</td>
-</tr>
-</tbody></table>
-
-<h3 id="additional-header-required">Additional Header Required</h3>
-
-<table><thead>
-<tr>
-<th>Header Name</th>
-<th>Value</th>
-</tr>
-</thead><tbody>
-</tbody></table>
-
-<h3 id="request-url">Request URL</h3>
-
-<p>&rdquo;</p>
-
-<h3 id="request-parameters">Request Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-</tbody></table>
-
 <h2 id="reset-password">Reset Password</h2>
 
 <blockquote>
@@ -1922,9 +1850,9 @@ The customer has to be logged in to his account to perform to perform any task t
 <td>Unique id of the customer that is generated in the system.</td>
 </tr>
 <tr>
-<td>City  string</td>
+<td>City</td>
+<td>string</td>
 <td>Unique code of the city (as saved in the system) Example: 0562 (for Agra), 250 (Victoria)</td>
-<td></td>
 </tr>
 <tr>
 <td>CityName</td>
@@ -5816,7 +5744,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <blockquote>
 <p>Sample Request</p>
 </blockquote>
-<pre class="highlight html"><code>
+<pre class="highlight html"><code>https://www.martjack.com/developerapi/carts/V2/ValidateOTP/81e77da2-723b-483d-8c0d-49f800c1exxx
 </code></pre>
 <blockquote>
 <p>Sample POST Request</p>
@@ -6242,6 +6170,66 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <th>Description</th>
 </tr>
 </thead><tbody>
+<tr>
+<td>CartReferenceKey</td>
+<td>string</td>
+<td>Unique ID of each item in the cart</td>
+</tr>
+<tr>
+<td>IsFreeProduct</td>
+<td>boolean</td>
+<td>Whether the item is a free gift item</td>
+</tr>
+<tr>
+<td>Por</td>
+<td>enum</td>
+<td>The portion of the product applied for which the topping is applied. Value: W for whole, R for right, L for left (left, right usually applies for toppings)</td>
+</tr>
+<tr>
+<td>CartPromotionRules</td>
+<td>array</td>
+<td>The rules that are applied to the cart items</td>
+</tr>
+<tr>
+<td>DemandedDeliveryDate</td>
+<td>date</td>
+<td>Date and time of delivery as requested by the customer</td>
+</tr>
+<tr>
+<td>RemainTotal</td>
+<td>float</td>
+<td></td>
+</tr>
+<tr>
+<td>ShippingZoneType</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>ComboSuggestion</td>
+<td>array</td>
+<td>Suggestions related the deal items based on the items in the cart</td>
+</tr>
+<tr>
+<td>ConvertedDeals</td>
+<td>array</td>
+<td>The cart items that are converted to deal items</td>
+</tr>
+<tr>
+<td>PriceCapped</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>TotalCap</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>CappedRefKey</td>
+<td></td>
+<td></td>
+</tr>
 </tbody></table>
 
 <h2 id="add-items-to-cart-default-deal">Add Items to Cart (Default Deal)</h2>
@@ -6475,6 +6463,66 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <th>Description</th>
 </tr>
 </thead><tbody>
+<tr>
+<td>CartReferenceKey</td>
+<td>string</td>
+<td>Unique ID of each item in the cart</td>
+</tr>
+<tr>
+<td>IsFreeProduct</td>
+<td>boolean</td>
+<td>Whether the item is a free gift item</td>
+</tr>
+<tr>
+<td>Por</td>
+<td>enum</td>
+<td>The portion of the product applied for which the topping is applied. Value: W for whole, R for right, L for left (left, right usually applies for toppings)</td>
+</tr>
+<tr>
+<td>CartPromotionRules</td>
+<td>array</td>
+<td>The rules that are applied to the cart items</td>
+</tr>
+<tr>
+<td>DemandedDeliveryDate</td>
+<td>date</td>
+<td>Date and time of delivery as requested by the customer</td>
+</tr>
+<tr>
+<td>RemainTotal</td>
+<td>float</td>
+<td></td>
+</tr>
+<tr>
+<td>ShippingZoneType</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>ComboSuggestion</td>
+<td>array</td>
+<td>Suggestions related the deal items based on the items in the cart</td>
+</tr>
+<tr>
+<td>ConvertedDeals</td>
+<td>array</td>
+<td>The cart items that are converted to deal items</td>
+</tr>
+<tr>
+<td>PriceCapped</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>TotalCap</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>CappedRefKey</td>
+<td></td>
+<td></td>
+</tr>
 </tbody></table>
 
 <h2 id="add-to-cart-customized-deal">Add to Cart (Customized Deal)</h2>
@@ -7655,6 +7703,66 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <th>Description</th>
 </tr>
 </thead><tbody>
+<tr>
+<td>CartReferenceKey</td>
+<td>string</td>
+<td>Unique ID of each item in the cart</td>
+</tr>
+<tr>
+<td>IsFreeProduct</td>
+<td>boolean</td>
+<td>Whether the item is a free gift item</td>
+</tr>
+<tr>
+<td>Por</td>
+<td>enum</td>
+<td>The portion of the product applied for which the topping is applied. Value: W for whole, R for right, L for left (left, right usually applies for toppings)</td>
+</tr>
+<tr>
+<td>CartPromotionRules</td>
+<td>array</td>
+<td>The rules that are applied to the cart items</td>
+</tr>
+<tr>
+<td>DemandedDeliveryDate</td>
+<td>date</td>
+<td>Date and time of delivery as requested by the customer</td>
+</tr>
+<tr>
+<td>RemainTotal</td>
+<td>float</td>
+<td></td>
+</tr>
+<tr>
+<td>ShippingZoneType</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>ComboSuggestion</td>
+<td>array</td>
+<td>Suggestions related the deal items based on the items in the cart</td>
+</tr>
+<tr>
+<td>ConvertedDeals</td>
+<td>array</td>
+<td>The cart items that are converted to deal items</td>
+</tr>
+<tr>
+<td>PriceCapped</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>TotalCap</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>CappedRefKey</td>
+<td></td>
+<td></td>
+</tr>
 </tbody></table>
 
 <h2 id="add-items-to-cart-customized-bundle">Add Items to Cart (Customized Bundle)</h2>
@@ -8431,6 +8539,66 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <th>Description</th>
 </tr>
 </thead><tbody>
+<tr>
+<td>CartReferenceKey</td>
+<td>string</td>
+<td>Unique ID of each item in the cart</td>
+</tr>
+<tr>
+<td>IsFreeProduct</td>
+<td>boolean</td>
+<td>Whether the item is a free gift item</td>
+</tr>
+<tr>
+<td>Por</td>
+<td>enum</td>
+<td>The portion of the product applied for which the topping is applied. Value: W for whole, R for right, L for left (left, right usually applies for toppings)</td>
+</tr>
+<tr>
+<td>CartPromotionRules</td>
+<td>array</td>
+<td>The rules that are applied to the cart items</td>
+</tr>
+<tr>
+<td>DemandedDeliveryDate</td>
+<td>date</td>
+<td>Date and time of delivery as requested by the customer</td>
+</tr>
+<tr>
+<td>RemainTotal</td>
+<td>float</td>
+<td></td>
+</tr>
+<tr>
+<td>ShippingZoneType</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>ComboSuggestion</td>
+<td>array</td>
+<td>Suggestions related the deal items based on the items in the cart</td>
+</tr>
+<tr>
+<td>ConvertedDeals</td>
+<td>array</td>
+<td>The cart items that are converted to deal items</td>
+</tr>
+<tr>
+<td>PriceCapped</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>TotalCap</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>CappedRefKey</td>
+<td></td>
+<td></td>
+</tr>
 </tbody></table>
 
 <h2 id="update-cart-item-quantity">Update Cart Item Quantity</h2>
@@ -8706,6 +8874,16 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <th>Description</th>
 </tr>
 </thead><tbody>
+<tr>
+<td>SupplierId</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>IsFreeProduct</td>
+<td>boolean</td>
+<td>Whether the product is a gift item or deal item available for free</td>
+</tr>
 </tbody></table>
 
 <h2 id="remove-cart-items">Remove Cart Items</h2>
@@ -9513,6 +9691,41 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <th>Description</th>
 </tr>
 </thead><tbody>
+<tr>
+<td>IsFreeProduct</td>
+<td>boolean</td>
+<td>If the item is a gift item and is given for free of cost</td>
+</tr>
+<tr>
+<td>PriceCapped</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>TotalCap</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>CappedRefKey</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>SupplierId</td>
+<td>string</td>
+<td>Unique GUID of the supplier of the product</td>
+</tr>
+<tr>
+<td>Por</td>
+<td>enum</td>
+<td></td>
+</tr>
+<tr>
+<td>GroupId</td>
+<td>int</td>
+<td></td>
+</tr>
 </tbody></table>
 
 <h2 id="apply-voucher-to-cart-items">Apply Voucher to Cart Items</h2>
@@ -9785,6 +9998,46 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <th>Description</th>
 </tr>
 </thead><tbody>
+<tr>
+<td>IsFreeProduct</td>
+<td>boolean</td>
+<td>If the item is a gift item and is given for free of cost</td>
+</tr>
+<tr>
+<td>PriceCapped</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>TotalCap</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>CappedRefKey</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>SupplierId</td>
+<td>string</td>
+<td>Unique GUID of the supplier of the product</td>
+</tr>
+<tr>
+<td>Por</td>
+<td>enum</td>
+<td></td>
+</tr>
+<tr>
+<td>GroupId</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td>ComboSuggestion</td>
+<td></td>
+<td></td>
+</tr>
 </tbody></table>
 
 <h2 id="remove-applied-voucher">Remove Applied Voucher</h2>
@@ -10055,6 +10308,26 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <th>Description</th>
 </tr>
 </thead><tbody>
+<tr>
+<td>ComboSuggestion</td>
+<td>array</td>
+<td>Suggestions related the deal items based on the items in the cart</td>
+</tr>
+<tr>
+<td>ConvertedDeals</td>
+<td>array</td>
+<td>The cart items that are converted to deal items</td>
+</tr>
+<tr>
+<td>Por</td>
+<td>enum</td>
+<td>The portion for which the product is applied. Value: <code class="prettyprint">W</code> for whole, <code class="prettyprint">R</code> for right, <code class="prettyprint">L</code> for left (left, right usually applies for toppings)</td>
+</tr>
+<tr>
+<td>IsDefaultBundleItem</td>
+<td>boolean</td>
+<td>Whether the current item is in the default bundle item or customized bundle item</td>
+</tr>
 </tbody></table>
 
 <h2 id="get-cart-promotions">Get Cart Promotions</h2>
@@ -10255,6 +10528,26 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <th>Description</th>
 </tr>
 </thead><tbody>
+<tr>
+<td>starttime</td>
+<td>date-time</td>
+<td>Start date of the current promotion</td>
+</tr>
+<tr>
+<td>endtime</td>
+<td>date-time</td>
+<td>End date of the current promotion</td>
+</tr>
+<tr>
+<td>repetitive</td>
+<td>boolean</td>
+<td></td>
+</tr>
+<tr>
+<td>allowfurtherpromotions</td>
+<td></td>
+<td></td>
+</tr>
 </tbody></table>
 
 <h2 id="get-cart-payment-options">Get Cart Payment Options</h2>
@@ -10428,6 +10721,11 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <th>Description</th>
 </tr>
 </thead><tbody>
+<tr>
+<td>EnalbeOTP</td>
+<td>boolean</td>
+<td></td>
+</tr>
 </tbody></table>
 
 <h2 id="update-shipping-mode">Update Shipping Mode</h2>
@@ -10759,6 +11057,31 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <th>Description</th>
 </tr>
 </thead><tbody>
+<tr>
+<td>IsFreeProduct</td>
+<td>boolean</td>
+<td>Whether the current item is a gift product that is given for free or along with other product</td>
+</tr>
+<tr>
+<td>PriceCapped</td>
+<td>boolean</td>
+<td></td>
+</tr>
+<tr>
+<td>TotalCap</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>CappedRefKey</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>CatalogpromotionDiscount</td>
+<td></td>
+<td></td>
+</tr>
 </tbody></table>
 
 <h2 id="set-delivery-slot">Set Delivery Slot</h2>
@@ -11053,6 +11376,41 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <th>Description</th>
 </tr>
 </thead><tbody>
+<tr>
+<td>IsFreeProduct</td>
+<td>boolean</td>
+<td>Whether the item is a free gift item</td>
+</tr>
+<tr>
+<td>Por</td>
+<td>enum</td>
+<td>The portion of the product applied for which the topping is applied. Value: W for whole, R for right, L for left (left, right usually applies for toppings)</td>
+</tr>
+<tr>
+<td>ComboSuggestion</td>
+<td>array</td>
+<td>Suggestions related the deal items based on the items in the cart</td>
+</tr>
+<tr>
+<td>ConvertedDeals</td>
+<td>array</td>
+<td>The cart items that are converted to deal items</td>
+</tr>
+<tr>
+<td>PriceCapped</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>TotalCap</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>CappedRefKey</td>
+<td></td>
+<td></td>
+</tr>
 </tbody></table>
 
 <h2 id="get-delivery-slots">Get Delivery Slots</h2>
@@ -11377,6 +11735,41 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <th>Description</th>
 </tr>
 </thead><tbody>
+<tr>
+<td>IsFreeProduct</td>
+<td>boolean</td>
+<td>Whether the item is a free gift item</td>
+</tr>
+<tr>
+<td>Por</td>
+<td>enum</td>
+<td>The portion of the product applied for which the topping is applied. Value: W for whole, R for right, L for left (left, right usually applies for toppings)</td>
+</tr>
+<tr>
+<td>ComboSuggestion</td>
+<td>array</td>
+<td>Suggestions related the deal items based on the items in the cart</td>
+</tr>
+<tr>
+<td>ConvertedDeals</td>
+<td>array</td>
+<td>The cart items that are converted to deal items</td>
+</tr>
+<tr>
+<td>PriceCapped</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>TotalCap</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>CappedRefKey</td>
+<td></td>
+<td></td>
+</tr>
 </tbody></table>
 
           <h1 id="order">Order</h1>
@@ -15549,7 +15942,7 @@ Sample POST Request</p>
 <tr>
 <td>ShippingStatus</td>
 <td>enum</td>
-<td>Get shipments by shipment status. Values: S, R, D</td>
+<td>Get shipments by shipment status. You can pass multiple values separated by comma. Values: <code class="prettyprint">I</code> - RTO initiated, <code class="prettyprint">O</code> - RTO Received, <code class="prettyprint">L</code> - RTO Lost, <code class="prettyprint">X</code> - Others, <code class="prettyprint">S</code> - Shipment created, <code class="prettyprint">R</code>   - Dispatched, <code class="prettyprint">T</code>   - In transit, <code class="prettyprint">U</code>   - Out for delivery, <code class="prettyprint">D</code> - Delivered, <code class="prettyprint">C</code>    - RTO Closed, <code class="prettyprint">F</code>   - Cancelled, <code class="prettyprint">E</code>    - RTO Refunded/Replacement closed, <code class="prettyprint">W</code>  - Waiting for Collection  (in-store), <code class="prettyprint">G</code>   - At Gate</td>
 </tr>
 </tbody></table>
 

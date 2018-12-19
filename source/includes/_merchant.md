@@ -27,12 +27,14 @@ Provides authentication to the Merchant to access the Blob server.
 | | |
 --------- | ----------- |
 URI | `Merchant/GetSignedUrl/{{MerchantId}}`
-Rate Limited? | Yes
+Rate Limited? | No
 Authentication | Yes
 Response Formats | JSON
 HTTP Methods | GET
 Batch Support | No
 
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
 
 ### Request URL
 

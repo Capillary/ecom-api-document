@@ -40,12 +40,14 @@ Creates a shopping list for a specific customer. This just creates a shopping li
 |  |  |
 --------- | ----------- |
 URI | `ShoppingList/add/{{MerchantId}}`
-Rate Limited? | Yes
+Rate Limited? | No
 Authentication | Yes
 Response Formats | JSON
 HTTP Methods | POST
 Batch Support | No
 
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
 
 ### Request URL
 
@@ -58,6 +60,9 @@ UserId* | The unique user identifier of the customer whose wish list details nee
 ShoppingListName* | Specify a name for the current wish list
 privacyLevel | Specify whether to make the wish list public to make it to everyone or private to make it visible only for you (Value: `Pr`, `Pu`). Default value: `Pr`
 refCode | Specify a reference code for your wish list. It is a free flowing text and accepts any string that you pass
+
+<aside class="notice"> All parameters marked by * are mandatory.</aside>
+
 
 
 
@@ -117,12 +122,14 @@ Retrieves the details of a specific wish list of a customer.
 |  |  |
 --------- | ----------- |
 URI | `ShoppingList/{{MerchantId}}/UserId/{shopping list id}/true`
-Rate Limited? | Yes
+Rate Limited? | No
 Authentication | Yes
 Response Formats | JSON
 HTTP Methods | GET
 Batch Support | No
 
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
 
 ### Request URL
 
@@ -137,6 +144,20 @@ UserId* | The unique user identifier of the customer whose details need to be re
 shoppinglistId | The shopping list id that you want to fetch
 GetDefaultWishlist | Specify `true` to retrieve even the default wish list along with customer's (merchant level), `false` to retrieve only the customer's wish list
 
+<aside class="notice"> All parameters marked by * are mandatory.</aside>
+
+### Response Parameters
+
+Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.
+
+
+Parameter | Type | Description
+--------- | ---- | -----------
+UserGroupId | | 
+AllowUserToAddItems | 
+DisplayinMyAccount | 
+CreatedBy | | 
+RefCode | | 
 
 
 ## Add Items to a Shopping List
@@ -182,11 +203,14 @@ Adds items to an existing wish list of a customer
 |  |  |
 --------- | ----------- |
 URI | `ShoppingList/items/add/{{MerchantId}}`
-Rate Limited? | Yes
+Rate Limited? | No
 Authentication | Yes
 Response Formats | JSON
 HTTP Methods | POST
 Batch Support | No
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
 
 
 ### Request URL
@@ -203,7 +227,9 @@ ProductId | The unique product id that you want to add to the wish list
 VarProductId | The unique variant product id (if applicable) 
 Quantity | The quantity of the item that you want to add to the wish list
 IsSelected | Value: true/false
- 
+
+<aside class="notice"> All parameters marked by * are mandatory.</aside>
+
 
 
 ## Get Shopping List Items 
@@ -240,12 +266,14 @@ Retrieves items of a specific wish list
 | |  |
 --------- | ----------- |
 URI | `ShoppingList/items/{{MerchantId}}/UserId/{shopping list id}`
-Rate Limited? | Yes
+Rate Limited? | No
 Authentication | Yes
 Response Formats | JSON
 HTTP Methods | GET
 Batch Support | No
 
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
 
 ### Request URL
 
@@ -258,3 +286,5 @@ Parameter | Description
 MerchantId* | The unique id (GUID) of the merchant account from which you want to fetch customer's wish list 
 UserId* | The unique user identifier of the customer whose shopping list items need to be retrieved
 shoppinglistId | The shopping list id that you want to fetch
+
+<aside class="notice"> All parameters marked by * are mandatory.</aside>

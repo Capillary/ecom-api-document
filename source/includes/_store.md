@@ -673,12 +673,14 @@ Retrieves all the countries (with country code and phone code) supported for a s
 |  |  |
 --------- | ----------- |
 URI | `/Store/Countries/{{MerchantId}}`
-Rate Limited? | Yes
+Rate Limited? | No
 Authentication | Yes
 Response Formats | JSON
 HTTP Methods | GET
 Batch Support | No
 
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
 
 ### Request URL
 
@@ -690,6 +692,7 @@ Attribute | Description
 --------- | -----------
 merchantId* | The unique id (GUID) of the merchant for which you want to see supported countries
 
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
 
 
 
@@ -1053,16 +1056,18 @@ Retrieves all the  supported cities of a specific state
 |  |  |
 --------- | ----------- |
 URI | `/Store/Cities/{{MerchantId}}/{{StateCode}}`
-Rate Limited? | Yes
+Rate Limited? | No
 Authentication | Yes
 Response Formats | JSON
 HTTP Methods | GET
 Batch Support | No
 
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
 
 ### Request URL
 
-`https://{host}/developerapi/Store/Cities/{{MerchantId}}/{{StateCode}}`
+`https://{host}/developerapi/Store/Cities/{MerchantId}/{StateCode}`
 
 
 ### Request Parameter
@@ -1070,3 +1075,5 @@ Attribute | Description
 --------- | -----------
 merchantId* | The unique id (GUID) of the merchant for which you want to see supported cities
 StateCode* | The state code for which you want to see the list of supported cities
+
+<aside class="notice"> All parameters marked by * are mandatory.</aside>

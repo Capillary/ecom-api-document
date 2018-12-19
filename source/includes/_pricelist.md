@@ -54,12 +54,14 @@ Updates price of a SKU or variant SKU in a particular price list.
 | | |
 --------- | ----------- |
 URI | `Product/Pricelist/{MerchantId}/{PricelistRefCode}/upload`
-Rate Limited? | Yes
+Rate Limited? | No
 Authentication | Yes
 Response Formats | JSON
 HTTP Methods | POST
 Batch Support | No
 
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
 
 ### Request URL
 
@@ -70,9 +72,11 @@ Batch Support | No
 
 Parameter | Type | Description
 --------- | ---- | -----------
-sku | string |	SKU of the product of a specific location for which you want to update stock and price
+sku* | string |	SKU of the product of a specific location for which you want to update stock and price
 variantsku | string |	The variant SKU of the current item
-Qty | int | The quantity of the item for which you want to update the price
-MRP | float | Retail price of the item
+Qty* | int | The quantity of the item for which you want to update the price
+MRP* | float | Retail price of the item
 WebPrice | float | Selling price of the item
 TokenPrice | float | Minimum amount required for the customer to reserve the item and purchase later on
+
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
