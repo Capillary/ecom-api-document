@@ -104,6 +104,13 @@ Parameter | Type | Description
 Taskid | int | Unique id generated for the current update location task
 
 
+### Success/Error Codes
+
+Code | Description
+---- | -----------
+
+
+
 ## Update Product Information (normal)
 
 > Sample Request
@@ -737,7 +744,7 @@ Following table contains descriptions of a few response parameters that require 
 
 Parameter | Type | Description
 --------- | ---- | -----------
-usergroupname | string | 
+usergroupname | string | Name of the user group
 tokenprice | float | Minimum amount required for the customer to reserve the item and purchase later on
 channelrefcode | string | Channel code to which the price list is associated
 
@@ -967,7 +974,7 @@ smallimage | string | The small image that appears on the product quick view - s
 thumbnail | string | Thumbnails of the product images that appears on the product view page (supported formats: .png, jpg,jpeg,.svc, and .gif)
 alttext | string | The alt text that needs to appear on mouse hover for the image (filename)
 viewport | enum | The view angle of the current image. Values: Front, Back, Left, Right, Bottom
-swatchimages  | | Represents the property values of the variant product - illustration of accurate representation of color, pattern or texture
+swatchimages  | obj | Represents the property values of the variant product - illustration of accurate representation of color, pattern or texture
 variantproperty | enum | Property name of the current variant. Property names as defined for the merchant
 variantvalue | enum | Property value of the current variant. Supported value as defined for the property for the merchant
 filename | string | File name of the swatch image with extension (supported formats: .png, jpg,jpeg,.svc, and .gif)
@@ -976,11 +983,11 @@ type | string | Document purpose. Supported Values: Overview, Product Tour, Spec
 seoinfo | string | Search Engine Optimization of the document
 filename | string | Document type with extension. Supported formats: .doc, .docx, .pdf
 sequence | int | Sequence order of the document/picture/video to appear on the product page
-videos | | Videos related to the product   
+videos | obj | Videos related to the product   
 type | string | Source of the video. Supported Values: YouTube, Vimeo, Scribd, 
 seoinfo | string | Search Engine Optimization information of the video
 filename | string | Filename of the video with extension
-view360 | | 3d images of the product
+view360 | obj | 3d images of the product
 type | string | Type of the view 360 degree file name. Value: `local_flash`
 seoinfo | string | Search Engine Optimization for the 360 degree video
 filename | string | File name of the video with the respective extension
@@ -1103,16 +1110,16 @@ Following table contains descriptions of a few response parameters that require 
 Parameter | Type | Description
 --------- | ---- | -----------
 CatlogSequence | int | Sequence of the product in catalog
-MarkupPrice | | 
-MarkupType | | 
-IsShippingConfigured | boolean | 
-IsTaxConfigured | boolean | 
+MarkupPrice | double | 
+MarkupType | string | 
+IsShippingConfigured | boolean | Whether the shipping cost is enabled for the item or not
+IsTaxConfigured | boolean | Whether tax enabled for the item or not
 StartDate | date-time | The duration for which the product is shown on the storefront (StartDate - EndDate)
 EndDate | date-time | The duration for which the product is shown on the storefront (StartDate - EndDate)
 SeoURL | string | The SEO friendly URL of the product 
 TokenPriceCheckout | float | Minimum amount required for the customer to reserve the item during checkout and purchase later on
-IsReferPrice | 
-NoofReview | 
+IsReferPrice | boolean | 
+NoofReview | string | Number of reviews received for the product
 UOM | string | Unit of measurement of the product. It could be `pieces` for the items that are sold in numbers and the respective measure for other items such as kgs, and gms 
 
 
@@ -1205,7 +1212,7 @@ Parameter | Type | Description
 --------- | ---- | -----------
 merchantId* | string | Unique GUID of the merchant
 sku* | string |  SKU of the product that you want to fetch
-NoofReview | review | 
+NoofReview | string | Number of reviews received for the product
 UOM | string | Unit of measurement of the product. It could be `pieces` for items that are sold as a piece and the respective measure for other items such as kgs, and gms 
 
 <aside class="notice"> All parameters marked by * are mandatory.</aside>
@@ -1219,8 +1226,7 @@ Parameter | Type | Description
 CatlogSequence | int | The sequence of the product in catalog
 MarkupPrice | | 
 MarkupType | | 
-BulkQuantity | | 
-NoofReview | | 
+BulkQuantity | int | Total number of items (quantity) that can be ordered at a time. Value will `0` if not applicable 
 UOM | string | Unit of measurement of the product. It could be the `pieces` for items that are sold in numbers and the respective measure for other items such as kgs, and gms 
 
 
@@ -1384,24 +1390,24 @@ Following table contains descriptions of a few response parameters that require 
 
 Parameter | Type | Description
 --------- | ---- | -----------
-ReferenceProductVariantId | | 
+ReferenceProductVariantId | int | Reference id of the product variant
 StartDate | date-time | The duration (between `StartDate` and `EndDate`) for which the product is shown on the storefront 
 EndDate | date-time | The duration (between `StartDate` and `EndDate`) for which the product is shown on the storefront
-IsDropShipping |  | 
+IsDropShipping | boolean | 
 MarkupPrice | | 
 MarkupType | | 
-IsReferProductInfo | | 
+IsReferProductInfo | boolean | 
 IsReferPrice | | 
-ReserveQuantity | | 
-ReOrderStockLevel | | 
-IsDisplaySwatch | | 
+ReserveQuantity | int | Total quantity of items reserved for 
+ReOrderStockLevel | int | Quantity of items to be reordered
+IsDisplaySwatch | boolean | 
 flag | | 
 
 
 
 
 
-## Get Product by Tag
+## Get Products by Tag
 
 > Sample Request
 
@@ -1502,7 +1508,7 @@ Parameter | Type | Description
 --------- | ---- | -----------
 MarkupPrice |  | 
 MarkupType |  | 
-TokenPriceCheckout | | 
+TokenPriceCheckout | float | Minimum amount required for the customer to reserve the item during checkout and purchase later on
 IsReferPrice | | 
 UOM | string | Unit of measurement of the product. It could be the `pieces` for items that are sold in numbers and the respective measure for other items such as kgs, and gms
 
@@ -1566,6 +1572,8 @@ MerchantId* | string | Specify the merchant id for which the review has to be as
 UserId* | string | Specify the unique id of the customer that provided the review
 SKU* | string  | Specify the product SKU for which the review has to be associated
 
+<aside class="notice"> All parameters marked by * are mandatory </aside>
+
 ### Request Body Parameters
 
 Parameter | Type | Description
@@ -1575,3 +1583,72 @@ message* | string | Specify the entire review content as entered by the customer
 isGoLive* | boolean | Specify `true` to show the review on the storefront, `false` to hide it 
 
 <aside class="notice"> All parameters marked by * are mandatory.</aside>
+
+
+## Search Products
+
+> Sample Request
+
+```html
+https://www.martjack.com/developerapi/81e77da2-723b-483d-8c0d-49f800c1exxx/Search
+```
+> Sample Response
+
+```json
+{
+  "Message": "Successful",
+  "ProductIds": [
+    "11360864",
+    "11360866",
+    "11360868",
+    "11360870",
+    "11360872",
+    "11360896",
+    "11360898",
+    "11360900",
+    "11360902",
+    "11360904",
+    "11360906",
+    "11360908",
+    "11148708"
+  ],
+  "messageCode": "1004"
+}
+
+```
+
+Retrieves product ids based on the input parameters
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `Product/{MerchantId}/Search`
+Rate Limited? | No
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | POST
+Batch Support | No
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+### Request URL
+
+`https://{host}/developerapi/Product/{MerchantId}/Search`
+
+
+
+### Request Body Parameters
+
+Parameter | Type | Description
+-------- | ----- | -----------
+MerchantId* | string | Specify the merchant id for which the review has to be associated
+keyword | string | 
+SKU | string  | Search product by SKU
+catalogcode | string | 
+category | string | 
+brand | string | 
+productTag | string | 
+pageNumber | string | 
+pageSize | string | 
+attributes | array | 

@@ -193,14 +193,14 @@ Authentication | Yes
 
 
 
-## Reset Password
+## Changge Password
 
 
 
 > Sample Request
 
 ```html
-https://www.martjack.com/developerapi/Customer/f48fdd16-92db-4188-854d-1ecd9b62xxxx/132d3c1d-7d71-4b87-9a69-a4d216d63xxx/ChangePassword=1234
+https://www.martjack.com/developerapi/Customer/f48fdd16-92db-4188-854d-1ecd9b62xxxx/132d3c1d-7d71-4b87-9a69-a4d216d63xxx/ChangePassword?password=1234
 ```
 
 
@@ -215,7 +215,7 @@ https://www.martjack.com/developerapi/Customer/f48fdd16-92db-4188-854d-1ecd9b62x
 }
 ```
 
-Resets the password of the customer's current account. 
+Modifies the password of the customer current account. 
 
 <aside class="notice"> No POST request payload is required for this API </aside>
 
@@ -223,7 +223,7 @@ Resets the password of the customer's current account.
 ### Resource Information
 | | |
 --------- | ----------- |
-URI | `/Customer/{merchantId}/{UserId}/ChangePassword={new password}`
+URI | `/Customer/{merchantId}/{UserId}/ChangePassword?password={new password}`
 Response Formats | JSON
 HTTP Methods | POST
 Batch Support | No
@@ -236,7 +236,7 @@ Authentication | Yes
 
 
 ### Request URL
-`https://{host}/developerapi/Customer/{merchantId}/{UserId}/ChangePassword={new password}`
+`https://{host}/developerapi/Customer/{merchantId}/{UserId}/ChangePassword?password={new password}`
 
 ### Request Path Parameters
 
@@ -1360,6 +1360,256 @@ Status Code | Description
 1030 | Service is not Authorized
 
 
+
+## Get All Customers
+
+> Sample Request
+
+```html
+ https://www.martjack.com/DeveloperAPI//Customer/9820eca5-d11f-4df1-9b20-983a45ea9631/All
+```
+
+> Sample Response
+
+```json
+{
+  "messageCode": "1004",
+  "Message": "Successful",
+  "Customers": [
+    {
+      "UserProfiles": [],
+      "UserInfoId": "f017da55-32fe-4ce4-966b-fe38be1965af",
+      "UserId": "4a9cab14-36d2-4326-a4e4-9b3f5b216adc",
+      "MerchantId": "9820eca5-d11f-4df1-9b20-983a45ea9631",
+      "UserName": "tom.sawyer@example.com",
+      "FirstName": "Tom",
+      "LastName": "Sawyer",
+      "PostalAddress": "321/1, MG Road",
+      "AlternateEmail": "",
+      "City": "",
+      "Pin": "560076",
+      "State": "KA",
+      "Country": "IN",
+      "PhoneNo": "",
+      "Street": "",
+      "MobileNo": "919050000000",
+      "BirthDate": "1/1/1900",
+      "Gender": "",
+      "Occupation": "",
+      "Industry": "",
+      "OtherArea": "",
+      "CountryName": "India",
+      "StateName": "Karnataka",
+      "CityName": "",
+      "AreaName": "",
+      "OtherCity": "",
+      "IsReceiveOffers": false,
+      "Password": null,
+      "ConfirmPassword": null,
+      "Countries": null,
+      "States": null,
+      "CommunicationType": "sms|email|push",
+      "MarketingNotificationType": "sms|email|push"
+    },
+    {
+      "UserProfiles": [
+        {
+          "UserId": "4ae38f81-f459-41f5-bddd-4115bd726d2c",
+          "ProfileAttributeId": 972,
+          "ProfileAttributeValueId": 0,
+          "ProfileAttributeName": "Ser",
+          "ProfileAttributeValue": ""
+        },
+        {
+          "UserId": "4ae38f81-f459-41f5-bddd-4115bd726d2c",
+          "ProfileAttributeId": 974,
+          "ProfileAttributeValueId": 0,
+          "ProfileAttributeName": "test",
+          "ProfileAttributeValue": ""
+        }
+      ],
+      "UserInfoId": "a1caa9d8-585b-47bd-866c-96f599f35256",
+      "UserId": "4ae38f81-f459-41f5-bddd-4115bd726d2c",
+      "MerchantId": "9820eca5-d11f-4df1-9b20-983a45ea9631",
+      "UserName": "bhaarath@example.com",
+      "FirstName": "Bhaarat",
+      "LastName": "",
+      "PostalAddress": "",
+      "AlternateEmail": "",
+      "City": "554",
+      "Pin": "",
+      "State": "",
+      "Country": "",
+      "PhoneNo": "",
+      "Street": "",
+      "MobileNo": "91-9533000000",
+      "BirthDate": "1/1/1900",
+      "Gender": "M",
+      "Occupation": "",
+      "Industry": "",
+      "OtherArea": "",
+      "CountryName": "",
+      "StateName": "",
+      "CityName": "",
+      "AreaName": "",
+      "OtherCity": "",
+      "IsReceiveOffers": true,
+      "Password": null,
+      "ConfirmPassword": null,
+      "Countries": null,
+      "States": null,
+      "CommunicationType": "sms|email|push",
+      "MarketingNotificationType": "sms|email|push"
+    },
+    {
+      "UserProfiles": [],
+      "UserInfoId": "0b059921-adbc-4443-ab41-e06e90f836c5",
+      "UserId": "4ca92fd6-6a48-4f83-984f-b794670ba812",
+      "MerchantId": "9820eca5-d11f-4df1-9b20-983a45ea9631",
+      "UserName": "james@example.com",
+      "FirstName": "James",
+      "LastName": "",
+      "PostalAddress": "",
+      "AlternateEmail": "",
+      "City": "554",
+      "Pin": "",
+      "State": "",
+      "Country": "",
+      "PhoneNo": "",
+      "Street": "",
+      "MobileNo": "0-",
+      "BirthDate": "1/1/1900",
+      "Gender": "M",
+      "Occupation": "",
+      "Industry": "",
+      "OtherArea": "",
+      "CountryName": "",
+      "StateName": "",
+      "CityName": "",
+      "AreaName": "",
+      "OtherCity": "",
+      "IsReceiveOffers": false,
+      "Password": null,
+      "ConfirmPassword": null,
+      "Countries": null,
+      "States": null,
+      "CommunicationType": "sms|email|push",
+      "MarketingNotificationType": "sms|email|push"
+    },
+    {
+      "UserProfiles": [],
+      "UserInfoId": "a0d51fd9-8522-45c4-bd21-4ba76eab97ec",
+      "UserId": "4cbc4ce9-53d6-48c0-86b5-50de737faacd",
+      "MerchantId": "9820eca5-d11f-4df1-9b20-983a45ea9631",
+      "UserName": "z@d.com",
+      "FirstName": "tyg",
+      "LastName": "erd",
+      "PostalAddress": "fggb",
+      "AlternateEmail": "",
+      "City": "554",
+      "Pin": "560076",
+      "State": "Chhattisgarh",
+      "Country": "IN",
+      "PhoneNo": "",
+      "Street": "",
+      "MobileNo": "915656565656",
+      "BirthDate": "1/1/1900",
+      "Gender": "",
+      "Occupation": "",
+      "Industry": "",
+      "OtherArea": "",
+      "CountryName": "India",
+      "StateName": "Chhattisgarh",
+      "CityName": "Other",
+      "AreaName": "",
+      "OtherCity": "",
+      "IsReceiveOffers": false,
+      "Password": null,
+      "ConfirmPassword": null,
+      "Countries": null,
+      "States": null,
+      "CommunicationType": "sms|email|push",
+      "MarketingNotificationType": "sms|email|push"
+    },
+    {
+      "UserProfiles": [
+        {
+          "UserId": "4d32b17d-5f36-4849-8d83-e17f17597efa",
+          "ProfileAttributeId": 972,
+          "ProfileAttributeValueId": 0,
+          "ProfileAttributeName": "Ser",
+          "ProfileAttributeValue": ""
+        },
+        {
+          "UserId": "4d32b17d-5f36-4849-8d83-e17f17597efa",
+          "ProfileAttributeId": 974,
+          "ProfileAttributeValueId": 0,
+          "ProfileAttributeName": "test",
+          "ProfileAttributeValue": ""
+        }
+      ],
+      "UserInfoId": "3a412fe0-2b47-450b-8beb-16ec634df913",
+      "UserId": "4d32b17d-5f36-4849-8d83-e17f17597efa",
+      "MerchantId": "9820eca5-d11f-4df1-9b20-983a45ea9631",
+      "UserName": "test@martjack.com",
+      "FirstName": "test",
+      "LastName": "asv",
+      "PostalAddress": "test&amp;#10;&amp;#10;&amp;#10;&amp;#10;",
+      "AlternateEmail": "test@martjack.com",
+      "City": "554",
+      "Pin": "500033",
+      "State": "TG",
+      "Country": "IN",
+      "PhoneNo": "",
+      "Street": "",
+      "MobileNo": "91-9422996500",
+      "BirthDate": "1/1/1900",
+      "Gender": "M",
+      "Occupation": "",
+      "Industry": "",
+      "OtherArea": "",
+      "CountryName": "India",
+      "StateName": "Telangana",
+      "CityName": "Other",
+      "AreaName": "",
+      "OtherCity": "Hyderabad",
+      "IsReceiveOffers": true,
+      "Password": null,
+      "ConfirmPassword": null,
+      "Countries": null,
+      "States": null,
+      "CommunicationType": "sms|email|push",
+      "MarketingNotificationType": "sms|email|push"
+    }
+  ],
+  "ErrorCode": 0
+}
+```
+
+Retrieves the details of all registered customers of the merchant.
+
+
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `Customer/{MerchantId}/All`
+Response Formats | JSON
+HTTP Methods | GET
+Batch Support | No
+Rate Limited? | No
+Authentication | Yes
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+### Request URL
+
+`http://{host}/developerapi/Customer/{merchantId}/All`
+
+
+
+
 ## Get Customer Count
 
 Retrieves the number of registered customers of the merchant.
@@ -1380,7 +1630,22 @@ https://www.martjack.com/DeveloperAPI/Customer/81e77da2-723b-483d-8c0d-49f800c1e
 }
 ```
 
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `Customer/{MerchantId}/Count`
+Response Formats | JSON
+HTTP Methods | GET
+Batch Support | No
+Rate Limited? | No
+Authentication | Yes
 
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+### Request URL
+
+`http://{host}/developerapi/Customer/{merchantId}/Count`
 
 
 

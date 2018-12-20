@@ -16008,7 +16008,7 @@ Sample POST Request</p>
 </tr>
 <tr>
 <td>Rate Limited?</td>
-<td>Yes</td>
+<td>No</td>
 </tr>
 <tr>
 <td>Authentication</td>
@@ -16028,6 +16028,11 @@ Sample POST Request</p>
 </tr>
 </tbody></table>
 
+<ul>
+<li><strong>Rate limiter</strong> controls the number of incoming and outgoing traffic of a network</li>
+<li><strong>Authentication</strong> verifies the identity of the current user or integration. See Introduction &gt; Authentication (Merchant Setup on Admin Portal) for more details</li>
+</ul>
+
 <h3 id="request-url">Request URL</h3>
 
 <p><code class="prettyprint">https://{host}/developerapi/Product/Pricelist/{MerchantId}/{PricelistRefCode}/upload</code></p>
@@ -16042,7 +16047,7 @@ Sample POST Request</p>
 </tr>
 </thead><tbody>
 <tr>
-<td>sku</td>
+<td>sku*</td>
 <td>string</td>
 <td>SKU of the product of a specific location for which you want to update stock and price</td>
 </tr>
@@ -16052,12 +16057,12 @@ Sample POST Request</p>
 <td>The variant SKU of the current item</td>
 </tr>
 <tr>
-<td>Qty</td>
+<td>Qty*</td>
 <td>int</td>
 <td>The quantity of the item for which you want to update the price</td>
 </tr>
 <tr>
-<td>MRP</td>
+<td>MRP*</td>
 <td>float</td>
 <td>Retail price of the item</td>
 </tr>
@@ -16072,6 +16077,8 @@ Sample POST Request</p>
 <td>Minimum amount required for the customer to reserve the item and purchase later on</td>
 </tr>
 </tbody></table>
+
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
 
           <h1 id="shopping-list">Shopping List</h1>
 
@@ -16122,7 +16129,7 @@ Sample POST Request</p>
 </tr>
 <tr>
 <td>Rate Limited?</td>
-<td>Yes</td>
+<td>No</td>
 </tr>
 <tr>
 <td>Authentication</td>
@@ -16141,6 +16148,11 @@ Sample POST Request</p>
 <td>No</td>
 </tr>
 </tbody></table>
+
+<ul>
+<li><strong>Rate limiter</strong> controls the number of incoming and outgoing traffic of a network</li>
+<li><strong>Authentication</strong> verifies the identity of the current user or integration. See Introduction &gt; Authentication (Merchant Setup on Admin Portal) for more details</li>
+</ul>
 
 <h3 id="request-url">Request URL</h3>
 
@@ -16171,6 +16183,8 @@ Sample POST Request</p>
 <td>Specify a reference code for your wish list. It is a free flowing text and accepts any string that you pass</td>
 </tr>
 </tbody></table>
+
+<aside class="notice"> All parameters marked by * are mandatory.</aside>
 
 <h2 id="get-shopping-list-details">Get Shopping List Details</h2>
 
@@ -16234,7 +16248,7 @@ Sample POST Request</p>
 </tr>
 <tr>
 <td>Rate Limited?</td>
-<td>Yes</td>
+<td>No</td>
 </tr>
 <tr>
 <td>Authentication</td>
@@ -16253,6 +16267,11 @@ Sample POST Request</p>
 <td>No</td>
 </tr>
 </tbody></table>
+
+<ul>
+<li><strong>Rate limiter</strong> controls the number of incoming and outgoing traffic of a network</li>
+<li><strong>Authentication</strong> verifies the identity of the current user or integration. See Introduction &gt; Authentication (Merchant Setup on Admin Portal) for more details</li>
+</ul>
 
 <h3 id="request-url">Request URL</h3>
 
@@ -16281,6 +16300,46 @@ Sample POST Request</p>
 <tr>
 <td>GetDefaultWishlist</td>
 <td>Specify <code class="prettyprint">true</code> to retrieve even the default wish list along with customer&rsquo;s (merchant level), <code class="prettyprint">false</code> to retrieve only the customer&rsquo;s wish list</td>
+</tr>
+</tbody></table>
+
+<aside class="notice"> All parameters marked by * are mandatory.</aside>
+
+<h3 id="response-parameters">Response Parameters</h3>
+
+<p>Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>UserGroupId</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>AllowUserToAddItems</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>DisplayinMyAccount</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>CreatedBy</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>RefCode</td>
+<td></td>
+<td></td>
 </tr>
 </tbody></table>
 
@@ -16334,7 +16393,7 @@ Sample POST Request</p>
 </tr>
 <tr>
 <td>Rate Limited?</td>
-<td>Yes</td>
+<td>No</td>
 </tr>
 <tr>
 <td>Authentication</td>
@@ -16353,6 +16412,11 @@ Sample POST Request</p>
 <td>No</td>
 </tr>
 </tbody></table>
+
+<ul>
+<li><strong>Rate limiter</strong> controls the number of incoming and outgoing traffic of a network</li>
+<li><strong>Authentication</strong> verifies the identity of the current user or integration. See Introduction &gt; Authentication (Merchant Setup on Admin Portal) for more details</li>
+</ul>
 
 <h3 id="request-url">Request URL</h3>
 
@@ -16395,6 +16459,8 @@ Sample POST Request</p>
 <td>Value: true/false</td>
 </tr>
 </tbody></table>
+
+<aside class="notice"> All parameters marked by * are mandatory.</aside>
 
 <h2 id="get-shopping-list-items">Get Shopping List Items</h2>
 
@@ -16439,7 +16505,7 @@ Sample POST Request</p>
 </tr>
 <tr>
 <td>Rate Limited?</td>
-<td>Yes</td>
+<td>No</td>
 </tr>
 <tr>
 <td>Authentication</td>
@@ -16458,6 +16524,11 @@ Sample POST Request</p>
 <td>No</td>
 </tr>
 </tbody></table>
+
+<ul>
+<li><strong>Rate limiter</strong> controls the number of incoming and outgoing traffic of a network</li>
+<li><strong>Authentication</strong> verifies the identity of the current user or integration. See Introduction &gt; Authentication (Merchant Setup on Admin Portal) for more details</li>
+</ul>
 
 <h3 id="request-url">Request URL</h3>
 
@@ -16484,6 +16555,8 @@ Sample POST Request</p>
 <td>The shopping list id that you want to fetch</td>
 </tr>
 </tbody></table>
+
+<aside class="notice"> All parameters marked by * are mandatory.</aside>
 
           <h1 id="store">Store</h1>
 
@@ -17168,7 +17241,7 @@ Sample POST Request</p>
 </tr>
 <tr>
 <td>Rate Limited?</td>
-<td>Yes</td>
+<td>No</td>
 </tr>
 <tr>
 <td>Authentication</td>
@@ -17188,6 +17261,11 @@ Sample POST Request</p>
 </tr>
 </tbody></table>
 
+<ul>
+<li><strong>Rate limiter</strong> controls the number of incoming and outgoing traffic of a network</li>
+<li><strong>Authentication</strong> verifies the identity of the current user or integration. See Introduction &gt; Authentication (Merchant Setup on Admin Portal) for more details</li>
+</ul>
+
 <h3 id="request-url">Request URL</h3>
 
 <p><code class="prettyprint">https://{host}/developerapi/Store/Countries/{{MerchantId}}</code></p>
@@ -17205,6 +17283,8 @@ Sample POST Request</p>
 <td>The unique id (GUID) of the merchant for which you want to see supported countries</td>
 </tr>
 </tbody></table>
+
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
 
 <h2 id="get-cities">Get Cities</h2>
 
@@ -17570,7 +17650,7 @@ Sample POST Request</p>
 </tr>
 <tr>
 <td>Rate Limited?</td>
-<td>Yes</td>
+<td>No</td>
 </tr>
 <tr>
 <td>Authentication</td>
@@ -17590,9 +17670,14 @@ Sample POST Request</p>
 </tr>
 </tbody></table>
 
+<ul>
+<li><strong>Rate limiter</strong> controls the number of incoming and outgoing traffic of a network</li>
+<li><strong>Authentication</strong> verifies the identity of the current user or integration. See Introduction &gt; Authentication (Merchant Setup on Admin Portal) for more details</li>
+</ul>
+
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Store/Cities/{{MerchantId}}/{{StateCode}}</code></p>
+<p><code class="prettyprint">https://{host}/developerapi/Store/Cities/{MerchantId}/{StateCode}</code></p>
 
 <h3 id="request-parameter">Request Parameter</h3>
 
@@ -17611,6 +17696,8 @@ Sample POST Request</p>
 <td>The state code for which you want to see the list of supported cities</td>
 </tr>
 </tbody></table>
+
+<aside class="notice"> All parameters marked by * are mandatory.</aside>
 
           <h1 id="location">Location</h1>
 
@@ -19879,7 +19966,7 @@ Sample POST Request</p>
 </tr>
 <tr>
 <td>Rate Limited?</td>
-<td>Yes</td>
+<td>No</td>
 </tr>
 <tr>
 <td>Authentication</td>
@@ -19898,6 +19985,11 @@ Sample POST Request</p>
 <td>No</td>
 </tr>
 </tbody></table>
+
+<ul>
+<li><strong>Rate limiter</strong> controls the number of incoming and outgoing traffic of a network</li>
+<li><strong>Authentication</strong> verifies the identity of the current user or integration. See Introduction &gt; Authentication (Merchant Setup on Admin Portal) for more details</li>
+</ul>
 
 <h3 id="request-url">Request URL</h3>
 
