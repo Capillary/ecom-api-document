@@ -562,12 +562,12 @@ InputData={
 
 <p><code class="prettyprint">https://{host}/developerapi/Customer/{merchantId}</code></p>
 
-<h2 id="reset-password">Reset Password</h2>
+<h2 id="changge-password">Changge Password</h2>
 
 <blockquote>
 <p>Sample Request</p>
 </blockquote>
-<pre class="highlight html"><code>https://www.martjack.com/developerapi/Customer/f48fdd16-92db-4188-854d-1ecd9b62xxxx/132d3c1d-7d71-4b87-9a69-a4d216d63xxx/ChangePassword=1234
+<pre class="highlight html"><code>https://www.martjack.com/developerapi/Customer/f48fdd16-92db-4188-854d-1ecd9b62xxxx/132d3c1d-7d71-4b87-9a69-a4d216d63xxx/ChangePassword?password=1234
 </code></pre>
 <blockquote>
 <p>Sample Response</p>
@@ -578,7 +578,7 @@ InputData={
    </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="mi">0</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Resets the password of the customer&rsquo;s current account. </p>
+<p>Modifies the password of the customer current account. </p>
 
 <aside class="notice"> No POST request payload is required for this API </aside>
 
@@ -592,7 +592,7 @@ InputData={
 </thead><tbody>
 <tr>
 <td>URI</td>
-<td><code class="prettyprint">/Customer/{merchantId}/{UserId}/ChangePassword={new password}</code></td>
+<td><code class="prettyprint">/Customer/{merchantId}/{UserId}/ChangePassword?password={new password}</code></td>
 </tr>
 <tr>
 <td>Response Formats</td>
@@ -623,7 +623,7 @@ InputData={
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Customer/{merchantId}/{UserId}/ChangePassword={new password}</code></p>
+<p><code class="prettyprint">https://{host}/developerapi/Customer/{merchantId}/{UserId}/ChangePassword?password={new password}</code></p>
 
 <h3 id="request-path-parameters">Request Path Parameters</h3>
 
@@ -2517,6 +2517,274 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 </tr>
 </tbody></table>
 
+<h2 id="get-all-customers">Get All Customers</h2>
+
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
+<pre class="highlight html"><code> https://www.martjack.com/DeveloperAPI//Customer/9820eca5-d11f-4df1-9b20-983a45ea9631/All
+</code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"messageCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1004"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"Customers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"UserProfiles"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+      </span><span class="nt">"UserInfoId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f017da55-32fe-4ce4-966b-fe38be1965af"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"UserId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4a9cab14-36d2-4326-a4e4-9b3f5b216adc"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9820eca5-d11f-4df1-9b20-983a45ea9631"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"UserName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tom.sawyer@example.com"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"FirstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tom"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"LastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sawyer"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"PostalAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"321/1, MG Road"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"AlternateEmail"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Pin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"560076"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KA"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IN"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"PhoneNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Street"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"MobileNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"919050000000"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"BirthDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1/1/1900"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Gender"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Occupation"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Industry"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"OtherArea"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"CountryName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"India"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"StateName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Karnataka"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"CityName"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"AreaName"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"OtherCity"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"IsReceiveOffers"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Password"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ConfirmPassword"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Countries"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"States"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"CommunicationType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sms|email|push"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"MarketingNotificationType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sms|email|push"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"UserProfiles"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"UserId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4ae38f81-f459-41f5-bddd-4115bd726d2c"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"ProfileAttributeId"</span><span class="p">:</span><span class="w"> </span><span class="mi">972</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"ProfileAttributeValueId"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"ProfileAttributeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ser"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"ProfileAttributeValue"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"UserId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4ae38f81-f459-41f5-bddd-4115bd726d2c"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"ProfileAttributeId"</span><span class="p">:</span><span class="w"> </span><span class="mi">974</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"ProfileAttributeValueId"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"ProfileAttributeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"ProfileAttributeValue"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nt">"UserInfoId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a1caa9d8-585b-47bd-866c-96f599f35256"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"UserId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4ae38f81-f459-41f5-bddd-4115bd726d2c"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9820eca5-d11f-4df1-9b20-983a45ea9631"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"UserName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bhaarath@example.com"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"FirstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bhaarat"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"LastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"PostalAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"AlternateEmail"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"554"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Pin"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"PhoneNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Street"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"MobileNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"91-9533000000"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"BirthDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1/1/1900"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Gender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"M"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Occupation"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Industry"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"OtherArea"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"CountryName"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"StateName"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"CityName"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"AreaName"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"OtherCity"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"IsReceiveOffers"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Password"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ConfirmPassword"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Countries"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"States"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"CommunicationType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sms|email|push"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"MarketingNotificationType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sms|email|push"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"UserProfiles"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+      </span><span class="nt">"UserInfoId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0b059921-adbc-4443-ab41-e06e90f836c5"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"UserId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4ca92fd6-6a48-4f83-984f-b794670ba812"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9820eca5-d11f-4df1-9b20-983a45ea9631"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"UserName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"james@example.com"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"FirstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"James"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"LastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"PostalAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"AlternateEmail"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"554"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Pin"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"PhoneNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Street"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"MobileNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0-"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"BirthDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1/1/1900"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Gender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"M"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Occupation"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Industry"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"OtherArea"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"CountryName"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"StateName"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"CityName"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"AreaName"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"OtherCity"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"IsReceiveOffers"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Password"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ConfirmPassword"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Countries"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"States"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"CommunicationType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sms|email|push"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"MarketingNotificationType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sms|email|push"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"UserProfiles"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+      </span><span class="nt">"UserInfoId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a0d51fd9-8522-45c4-bd21-4ba76eab97ec"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"UserId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4cbc4ce9-53d6-48c0-86b5-50de737faacd"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9820eca5-d11f-4df1-9b20-983a45ea9631"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"UserName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"z@d.com"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"FirstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tyg"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"LastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"erd"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"PostalAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fggb"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"AlternateEmail"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"554"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Pin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"560076"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chhattisgarh"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IN"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"PhoneNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Street"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"MobileNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"915656565656"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"BirthDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1/1/1900"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Gender"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Occupation"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Industry"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"OtherArea"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"CountryName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"India"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"StateName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chhattisgarh"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"CityName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Other"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"AreaName"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"OtherCity"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"IsReceiveOffers"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Password"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ConfirmPassword"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Countries"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"States"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"CommunicationType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sms|email|push"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"MarketingNotificationType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sms|email|push"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"UserProfiles"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"UserId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4d32b17d-5f36-4849-8d83-e17f17597efa"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"ProfileAttributeId"</span><span class="p">:</span><span class="w"> </span><span class="mi">972</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"ProfileAttributeValueId"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"ProfileAttributeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ser"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"ProfileAttributeValue"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"UserId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4d32b17d-5f36-4849-8d83-e17f17597efa"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"ProfileAttributeId"</span><span class="p">:</span><span class="w"> </span><span class="mi">974</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"ProfileAttributeValueId"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"ProfileAttributeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"ProfileAttributeValue"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nt">"UserInfoId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3a412fe0-2b47-450b-8beb-16ec634df913"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"UserId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4d32b17d-5f36-4849-8d83-e17f17597efa"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9820eca5-d11f-4df1-9b20-983a45ea9631"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"UserName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test@martjack.com"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"FirstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"LastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"asv"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"PostalAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test&amp;amp;#10;&amp;amp;#10;&amp;amp;#10;&amp;amp;#10;"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"AlternateEmail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test@martjack.com"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"554"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Pin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"500033"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TG"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IN"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"PhoneNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Street"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"MobileNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"91-9422996500"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"BirthDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1/1/1900"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Gender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"M"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Occupation"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Industry"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"OtherArea"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"CountryName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"India"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"StateName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Telangana"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"CityName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Other"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"AreaName"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"OtherCity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hyderabad"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"IsReceiveOffers"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Password"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ConfirmPassword"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Countries"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"States"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"CommunicationType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sms|email|push"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"MarketingNotificationType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sms|email|push"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Retrieves the details of all registered customers of the merchant.</p>
+
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td><code class="prettyprint">Customer/{MerchantId}/All</code></td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+</tbody></table>
+
+<ul>
+<li><strong>Rate limiter</strong> controls the number of incoming and outgoing traffic of a network</li>
+<li><strong>Authentication</strong> verifies the identity of the current user or integration. See Introduction &gt; Authentication (Merchant Setup on Admin Portal) for more details</li>
+</ul>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">http://{host}/developerapi/Customer/{merchantId}/All</code></p>
+
 <h2 id="get-customer-count">Get Customer Count</h2>
 
 <p>Retrieves the number of registered customers of the merchant.</p>
@@ -2535,6 +2803,49 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
   </span><span class="nt">"messageCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1004"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td><code class="prettyprint">Customer/{MerchantId}/Count</code></td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+</tbody></table>
+
+<ul>
+<li><strong>Rate limiter</strong> controls the number of incoming and outgoing traffic of a network</li>
+<li><strong>Authentication</strong> verifies the identity of the current user or integration. See Introduction &gt; Authentication (Merchant Setup on Admin Portal) for more details</li>
+</ul>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">http://{host}/developerapi/Customer/{merchantId}/Count</code></p>
+
 <h3 id="resource-information">Resource Information</h3>
 
 <table><thead>
@@ -2853,6 +3164,16 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <td>int</td>
 <td>Unique id generated for the current update location task</td>
 </tr>
+</tbody></table>
+
+<h3 id="success-error-codes">Success/Error Codes</h3>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
 </tbody></table>
 
 <h2 id="update-product-information-normal">Update Product Information (normal)</h2>
@@ -4222,7 +4543,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>usergroupname</td>
 <td>string</td>
-<td></td>
+<td>Name of the user group</td>
 </tr>
 <tr>
 <td>tokenprice</td>
@@ -4552,7 +4873,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 </tr>
 <tr>
 <td>swatchimages</td>
-<td></td>
+<td>obj</td>
 <td>Represents the property values of the variant product - illustration of accurate representation of color, pattern or texture</td>
 </tr>
 <tr>
@@ -4597,7 +4918,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 </tr>
 <tr>
 <td>videos</td>
-<td></td>
+<td>obj</td>
 <td>Videos related to the product</td>
 </tr>
 <tr>
@@ -4617,7 +4938,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 </tr>
 <tr>
 <td>view360</td>
-<td></td>
+<td>obj</td>
 <td>3d images of the product</td>
 </tr>
 <tr>
@@ -4813,23 +5134,23 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 </tr>
 <tr>
 <td>MarkupPrice</td>
-<td></td>
+<td>double</td>
 <td></td>
 </tr>
 <tr>
 <td>MarkupType</td>
-<td></td>
+<td>string</td>
 <td></td>
 </tr>
 <tr>
 <td>IsShippingConfigured</td>
 <td>boolean</td>
-<td></td>
+<td>Whether the shipping cost is enabled for the item or not</td>
 </tr>
 <tr>
 <td>IsTaxConfigured</td>
 <td>boolean</td>
-<td></td>
+<td>Whether tax enabled for the item or not</td>
 </tr>
 <tr>
 <td>StartDate</td>
@@ -4853,13 +5174,13 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 </tr>
 <tr>
 <td>IsReferPrice</td>
-<td></td>
+<td>boolean</td>
 <td></td>
 </tr>
 <tr>
 <td>NoofReview</td>
-<td></td>
-<td></td>
+<td>string</td>
+<td>Number of reviews received for the product</td>
 </tr>
 <tr>
 <td>UOM</td>
@@ -4993,8 +5314,8 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 </tr>
 <tr>
 <td>NoofReview</td>
-<td>review</td>
-<td></td>
+<td>string</td>
+<td>Number of reviews received for the product</td>
 </tr>
 <tr>
 <td>UOM</td>
@@ -5033,13 +5354,8 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 </tr>
 <tr>
 <td>BulkQuantity</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>NoofReview</td>
-<td></td>
-<td></td>
+<td>int</td>
+<td>Total number of items (quantity) that can be ordered at a time. Value will <code class="prettyprint">0</code> if not applicable</td>
 </tr>
 <tr>
 <td>UOM</td>
@@ -5249,8 +5565,8 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 </thead><tbody>
 <tr>
 <td>ReferenceProductVariantId</td>
-<td></td>
-<td></td>
+<td>int</td>
+<td>Reference id of the product variant</td>
 </tr>
 <tr>
 <td>StartDate</td>
@@ -5264,7 +5580,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 </tr>
 <tr>
 <td>IsDropShipping</td>
-<td></td>
+<td>boolean</td>
 <td></td>
 </tr>
 <tr>
@@ -5279,7 +5595,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 </tr>
 <tr>
 <td>IsReferProductInfo</td>
-<td></td>
+<td>boolean</td>
 <td></td>
 </tr>
 <tr>
@@ -5289,17 +5605,17 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 </tr>
 <tr>
 <td>ReserveQuantity</td>
-<td></td>
-<td></td>
+<td>int</td>
+<td>Total quantity of items reserved for</td>
 </tr>
 <tr>
 <td>ReOrderStockLevel</td>
-<td></td>
-<td></td>
+<td>int</td>
+<td>Quantity of items to be reordered</td>
 </tr>
 <tr>
 <td>IsDisplaySwatch</td>
-<td></td>
+<td>boolean</td>
 <td></td>
 </tr>
 <tr>
@@ -5309,7 +5625,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 </tr>
 </tbody></table>
 
-<h2 id="get-product-by-tag">Get Product by Tag</h2>
+<h2 id="get-products-by-tag">Get Products by Tag</h2>
 
 <blockquote>
 <p>Sample Request</p>
@@ -5464,8 +5780,8 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 </tr>
 <tr>
 <td>TokenPriceCheckout</td>
-<td></td>
-<td></td>
+<td>float</td>
+<td>Minimum amount required for the customer to reserve the item during checkout and purchase later on</td>
 </tr>
 <tr>
 <td>IsReferPrice</td>
@@ -5571,6 +5887,8 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 </tr>
 </tbody></table>
 
+<aside class="notice"> All parameters marked by * are mandatory </aside>
+
 <h3 id="request-body-parameters">Request Body Parameters</h3>
 
 <table><thead>
@@ -5598,6 +5916,143 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 </tbody></table>
 
 <aside class="notice"> All parameters marked by * are mandatory.</aside>
+
+<h2 id="search-products">Search Products</h2>
+
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
+<pre class="highlight html"><code>https://www.martjack.com/developerapi/81e77da2-723b-483d-8c0d-49f800c1exxx/Search
+</code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ProductIds"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"11360864"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"11360866"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"11360868"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"11360870"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"11360872"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"11360896"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"11360898"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"11360900"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"11360902"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"11360904"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"11360906"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"11360908"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"11148708"</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"messageCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1004"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<p>Retrieves product ids based on the input parameters</p>
+
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td><code class="prettyprint">Product/{MerchantId}/Search</code></td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>POST</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>No</td>
+</tr>
+</tbody></table>
+
+<ul>
+<li><strong>Rate limiter</strong> controls the number of incoming and outgoing traffic of a network</li>
+<li><strong>Authentication</strong> verifies the identity of the current user or integration. See Introduction &gt; Authentication (Merchant Setup on Admin Portal) for more details</li>
+</ul>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">https://{host}/developerapi/Product/{MerchantId}/Search</code></p>
+
+<h3 id="request-body-parameters">Request Body Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>MerchantId*</td>
+<td>string</td>
+<td>Specify the merchant id for which the review has to be associated</td>
+</tr>
+<tr>
+<td>keyword</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>SKU</td>
+<td>string</td>
+<td>Search product by SKU</td>
+</tr>
+<tr>
+<td>catalogcode</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>category</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>brand</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>productTag</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>pageNumber</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>pageSize</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>attributes</td>
+<td>array</td>
+<td></td>
+</tr>
+</tbody></table>
 
           <h1 id="carts">Carts</h1>
 
