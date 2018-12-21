@@ -1092,6 +1092,156 @@ The customer has to be logged in to his account to perform to perform any task t
 </tr>
 </tbody></table>
 
+<h2 id="start-customer-session">Start Customer Session</h2>
+
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
+<pre class="highlight html"><code>
+</code></pre>
+<blockquote>
+<p>Sample POST Request</p>
+</blockquote>
+<pre class="highlight json"><code><span class="err">MerchantId=</span><span class="mi">6</span><span class="err">c</span><span class="mi">57599</span><span class="err">f</span><span class="mi">-2</span><span class="err">c</span><span class="mi">43-4</span><span class="err">c</span><span class="mi">82-806</span><span class="err">a-e</span><span class="mi">07</span><span class="err">c</span><span class="mi">3410</span><span class="err">f</span><span class="mi">5</span><span class="err">d</span><span class="mi">3</span><span class="err">&amp;InputFormat=application/json&amp;InputData=</span><span class="p">{</span><span class="w">  
+   </span><span class="nt">"username"</span><span class="p">:</span><span class="s2">"tom.sawyer@example.com"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"operatorid"</span><span class="p">:</span><span class="s2">"00abbff7-50be-487e-a5f3-319eef982f2b"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"password"</span><span class="p">:</span><span class="s2">"ABG-704@cp"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"locationid"</span><span class="p">:</span><span class="s2">"17444"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">  
+   </span><span class="nt">"messageCode"</span><span class="p">:</span><span class="s2">"1004"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"Message"</span><span class="p">:</span><span class="s2">"Logged In successfully"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"Token"</span><span class="p">:{</span><span class="w">  
+      </span><span class="nt">"AccessToken"</span><span class="p">:</span><span class="s2">"i1z1ouqyb3roglpei1vmpowe"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"issued_at"</span><span class="p">:</span><span class="s2">"/Date(1533029929318+0530)/"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"UserId"</span><span class="p">:</span><span class="s2">"132d3c1d-7d71-4b87-9a69-a4d216d63xxx"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"MerchantId"</span><span class="p">:</span><span class="s2">"6c57599f-2c43-4c82-806a-e07c3410f5d3"</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="mi">0</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td><code class="prettyprint">/Customer/{{MerchantId}}/StartCustomerSession</code></td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>POST (No POST body is required)</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+</tbody></table>
+
+<ul>
+<li><strong>Rate limiter</strong> controls the number of incoming and outgoing traffic of a network</li>
+<li><strong>Authentication</strong> verifies the identity of the current user or integration. See Introduction &gt; Authentication (Merchant Setup on Admin Portal) for more details</li>
+</ul>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">https://{host}/developerapi/Customer/{merchantId}/StartCustomerSession</code></p>
+
+<h3 id="additional-header-required">Additional Header Required</h3>
+
+<table><thead>
+<tr>
+<th>Header</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>accesstoken*</td>
+<td>Access token of the logged in user that you want to logout</td>
+</tr>
+</tbody></table>
+
+<h3 id="request-parameters">Request Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>merchantId*</td>
+<td>string</td>
+<td>The unique id (GUID) of the merchant from which you want to logout user</td>
+</tr>
+<tr>
+<td>username</td>
+<td>string</td>
+<td>Registered username of the customer</td>
+</tr>
+<tr>
+<td>operatorid</td>
+<td>string</td>
+<td>Unique GUID of the back-end operator. The generated access token will be associated to both the user and operator</td>
+</tr>
+<tr>
+<td>password</td>
+<td>string</td>
+<td>Password of the operator account</td>
+</tr>
+<tr>
+<td>locationid</td>
+<td>int</td>
+<td>Location id associated to the user</td>
+</tr>
+</tbody></table>
+
+<aside class=notice>All parameters and headers marked by * are mandatory.</aside>
+
+<h3 id="response-parameters">Response Parameters</h3>
+
+<p>Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>AccessToken</td>
+<td>string</td>
+<td>An object or string that identifies the current user. Access token is required for making customer related API calls such as validate token, update customer details, update profile attributes, and so on</td>
+</tr>
+<tr>
+<td>issued_at</td>
+<td>date-time</td>
+<td>The date and time when the access token was generated for the user</td>
+</tr>
+</tbody></table>
+
 <h2 id="customer-logout">Customer Logout</h2>
 
 <blockquote>
@@ -2919,86 +3069,6 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 </tr>
 </tbody></table>
 
-<h2 id="get-product-recommendations">Get Product Recommendations</h2>
-
-<blockquote>
-<p>Sample Request</p>
-</blockquote>
-<pre class="highlight html"><code>https://www.martjack.com/DeveloperAPI/Customer/TargetBlocks/81e77da2-723b-483d-8c0d-49f800c1exxx
-</code></pre>
-<blockquote>
-<p>Sample Response</p>
-</blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-    </span><span class="nt">"ProductIds"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="mi">13067043</span><span class="p">,</span><span class="w">
-        </span><span class="mi">13067125</span><span class="p">,</span><span class="w">
-        </span><span class="mi">13067247</span><span class="w">
-    </span><span class="p">],</span><span class="w">
-    </span><span class="nt">"messageCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1004"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>Retrieves product recommendations based on the cart items.</p>
-
-<h3 id="resource-information">Resource Information</h3>
-
-<table><thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead><tbody>
-<tr>
-<td>URI</td>
-<td><code class="prettyprint">Customer/TargetBlocks/{merchantId}</code></td>
-</tr>
-<tr>
-<td>Response Formats</td>
-<td>JSON</td>
-</tr>
-<tr>
-<td>HTTP Methods</td>
-<td>GET</td>
-</tr>
-<tr>
-<td>Batch Support</td>
-<td>No</td>
-</tr>
-<tr>
-<td>Rate Limited?</td>
-<td>No</td>
-</tr>
-<tr>
-<td>Authentication</td>
-<td>Yes</td>
-</tr>
-</tbody></table>
-
-<ul>
-<li><strong>Rate limiter</strong> controls the number of incoming and outgoing traffic of a network</li>
-<li><strong>Authentication</strong> verifies the identity of the current user or integration. See Introduction &gt; Authentication (Merchant Setup on Admin Portal) for more details</li>
-</ul>
-
-<h3 id="request-url">Request URL</h3>
-
-<p><code class="prettyprint">http://{host}/developerapi/Customer/TargetBlocks/{merchantId}</code></p>
-
-<h3 id="additional-header-required">Additional Header Required</h3>
-
-<table><thead>
-<tr>
-<th>Header</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>AccessToken*</td>
-<td>Access token of the current session (you can generate using GET AccessToken API)</td>
-</tr>
-</tbody></table>
-
           <h1 id="product">Product</h1>
 
 <p>A product is an item that a merchant sells on the Anywhere Commerce platform. This resource consists of APIs related managing product inventory of a merchant such as variable and bundle items, product categories, location, and promotions; and also to fetch product details.</p>
@@ -3174,6 +3244,234 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <th>Description</th>
 </tr>
 </thead><tbody>
+<tr>
+<td>429</td>
+<td>Rate limit exceeded</td>
+</tr>
+<tr>
+<td>440</td>
+<td>Session expired</td>
+</tr>
+<tr>
+<td>500</td>
+<td>Server error</td>
+</tr>
+<tr>
+<td>1000</td>
+<td>Exception message</td>
+</tr>
+<tr>
+<td>1001</td>
+<td>Order canceled already</td>
+</tr>
+<tr>
+<td>1002</td>
+<td>Order canceled successfully</td>
+</tr>
+<tr>
+<td>1003</td>
+<td>Authentication failed</td>
+</tr>
+<tr>
+<td>1004</td>
+<td>Success</td>
+</tr>
+<tr>
+<td>1005</td>
+<td>Order authorized</td>
+</tr>
+<tr>
+<td>1006</td>
+<td>Order id is not available</td>
+</tr>
+<tr>
+<td>1007</td>
+<td>Updated successfully</td>
+</tr>
+<tr>
+<td>1008</td>
+<td>Update failed</td>
+</tr>
+<tr>
+<td>1009</td>
+<td>No data</td>
+</tr>
+<tr>
+<td>1011</td>
+<td>Not ready for shipping</td>
+</tr>
+<tr>
+<td>1012</td>
+<td>Enter user</td>
+</tr>
+<tr>
+<td>1013</td>
+<td>Enter voucher</td>
+</tr>
+<tr>
+<td>1014</td>
+<td>Duplicate voucher</td>
+</tr>
+<tr>
+<td>1015</td>
+<td>Invalid campaign</td>
+</tr>
+<tr>
+<td>1016</td>
+<td>Invalid data</td>
+</tr>
+<tr>
+<td>1017</td>
+<td>Invalid user</td>
+</tr>
+<tr>
+<td>1028</td>
+<td>Invalid page number</td>
+</tr>
+<tr>
+<td>1018</td>
+<td>Msmq status</td>
+</tr>
+<tr>
+<td>1019</td>
+<td>msmq delete status</td>
+</tr>
+<tr>
+<td>1020</td>
+<td>No common shipping</td>
+</tr>
+<tr>
+<td>1021</td>
+<td>Warning</td>
+</tr>
+<tr>
+<td>1022</td>
+<td>Products not available</td>
+</tr>
+<tr>
+<td>1023</td>
+<td>Invalid city</td>
+</tr>
+<tr>
+<td>1024</td>
+<td>Invalid location PIN</td>
+</tr>
+<tr>
+<td>1025</td>
+<td>No service</td>
+</tr>
+<tr>
+<td>1027</td>
+<td>Failed</td>
+</tr>
+<tr>
+<td>1030</td>
+<td>Authorization failed</td>
+</tr>
+<tr>
+<td>1031</td>
+<td>Not approved</td>
+</tr>
+<tr>
+<td>1032</td>
+<td>Locked out</td>
+</tr>
+<tr>
+<td>1033</td>
+<td>Invalid API input</td>
+</tr>
+<tr>
+<td>1034</td>
+<td>Product exist</td>
+</tr>
+<tr>
+<td>1035</td>
+<td>Shipment created already</td>
+</tr>
+<tr>
+<td>1036</td>
+<td>No default return shelf found</td>
+</tr>
+<tr>
+<td>1037</td>
+<td>Locked</td>
+</tr>
+<tr>
+<td>1038</td>
+<td>Invalid OTP</td>
+</tr>
+<tr>
+<td>1039</td>
+<td>Reset password</td>
+</tr>
+<tr>
+<td>1040</td>
+<td>Invalid password</td>
+</tr>
+<tr>
+<td>1041</td>
+<td>User does not exist</td>
+</tr>
+<tr>
+<td>1042</td>
+<td>Not activated</td>
+</tr>
+<tr>
+<td>1043</td>
+<td>Order is already authorized</td>
+</tr>
+<tr>
+<td>1044</td>
+<td>Invalid delivery slot</td>
+</tr>
+<tr>
+<td>1045</td>
+<td>Invalid merchant id</td>
+</tr>
+<tr>
+<td>1046</td>
+<td>Invalid location id</td>
+</tr>
+<tr>
+<td>5001</td>
+<td>Invalid user information</td>
+</tr>
+<tr>
+<td>6220</td>
+<td>Invalid ETA start/end time</td>
+</tr>
+<tr>
+<td>6221</td>
+<td>Invalid ETA range</td>
+</tr>
+<tr>
+<td>6222</td>
+<td>Invalid ETA units</td>
+</tr>
+<tr>
+<td>6223</td>
+<td>Invalid end range</td>
+</tr>
+<tr>
+<td>6224</td>
+<td>End range is greater than start range</td>
+</tr>
+<tr>
+<td>6225</td>
+<td>Invalid ETA details</td>
+</tr>
+<tr>
+<td>6226</td>
+<td>No location code passed</td>
+</tr>
+<tr>
+<td>6227</td>
+<td>Invalid location</td>
+</tr>
+<tr>
+<td>6228</td>
+<td>Invalid ETA for</td>
+</tr>
 </tbody></table>
 
 <h2 id="update-product-information-normal">Update Product Information (normal)</h2>
@@ -4543,7 +4841,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>usergroupname</td>
 <td>string</td>
-<td>Name of the user group</td>
+<td>Name of the user group. It can be related to promotions, subscription events, etc.</td>
 </tr>
 <tr>
 <td>tokenprice</td>
@@ -4658,6 +4956,8 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <aside class="notice"> All parameters marked by * are mandatory.</aside>
 
 <h2 id="attach-product-images">Attach Product Images</h2>
+
+<p>Associates images to a parent product, variant product and variant properties &amp; values.</p>
 
 <blockquote>
 <p>Sample Request</p>
@@ -5449,7 +5749,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
             </span><span class="nt">"IsReferProductInfo"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
             </span><span class="nt">"IsReferPrice"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
             </span><span class="nt">"TokenPrice"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"Flag"</span><span class="p">:</span><span class="s2">""""""""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Flag"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
             </span><span class="nt">"ReserveQuantity"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
             </span><span class="nt">"ReOrderStockLevel"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
             </span><span class="nt">"StockAlertQuantity"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
@@ -5616,7 +5916,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>IsDisplaySwatch</td>
 <td>boolean</td>
-<td></td>
+<td>Whether the illustration of accurate representation of color, pattern or texture of the product is shown on the storefront</td>
 </tr>
 <tr>
 <td>flag</td>
@@ -5925,6 +6225,11 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <pre class="highlight html"><code>https://www.martjack.com/developerapi/81e77da2-723b-483d-8c0d-49f800c1exxx/Search
 </code></pre>
 <blockquote>
+<p>Sample POST Request</p>
+</blockquote>
+<pre class="highlight json"><code><span class="w">
+</span></code></pre>
+<blockquote>
 <p>Sample Response</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
@@ -6005,7 +6310,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>MerchantId*</td>
 <td>string</td>
-<td>Specify the merchant id for which the review has to be associated</td>
+<td>Unique GUID of the merchant</td>
 </tr>
 <tr>
 <td>keyword</td>
@@ -6020,22 +6325,22 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>catalogcode</td>
 <td>string</td>
-<td></td>
+<td>Fetch products of a specific catalog code</td>
 </tr>
 <tr>
 <td>category</td>
 <td>string</td>
-<td></td>
+<td>Search by category</td>
 </tr>
 <tr>
 <td>brand</td>
 <td>string</td>
-<td></td>
+<td>Search product ids by brand</td>
 </tr>
 <tr>
 <td>productTag</td>
 <td>string</td>
-<td></td>
+<td>Search product ids by associated product tags</td>
 </tr>
 <tr>
 <td>pageNumber</td>
@@ -6194,6 +6499,40 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 </tr>
 </tbody></table>
 
+<h2 id="success-error-codes">Success/Error Codes</h2>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1004</td>
+<td>Successful</td>
+</tr>
+<tr>
+<td>1016</td>
+<td>Invalid Input</td>
+</tr>
+<tr>
+<td>1009</td>
+<td>No Record Found</td>
+</tr>
+<tr>
+<td>1003</td>
+<td>Authentication Failed</td>
+</tr>
+<tr>
+<td>1030</td>
+<td>Service is not Authorized</td>
+</tr>
+<tr>
+<td>1000</td>
+<td>Unhandled Exception</td>
+</tr>
+</tbody></table>
+
 <h2 id="validate-otp">Validate OTP</h2>
 
 <blockquote>
@@ -6275,6 +6614,40 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>mobile*</td>
 <td>The registered mobile number to which the OTP has to be sent</td>
+</tr>
+</tbody></table>
+
+<h3 id="success-error-codes">Success/Error Codes</h3>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1004</td>
+<td>Successful</td>
+</tr>
+<tr>
+<td>1016</td>
+<td>Invalid Input</td>
+</tr>
+<tr>
+<td>1009</td>
+<td>No Record Found</td>
+</tr>
+<tr>
+<td>1003</td>
+<td>Authentication Failed</td>
+</tr>
+<tr>
+<td>1030</td>
+<td>Service is not Authorized</td>
+</tr>
+<tr>
+<td>1000</td>
+<td>Unhandled Exception</td>
 </tr>
 </tbody></table>
 
@@ -6638,7 +7011,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>Por</td>
 <td>enum</td>
-<td>The portion of the product applied for which the topping is applied. Value: W for whole, R for right, L for left (left, right usually applies for toppings)</td>
+<td>The portion of the product for which the topping is applied. Value: W for whole, R for right, L for left (left, right usually applies for toppings)</td>
 </tr>
 <tr>
 <td>CartPromotionRules</td>
@@ -6684,6 +7057,68 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <td>CappedRefKey</td>
 <td></td>
 <td></td>
+</tr>
+</tbody></table>
+
+<h3 id="response-codes">Response Codes</h3>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1000</td>
+<td>Unhandled Exception</td>
+</tr>
+<tr>
+<td>1003</td>
+<td>Authentication Failed</td>
+</tr>
+<tr>
+<td>1004</td>
+<td>Successful</td>
+</tr>
+<tr>
+<td>1009</td>
+<td>No Record Found</td>
+</tr>
+<tr>
+<td>1016</td>
+<td>Invalid Input</td>
+</tr>
+<tr>
+<td>1030</td>
+<td>Service is not Authorized</td>
+</tr>
+<tr>
+<td>5001</td>
+<td>No Bundle items present for the specified product id</td>
+</tr>
+<tr>
+<td>5002</td>
+<td>Invalid Delivery Mode: {DeliveryMode} for Product as IsShip/IsOnline/Instore Pickup is not set</td>
+</tr>
+<tr>
+<td>5003</td>
+<td>Invalid Delivery Mode: {DeliveryMode} for Location Id: {LocationId}</td>
+</tr>
+<tr>
+<td>5004</td>
+<td>ProductId is not available at the specified locationId</td>
+</tr>
+<tr>
+<td>5005</td>
+<td>Product with the specified ProductId is not available</td>
+</tr>
+<tr>
+<td>5006</td>
+<td>Product with the specified ProductId has type &lsquo;A&rsquo; which is not allowed. You cannot add an add-on product directly</td>
+</tr>
+<tr>
+<td>5007</td>
+<td>Invalid variant ProductId</td>
 </tr>
 </tbody></table>
 
@@ -6931,7 +7366,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>Por</td>
 <td>enum</td>
-<td>The portion of the product applied for which the topping is applied. Value: W for whole, R for right, L for left (left, right usually applies for toppings)</td>
+<td>The portion of the product for which the topping is applied. Value: W for whole, R for right, L for left (left, right usually applies for toppings)</td>
 </tr>
 <tr>
 <td>CartPromotionRules</td>
@@ -6977,6 +7412,68 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <td>CappedRefKey</td>
 <td></td>
 <td></td>
+</tr>
+</tbody></table>
+
+<h3 id="response-codes">Response Codes</h3>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1000</td>
+<td>Unhandled Exception</td>
+</tr>
+<tr>
+<td>1003</td>
+<td>Authentication Failed</td>
+</tr>
+<tr>
+<td>1004</td>
+<td>Successful</td>
+</tr>
+<tr>
+<td>1009</td>
+<td>No Record Found</td>
+</tr>
+<tr>
+<td>1016</td>
+<td>Invalid Input</td>
+</tr>
+<tr>
+<td>1030</td>
+<td>Service is not Authorized</td>
+</tr>
+<tr>
+<td>5001</td>
+<td>No Bundle items present for the specified product id</td>
+</tr>
+<tr>
+<td>5002</td>
+<td>Invalid Delivery Mode: {DeliveryMode} for Product as IsShip/IsOnline/Instore Pickup is not set</td>
+</tr>
+<tr>
+<td>5003</td>
+<td>Invalid Delivery Mode: {DeliveryMode} for Location Id: {LocationId}</td>
+</tr>
+<tr>
+<td>5004</td>
+<td>ProductId is not available at the specified locationId</td>
+</tr>
+<tr>
+<td>5005</td>
+<td>Product with the specified ProductId is not available</td>
+</tr>
+<tr>
+<td>5006</td>
+<td>Product with the specified ProductId has type &#39;A&rsquo; which is not allowed. You cannot add an add-on product directly</td>
+</tr>
+<tr>
+<td>5007</td>
+<td>Invalid variant ProductId</td>
 </tr>
 </tbody></table>
 
@@ -8171,7 +8668,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>Por</td>
 <td>enum</td>
-<td>The portion of the product applied for which the topping is applied. Value: W for whole, R for right, L for left (left, right usually applies for toppings)</td>
+<td>The portion of the product for which the topping is applied. Value: W for whole, R for right, L for left (left, right usually applies for toppings)</td>
 </tr>
 <tr>
 <td>CartPromotionRules</td>
@@ -8217,6 +8714,68 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <td>CappedRefKey</td>
 <td></td>
 <td></td>
+</tr>
+</tbody></table>
+
+<h3 id="response-codes">Response Codes</h3>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1000</td>
+<td>Unhandled Exception</td>
+</tr>
+<tr>
+<td>1003</td>
+<td>Authentication Failed</td>
+</tr>
+<tr>
+<td>1004</td>
+<td>Successful</td>
+</tr>
+<tr>
+<td>1009</td>
+<td>No Record Found</td>
+</tr>
+<tr>
+<td>1016</td>
+<td>Invalid Input</td>
+</tr>
+<tr>
+<td>1030</td>
+<td>Service is not Authorized</td>
+</tr>
+<tr>
+<td>5001</td>
+<td>No Bundle items present for the specified product id</td>
+</tr>
+<tr>
+<td>5002</td>
+<td>Invalid Delivery Mode: {DeliveryMode} for Product as IsShip/IsOnline/Instore Pickup is not set</td>
+</tr>
+<tr>
+<td>5003</td>
+<td>Invalid Delivery Mode: {DeliveryMode} for Location Id: {LocationId}</td>
+</tr>
+<tr>
+<td>5004</td>
+<td>ProductId is not available at the specified locationId</td>
+</tr>
+<tr>
+<td>5005</td>
+<td>Product with the specified ProductId is not available</td>
+</tr>
+<tr>
+<td>5006</td>
+<td>Product with the specified ProductId has type &#39;A&rsquo; which is not allowed. You cannot add an add-on product directly</td>
+</tr>
+<tr>
+<td>5007</td>
+<td>Invalid variant ProductId</td>
 </tr>
 </tbody></table>
 
@@ -9007,7 +9566,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>Por</td>
 <td>enum</td>
-<td>The portion of the product applied for which the topping is applied. Value: W for whole, R for right, L for left (left, right usually applies for toppings)</td>
+<td>The portion of the product for which the topping is applied. Value: W for whole, R for right, L for left (left, right usually applies for toppings)</td>
 </tr>
 <tr>
 <td>CartPromotionRules</td>
@@ -9053,6 +9612,68 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <td>CappedRefKey</td>
 <td></td>
 <td></td>
+</tr>
+</tbody></table>
+
+<h3 id="response-codes">Response Codes</h3>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1000</td>
+<td>Unhandled Exception</td>
+</tr>
+<tr>
+<td>1003</td>
+<td>Authentication Failed</td>
+</tr>
+<tr>
+<td>1004</td>
+<td>Successful</td>
+</tr>
+<tr>
+<td>1009</td>
+<td>No Record Found</td>
+</tr>
+<tr>
+<td>1016</td>
+<td>Invalid Input</td>
+</tr>
+<tr>
+<td>1030</td>
+<td>Service is not Authorized</td>
+</tr>
+<tr>
+<td>5001</td>
+<td>No Bundle items present for the specified product id</td>
+</tr>
+<tr>
+<td>5002</td>
+<td>Invalid Delivery Mode: {DeliveryMode} for Product as IsShip/IsOnline/Instore Pickup is not set</td>
+</tr>
+<tr>
+<td>5003</td>
+<td>Invalid Delivery Mode: {DeliveryMode} for Location Id: {LocationId}</td>
+</tr>
+<tr>
+<td>5004</td>
+<td>ProductId is not available at the specified locationId</td>
+</tr>
+<tr>
+<td>5005</td>
+<td>Product with the specified ProductId is not available</td>
+</tr>
+<tr>
+<td>5006</td>
+<td>Product with the specified ProductId has type &#39;A&rsquo; which is not allowed. You cannot add an add-on product directly</td>
+</tr>
+<tr>
+<td>5007</td>
+<td>Invalid variant ProductId</td>
 </tr>
 </tbody></table>
 
@@ -9332,12 +9953,46 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>SupplierId</td>
 <td></td>
-<td></td>
+<td>Unique GUID of the merchant (product supplier)</td>
 </tr>
 <tr>
 <td>IsFreeProduct</td>
 <td>boolean</td>
 <td>Whether the product is a gift item or deal item available for free</td>
+</tr>
+</tbody></table>
+
+<h3 id="success-error-codes">Success/Error Codes</h3>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1000</td>
+<td>Unhandled Exception</td>
+</tr>
+<tr>
+<td>1003</td>
+<td>Authentication Failed</td>
+</tr>
+<tr>
+<td>1004</td>
+<td>Successful</td>
+</tr>
+<tr>
+<td>1009</td>
+<td>No Record Found</td>
+</tr>
+<tr>
+<td>1016</td>
+<td>Invalid Input</td>
+</tr>
+<tr>
+<td>1030</td>
+<td>Service is not Authorized</td>
 </tr>
 </tbody></table>
 
@@ -9430,17 +10085,38 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <aside class="notice"> All parameters marked by * are mandatory. </aside>
 
-<h3 id="response-parameters">Response Parameters</h3>
-
-<p>Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.</p>
+<h3 id="success-error-codes">Success/Error Codes</h3>
 
 <table><thead>
 <tr>
-<th>Parameter</th>
-<th>Type</th>
+<th>Code</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
+<tr>
+<td>1000</td>
+<td>Unhandled Exception</td>
+</tr>
+<tr>
+<td>1003</td>
+<td>Authentication Failed</td>
+</tr>
+<tr>
+<td>1004</td>
+<td>Successful</td>
+</tr>
+<tr>
+<td>1009</td>
+<td>No Record Found</td>
+</tr>
+<tr>
+<td>1016</td>
+<td>Invalid Input</td>
+</tr>
+<tr>
+<td>1030</td>
+<td>Service is not Authorized</td>
+</tr>
 </tbody></table>
 
 <h2 id="update-cart-properties">Update Cart Properties</h2>
@@ -9510,7 +10186,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
                </span><span class="nt">"EntityFieldValueID"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
                </span><span class="nt">"MerchantID"</span><span class="p">:</span><span class="s2">"81e77da2-723b-483d-8c0d-49f800c1e288"</span><span class="p">,</span><span class="w">
                </span><span class="nt">"EntityFieldID"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
-               </span><span class="nt">"Value"</span><span class="p">:</span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"Value"</span><span class="p">:</span><span class="s2">"test"</span><span class="p">,</span><span class="w">
                </span><span class="nt">"IsSelected"</span><span class="p">:</span><span class="kc">true</span><span class="w">
             </span><span class="p">}</span><span class="w">
          </span><span class="p">]</span><span class="w">
@@ -9543,7 +10219,227 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <blockquote>
 <p>Sample Response</p>
 </blockquote>
-<pre class="highlight json"><code><span class="w">
+<pre class="highlight json"><code><span class="p">{</span><span class="w">  
+   </span><span class="nt">"messageCode"</span><span class="p">:</span><span class="s2">"1004"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"Message"</span><span class="p">:</span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"Carts"</span><span class="p">:{</span><span class="w">  
+      </span><span class="nt">"MerchantId"</span><span class="p">:</span><span class="s2">"81e77da2-723b-483d-8c0d-49f800c1xxxx"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ProductCost"</span><span class="p">:</span><span class="mf">60.528000000000006</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ShippingCost"</span><span class="p">:</span><span class="mf">12.9</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"VoucherDiscount"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"PromotionDiscount"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"TaxAmount"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"OrderTotal"</span><span class="p">:</span><span class="mf">73.428</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"VoucherCode"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"UserSelectedCurrency"</span><span class="p">:</span><span class="s2">"INR"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Bill_FirstName"</span><span class="p">:</span><span class="s2">"Tom"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Bill_LastName"</span><span class="p">:</span><span class="s2">"Sawyer"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Bill_Address1"</span><span class="p">:</span><span class="s2">"#103, MG Road"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Bill_Address2"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Bill_CountryCode"</span><span class="p">:</span><span class="s2">"IN"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"_Bill_StateCode"</span><span class="p">:</span><span class="s2">"KA"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Bill_City"</span><span class="p">:</span><span class="s2">"Bangalore"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Bill_CityCode"</span><span class="p">:</span><span class="s2">"2148"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Bill_OtherCityName"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Bill_Telephone"</span><span class="p">:</span><span class="s2">"9967000000"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Bill_Mobile"</span><span class="p">:</span><span class="s2">"9967000000"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Bill_PostCode"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Bill_Email"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Ship_FirstName"</span><span class="p">:</span><span class="s2">"Tom"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Ship_LastName"</span><span class="p">:</span><span class="s2">"Sawyer"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Ship_Address1"</span><span class="p">:</span><span class="s2">"AutoTestAddres1Bill"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Ship_Address2"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Ship_CountryCode"</span><span class="p">:</span><span class="s2">"IN"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Ship_StateCode"</span><span class="p">:</span><span class="s2">"KA"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Ship_City"</span><span class="p">:</span><span class="s2">"2148"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Ship_CityCode"</span><span class="p">:</span><span class="s2">"2148"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Ship_OtherCityName"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Ship_Telephone"</span><span class="p">:</span><span class="s2">"9967000000"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Ship_Mobile"</span><span class="p">:</span><span class="s2">"9967000000"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Ship_PostCode"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Ship_Email"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"CartItems"</span><span class="p">:[</span><span class="w">  
+         </span><span class="p">{</span><span class="w">  
+            </span><span class="nt">"ProductId"</span><span class="p">:</span><span class="mi">12688208</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"VariantProductId"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"MRP"</span><span class="p">:</span><span class="mf">4.5</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"WebPrice"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Quantity"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"description"</span><span class="p">:</span><span class="s2">"Seafood Supreme"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"SupplierId"</span><span class="p">:</span><span class="s2">"81e77da2-723b-483d-8c0d-49f800c1e288"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"CartReferenceKey"</span><span class="p">:</span><span class="s2">"18e18f60-a1a9-44f0-b256-536e2fe0a3a7"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"IsFreeProduct"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"PriceCapped"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"TotalCap"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"CappedRefKey"</span><span class="p">:</span><span class="s2">"00000000-0000-0000-0000-000000000000"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"CatalogpromotionDiscount"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"BundleCartReferenceKey"</span><span class="p">:</span><span class="s2">"00000000-0000-0000-0000-000000000000"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"BundleCartItems"</span><span class="p">:[</span><span class="w">  
+               </span><span class="p">{</span><span class="w">  
+                  </span><span class="nt">"ProductId"</span><span class="p">:</span><span class="mi">12688172</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"VariantProductId"</span><span class="p">:</span><span class="mi">9727843</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"MRP"</span><span class="p">:</span><span class="mf">5.9</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"WebPrice"</span><span class="p">:</span><span class="mf">4.5</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"Quantity"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"description"</span><span class="p">:</span><span class="s2">"Seafood Supreme Crust"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"SupplierId"</span><span class="p">:</span><span class="s2">"81e77da2-723b-483d-8c0d-49f800c1e288"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"CartReferenceKey"</span><span class="p">:</span><span class="s2">"752b5193-af86-43ea-86e4-b9e5ccb8a941"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"TotalCap"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"CatalogpromotionDiscount"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"BundleCartReferenceKey"</span><span class="p">:</span><span class="s2">"18e18f60-a1a9-44f0-b256-536e2fe0a3a7"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"ItemPromotionDiscountAmount"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"IsPrimaryProduct"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"IsPromotionProduct"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"VariantsInfo"</span><span class="p">:[</span><span class="w">  
+                     </span><span class="p">{</span><span class="w">  
+                        </span><span class="nt">"PropertyName"</span><span class="p">:</span><span class="s2">"Crust"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"Value"</span><span class="p">:</span><span class="s2">"Pan"</span><span class="w">
+                     </span><span class="p">},</span><span class="w">
+                     </span><span class="p">{</span><span class="w">  
+                        </span><span class="nt">"PropertyName"</span><span class="p">:</span><span class="s2">"Size"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"Value"</span><span class="p">:</span><span class="s2">"Medium"</span><span class="w">
+                     </span><span class="p">}</span><span class="w">
+                  </span><span class="p">],</span><span class="w">
+                  </span><span class="nt">"Por"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"IsDefaultBundleItem"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"CartPromotionRules"</span><span class="p">:[</span><span class="w">  
+
+                  </span><span class="p">],</span><span class="w">
+                  </span><span class="nt">"CategoryId"</span><span class="p">:</span><span class="s2">"CN00215782"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"CategoryName"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"BrandId"</span><span class="p">:</span><span class="s2">"311548"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"BrandName"</span><span class="p">:</span><span class="s2">"PizzaHut"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"GroupId"</span><span class="p">:</span><span class="mi">0</span><span class="w">
+               </span><span class="p">}</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="nt">"IsPrimaryProduct"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ItemPromotionDiscountAmount"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"IsPromotionProduct"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Por"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"IsDefaultBundleItem"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ProductImage"</span><span class="p">:</span><span class="s2">"//images-cdn-test.azureedge.net/azure/test-resources/81e77da2-723b-483d-8c0d-49f800c1e288/Images/ProductImages/Source/Opt-SEAFOOD_ISLAND_showcase.png;width=100;height=100;scale=canvas;anchor=bottomcenter"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"CartPromotionRules"</span><span class="p">:[</span><span class="w">  
+
+            </span><span class="p">],</span><span class="w">
+            </span><span class="nt">"CategoryId"</span><span class="p">:</span><span class="s2">"CN00215794"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"CategoryName"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"BrandId"</span><span class="p">:</span><span class="s2">"311548"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"BrandName"</span><span class="p">:</span><span class="s2">"PizzaHut"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ParentCartItems"</span><span class="p">:</span><span class="kc">null</span><span class="w">
+         </span><span class="p">},</span><span class="w">
+         </span><span class="p">{</span><span class="w">  
+            </span><span class="nt">"ProductId"</span><span class="p">:</span><span class="mi">12688220</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"VariantProductId"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"MRP"</span><span class="p">:</span><span class="mf">90.567</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"WebPrice"</span><span class="p">:</span><span class="mf">50.328</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Quantity"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"description"</span><span class="p">:</span><span class="s2">"Classic Pepperoni"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"SupplierId"</span><span class="p">:</span><span class="s2">"81e77da2-723b-483d-8c0d-49f800c1e288"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"CartReferenceKey"</span><span class="p">:</span><span class="s2">"ff462a81-699f-4798-9b73-4f9d9753xxxx"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"IsFreeProduct"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"PriceCapped"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"TotalCap"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"CappedRefKey"</span><span class="p">:</span><span class="s2">"00000000-0000-0000-0000-000000000000"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"CatalogpromotionDiscount"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"BundleCartReferenceKey"</span><span class="p">:</span><span class="s2">"00000000-0000-0000-0000-000000000000"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"BundleCartItems"</span><span class="p">:[</span><span class="w">  
+               </span><span class="p">{</span><span class="w">  
+                  </span><span class="nt">"ProductId"</span><span class="p">:</span><span class="mi">12688160</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"VariantProductId"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"MRP"</span><span class="p">:</span><span class="mf">5.7</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"WebPrice"</span><span class="p">:</span><span class="mf">5.7</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"Quantity"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"description"</span><span class="p">:</span><span class="s2">"Classic Pepperoni Crust"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"SupplierId"</span><span class="p">:</span><span class="s2">"81e77da2-723b-483d-8c0d-49f800c1xxxx"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"CartReferenceKey"</span><span class="p">:</span><span class="s2">"ab59003f-81b5-45ea-8de8-4cd76f9bxxxx"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"TotalCap"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"CatalogpromotionDiscount"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"BundleCartReferenceKey"</span><span class="p">:</span><span class="s2">"ff462a81-699f-4798-9b73-4f9d97536xxx"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"ItemPromotionDiscountAmount"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"IsPrimaryProduct"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"IsPromotionProduct"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"VariantsInfo"</span><span class="p">:[</span><span class="w">  
+
+                  </span><span class="p">],</span><span class="w">
+                  </span><span class="nt">"Por"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"IsDefaultBundleItem"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"CartPromotionRules"</span><span class="p">:[</span><span class="w">  
+
+                  </span><span class="p">],</span><span class="w">
+                  </span><span class="nt">"CategoryId"</span><span class="p">:</span><span class="s2">"CN0021xxxx"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"CategoryName"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"BrandId"</span><span class="p">:</span><span class="s2">"311548"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"BrandName"</span><span class="p">:</span><span class="s2">"Capillary"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"GroupId"</span><span class="p">:</span><span class="mi">0</span><span class="w">
+               </span><span class="p">}</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="nt">"IsPrimaryProduct"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ItemPromotionDiscountAmount"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"IsPromotionProduct"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Por"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"IsDefaultBundleItem"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ProductImage"</span><span class="p">:</span><span class="s2">"//images-cdn-test.azureedge.net/azure/test-resources/81e77da2-723b-483d-8c0d-49f800c1e288/Images/ProductImages/Source/Opt-Classic_Pepperoni_showcase.png;width=100;height=100;scale=canvas;anchor=bottomcenter"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"CartPromotionRules"</span><span class="p">:[</span><span class="w">  
+
+            </span><span class="p">],</span><span class="w">
+            </span><span class="nt">"CategoryId"</span><span class="p">:</span><span class="s2">"CN00215792"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"CategoryName"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"BrandId"</span><span class="p">:</span><span class="s2">"311548"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"BrandName"</span><span class="p">:</span><span class="s2">"PizzaHut"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ParentCartItems"</span><span class="p">:</span><span class="kc">null</span><span class="w">
+         </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nt">"Suppliers"</span><span class="p">:[</span><span class="w">  
+         </span><span class="p">{</span><span class="w">  
+            </span><span class="nt">"SupplierId"</span><span class="p">:</span><span class="s2">"81e77da2-723b-483d-8c0d-49f800c1xxxx"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"SupplierName"</span><span class="p">:</span><span class="s2">"Capillary Pizza"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"IsSelected"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"OrderStatus"</span><span class="p">:</span><span class="kc">null</span><span class="w">
+         </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nt">"ShippingOptions"</span><span class="p">:[</span><span class="w">  
+         </span><span class="p">{</span><span class="w">  
+            </span><span class="nt">"SupplierId"</span><span class="p">:</span><span class="s2">"81e77da2-723b-483d-8c0d-49f800c1xxxx"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ShippingMode"</span><span class="p">:</span><span class="s2">"12174"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ShippingModeId"</span><span class="p">:</span><span class="mi">12174</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"isselected"</span><span class="p">:</span><span class="kc">true</span><span class="w">
+         </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nt">"PaymentOptionsChannel"</span><span class="p">:[</span><span class="w">  
+         </span><span class="p">{</span><span class="w">  
+            </span><span class="nt">"MerchantId"</span><span class="p">:</span><span class="s2">"81e77da2-723b-483d-8c0d-49f800c1xxxx"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"PaymentType"</span><span class="p">:</span><span class="s2">"COD"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Paymentoption"</span><span class="p">:</span><span class="s2">"COD"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"GatewayId"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"GatewayTitle"</span><span class="p">:</span><span class="s2">"COD"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"PaidAmount"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"EnalbeOTP"</span><span class="p">:</span><span class="kc">false</span><span class="w">
+         </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nt">"ErrorCollection"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"GiftMsg"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"DemandedDeliveryDate"</span><span class="p">:</span><span class="s2">"/Date(1536228000000+0530)/"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"RemainTotal"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ShippingZoneType"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"DeliverySlotID"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"FailedProducts"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"PickupFirstName"</span><span class="p">:</span><span class="s2">"AutoTestNameBillg23fff"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"PickupLastName"</span><span class="p">:</span><span class="s2">"AutoTestLastNameBill"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"PickupEmail"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"PickupMobile"</span><span class="p">:</span><span class="s2">"9967810000"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"LocationId"</span><span class="p">:</span><span class="s2">"22612"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"TaxDetail"</span><span class="p">:[</span><span class="w">  
+
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nt">"ComboSuggestion"</span><span class="p">:[</span><span class="w">  
+
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nt">"ConvertedDeals"</span><span class="p">:[</span><span class="w">  
+
+      </span><span class="p">]</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="mi">0</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>Updates existing checkout details such as Add delivery slot, add shipping address, add order attributes, and location id. However, country, state, and city code has to be  as per the values specified by the customer before adding items to the cart.</p>
 
@@ -9705,24 +10601,45 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 </tr>
 <tr>
 <td>IsSelected</td>
-<td></td>
-<td></td>
+<td>boolean</td>
+<td>Whether the selected attribute value is applicable for the customer or not</td>
 </tr>
 </tbody></table>
 
 <aside class="notice"> All parameters marked by * are mandatory. </aside>
 
-<h3 id="response-parameters">Response Parameters</h3>
-
-<p>Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.</p>
+<h3 id="success-error-codes">Success/Error Codes</h3>
 
 <table><thead>
 <tr>
-<th>Parameter</th>
-<th>Type</th>
+<th>Code</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
+<tr>
+<td>1000</td>
+<td>Unhandled Exception</td>
+</tr>
+<tr>
+<td>1003</td>
+<td>Authentication Failed</td>
+</tr>
+<tr>
+<td>1004</td>
+<td>Successful</td>
+</tr>
+<tr>
+<td>1009</td>
+<td>No Record Found</td>
+</tr>
+<tr>
+<td>1016</td>
+<td>Invalid Input</td>
+</tr>
+<tr>
+<td>1030</td>
+<td>Service is not Authorized</td>
+</tr>
 </tbody></table>
 
 <h2 id="update-address">Update Address</h2>
@@ -10129,7 +11046,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>IsShippingAddressDifferent</td>
 <td>boolean</td>
-<td>Specify <code class="prettyprint">true</code> if shipping address is different from billing address, else, specify <code class="prettyprint">false</code>. If shipping address and billing address are same, you can just pass billing address details and make this attribute &lsquo;false&rsquo;.</td>
+<td>Specify <code class="prettyprint">true</code> if shipping address is different from billing address, else, specify <code class="prettyprint">false</code>. If shipping address and billing address are same, you can just pass billing address details and make this attribute &#39;false&rsquo;.</td>
 </tr>
 </tbody></table>
 
@@ -10169,17 +11086,51 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>SupplierId</td>
 <td>string</td>
-<td>Unique GUID of the supplier of the product</td>
+<td>Unique GUID of the merchant (product supplier)</td>
 </tr>
 <tr>
 <td>Por</td>
 <td>enum</td>
-<td></td>
+<td>The portion of the product for which the topping is applied. Value: W for whole, R for right, L for left (left, right usually applies for toppings)</td>
 </tr>
 <tr>
 <td>GroupId</td>
 <td>int</td>
-<td></td>
+<td>Unique group id associated to the product. Applicable in case of a bundle or deal products</td>
+</tr>
+</tbody></table>
+
+<h3 id="success-error-codes">Success/Error Codes</h3>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1000</td>
+<td>Unhandled Exception</td>
+</tr>
+<tr>
+<td>1003</td>
+<td>Authentication Failed</td>
+</tr>
+<tr>
+<td>1004</td>
+<td>Successful</td>
+</tr>
+<tr>
+<td>1009</td>
+<td>No Record Found</td>
+</tr>
+<tr>
+<td>1016</td>
+<td>Invalid Input</td>
+</tr>
+<tr>
+<td>1030</td>
+<td>Service is not Authorized</td>
 </tr>
 </tbody></table>
 
@@ -10476,7 +11427,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>SupplierId</td>
 <td>string</td>
-<td>Unique GUID of the supplier of the product</td>
+<td>Unique GUID of the merchant (supplier of the product)</td>
 </tr>
 <tr>
 <td>Por</td>
@@ -10492,6 +11443,40 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <td>ComboSuggestion</td>
 <td></td>
 <td></td>
+</tr>
+</tbody></table>
+
+<h3 id="success-error-codes">Success/Error Codes</h3>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1000</td>
+<td>Unhandled Exception</td>
+</tr>
+<tr>
+<td>1003</td>
+<td>Authentication Failed</td>
+</tr>
+<tr>
+<td>1004</td>
+<td>Successful</td>
+</tr>
+<tr>
+<td>1009</td>
+<td>No Record Found</td>
+</tr>
+<tr>
+<td>1016</td>
+<td>Invalid Input</td>
+</tr>
+<tr>
+<td>1030</td>
+<td>Service is not Authorized</td>
 </tr>
 </tbody></table>
 
@@ -10785,6 +11770,40 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 </tr>
 </tbody></table>
 
+<h3 id="success-error-codes">Success/Error Codes</h3>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1000</td>
+<td>Unhandled Exception</td>
+</tr>
+<tr>
+<td>1003</td>
+<td>Authentication Failed</td>
+</tr>
+<tr>
+<td>1004</td>
+<td>Successful</td>
+</tr>
+<tr>
+<td>1009</td>
+<td>No Record Found</td>
+</tr>
+<tr>
+<td>1016</td>
+<td>Invalid Input</td>
+</tr>
+<tr>
+<td>1030</td>
+<td>Service is not Authorized</td>
+</tr>
+</tbody></table>
+
 <h2 id="get-cart-promotions">Get Cart Promotions</h2>
 
 <blockquote>
@@ -11005,6 +12024,40 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 </tr>
 </tbody></table>
 
+<h3 id="success-error-codes">Success/Error Codes</h3>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1000</td>
+<td>Unhandled Exception</td>
+</tr>
+<tr>
+<td>1003</td>
+<td>Authentication Failed</td>
+</tr>
+<tr>
+<td>1004</td>
+<td>Successful</td>
+</tr>
+<tr>
+<td>1009</td>
+<td>No Record Found</td>
+</tr>
+<tr>
+<td>1016</td>
+<td>Invalid Input</td>
+</tr>
+<tr>
+<td>1030</td>
+<td>Service is not Authorized</td>
+</tr>
+</tbody></table>
+
 <h2 id="get-cart-payment-options">Get Cart Payment Options</h2>
 
 <blockquote>
@@ -11180,6 +12233,40 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <td>EnalbeOTP</td>
 <td>boolean</td>
 <td></td>
+</tr>
+</tbody></table>
+
+<h3 id="success-error-codes">Success/Error Codes</h3>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1000</td>
+<td>Unhandled Exception</td>
+</tr>
+<tr>
+<td>1003</td>
+<td>Authentication Failed</td>
+</tr>
+<tr>
+<td>1004</td>
+<td>Successful</td>
+</tr>
+<tr>
+<td>1009</td>
+<td>No Record Found</td>
+</tr>
+<tr>
+<td>1016</td>
+<td>Invalid Input</td>
+</tr>
+<tr>
+<td>1030</td>
+<td>Service is not Authorized</td>
 </tr>
 </tbody></table>
 
@@ -11539,6 +12626,40 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 </tr>
 </tbody></table>
 
+<h3 id="success-error-codes">Success/Error Codes</h3>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1000</td>
+<td>Unhandled Exception</td>
+</tr>
+<tr>
+<td>1003</td>
+<td>Authentication Failed</td>
+</tr>
+<tr>
+<td>1004</td>
+<td>Successful</td>
+</tr>
+<tr>
+<td>1009</td>
+<td>No Record Found</td>
+</tr>
+<tr>
+<td>1016</td>
+<td>Invalid Input</td>
+</tr>
+<tr>
+<td>1030</td>
+<td>Service is not Authorized</td>
+</tr>
+</tbody></table>
+
 <h2 id="set-delivery-slot">Set Delivery Slot</h2>
 
 <blockquote>
@@ -11839,7 +12960,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>Por</td>
 <td>enum</td>
-<td>The portion of the product applied for which the topping is applied. Value: W for whole, R for right, L for left (left, right usually applies for toppings)</td>
+<td>The portion of the product for which the topping is applied. Value: W for whole, R for right, L for left (left, right usually applies for toppings)</td>
 </tr>
 <tr>
 <td>ComboSuggestion</td>
@@ -11865,6 +12986,40 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <td>CappedRefKey</td>
 <td></td>
 <td></td>
+</tr>
+</tbody></table>
+
+<h3 id="success-error-codes">Success/Error Codes</h3>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1000</td>
+<td>Unhandled Exception</td>
+</tr>
+<tr>
+<td>1003</td>
+<td>Authentication Failed</td>
+</tr>
+<tr>
+<td>1004</td>
+<td>Successful</td>
+</tr>
+<tr>
+<td>1009</td>
+<td>No Record Found</td>
+</tr>
+<tr>
+<td>1016</td>
+<td>Invalid Input</td>
+</tr>
+<tr>
+<td>1030</td>
+<td>Service is not Authorized</td>
 </tr>
 </tbody></table>
 
@@ -12198,7 +13353,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>Por</td>
 <td>enum</td>
-<td>The portion of the product applied for which the topping is applied. Value: W for whole, R for right, L for left (left, right usually applies for toppings)</td>
+<td>The portion of the product for which the topping is applied. Value: W for whole, R for right, L for left (left, right usually applies for toppings)</td>
 </tr>
 <tr>
 <td>ComboSuggestion</td>
@@ -12224,6 +13379,120 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <td>CappedRefKey</td>
 <td></td>
 <td></td>
+</tr>
+</tbody></table>
+
+<h3 id="success-error-codes">Success/Error Codes</h3>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1000</td>
+<td>Unhandled Exception</td>
+</tr>
+<tr>
+<td>1003</td>
+<td>Authentication Failed</td>
+</tr>
+<tr>
+<td>1004</td>
+<td>Successful</td>
+</tr>
+<tr>
+<td>1009</td>
+<td>No Record Found</td>
+</tr>
+<tr>
+<td>1016</td>
+<td>Invalid Input</td>
+</tr>
+<tr>
+<td>1030</td>
+<td>Service is not Authorized</td>
+</tr>
+</tbody></table>
+
+<h2 id="get-product-recommendations">Get Product Recommendations</h2>
+
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
+<pre class="highlight html"><code>https://www.martjack.com/DeveloperAPI/Cart/TargetBlocks/81e77da2-723b-483d-8c0d-49f800c1exxx
+</code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"ProductIds"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="mi">13067043</span><span class="p">,</span><span class="w">
+        </span><span class="mi">13067125</span><span class="p">,</span><span class="w">
+        </span><span class="mi">13067247</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"messageCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1004"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Retrieves product recommendations based on the cart items.</p>
+
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td><code class="prettyprint">Cart/TargetBlocks/{merchantId}</code></td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+</tbody></table>
+
+<ul>
+<li><strong>Rate limiter</strong> controls the number of incoming and outgoing traffic of a network</li>
+<li><strong>Authentication</strong> verifies the identity of the current user or integration. See Introduction &gt; Authentication (Merchant Setup on Admin Portal) for more details</li>
+</ul>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">http://{host}/developerapi/Cart/TargetBlocks/{merchantId}</code></p>
+
+<h3 id="additional-header-required">Additional Header Required</h3>
+
+<table><thead>
+<tr>
+<th>Header</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>AccessToken*</td>
+<td>Access token of the current session (you can generate using GET AccessToken API)</td>
 </tr>
 </tbody></table>
 
@@ -12967,7 +14236,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>catalogcode</td>
 <td>enum</td>
-<td>Type of the prouct category, Value: <code class="prettyprint">D</code> for deal, <code class="prettyprint">B</code> for bundle, <code class="prettyprint">P</code> product, <code class="prettyprint">A</code> for add-on product</td>
+<td>Type of the product category, Value: <code class="prettyprint">D</code> for deal, <code class="prettyprint">B</code> for bundle</td>
 </tr>
 <tr>
 <td>unitprice</td>
