@@ -502,6 +502,26 @@ InputData={
 </tr>
 </tbody></table>
 
+<h2 id="success-error-codes">Success/Error Codes</h2>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1000</td>
+<td>Unhandled Exception</td>
+</tr>
+</tbody></table>
+
+<p>1004 | Successful
+1016 | Invalid Input
+1009 | No Record Found
+1003 | Authentication Failed
+1030 | Service is not Authorized</p>
+
 <h2 id="register-customer-through-otp">Register Customer through OTP</h2>
 
 <blockquote>
@@ -561,6 +581,20 @@ InputData={
 <h3 id="request-url">Request URL</h3>
 
 <p><code class="prettyprint">https://{host}/developerapi/Customer/{merchantId}</code></p>
+
+<h3 id="success-error-codes">Success/Error Codes</h3>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>429</td>
+<td>Rate limit exceeded</td>
+</tr>
+</tbody></table>
 
 <h2 id="changge-password">Changge Password</h2>
 
@@ -799,6 +833,48 @@ The customer has to be logged in to his account to perform to perform any task t
 </tr>
 </tbody></table>
 
+<h3 id="success-error-codes">Success/Error Codes</h3>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1003</td>
+<td>Authentication failed</td>
+</tr>
+<tr>
+<td>1004</td>
+<td>Successful</td>
+</tr>
+<tr>
+<td>1016</td>
+<td>Invalid Input</td>
+</tr>
+<tr>
+<td>1009</td>
+<td>No Record Found</td>
+</tr>
+<tr>
+<td>1003</td>
+<td>Authentication Failed</td>
+</tr>
+<tr>
+<td>1030</td>
+<td>Service is not Authorized</td>
+</tr>
+<tr>
+<td>1000</td>
+<td>Unhandled Exception</td>
+</tr>
+<tr>
+<td>429</td>
+<td>Rate limit exceeded</td>
+</tr>
+</tbody></table>
+
 <h2 id="customer-login-with-credentials">Customer Login (with Credentials)</h2>
 
 <blockquote>
@@ -921,6 +997,44 @@ The customer has to be logged in to his account to perform to perform any task t
 <td>issued_at</td>
 <td>date-time</td>
 <td>The date and time when the access token was generated for the user</td>
+</tr>
+</tbody></table>
+
+<h3 id="success-error-codes">Success/Error Codes</h3>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1003</td>
+<td>Authentication failed</td>
+</tr>
+<tr>
+<td>1004</td>
+<td>Successful</td>
+</tr>
+<tr>
+<td>1016</td>
+<td>Invalid Input</td>
+</tr>
+<tr>
+<td>1009</td>
+<td>No Record Found</td>
+</tr>
+<tr>
+<td>1003</td>
+<td>Authentication Failed</td>
+</tr>
+<tr>
+<td>1030</td>
+<td>Service is not Authorized</td>
+</tr>
+<tr>
+<td>1000</td>
+<td>Unhandled Exception</td>
 </tr>
 </tbody></table>
 
@@ -1092,6 +1206,44 @@ The customer has to be logged in to his account to perform to perform any task t
 </tr>
 </tbody></table>
 
+<h3 id="success-error-codes">Success/Error Codes</h3>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1003</td>
+<td>Authentication failed</td>
+</tr>
+<tr>
+<td>1004</td>
+<td>Successful</td>
+</tr>
+<tr>
+<td>1016</td>
+<td>Invalid Input</td>
+</tr>
+<tr>
+<td>1009</td>
+<td>No Record Found</td>
+</tr>
+<tr>
+<td>1003</td>
+<td>Authentication Failed</td>
+</tr>
+<tr>
+<td>1030</td>
+<td>Service is not Authorized</td>
+</tr>
+<tr>
+<td>1000</td>
+<td>Unhandled Exception</td>
+</tr>
+</tbody></table>
+
 <h2 id="start-customer-session">Start Customer Session</h2>
 
 <blockquote>
@@ -1242,6 +1394,40 @@ The customer has to be logged in to his account to perform to perform any task t
 </tr>
 </tbody></table>
 
+<h2 id="success-error-codes">Success/Error Codes</h2>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1000</td>
+<td>Unhandled Exception</td>
+</tr>
+<tr>
+<td>1004</td>
+<td>Successful</td>
+</tr>
+<tr>
+<td>1016</td>
+<td>Invalid Input</td>
+</tr>
+<tr>
+<td>1009</td>
+<td>No Record Found</td>
+</tr>
+<tr>
+<td>1003</td>
+<td>Authentication Failed</td>
+</tr>
+<tr>
+<td>1030</td>
+<td>Service is not Authorized</td>
+</tr>
+</tbody></table>
+
 <h2 id="customer-logout">Customer Logout</h2>
 
 <blockquote>
@@ -1335,6 +1521,44 @@ The customer has to be logged in to his account to perform to perform any task t
 </tbody></table>
 
 <aside class=notice>All parameters and headers marked by * are mandatory.</aside>
+
+<h3 id="success-error-codes">Success/Error Codes</h3>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1003</td>
+<td>Authentication failed</td>
+</tr>
+<tr>
+<td>1004</td>
+<td>Successful</td>
+</tr>
+<tr>
+<td>1016</td>
+<td>Invalid Input</td>
+</tr>
+<tr>
+<td>1009</td>
+<td>No Record Found</td>
+</tr>
+<tr>
+<td>1003</td>
+<td>Authentication Failed</td>
+</tr>
+<tr>
+<td>1030</td>
+<td>Service is not Authorized</td>
+</tr>
+<tr>
+<td>1000</td>
+<td>Unhandled Exception</td>
+</tr>
+</tbody></table>
 
 <h2 id="get-access-token">Get Access Token</h2>
 
@@ -1444,6 +1668,44 @@ The customer has to be logged in to his account to perform to perform any task t
 </tr>
 </tbody></table>
 
+<h3 id="success-error-codes">Success/Error Codes</h3>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1003</td>
+<td>Authentication failed</td>
+</tr>
+<tr>
+<td>1004</td>
+<td>Successful</td>
+</tr>
+<tr>
+<td>1016</td>
+<td>Invalid Input</td>
+</tr>
+<tr>
+<td>1009</td>
+<td>No Record Found</td>
+</tr>
+<tr>
+<td>1003</td>
+<td>Authentication Failed</td>
+</tr>
+<tr>
+<td>1030</td>
+<td>Service is not Authorized</td>
+</tr>
+<tr>
+<td>1000</td>
+<td>Unhandled Exception</td>
+</tr>
+</tbody></table>
+
 <h2 id="validate-access-token">Validate Access Token</h2>
 
 <blockquote>
@@ -1528,6 +1790,44 @@ The customer has to be logged in to his account to perform to perform any task t
 </tbody></table>
 
 <aside class="notice"> All parameters marked by * are mandatory. </aside>
+
+<h3 id="success-error-codes">Success/Error Codes</h3>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1003</td>
+<td>Authentication failed</td>
+</tr>
+<tr>
+<td>1004</td>
+<td>Successful</td>
+</tr>
+<tr>
+<td>1016</td>
+<td>Invalid Input</td>
+</tr>
+<tr>
+<td>1009</td>
+<td>No Record Found</td>
+</tr>
+<tr>
+<td>1003</td>
+<td>Authentication Failed</td>
+</tr>
+<tr>
+<td>1030</td>
+<td>Service is not Authorized</td>
+</tr>
+<tr>
+<td>1000</td>
+<td>Unhandled Exception</td>
+</tr>
+</tbody></table>
 
 <h2 id="fetch-customers-search">Fetch Customers (Search)</h2>
 
@@ -1684,6 +1984,44 @@ The customer has to be logged in to his account to perform to perform any task t
 <td>MarketingNotificationType</td>
 <td>string</td>
 <td></td>
+</tr>
+</tbody></table>
+
+<h3 id="success-error-codes">Success/Error Codes</h3>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1003</td>
+<td>Authentication failed</td>
+</tr>
+<tr>
+<td>1004</td>
+<td>Successful</td>
+</tr>
+<tr>
+<td>1016</td>
+<td>Invalid Input</td>
+</tr>
+<tr>
+<td>1009</td>
+<td>No Record Found</td>
+</tr>
+<tr>
+<td>1003</td>
+<td>Authentication Failed</td>
+</tr>
+<tr>
+<td>1030</td>
+<td>Service is not Authorized</td>
+</tr>
+<tr>
+<td>1000</td>
+<td>Unhandled Exception</td>
 </tr>
 </tbody></table>
 
@@ -4855,6 +5193,44 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 </tr>
 </tbody></table>
 
+<h3 id="success-error-codes">Success/Error Codes</h3>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1003</td>
+<td>Authentication failed</td>
+</tr>
+<tr>
+<td>1004</td>
+<td>Successful</td>
+</tr>
+<tr>
+<td>1016</td>
+<td>Invalid Input</td>
+</tr>
+<tr>
+<td>1009</td>
+<td>No Record Found</td>
+</tr>
+<tr>
+<td>1003</td>
+<td>Authentication Failed</td>
+</tr>
+<tr>
+<td>1030</td>
+<td>Service is not Authorized</td>
+</tr>
+<tr>
+<td>1000</td>
+<td>Unhandled Exception</td>
+</tr>
+</tbody></table>
+
 <h2 id="get-product-reviews">Get Product Reviews</h2>
 <pre class="highlight html"><code>https://www.martjack.com/developerapi/Product/GetReviews/81e77da2-723b-483d-8c0d-49f800c1exxx/PZLG-WM
 </code></pre>
@@ -4954,6 +5330,44 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 </tbody></table>
 
 <aside class="notice"> All parameters marked by * are mandatory.</aside>
+
+<h3 id="success-error-codes">Success/Error Codes</h3>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1003</td>
+<td>Authentication failed</td>
+</tr>
+<tr>
+<td>1004</td>
+<td>Successful</td>
+</tr>
+<tr>
+<td>1016</td>
+<td>Invalid Input</td>
+</tr>
+<tr>
+<td>1009</td>
+<td>No Record Found</td>
+</tr>
+<tr>
+<td>1003</td>
+<td>Authentication Failed</td>
+</tr>
+<tr>
+<td>1030</td>
+<td>Service is not Authorized</td>
+</tr>
+<tr>
+<td>1000</td>
+<td>Unhandled Exception</td>
+</tr>
+</tbody></table>
 
 <h2 id="attach-product-images">Attach Product Images</h2>
 
@@ -5278,6 +5692,44 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 </tr>
 </tbody></table>
 
+<h3 id="success-error-codes">Success/Error Codes</h3>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1003</td>
+<td>Authentication failed</td>
+</tr>
+<tr>
+<td>1004</td>
+<td>Successful</td>
+</tr>
+<tr>
+<td>1016</td>
+<td>Invalid Input</td>
+</tr>
+<tr>
+<td>1009</td>
+<td>No Record Found</td>
+</tr>
+<tr>
+<td>1003</td>
+<td>Authentication Failed</td>
+</tr>
+<tr>
+<td>1030</td>
+<td>Service is not Authorized</td>
+</tr>
+<tr>
+<td>1000</td>
+<td>Unhandled Exception</td>
+</tr>
+</tbody></table>
+
 <h2 id="get-product-details-by-location">Get Product Details by Location</h2>
 
 <blockquote>
@@ -5489,6 +5941,44 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 </tr>
 </tbody></table>
 
+<h3 id="success-error-codes">Success/Error Codes</h3>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1003</td>
+<td>Authentication failed</td>
+</tr>
+<tr>
+<td>1004</td>
+<td>Successful</td>
+</tr>
+<tr>
+<td>1016</td>
+<td>Invalid Input</td>
+</tr>
+<tr>
+<td>1009</td>
+<td>No Record Found</td>
+</tr>
+<tr>
+<td>1003</td>
+<td>Authentication Failed</td>
+</tr>
+<tr>
+<td>1030</td>
+<td>Service is not Authorized</td>
+</tr>
+<tr>
+<td>1000</td>
+<td>Unhandled Exception</td>
+</tr>
+</tbody></table>
+
 <h2 id="get-product-details-by-sku">Get Product Details (by SKU)</h2>
 
 <blockquote>
@@ -5661,6 +6151,44 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <td>UOM</td>
 <td>string</td>
 <td>Unit of measurement of the product. It could be the <code class="prettyprint">pieces</code> for items that are sold in numbers and the respective measure for other items such as kgs, and gms</td>
+</tr>
+</tbody></table>
+
+<h3 id="success-error-codes">Success/Error Codes</h3>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1003</td>
+<td>Authentication failed</td>
+</tr>
+<tr>
+<td>1004</td>
+<td>Successful</td>
+</tr>
+<tr>
+<td>1016</td>
+<td>Invalid Input</td>
+</tr>
+<tr>
+<td>1009</td>
+<td>No Record Found</td>
+</tr>
+<tr>
+<td>1003</td>
+<td>Authentication Failed</td>
+</tr>
+<tr>
+<td>1030</td>
+<td>Service is not Authorized</td>
+</tr>
+<tr>
+<td>1000</td>
+<td>Unhandled Exception</td>
 </tr>
 </tbody></table>
 
@@ -5922,6 +6450,44 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <td>flag</td>
 <td></td>
 <td></td>
+</tr>
+</tbody></table>
+
+<h3 id="success-error-codes">Success/Error Codes</h3>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1003</td>
+<td>Authentication failed</td>
+</tr>
+<tr>
+<td>1004</td>
+<td>Successful</td>
+</tr>
+<tr>
+<td>1016</td>
+<td>Invalid Input</td>
+</tr>
+<tr>
+<td>1009</td>
+<td>No Record Found</td>
+</tr>
+<tr>
+<td>1003</td>
+<td>Authentication Failed</td>
+</tr>
+<tr>
+<td>1030</td>
+<td>Service is not Authorized</td>
+</tr>
+<tr>
+<td>1000</td>
+<td>Unhandled Exception</td>
 </tr>
 </tbody></table>
 
@@ -6217,6 +6783,44 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <aside class="notice"> All parameters marked by * are mandatory.</aside>
 
+<h3 id="success-error-codes">Success/Error Codes</h3>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1003</td>
+<td>Authentication failed</td>
+</tr>
+<tr>
+<td>1004</td>
+<td>Successful</td>
+</tr>
+<tr>
+<td>1016</td>
+<td>Invalid Input</td>
+</tr>
+<tr>
+<td>1009</td>
+<td>No Record Found</td>
+</tr>
+<tr>
+<td>1003</td>
+<td>Authentication Failed</td>
+</tr>
+<tr>
+<td>1030</td>
+<td>Service is not Authorized</td>
+</tr>
+<tr>
+<td>1000</td>
+<td>Unhandled Exception</td>
+</tr>
+</tbody></table>
+
 <h2 id="search-products">Search Products</h2>
 
 <blockquote>
@@ -6356,6 +6960,44 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <td>attributes</td>
 <td>array</td>
 <td></td>
+</tr>
+</tbody></table>
+
+<h3 id="success-error-codes">Success/Error Codes</h3>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1003</td>
+<td>Authentication failed</td>
+</tr>
+<tr>
+<td>1004</td>
+<td>Successful</td>
+</tr>
+<tr>
+<td>1016</td>
+<td>Invalid Input</td>
+</tr>
+<tr>
+<td>1009</td>
+<td>No Record Found</td>
+</tr>
+<tr>
+<td>1003</td>
+<td>Authentication Failed</td>
+</tr>
+<tr>
+<td>1030</td>
+<td>Service is not Authorized</td>
+</tr>
+<tr>
+<td>1000</td>
+<td>Unhandled Exception</td>
 </tr>
 </tbody></table>
 
@@ -6508,6 +7150,14 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 </tr>
 </thead><tbody>
 <tr>
+<td>440</td>
+<td>Session expired</td>
+</tr>
+<tr>
+<td>1000</td>
+<td>Unhandled Exception</td>
+</tr>
+<tr>
 <td>1004</td>
 <td>Successful</td>
 </tr>
@@ -6526,10 +7176,6 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>1030</td>
 <td>Service is not Authorized</td>
-</tr>
-<tr>
-<td>1000</td>
-<td>Unhandled Exception</td>
 </tr>
 </tbody></table>
 
@@ -6625,6 +7271,10 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <th>Description</th>
 </tr>
 </thead><tbody>
+<tr>
+<td>440</td>
+<td>Session expired</td>
+</tr>
 <tr>
 <td>1004</td>
 <td>Successful</td>
@@ -9971,6 +10621,10 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 </tr>
 </thead><tbody>
 <tr>
+<td>440</td>
+<td>Session expired</td>
+</tr>
+<tr>
 <td>1000</td>
 <td>Unhandled Exception</td>
 </tr>
@@ -10093,6 +10747,10 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <th>Description</th>
 </tr>
 </thead><tbody>
+<tr>
+<td>440</td>
+<td>Session expired</td>
+</tr>
 <tr>
 <td>1000</td>
 <td>Unhandled Exception</td>
@@ -10617,6 +11275,10 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 </tr>
 </thead><tbody>
 <tr>
+<td>440</td>
+<td>Session expired</td>
+</tr>
+<tr>
 <td>1000</td>
 <td>Unhandled Exception</td>
 </tr>
@@ -11109,6 +11771,10 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 </tr>
 </thead><tbody>
 <tr>
+<td>440</td>
+<td>Session expired</td>
+</tr>
+<tr>
 <td>1000</td>
 <td>Unhandled Exception</td>
 </tr>
@@ -11455,6 +12121,10 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 </tr>
 </thead><tbody>
 <tr>
+<td>440</td>
+<td>Session expired</td>
+</tr>
+<tr>
 <td>1000</td>
 <td>Unhandled Exception</td>
 </tr>
@@ -11779,6 +12449,10 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 </tr>
 </thead><tbody>
 <tr>
+<td>440</td>
+<td>Session expired</td>
+</tr>
+<tr>
 <td>1000</td>
 <td>Unhandled Exception</td>
 </tr>
@@ -12033,6 +12707,10 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 </tr>
 </thead><tbody>
 <tr>
+<td>440</td>
+<td>Session expired</td>
+</tr>
+<tr>
 <td>1000</td>
 <td>Unhandled Exception</td>
 </tr>
@@ -12244,6 +12922,10 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <th>Description</th>
 </tr>
 </thead><tbody>
+<tr>
+<td>440</td>
+<td>Session expired</td>
+</tr>
 <tr>
 <td>1000</td>
 <td>Unhandled Exception</td>
@@ -12635,6 +13317,10 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 </tr>
 </thead><tbody>
 <tr>
+<td>440</td>
+<td>Session expired</td>
+</tr>
+<tr>
 <td>1000</td>
 <td>Unhandled Exception</td>
 </tr>
@@ -12997,6 +13683,10 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <th>Description</th>
 </tr>
 </thead><tbody>
+<tr>
+<td>440</td>
+<td>Session expired</td>
+</tr>
 <tr>
 <td>1000</td>
 <td>Unhandled Exception</td>
@@ -13391,6 +14081,10 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 </tr>
 </thead><tbody>
 <tr>
+<td>440</td>
+<td>Session expired</td>
+</tr>
+<tr>
 <td>1000</td>
 <td>Unhandled Exception</td>
 </tr>
@@ -13493,6 +14187,48 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>AccessToken*</td>
 <td>Access token of the current session (you can generate using GET AccessToken API)</td>
+</tr>
+</tbody></table>
+
+<h2 id="success-error-codes">Success/Error Codes</h2>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>440</td>
+<td>Session expired</td>
+</tr>
+<tr>
+<td>440</td>
+<td>Session expired</td>
+</tr>
+<tr>
+<td>1000</td>
+<td>Unhandled Exception</td>
+</tr>
+<tr>
+<td>1004</td>
+<td>Successful</td>
+</tr>
+<tr>
+<td>1016</td>
+<td>Invalid Input</td>
+</tr>
+<tr>
+<td>1009</td>
+<td>No Record Found</td>
+</tr>
+<tr>
+<td>1003</td>
+<td>Authentication Failed</td>
+</tr>
+<tr>
+<td>1030</td>
+<td>Service is not Authorized</td>
 </tr>
 </tbody></table>
 
@@ -17670,6 +18406,585 @@ Sample POST Request</p>
 </tr>
 </tbody></table>
 
+<h2 id="calculate-tax-normal-product">Calculate Tax (Normal Product)</h2>
+
+<p>Calculates tax amount for a product on the basis of source and destination location.</p>
+
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
+<pre class="highlight json"><code><span class="err">https://www.martjack.com/developerapi/Order/CalculateTax/dc</span><span class="mi">21</span><span class="err">b</span><span class="mi">529-2057-402</span><span class="err">a</span><span class="mi">-972</span><span class="err">a-e</span><span class="mi">1</span><span class="err">ba</span><span class="mi">0</span><span class="err">c</span><span class="mi">8</span><span class="err">a</span><span class="mi">08</span><span class="err">eb</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Sample POST Request</p>
+</blockquote>
+<pre class="highlight json"><code><span class="err">MerchantID=dc</span><span class="mi">21</span><span class="err">b</span><span class="mi">529-2057-402</span><span class="err">a</span><span class="mi">-972</span><span class="err">a-e</span><span class="mi">1</span><span class="err">ba</span><span class="mi">0</span><span class="err">c</span><span class="mi">8</span><span class="err">a</span><span class="mi">08</span><span class="err">eb&amp;InputFormat=application/json&amp;InputData=</span><span class="p">{</span><span class="w">
+   </span><span class="nt">"SourceLocationCode"</span><span class="p">:</span><span class="s2">"108"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"SourceLocationId"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"SourceCityName"</span><span class="p">:</span><span class="s2">"New Delhi"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"SourceCityCode"</span><span class="p">:</span><span class="s2">"26352"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"SourceCountryName"</span><span class="p">:</span><span class="s2">"INDIA"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"SourceCountryCode"</span><span class="p">:</span><span class="s2">"IN"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"SourceStateName"</span><span class="p">:</span><span class="s2">"Delhi"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"SourceStateCode"</span><span class="p">:</span><span class="s2">"DL"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"ShipCityName"</span><span class="p">:</span><span class="s2">"New Delhi"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"ShipCityCode"</span><span class="p">:</span><span class="s2">"26352"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"ShipCountryName"</span><span class="p">:</span><span class="s2">"INDIA"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"ShipCountryCode"</span><span class="p">:</span><span class="s2">"IN"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"ShipStateName"</span><span class="p">:</span><span class="s2">"Delhi"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"ShipStateCode"</span><span class="p">:</span><span class="s2">"DL"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"Items"</span><span class="p">:[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+         </span><span class="nt">"SKU"</span><span class="p">:</span><span class="s2">"IN-DR-Pepsi"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"VarientSKU"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"Quantity"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"DeliveryMode"</span><span class="p">:</span><span class="s2">"H"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"UnitPrice"</span><span class="p">:</span><span class="mi">57</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+   </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"messageCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1004"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ProductTaxDetails"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"TotalTaxAmount"</span><span class="p">:</span><span class="w"> </span><span class="mf">2.85</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"Sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IN-DR-Pepsi"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"VariantSku"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"Quantity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"UnitPrice"</span><span class="p">:</span><span class="w"> </span><span class="mi">57</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"TotalTaxAmount"</span><span class="p">:</span><span class="w"> </span><span class="mf">2.85</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"DeliveryMode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"H"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"BundleItem"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"TaxDetails"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                    </span><span class="p">{</span><span class="w">
+                        </span><span class="nt">"TaxCategory"</span><span class="p">:</span><span class="w"> </span><span class="s2">"C-GST"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"TaxAmount"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.425</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"TaxCodeId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"35868"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"IsTaxOnShipping"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"IsPercentage"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+                    </span><span class="p">},</span><span class="w">
+                    </span><span class="p">{</span><span class="w">
+                        </span><span class="nt">"TaxCategory"</span><span class="p">:</span><span class="w"> </span><span class="s2">"S-GST"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"TaxAmount"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.425</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"TaxCodeId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"35868"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"IsTaxOnShipping"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"IsPercentage"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+                    </span><span class="p">}</span><span class="w">
+                </span><span class="p">]</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td><code class="prettyprint">Order/CalculateTax/{merchantId}</code></td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>POST</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>No</td>
+</tr>
+</tbody></table>
+
+<ul>
+<li><strong>Rate limiter</strong> controls the number of incoming and outgoing traffic of a network</li>
+<li><strong>Authentication</strong> verifies the identity of the current user or integration. See Introduction &gt; Authentication (Merchant Setup on Admin Portal) for more details</li>
+</ul>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">https://{host}/developerapi/Order/CalculateTax/{merchantId}</code></p>
+
+<h3 id="request-body-parameters">Request Body Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>MerchantID*</td>
+<td>string</td>
+<td>Unique GUID of the merchant</td>
+</tr>
+<tr>
+<td>SourceLocationCode</td>
+<td>int</td>
+<td>Location code of the product</td>
+</tr>
+<tr>
+<td>SourceLocationId</td>
+<td>int</td>
+<td>Unique location id of the product</td>
+</tr>
+<tr>
+<td>SourceCityName</td>
+<td>string</td>
+<td>City name of the product location</td>
+</tr>
+<tr>
+<td>SourceCityCode</td>
+<td>string</td>
+<td>Unique city code of the product location</td>
+</tr>
+<tr>
+<td>SourceCountryName</td>
+<td>string</td>
+<td>Country name of the product location</td>
+</tr>
+<tr>
+<td>SourceCountryCode</td>
+<td>string</td>
+<td>alpha-2 code of the product location country . Example: IN (for India), AU (for Australia), and BR (for Brazil)</td>
+</tr>
+<tr>
+<td>SourceStateName</td>
+<td>string</td>
+<td>State name of the product location</td>
+</tr>
+<tr>
+<td>SourceStateCode</td>
+<td>string</td>
+<td>State code of the product location</td>
+</tr>
+<tr>
+<td>ShipCityName</td>
+<td>string</td>
+<td>City name of the product delivery location</td>
+</tr>
+<tr>
+<td>ShipCityCode</td>
+<td>string</td>
+<td>Unique city code of the product delivery location</td>
+</tr>
+<tr>
+<td>ShipCountryName</td>
+<td>string</td>
+<td>Country name of the product delivery location</td>
+</tr>
+<tr>
+<td>ShipCountryCode</td>
+<td>string</td>
+<td>alpha-2 code of the country of the product delivery location. Example: IN (for India), AU (for Australia), and BR (for Brazil)</td>
+</tr>
+<tr>
+<td>ShipStateName</td>
+<td>string</td>
+<td>State name of the product delivery location</td>
+</tr>
+<tr>
+<td>ShipStateCode</td>
+<td>string</td>
+<td>State code of the product delivery location</td>
+</tr>
+<tr>
+<td>SKU*</td>
+<td>string</td>
+<td>SKU of the product for which you want to calculate tax (Required for variant product)</td>
+</tr>
+<tr>
+<td>VarientSKU</td>
+<td>string</td>
+<td>SKU of the variant product for which you want to calculate tax</td>
+</tr>
+<tr>
+<td>Quantity*</td>
+<td>int</td>
+<td>Number of the item for which you want to calculate tax</td>
+</tr>
+<tr>
+<td>DeliveryMode*</td>
+<td>enum</td>
+<td>Mode of delivery of the current item. Mode of delivery of the item. Values: <code class="prettyprint">H</code> for home delivery, <code class="prettyprint">S</code> for store pick-up</td>
+</tr>
+<tr>
+<td>UnitPrice*</td>
+<td>float</td>
+<td>Price of a single item</td>
+</tr>
+</tbody></table>
+
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
+
+<h3 id="sample-response-parameters">Sample Response Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>BundleItem</td>
+<td></td>
+<td>Applicable for bundle products</td>
+</tr>
+<tr>
+<td>TaxCategory</td>
+<td>string</td>
+<td>Category of tax</td>
+</tr>
+<tr>
+<td>TaxCodeId</td>
+<td>int</td>
+<td>Unique id of the tax code</td>
+</tr>
+<tr>
+<td>IsTaxOnShipping</td>
+<td>boolean</td>
+<td>Whether tax is applied on shipping charges</td>
+</tr>
+<tr>
+<td>IsPercentage</td>
+<td>boolean</td>
+<td>If true, tax rate is calculated on the percentage of the price and false flat amount tax</td>
+</tr>
+</tbody></table>
+
+<h2 id="calculate-tax-bundle-product">Calculate Tax (Bundle Product)</h2>
+
+<p>Calculates tax amount for a product on the basis of source and destination location.</p>
+
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
+<pre class="highlight json"><code><span class="err">https://www.martjack.com/developerapi/Order/CalculateTax/dc</span><span class="mi">21</span><span class="err">b</span><span class="mi">529-2057-402</span><span class="err">a</span><span class="mi">-972</span><span class="err">a-e</span><span class="mi">1</span><span class="err">ba</span><span class="mi">0</span><span class="err">c</span><span class="mi">8</span><span class="err">a</span><span class="mi">08</span><span class="err">eb</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Sample POST Request</p>
+</blockquote>
+<pre class="highlight json"><code><span class="err">MerchantID=dc</span><span class="mi">21</span><span class="err">b</span><span class="mi">529-2057-402</span><span class="err">a</span><span class="mi">-972</span><span class="err">a-e</span><span class="mi">1</span><span class="err">ba</span><span class="mi">0</span><span class="err">c</span><span class="mi">8</span><span class="err">a</span><span class="mi">08</span><span class="err">eb&amp;InputFormat=application/json&amp;InputData=</span><span class="p">{</span><span class="w">
+   </span><span class="nt">"SourceLocationCode"</span><span class="p">:</span><span class="s2">"108"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"SourceLocationId"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"SourceCityName"</span><span class="p">:</span><span class="s2">"New Delhi"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"SourceCityCode"</span><span class="p">:</span><span class="s2">"26352"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"SourceCountryName"</span><span class="p">:</span><span class="s2">"INDIA"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"SourceCountryCode"</span><span class="p">:</span><span class="s2">"IN"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"SourceStateName"</span><span class="p">:</span><span class="s2">"Delhi"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"SourceStateCode"</span><span class="p">:</span><span class="s2">"DL"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"ShipCityName"</span><span class="p">:</span><span class="s2">"New Delhi"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"ShipCityCode"</span><span class="p">:</span><span class="s2">"26352"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"ShipCountryName"</span><span class="p">:</span><span class="s2">"INDIA"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"ShipCountryCode"</span><span class="p">:</span><span class="s2">"IN"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"ShipStateName"</span><span class="p">:</span><span class="s2">"Delhi"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"ShipStateCode"</span><span class="p">:</span><span class="s2">"DL"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"Items"</span><span class="p">:[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+         </span><span class="nt">"SKU"</span><span class="p">:</span><span class="s2">"IN-PZ-VG-TANDOORIPANEER"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"VarientSKU"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"Quantity"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"DeliveryMode"</span><span class="p">:</span><span class="s2">"H"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"UnitPrice"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"BundleItem"</span><span class="p">:[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+               </span><span class="nt">"SKU"</span><span class="p">:</span><span class="s2">"IN-Crt-Tndripnr"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"VarientSKU"</span><span class="p">:</span><span class="s2">"IN-Crt-Tndripnr-Pan-Mdm"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"Quantity"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"DeliveryMode"</span><span class="p">:</span><span class="s2">"H"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"UnitPrice"</span><span class="p">:</span><span class="s2">"515"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+         </span><span class="p">]</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+   </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"messageCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1004"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ProductTaxDetails"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"TotalTaxAmount"</span><span class="p">:</span><span class="w"> </span><span class="mf">25.75</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"Sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IN-PZ-VG-TANDOORIPANEER"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"VariantSku"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"Quantity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"UnitPrice"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"TotalTaxAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"DeliveryMode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"H"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"BundleItem"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                    </span><span class="p">{</span><span class="w">
+                        </span><span class="nt">"Sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IN-Crt-Tndripnr"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"VariantSku"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"Quantity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"UnitPrice"</span><span class="p">:</span><span class="w"> </span><span class="mi">515</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"TotalTaxAmount"</span><span class="p">:</span><span class="w"> </span><span class="mf">25.75</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"DeliveryMode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"H"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"BundleItem"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"TaxDetails"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                            </span><span class="p">{</span><span class="w">
+                                </span><span class="nt">"TaxCategory"</span><span class="p">:</span><span class="w"> </span><span class="s2">"C-GST"</span><span class="p">,</span><span class="w">
+                                </span><span class="nt">"TaxAmount"</span><span class="p">:</span><span class="w"> </span><span class="mf">12.875</span><span class="p">,</span><span class="w">
+                                </span><span class="nt">"TaxCodeId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"35868"</span><span class="p">,</span><span class="w">
+                                </span><span class="nt">"IsTaxOnShipping"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                                </span><span class="nt">"IsPercentage"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+                            </span><span class="p">},</span><span class="w">
+                            </span><span class="p">{</span><span class="w">
+                                </span><span class="nt">"TaxCategory"</span><span class="p">:</span><span class="w"> </span><span class="s2">"S-GST"</span><span class="p">,</span><span class="w">
+                                </span><span class="nt">"TaxAmount"</span><span class="p">:</span><span class="w"> </span><span class="mf">12.875</span><span class="p">,</span><span class="w">
+                                </span><span class="nt">"TaxCodeId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"35868"</span><span class="p">,</span><span class="w">
+                                </span><span class="nt">"IsTaxOnShipping"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                                </span><span class="nt">"IsPercentage"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+                            </span><span class="p">}</span><span class="w">
+                        </span><span class="p">]</span><span class="w">
+                    </span><span class="p">}</span><span class="w">
+                </span><span class="p">],</span><span class="w">
+                </span><span class="nt">"TaxDetails"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                    </span><span class="p">{</span><span class="w">
+                        </span><span class="nt">"TaxCategory"</span><span class="p">:</span><span class="w"> </span><span class="s2">"C-GST"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"TaxAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"TaxCodeId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"35868"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"IsTaxOnShipping"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"IsPercentage"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+                    </span><span class="p">},</span><span class="w">
+                    </span><span class="p">{</span><span class="w">
+                        </span><span class="nt">"TaxCategory"</span><span class="p">:</span><span class="w"> </span><span class="s2">"S-GST"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"TaxAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"TaxCodeId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"35868"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"IsTaxOnShipping"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"IsPercentage"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+                    </span><span class="p">}</span><span class="w">
+                </span><span class="p">]</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td><code class="prettyprint">Order/CalculateTax/{merchantId}</code></td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>POST</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>No</td>
+</tr>
+</tbody></table>
+
+<ul>
+<li><strong>Rate limiter</strong> controls the number of incoming and outgoing traffic of a network</li>
+<li><strong>Authentication</strong> verifies the identity of the current user or integration. See Introduction &gt; Authentication (Merchant Setup on Admin Portal) for more details</li>
+</ul>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">https://{host}/developerapi/Order/CalculateTax/{merchantId}</code></p>
+
+<h3 id="request-body-parameters">Request Body Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>MerchantID*</td>
+<td>string</td>
+<td>Unique GUID of the merchant</td>
+</tr>
+<tr>
+<td>SourceLocationCode</td>
+<td>int</td>
+<td>Location code of the product</td>
+</tr>
+<tr>
+<td>SourceLocationId</td>
+<td>int</td>
+<td>Unique location id of the product</td>
+</tr>
+<tr>
+<td>SourceCityName</td>
+<td>string</td>
+<td>City name of the product location</td>
+</tr>
+<tr>
+<td>SourceCityCode</td>
+<td>string</td>
+<td>Unique city code of the product location</td>
+</tr>
+<tr>
+<td>SourceCountryName</td>
+<td>string</td>
+<td>Country name of the product location</td>
+</tr>
+<tr>
+<td>SourceCountryCode</td>
+<td>string</td>
+<td>alpha-2 code of the product location country . Example: IN (for India), AU (for Australia), and BR (for Brazil)</td>
+</tr>
+<tr>
+<td>SourceStateName</td>
+<td>string</td>
+<td>State name of the product location</td>
+</tr>
+<tr>
+<td>SourceStateCode</td>
+<td>string</td>
+<td>State code of the product location</td>
+</tr>
+<tr>
+<td>ShipCityName</td>
+<td>string</td>
+<td>City name of the product delivery location</td>
+</tr>
+<tr>
+<td>ShipCityCode</td>
+<td>string</td>
+<td>Unique city code of the product delivery location</td>
+</tr>
+<tr>
+<td>ShipCountryName</td>
+<td>string</td>
+<td>Country name of the product delivery location</td>
+</tr>
+<tr>
+<td>ShipCountryCode</td>
+<td>string</td>
+<td>alpha-2 code of the country of the product delivery location. Example: IN (for India), AU (for Australia), and BR (for Brazil)</td>
+</tr>
+<tr>
+<td>ShipStateName</td>
+<td>string</td>
+<td>State name of the product delivery location</td>
+</tr>
+<tr>
+<td>ShipStateCode</td>
+<td>string</td>
+<td>State code of the product delivery location</td>
+</tr>
+<tr>
+<td>BundleItem</td>
+<td>obj</td>
+<td>Details of the bundle product</td>
+</tr>
+<tr>
+<td>SKU*</td>
+<td>string</td>
+<td>SKU of the product for which you want to calculate tax (Required for variant product)</td>
+</tr>
+<tr>
+<td>VarientSKU</td>
+<td>string</td>
+<td>SKU of the variant product for which you want to calculate tax</td>
+</tr>
+<tr>
+<td>Quantity*</td>
+<td>int</td>
+<td>Number of the item for which you want to calculate tax</td>
+</tr>
+<tr>
+<td>DeliveryMode*</td>
+<td>enum</td>
+<td>Mode of delivery of the current item. Mode of delivery of the item. Values: <code class="prettyprint">H</code> for home delivery, <code class="prettyprint">S</code> for store pick-up</td>
+</tr>
+<tr>
+<td>UnitPrice*</td>
+<td>float</td>
+<td>Price of a single item</td>
+</tr>
+</tbody></table>
+
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
+
+<h3 id="sample-response-parameters">Sample Response Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>BundleItem</td>
+<td></td>
+<td>Applicable for bundle products</td>
+</tr>
+<tr>
+<td>TaxCategory</td>
+<td>string</td>
+<td>Category of tax</td>
+</tr>
+<tr>
+<td>TaxCodeId</td>
+<td>int</td>
+<td>Unique id of the tax code</td>
+</tr>
+<tr>
+<td>IsTaxOnShipping</td>
+<td>boolean</td>
+<td>Whether tax is applied on shipping charges</td>
+</tr>
+<tr>
+<td>IsPercentage</td>
+<td>boolean</td>
+<td>If true, tax rate is calculated on the percentage of the price and false flat amount tax</td>
+</tr>
+</tbody></table>
+
           <h1 id="pricelist">Pricelist</h1>
 
 <h2 id="update-pricelist">Update Pricelist</h2>
@@ -18700,245 +20015,7 @@ Sample POST Request</p>
          </span><span class="nt">"CountryCode"</span><span class="p">:</span><span class="s2">"CS"</span><span class="p">,</span><span class="w">
          </span><span class="nt">"PhoneCode"</span><span class="p">:</span><span class="s2">"421"</span><span class="w">
       </span><span class="p">},</span><span class="w">
-      </span><span class="p">{</span><span class="w">  
-         </span><span class="nt">"CountryName"</span><span class="p">:</span><span class="s2">"FORMER USSR"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"CountryCode"</span><span class="p">:</span><span class="s2">"SU"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"PhoneCode"</span><span class="p">:</span><span class="s2">"0"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="p">{</span><span class="w">  
-         </span><span class="nt">"CountryName"</span><span class="p">:</span><span class="s2">"FRANCE"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"CountryCode"</span><span class="p">:</span><span class="s2">"FR"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"PhoneCode"</span><span class="p">:</span><span class="s2">"33"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="p">{</span><span class="w">  
-         </span><span class="nt">"CountryName"</span><span class="p">:</span><span class="s2">"FRANCE (EUROPEAN TERRITORY)"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"CountryCode"</span><span class="p">:</span><span class="s2">"FX"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"PhoneCode"</span><span class="p">:</span><span class="s2">"0"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="p">{</span><span class="w">  
-         </span><span class="nt">"CountryName"</span><span class="p">:</span><span class="s2">"FRENCH GUYANA"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"CountryCode"</span><span class="p">:</span><span class="s2">"GF"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"PhoneCode"</span><span class="p">:</span><span class="s2">"594"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
 
-      </span><span class="p">{</span><span class="w">  
-         </span><span class="nt">"CountryName"</span><span class="p">:</span><span class="s2">"GIBRALTAR"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"CountryCode"</span><span class="p">:</span><span class="s2">"GI"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"PhoneCode"</span><span class="p">:</span><span class="s2">"350"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="p">{</span><span class="w">  
-         </span><span class="nt">"CountryName"</span><span class="p">:</span><span class="s2">"GREECE"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"CountryCode"</span><span class="p">:</span><span class="s2">"GR"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"PhoneCode"</span><span class="p">:</span><span class="s2">"30"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="p">{</span><span class="w">  
-         </span><span class="nt">"CountryName"</span><span class="p">:</span><span class="s2">"GREENLAND"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"CountryCode"</span><span class="p">:</span><span class="s2">"GL"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"PhoneCode"</span><span class="p">:</span><span class="s2">"299"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="p">{</span><span class="w">  
-         </span><span class="nt">"CountryName"</span><span class="p">:</span><span class="s2">"GRENADA"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"CountryCode"</span><span class="p">:</span><span class="s2">"GD"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"PhoneCode"</span><span class="p">:</span><span class="s2">"1473"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="p">{</span><span class="w">  
-         </span><span class="nt">"CountryName"</span><span class="p">:</span><span class="s2">"GUADELOUPE"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"CountryCode"</span><span class="p">:</span><span class="s2">"GP"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"PhoneCode"</span><span class="p">:</span><span class="s2">"590"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="p">{</span><span class="w">  
-         </span><span class="nt">"CountryName"</span><span class="p">:</span><span class="s2">"GUAM"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"CountryCode"</span><span class="p">:</span><span class="s2">"GU"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"PhoneCode"</span><span class="p">:</span><span class="s2">"1671"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="p">{</span><span class="w">  
-         </span><span class="nt">"CountryName"</span><span class="p">:</span><span class="s2">"GUATEMALA"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"CountryCode"</span><span class="p">:</span><span class="s2">"GT"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"PhoneCode"</span><span class="p">:</span><span class="s2">"502"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="p">{</span><span class="w">  
-         </span><span class="nt">"CountryName"</span><span class="p">:</span><span class="s2">"GUERNSEY"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"CountryCode"</span><span class="p">:</span><span class="s2">"GG"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"PhoneCode"</span><span class="p">:</span><span class="s2">"44"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-
-      </span><span class="p">{</span><span class="w">  
-         </span><span class="nt">"CountryName"</span><span class="p">:</span><span class="s2">"HEARD AND MCDONALD ISLANDS"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"CountryCode"</span><span class="p">:</span><span class="s2">"HM"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"PhoneCode"</span><span class="p">:</span><span class="s2">"0"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="p">{</span><span class="w">  
-         </span><span class="nt">"CountryName"</span><span class="p">:</span><span class="s2">"HOLY SEE"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"CountryCode"</span><span class="p">:</span><span class="s2">"VA"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"PhoneCode"</span><span class="p">:</span><span class="s2">"379"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="p">{</span><span class="w">  
-         </span><span class="nt">"CountryName"</span><span class="p">:</span><span class="s2">"HONDURAS"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"CountryCode"</span><span class="p">:</span><span class="s2">"HN"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"PhoneCode"</span><span class="p">:</span><span class="s2">"504"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="p">{</span><span class="w">  
-         </span><span class="nt">"CountryName"</span><span class="p">:</span><span class="s2">"HONG KONG"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"CountryCode"</span><span class="p">:</span><span class="s2">"HK"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"PhoneCode"</span><span class="p">:</span><span class="s2">"852"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="p">{</span><span class="w">  
-         </span><span class="nt">"CountryName"</span><span class="p">:</span><span class="s2">"HUNGARY"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"CountryCode"</span><span class="p">:</span><span class="s2">"HU"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"PhoneCode"</span><span class="p">:</span><span class="s2">"36"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="p">{</span><span class="w">  
-         </span><span class="nt">"CountryName"</span><span class="p">:</span><span class="s2">"ICELAND"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"CountryCode"</span><span class="p">:</span><span class="s2">"IS"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"PhoneCode"</span><span class="p">:</span><span class="s2">"354"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="p">{</span><span class="w">  
-         </span><span class="nt">"CountryName"</span><span class="p">:</span><span class="s2">"INDIA"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"CountryCode"</span><span class="p">:</span><span class="s2">"IN"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"PhoneCode"</span><span class="p">:</span><span class="s2">"91"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="p">{</span><span class="w">  
-         </span><span class="nt">"CountryName"</span><span class="p">:</span><span class="s2">"INDONESIA"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"CountryCode"</span><span class="p">:</span><span class="s2">"ID"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"PhoneCode"</span><span class="p">:</span><span class="s2">"62"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="p">{</span><span class="w">  
-         </span><span class="nt">"CountryName"</span><span class="p">:</span><span class="s2">"IRAN"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"CountryCode"</span><span class="p">:</span><span class="s2">"IR"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"PhoneCode"</span><span class="p">:</span><span class="s2">"98"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="p">{</span><span class="w">  
-         </span><span class="nt">"CountryName"</span><span class="p">:</span><span class="s2">"IRAQ"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"CountryCode"</span><span class="p">:</span><span class="s2">"IQ"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"PhoneCode"</span><span class="p">:</span><span class="s2">"964"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="p">{</span><span class="w">  
-         </span><span class="nt">"CountryName"</span><span class="p">:</span><span class="s2">"IRELAND"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"CountryCode"</span><span class="p">:</span><span class="s2">"IE"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"PhoneCode"</span><span class="p">:</span><span class="s2">"353"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="p">{</span><span class="w">  
-         </span><span class="nt">"CountryName"</span><span class="p">:</span><span class="s2">"ISLE OF MAN"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"CountryCode"</span><span class="p">:</span><span class="s2">"IM"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"PhoneCode"</span><span class="p">:</span><span class="s2">"44"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="p">{</span><span class="w">  
-         </span><span class="nt">"CountryName"</span><span class="p">:</span><span class="s2">"ISRAEL"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"CountryCode"</span><span class="p">:</span><span class="s2">"IL"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"PhoneCode"</span><span class="p">:</span><span class="s2">"972"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="p">{</span><span class="w">  
-         </span><span class="nt">"CountryName"</span><span class="p">:</span><span class="s2">"ITALY"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"CountryCode"</span><span class="p">:</span><span class="s2">"IT"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"PhoneCode"</span><span class="p">:</span><span class="s2">"39"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="p">{</span><span class="w">  
-         </span><span class="nt">"CountryName"</span><span class="p">:</span><span class="s2">"IVORY COAST"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"CountryCode"</span><span class="p">:</span><span class="s2">"CI"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"PhoneCode"</span><span class="p">:</span><span class="s2">"225"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="p">{</span><span class="w">  
-         </span><span class="nt">"CountryName"</span><span class="p">:</span><span class="s2">"JAMAICA"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"CountryCode"</span><span class="p">:</span><span class="s2">"JM"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"PhoneCode"</span><span class="p">:</span><span class="s2">"1876"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="p">{</span><span class="w">  
-         </span><span class="nt">"CountryName"</span><span class="p">:</span><span class="s2">"JAPAN"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"CountryCode"</span><span class="p">:</span><span class="s2">"JP"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"PhoneCode"</span><span class="p">:</span><span class="s2">"81"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-
-      </span><span class="p">{</span><span class="w">  
-         </span><span class="nt">"CountryName"</span><span class="p">:</span><span class="s2">"PALESTINIAN TERRITORY, OCCUPIED"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"CountryCode"</span><span class="p">:</span><span class="s2">"PS"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"PhoneCode"</span><span class="p">:</span><span class="s2">"970"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="p">{</span><span class="w">  
-         </span><span class="nt">"CountryName"</span><span class="p">:</span><span class="s2">"PANAMA"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"CountryCode"</span><span class="p">:</span><span class="s2">"PA"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"PhoneCode"</span><span class="p">:</span><span class="s2">"507"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-
-      </span><span class="p">{</span><span class="w">  
-         </span><span class="nt">"CountryName"</span><span class="p">:</span><span class="s2">"PORTUGAL"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"CountryCode"</span><span class="p">:</span><span class="s2">"PT"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"PhoneCode"</span><span class="p">:</span><span class="s2">"351"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="p">{</span><span class="w">  
-         </span><span class="nt">"CountryName"</span><span class="p">:</span><span class="s2">"PUERTO RICO"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"CountryCode"</span><span class="p">:</span><span class="s2">"PR"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"PhoneCode"</span><span class="p">:</span><span class="s2">"1"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="p">{</span><span class="w">  
-         </span><span class="nt">"CountryName"</span><span class="p">:</span><span class="s2">"QATAR"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"CountryCode"</span><span class="p">:</span><span class="s2">"QA"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"PhoneCode"</span><span class="p">:</span><span class="s2">"974"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="p">{</span><span class="w">  
-         </span><span class="nt">"CountryName"</span><span class="p">:</span><span class="s2">"REUNION"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"CountryCode"</span><span class="p">:</span><span class="s2">"RE"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"PhoneCode"</span><span class="p">:</span><span class="s2">"262"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="p">{</span><span class="w">  
-         </span><span class="nt">"CountryName"</span><span class="p">:</span><span class="s2">"ROMANIA"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"CountryCode"</span><span class="p">:</span><span class="s2">"RO"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"PhoneCode"</span><span class="p">:</span><span class="s2">"40"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-
-
-      </span><span class="p">{</span><span class="w">  
-         </span><span class="nt">"CountryName"</span><span class="p">:</span><span class="s2">"SLOVENIA"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"CountryCode"</span><span class="p">:</span><span class="s2">"SI"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"PhoneCode"</span><span class="p">:</span><span class="s2">"386"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="p">{</span><span class="w">  
-         </span><span class="nt">"CountryName"</span><span class="p">:</span><span class="s2">"SOLOMON ISLANDS"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"CountryCode"</span><span class="p">:</span><span class="s2">"SB"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"PhoneCode"</span><span class="p">:</span><span class="s2">"677"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-
-
-      </span><span class="p">{</span><span class="w">  
-         </span><span class="nt">"CountryName"</span><span class="p">:</span><span class="s2">"UGANDA"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"CountryCode"</span><span class="p">:</span><span class="s2">"UG"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"PhoneCode"</span><span class="p">:</span><span class="s2">"256"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="p">{</span><span class="w">  
-         </span><span class="nt">"CountryName"</span><span class="p">:</span><span class="s2">"UKRAINE"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"CountryCode"</span><span class="p">:</span><span class="s2">"UA"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"PhoneCode"</span><span class="p">:</span><span class="s2">"380"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="p">{</span><span class="w">  
-         </span><span class="nt">"CountryName"</span><span class="p">:</span><span class="s2">"UNITED ARAB EMIRATES"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"CountryCode"</span><span class="p">:</span><span class="s2">"AE"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"PhoneCode"</span><span class="p">:</span><span class="s2">"971"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="p">{</span><span class="w">  
-         </span><span class="nt">"CountryName"</span><span class="p">:</span><span class="s2">"UNITED KINGDOM"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"CountryCode"</span><span class="p">:</span><span class="s2">"GB"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"PhoneCode"</span><span class="p">:</span><span class="s2">"44"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="p">{</span><span class="w">  
-         </span><span class="nt">"CountryName"</span><span class="p">:</span><span class="s2">"UNITED STATES"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"CountryCode"</span><span class="p">:</span><span class="s2">"US"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"PhoneCode"</span><span class="p">:</span><span class="s2">"1"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-
-      </span><span class="p">{</span><span class="w">  
-         </span><span class="nt">"CountryName"</span><span class="p">:</span><span class="s2">"USA MINOR OUTLYING ISLANDS"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"CountryCode"</span><span class="p">:</span><span class="s2">"UM"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"PhoneCode"</span><span class="p">:</span><span class="s2">"0"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="p">{</span><span class="w">  
-         </span><span class="nt">"CountryName"</span><span class="p">:</span><span class="s2">"UZBEKISTAN"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"CountryCode"</span><span class="p">:</span><span class="s2">"UZ"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"PhoneCode"</span><span class="p">:</span><span class="s2">"998"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="p">{</span><span class="w">  
-         </span><span class="nt">"CountryName"</span><span class="p">:</span><span class="s2">"VANUATU"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"CountryCode"</span><span class="p">:</span><span class="s2">"VU"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"PhoneCode"</span><span class="p">:</span><span class="s2">"678"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
 
       </span><span class="p">{</span><span class="w">  
          </span><span class="nt">"CountryName"</span><span class="p">:</span><span class="s2">"ZIMBABWE"</span><span class="p">,</span><span class="w">
@@ -19978,7 +21055,7 @@ Sample POST Request</p>
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Location/UpdateLocation/{{MerchantId}}/Search</code></p>
+<p><code class="prettyprint">https://{host}/developerapi/Location/{{MerchantId}}/Search</code></p>
 
 <h3 id="path-parameters">Path Parameters</h3>
 
@@ -21490,6 +22567,80 @@ Sample POST Request</p>
 
 <aside class="notice"> All parameters marked by * are mandatory.</aside>
 
+<h3 id="success-error-codes">Success/Error Codes</h3>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1003</td>
+<td>Authentication failed</td>
+</tr>
+<tr>
+<td>1004</td>
+<td>Successful</td>
+</tr>
+<tr>
+<td>1016</td>
+<td>Invalid Input</td>
+</tr>
+<tr>
+<td>1009</td>
+<td>No Record Found</td>
+</tr>
+<tr>
+<td>1003</td>
+<td>Authentication Failed</td>
+</tr>
+<tr>
+<td>1030</td>
+<td>Service is not Authorized</td>
+</tr>
+<tr>
+<td>1000</td>
+<td>Unhandled Exception</td>
+</tr>
+<tr>
+<td>6220</td>
+<td>Invalid ETA start/end time</td>
+</tr>
+<tr>
+<td>6221</td>
+<td>Invalid ETA range</td>
+</tr>
+<tr>
+<td>6222</td>
+<td>Invalid ETA units</td>
+</tr>
+<tr>
+<td>6223</td>
+<td>Invalid end range</td>
+</tr>
+<tr>
+<td>6224</td>
+<td>End date is greater than start date</td>
+</tr>
+<tr>
+<td>6225</td>
+<td>Invalid ETA details</td>
+</tr>
+<tr>
+<td>6226</td>
+<td>No location code passed</td>
+</tr>
+<tr>
+<td>6227</td>
+<td>Invalid location</td>
+</tr>
+<tr>
+<td>6228</td>
+<td>Invalid ETA</td>
+</tr>
+</tbody></table>
+
 <h2 id="get-location-eta">Get Location ETA</h2>
 
 <blockquote>
@@ -21651,6 +22802,22 @@ Sample POST Request</p>
 <tr>
 <td>1030</td>
 <td>Service is not Authorized</td>
+</tr>
+<tr>
+<td>6225</td>
+<td>Invalid ETA details</td>
+</tr>
+<tr>
+<td>6226</td>
+<td>No location code passed</td>
+</tr>
+<tr>
+<td>6227</td>
+<td>Invalid location</td>
+</tr>
+<tr>
+<td>6228</td>
+<td>Invalid ETA</td>
 </tr>
 </tbody></table>
 
