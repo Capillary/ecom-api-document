@@ -14595,6 +14595,132 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <aside class="notice">All parameters marked by * are mandatory.</aside>
 
+<h3 id="success-error-codes">Success/Error Codes</h3>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1000</td>
+<td>Unhandled exception</td>
+</tr>
+<tr>
+<td>1003</td>
+<td>Authentication failed</td>
+</tr>
+<tr>
+<td>1004</td>
+<td>Successful</td>
+</tr>
+<tr>
+<td>1016</td>
+<td>Invalid Input</td>
+</tr>
+<tr>
+<td>1009</td>
+<td>No record found</td>
+</tr>
+<tr>
+<td>1003</td>
+<td>Authentication failed</td>
+</tr>
+<tr>
+<td>1030</td>
+<td>Service is not authorized</td>
+</tr>
+<tr>
+<td>1005</td>
+<td>Order authorized</td>
+</tr>
+<tr>
+<td>1006</td>
+<td>Order id is not available</td>
+</tr>
+<tr>
+<td>1007</td>
+<td>Updated successfully</td>
+</tr>
+<tr>
+<td>1008</td>
+<td>Update failed</td>
+</tr>
+<tr>
+<td>1009</td>
+<td>No record found</td>
+</tr>
+<tr>
+<td>1011</td>
+<td>Order is not ready for shipping</td>
+</tr>
+<tr>
+<td>1012</td>
+<td>Username is required</td>
+</tr>
+<tr>
+<td>1013</td>
+<td>Voucher name is required</td>
+</tr>
+<tr>
+<td>1014</td>
+<td>Voucher already exists</td>
+</tr>
+<tr>
+<td>1015</td>
+<td>Invalid campaign id</td>
+</tr>
+<tr>
+<td>1016</td>
+<td>Invalid input</td>
+</tr>
+<tr>
+<td>1017</td>
+<td>User does not exist</td>
+</tr>
+<tr>
+<td>1028</td>
+<td>Invalid page number</td>
+</tr>
+<tr>
+<td>1018</td>
+<td>Data update added to the task queue. You can view the status of the update in the Control Panel. An email will be sent to the merchant&rsquo;s registered email id after the task is completed.</td>
+</tr>
+<tr>
+<td>1019</td>
+<td>Data update added to the task queue. You can view the status of update using &lsquo;GetProductInformation&rsquo;</td>
+</tr>
+<tr>
+<td>1020</td>
+<td>No common shipping</td>
+</tr>
+<tr>
+<td>1021</td>
+<td>Warning</td>
+</tr>
+<tr>
+<td>1022</td>
+<td>Products not available</td>
+</tr>
+<tr>
+<td>1023</td>
+<td>Invalid city. Please select a valid address</td>
+</tr>
+<tr>
+<td>1024</td>
+<td>PINode is not serviceable for the selected location</td>
+</tr>
+<tr>
+<td>1025</td>
+<td>PIN code not serviceable for the given address</td>
+</tr>
+<tr>
+<td>1027</td>
+<td>Update failed</td>
+</tr>
+</tbody></table>
+
 <h2 id="create-bulk-order-deal-amp-bundle">Create Bulk Order (Deal &amp; Bundle)</h2>
 
 <blockquote>
@@ -16184,6 +16310,52 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <td>LeadTime</td>
 <td>int</td>
 <td>In minutes. Booking is allowed at least x minutes before the booking slot</td>
+</tr>
+</tbody></table>
+
+<h3 id="success-error-codes">Success/Error Codes</h3>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1000</td>
+<td>Unhandled exception</td>
+</tr>
+<tr>
+<td>1003</td>
+<td>Authentication failed</td>
+</tr>
+<tr>
+<td>1004</td>
+<td>Successful</td>
+</tr>
+<tr>
+<td>1016</td>
+<td>Invalid Input</td>
+</tr>
+<tr>
+<td>1009</td>
+<td>No record found</td>
+</tr>
+<tr>
+<td>1003</td>
+<td>Authentication failed</td>
+</tr>
+<tr>
+<td>1030</td>
+<td>Service is not authorized</td>
+</tr>
+<tr>
+<td>1001</td>
+<td>Order canceled already</td>
+</tr>
+<tr>
+<td>1002</td>
+<td>Order canceled successfully</td>
 </tr>
 </tbody></table>
 
@@ -20627,6 +20799,52 @@ Sample POST Request</p>
 </tr>
 </tbody></table>
 
+<h2 id="success-error-codes">Success/Error Codes</h2>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1000</td>
+<td>Unhandled Exception</td>
+</tr>
+<tr>
+<td>1003</td>
+<td>Authentication Failed</td>
+</tr>
+<tr>
+<td>1004</td>
+<td>Successful</td>
+</tr>
+<tr>
+<td>1009</td>
+<td>No Record Found</td>
+</tr>
+<tr>
+<td>1030</td>
+<td>Service is not Authorized</td>
+</tr>
+<tr>
+<td>6225</td>
+<td>Invalid ETA details</td>
+</tr>
+<tr>
+<td>6226</td>
+<td>No location code passed</td>
+</tr>
+<tr>
+<td>6227</td>
+<td>Invalid location</td>
+</tr>
+<tr>
+<td>6228</td>
+<td>Invalid ETA</td>
+</tr>
+</tbody></table>
+
 <h2 id="update-store-location">Update Store Location</h2>
 
 <blockquote>
@@ -20753,6 +20971,52 @@ Sample POST Request</p>
 <td>value</td>
 <td>string</td>
 <td>New value of the specified path</td>
+</tr>
+</tbody></table>
+
+<h2 id="success-error-codes">Success/Error Codes</h2>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1000</td>
+<td>Unhandled Exception</td>
+</tr>
+<tr>
+<td>1003</td>
+<td>Authentication Failed</td>
+</tr>
+<tr>
+<td>1004</td>
+<td>Successful</td>
+</tr>
+<tr>
+<td>1009</td>
+<td>No Record Found</td>
+</tr>
+<tr>
+<td>1030</td>
+<td>Service is not Authorized</td>
+</tr>
+<tr>
+<td>6225</td>
+<td>Invalid ETA details</td>
+</tr>
+<tr>
+<td>6226</td>
+<td>No location code passed</td>
+</tr>
+<tr>
+<td>6227</td>
+<td>Invalid location</td>
+</tr>
+<tr>
+<td>6228</td>
+<td>Invalid ETA</td>
 </tr>
 </tbody></table>
 
@@ -20899,7 +21163,53 @@ Sample POST Request</p>
 </tr>
 </tbody></table>
 
-<h2 id="fetch-locations">Fetch Locations</h2>
+<h2 id="success-error-codes">Success/Error Codes</h2>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1000</td>
+<td>Unhandled Exception</td>
+</tr>
+<tr>
+<td>1003</td>
+<td>Authentication Failed</td>
+</tr>
+<tr>
+<td>1004</td>
+<td>Successful</td>
+</tr>
+<tr>
+<td>1009</td>
+<td>No Record Found</td>
+</tr>
+<tr>
+<td>1030</td>
+<td>Service is not Authorized</td>
+</tr>
+<tr>
+<td>6225</td>
+<td>Invalid ETA details</td>
+</tr>
+<tr>
+<td>6226</td>
+<td>No location code passed</td>
+</tr>
+<tr>
+<td>6227</td>
+<td>Invalid location</td>
+</tr>
+<tr>
+<td>6228</td>
+<td>Invalid ETA</td>
+</tr>
+</tbody></table>
+
+<h2 id="search-locations">Search Locations</h2>
 
 <blockquote>
 <p>Sample Request</p>
@@ -21119,23 +21429,69 @@ Sample POST Request</p>
 </thead><tbody>
 <tr>
 <td>DistancefromInputLatLong</td>
-<td></td>
-<td></td>
+<td>float</td>
+<td>Distance of the location from latitude and longitude. Available only if latitude and longitude are set for the location</td>
 </tr>
 <tr>
 <td>IsParticipateInStock</td>
-<td></td>
-<td></td>
+<td>boolean</td>
+<td>Whether the location is participating in stock. The location appears on the storefront only if this is set to true</td>
 </tr>
 <tr>
 <td>IsOfflinneCheckoutEnabled</td>
-<td></td>
-<td></td>
+<td>boolean</td>
+<td>Whether offline ordering is available for the location</td>
 </tr>
 <tr>
 <td>IsOfflineDeals</td>
-<td></td>
-<td></td>
+<td>boolean</td>
+<td>Whether promotions are applied offline for the location</td>
+</tr>
+</tbody></table>
+
+<h2 id="success-error-codes">Success/Error Codes</h2>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1000</td>
+<td>Unhandled Exception</td>
+</tr>
+<tr>
+<td>1003</td>
+<td>Authentication Failed</td>
+</tr>
+<tr>
+<td>1004</td>
+<td>Successful</td>
+</tr>
+<tr>
+<td>1009</td>
+<td>No Record Found</td>
+</tr>
+<tr>
+<td>1030</td>
+<td>Service is not Authorized</td>
+</tr>
+<tr>
+<td>6225</td>
+<td>Invalid ETA details</td>
+</tr>
+<tr>
+<td>6226</td>
+<td>No location code passed</td>
+</tr>
+<tr>
+<td>6227</td>
+<td>Invalid location</td>
+</tr>
+<tr>
+<td>6228</td>
+<td>Invalid ETA</td>
 </tr>
 </tbody></table>
 
@@ -21644,6 +22000,67 @@ Sample POST Request</p>
 <th>Description</th>
 </tr>
 </thead><tbody>
+<tr>
+<td>IsReversePickupEnabled</td>
+<td>boolean</td>
+<td>Whether reverse pickup is applicable for the product in case of returns</td>
+</tr>
+<tr>
+<td>IsDefaultLNG_LocationName</td>
+<td>boolean</td>
+<td>float</td>
+</tr>
+<tr>
+<td>IsParticipateInStock</td>
+<td>boolean</td>
+<td>Whether the location is participating in stock. The location appears on the storefront only if this is set to true</td>
+</tr>
+</tbody></table>
+
+<h2 id="success-error-codes">Success/Error Codes</h2>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1000</td>
+<td>Unhandled Exception</td>
+</tr>
+<tr>
+<td>1003</td>
+<td>Authentication Failed</td>
+</tr>
+<tr>
+<td>1004</td>
+<td>Successful</td>
+</tr>
+<tr>
+<td>1009</td>
+<td>No Record Found</td>
+</tr>
+<tr>
+<td>1030</td>
+<td>Service is not Authorized</td>
+</tr>
+<tr>
+<td>6225</td>
+<td>Invalid ETA details</td>
+</tr>
+<tr>
+<td>6226</td>
+<td>No location code passed</td>
+</tr>
+<tr>
+<td>6227</td>
+<td>Invalid location</td>
+</tr>
+<tr>
+<td>6228</td>
+<td>Invalid ETA</td>
+</tr>
 </tbody></table>
 
 <h2 id="get-delivery-cities">Get Delivery Cities</h2>
@@ -21751,6 +22168,52 @@ Sample POST Request</p>
 </tbody></table>
 
 <aside class="notice"> All parameters marked by * are mandatory.</aside>
+
+<h2 id="response-codes">Response Codes</h2>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1000</td>
+<td>Unhandled Exception</td>
+</tr>
+<tr>
+<td>1003</td>
+<td>Authentication Failed</td>
+</tr>
+<tr>
+<td>1004</td>
+<td>Successful</td>
+</tr>
+<tr>
+<td>1009</td>
+<td>No Record Found</td>
+</tr>
+<tr>
+<td>1030</td>
+<td>Service is not Authorized</td>
+</tr>
+<tr>
+<td>6225</td>
+<td>Invalid ETA details</td>
+</tr>
+<tr>
+<td>6226</td>
+<td>No location code passed</td>
+</tr>
+<tr>
+<td>6227</td>
+<td>Invalid location</td>
+</tr>
+<tr>
+<td>6228</td>
+<td>Invalid ETA</td>
+</tr>
+</tbody></table>
 
 <h2 id="get-delivery-areas">Get Delivery Areas</h2>
 
@@ -21933,28 +22396,64 @@ Sample POST Request</p>
 </thead><tbody>
 <tr>
 <td>DistancefromInputLatLong</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>AdditionalDetails</td>
-<td>json obj</td>
-<td></td>
+<td>float</td>
+<td>Distance of the location from latitude and longitude. Available only if latitude and longitude are set for the location</td>
 </tr>
 <tr>
 <td>IsParticipateInStock</td>
 <td>boolean</td>
-<td></td>
+<td>Whether the location is participating in stock. The location appears on the storefront only if this is set to true</td>
 </tr>
 <tr>
-<td>IsOfflinneCheckoutEnabled</td>
-<td>boolean</td>
-<td></td>
+<td>AdditionalDetails</td>
+<td>json obj</td>
+<td>Custom field details</td>
+</tr>
+</tbody></table>
+
+<h2 id="response-codes">Response Codes</h2>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1000</td>
+<td>Unhandled Exception</td>
 </tr>
 <tr>
-<td>IsDefaultLNG_LocationName</td>
-<td>boolean</td>
-<td></td>
+<td>1003</td>
+<td>Authentication Failed</td>
+</tr>
+<tr>
+<td>1004</td>
+<td>Successful</td>
+</tr>
+<tr>
+<td>1009</td>
+<td>No Record Found</td>
+</tr>
+<tr>
+<td>1030</td>
+<td>Service is not Authorized</td>
+</tr>
+<tr>
+<td>6225</td>
+<td>Invalid ETA details</td>
+</tr>
+<tr>
+<td>6226</td>
+<td>No location code passed</td>
+</tr>
+<tr>
+<td>6227</td>
+<td>Invalid location</td>
+</tr>
+<tr>
+<td>6228</td>
+<td>Invalid ETA</td>
 </tr>
 </tbody></table>
 
@@ -22315,6 +22814,52 @@ Sample POST Request</p>
 </tr>
 </tbody></table>
 
+<h2 id="response-codes">Response Codes</h2>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1000</td>
+<td>Unhandled Exception</td>
+</tr>
+<tr>
+<td>1003</td>
+<td>Authentication Failed</td>
+</tr>
+<tr>
+<td>1004</td>
+<td>Successful</td>
+</tr>
+<tr>
+<td>1009</td>
+<td>No Record Found</td>
+</tr>
+<tr>
+<td>1030</td>
+<td>Service is not Authorized</td>
+</tr>
+<tr>
+<td>6225</td>
+<td>Invalid ETA details</td>
+</tr>
+<tr>
+<td>6226</td>
+<td>No location code passed</td>
+</tr>
+<tr>
+<td>6227</td>
+<td>Invalid location</td>
+</tr>
+<tr>
+<td>6228</td>
+<td>Invalid ETA</td>
+</tr>
+</tbody></table>
+
 <h2 id="get-reason-codes">Get Reason Codes</h2>
 
 <blockquote>
@@ -22403,6 +22948,52 @@ Sample POST Request</p>
 </tbody></table>
 
 <aside class="notice"> All parameters marked by * are mandatory.</aside>
+
+<h2 id="response-codes">Response Codes</h2>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1000</td>
+<td>Unhandled Exception</td>
+</tr>
+<tr>
+<td>1003</td>
+<td>Authentication Failed</td>
+</tr>
+<tr>
+<td>1004</td>
+<td>Successful</td>
+</tr>
+<tr>
+<td>1009</td>
+<td>No Record Found</td>
+</tr>
+<tr>
+<td>1030</td>
+<td>Service is not Authorized</td>
+</tr>
+<tr>
+<td>6225</td>
+<td>Invalid ETA details</td>
+</tr>
+<tr>
+<td>6226</td>
+<td>No location code passed</td>
+</tr>
+<tr>
+<td>6227</td>
+<td>Invalid location</td>
+</tr>
+<tr>
+<td>6228</td>
+<td>Invalid ETA</td>
+</tr>
+</tbody></table>
 
 <h2 id="update-order-eta">Update Order ETA</h2>
 
