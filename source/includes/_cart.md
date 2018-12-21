@@ -78,6 +78,21 @@ MobileNo* | string | Registered mobile number of the user
 
 
 
+## Success/Error Codes
+
+Code | Description
+---- | -----------
+440 | Session expired
+1000 | Unhandled Exception
+1004 | Successful
+1016 | Invalid Input
+1009 | No Record Found
+1003 | Authentication Failed
+1030 | Service is not Authorized
+
+
+
+
 ## Validate OTP
 > Sample Request
 
@@ -127,7 +142,17 @@ OTP* | The verification code received by the customer on his/her mobile number
 mobile* | The registered mobile number to which the OTP has to be sent 
 
 
+### Success/Error Codes
 
+Code | Description
+---- | -----------
+440 | Session expired
+1004 | Successful
+1016 | Invalid Input
+1009 | No Record Found
+1003 | Authentication Failed
+1030 | Service is not Authorized
+1000 | Unhandled Exception
 
 
 
@@ -420,7 +445,7 @@ Parameter | Type | Description
 --------- | ---- | -----------
 CartReferenceKey | string | Unique ID of each item in the cart
 IsFreeProduct | boolean | Whether the item is a free gift item
-Por | enum | The portion of the product applied for which the topping is applied. Value: W for whole, R for right, L for left (left, right usually applies for toppings)
+Por | enum | The portion of the product for which the topping is applied. Value: W for whole, R for right, L for left (left, right usually applies for toppings)
 CartPromotionRules | array | The rules that are applied to the cart items
 DemandedDeliveryDate | date | Date and time of delivery as requested by the customer
 RemainTotal | float | 
@@ -430,6 +455,26 @@ ConvertedDeals | array | The cart items that are converted to deal items
 PriceCapped | | 
 TotalCap | | 
 CappedRefKey | | 
+
+
+### Response Codes
+
+Code | Description
+---- | -----------
+1000 | Unhandled Exception
+1003 | Authentication Failed
+1004 | Successful
+1009 | No Record Found
+1016 | Invalid Input
+1030 | Service is not Authorized
+5001 | No Bundle items present for the specified product id
+5002 | Invalid Delivery Mode: {DeliveryMode} for Product as IsShip/IsOnline/Instore Pickup is not set
+5003 | Invalid Delivery Mode: {DeliveryMode} for Location Id: {LocationId}
+5004 | ProductId is not available at the specified locationId
+5005 | Product with the specified ProductId is not available
+5006 | Product with the specified ProductId has type 'A' which is not allowed. You cannot add an add-on product directly
+5007 | Invalid variant ProductId
+
 
 
 ## Add Items to Cart (Default Deal) 
@@ -567,7 +612,7 @@ Parameter | Type | Description
 --------- | ---- | -----------
 CartReferenceKey | string | Unique ID of each item in the cart
 IsFreeProduct | boolean | Whether the item is a free gift item
-Por | enum | The portion of the product applied for which the topping is applied. Value: W for whole, R for right, L for left (left, right usually applies for toppings)
+Por | enum | The portion of the product for which the topping is applied. Value: W for whole, R for right, L for left (left, right usually applies for toppings)
 CartPromotionRules | array | The rules that are applied to the cart items
 DemandedDeliveryDate | date | Date and time of delivery as requested by the customer
 RemainTotal | float | 
@@ -578,6 +623,23 @@ PriceCapped | |
 TotalCap | | 
 CappedRefKey | | 
 
+### Response Codes
+
+Code | Description
+---- | -----------
+1000 | Unhandled Exception
+1003 | Authentication Failed
+1004 | Successful
+1009 | No Record Found
+1016 | Invalid Input
+1030 | Service is not Authorized
+5001 | No Bundle items present for the specified product id
+5002 | Invalid Delivery Mode: {DeliveryMode} for Product as IsShip/IsOnline/Instore Pickup is not set
+5003 | Invalid Delivery Mode: {DeliveryMode} for Location Id: {LocationId}
+5004 | ProductId is not available at the specified locationId
+5005 | Product with the specified ProductId is not available
+5006 | Product with the specified ProductId has type 'A' which is not allowed. You cannot add an add-on product directly
+5007 | Invalid variant ProductId
 
 
 
@@ -1664,7 +1726,7 @@ Parameter | Type | Description
 --------- | ---- | -----------
 CartReferenceKey | string | Unique ID of each item in the cart
 IsFreeProduct | boolean | Whether the item is a free gift item
-Por | enum | The portion of the product applied for which the topping is applied. Value: W for whole, R for right, L for left (left, right usually applies for toppings)
+Por | enum | The portion of the product for which the topping is applied. Value: W for whole, R for right, L for left (left, right usually applies for toppings)
 CartPromotionRules | array | The rules that are applied to the cart items
 DemandedDeliveryDate | date | Date and time of delivery as requested by the customer
 RemainTotal | float | 
@@ -1674,6 +1736,25 @@ ConvertedDeals | array | The cart items that are converted to deal items
 PriceCapped | | 
 TotalCap | | 
 CappedRefKey | | 
+
+
+### Response Codes
+
+Code | Description
+---- | -----------
+1000 | Unhandled Exception
+1003 | Authentication Failed
+1004 | Successful
+1009 | No Record Found
+1016 | Invalid Input
+1030 | Service is not Authorized
+5001 | No Bundle items present for the specified product id
+5002 | Invalid Delivery Mode: {DeliveryMode} for Product as IsShip/IsOnline/Instore Pickup is not set
+5003 | Invalid Delivery Mode: {DeliveryMode} for Location Id: {LocationId}
+5004 | ProductId is not available at the specified locationId
+5005 | Product with the specified ProductId is not available
+5006 | Product with the specified ProductId has type 'A' which is not allowed. You cannot add an add-on product directly
+5007 | Invalid variant ProductId
 
 
 
@@ -2346,7 +2427,7 @@ Parameter | Type | Description
 --------- | ---- | -----------
 CartReferenceKey | string | Unique ID of each item in the cart
 IsFreeProduct | boolean | Whether the item is a free gift item
-Por | enum | The portion of the product applied for which the topping is applied. Value: W for whole, R for right, L for left (left, right usually applies for toppings)
+Por | enum | The portion of the product for which the topping is applied. Value: W for whole, R for right, L for left (left, right usually applies for toppings)
 CartPromotionRules | array | The rules that are applied to the cart items
 DemandedDeliveryDate | date | Date and time of delivery as requested by the customer
 RemainTotal | float | 
@@ -2356,6 +2437,27 @@ ConvertedDeals | array | The cart items that are converted to deal items
 PriceCapped | | 
 TotalCap | | 
 CappedRefKey | | 
+
+
+
+### Response Codes
+
+Code | Description
+---- | -----------
+1000 | Unhandled Exception
+1003 | Authentication Failed
+1004 | Successful
+1009 | No Record Found
+1016 | Invalid Input
+1030 | Service is not Authorized
+5001 | No Bundle items present for the specified product id
+5002 | Invalid Delivery Mode: {DeliveryMode} for Product as IsShip/IsOnline/Instore Pickup is not set
+5003 | Invalid Delivery Mode: {DeliveryMode} for Location Id: {LocationId}
+5004 | ProductId is not available at the specified locationId
+5005 | Product with the specified ProductId is not available
+5006 | Product with the specified ProductId has type 'A' which is not allowed. You cannot add an add-on product directly
+5007 | Invalid variant ProductId
+
 
 
 
@@ -2580,8 +2682,24 @@ Following table contains descriptions of a few response parameters that require 
 
 Parameter | Type | Description
 --------- | ---- | -----------
-SupplierId | | 
+SupplierId | | Unique GUID of the merchant (product supplier)
 IsFreeProduct | boolean | Whether the product is a gift item or deal item available for free
+
+
+
+### Success/Error Codes
+
+Code | Description
+---- | -----------
+440 | Session expired
+1000 | Unhandled Exception
+1003 | Authentication Failed
+1004 | Successful
+1009 | No Record Found
+1016 | Invalid Input
+1030 | Service is not Authorized
+
+
 
 
 ## Remove Cart Items
@@ -2631,12 +2749,19 @@ merchantId* | string | Unique GUID of the merchant
 
 <aside class="notice"> All parameters marked by * are mandatory. </aside>
 
-### Response Parameters
 
-Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.
+### Success/Error Codes
 
-Parameter | Type | Description
---------- | ---- | -----------
+Code | Description
+---- | -----------
+440 | Session expired
+1000 | Unhandled Exception
+1003 | Authentication Failed
+1004 | Successful
+1009 | No Record Found
+1016 | Invalid Input
+1030 | Service is not Authorized
+
 
 
 
@@ -2709,7 +2834,7 @@ https://www.martjack.com/developerapi/carts/UpdateCartProperties/81e77da2-723b-4
                "EntityFieldValueID":1,
                "MerchantID":"81e77da2-723b-483d-8c0d-49f800c1e288",
                "EntityFieldID":1,
-               "Value":"true",
+               "Value":"test",
                "IsSelected":true
             }
          ]
@@ -2743,7 +2868,227 @@ https://www.martjack.com/developerapi/carts/UpdateCartProperties/81e77da2-723b-4
 > Sample Response
 
 ```json
+{  
+   "messageCode":"1004",
+   "Message":"Successful",
+   "Carts":{  
+      "MerchantId":"81e77da2-723b-483d-8c0d-49f800c1xxxx",
+      "ProductCost":60.528000000000006,
+      "ShippingCost":12.9,
+      "VoucherDiscount":0,
+      "PromotionDiscount":0,
+      "TaxAmount":0,
+      "OrderTotal":73.428,
+      "VoucherCode":"",
+      "UserSelectedCurrency":"INR",
+      "Bill_FirstName":"Tom",
+      "Bill_LastName":"Sawyer",
+      "Bill_Address1":"#103, MG Road",
+      "Bill_Address2":"",
+      "Bill_CountryCode":"IN",
+      "_Bill_StateCode":"KA",
+      "Bill_City":"Bangalore",
+      "Bill_CityCode":"2148",
+      "Bill_OtherCityName":"",
+      "Bill_Telephone":"9967000000",
+      "Bill_Mobile":"9967000000",
+      "Bill_PostCode":"",
+      "Bill_Email":"",
+      "Ship_FirstName":"Tom",
+      "Ship_LastName":"Sawyer",
+      "Ship_Address1":"AutoTestAddres1Bill",
+      "Ship_Address2":"",
+      "Ship_CountryCode":"IN",
+      "Ship_StateCode":"KA",
+      "Ship_City":"2148",
+      "Ship_CityCode":"2148",
+      "Ship_OtherCityName":"",
+      "Ship_Telephone":"9967000000",
+      "Ship_Mobile":"9967000000",
+      "Ship_PostCode":"",
+      "Ship_Email":"",
+      "CartItems":[  
+         {  
+            "ProductId":12688208,
+            "VariantProductId":0,
+            "MRP":4.5,
+            "WebPrice":0,
+            "Quantity":1,
+            "description":"Seafood Supreme",
+            "SupplierId":"81e77da2-723b-483d-8c0d-49f800c1e288",
+            "CartReferenceKey":"18e18f60-a1a9-44f0-b256-536e2fe0a3a7",
+            "IsFreeProduct":false,
+            "PriceCapped":false,
+            "TotalCap":0,
+            "CappedRefKey":"00000000-0000-0000-0000-000000000000",
+            "CatalogpromotionDiscount":0,
+            "BundleCartReferenceKey":"00000000-0000-0000-0000-000000000000",
+            "BundleCartItems":[  
+               {  
+                  "ProductId":12688172,
+                  "VariantProductId":9727843,
+                  "MRP":5.9,
+                  "WebPrice":4.5,
+                  "Quantity":1,
+                  "description":"Seafood Supreme Crust",
+                  "SupplierId":"81e77da2-723b-483d-8c0d-49f800c1e288",
+                  "CartReferenceKey":"752b5193-af86-43ea-86e4-b9e5ccb8a941",
+                  "TotalCap":0,
+                  "CatalogpromotionDiscount":0,
+                  "BundleCartReferenceKey":"18e18f60-a1a9-44f0-b256-536e2fe0a3a7",
+                  "ItemPromotionDiscountAmount":0,
+                  "IsPrimaryProduct":true,
+                  "IsPromotionProduct":false,
+                  "VariantsInfo":[  
+                     {  
+                        "PropertyName":"Crust",
+                        "Value":"Pan"
+                     },
+                     {  
+                        "PropertyName":"Size",
+                        "Value":"Medium"
+                     }
+                  ],
+                  "Por":"",
+                  "IsDefaultBundleItem":true,
+                  "CartPromotionRules":[  
 
+                  ],
+                  "CategoryId":"CN00215782",
+                  "CategoryName":null,
+                  "BrandId":"311548",
+                  "BrandName":"PizzaHut",
+                  "GroupId":0
+               }
+            ],
+            "IsPrimaryProduct":false,
+            "ItemPromotionDiscountAmount":0,
+            "IsPromotionProduct":false,
+            "Por":"",
+            "IsDefaultBundleItem":false,
+            "ProductImage":"//images-cdn-test.azureedge.net/azure/test-resources/81e77da2-723b-483d-8c0d-49f800c1e288/Images/ProductImages/Source/Opt-SEAFOOD_ISLAND_showcase.png;width=100;height=100;scale=canvas;anchor=bottomcenter",
+            "CartPromotionRules":[  
+
+            ],
+            "CategoryId":"CN00215794",
+            "CategoryName":null,
+            "BrandId":"311548",
+            "BrandName":"PizzaHut",
+            "ParentCartItems":null
+         },
+         {  
+            "ProductId":12688220,
+            "VariantProductId":0,
+            "MRP":90.567,
+            "WebPrice":50.328,
+            "Quantity":1,
+            "description":"Classic Pepperoni",
+            "SupplierId":"81e77da2-723b-483d-8c0d-49f800c1e288",
+            "CartReferenceKey":"ff462a81-699f-4798-9b73-4f9d9753xxxx",
+            "IsFreeProduct":false,
+            "PriceCapped":false,
+            "TotalCap":0,
+            "CappedRefKey":"00000000-0000-0000-0000-000000000000",
+            "CatalogpromotionDiscount":0,
+            "BundleCartReferenceKey":"00000000-0000-0000-0000-000000000000",
+            "BundleCartItems":[  
+               {  
+                  "ProductId":12688160,
+                  "VariantProductId":0,
+                  "MRP":5.7,
+                  "WebPrice":5.7,
+                  "Quantity":1,
+                  "description":"Classic Pepperoni Crust",
+                  "SupplierId":"81e77da2-723b-483d-8c0d-49f800c1xxxx",
+                  "CartReferenceKey":"ab59003f-81b5-45ea-8de8-4cd76f9bxxxx",
+                  "TotalCap":0,
+                  "CatalogpromotionDiscount":0,
+                  "BundleCartReferenceKey":"ff462a81-699f-4798-9b73-4f9d97536xxx",
+                  "ItemPromotionDiscountAmount":0,
+                  "IsPrimaryProduct":false,
+                  "IsPromotionProduct":false,
+                  "VariantsInfo":[  
+
+                  ],
+                  "Por":"",
+                  "IsDefaultBundleItem":true,
+                  "CartPromotionRules":[  
+
+                  ],
+                  "CategoryId":"CN0021xxxx",
+                  "CategoryName":null,
+                  "BrandId":"311548",
+                  "BrandName":"Capillary",
+                  "GroupId":0
+               }
+            ],
+            "IsPrimaryProduct":false,
+            "ItemPromotionDiscountAmount":0,
+            "IsPromotionProduct":false,
+            "Por":"",
+            "IsDefaultBundleItem":false,
+            "ProductImage":"//images-cdn-test.azureedge.net/azure/test-resources/81e77da2-723b-483d-8c0d-49f800c1e288/Images/ProductImages/Source/Opt-Classic_Pepperoni_showcase.png;width=100;height=100;scale=canvas;anchor=bottomcenter",
+            "CartPromotionRules":[  
+
+            ],
+            "CategoryId":"CN00215792",
+            "CategoryName":null,
+            "BrandId":"311548",
+            "BrandName":"PizzaHut",
+            "ParentCartItems":null
+         }
+      ],
+      "Suppliers":[  
+         {  
+            "SupplierId":"81e77da2-723b-483d-8c0d-49f800c1xxxx",
+            "SupplierName":"Capillary Pizza",
+            "IsSelected":false,
+            "OrderStatus":null
+         }
+      ],
+      "ShippingOptions":[  
+         {  
+            "SupplierId":"81e77da2-723b-483d-8c0d-49f800c1xxxx",
+            "ShippingMode":"12174",
+            "ShippingModeId":12174,
+            "isselected":true
+         }
+      ],
+      "PaymentOptionsChannel":[  
+         {  
+            "MerchantId":"81e77da2-723b-483d-8c0d-49f800c1xxxx",
+            "PaymentType":"COD",
+            "Paymentoption":"COD",
+            "GatewayId":"0",
+            "GatewayTitle":"COD",
+            "PaidAmount":0,
+            "EnalbeOTP":false
+         }
+      ],
+      "ErrorCollection":null,
+      "GiftMsg":"",
+      "DemandedDeliveryDate":"/Date(1536228000000+0530)/",
+      "RemainTotal":0,
+      "ShippingZoneType":null,
+      "DeliverySlotID":0,
+      "FailedProducts":null,
+      "PickupFirstName":"AutoTestNameBillg23fff",
+      "PickupLastName":"AutoTestLastNameBill",
+      "PickupEmail":"",
+      "PickupMobile":"9967810000",
+      "LocationId":"22612",
+      "TaxDetail":[  
+
+      ],
+      "ComboSuggestion":[  
+
+      ],
+      "ConvertedDeals":[  
+
+      ]
+   },
+   "ErrorCode":0
+}
 ```
 
 Updates existing checkout details such as Add delivery slot, add shipping address, add order attributes, and location id. However, country, state, and city code has to be  as per the values specified by the customer before adding items to the cart.
@@ -2793,16 +3138,22 @@ lstOMSEntityFieldValues | string | For predefined order attribute values (`IsPre
 EntityFieldValueID | string | Specify the unique id the order attribute value for predefined attribute name and values (`IsPredefined` is true)
 EntityFieldID |  string | Specify the unique id the order attribute name that you want to input for predefined attribute name and values (`IsPredefined` is true)
 Value | string | Specify the value of the order attribute that you want to set for the customer. You can use this for free-flow attribute values (`IsPredefined` is false)
-IsSelected |  | 
+IsSelected | boolean | Whether the selected attribute value is applicable for the customer or not
 
 <aside class="notice"> All parameters marked by * are mandatory. </aside>
 
-### Response Parameters
+### Success/Error Codes
 
-Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.
+Code | Description
+---- | -----------
+440 | Session expired
+1000 | Unhandled Exception
+1003 | Authentication Failed
+1004 | Successful
+1009 | No Record Found
+1016 | Invalid Input
+1030 | Service is not Authorized
 
-Parameter | Type | Description
---------- | ---- | -----------
 
 
 ## Update Address
@@ -3122,11 +3473,22 @@ IsFreeProduct | boolean | If the item is a gift item and is given for free of co
 PriceCapped | | 
 TotalCap | | 
 CappedRefKey | | 
-SupplierId | string | Unique GUID of the supplier of the product
-Por | enum | 
-GroupId | int | 
+SupplierId | string | Unique GUID of the merchant (product supplier)
+Por | enum | The portion of the product for which the topping is applied. Value: W for whole, R for right, L for left (left, right usually applies for toppings)
+GroupId | int | Unique group id associated to the product. Applicable in case of a bundle or deal products
 
 
+### Success/Error Codes
+
+Code | Description
+---- | -----------
+440 | Session expired
+1000 | Unhandled Exception
+1003 | Authentication Failed
+1004 | Successful
+1009 | No Record Found
+1016 | Invalid Input
+1030 | Service is not Authorized
 
 
 
@@ -3334,7 +3696,7 @@ Batch Support | No
 ### Additional Header Required
 
 Header | Description
------- | ------
+------ | -----------
 accesstoken* | Access token of the logged in user to validate the session
 
 ### Request Path Parameters
@@ -3356,11 +3718,23 @@ IsFreeProduct | boolean | If the item is a gift item and is given for free of co
 PriceCapped | | 
 TotalCap | | 
 CappedRefKey | | 
-SupplierId | string | Unique GUID of the supplier of the product
+SupplierId | string | Unique GUID of the merchant (supplier of the product)
 Por | enum | 
 GroupId | int | 
 ComboSuggestion | | 
 
+
+### Success/Error Codes
+
+Code | Description
+---- | -----------
+440 | Session expired
+1000 | Unhandled Exception
+1003 | Authentication Failed
+1004 | Successful
+1009 | No Record Found
+1016 | Invalid Input
+1030 | Service is not Authorized
 
 
 ## Remove Applied Voucher
@@ -3589,6 +3963,21 @@ Por | enum | The portion for which the product is applied. Value: `W` for whole,
 IsDefaultBundleItem | boolean | Whether the current item is in the default bundle item or customized bundle item 
 
 
+### Success/Error Codes
+
+Code | Description
+---- | -----------
+440 | Session expired
+1000 | Unhandled Exception
+1003 | Authentication Failed
+1004 | Successful
+1009 | No Record Found
+1016 | Invalid Input
+1030 | Service is not Authorized
+
+
+
+
 ## Get Cart Promotions
 
 > Sample Request
@@ -3710,6 +4099,19 @@ starttime | date-time | Start date of the current promotion
 endtime | date-time | End date of the current promotion
 repetitive | boolean | 
 allowfurtherpromotions | | 
+
+
+### Success/Error Codes
+
+Code | Description
+---- | -----------
+440 | Session expired
+1000 | Unhandled Exception
+1003 | Authentication Failed
+1004 | Successful
+1009 | No Record Found
+1016 | Invalid Input
+1030 | Service is not Authorized
 
 
 
@@ -3853,6 +4255,21 @@ Following table contains descriptions of a few response parameters that require 
 Parameter | Type | Description
 --------- | ---- | -----------
 EnalbeOTP | boolean | 
+
+
+### Success/Error Codes
+
+Code | Description
+---- | -----------
+440 | Session expired
+1000 | Unhandled Exception
+1003 | Authentication Failed
+1004 | Successful
+1009 | No Record Found
+1016 | Invalid Input
+1030 | Service is not Authorized
+
+
 
 
 ## Update Shipping Mode
@@ -4137,6 +4554,20 @@ CappedRefKey | |
 CatalogpromotionDiscount | | 
 
 
+### Success/Error Codes
+
+Code | Description
+---- | -----------
+440 | Session expired
+1000 | Unhandled Exception
+1003 | Authentication Failed
+1004 | Successful
+1009 | No Record Found
+1016 | Invalid Input
+1030 | Service is not Authorized
+
+
+
 
 
 ## Set Delivery Slot
@@ -4384,13 +4815,24 @@ Following table contains descriptions of a few response parameters that require 
 Parameter | Type | Description
 --------- | ---- | -----------
 IsFreeProduct | boolean | Whether the item is a free gift item
-Por | enum | The portion of the product applied for which the topping is applied. Value: W for whole, R for right, L for left (left, right usually applies for toppings)
+Por | enum | The portion of the product for which the topping is applied. Value: W for whole, R for right, L for left (left, right usually applies for toppings)
 ComboSuggestion | array | Suggestions related the deal items based on the items in the cart
 ConvertedDeals | array | The cart items that are converted to deal items 
 PriceCapped | | 
 TotalCap | | 
 CappedRefKey | | 
 
+### Success/Error Codes
+
+Code | Description
+---- | -----------
+440 | Session expired
+1000 | Unhandled Exception
+1003 | Authentication Failed
+1004 | Successful
+1009 | No Record Found
+1016 | Invalid Input
+1030 | Service is not Authorized
 
 
 ## Get Delivery Slots
@@ -4673,9 +5115,90 @@ Following table contains descriptions of a few response parameters that require 
 Parameter | Type | Description
 --------- | ---- | -----------
 IsFreeProduct | boolean | Whether the item is a free gift item
-Por | enum | The portion of the product applied for which the topping is applied. Value: W for whole, R for right, L for left (left, right usually applies for toppings)
+Por | enum | The portion of the product for which the topping is applied. Value: W for whole, R for right, L for left (left, right usually applies for toppings)
 ComboSuggestion | array | Suggestions related the deal items based on the items in the cart
 ConvertedDeals | array | The cart items that are converted to deal items 
 PriceCapped | | 
 TotalCap | | 
 CappedRefKey | | 
+
+
+
+### Success/Error Codes
+
+Code | Description
+---- | -----------
+440 | Session expired
+1000 | Unhandled Exception
+1003 | Authentication Failed
+1004 | Successful
+1009 | No Record Found
+1016 | Invalid Input
+1030 | Service is not Authorized
+
+
+
+
+## Get Product Recommendations
+
+> Sample Request
+
+```html
+https://www.martjack.com/DeveloperAPI/Cart/TargetBlocks/81e77da2-723b-483d-8c0d-49f800c1exxx
+```
+
+> Sample Response
+
+```json
+{
+    "ProductIds": [
+        13067043,
+        13067125,
+        13067247
+    ],
+    "messageCode": "1004",
+    "Message": "Successful",
+    "ErrorCode": 0
+}
+```
+
+Retrieves product recommendations based on the cart items.
+
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `Cart/TargetBlocks/{merchantId}`
+Response Formats | JSON
+HTTP Methods | GET
+Batch Support | No
+Rate Limited? | No
+Authentication | Yes
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+### Request URL
+
+`http://{host}/developerapi/Cart/TargetBlocks/{merchantId}`
+
+### Additional Header Required
+
+Header | Description
+----- | -----------
+AccessToken* | Access token of the current session (you can generate using GET AccessToken API)
+
+
+
+## Success/Error Codes
+
+Code | Description
+---- | -----------
+440 | Session expired
+440 | Session expired
+1000 | Unhandled Exception
+1004 | Successful
+1016 | Invalid Input
+1009 | No Record Found
+1003 | Authentication Failed
+1030 | Service is not Authorized

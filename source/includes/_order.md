@@ -455,7 +455,7 @@ shippingmode | string | Pass the shipping mode that you want to associate with t
 shippingamount | float | Pass the shipping charge for the specific item (Order item level)
 shippingdiscount | int | Pass the discount amount on the shipping charge (Order item level discount)
 linediscount | int | Pass the line item level discount of the order
-catalogcode | enum | Type of the prouct category, Value: `D` for deal, `B` for bundle, `P` product, `A` for add-on product 
+catalogcode | enum | Type of the product category, Value: `D` for deal, `B` for bundle 
 unitprice | float | Price of a single item
 bundleparentproduct | string | SKU of the parent bundle product
 isdefault | enum | Is the item default for the bundle. Value: `Yes`, `No`
@@ -2841,3 +2841,324 @@ CreatedDateTo | date | Get shipments created in a specific duration between `Cre
 ShippingStatus | enum | Get shipments by shipment status. You can pass multiple values separated by comma. Values: `I` - RTO initiated, `O`	- RTO Received, `L`	- RTO Lost, `X`	- Others, `S` - Shipment created, `R`	- Dispatched, `T`	- In transit, `U`	- Out for delivery, `D` - Delivered, `C`	- RTO Closed, `F`	- Cancelled, `E`	- RTO Refunded/Replacement closed, `W`	- Waiting for Collection  (in-store), `G`	- At Gate
 
 
+
+## Calculate Tax (Normal Product)
+
+Calculates tax amount for a product on the basis of source and destination location.
+
+> Sample Request
+
+```json
+https://www.martjack.com/developerapi/Order/CalculateTax/dc21b529-2057-402a-972a-e1ba0c8a08eb
+```
+
+> Sample POST Request
+
+```json
+MerchantID=dc21b529-2057-402a-972a-e1ba0c8a08eb&InputFormat=application/json&InputData={
+   "SourceLocationCode":"108",
+   "SourceLocationId":"",
+   "SourceCityName":"New Delhi",
+   "SourceCityCode":"26352",
+   "SourceCountryName":"INDIA",
+   "SourceCountryCode":"IN",
+   "SourceStateName":"Delhi",
+   "SourceStateCode":"DL",
+   "ShipCityName":"New Delhi",
+   "ShipCityCode":"26352",
+   "ShipCountryName":"INDIA",
+   "ShipCountryCode":"IN",
+   "ShipStateName":"Delhi",
+   "ShipStateCode":"DL",
+   "Items":[
+      {
+         "SKU":"IN-DR-Pepsi",
+         "VarientSKU":"0",
+         "Quantity":1,
+         "DeliveryMode":"H",
+         "UnitPrice":57
+      }
+   ]
+}
+```
+
+
+> Sample Response
+
+```json
+{
+    "messageCode": "1004",
+    "Message": "Successful",
+    "ProductTaxDetails": {
+        "TotalTaxAmount": 2.85,
+        "Items": [
+            {
+                "Sku": "IN-DR-Pepsi",
+                "VariantSku": null,
+                "Quantity": "1",
+                "UnitPrice": 57,
+                "TotalTaxAmount": 2.85,
+                "DeliveryMode": "H",
+                "BundleItem": null,
+                "TaxDetails": [
+                    {
+                        "TaxCategory": "C-GST",
+                        "TaxAmount": 1.425,
+                        "TaxCodeId": "35868",
+                        "IsTaxOnShipping": false,
+                        "IsPercentage": true
+                    },
+                    {
+                        "TaxCategory": "S-GST",
+                        "TaxAmount": 1.425,
+                        "TaxCodeId": "35868",
+                        "IsTaxOnShipping": false,
+                        "IsPercentage": true
+                    }
+                ]
+            }
+        ]
+    },
+    "ErrorCode": 0
+}
+```
+
+
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `Order/CalculateTax/{merchantId}`
+Rate Limited? | No
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | POST
+Batch Support | No
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+
+
+### Request URL
+
+`https://{host}/developerapi/Order/CalculateTax/{merchantId}`
+
+
+### Request Body Parameters
+
+Parameter | Type | Description
+-------- | ----- | -----------
+MerchantID* | string | Unique GUID of the merchant
+SourceLocationCode | int | Location code of the product
+SourceLocationId | int | Unique location id of the product
+SourceCityName | string | City name of the product location
+SourceCityCode | string | Unique city code of the product location
+SourceCountryName | string | Country name of the product location
+SourceCountryCode | string | alpha-2 code of the product location country . Example: IN (for India), AU (for Australia), and BR (for Brazil)
+SourceStateName | string | State name of the product location
+SourceStateCode | string | State code of the product location
+ShipCityName | string | City name of the product delivery location
+ShipCityCode | string | Unique city code of the product delivery location
+ShipCountryName | string | Country name of the product delivery location
+ShipCountryCode | string | alpha-2 code of the country of the product delivery location. Example: IN (for India), AU (for Australia), and BR (for Brazil)
+ShipStateName | string | State name of the product delivery location
+ShipStateCode | string | State code of the product delivery location
+SKU* | string | SKU of the product for which you want to calculate tax (Required for variant product)
+VarientSKU | string | SKU of the variant product for which you want to calculate tax
+Quantity* | int | Number of the item for which you want to calculate tax
+DeliveryMode* | enum | Mode of delivery of the current item. Mode of delivery of the item. Values: `H` for home delivery, `S` for store pick-up
+UnitPrice* | float | Price of a single item
+
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
+
+### Sample Response Parameters
+
+Parameter | Type | Description
+-------- | ----- | -----------
+BundleItem |  | Applicable for bundle products
+TaxCategory | string | Category of tax
+TaxCodeId | int | Unique id of the tax code
+IsTaxOnShipping | boolean | Whether tax is applied on shipping charges
+IsPercentage | boolean | If true, tax rate is calculated on the percentage of the price and false flat amount tax 
+
+
+
+
+
+## Calculate Tax (Bundle Product)
+
+Calculates tax amount for a product on the basis of source and destination location.
+
+> Sample Request
+
+```json
+https://www.martjack.com/developerapi/Order/CalculateTax/dc21b529-2057-402a-972a-e1ba0c8a08eb
+```
+
+> Sample POST Request
+
+```json
+MerchantID=dc21b529-2057-402a-972a-e1ba0c8a08eb&InputFormat=application/json&InputData={
+   "SourceLocationCode":"108",
+   "SourceLocationId":"",
+   "SourceCityName":"New Delhi",
+   "SourceCityCode":"26352",
+   "SourceCountryName":"INDIA",
+   "SourceCountryCode":"IN",
+   "SourceStateName":"Delhi",
+   "SourceStateCode":"DL",
+   "ShipCityName":"New Delhi",
+   "ShipCityCode":"26352",
+   "ShipCountryName":"INDIA",
+   "ShipCountryCode":"IN",
+   "ShipStateName":"Delhi",
+   "ShipStateCode":"DL",
+   "Items":[
+      {
+         "SKU":"IN-PZ-VG-TANDOORIPANEER",
+         "VarientSKU":"0",
+         "Quantity":1,
+         "DeliveryMode":"H",
+         "UnitPrice":0,
+         "BundleItem":[
+            {
+               "SKU":"IN-Crt-Tndripnr",
+               "VarientSKU":"IN-Crt-Tndripnr-Pan-Mdm",
+               "Quantity":1,
+               "DeliveryMode":"H",
+               "UnitPrice":"515"
+            }
+         ]
+      }
+   ]
+}
+```
+
+
+> Sample Response
+
+```json
+{
+    "messageCode": "1004",
+    "Message": "Successful",
+    "ProductTaxDetails": {
+        "TotalTaxAmount": 25.75,
+        "Items": [
+            {
+                "Sku": "IN-PZ-VG-TANDOORIPANEER",
+                "VariantSku": null,
+                "Quantity": "1",
+                "UnitPrice": 0,
+                "TotalTaxAmount": 0,
+                "DeliveryMode": "H",
+                "BundleItem": [
+                    {
+                        "Sku": "IN-Crt-Tndripnr",
+                        "VariantSku": null,
+                        "Quantity": "1",
+                        "UnitPrice": 515,
+                        "TotalTaxAmount": 25.75,
+                        "DeliveryMode": "H",
+                        "BundleItem": null,
+                        "TaxDetails": [
+                            {
+                                "TaxCategory": "C-GST",
+                                "TaxAmount": 12.875,
+                                "TaxCodeId": "35868",
+                                "IsTaxOnShipping": false,
+                                "IsPercentage": true
+                            },
+                            {
+                                "TaxCategory": "S-GST",
+                                "TaxAmount": 12.875,
+                                "TaxCodeId": "35868",
+                                "IsTaxOnShipping": false,
+                                "IsPercentage": true
+                            }
+                        ]
+                    }
+                ],
+                "TaxDetails": [
+                    {
+                        "TaxCategory": "C-GST",
+                        "TaxAmount": 0,
+                        "TaxCodeId": "35868",
+                        "IsTaxOnShipping": false,
+                        "IsPercentage": true
+                    },
+                    {
+                        "TaxCategory": "S-GST",
+                        "TaxAmount": 0,
+                        "TaxCodeId": "35868",
+                        "IsTaxOnShipping": false,
+                        "IsPercentage": true
+                    }
+                ]
+            }
+        ]
+    },
+    "ErrorCode": 0
+}
+
+```
+
+
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `Order/CalculateTax/{merchantId}`
+Rate Limited? | No
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | POST
+Batch Support | No
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+
+
+### Request URL
+
+`https://{host}/developerapi/Order/CalculateTax/{merchantId}`
+
+
+### Request Body Parameters
+
+Parameter | Type | Description
+-------- | ----- | -----------
+MerchantID* | string | Unique GUID of the merchant
+SourceLocationCode | int | Location code of the product
+SourceLocationId | int | Unique location id of the product
+SourceCityName | string | City name of the product location
+SourceCityCode | string | Unique city code of the product location
+SourceCountryName | string | Country name of the product location
+SourceCountryCode | string | alpha-2 code of the product location country . Example: IN (for India), AU (for Australia), and BR (for Brazil)
+SourceStateName | string | State name of the product location
+SourceStateCode | string | State code of the product location
+ShipCityName | string | City name of the product delivery location
+ShipCityCode | string | Unique city code of the product delivery location
+ShipCountryName | string | Country name of the product delivery location
+ShipCountryCode | string | alpha-2 code of the country of the product delivery location. Example: IN (for India), AU (for Australia), and BR (for Brazil)
+ShipStateName | string | State name of the product delivery location
+ShipStateCode | string | State code of the product delivery location
+BundleItem | obj | Details of the bundle product
+SKU* | string | SKU of the product for which you want to calculate tax (Required for variant product)
+VarientSKU | string | SKU of the variant product for which you want to calculate tax
+Quantity* | int | Number of the item for which you want to calculate tax
+DeliveryMode* | enum | Mode of delivery of the current item. Mode of delivery of the item. Values: `H` for home delivery, `S` for store pick-up
+UnitPrice* | float | Price of a single item
+
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
+
+### Sample Response Parameters
+
+Parameter | Type | Description
+-------- | ----- | -----------
+BundleItem |  | Applicable for bundle products
+TaxCategory | string | Category of tax
+TaxCodeId | int | Unique id of the tax code
+IsTaxOnShipping | boolean | Whether tax is applied on shipping charges
+IsPercentage | boolean | If true, tax rate is calculated on the percentage of the price and false flat amount tax

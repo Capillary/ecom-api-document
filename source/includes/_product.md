@@ -108,6 +108,66 @@ Taskid | int | Unique id generated for the current update location task
 
 Code | Description
 ---- | -----------
+429 | Rate limit exceeded
+440 | Session expired
+500 | Server error
+1000 | Exception message
+1001 | Order canceled already
+1002 | Order canceled successfully
+1003 | Authentication failed
+1004 | Success
+1005 | Order authorized
+1006 | Order id is not available
+1007 | Updated successfully
+1008 | Update failed
+1009 | No data
+1011 | Not ready for shipping
+1012 | Enter user
+1013 | Enter voucher
+1014 | Duplicate voucher
+1015 | Invalid campaign
+1016 | Invalid data
+1017 | Invalid user
+1028 | Invalid page number
+1018 | Msmq status
+1019 | msmq delete status
+1020 | No common shipping
+1021 | Warning
+1022 | Products not available
+1023 | Invalid city
+1024 | Invalid location PIN
+1025 | No service
+1027 | Failed
+1030 | Authorization failed
+1031 | Not approved
+1032 | Locked out
+1033 | Invalid API input
+1034 | Product exist
+1035 | Shipment created already 
+1036 | No default return shelf found
+1037 | Locked
+1038 | Invalid OTP
+1039 | Reset password
+1040 | Invalid password
+1041 | User does not exist
+1042 | Not activated
+1043 | Order is already authorized
+1044 | Invalid delivery slot
+1045 | Invalid merchant id
+1046 | Invalid location id
+5001 | Invalid user information
+6220 | Invalid ETA start/end time
+6221 | Invalid ETA range
+6222 | Invalid ETA units
+6223 | Invalid end range
+6224 | End range is greater than start range
+6225 | Invalid ETA details
+6226 | No location code passed
+6227 | Invalid location
+6228 | Invalid ETA for
+
+
+
 
 
 
@@ -744,10 +804,23 @@ Following table contains descriptions of a few response parameters that require 
 
 Parameter | Type | Description
 --------- | ---- | -----------
-usergroupname | string | Name of the user group
+usergroupname | string | Name of the user group. It can be related to promotions, subscription events, etc.
 tokenprice | float | Minimum amount required for the customer to reserve the item and purchase later on
 channelrefcode | string | Channel code to which the price list is associated
 
+
+
+### Success/Error Codes
+
+Code | Description
+---- | -----------
+1003 | Authentication failed
+1004 | Successful
+1016 | Invalid Input
+1009 | No Record Found
+1003 | Authentication Failed
+1030 | Service is not Authorized
+1000 | Unhandled Exception
 
 
 
@@ -821,13 +894,23 @@ Sku* | string | SKU of the product for which you want to fetch reviews
 <aside class="notice"> All parameters marked by * are mandatory.</aside>
 
 
+### Success/Error Codes
 
+Code | Description
+---- | -----------
+1003 | Authentication failed
+1004 | Successful
+1016 | Invalid Input
+1009 | No Record Found
+1003 | Authentication Failed
+1030 | Service is not Authorized
+1000 | Unhandled Exception
 
 
 
 ## Attach Product Images
 
-
+Associates images to a parent product, variant product and variant properties & values.
 
 > Sample Request
 
@@ -1005,6 +1088,19 @@ Taskid | int | Unique id generated for the current task
 
 
 
+### Success/Error Codes
+
+Code | Description
+---- | -----------
+1003 | Authentication failed
+1004 | Successful
+1016 | Invalid Input
+1009 | No Record Found
+1003 | Authentication Failed
+1030 | Service is not Authorized
+1000 | Unhandled Exception
+
+
 
 ## Get Product Details by Location
 
@@ -1123,6 +1219,20 @@ NoofReview | string | Number of reviews received for the product
 UOM | string | Unit of measurement of the product. It could be `pieces` for the items that are sold in numbers and the respective measure for other items such as kgs, and gms 
 
 
+
+### Success/Error Codes
+
+Code | Description
+---- | -----------
+1003 | Authentication failed
+1004 | Successful
+1016 | Invalid Input
+1009 | No Record Found
+1003 | Authentication Failed
+1030 | Service is not Authorized
+1000 | Unhandled Exception
+
+
 ## Get Product Details (by SKU)
 
 > Sample Request
@@ -1230,7 +1340,17 @@ BulkQuantity | int | Total number of items (quantity) that can be ordered at a t
 UOM | string | Unit of measurement of the product. It could be the `pieces` for items that are sold in numbers and the respective measure for other items such as kgs, and gms 
 
 
+### Success/Error Codes
 
+Code | Description
+---- | -----------
+1003 | Authentication failed
+1004 | Successful
+1016 | Invalid Input
+1009 | No Record Found
+1003 | Authentication Failed
+1030 | Service is not Authorized
+1000 | Unhandled Exception
 
 
 ## Get Product Variants
@@ -1320,7 +1440,7 @@ https://www.martjack.com/developerapi/Product/9820eca5-d11f-4df1-9b20-983a45ea96
             "IsReferProductInfo":false,
             "IsReferPrice":false,
             "TokenPrice":0,
-            "Flag":"""""""",
+            "Flag":"",
             "ReserveQuantity":0,
             "ReOrderStockLevel":0,
             "StockAlertQuantity":0,
@@ -1400,11 +1520,21 @@ IsReferProductInfo | boolean |
 IsReferPrice | | 
 ReserveQuantity | int | Total quantity of items reserved for 
 ReOrderStockLevel | int | Quantity of items to be reordered
-IsDisplaySwatch | boolean | 
+IsDisplaySwatch | boolean | Whether the illustration of accurate representation of color, pattern or texture of the product is shown on the storefront
 flag | | 
 
 
+### Success/Error Codes
 
+Code | Description
+---- | -----------
+1003 | Authentication failed
+1004 | Successful
+1016 | Invalid Input
+1009 | No Record Found
+1003 | Authentication Failed
+1030 | Service is not Authorized
+1000 | Unhandled Exception
 
 
 ## Get Products by Tag
@@ -1585,6 +1715,23 @@ isGoLive* | boolean | Specify `true` to show the review on the storefront, `fals
 <aside class="notice"> All parameters marked by * are mandatory.</aside>
 
 
+### Success/Error Codes
+
+Code | Description
+---- | -----------
+1003 | Authentication failed
+1004 | Successful
+1016 | Invalid Input
+1009 | No Record Found
+1003 | Authentication Failed
+1030 | Service is not Authorized
+1000 | Unhandled Exception
+
+
+
+
+
+
 ## Search Products
 
 > Sample Request
@@ -1592,6 +1739,15 @@ isGoLive* | boolean | Specify `true` to show the review on the storefront, `fals
 ```html
 https://www.martjack.com/developerapi/81e77da2-723b-483d-8c0d-49f800c1exxx/Search
 ```
+
+> Sample POST Request
+
+```json
+
+```
+
+
+
 > Sample Response
 
 ```json
@@ -1642,13 +1798,26 @@ Batch Support | No
 
 Parameter | Type | Description
 -------- | ----- | -----------
-MerchantId* | string | Specify the merchant id for which the review has to be associated
+MerchantId* | string | Unique GUID of the merchant
 keyword | string | 
 SKU | string  | Search product by SKU
-catalogcode | string | 
-category | string | 
-brand | string | 
-productTag | string | 
+catalogcode | string | Fetch products of a specific catalog code
+category | string | Search by category 
+brand | string | Search product ids by brand
+productTag | string | Search product ids by associated product tags 
 pageNumber | string | 
 pageSize | string | 
 attributes | array | 
+
+
+### Success/Error Codes
+
+Code | Description
+---- | -----------
+1003 | Authentication failed
+1004 | Successful
+1016 | Invalid Input
+1009 | No Record Found
+1003 | Authentication Failed
+1030 | Service is not Authorized
+1000 | Unhandled Exception

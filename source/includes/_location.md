@@ -387,7 +387,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Location/UpdateLocation/{{MerchantId}}/Search`
+`https://{host}/developerapi/Location/{{MerchantId}}/Search`
 
 
 
@@ -1541,6 +1541,26 @@ ETAUnits* | enum | Preferred unit for time - minutes, hours, or days. Value: `Mi
 <aside class="notice"> All parameters marked by * are mandatory.</aside>
 
 
+### Success/Error Codes
+
+Code | Description
+---- | -----------
+1003 | Authentication failed
+1004 | Successful
+1016 | Invalid Input
+1009 | No Record Found
+1003 | Authentication Failed
+1030 | Service is not Authorized
+1000 | Unhandled Exception
+6220 | Invalid ETA start/end time
+6221 | Invalid ETA range
+6222 | Invalid ETA units
+6223 | Invalid end range
+6224 | End date is greater than start date
+6225 | Invalid ETA details
+6226 | No location code passed
+6227 | Invalid location
+6228 | Invalid ETA
 
 
 
@@ -1635,6 +1655,9 @@ Code | Description
 1004 | Successful
 1009 | No Record Found
 1030 | Service is not Authorized
-
+6225 | Invalid ETA details
+6226 | No location code passed
+6227 | Invalid location
+6228 | Invalid ETA
 
 

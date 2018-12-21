@@ -147,6 +147,20 @@ MarketingNotificationType | string |
 
 
 
+## Success/Error Codes
+
+Code | Description
+---- | -----------
+1000 | Unhandled Exception
+
+1004 | Successful
+1016 | Invalid Input
+1009 | No Record Found
+1003 | Authentication Failed
+1030 | Service is not Authorized
+
+
+
 
 ## Register Customer through OTP
 
@@ -188,7 +202,11 @@ Authentication | Yes
 
 
 
+### Success/Error Codes
 
+Code | Description
+---- | -----------
+429 | Rate limit exceeded
 
 
 
@@ -340,6 +358,19 @@ AccessToken | string | An object or string that identifies the current user. Acc
 issued_at | date-time | The date and time when the access token was generated for the user
 
 
+### Success/Error Codes
+
+Code | Description
+---- | -----------
+1003 | Authentication failed
+1004 | Successful
+1016 | Invalid Input
+1009 | No Record Found
+1003 | Authentication Failed
+1030 | Service is not Authorized
+1000 | Unhandled Exception
+429 | Rate limit exceeded
+
 
 
 ## Customer Login (with Credentials)
@@ -417,6 +448,19 @@ Parameter | Type | Description
 --------- | ---- | -----------
 AccessToken | string | An object or string that identifies the current user. Access token is required for making customer related API calls such as validate token, update customer details, update profile attributes, and so on
 issued_at | date-time | The date and time when the access token was generated for the user
+
+
+### Success/Error Codes
+
+Code | Description
+---- | -----------
+1003 | Authentication failed
+1004 | Successful
+1016 | Invalid Input
+1009 | No Record Found
+1003 | Authentication Failed
+1030 | Service is not Authorized
+1000 | Unhandled Exception
 
 
 
@@ -509,6 +553,123 @@ issued_at | date-time | The date and time when the access token was generated fo
 
 
 
+### Success/Error Codes
+
+Code | Description
+---- | -----------
+1003 | Authentication failed
+1004 | Successful
+1016 | Invalid Input
+1009 | No Record Found
+1003 | Authentication Failed
+1030 | Service is not Authorized
+1000 | Unhandled Exception
+
+
+
+
+## Start Customer Session
+
+> Sample Request
+
+```html
+
+```
+
+> Sample POST Request
+
+```json
+MerchantId=6c57599f-2c43-4c82-806a-e07c3410f5d3&InputFormat=application/json&InputData={  
+   "username":"tom.sawyer@example.com",
+   "operatorid":"00abbff7-50be-487e-a5f3-319eef982f2b",
+   "password":"ABG-704@cp",
+   "locationid":"17444"
+}
+```
+
+
+> Sample Response
+
+```json
+{  
+   "messageCode":"1004",
+   "Message":"Logged In successfully",
+   "Token":{  
+      "AccessToken":"i1z1ouqyb3roglpei1vmpowe",
+      "issued_at":"/Date(1533029929318+0530)/",
+      "UserId":"132d3c1d-7d71-4b87-9a69-a4d216d63xxx",
+      "MerchantId":"6c57599f-2c43-4c82-806a-e07c3410f5d3"
+   },
+   "ErrorCode":0
+}
+```
+
+
+
+### Resource Information
+
+| | |
+--------- | ----------- |
+URI | `/Customer/{{MerchantId}}/StartCustomerSession`
+Response Formats | JSON
+HTTP Methods | POST (No POST body is required)
+Batch Support | No
+Rate Limited? | No
+Authentication | Yes
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+
+### Request URL
+
+`https://{host}/developerapi/Customer/{merchantId}/StartCustomerSession`
+
+
+### Additional Header Required
+
+Header | Description
+------ | ------
+accesstoken* | Access token of the logged in user that you want to logout
+
+
+### Request Parameters
+Parameter | Type | Description
+--------- | ----- | ------
+merchantId* | string | The unique id (GUID) of the merchant from which you want to logout user
+username | string | Registered username of the customer
+operatorid | string | Unique GUID of the back-end operator. The generated access token will be associated to both the user and operator
+password | string | Password of the operator account
+locationid | int | Location id associated to the user
+
+<aside class=notice>All parameters and headers marked by * are mandatory.</aside>
+
+
+### Response Parameters
+
+Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.
+
+Parameter |	Type | Description
+--------- | ----- | -----------
+AccessToken | string | An object or string that identifies the current user. Access token is required for making customer related API calls such as validate token, update customer details, update profile attributes, and so on
+issued_at | date-time | The date and time when the access token was generated for the user
+
+
+## Success/Error Codes
+
+Code | Description
+---- | -----------
+1000 | Unhandled Exception
+1004 | Successful
+1016 | Invalid Input
+1009 | No Record Found
+1003 | Authentication Failed
+1030 | Service is not Authorized
+
+
+
+
+
 
 ## Customer Logout
 
@@ -567,7 +728,17 @@ merchantId* | string | The unique id (GUID) of the merchant from which you want 
 <aside class=notice>All parameters and headers marked by * are mandatory.</aside>
 
 
+### Success/Error Codes
 
+Code | Description
+---- | -----------
+1003 | Authentication failed
+1004 | Successful
+1016 | Invalid Input
+1009 | No Record Found
+1003 | Authentication Failed
+1030 | Service is not Authorized
+1000 | Unhandled Exception
 
 
 
@@ -636,6 +807,18 @@ AccessToken | string | An object or string that identifies the current session
 issued_at | date-time | Date and time when the access token is generated
 
 
+### Success/Error Codes
+
+Code | Description
+---- | -----------
+1003 | Authentication failed
+1004 | Successful
+1016 | Invalid Input
+1009 | No Record Found
+1003 | Authentication Failed
+1030 | Service is not Authorized
+1000 | Unhandled Exception
+
 
 ## Validate Access Token
 
@@ -685,7 +868,17 @@ accesstoken* | string | The access token generated for a user session (use `/Cus
 
 <aside class="notice"> All parameters marked by * are mandatory. </aside>
 
+### Success/Error Codes
 
+Code | Description
+---- | -----------
+1003 | Authentication failed
+1004 | Successful
+1016 | Invalid Input
+1009 | No Record Found
+1003 | Authentication Failed
+1030 | Service is not Authorized
+1000 | Unhandled Exception
 
 
 ## Fetch Customers (Search)
@@ -791,6 +984,19 @@ UserProfiles | array | Customer level custom field details
 UserInfoId | string | GUID generated for the customer internally. UserInfoId is used in APIs like customer update along with the UserId
 CommunicationType | string | The preferred communication channel(s) of the customer. Possible Values: SMS, EMAIL
 MarketingNotificationType | string | 
+
+### Success/Error Codes
+
+Code | Description
+---- | -----------
+1003 | Authentication failed
+1004 | Successful
+1016 | Invalid Input
+1009 | No Record Found
+1003 | Authentication Failed
+1030 | Service is not Authorized
+1000 | Unhandled Exception
+
 
 
 
@@ -1675,53 +1881,3 @@ Code | Description
 1004 | Successful
 1009 | No Record Found
 1030 | Service is not Authorized
-
-
-## Get Product Recommendations
-
-> Sample Request
-
-```html
-https://www.martjack.com/DeveloperAPI/Customer/TargetBlocks/81e77da2-723b-483d-8c0d-49f800c1exxx
-```
-
-> Sample Response
-
-```json
-{
-    "ProductIds": [
-        13067043,
-        13067125,
-        13067247
-    ],
-    "messageCode": "1004",
-    "Message": "Successful",
-    "ErrorCode": 0
-}
-```
-
-Retrieves product recommendations based on the cart items.
-
-
-### Resource Information
-| | |
---------- | ----------- |
-URI | `Customer/TargetBlocks/{merchantId}`
-Response Formats | JSON
-HTTP Methods | GET
-Batch Support | No
-Rate Limited? | No
-Authentication | Yes
-
-* **Rate limiter** controls the number of incoming and outgoing traffic of a network
-* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
-
-### Request URL
-
-`http://{host}/developerapi/Customer/TargetBlocks/{merchantId}`
-
-### Additional Header Required
-
-Header | Description
------ | -----------
-AccessToken* | Access token of the current session (you can generate using GET AccessToken API)
