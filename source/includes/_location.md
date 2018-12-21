@@ -84,6 +84,22 @@ AreaRefCode | string | Delivery area reference code that you want to assign
 Operation | string | Value: add, remove. Specify `add` delivery address to a location, 	`remove` to delete
 
 
+## Success/Error Codes
+
+Code | Description
+---- | -----------
+1000 | Unhandled Exception
+1003 | Authentication Failed
+1004 | Successful
+1009 | No Record Found
+1030 | Service is not Authorized
+6225 | Invalid ETA details
+6226 | No location code passed
+6227 | Invalid location
+6228 | Invalid ETA
+
+
+
 
 
 ## Update Store Location
@@ -176,6 +192,23 @@ path | string | Path of the key
 value | string | New value of the specified path
 
 
+## Success/Error Codes
+
+Code | Description
+---- | -----------
+1000 | Unhandled Exception
+1003 | Authentication Failed
+1004 | Successful
+1009 | No Record Found
+1030 | Service is not Authorized
+6225 | Invalid ETA details
+6226 | No location code passed
+6227 | Invalid location
+6228 | Invalid ETA
+
+
+
+
 
 ## Update Store Timings
 
@@ -251,8 +284,25 @@ OffTime | time | Store close time in `HH:MM:SS` format
 userId | string | CP user id who is updating the store timing
 
 
+## Success/Error Codes
 
-## Fetch Locations
+Code | Description
+---- | -----------
+1000 | Unhandled Exception
+1003 | Authentication Failed
+1004 | Successful
+1009 | No Record Found
+1030 | Service is not Authorized
+6225 | Invalid ETA details
+6226 | No location code passed
+6227 | Invalid location
+6228 | Invalid ETA
+
+
+
+
+
+## Search Locations
 
 > Sample Request
 
@@ -416,13 +466,26 @@ Following table contains descriptions of a few response parameters that require 
 
 Parameter | Type | Description
 --------- | ---- | -----------
-DistancefromInputLatLong | | 
-IsParticipateInStock | | 
-IsOfflinneCheckoutEnabled | | 
-IsOfflineDeals | | 
+DistancefromInputLatLong | float | Distance of the location from latitude and longitude. Available only if latitude and longitude are set for the location
+IsParticipateInStock | boolean | Whether the location is participating in stock. The location appears on the storefront only if this is set to true
+IsOfflinneCheckoutEnabled | boolean | Whether offline ordering is available for the location
+IsOfflineDeals | boolean | Whether promotions are applied offline for the location
 
 
 
+## Success/Error Codes
+
+Code | Description
+---- | -----------
+1000 | Unhandled Exception
+1003 | Authentication Failed
+1004 | Successful
+1009 | No Record Found
+1030 | Service is not Authorized
+6225 | Invalid ETA details
+6226 | No location code passed
+6227 | Invalid location
+6228 | Invalid ETA
 
 
 
@@ -865,9 +928,25 @@ Following table contains descriptions of a few response parameters that require 
 
 Parameter | Type | Description
 --------- | ---- | -----------
+IsReversePickupEnabled | boolean | Whether reverse pickup is applicable for the product in case of returns
+IsDefaultLNG_LocationName | boolean |  float | Distance of the location from latitude and longitude. Available only if latitude and longitude are set for the location
+IsParticipateInStock | boolean | Whether the location is participating in stock. The location appears on the storefront only if this is set to true
 
 
 
+## Success/Error Codes
+
+Code | Description
+---- | -----------
+1000 | Unhandled Exception
+1003 | Authentication Failed
+1004 | Successful
+1009 | No Record Found
+1030 | Service is not Authorized
+6225 | Invalid ETA details
+6226 | No location code passed
+6227 | Invalid location
+6228 | Invalid ETA
 
 
 
@@ -944,7 +1023,19 @@ MerchantId* | string | The unique id (GUID) of the merchant for which you want t
 <aside class="notice"> All parameters marked by * are mandatory.</aside>
 
 
+## Response Codes
 
+Code | Description
+---- | -----------
+1000 | Unhandled Exception
+1003 | Authentication Failed
+1004 | Successful
+1009 | No Record Found
+1030 | Service is not Authorized
+6225 | Invalid ETA details
+6226 | No location code passed
+6227 | Invalid location
+6228 | Invalid ETA
 
 
 
@@ -1085,13 +1176,23 @@ Following table contains descriptions of a few response parameters that require 
 
 Parameter | Type | Description
 --------- | ---- | -----------
-DistancefromInputLatLong |  | 
-AdditionalDetails | json obj | 
-IsParticipateInStock | boolean | 
-IsOfflinneCheckoutEnabled | boolean | 
-IsDefaultLNG_LocationName | boolean | 
+DistancefromInputLatLong | float | Distance of the location from latitude and longitude. Available only if latitude and longitude are set for the location
+IsParticipateInStock | boolean | Whether the location is participating in stock. The location appears on the storefront only if this is set to true
+AdditionalDetails | json obj | Custom field details
 
+## Response Codes
 
+Code | Description
+---- | -----------
+1000 | Unhandled Exception
+1003 | Authentication Failed
+1004 | Successful
+1009 | No Record Found
+1030 | Service is not Authorized
+6225 | Invalid ETA details
+6226 | No location code passed
+6227 | Invalid location
+6228 | Invalid ETA
 
 
 
@@ -1389,7 +1490,19 @@ IsParticipateInStock | boolean |
 IsOfflinneCheckoutEnabled | boolean | 
 IsDefaultLNG_LocationName | boolean |
 
+## Response Codes
 
+Code | Description
+---- | -----------
+1000 | Unhandled Exception
+1003 | Authentication Failed
+1004 | Successful
+1009 | No Record Found
+1030 | Service is not Authorized
+6225 | Invalid ETA details
+6226 | No location code passed
+6227 | Invalid location
+6228 | Invalid ETA
 
 
 ## Get Reason Codes
@@ -1448,7 +1561,19 @@ MerchantId* | string | The unique id (GUID) of the merchant
 <aside class="notice"> All parameters marked by * are mandatory.</aside>
 
 
+## Response Codes
 
+Code | Description
+---- | -----------
+1000 | Unhandled Exception
+1003 | Authentication Failed
+1004 | Successful
+1009 | No Record Found
+1030 | Service is not Authorized
+6225 | Invalid ETA details
+6226 | No location code passed
+6227 | Invalid location
+6228 | Invalid ETA
 
 
 ## Update Order ETA
