@@ -4097,8 +4097,9 @@ Parameter | Type | Description
 --------- | ---- | -----------
 starttime | date-time | Start date of the current promotion
 endtime | date-time | End date of the current promotion
-repetitive | boolean | 
-allowfurtherpromotions | | 
+repetitive | boolean | Whether the promotion rules are repeated for each items or it has to be only once
+allowfurtherpromotions | boolean | If further 'Cart Promotions' is applied on the cart item (even after applying a promotion)
+
 
 
 ### Success/Error Codes
