@@ -593,10 +593,18 @@ skipDeliveryAreaValidation | boolean |  Specify `true` to validate delivery loca
 * Delivery area
 
 `{
-"OrderID":0,
-"ValidationResponse":[{"Validator":"DeliveryAreaValidator","CheckoutValidationType":14,"Status":"False","ValidationMessage":""}]
+   "OrderID":0,
+   "ValidationResponse":[
+      {
+         "Validator":"DeliveryAreaValidator",
+         "CheckoutValidationType":14,
+         "Status":"False",
+         "ValidationMessage":""
+      }
+   ]
 },
-"ErrorCode":0}` 
+"ErrorCode":0
+}` 
 
 * Delivery mode
 `
@@ -1531,7 +1539,7 @@ Retrieves the history of orders of a merchant or customer based on the input par
 
 | | |
 --------- | ----------- |
-URI | `Order/History/{{MerchantId}}`
+URI | `Order/History/{MerchantId}`
 Rate Limited? | No
 Authentication | Yes
 Response Formats | JSON
@@ -1544,7 +1552,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host url}/developerapi/Order/History/{{MerchantId}}`
+`https://{host url}/developerapi/Order/History/{MerchantId}`
 
 ### Request Body Parameters
 Parameter | Type | Description
@@ -2248,7 +2256,7 @@ Batch Support | Yes
 * **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
 
 ### Request URL
-`http://{host}/developerapi/order/V2/{{MerchantId}}/{orderID}`
+`http://{host}/developerapi/order/V2/{MerchantId}/{orderID}`
 
 ### Request Path Parameters
 Parameter | Type | Description
@@ -2431,7 +2439,7 @@ TobeCancelledOrderItems | obj | Specify the items that you want to cancel in `Or
 https://www.martjack.com/developerapi/Order/ProcessReturn/f48fdd16-92db-4188-854d-1ecd9b62xxxx
 ```
 
-> Sample Request
+> Sample POST Request
 
 ```json
 {  
@@ -2681,7 +2689,7 @@ UOM | string | Unit of measurement of the product. Values: ltrs, kgs, gms, piece
 http://www.martjack.com/DeveloperAPI/Order/Authorize
 ```
 
-> Sample POST Request
+> Sample Response
 
 ```json
 {  
@@ -2764,7 +2772,6 @@ DocketNumber | string | AWB number of the shipment
 https://www.martjack.com/developerapi/Order/GetOrderActivityHistory/f48fdd16-92db-4188-854d-1ecd9b62xxxx
 ```
 
-> Sample POST Request
 > Sample POST Request
 
 ```json
@@ -3055,13 +3062,13 @@ CMSID | |
 > Sample Request
 
 ```html
-
+https://www.martjack.com/developerapi/Order/GetShipmentHistory/81e77da2-723b-483d-8c0d-49f800c1exxx
 ```
 
 > Sample POST Request
 
 ```json
-MerchantId={{Mid}}&InputFormat=application/json&InputData={
+MerchantId=81e77da2-723b-483d-8c0d-49f800c1exxx&InputFormat=application/json&InputData={
   "CreatedDateTo": "2018-12-17",
   "ShippingStatus": "S,R,D",
   "CreatedDateFrom": "2018-12-17"
@@ -3138,7 +3145,7 @@ Calculates tax amount for a product on the basis of source and destination locat
 
 > Sample Request
 
-```json
+```html
 https://www.martjack.com/developerapi/Order/CalculateTax/dc21b529-2057-402a-972a-e1ba0c8a08eb
 ```
 
@@ -3282,7 +3289,7 @@ Calculates tax amount for a product on the basis of source and destination locat
 
 > Sample Request
 
-```json
+```html
 https://www.martjack.com/developerapi/Order/CalculateTax/dc21b529-2057-402a-972a-e1ba0c8a08eb
 ```
 
