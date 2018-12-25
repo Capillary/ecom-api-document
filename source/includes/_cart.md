@@ -78,7 +78,7 @@ MobileNo* | string | Registered mobile number of the user
 
 
 
-## Success/Error Codes
+### Success/Error Codes
 
 Code | Description
 ---- | -----------
@@ -192,7 +192,7 @@ https://www.martjack.com/developerapi/carts/AddCartItems/81e77da2-723b-483d-8c0d
 }
 ```
 
-> Sample POST Request
+> Sample Response
 
 ```json
 {
@@ -457,7 +457,7 @@ TotalCap | |
 CappedRefKey | | 
 
 
-### Response Codes
+### Success/Error Codes
 
 Code | Description
 ---- | -----------
@@ -552,7 +552,7 @@ https://www.martjack.com/developerapi/carts/AddCartItems/81e77da2-723b-483d-8c0d
 }
 ```
 
-> Sample POST Request
+> Sample Response
 
 ```json
 
@@ -623,7 +623,7 @@ PriceCapped | |
 TotalCap | | 
 CappedRefKey | | 
 
-### Response Codes
+### Success/Error Codes
 
 Code | Description
 ---- | -----------
@@ -1738,7 +1738,7 @@ TotalCap | |
 CappedRefKey | | 
 
 
-### Response Codes
+### Success/Error Codes
 
 Code | Description
 ---- | -----------
@@ -2440,7 +2440,7 @@ CappedRefKey | |
 
 
 
-### Response Codes
+### Success/Error Codes
 
 Code | Description
 ---- | -----------
