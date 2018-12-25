@@ -9542,7 +9542,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <blockquote>
-<p>Sample POST Request</p>
+<p>Sample Response</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">  
    </span><span class="nt">"messageCode"</span><span class="p">:</span><span class="s2">"1004"</span><span class="p">,</span><span class="w">
@@ -12503,7 +12503,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <blockquote>
-<p>Sample POST Request</p>
+<p>Sample Response</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
     </span><span class="nt">"messageCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1004"</span><span class="p">,</span><span class="w">
@@ -15262,39 +15262,290 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <h3 id="sample-validation-messages">Sample Validation Messages</h3>
 
-<p><code class="prettyprint">{&quot;OrderID&quot;:0,&quot;ValidationResponse&quot;:[{&quot;Validator&quot;:&quot;CapillaryPGValidator&quot;,&quot;CheckoutValidationType&quot;:4,&quot;Status&quot;:&quot;False&quot;,&quot;ValidationMessage&quot;:&quot;&quot;}]},&quot;ErrorCode&quot;:0}</code> - Invalid mobile number</p>
+<ul>
+<li>Invalid Mobile Number</li>
+</ul>
 
-<p><code class="prettyprint">{&quot;OrderID&quot;:0,&quot;ValidationResponse&quot;:[{&quot;Validator&quot;:&quot;DeliveryAreaValidator&quot;,&quot;CheckoutValidationType&quot;:14,&quot;Status&quot;:&quot;False&quot;,&quot;ValidationMessage&quot;:&quot;&quot;}]},&quot;ErrorCode&quot;:0}</code> &ndash; Delivery area </p>
+<p><code class="prettyprint">{
+{
+   &quot;OrderID&quot;:0,
+   &quot;ValidationResponse&quot;:[
+      {
+         &quot;Validator&quot;:&quot;CapillaryPGValidator&quot;,
+         &quot;CheckoutValidationType&quot;:4,
+         &quot;Status&quot;:&quot;False&quot;,
+         &quot;ValidationMessage&quot;:&quot;&quot;
+      }
+   ]
+},
+&quot;ErrorCode&quot;:0
+}</code></p>
 
-<p><code class="prettyprint">{&quot;OrderID&quot;:0,&quot;ValidationResponse&quot;:[{&quot;Validator&quot;:&quot;DeliveryModeValidator&quot;,&quot;CheckoutValidationType&quot;:16,&quot;Status&quot;:&quot;False&quot;,&quot;ValidationMessage&quot;:&quot;&quot;}]},&quot;ErrorCode&quot;:0}</code> &ndash; Delivery mode</p>
+<ul>
+<li>Delivery area</li>
+</ul>
 
-<p><code class="prettyprint">{&quot;OrderID&quot;:0,&quot;ValidationResponse&quot;:[{&quot;Validator&quot;:&quot;DiscountVoucherValidator&quot;,&quot;CheckoutValidationType&quot;:7,&quot;Status&quot;:&quot;False&quot;,&quot;ValidationMessage&quot;:&quot;&quot;}]},&quot;ErrorCode&quot;:0}</code> &ndash; Discount voucher</p>
+<p><code class="prettyprint">{
+&quot;OrderID&quot;:0,
+&quot;ValidationResponse&quot;:[{&quot;Validator&quot;:&quot;DeliveryAreaValidator&quot;,&quot;CheckoutValidationType&quot;:14,&quot;Status&quot;:&quot;False&quot;,&quot;ValidationMessage&quot;:&quot;&quot;}]
+},
+&quot;ErrorCode&quot;:0}</code> </p>
 
-<p><code class="prettyprint">{&quot;OrderID&quot;:0,&quot;ValidationResponse&quot;:[{&quot;Validator&quot;:&quot;GiftVoucherValidator&quot;,&quot;CheckoutValidationType&quot;:7,&quot;Status&quot;:&quot;False&quot;,&quot;ValidationMessage&quot;:&quot;&quot;}]},&quot;ErrorCode&quot;:0}</code> &ndash; Gift voucher</p>
+<ul>
+<li><p>Delivery mode
+<code class="prettyprint">
+{
+&quot;OrderID&quot;:0,
+&quot;ValidationResponse&quot;:[
+  {
+     &quot;Validator&quot;:&quot;DeliveryModeValidator&quot;,
+     &quot;CheckoutValidationType&quot;:16,
+     &quot;Status&quot;:&quot;False&quot;,
+     &quot;ValidationMessage&quot;:&quot;&quot;
+  }
+]
+},
+&quot;ErrorCode&quot;:0
+}
+</code></p></li>
+<li><p>Discount voucher </p></li>
+</ul>
 
-<p><code class="prettyprint">{&quot;OrderID&quot;:0,&quot;ValidationResponse&quot;:[{&quot;Validator&quot;:&quot;MerchantTransactionValidator&quot;,&quot;CheckoutValidationType&quot;:15,&quot;Status&quot;:&quot;False&quot;,&quot;ValidationMessage&quot;:&quot;&quot;}]},&quot;ErrorCode&quot;:0}</code> &ndash; Payment transactions</p>
+<p><code class="prettyprint">{
+   &quot;OrderID&quot;:0,
+   &quot;ValidationResponse&quot;:[
+      {
+         &quot;Validator&quot;:&quot;DiscountVoucherValidator&quot;,
+         &quot;CheckoutValidationType&quot;:7,
+         &quot;Status&quot;:&quot;False&quot;,
+         &quot;ValidationMessage&quot;:&quot;&quot;
+      }
+   ]
+},
+&quot;ErrorCode&quot;:0
+}</code> </p>
 
-<p><code class="prettyprint">{&quot;OrderID&quot;:0,&quot;ValidationResponse&quot;:[{&quot;Validator&quot;:&quot;OrderAmountValidator&quot;,&quot;CheckoutValidationType&quot;:9,&quot;Status&quot;:&quot;False&quot;,&quot;ValidationMessage&quot;:&quot;Min/Max/Both&quot;}]},&quot;ErrorCode&quot;:0}</code> &ndash; Order amount max min</p>
+<ul>
+<li>Gift voucher</li>
+</ul>
 
-<p><code class="prettyprint">{&quot;OrderID&quot;:0,&quot;ValidationResponse&quot;:[{&quot;Validator&quot;:&quot;OrderInputValidator&quot;,&quot;CheckoutValidationType&quot;:0,&quot;Status&quot;:&quot;False&quot;,&quot;ValidationMessage&quot;:&quot;&quot;}]},&quot;ErrorCode&quot;:0}</code> &ndash; Missing payment params</p>
+<p><code class="prettyprint">{
+   &quot;OrderID&quot;:0,
+   &quot;ValidationResponse&quot;:[
+      {
+         &quot;Validator&quot;:&quot;GiftVoucherValidator&quot;,
+         &quot;CheckoutValidationType&quot;:7,
+         &quot;Status&quot;:&quot;False&quot;,
+         &quot;ValidationMessage&quot;:&quot;&quot;
+      }
+   ]
+},
+&quot;ErrorCode&quot;:0
+}</code> </p>
 
-<p><code class="prettyprint">{&quot;OrderID&quot;:0,&quot;ValidationResponse&quot;:[{&quot;Validator&quot;:&quot;PartialOrderValidator&quot;,&quot;CheckoutValidationType&quot;:5,&quot;Status&quot;:&quot;False&quot;,&quot;ValidationMessage&quot;:&quot;&quot;}]},&quot;ErrorCode&quot;:0}</code> &ndash; Allowing offline payments for an order with multiple payments</p>
+<ul>
+<li>Payment transactions</li>
+</ul>
 
-<p><code class="prettyprint">{&quot;OrderID&quot;:0,&quot;ValidationResponse&quot;:[{&quot;Validator&quot;:&quot;PaymentoptionValidator&quot;,&quot;CheckoutValidationType&quot;:21,&quot;Status&quot;:&quot;False&quot;,&quot;ValidationMessage&quot;:&quot;&quot;}]},&quot;ErrorCode&quot;:0}</code> &ndash; Selected country is not supported for the payment option</p>
+<p><code class="prettyprint">{
+   &quot;OrderID&quot;:0,
+   &quot;ValidationResponse&quot;:[
+      {
+         &quot;Validator&quot;:&quot;MerchantTransactionValidator&quot;,
+         &quot;CheckoutValidationType&quot;:15,
+         &quot;Status&quot;:&quot;False&quot;,
+         &quot;ValidationMessage&quot;:&quot;&quot;
+      }
+   ]
+},
+&quot;ErrorCode&quot;:0
+}</code></p>
 
-<p><code class="prettyprint">{&quot;OrderID&quot;:0,&quot;ValidationResponse&quot;:[{&quot;Validator&quot;:&quot;PincodeServiceablityValidator&quot;,&quot;CheckoutValidationType&quot;:17,&quot;Status&quot;:&quot;False&quot;,&quot;ValidationMessage&quot;:&quot;&quot;}]},&quot;ErrorCode&quot;:0}</code> &ndash; PIN code not serviceable</p>
+<ul>
+<li>Order amount max min</li>
+</ul>
 
-<p><code class="prettyprint">{&quot;OrderID&quot;:0,&quot;ValidationResponse&quot;:[{&quot;Validator&quot;:&quot;ShippingModeValidator&quot;,&quot;CheckoutValidationType&quot;:16,&quot;Status&quot;:&quot;False&quot;,&quot;ValidationMessage&quot;:&quot;&quot;}]},&quot;ErrorCode&quot;:0}</code> &ndash; ShippingModeValidator</p>
+<p><code class="prettyprint">{
+   &quot;OrderID&quot;:0,
+   &quot;ValidationResponse&quot;:[
+      {
+         &quot;Validator&quot;:&quot;OrderAmountValidator&quot;,
+         &quot;CheckoutValidationType&quot;:9,
+         &quot;Status&quot;:&quot;False&quot;,
+         &quot;ValidationMessage&quot;:&quot;Min/Max/Both&quot;
+      }
+   ]
+},
+&quot;ErrorCode&quot;:0
+}</code> </p>
 
-<p><code class="prettyprint">{&quot;OrderID&quot;:0,&quot;ValidationResponse&quot;:[{&quot;Validator&quot;:&quot;ShippingAddressValidator&quot;,&quot;CheckoutValidationType&quot;:18,&quot;Status&quot;:&quot;False&quot;,&quot;ValidationMessage&quot;:&quot;&quot;}]},&quot;ErrorCode&quot;:0}</code> &ndash;invalid address params</p>
+<ul>
+<li><p>Missing payment params
+<code class="prettyprint">{
+&quot;OrderID&quot;:0,
+&quot;ValidationResponse&quot;:[
+  {
+     &quot;Validator&quot;:&quot;OrderInputValidator&quot;,
+     &quot;CheckoutValidationType&quot;:0,
+     &quot;Status&quot;:&quot;False&quot;,
+     &quot;ValidationMessage&quot;:&quot;&quot;
+  }
+]
+},
+&quot;ErrorCode&quot;:0
+}</code> </p></li>
+<li><p>Allowing offline payments for an order with multiple payments </p></li>
+</ul>
 
-<p><code class="prettyprint">{&quot;OrderID&quot;:0,&quot;ValidationResponse&quot;:[{&quot;Validator&quot;:&quot;ShippingValidator&quot;,&quot;CheckoutValidationType&quot;:1,&quot;Status&quot;:&quot;False&quot;,&quot;ValidationMessage&quot;:&quot;&quot;}]},&quot;ErrorCode&quot;:0}</code> &ndash;zero shipping profile</p>
+<p><code class="prettyprint">{
+   &quot;OrderID&quot;:0,
+   &quot;ValidationResponse&quot;:[
+      {
+         &quot;Validator&quot;:&quot;PartialOrderValidator&quot;,
+         &quot;CheckoutValidationType&quot;:5,
+         &quot;Status&quot;:&quot;False&quot;,
+         &quot;ValidationMessage&quot;:&quot;&quot;
+      }
+   ]
+},
+&quot;ErrorCode&quot;:0
+}</code></p>
 
-<p><code class="prettyprint">{&quot;OrderID&quot;:0,&quot;ValidationResponse&quot;:[{&quot;Validator&quot;:&quot;StockValidator&quot;,&quot;CheckoutValidationType&quot;:13,&quot;Status&quot;:&quot;False&quot;,&quot;ValidationMessage&quot;:&quot;Failed products&quot;}]},&quot;ErrorCode&quot;:0}</code> &ndash; invalid max order qty</p>
+<ul>
+<li>Selected country is not supported for the payment option</li>
+</ul>
 
-<p><code class="prettyprint">{&quot;OrderID&quot;:0,&quot;ValidationResponse&quot;:[{&quot;Validator&quot;:&quot;StockValidator&quot;,&quot;CheckoutValidationType&quot;:2,&quot;Status&quot;:&quot;False&quot;,&quot;ValidationMessage&quot;:&quot;Failed products&quot;}]},&quot;ErrorCode&quot;:0}</code> &ndash;zero inventory</p>
+<p><code class="prettyprint">{
+   &quot;OrderID&quot;:0,
+   &quot;ValidationResponse&quot;:[
+      {
+         &quot;Validator&quot;:&quot;PaymentoptionValidator&quot;,
+         &quot;CheckoutValidationType&quot;:21,
+         &quot;Status&quot;:&quot;False&quot;,
+         &quot;ValidationMessage&quot;:&quot;&quot;
+      }
+   ]
+},
+&quot;ErrorCode&quot;:0
+}</code></p>
 
-<p><code class="prettyprint">{&quot;OrderID&quot;:0,&quot;ValidationResponse&quot;:[{&quot;Validator&quot;:&quot;StoreTimingsValidator&quot;,&quot;CheckoutValidationType&quot;:19,&quot;Status&quot;:&quot;False&quot;,&quot;ValidationMessage&quot;:&quot;DeliveryslotNotInStoreTime&quot;}]},&quot;ErrorCode&quot;:0}</code> &ndash; StoreTimingsValidator</p>
+<ul>
+<li><p>PIN code not serviceable
+<code class="prettyprint">{
+&quot;OrderID&quot;:0,
+&quot;ValidationResponse&quot;:[
+  {
+     &quot;Validator&quot;:&quot;PincodeServiceablityValidator&quot;,
+     &quot;CheckoutValidationType&quot;:17,
+     &quot;Status&quot;:&quot;False&quot;,
+     &quot;ValidationMessage&quot;:&quot;&quot;
+  }
+]
+},
+&quot;ErrorCode&quot;:0
+}</code> </p></li>
+<li><p>ShippingModeValidator</p></li>
+</ul>
+
+<p><code class="prettyprint">{
+   &quot;OrderID&quot;:0,
+   &quot;ValidationResponse&quot;:[
+      {
+         &quot;Validator&quot;:&quot;ShippingModeValidator&quot;,
+         &quot;CheckoutValidationType&quot;:16,
+         &quot;Status&quot;:&quot;False&quot;,
+         &quot;ValidationMessage&quot;:&quot;&quot;
+      }
+   ]
+},
+&quot;ErrorCode&quot;:0
+}</code>  </p>
+
+<ul>
+<li>Invalid address parameters</li>
+</ul>
+
+<p><code class="prettyprint">{
+   &quot;OrderID&quot;:0,
+   &quot;ValidationResponse&quot;:[
+      {
+         &quot;Validator&quot;:&quot;ShippingAddressValidator&quot;,
+         &quot;CheckoutValidationType&quot;:18,
+         &quot;Status&quot;:&quot;False&quot;,
+         &quot;ValidationMessage&quot;:&quot;&quot;
+      }
+   ]
+},
+&quot;ErrorCode&quot;:0
+}</code> </p>
+
+<ul>
+<li>Zero shipping profile</li>
+</ul>
+
+<p><code class="prettyprint">{
+   &quot;OrderID&quot;:0,
+   &quot;ValidationResponse&quot;:[
+      {
+         &quot;Validator&quot;:&quot;ShippingValidator&quot;,
+         &quot;CheckoutValidationType&quot;:1,
+         &quot;Status&quot;:&quot;False&quot;,
+         &quot;ValidationMessage&quot;:&quot;&quot;
+      }
+   ]
+},
+&quot;ErrorCode&quot;:0
+}</code></p>
+
+<ul>
+<li>Invalid max order qty</li>
+</ul>
+
+<p><code class="prettyprint">{
+   &quot;OrderID&quot;:0,
+   &quot;ValidationResponse&quot;:[
+      {
+         &quot;Validator&quot;:&quot;StockValidator&quot;,
+         &quot;CheckoutValidationType&quot;:13,
+         &quot;Status&quot;:&quot;False&quot;,
+         &quot;ValidationMessage&quot;:&quot;Failed products&quot;
+      }
+   ]
+},
+&quot;ErrorCode&quot;:0
+}</code></p>
+
+<ul>
+<li>Zero inventory</li>
+</ul>
+
+<p><code class="prettyprint">{
+   &quot;OrderID&quot;:0,
+   &quot;ValidationResponse&quot;:[
+      {
+         &quot;Validator&quot;:&quot;StockValidator&quot;,
+         &quot;CheckoutValidationType&quot;:2,
+         &quot;Status&quot;:&quot;False&quot;,
+         &quot;ValidationMessage&quot;:&quot;Failed products&quot;
+      }
+   ]
+},
+&quot;ErrorCode&quot;:0
+}</code></p>
+
+<p><code class="prettyprint">{
+   &quot;OrderID&quot;:0,
+   &quot;ValidationResponse&quot;:[
+      {
+         &quot;Validator&quot;:&quot;StoreTimingsValidator&quot;,
+         &quot;CheckoutValidationType&quot;:19,
+         &quot;Status&quot;:&quot;False&quot;,
+         &quot;ValidationMessage&quot;:&quot;DeliveryslotNotInStoreTime&quot;
+      }
+   ]
+},
+&quot;ErrorCode&quot;:0
+}</code></p>
 
 <h3 id="response-parameters">Response Parameters</h3>
 

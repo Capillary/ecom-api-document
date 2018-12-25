@@ -1872,7 +1872,7 @@ https://www.martjack.com/developerapi/carts/AddCartItems/81e77da2-723b-483d-8c0d
 }
 ```
 
-> Sample POST Request
+> Sample Response
 
 ```json
 {  
@@ -4005,7 +4005,7 @@ https://www.martjack.com/developerapi/carts/GetAllPromotions/81e77da2-723b-483d-
 ```
 
 
-> Sample POST Request
+> Sample Response
 
 ```json
 {

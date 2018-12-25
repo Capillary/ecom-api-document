@@ -571,39 +571,281 @@ skipDeliveryAreaValidation | boolean |  Specify `true` to validate delivery loca
 
 ### Sample Validation Messages
 
-`{"OrderID":0,"ValidationResponse":[{"Validator":"CapillaryPGValidator","CheckoutValidationType":4,"Status":"False","ValidationMessage":""}]},"ErrorCode":0}` - Invalid mobile number
+* Invalid Mobile Number
 
-`{"OrderID":0,"ValidationResponse":[{"Validator":"DeliveryAreaValidator","CheckoutValidationType":14,"Status":"False","ValidationMessage":""}]},"ErrorCode":0}` -- Delivery area 
+`{
+{
+   "OrderID":0,
+   "ValidationResponse":[
+      {
+         "Validator":"CapillaryPGValidator",
+         "CheckoutValidationType":4,
+         "Status":"False",
+         "ValidationMessage":""
+      }
+   ]
+},
+"ErrorCode":0
+}`
 
-`{"OrderID":0,"ValidationResponse":[{"Validator":"DeliveryModeValidator","CheckoutValidationType":16,"Status":"False","ValidationMessage":""}]},"ErrorCode":0}` -- Delivery mode
 
-`{"OrderID":0,"ValidationResponse":[{"Validator":"DiscountVoucherValidator","CheckoutValidationType":7,"Status":"False","ValidationMessage":""}]},"ErrorCode":0}` -- Discount voucher
 
-`{"OrderID":0,"ValidationResponse":[{"Validator":"GiftVoucherValidator","CheckoutValidationType":7,"Status":"False","ValidationMessage":""}]},"ErrorCode":0}` -- Gift voucher
+* Delivery area
 
-`{"OrderID":0,"ValidationResponse":[{"Validator":"MerchantTransactionValidator","CheckoutValidationType":15,"Status":"False","ValidationMessage":""}]},"ErrorCode":0}` -- Payment transactions
+`{
+"OrderID":0,
+"ValidationResponse":[{"Validator":"DeliveryAreaValidator","CheckoutValidationType":14,"Status":"False","ValidationMessage":""}]
+},
+"ErrorCode":0}` 
 
-`{"OrderID":0,"ValidationResponse":[{"Validator":"OrderAmountValidator","CheckoutValidationType":9,"Status":"False","ValidationMessage":"Min/Max/Both"}]},"ErrorCode":0}` -- Order amount max min
+* Delivery mode
+`
+{
+   "OrderID":0,
+   "ValidationResponse":[
+      {
+         "Validator":"DeliveryModeValidator",
+         "CheckoutValidationType":16,
+         "Status":"False",
+         "ValidationMessage":""
+      }
+   ]
+},
+"ErrorCode":0
+}
+`
 
-`{"OrderID":0,"ValidationResponse":[{"Validator":"OrderInputValidator","CheckoutValidationType":0,"Status":"False","ValidationMessage":""}]},"ErrorCode":0}` -- Missing payment params
 
-`{"OrderID":0,"ValidationResponse":[{"Validator":"PartialOrderValidator","CheckoutValidationType":5,"Status":"False","ValidationMessage":""}]},"ErrorCode":0}` -- Allowing offline payments for an order with multiple payments
+* Discount voucher 
 
-`{"OrderID":0,"ValidationResponse":[{"Validator":"PaymentoptionValidator","CheckoutValidationType":21,"Status":"False","ValidationMessage":""}]},"ErrorCode":0}` -- Selected country is not supported for the payment option
+`{
+   "OrderID":0,
+   "ValidationResponse":[
+      {
+         "Validator":"DiscountVoucherValidator",
+         "CheckoutValidationType":7,
+         "Status":"False",
+         "ValidationMessage":""
+      }
+   ]
+},
+"ErrorCode":0
+}` 
 
-`{"OrderID":0,"ValidationResponse":[{"Validator":"PincodeServiceablityValidator","CheckoutValidationType":17,"Status":"False","ValidationMessage":""}]},"ErrorCode":0}` -- PIN code not serviceable
+* Gift voucher
 
-`{"OrderID":0,"ValidationResponse":[{"Validator":"ShippingModeValidator","CheckoutValidationType":16,"Status":"False","ValidationMessage":""}]},"ErrorCode":0}` -- ShippingModeValidator
+`{
+   "OrderID":0,
+   "ValidationResponse":[
+      {
+         "Validator":"GiftVoucherValidator",
+         "CheckoutValidationType":7,
+         "Status":"False",
+         "ValidationMessage":""
+      }
+   ]
+},
+"ErrorCode":0
+}` 
 
-`{"OrderID":0,"ValidationResponse":[{"Validator":"ShippingAddressValidator","CheckoutValidationType":18,"Status":"False","ValidationMessage":""}]},"ErrorCode":0}` --invalid address params
 
-`{"OrderID":0,"ValidationResponse":[{"Validator":"ShippingValidator","CheckoutValidationType":1,"Status":"False","ValidationMessage":""}]},"ErrorCode":0}` --zero shipping profile
+* Payment transactions
 
-`{"OrderID":0,"ValidationResponse":[{"Validator":"StockValidator","CheckoutValidationType":13,"Status":"False","ValidationMessage":"Failed products"}]},"ErrorCode":0}` -- invalid max order qty
+`{
+   "OrderID":0,
+   "ValidationResponse":[
+      {
+         "Validator":"MerchantTransactionValidator",
+         "CheckoutValidationType":15,
+         "Status":"False",
+         "ValidationMessage":""
+      }
+   ]
+},
+"ErrorCode":0
+}`
 
-`{"OrderID":0,"ValidationResponse":[{"Validator":"StockValidator","CheckoutValidationType":2,"Status":"False","ValidationMessage":"Failed products"}]},"ErrorCode":0}` --zero inventory
 
-`{"OrderID":0,"ValidationResponse":[{"Validator":"StoreTimingsValidator","CheckoutValidationType":19,"Status":"False","ValidationMessage":"DeliveryslotNotInStoreTime"}]},"ErrorCode":0}` -- StoreTimingsValidator
+* Order amount max min
+
+`{
+   "OrderID":0,
+   "ValidationResponse":[
+      {
+         "Validator":"OrderAmountValidator",
+         "CheckoutValidationType":9,
+         "Status":"False",
+         "ValidationMessage":"Min/Max/Both"
+      }
+   ]
+},
+"ErrorCode":0
+}` 
+
+* Missing payment params
+`{
+   "OrderID":0,
+   "ValidationResponse":[
+      {
+         "Validator":"OrderInputValidator",
+         "CheckoutValidationType":0,
+         "Status":"False",
+         "ValidationMessage":""
+      }
+   ]
+},
+"ErrorCode":0
+}` 
+
+
+* Allowing offline payments for an order with multiple payments 
+
+`{
+   "OrderID":0,
+   "ValidationResponse":[
+      {
+         "Validator":"PartialOrderValidator",
+         "CheckoutValidationType":5,
+         "Status":"False",
+         "ValidationMessage":""
+      }
+   ]
+},
+"ErrorCode":0
+}`
+
+
+* Selected country is not supported for the payment option
+
+`{
+   "OrderID":0,
+   "ValidationResponse":[
+      {
+         "Validator":"PaymentoptionValidator",
+         "CheckoutValidationType":21,
+         "Status":"False",
+         "ValidationMessage":""
+      }
+   ]
+},
+"ErrorCode":0
+}`
+
+ 
+* PIN code not serviceable
+`{
+   "OrderID":0,
+   "ValidationResponse":[
+      {
+         "Validator":"PincodeServiceablityValidator",
+         "CheckoutValidationType":17,
+         "Status":"False",
+         "ValidationMessage":""
+      }
+   ]
+},
+"ErrorCode":0
+}` 
+
+
+* ShippingModeValidator
+
+`{
+   "OrderID":0,
+   "ValidationResponse":[
+      {
+         "Validator":"ShippingModeValidator",
+         "CheckoutValidationType":16,
+         "Status":"False",
+         "ValidationMessage":""
+      }
+   ]
+},
+"ErrorCode":0
+}`  
+
+
+* Invalid address parameters
+
+`{
+   "OrderID":0,
+   "ValidationResponse":[
+      {
+         "Validator":"ShippingAddressValidator",
+         "CheckoutValidationType":18,
+         "Status":"False",
+         "ValidationMessage":""
+      }
+   ]
+},
+"ErrorCode":0
+}` 
+
+
+* Zero shipping profile
+
+`{
+   "OrderID":0,
+   "ValidationResponse":[
+      {
+         "Validator":"ShippingValidator",
+         "CheckoutValidationType":1,
+         "Status":"False",
+         "ValidationMessage":""
+      }
+   ]
+},
+"ErrorCode":0
+}`
+
+
+
+* Invalid max order qty
+
+`{
+   "OrderID":0,
+   "ValidationResponse":[
+      {
+         "Validator":"StockValidator",
+         "CheckoutValidationType":13,
+         "Status":"False",
+         "ValidationMessage":"Failed products"
+      }
+   ]
+},
+"ErrorCode":0
+}`
+
+
+* Zero inventory
+
+`{
+   "OrderID":0,
+   "ValidationResponse":[
+      {
+         "Validator":"StockValidator",
+         "CheckoutValidationType":2,
+         "Status":"False",
+         "ValidationMessage":"Failed products"
+      }
+   ]
+},
+"ErrorCode":0
+}`
+
+`{
+   "OrderID":0,
+   "ValidationResponse":[
+      {
+         "Validator":"StoreTimingsValidator",
+         "CheckoutValidationType":19,
+         "Status":"False",
+         "ValidationMessage":"DeliveryslotNotInStoreTime"
+      }
+   ]
+},
+"ErrorCode":0
+}`
 
 
 ### Response Parameters
