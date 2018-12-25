@@ -1,20 +1,59 @@
-# Store
-
-<aside class="notice">This error section is stored in a separate file in `includes/_errors.md`. Slate allows you to optionally separate out your docs into many files...just save them to the `includes` folder and add them to the top of your `index.md`'s frontmatter. Files are included in the order listed.</aside>
-
-The Kittn API uses the following error codes:
+# Response Codes
+The following are different response code pertaining to Anywhere Commerce APIs:
 
 
 Error Code | Meaning
 ---------- | -------
-400 | Bad Request -- Your request sucks
-401 | Unauthorized -- Your API key is wrong
-403 | Forbidden -- The kitten requested is hidden for administrators only
-404 | Not Found -- The specified kitten could not be found
-405 | Method Not Allowed -- You tried to access a kitten with an invalid method
-406 | Not Acceptable -- You requested a format that isn't json
-410 | Gone -- The kitten requested has been removed from our servers
-418 | I'm a teapot
-429 | Too Many Requests -- You're requesting too many kittens! Slow down!
-500 | Internal Server Error -- We had a problem with our server. Try again later.
-503 | Service Unavailable -- We're temporarially offline for maintanance. Please try again later.
+429 | Rate limit exceeded
+440 | Session expired - All cart APIs
+500 | Server error
+1000 | Unhandled exception
+1003 | Authentication failed
+1004 | Successful
+1016 | Invalid Input
+1009 | No record found
+1003 | Authentication failed
+1030 | Service is not authorized
+1001 | Order canceled already
+1002 | Order canceled successfully
+1005 | Order authorized
+1006 | Order id is not available
+1007 | Updated successfully
+1008 | Update failed
+1009 | No record found
+1011 | Order is not ready for shipping
+1012 | Username is required
+1013 | Voucher name is required
+1014 | Voucher already exists
+1015 | Invalid campaign id
+1016 | Invalid input
+1017 | User does not exist
+1028 | Invalid page number
+1018 | Data update added to the task queue. You can view the status of the update in the Control Panel. An email will be sent to the merchant's registered email id after the task is completed.
+1019 | Data update added to the task queue. You can view the status of update using 'GetProductInformation' 
+1020 | No common shipping
+1021 | Warning
+1022 | Products not available
+1023 | Invalid city. Please select a valid address
+1024 | PINode is not serviceable for the selected location
+1025 | PIN code not serviceable for the given address
+1027 | Update failed
+1031 | Your account approval is still in process. You cannot access your account now
+1032 | Your account has been locked because of multiple failed login attempts.  Please contact customer support.
+1033 | Invalid inputs provided. Please provide correct input
+1034 | Product is added already
+1035 | Shipment created already 
+1036 | No default return shelf found
+1037 | Your account has been locked because of multiple failed login attempts.  Please contact customer support.
+1038 | Invalid OTP
+1039 | Your password has been expired. Please reset the password
+1040 | Invalid password
+1041 | No user account exists with the provided details
+1042 | Your account has not been activated yet. Please try later
+1043 | Order is already authorized
+1044 | Invalid delivery slot
+1045 | Invalid merchant id
+1046 | Invalid location id
+5001 | Invalid user information
+
+

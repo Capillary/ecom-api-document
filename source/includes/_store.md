@@ -198,94 +198,9 @@ https://www.martjack.com/developerapi/Store/Countries/81e77da2-723b-483d-8c0d-49
          "PhoneCode":"226"
       },
       {  
-         "CountryName":"BURUNDI",
-         "CountryCode":"BI",
-         "PhoneCode":"257"
-      },
-      {  
-         "CountryName":"CAMBODIA",
-         "CountryCode":"KH",
-         "PhoneCode":"855"
-      },
-      {  
-         "CountryName":"CAMEROON",
-         "CountryCode":"CM",
-         "PhoneCode":"237"
-      },
-      {  
-         "CountryName":"CANADA",
-         "CountryCode":"CA",
-         "PhoneCode":"1"
-      },
-      {  
-         "CountryName":"CAPE VERDE",
-         "CountryCode":"CV",
-         "PhoneCode":"238"
-      },
-      {  
-         "CountryName":"CAYMAN ISLANDS",
-         "CountryCode":"KY",
-         "PhoneCode":"1345"
-      },
-      {  
-         "CountryName":"CENTRAL AFRICAN REPUBLIC",
-         "CountryCode":"CF",
-         "PhoneCode":"236"
-      },
-      {  
-         "CountryName":"CHAD",
-         "CountryCode":"TD",
-         "PhoneCode":"235"
-      },
-      {  
-         "CountryName":"CHANNEL ISLANDS",
-         "CountryCode":"IC",
-         "PhoneCode":"44"
-      },
-      {  
-         "CountryName":"CHILE",
-         "CountryCode":"CL",
-         "PhoneCode":"56"
-      },
-      {  
-         "CountryName":"CHINA",
-         "CountryCode":"CN",
-         "PhoneCode":"86"
-      },
-      {  
-         "CountryName":"CHRISTMAS ISLAND",
-         "CountryCode":"CX",
-         "PhoneCode":"61"
-      },
-      {  
          "CountryName":"COCOS ISLANDS",
          "CountryCode":"CC",
          "PhoneCode":"672"
-      },
-      {  
-         "CountryName":"COLOMBIA",
-         "CountryCode":"CO",
-         "PhoneCode":"57"
-      },
-      {  
-         "CountryName":"COMMERCIAL",
-         "CountryCode":"COM",
-         "PhoneCode":"0"
-      },
-      {  
-         "CountryName":"COMOROS",
-         "CountryCode":"KM",
-         "PhoneCode":"269"
-      },
-      {  
-         "CountryName":"CONGO",
-         "CountryCode":"CG",
-         "PhoneCode":"242"
-      },
-      {  
-         "CountryName":"CONGO, THE DEMOCRATIC REPUBLI",
-         "CountryCode":"CD",
-         "PhoneCode":"243"
       },
       {  
          "CountryName":"COOK ISLANDS",
@@ -311,66 +226,6 @@ https://www.martjack.com/developerapi/Store/Countries/81e77da2-723b-483d-8c0d-49
          "CountryName":"CURACAO",
          "CountryCode":"CW",
          "PhoneCode":"599"
-      },
-      {  
-         "CountryName":"CYPRUS",
-         "CountryCode":"CY",
-         "PhoneCode":"357"
-      },
-      {  
-         "CountryName":"CZECH REPUBLIC",
-         "CountryCode":"CZ",
-         "PhoneCode":"420"
-      },
-      {  
-         "CountryName":"DENMARK",
-         "CountryCode":"DK",
-         "PhoneCode":"45"
-      },
-      {  
-         "CountryName":"DJIBOUTI",
-         "CountryCode":"DJ",
-         "PhoneCode":"253"
-      },
-      {  
-         "CountryName":"DOMINICA",
-         "CountryCode":"DM",
-         "PhoneCode":"1767"
-      },
-      {  
-         "CountryName":"DOMINICAN REPUBLIC",
-         "CountryCode":"DO",
-         "PhoneCode":"1809"
-      },
-      {  
-         "CountryName":"EAST TIMOR",
-         "CountryCode":"TP",
-         "PhoneCode":"670"
-      },
-      {  
-         "CountryName":"ECUADOR",
-         "CountryCode":"EC",
-         "PhoneCode":"593"
-      },
-      {  
-         "CountryName":"EDUCATIONAL",
-         "CountryCode":"EDU",
-         "PhoneCode":"0"
-      },
-      {  
-         "CountryName":"EGYPT",
-         "CountryCode":"EG",
-         "PhoneCode":"20"
-      },
-      {  
-         "CountryName":"EL SALVADOR",
-         "CountryCode":"SV",
-         "PhoneCode":"503"
-      },
-      {  
-         "CountryName":"ENGLAND",
-         "CountryCode":"EN",
-         "PhoneCode":"44"
       },
       {  
          "CountryName":"EQUATORIAL GUINEA",
@@ -455,6 +310,23 @@ Attribute | Description
 merchantId* | The unique id (GUID) of the merchant for which you want to see supported countries
 
 <aside class="notice"> All parameters marked by * are mandatory. </aside>
+
+
+### Success/Error Codes
+
+Code | Description
+---- | -----------
+1003 | Authentication failed
+1004 | Successful
+1016 | Invalid Input
+1009 | No Record Found
+1003 | Authentication Failed
+1030 | Service is not Authorized
+1000 | Unhandled Exception
+
+
+
+
 
 
 
@@ -600,66 +472,6 @@ https://www.martjack.com/developerapi/Store/Cities/81e77da2-723b-483d-8c0d-49f80
          "StateCode":"KA"
       },
       {  
-         "CityId":278,
-         "CityName":"Lingsugar",
-         "DefautPinCode":"",
-         "StateCode":"KA"
-      },
-      {  
-         "CityId":294,
-         "CityName":"Mangalore",
-         "DefautPinCode":"574157",
-         "StateCode":"KA"
-      },
-      {  
-         "CityId":295,
-         "CityName":"Manipal",
-         "DefautPinCode":"",
-         "StateCode":"KA"
-      },
-      {  
-         "CityId":296,
-         "CityName":"Mannarghat",
-         "DefautPinCode":"",
-         "StateCode":"KA"
-      },
-      {  
-         "CityId":325,
-         "CityName":"Muvattupuzha",
-         "DefautPinCode":"",
-         "StateCode":"KA"
-      },
-      {  
-         "CityId":329,
-         "CityName":"Mysore",
-         "DefautPinCode":"570001",
-         "StateCode":"KA"
-      },
-      {  
-         "CityId":403,
-         "CityName":"Raichur",
-         "DefautPinCode":"584101",
-         "StateCode":"KA"
-      },
-      {  
-         "CityId":412,
-         "CityName":"Ranibennur",
-         "DefautPinCode":"",
-         "StateCode":"KA"
-      },
-      {  
-         "CityId":440,
-         "CityName":"Shimoga",
-         "DefautPinCode":"577115",
-         "StateCode":"KA"
-      },
-      {  
-         "CityId":452,
-         "CityName":"Sirsi",
-         "DefautPinCode":"",
-         "StateCode":"KA"
-      },
-      {  
          "CityId":491,
          "CityName":"Tiptur",
          "DefautPinCode":"",
@@ -745,61 +557,6 @@ https://www.martjack.com/developerapi/Store/Cities/81e77da2-723b-483d-8c0d-49f80
          "StateCode":"KA"
       },
       {  
-         "CityId":19949,
-         "CityName":"KARWAR",
-         "DefautPinCode":"",
-         "StateCode":"KA"
-      },
-      {  
-         "CityId":19951,
-         "CityName":"KOLAR GOLD FIELDS",
-         "DefautPinCode":"",
-         "StateCode":"KA"
-      },
-      
-      {  
-         "CityId":20369,
-         "CityName":"DODDABALLAPUR",
-         "DefautPinCode":"",
-         "StateCode":"KA"
-      },
-      {  
-         "CityId":20371,
-         "CityName":"DEVANAHALLI",
-         "DefautPinCode":"",
-         "StateCode":"KA"
-      },
-      {  
-         "CityId":20373,
-         "CityName":"GONIKOPPAL",
-         "DefautPinCode":"",
-         "StateCode":"KA"
-      },
-      {  
-         "CityId":20375,
-         "CityName":"GOWRIBIDANUR",
-         "DefautPinCode":"",
-         "StateCode":"KA"
-      },
-      {  
-         "CityId":20377,
-         "CityName":"HONNAVARA",
-         "DefautPinCode":"",
-         "StateCode":"KA"
-      },
-      {  
-         "CityId":20379,
-         "CityName":"HIREKERUR",
-         "DefautPinCode":"",
-         "StateCode":"KA"
-      },
-      {  
-         "CityId":20381,
-         "CityName":"HOSAKOTE",
-         "DefautPinCode":"",
-         "StateCode":"KA"
-      },
-      {  
          "CityId":20383,
          "CityName":"KUNIGAL",
          "DefautPinCode":"",
@@ -839,3 +596,17 @@ merchantId* | The unique id (GUID) of the merchant for which you want to see sup
 StateCode* | The state code for which you want to see the list of supported cities
 
 <aside class="notice"> All parameters marked by * are mandatory.</aside>
+
+
+
+### Success/Error Codes
+
+Code | Description
+---- | -----------
+1003 | Authentication failed
+1004 | Successful
+1016 | Invalid Input
+1009 | No Record Found
+1003 | Authentication Failed
+1030 | Service is not Authorized
+1000 | Unhandled Exception
