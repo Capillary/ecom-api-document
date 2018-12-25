@@ -15286,10 +15286,18 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 </ul>
 
 <p><code class="prettyprint">{
-&quot;OrderID&quot;:0,
-&quot;ValidationResponse&quot;:[{&quot;Validator&quot;:&quot;DeliveryAreaValidator&quot;,&quot;CheckoutValidationType&quot;:14,&quot;Status&quot;:&quot;False&quot;,&quot;ValidationMessage&quot;:&quot;&quot;}]
+   &quot;OrderID&quot;:0,
+   &quot;ValidationResponse&quot;:[
+      {
+         &quot;Validator&quot;:&quot;DeliveryAreaValidator&quot;,
+         &quot;CheckoutValidationType&quot;:14,
+         &quot;Status&quot;:&quot;False&quot;,
+         &quot;ValidationMessage&quot;:&quot;&quot;
+      }
+   ]
 },
-&quot;ErrorCode&quot;:0}</code> </p>
+&quot;ErrorCode&quot;:0
+}</code> </p>
 
 <ul>
 <li><p>Delivery mode
@@ -16435,7 +16443,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 </thead><tbody>
 <tr>
 <td>URI</td>
-<td><code class="prettyprint">Order/History/{{MerchantId}}</code></td>
+<td><code class="prettyprint">Order/History/{MerchantId}</code></td>
 </tr>
 <tr>
 <td>Rate Limited?</td>
@@ -16466,7 +16474,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host url}/developerapi/Order/History/{{MerchantId}}</code></p>
+<p><code class="prettyprint">https://{host url}/developerapi/Order/History/{MerchantId}</code></p>
 
 <h3 id="request-body-parameters">Request Body Parameters</h3>
 
@@ -17475,7 +17483,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">http://{host}/developerapi/order/V2/{{MerchantId}}/{orderID}</code></p>
+<p><code class="prettyprint">http://{host}/developerapi/order/V2/{MerchantId}/{orderID}</code></p>
 
 <h3 id="request-path-parameters">Request Path Parameters</h3>
 
@@ -17792,7 +17800,7 @@ Batch Support | No</p>
 <pre class="highlight html"><code>https://www.martjack.com/developerapi/Order/ProcessReturn/f48fdd16-92db-4188-854d-1ecd9b62xxxx
 </code></pre>
 <blockquote>
-<p>Sample Request</p>
+<p>Sample POST Request</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">  
    </span><span class="nt">"OrderId"</span><span class="p">:</span><span class="s2">"6071567"</span><span class="p">,</span><span class="w">
@@ -18193,7 +18201,7 @@ Batch Support | No</p>
 <pre class="highlight html"><code>http://www.martjack.com/DeveloperAPI/Order/Authorize
 </code></pre>
 <blockquote>
-<p>Sample POST Request</p>
+<p>Sample Response</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">  
    </span><span class="nt">"messageCode"</span><span class="p">:</span><span class="s2">"1004"</span><span class="p">,</span><span class="w">
@@ -18318,8 +18326,7 @@ Batch Support | No</p>
 <pre class="highlight html"><code>https://www.martjack.com/developerapi/Order/GetOrderActivityHistory/f48fdd16-92db-4188-854d-1ecd9b62xxxx
 </code></pre>
 <blockquote>
-<p>Sample POST Request
-Sample POST Request</p>
+<p>Sample POST Request</p>
 </blockquote>
 <pre class="highlight json"><code><span class="err">MerchantId=f</span><span class="mi">48</span><span class="err">fdd</span><span class="mi">16-92</span><span class="err">db</span><span class="mi">-4188-854</span><span class="err">d</span><span class="mi">-1</span><span class="err">ecd</span><span class="mi">9</span><span class="err">b</span><span class="mi">62</span><span class="err">xxxx&amp;InputFormat=application/json&amp;InputData=</span><span class="p">{</span><span class="w">  
    </span><span class="nt">"orderfieldchangehistory"</span><span class="p">:</span><span class="s2">"false"</span><span class="p">,</span><span class="w">
@@ -18719,12 +18726,12 @@ Sample POST Request</p>
 <blockquote>
 <p>Sample Request</p>
 </blockquote>
-<pre class="highlight html"><code>
+<pre class="highlight html"><code>https://www.martjack.com/developerapi/Order/GetShipmentHistory/81e77da2-723b-483d-8c0d-49f800c1exxx
 </code></pre>
 <blockquote>
 <p>Sample POST Request</p>
 </blockquote>
-<pre class="highlight json"><code><span class="err">MerchantId=</span><span class="p">{</span><span class="err">{Mid</span><span class="p">}</span><span class="err">}&amp;InputFormat=application/json&amp;InputData=</span><span class="p">{</span><span class="w">
+<pre class="highlight json"><code><span class="err">MerchantId=</span><span class="mi">81</span><span class="err">e</span><span class="mi">77</span><span class="err">da</span><span class="mi">2-723</span><span class="err">b</span><span class="mi">-483</span><span class="err">d</span><span class="mi">-8</span><span class="err">c</span><span class="mi">0</span><span class="err">d</span><span class="mi">-49</span><span class="err">f</span><span class="mi">800</span><span class="err">c</span><span class="mi">1</span><span class="err">exxx&amp;InputFormat=application/json&amp;InputData=</span><span class="p">{</span><span class="w">
   </span><span class="nt">"CreatedDateTo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-12-17"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"ShippingStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"S,R,D"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"CreatedDateFrom"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-12-17"</span><span class="w">
@@ -18836,8 +18843,8 @@ Sample POST Request</p>
 <blockquote>
 <p>Sample Request</p>
 </blockquote>
-<pre class="highlight json"><code><span class="err">https://www.martjack.com/developerapi/Order/CalculateTax/dc</span><span class="mi">21</span><span class="err">b</span><span class="mi">529-2057-402</span><span class="err">a</span><span class="mi">-972</span><span class="err">a-e</span><span class="mi">1</span><span class="err">ba</span><span class="mi">0</span><span class="err">c</span><span class="mi">8</span><span class="err">a</span><span class="mi">08</span><span class="err">eb</span><span class="w">
-</span></code></pre>
+<pre class="highlight html"><code>https://www.martjack.com/developerapi/Order/CalculateTax/dc21b529-2057-402a-972a-e1ba0c8a08eb
+</code></pre>
 <blockquote>
 <p>Sample POST Request</p>
 </blockquote>
@@ -19105,8 +19112,8 @@ Sample POST Request</p>
 <blockquote>
 <p>Sample Request</p>
 </blockquote>
-<pre class="highlight json"><code><span class="err">https://www.martjack.com/developerapi/Order/CalculateTax/dc</span><span class="mi">21</span><span class="err">b</span><span class="mi">529-2057-402</span><span class="err">a</span><span class="mi">-972</span><span class="err">a-e</span><span class="mi">1</span><span class="err">ba</span><span class="mi">0</span><span class="err">c</span><span class="mi">8</span><span class="err">a</span><span class="mi">08</span><span class="err">eb</span><span class="w">
-</span></code></pre>
+<pre class="highlight html"><code>https://www.martjack.com/developerapi/Order/CalculateTax/dc21b529-2057-402a-972a-e1ba0c8a08eb
+</code></pre>
 <blockquote>
 <p>Sample POST Request</p>
 </blockquote>
