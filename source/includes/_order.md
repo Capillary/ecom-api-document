@@ -225,33 +225,7 @@ longitude | float | Longitudinal distance of the store
 <aside class="notice">All parameters marked by * are mandatory.</aside>
 
 
-### Success/Error Codes
 
-Code | Description
----- | -----------
-1000 | Unhandled exception
-1003 | Authentication failed
-1004 | Successful
-1005 | Order authorized
-1006 | Order id is not available
-1007 | Updated successfully
-1008 | Update failed
-1009 | No record found
-1011 | Order is not ready for shipping
-1012 | Username is required
-1016 | Invalid input
-1017 | User does not exist
-1018 | Data update added to the task queue. You can view the status of the update in the Control Panel. An email will be sent to the merchant's registered email id after the task is completed
-1019 | Data update added to the task queue. You can view the status of update using 'GetProductInformation' 
-1020 | No common shipping
-1021 | Warning
-1022 | Products not available
-1023 | Invalid city. Please select a valid address
-1024 | PINode is not serviceable for the selected location
-1025 | PIN code not serviceable for the given address
-1027 | Update failed
-1028 | Invalid page number
-1030 | Service is not authorized
 
 
 
@@ -571,12 +545,12 @@ Access token* | The access token generated for the  current user session
 
 Parameter | Type | Description
 --------- | ---- | -----------
-merchantId* | string |  The unique id (GUID) of the merchant in which you want to place order
-PaymentOption* | string |  The name of the payment gateway. Pass only the supported modes configured in the back-end. For example, RazorPay, EBS, OnlineBankTransfer, COD, CreditCard, ChequeDD, Wallet, and eGiftVoucher
-paymentType* | string |  The payment type used for the order - OBT (Online bank transfer),  TPG (Third party gateway), Credit, GV (Gift voucher) and so on
-gatewayId* | string |  Gateway id through which the payment is made
-channelType | string |   The channel from which the order is placed. For example: amazon, myntra 
-skipDeliveryAreaValidation | boolean |  Specify `true` to validate delivery location before order creation, `false` to ignore validating
+merchantId* | string | The unique id (GUID) of the merchant in which you want to place order
+PaymentOption* | string | The name of the payment gateway. Pass only the supported modes configured in the back-end. For example, RazorPay, EBS, OnlineBankTransfer, COD, CreditCard, ChequeDD, Wallet, and eGiftVoucher
+paymentType* | string | The payment type used for the order - OBT (Online bank transfer),  TPG (Third party gateway), Credit, GV (Gift voucher) and so on
+gatewayId* | string | Gateway id through which the payment is made
+channelType | string | The channel from which the order is placed. For example: amazon, myntra 
+skipDeliveryAreaValidation | boolean | Specify `true` to validate delivery location before order creation, `false` to ignore validating
 
 
 ### Sample Validation Messages
@@ -617,6 +591,7 @@ skipDeliveryAreaValidation | boolean |  Specify `true` to validate delivery loca
 }` 
 
 * Delivery mode
+
 `
 {
    "OrderID":0,
@@ -701,6 +676,7 @@ skipDeliveryAreaValidation | boolean |  Specify `true` to validate delivery loca
 }` 
 
 * Missing payment params
+
 `{
    "OrderID":0,
    "ValidationResponse":[
@@ -716,7 +692,7 @@ skipDeliveryAreaValidation | boolean |  Specify `true` to validate delivery loca
 }` 
 
 
-* Allowing offline payments for an order with multiple payments 
+* Allowing offline payments for an order with multiple payments
 
 `{
    "OrderID":0,
@@ -751,6 +727,7 @@ skipDeliveryAreaValidation | boolean |  Specify `true` to validate delivery loca
 
  
 * PIN code not serviceable
+
 `{
    "OrderID":0,
    "ValidationResponse":[
@@ -851,6 +828,8 @@ skipDeliveryAreaValidation | boolean |  Specify `true` to validate delivery loca
 "ErrorCode":0
 }`
 
+* Delivery slot not in  store time
+
 `{
    "OrderID":0,
    "ValidationResponse":[
@@ -876,21 +855,7 @@ Parameter | Type | Description
 ValidationResponse | json obj | Response object received from the payment gateway
 
 
-### Success/Error Codes
 
-Code | Description
------ | ----------
-500 | Server error
-1000 | Unhandled exception
-1003 | Authentication failed
-1004 | Successful
-1005 | Order authorized
-1006 | Order id is not available
-1007 | Updated successfully
-1008 | Update failed
-1009 | No record found
-1016 | Invalid Input
-1030 | Service is not authorized
 
 
 
@@ -1002,20 +967,7 @@ PointsBurned | int |  The number of points redeemed for the transaction (if any)
  
 
  
-### Success/Error Codes
 
-Code | Description
------ | ----------
-500 | Server error
-1000 | Unhandled exception
-1003 | Authentication failed
-1004 | Successful
-1006 | Order id is not available
-1007 | Updated successfully
-1008 | Update failed
-1009 | No record found
-1016 | Invalid Input
-1030 | Service is not authorized
  
  
  
@@ -1086,20 +1038,7 @@ amount* | float |  The amount paid through the current payment type for the tran
 <aside class="notice"> All parameters marked by * are mandatory.</aside>
 
 
-### Success/Error Codes
 
-Code | Description
------ | ----------
-500 | Server error
-1000 | Unhandled exception
-1003 | Authentication failed
-1004 | Successful
-1006 | Order id is not available
-1007 | Updated successfully
-1008 | Update failed
-1009 | No record found
-1016 | Invalid Input
-1030 | Service is not authorized
 
 
 
@@ -1498,20 +1437,7 @@ IsFreeProduct | enum | Whether the current item is a free gift item. Value: Yes,
 
 
 
-### Success/Error Codes
 
-Code | Description
------ | ----------
-500 | Server error
-1000 | Unhandled exception
-1003 | Authentication failed
-1004 | Successful
-1006 | Order id is not available
-1007 | Updated successfully
-1008 | Update failed
-1009 | No record found
-1016 | Invalid Input
-1030 | Service is not authorized
 
 
 
@@ -1665,21 +1591,7 @@ Parameter | Type | Description
 LeadTime | int | In minutes. Booking is allowed at least x minutes before the booking slot 
 
 
-### Success/Error Codes
 
-Code | Description
----- | -----------
-500 | Server error
-1000 | Unhandled exception
-1001 | Order canceled already
-1002 | Order canceled successfully
-1003 | Authentication failed
-1004 | Successful
-1006 | Order id is not available
-1009 | No record found
-1016 | Invalid Input
-1017 | User does not exist
-1030 | Service is not authorized
 
 
 ## Get Invoice Details
@@ -1891,20 +1803,7 @@ ConversionFactor | float | The currency conversion ratio for merchants with mult
 StockAction | | 
 IsBackOrder | enum | Can the item be ordered even when out of stock. Value: `true`, or `false`
 
-## Success/Error Codes
 
-Code | Description
----- | -----------
-500 | Server error
-1000 | Unhandled exception
-1003 | Authentication failed
-1004 | Successful
-1009 | No record found
-1016 | Invalid Input
-1030 | Service is not authorized
-1044 | Invalid delivery slot
-1045 | Invalid merchant id
-1046 | Invalid location id
 
 
 
@@ -2417,6 +2316,7 @@ Cancels a specific order of a customer placed on a merchant store. However, an o
 
 
 ### Resource Information
+
  |  |  |
 --------- | ----------- | 
 URI | `Order/Cancel`
@@ -3371,7 +3271,7 @@ UnitPrice* | float | Price of a single item
 
 Parameter | Type | Description
 -------- | ----- | -----------
-BundleItem |  | Applicable for bundle products
+BundleItem | json obj | Applicable for bundle products
 TaxCategory | string | Category of tax
 TaxCodeId | int | Unique id of the tax code
 IsTaxOnShipping | boolean | Whether tax is applied on shipping charges

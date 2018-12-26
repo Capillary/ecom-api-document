@@ -865,11 +865,10 @@ LocationId* | int | Location id for which you want to see the details
 
 Parameter | Type | Description
 --------- | ---- | -----------
-DistancefromInputLatLong |  | 
-IsParticipateInStock | | 
-IsOfflinneCheckoutEnabled | boolean | 
-IsDefaultLNG_LocationName | boolean | 
-AdditionalDetails | json obj | 
+DistancefromInputLatLong | float | Distance of the location from latitude and longitude. Available only if latitude and longitude are set for the location
+IsParticipateInStock | boolean | Whether the location is participating in stock. The location appears on the storefront only if this is set to true 
+IsOfflinneCheckoutEnabled | boolean | Whether offline ordering is available for the location
+IsDefaultLNG_LocationName | boolean | Distance of the location from latitude and longitude. Available only if latitude and longitude are set for the location
 
 
 ### Response Parameters
@@ -961,19 +960,6 @@ MerchantId* | string | The unique id (GUID) of the merchant for which you want t
 <aside class="notice"> All parameters marked by * are mandatory.</aside>
 
 
-## Response Codes
-
-Code | Description
----- | -----------
-1000 | Unhandled Exception
-1003 | Authentication Failed
-1004 | Successful
-1009 | No Record Found
-1030 | Service is not Authorized
-6225 | Invalid ETA details
-6226 | No location code passed
-6227 | Invalid location
-6228 | Invalid ETA
 
 
 
@@ -1118,19 +1104,7 @@ DistancefromInputLatLong | float | Distance of the location from latitude and lo
 IsParticipateInStock | boolean | Whether the location is participating in stock. The location appears on the storefront only if this is set to true
 AdditionalDetails | json obj | Custom field details
 
-## Response Codes
 
-Code | Description
----- | -----------
-1000 | Unhandled Exception
-1003 | Authentication Failed
-1004 | Successful
-1009 | No Record Found
-1030 | Service is not Authorized
-6225 | Invalid ETA details
-6226 | No location code passed
-6227 | Invalid location
-6228 | Invalid ETA
 
 
 
@@ -1422,25 +1396,13 @@ Following table contains descriptions of a few response parameters that require 
 
 Parameter | Type | Description
 --------- | ---- | -----------
-DistancefromInputLatLong |  | 
-AdditionalDetails | json obj | 
-IsParticipateInStock | boolean | 
-IsOfflinneCheckoutEnabled | boolean | 
-IsDefaultLNG_LocationName | boolean |
+DistancefromInputLatLong | float | Distance of the location from latitude and longitude. Available only if latitude and longitude are set for the location
+AdditionalDetails | json obj | Custom field details 
+IsParticipateInStock | boolean | Whether the location is participating in stock. The location appears on the storefront only if this is set to true
+IsOfflinneCheckoutEnabled | boolean | Whether offline ordering is available for the location
+IsDefaultLNG_LocationName | boolean | Distance of the location from latitude and longitude. Available only if latitude and longitude are set for the location
 
-## Response Codes
 
-Code | Description
----- | -----------
-1000 | Unhandled Exception
-1003 | Authentication Failed
-1004 | Successful
-1009 | No Record Found
-1030 | Service is not Authorized
-6225 | Invalid ETA details
-6226 | No location code passed
-6227 | Invalid location
-6228 | Invalid ETA
 
 
 ## Get Reason Codes
@@ -1499,19 +1461,7 @@ MerchantId* | string | The unique id (GUID) of the merchant
 <aside class="notice"> All parameters marked by * are mandatory.</aside>
 
 
-## Response Codes
 
-Code | Description
----- | -----------
-1000 | Unhandled Exception
-1003 | Authentication Failed
-1004 | Successful
-1009 | No Record Found
-1030 | Service is not Authorized
-6225 | Invalid ETA details
-6226 | No location code passed
-6227 | Invalid location
-6228 | Invalid ETA
 
 
 ## Update Order ETA
@@ -1689,18 +1639,6 @@ ETAType | enum | Specifies whether a fixed ETA or not. `0` for a fixed ETA and `
 ETAUnits | enum | The unit of measurement of time for the ETA for `StartTime` and `EndTime`. It could be `Min` (for minutes), `Hours`, or `Days` 
 
 
-## Response Codes
 
-Code | Description
----- | -----------
-1000 | Unhandled Exception
-1003 | Authentication Failed
-1004 | Successful
-1009 | No Record Found
-1030 | Service is not Authorized
-6225 | Invalid ETA details
-6226 | No location code passed
-6227 | Invalid location
-6228 | Invalid ETA
 
 

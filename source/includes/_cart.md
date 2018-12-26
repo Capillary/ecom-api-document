@@ -78,17 +78,7 @@ MobileNo* | string | Registered mobile number of the user
 
 
 
-### Success/Error Codes
 
-Code | Description
----- | -----------
-440 | Session expired
-1000 | Unhandled Exception
-1004 | Successful
-1016 | Invalid Input
-1009 | No Record Found
-1003 | Authentication Failed
-1030 | Service is not Authorized
 
 
 
@@ -142,17 +132,7 @@ OTP* | The verification code received by the customer on his/her mobile number
 mobile* | The registered mobile number to which the OTP has to be sent 
 
 
-### Success/Error Codes
 
-Code | Description
----- | -----------
-440 | Session expired
-1004 | Successful
-1016 | Invalid Input
-1009 | No Record Found
-1003 | Authentication Failed
-1030 | Service is not Authorized
-1000 | Unhandled Exception
 
 
 
@@ -461,12 +441,6 @@ CappedRefKey | |
 
 Code | Description
 ---- | -----------
-1000 | Unhandled Exception
-1003 | Authentication Failed
-1004 | Successful
-1009 | No Record Found
-1016 | Invalid Input
-1030 | Service is not Authorized
 5001 | No Bundle items present for the specified product id
 5002 | Invalid Delivery Mode: {DeliveryMode} for Product as IsShip/IsOnline/Instore Pickup is not set
 5003 | Invalid Delivery Mode: {DeliveryMode} for Location Id: {LocationId}
@@ -1394,12 +1368,6 @@ CappedRefKey | |
 
 Code | Description
 ---- | -----------
-1000 | Unhandled Exception
-1003 | Authentication Failed
-1004 | Successful
-1009 | No Record Found
-1016 | Invalid Input
-1030 | Service is not Authorized
 5001 | No Bundle items present for the specified product id
 5002 | Invalid Delivery Mode: {DeliveryMode} for Product as IsShip/IsOnline/Instore Pickup is not set
 5003 | Invalid Delivery Mode: {DeliveryMode} for Location Id: {LocationId}
@@ -3150,9 +3118,9 @@ accesstoken* | Access token of the logged in user to validate the session
 
 Parameter | Type | Description
 -------- | ----- | -----------
-ShipCity | string | 
-ShipCountry | string | 
-ShipState | string | 
+ShipCity | string | Name of the shipping city
+ShipCountry | string | Name of the shipping country
+ShipState | string | Name of the shipping state
 DelveryMode | string | Mode of delivery
 Item | json obj | Item details
 ProductID | int | Unique id of the product
@@ -3160,8 +3128,8 @@ VariantProductID | int | Unique id of the variant product
 Quantity | int | Number of the current items that you want to add to cart
 Status | enum | Status of the cart item. Specify `A` to add item to cart, `D` to delete item from cart
 LocationId | int | Unique id of the location
-Portion | enum | 
-CartReferenceKey | string | 
+Portion | enum | The portion for which the child product is applied. Value: `W` for whole, `R` for right, `L` for left (left, right usually applies for toppings)
+CartReferenceKey | string | Unique reference key of the cart item
 Price | float | Price of the current item 
 ChildItem | json obj | Details of the child item (bundle products)
 Quantity | int | Quantity of the current item
@@ -3421,17 +3389,6 @@ IsFreeProduct | boolean | Whether the product is a gift item or deal item availa
 
 
 
-### Success/Error Codes
-
-Code | Description
----- | -----------
-440 | Session expired
-1000 | Unhandled Exception
-1003 | Authentication Failed
-1004 | Successful
-1009 | No Record Found
-1016 | Invalid Input
-1030 | Service is not Authorized
 
 
 
@@ -3484,17 +3441,7 @@ merchantId* | string | Unique GUID of the merchant
 <aside class="notice"> All parameters marked by * are mandatory. </aside>
 
 
-### Success/Error Codes
 
-Code | Description
----- | -----------
-440 | Session expired
-1000 | Unhandled Exception
-1003 | Authentication Failed
-1004 | Successful
-1009 | No Record Found
-1016 | Invalid Input
-1030 | Service is not Authorized
 
 
 
@@ -3876,17 +3823,7 @@ IsSelected | boolean | Whether the selected attribute value is applicable for th
 
 <aside class="notice"> All parameters marked by * are mandatory. </aside>
 
-### Success/Error Codes
 
-Code | Description
----- | -----------
-440 | Session expired
-1000 | Unhandled Exception
-1003 | Authentication Failed
-1004 | Successful
-1009 | No Record Found
-1016 | Invalid Input
-1030 | Service is not Authorized
 
 
 
@@ -4212,17 +4149,7 @@ Por | enum | The portion of the product for which the topping is applied. Value:
 GroupId | int | Unique group id associated to the product. Applicable in case of a bundle or deal products
 
 
-### Success/Error Codes
 
-Code | Description
----- | -----------
-440 | Session expired
-1000 | Unhandled Exception
-1003 | Authentication Failed
-1004 | Successful
-1009 | No Record Found
-1016 | Invalid Input
-1030 | Service is not Authorized
 
 
 
@@ -4458,17 +4385,7 @@ GroupId | int |
 ComboSuggestion | | 
 
 
-### Success/Error Codes
 
-Code | Description
----- | -----------
-440 | Session expired
-1000 | Unhandled Exception
-1003 | Authentication Failed
-1004 | Successful
-1009 | No Record Found
-1016 | Invalid Input
-1030 | Service is not Authorized
 
 
 ## Remove Applied Voucher
@@ -4697,17 +4614,7 @@ Por | enum | The portion for which the product is applied. Value: `W` for whole,
 IsDefaultBundleItem | boolean | Whether the current item is in the default bundle item or customized bundle item 
 
 
-### Success/Error Codes
 
-Code | Description
----- | -----------
-440 | Session expired
-1000 | Unhandled Exception
-1003 | Authentication Failed
-1004 | Successful
-1009 | No Record Found
-1016 | Invalid Input
-1030 | Service is not Authorized
 
 
 
@@ -4836,17 +4743,7 @@ allowfurtherpromotions | boolean | If further 'Cart Promotions' is applied on th
 
 
 
-### Success/Error Codes
 
-Code | Description
----- | -----------
-440 | Session expired
-1000 | Unhandled Exception
-1003 | Authentication Failed
-1004 | Successful
-1009 | No Record Found
-1016 | Invalid Input
-1030 | Service is not Authorized
 
 
 
@@ -4992,17 +4889,7 @@ Parameter | Type | Description
 EnalbeOTP | boolean | 
 
 
-### Success/Error Codes
 
-Code | Description
----- | -----------
-440 | Session expired
-1000 | Unhandled Exception
-1003 | Authentication Failed
-1004 | Successful
-1009 | No Record Found
-1016 | Invalid Input
-1030 | Service is not Authorized
 
 
 
@@ -5289,17 +5176,7 @@ CappedRefKey | |
 CatalogpromotionDiscount | | 
 
 
-### Success/Error Codes
 
-Code | Description
----- | -----------
-440 | Session expired
-1000 | Unhandled Exception
-1003 | Authentication Failed
-1004 | Successful
-1009 | No Record Found
-1016 | Invalid Input
-1030 | Service is not Authorized
 
 
 
@@ -5557,17 +5434,6 @@ PriceCapped | |
 TotalCap | | 
 CappedRefKey | | 
 
-### Success/Error Codes
-
-Code | Description
----- | -----------
-440 | Session expired
-1000 | Unhandled Exception
-1003 | Authentication Failed
-1004 | Successful
-1009 | No Record Found
-1016 | Invalid Input
-1030 | Service is not Authorized
 
 
 ## Get Delivery Slots
@@ -5859,17 +5725,6 @@ CappedRefKey | |
 
 
 
-### Success/Error Codes
-
-Code | Description
----- | -----------
-440 | Session expired
-1000 | Unhandled Exception
-1003 | Authentication Failed
-1004 | Successful
-1009 | No Record Found
-1016 | Invalid Input
-1030 | Service is not Authorized
 
 
 
@@ -5925,15 +5780,3 @@ AccessToken* | Access token of the current session (you can generate using GET A
 
 
 
-## Success/Error Codes
-
-Code | Description
----- | -----------
-440 | Session expired
-440 | Session expired
-1000 | Unhandled Exception
-1004 | Successful
-1016 | Invalid Input
-1009 | No Record Found
-1003 | Authentication Failed
-1030 | Service is not Authorized
