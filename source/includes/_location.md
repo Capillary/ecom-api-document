@@ -88,11 +88,15 @@ Operation | string | Value: add, remove. Specify `add` delivery address to a loc
 
 Code | Description
 ---- | -----------
-1000 | Unhandled Exception
-1003 | Authentication Failed
+500 | Server error
+1000 | Unhandled exception
+1003 | Authentication failed
 1004 | Successful
-1009 | No Record Found
-1030 | Service is not Authorized
+1007 | Updated successfully
+1008 | Update failed
+1009 | No record found
+1016 | Invalid Input
+1030 | Service is not authorized
 6225 | Invalid ETA details
 6226 | No location code passed
 6227 | Invalid location
@@ -196,11 +200,15 @@ value | string | New value of the specified path
 
 Code | Description
 ---- | -----------
-1000 | Unhandled Exception
-1003 | Authentication Failed
+500 | Server error
+1000 | Unhandled exception
+1003 | Authentication failed
 1004 | Successful
-1009 | No Record Found
-1030 | Service is not Authorized
+1007 | Updated successfully
+1008 | Update failed
+1009 | No record found
+1016 | Invalid Input
+1030 | Service is not authorized
 6225 | Invalid ETA details
 6226 | No location code passed
 6227 | Invalid location
@@ -288,11 +296,15 @@ userId | string | CP user id who is updating the store timing
 
 Code | Description
 ---- | -----------
-1000 | Unhandled Exception
-1003 | Authentication Failed
+500 | Server error
+1000 | Unhandled exception
+1003 | Authentication failed
 1004 | Successful
-1009 | No Record Found
-1030 | Service is not Authorized
+1007 | Updated successfully
+1008 | Update failed
+1009 | No record found
+1016 | Invalid Input
+1030 | Service is not authorized
 6225 | Invalid ETA details
 6226 | No location code passed
 6227 | Invalid location
@@ -477,11 +489,15 @@ IsOfflineDeals | boolean | Whether promotions are applied offline for the locati
 
 Code | Description
 ---- | -----------
-1000 | Unhandled Exception
-1003 | Authentication Failed
+500 | Server error
+1000 | Unhandled exception
+1003 | Authentication failed
 1004 | Successful
-1009 | No Record Found
-1030 | Service is not Authorized
+1007 | Updated successfully
+1008 | Update failed
+1009 | No record found
+1016 | Invalid Input
+1030 | Service is not authorized
 6225 | Invalid ETA details
 6226 | No location code passed
 6227 | Invalid location
@@ -938,11 +954,15 @@ IsParticipateInStock | boolean | Whether the location is participating in stock.
 
 Code | Description
 ---- | -----------
-1000 | Unhandled Exception
-1003 | Authentication Failed
+500 | Server error
+1000 | Unhandled exception
+1003 | Authentication failed
 1004 | Successful
-1009 | No Record Found
-1030 | Service is not Authorized
+1007 | Updated successfully
+1008 | Update failed
+1009 | No record found
+1016 | Invalid Input
+1030 | Service is not authorized
 6225 | Invalid ETA details
 6226 | No location code passed
 6227 | Invalid location
@@ -1670,13 +1690,15 @@ ETAUnits* | enum | Preferred unit for time - minutes, hours, or days. Value: `Mi
 
 Code | Description
 ---- | -----------
+500 | Server error
+1000 | Unhandled exception
 1003 | Authentication failed
 1004 | Successful
+1007 | Updated successfully
+1008 | Update failed
+1009 | No record found
 1016 | Invalid Input
-1009 | No Record Found
-1003 | Authentication Failed
-1030 | Service is not Authorized
-1000 | Unhandled Exception
+1030 | Service is not authorized
 6220 | Invalid ETA start/end time
 6221 | Invalid ETA range
 6222 | Invalid ETA units

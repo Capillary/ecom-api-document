@@ -108,63 +108,15 @@ Taskid | int | Unique id generated for the current update location task
 
 Code | Description
 ---- | -----------
-429 | Rate limit exceeded
-440 | Session expired
 500 | Server error
-1000 | Exception message
-1001 | Order canceled already
-1002 | Order canceled successfully
+1000 | Unhandled exception
 1003 | Authentication failed
-1004 | Success
-1005 | Order authorized
-1006 | Order id is not available
+1004 | Successful
 1007 | Updated successfully
 1008 | Update failed
-1009 | No data
-1011 | Not ready for shipping
-1012 | Enter user
-1013 | Enter voucher
-1014 | Duplicate voucher
-1015 | Invalid campaign
-1016 | Invalid data
-1017 | Invalid user
-1028 | Invalid page number
-1018 | Msmq status
-1019 | msmq delete status
-1020 | No common shipping
-1021 | Warning
-1022 | Products not available
-1023 | Invalid city
-1024 | Invalid location PIN
-1025 | No service
-1027 | Failed
-1030 | Authorization failed
-1031 | Not approved
-1032 | Locked out
-1033 | Invalid API input
-1034 | Product exist
-1035 | Shipment created already 
-1036 | No default return shelf found
-1037 | Locked
-1038 | Invalid OTP
-1039 | Reset password
-1040 | Invalid password
-1041 | User does not exist
-1042 | Not activated
-1043 | Order is already authorized
-1044 | Invalid delivery slot
-1045 | Invalid merchant id
-1046 | Invalid location id
-5001 | Invalid user information
-6220 | Invalid ETA start/end time
-6221 | Invalid ETA range
-6222 | Invalid ETA units
-6223 | Invalid end range
-6224 | End range is greater than start range
-6225 | Invalid ETA details
-6226 | No location code passed
-6227 | Invalid location
-6228 | Invalid ETA for
+1009 | No record found
+1016 | Invalid Input
+1030 | Service is not authorized
 
 
 
@@ -814,13 +766,15 @@ channelrefcode | string | Channel code to which the price list is associated
 
 Code | Description
 ---- | -----------
+500 | Server error
+1000 | Unhandled exception
 1003 | Authentication failed
 1004 | Successful
+1007 | Updated successfully
+1008 | Update failed
+1009 | No record found
 1016 | Invalid Input
-1009 | No Record Found
-1003 | Authentication Failed
-1030 | Service is not Authorized
-1000 | Unhandled Exception
+1030 | Service is not authorized
 
 
 
@@ -898,13 +852,15 @@ Sku* | string | SKU of the product for which you want to fetch reviews
 
 Code | Description
 ---- | -----------
+500 | Server error
+1000 | Unhandled exception
 1003 | Authentication failed
 1004 | Successful
+1007 | Updated successfully
+1008 | Update failed
+1009 | No record found
 1016 | Invalid Input
-1009 | No Record Found
-1003 | Authentication Failed
-1030 | Service is not Authorized
-1000 | Unhandled Exception
+1030 | Service is not authorized
 
 
 
@@ -1092,13 +1048,15 @@ Taskid | int | Unique id generated for the current task
 
 Code | Description
 ---- | -----------
+500 | Server error
+1000 | Unhandled exception
 1003 | Authentication failed
 1004 | Successful
+1007 | Updated successfully
+1008 | Update failed
+1009 | No record found
 1016 | Invalid Input
-1009 | No Record Found
-1003 | Authentication Failed
-1030 | Service is not Authorized
-1000 | Unhandled Exception
+1030 | Service is not authorized
 
 
 
@@ -1224,13 +1182,15 @@ UOM | string | Unit of measurement of the product. It could be `pieces` for the 
 
 Code | Description
 ---- | -----------
+500 | Server error
+1000 | Unhandled exception
 1003 | Authentication failed
 1004 | Successful
+1007 | Updated successfully
+1008 | Update failed
+1009 | No record found
 1016 | Invalid Input
-1009 | No Record Found
-1003 | Authentication Failed
-1030 | Service is not Authorized
-1000 | Unhandled Exception
+1030 | Service is not authorized
 
 
 ## Get Product Details (by SKU)
@@ -1344,13 +1304,15 @@ UOM | string | Unit of measurement of the product. It could be the `pieces` for 
 
 Code | Description
 ---- | -----------
+500 | Server error
+1000 | Unhandled exception
 1003 | Authentication failed
 1004 | Successful
+1007 | Updated successfully
+1008 | Update failed
+1009 | No record found
 1016 | Invalid Input
-1009 | No Record Found
-1003 | Authentication Failed
-1030 | Service is not Authorized
-1000 | Unhandled Exception
+1030 | Service is not authorized
 
 
 ## Get Product Variants
@@ -1528,13 +1490,15 @@ flag | |
 
 Code | Description
 ---- | -----------
+500 | Server error
+1000 | Unhandled exception
 1003 | Authentication failed
 1004 | Successful
+1007 | Updated successfully
+1008 | Update failed
+1009 | No record found
 1016 | Invalid Input
-1009 | No Record Found
-1003 | Authentication Failed
-1030 | Service is not Authorized
-1000 | Unhandled Exception
+1030 | Service is not authorized
 
 
 ## Get Products by Tag
@@ -1719,13 +1683,15 @@ isGoLive* | boolean | Specify `true` to show the review on the storefront, `fals
 
 Code | Description
 ---- | -----------
+500 | Server error
+1000 | Unhandled exception
 1003 | Authentication failed
 1004 | Successful
+1007 | Updated successfully
+1008 | Update failed
+1009 | No record found
 1016 | Invalid Input
-1009 | No Record Found
-1003 | Authentication Failed
-1030 | Service is not Authorized
-1000 | Unhandled Exception
+1030 | Service is not authorized
 
 
 
@@ -1814,10 +1780,12 @@ attributes | array |
 
 Code | Description
 ---- | -----------
+500 | Server error
+1000 | Unhandled exception
 1003 | Authentication failed
 1004 | Successful
+1007 | Updated successfully
+1008 | Update failed
+1009 | No record found
 1016 | Invalid Input
-1009 | No Record Found
-1003 | Authentication Failed
-1030 | Service is not Authorized
-1000 | Unhandled Exception
+1030 | Service is not authorized

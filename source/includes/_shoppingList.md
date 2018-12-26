@@ -63,7 +63,19 @@ refCode | Specify a reference code for your wish list. It is a free flowing text
 
 <aside class="notice"> All parameters marked by * are mandatory.</aside>
 
+### Success/Error Codes
 
+Code | Description
+---- | -----------
+500 | Server error
+1000 | Unhandled exception
+1003 | Authentication failed
+1004 | Successful
+1007 | Updated successfully
+1008 | Update failed
+1009 | No record found
+1016 | Invalid Input
+1030 | Service is not authorized
 
 
 
@@ -153,11 +165,29 @@ Following table contains descriptions of a few response parameters that require 
 
 Parameter | Type | Description
 --------- | ---- | -----------
-UserGroupId | | 
-AllowUserToAddItems | 
-DisplayinMyAccount | 
+UserGroupId | int | Unique user group id associated to the product group. One group can have only one type of item. For example, in a group you can either have only pizzas, drinks, appetizers or deserts
+AllowUserToAddItems | boolean | Whether the user is allowed to add items to cart 
+DisplayinMyAccount | boolean | 
 CreatedBy | | 
-RefCode | | 
+RefCode | string | Unique reference code of the current shopping list
+
+
+
+### Success/Error Codes
+
+Code | Description
+---- | -----------
+500 | Server error
+1000 | Unhandled exception
+1003 | Authentication failed
+1004 | Successful
+1007 | Updated successfully
+1008 | Update failed
+1009 | No record found
+1016 | Invalid Input
+1030 | Service is not authorized
+
+
 
 
 ## Add Items to a Shopping List

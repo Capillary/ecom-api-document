@@ -147,17 +147,16 @@ MarketingNotificationType | string |
 
 
 
-## Success/Error Codes
+### Success/Error Codes
 
 Code | Description
 ---- | -----------
-1000 | Unhandled Exception
-
+1000 | Unhandled exception
+1003 | Authentication failed
 1004 | Successful
-1016 | Invalid Input
-1009 | No Record Found
-1003 | Authentication Failed
-1030 | Service is not Authorized
+1009 | No record found
+1016 | Invalid input
+1030 | Service is not authorized
 
 
 
@@ -362,14 +361,14 @@ issued_at | date-time | The date and time when the access token was generated fo
 
 Code | Description
 ---- | -----------
+429 | Rate limit exceeded
+1000 | Unhandled exception
 1003 | Authentication failed
 1004 | Successful
 1016 | Invalid Input
 1009 | No Record Found
-1003 | Authentication Failed
 1030 | Service is not Authorized
-1000 | Unhandled Exception
-429 | Rate limit exceeded
+
 
 
 
@@ -454,13 +453,13 @@ issued_at | date-time | The date and time when the access token was generated fo
 
 Code | Description
 ---- | -----------
+1000 | Unhandled exception
 1003 | Authentication failed
 1004 | Successful
-1016 | Invalid Input
 1009 | No Record Found
-1003 | Authentication Failed
+1016 | Invalid Input
 1030 | Service is not Authorized
-1000 | Unhandled Exception
+
 
 
 
@@ -557,13 +556,13 @@ issued_at | date-time | The date and time when the access token was generated fo
 
 Code | Description
 ---- | -----------
+1000 | Unhandled Exception
 1003 | Authentication failed
 1004 | Successful
-1016 | Invalid Input
 1009 | No Record Found
-1003 | Authentication Failed
-1030 | Service is not Authorized
-1000 | Unhandled Exception
+1016 | Invalid input
+1030 | Service is not authorized
+
 
 
 
@@ -659,12 +658,12 @@ issued_at | date-time | The date and time when the access token was generated fo
 
 Code | Description
 ---- | -----------
-1000 | Unhandled Exception
+1000 | Unhandled exception
+1003 | Authentication failed
 1004 | Successful
-1016 | Invalid Input
-1009 | No Record Found
-1003 | Authentication Failed
-1030 | Service is not Authorized
+1016 | Invalid input
+1009 | No record found
+1030 | Service is not authorized
 
 
 
@@ -732,13 +731,13 @@ merchantId* | string | The unique id (GUID) of the merchant from which you want 
 
 Code | Description
 ---- | -----------
+1000 | Unhandled exception
 1003 | Authentication failed
 1004 | Successful
-1016 | Invalid Input
-1009 | No Record Found
-1003 | Authentication Failed
-1030 | Service is not Authorized
-1000 | Unhandled Exception
+1009 | No Record found
+1016 | Invalid input
+1030 | Service is not authorized
+
 
 
 
@@ -811,13 +810,12 @@ issued_at | date-time | Date and time when the access token is generated
 
 Code | Description
 ---- | -----------
+1000 | Unhandled exception
 1003 | Authentication failed
 1004 | Successful
-1016 | Invalid Input
-1009 | No Record Found
-1003 | Authentication Failed
-1030 | Service is not Authorized
-1000 | Unhandled Exception
+1009 | No Record found
+1016 | Invalid input
+1030 | Service is not authorized
 
 
 ## Validate Access Token
@@ -872,13 +870,12 @@ accesstoken* | string | The access token generated for a user session (use `/Cus
 
 Code | Description
 ---- | -----------
+1000 | Unhandled exception
 1003 | Authentication failed
 1004 | Successful
-1016 | Invalid Input
-1009 | No Record Found
-1003 | Authentication Failed
-1030 | Service is not Authorized
-1000 | Unhandled Exception
+1009 | No Record found
+1016 | Invalid input
+1030 | Service is not authorized
 
 
 ## Fetch Customers (Search)
@@ -989,13 +986,13 @@ MarketingNotificationType | string |
 
 Code | Description
 ---- | -----------
+1000 | Unhandled exception
 1003 | Authentication failed
 1004 | Successful
-1016 | Invalid Input
-1009 | No Record Found
-1003 | Authentication Failed
-1030 | Service is not Authorized
-1000 | Unhandled Exception
+1009 | No Record found
+1016 | Invalid input
+1030 | Service is not authorized
+
 
 
 
@@ -1105,12 +1102,12 @@ MarketingNotificationType | string |
 
 Status Code | Description
 --------- | ------------
-1000 | Unhandled Exception
-1003 | Authentication Failed
+1000 | Unhandled exception
+1003 | Authentication failed
 1004 | Successful
-1009 | No Record Found
-1016 | Invalid Input
-1030 | Service is not Authorized
+1009 | No record found
+1016 | Invalid input
+1030 | Service is not authorized
 
 
 
@@ -1217,11 +1214,11 @@ IsReceiveOffers | boolean | Whether the user is subscribed to receive offers fro
 
 Status Code | Description
 ------------ | ---------
-1000 | Unhandled Exception
-1003 | Authentication Failed
+1000 | Unhandled exception
+1003 | Authentication failed
 1004 | Successful
-1017 | User doesn't exit
-1030 | Service is not Authorized
+1017 | User does not exit
+1030 | Service is not authorized
 
 
 
@@ -1295,6 +1292,19 @@ ProfileAttributeId* | string | ID of the attribute that needs to be updated
 ProfileAttributeValue | string | Customer's preferred attribute value 
 
 <aside class="notice"> All parameters marked by * are mandatory. </aside>
+
+
+### Success/Error Codes
+
+Code | Description
+---- | -----------
+1000 | Unhandled exception
+1003 | Authentication failed
+1004 | Successful
+1009 | No record found
+1016 | Invalid input
+1030 | Service is not authorized
+
 
 
 
@@ -1396,6 +1406,19 @@ email | string |  The email id of the recipient
 addressType | string | Type of address. For example Home, Office
 
 <aside class="notice"> All parameters marked by * are mandatory. </aside>
+
+
+### Success/Error Codes
+
+Code | Description
+---- | -----------
+1000 | Unhandled exception
+1003 | Authentication failed
+1004 | Successful
+1009 | No Record found
+1016 | Invalid input
+1030 | Service is not authorized
+
 
 
 
@@ -1500,11 +1523,11 @@ UserId* | string |  The unique user identifier of the customer whose details nee
 
 Status Code | Description
 ----- | ---------
-1000 | Unhandled Exception
-1003 | Authentication Failed
+1000 | Unhandled exception
+1003 | Authentication failed
 1004 | Successful
-1009 | No Record Found
-1030 | Service is not Authorized
+1009 | No record found
+1030 | Service is not authorized
 
 
 
@@ -1558,12 +1581,12 @@ ShippingAddressId* | string |  Unique id of the order shipment that you want to 
 
 Status Code | Description
 ----- | ---------
-1000 | Unhandled Exception
-1003 | Authentication Failed
+1000 | Unhandled exception
+1003 | Authentication failed
 1004 | Successful
-1009 | No Record Found
-1016 | Invalid Input
-1030 | Service is not Authorized
+1009 | No record found
+1016 | Invalid input
+1030 | Service is not authorized
 
 
 
@@ -1876,8 +1899,8 @@ Authentication | Yes
 
 Code | Description
 ----- | ---------
-1000 | Unhandled Exception
-1003 | Authentication Failed
+1000 | Unhandled exception
+1003 | Authentication failed
 1004 | Successful
-1009 | No Record Found
-1030 | Service is not Authorized
+1009 | No Record found
+1030 | Service is not authorized

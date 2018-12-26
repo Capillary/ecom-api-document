@@ -64,6 +64,9 @@ MerchantID=81e77da2-723b-483d-8c0d-49f800c1exxx&InputFormat=application/json&Inp
             "channelorderid":"6068438350",
             "sellerwroxorderid":2731792,
             "deliveryslotcode":"",
+			"storelocationcode": "",
+			"latitude": "28.7041",
+			"longitude": "-77.1025",
             "shippingmode":"",
             "customfields":{  
                "customfield":[  
@@ -216,6 +219,8 @@ shippingmode | string |  Pass the shipping mode that you want to associate with 
 shippingamount | float | Pass the shipping charge for the specific item (Order item level)
 shippingdiscount | int | Pass the discount amount on the shipping charge (Order item level discount)
 linediscount | int |  Pass the line item level discount of the order
+latitude | float | Latitudinal distance of the store
+longitude | float | Longitudinal distance of the store
 
 <aside class="notice">All parameters marked by * are mandatory.</aside>
 
@@ -227,10 +232,6 @@ Code | Description
 1000 | Unhandled exception
 1003 | Authentication failed
 1004 | Successful
-1016 | Invalid Input
-1009 | No record found
-1003 | Authentication failed
-1030 | Service is not authorized
 1005 | Order authorized
 1006 | Order id is not available
 1007 | Updated successfully
@@ -243,8 +244,7 @@ Code | Description
 1015 | Invalid campaign id
 1016 | Invalid input
 1017 | User does not exist
-1028 | Invalid page number
-1018 | Data update added to the task queue. You can view the status of the update in the Control Panel. An email will be sent to the merchant's registered email id after the task is completed.
+1018 | Data update added to the task queue. You can view the status of the update in the Control Panel. An email will be sent to the merchant's registered email id after the task is completed
 1019 | Data update added to the task queue. You can view the status of update using 'GetProductInformation' 
 1020 | No common shipping
 1021 | Warning
@@ -253,6 +253,12 @@ Code | Description
 1024 | PINode is not serviceable for the selected location
 1025 | PIN code not serviceable for the given address
 1027 | Update failed
+1028 | Invalid page number
+1030 | Service is not authorized
+
+
+
+
 
 
 
@@ -313,6 +319,8 @@ MerchantID=81e77da2-723b-483d-8c0d-49f800c1exxx&InputFormat=application/json&Inp
          "channelorderid":"",
          "sellerwroxorderid":"",
          "deliveryslotcode":"",
+		 "latitude": "28.7041",
+		 "longitude": "-77.1025",
          "shippingmode":"H",
          "items":{  
             "item":[  
@@ -483,6 +491,8 @@ vouchercode | string | Coupon code applied for the transaction if any. This is j
 customfield | json obj | Pass this only if you have preconfigured custom fields at the order level
 itemcustomfield | json obj | Pass line-item level custom fields. You do not need to have preconfigured custom fields at the order item level
 deliveryslotcode | string | Pass the delivery slot code if you want to associate a delivery slot with the order 
+latitude | float | Latitudinal distance of the store
+longitude | float | Longitudinal distance of the store
 shippingmode | string | Pass the shipping mode that you want to associate with the order. Note that the API does not validate/calculate on the provided shipping mode
 shippingamount | float | Pass the shipping charge for the specific item (Order item level)
 shippingdiscount | int | Pass the discount amount on the shipping charge (Order item level discount)
@@ -866,6 +876,22 @@ Parameter | Type | Description
 ValidationResponse | json obj | Response object received from the payment gateway
 
 
+### Success/Error Codes
+
+Code | Description
+----- | ----------
+500 | Server error
+1000 | Unhandled exception
+1003 | Authentication failed
+1004 | Successful
+1006 | Order id is not available
+1007 | Updated successfully
+1008 | Update failed
+1009 | No record found
+1016 | Invalid Input
+1030 | Service is not authorized
+
+
 
 
 ## Process Transaction
@@ -973,6 +999,24 @@ PointsBurned | int |  The number of points redeemed for the transaction (if any)
  
 <aside class="notice"> All parameters marked by * are mandatory. </aside>
  
+
+ 
+### Success/Error Codes
+
+Code | Description
+----- | ----------
+500 | Server error
+1000 | Unhandled exception
+1003 | Authentication failed
+1004 | Successful
+1006 | Order id is not available
+1007 | Updated successfully
+1008 | Update failed
+1009 | No record found
+1016 | Invalid Input
+1030 | Service is not authorized
+ 
+ 
  
 
  
@@ -1039,6 +1083,23 @@ status* | enum |  The status of the current payment. Value: Pending, Authorized
 amount* | float |  The amount paid through the current payment type for the transaction
 
 <aside class="notice"> All parameters marked by * are mandatory.</aside>
+
+
+### Success/Error Codes
+
+Code | Description
+----- | ----------
+500 | Server error
+1000 | Unhandled exception
+1003 | Authentication failed
+1004 | Successful
+1006 | Order id is not available
+1007 | Updated successfully
+1008 | Update failed
+1009 | No record found
+1016 | Invalid Input
+1030 | Service is not authorized
+
 
 
 
@@ -1435,6 +1496,26 @@ GroupId | int |
 IsFreeProduct | enum | Whether the current item is a free gift item. Value: Yes, No
 
 
+
+### Success/Error Codes
+
+Code | Description
+----- | ----------
+500 | Server error
+1000 | Unhandled exception
+1003 | Authentication failed
+1004 | Successful
+1006 | Order id is not available
+1007 | Updated successfully
+1008 | Update failed
+1009 | No record found
+1016 | Invalid Input
+1030 | Service is not authorized
+
+
+
+
+
 ## Fetch Order History
 
 > Sample Request
@@ -1587,16 +1668,17 @@ LeadTime | int | In minutes. Booking is allowed at least x minutes before the bo
 
 Code | Description
 ---- | -----------
+500 | Server error
 1000 | Unhandled exception
-1003 | Authentication failed
-1004 | Successful
-1016 | Invalid Input
-1009 | No record found
-1003 | Authentication failed
-1030 | Service is not authorized
 1001 | Order canceled already
 1002 | Order canceled successfully
-
+1003 | Authentication failed
+1004 | Successful
+1006 | Order id is not available
+1009 | No record found
+1016 | Invalid Input
+1017 | User does not exist
+1030 | Service is not authorized
 
 
 ## Get Invoice Details
@@ -1807,6 +1889,21 @@ LeadTime | int | In minutes. Booking is allowed at least x minutes before the bo
 ConversionFactor | float | The currency conversion ratio for merchants with multiple currencies, 
 StockAction | | 
 IsBackOrder | enum | Can the item be ordered even when out of stock. Value: `true`, or `false`
+
+## Success/Error Codes
+
+Code | Description
+---- | -----------
+500 | Server error
+1000 | Unhandled exception
+1003 | Authentication failed
+1004 | Successful
+1009 | No record found
+1016 | Invalid Input
+1030 | Service is not authorized
+1044 | Invalid delivery slot
+1045 | Invalid merchant id
+1046 | Invalid location id
 
 
 
