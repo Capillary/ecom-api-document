@@ -84,23 +84,7 @@ AreaRefCode | string | Delivery area reference code that you want to assign
 Operation | string | Value: add, remove. Specify `add` delivery address to a location, 	`remove` to delete
 
 
-## Success/Error Codes
 
-Code | Description
----- | -----------
-500 | Server error
-1000 | Unhandled exception
-1003 | Authentication failed
-1004 | Successful
-1007 | Updated successfully
-1008 | Update failed
-1009 | No record found
-1016 | Invalid Input
-1030 | Service is not authorized
-6225 | Invalid ETA details
-6226 | No location code passed
-6227 | Invalid location
-6228 | Invalid ETA
 
 
 
@@ -196,24 +180,6 @@ path | string | Path of the key
 value | string | New value of the specified path
 
 
-## Success/Error Codes
-
-Code | Description
----- | -----------
-500 | Server error
-1000 | Unhandled exception
-1003 | Authentication failed
-1004 | Successful
-1007 | Updated successfully
-1008 | Update failed
-1009 | No record found
-1016 | Invalid Input
-1030 | Service is not authorized
-6225 | Invalid ETA details
-6226 | No location code passed
-6227 | Invalid location
-6228 | Invalid ETA
-
 
 
 
@@ -292,23 +258,7 @@ OffTime | time | Store close time in `HH:MM:SS` format
 userId | string | CP user id who is updating the store timing
 
 
-## Success/Error Codes
 
-Code | Description
----- | -----------
-500 | Server error
-1000 | Unhandled exception
-1003 | Authentication failed
-1004 | Successful
-1007 | Updated successfully
-1008 | Update failed
-1009 | No record found
-1016 | Invalid Input
-1030 | Service is not authorized
-6225 | Invalid ETA details
-6226 | No location code passed
-6227 | Invalid location
-6228 | Invalid ETA
 
 
 
@@ -485,23 +435,7 @@ IsOfflineDeals | boolean | Whether promotions are applied offline for the locati
 
 
 
-## Success/Error Codes
 
-Code | Description
----- | -----------
-500 | Server error
-1000 | Unhandled exception
-1003 | Authentication failed
-1004 | Successful
-1007 | Updated successfully
-1008 | Update failed
-1009 | No record found
-1016 | Invalid Input
-1030 | Service is not authorized
-6225 | Invalid ETA details
-6226 | No location code passed
-6227 | Invalid location
-6228 | Invalid ETA
 
 
 
@@ -950,23 +884,7 @@ IsParticipateInStock | boolean | Whether the location is participating in stock.
 
 
 
-## Success/Error Codes
 
-Code | Description
----- | -----------
-500 | Server error
-1000 | Unhandled exception
-1003 | Authentication failed
-1004 | Successful
-1007 | Updated successfully
-1008 | Update failed
-1009 | No record found
-1016 | Invalid Input
-1030 | Service is not authorized
-6225 | Invalid ETA details
-6226 | No location code passed
-6227 | Invalid location
-6228 | Invalid ETA
 
 
 
@@ -1686,28 +1604,6 @@ ETAUnits* | enum | Preferred unit for time - minutes, hours, or days. Value: `Mi
 <aside class="notice"> All parameters marked by * are mandatory.</aside>
 
 
-### Success/Error Codes
-
-Code | Description
----- | -----------
-500 | Server error
-1000 | Unhandled exception
-1003 | Authentication failed
-1004 | Successful
-1007 | Updated successfully
-1008 | Update failed
-1009 | No record found
-1016 | Invalid Input
-1030 | Service is not authorized
-6220 | Invalid ETA start/end time
-6221 | Invalid ETA range
-6222 | Invalid ETA units
-6223 | Invalid end range
-6224 | End date is greater than start date
-6225 | Invalid ETA details
-6226 | No location code passed
-6227 | Invalid location
-6228 | Invalid ETA
 
 
 

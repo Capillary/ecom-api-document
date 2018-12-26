@@ -1,11 +1,11 @@
 # Response Codes
-The following are different response code pertaining to Anywhere Commerce APIs:
+The following are different success and error codes pertaining to the Anywhere Commerce APIs:
 
 
-Error Code | Meaning
----------- | -------
+Code | Meaning
+---- | -------
 429 | Rate limit exceeded
-440 | Session expired - All cart APIs
+440 | Session expired
 500 | Server error
 1000 | Unhandled exception
 1003 | Authentication failed
@@ -55,5 +55,20 @@ Error Code | Meaning
 1045 | Invalid merchant id
 1046 | Invalid location id
 5001 | Invalid user information
-
+5001 | No Bundle items present for the specified product id
+5002 | Invalid Delivery Mode: {DeliveryMode} for Product as IsShip/IsOnline/Instore Pickup is not set
+5003 | Invalid Delivery Mode: {DeliveryMode} for Location Id: {LocationId}
+5004 | ProductId is not available at the specified locationId
+5005 | Product with the specified ProductId is not available
+5006 | Product with the specified ProductId has type 'A' which is not allowed. You cannot add an add-on product directly
+5007 | Invalid variant ProductId
+6220 | Invalid ETA start/end time
+6221 | Invalid ETA range
+6222 | Invalid ETA units
+6223 | Invalid end range
+6224 | End date is greater than start date
+6225 | Invalid ETA details
+6226 | No location code passed
+6227 | Invalid location
+6228 | Invalid ETA
 

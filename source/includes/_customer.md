@@ -147,16 +147,7 @@ MarketingNotificationType | string |
 
 
 
-### Success/Error Codes
 
-Code | Description
----- | -----------
-1000 | Unhandled exception
-1003 | Authentication failed
-1004 | Successful
-1009 | No record found
-1016 | Invalid input
-1030 | Service is not authorized
 
 
 
@@ -201,16 +192,11 @@ Authentication | Yes
 
 
 
-### Success/Error Codes
-
-Code | Description
----- | -----------
-429 | Rate limit exceeded
 
 
 
 
-## Changge Password
+## Change Password
 
 
 
@@ -357,17 +343,6 @@ AccessToken | string | An object or string that identifies the current user. Acc
 issued_at | date-time | The date and time when the access token was generated for the user
 
 
-### Success/Error Codes
-
-Code | Description
----- | -----------
-429 | Rate limit exceeded
-1000 | Unhandled exception
-1003 | Authentication failed
-1004 | Successful
-1016 | Invalid Input
-1009 | No Record Found
-1030 | Service is not Authorized
 
 
 
@@ -449,16 +424,7 @@ AccessToken | string | An object or string that identifies the current user. Acc
 issued_at | date-time | The date and time when the access token was generated for the user
 
 
-### Success/Error Codes
 
-Code | Description
----- | -----------
-1000 | Unhandled exception
-1003 | Authentication failed
-1004 | Successful
-1009 | No Record Found
-1016 | Invalid Input
-1030 | Service is not Authorized
 
 
 
@@ -552,16 +518,7 @@ issued_at | date-time | The date and time when the access token was generated fo
 
 
 
-### Success/Error Codes
 
-Code | Description
----- | -----------
-1000 | Unhandled Exception
-1003 | Authentication failed
-1004 | Successful
-1009 | No Record Found
-1016 | Invalid input
-1030 | Service is not authorized
 
 
 
@@ -654,17 +611,7 @@ AccessToken | string | An object or string that identifies the current user. Acc
 issued_at | date-time | The date and time when the access token was generated for the user
 
 
-## Success/Error Codes
 
-Code | Description
----- | -----------
-500 | Server error
-1000 | Unhandled exception
-1003 | Authentication failed
-1004 | Successful
-1016 | Invalid input
-1009 | No record found
-1030 | Service is not authorized
 
 
 
@@ -728,17 +675,6 @@ merchantId* | string | The unique id (GUID) of the merchant from which you want 
 <aside class=notice>All parameters and headers marked by * are mandatory.</aside>
 
 
-### Success/Error Codes
-
-Code | Description
----- | -----------
-500 | Server error
-1000 | Unhandled exception
-1003 | Authentication failed
-1004 | Successful
-1009 | No Record found
-1016 | Invalid input
-1030 | Service is not authorized
 
 
 
@@ -808,17 +744,6 @@ AccessToken | string | An object or string that identifies the current session
 issued_at | date-time | Date and time when the access token is generated
 
 
-### Success/Error Codes
-
-Code | Description
----- | -----------
-500 | Server error
-1000 | Unhandled exception
-1003 | Authentication failed
-1004 | Successful
-1009 | No Record found
-1016 | Invalid input
-1030 | Service is not authorized
 
 
 ## Validate Access Token
@@ -869,16 +794,7 @@ accesstoken* | string | The access token generated for a user session (use `/Cus
 
 <aside class="notice"> All parameters marked by * are mandatory. </aside>
 
-### Success/Error Codes
 
-Code | Description
----- | -----------
-1000 | Unhandled exception
-1003 | Authentication failed
-1004 | Successful
-1009 | No Record found
-1016 | Invalid input
-1030 | Service is not authorized
 
 
 ## Fetch Customers (Search)
@@ -985,16 +901,6 @@ UserInfoId | string | GUID generated for the customer internally. UserInfoId is 
 CommunicationType | string | The preferred communication channel(s) of the customer. Possible Values: SMS, EMAIL
 MarketingNotificationType | string | 
 
-### Success/Error Codes
-
-Code | Description
----- | -----------
-1000 | Unhandled exception
-1003 | Authentication failed
-1004 | Successful
-1009 | No Record found
-1016 | Invalid input
-1030 | Service is not authorized
 
 
 
@@ -1101,16 +1007,7 @@ MarketingNotificationType | string |
 
 
 
-### Success/Error Codes
 
-Status Code | Description
---------- | ------------
-1000 | Unhandled exception
-1003 | Authentication failed
-1004 | Successful
-1009 | No record found
-1016 | Invalid input
-1030 | Service is not authorized
 
 
 
@@ -1213,15 +1110,7 @@ IsReceiveOffers | boolean | Whether the user is subscribed to receive offers fro
 
 
 
-### Success/Error Codes
 
-Status Code | Description
------------- | ---------
-1000 | Unhandled exception
-1003 | Authentication failed
-1004 | Successful
-1017 | User does not exit
-1030 | Service is not authorized
 
 
 
@@ -1297,16 +1186,7 @@ ProfileAttributeValue | string | Customer's preferred attribute value
 <aside class="notice"> All parameters marked by * are mandatory. </aside>
 
 
-### Success/Error Codes
 
-Code | Description
----- | -----------
-1000 | Unhandled exception
-1003 | Authentication failed
-1004 | Successful
-1009 | No record found
-1016 | Invalid input
-1030 | Service is not authorized
 
 
 
@@ -1411,16 +1291,7 @@ addressType | string | Type of address. For example Home, Office
 <aside class="notice"> All parameters marked by * are mandatory. </aside>
 
 
-### Success/Error Codes
 
-Code | Description
----- | -----------
-1000 | Unhandled exception
-1003 | Authentication failed
-1004 | Successful
-1009 | No Record found
-1016 | Invalid input
-1030 | Service is not authorized
 
 
 
@@ -1522,15 +1393,7 @@ Parameter | Type | Description
 merchantId* | string |  The unique id (GUID) of the merchant from which you want to fetch the customer's shipping address
 UserId* | string |  The unique user identifier of the customer whose details need to be retrieved
 
-### Success/Error Codes
 
-Status Code | Description
------ | ---------
-1000 | Unhandled exception
-1003 | Authentication failed
-1004 | Successful
-1009 | No record found
-1030 | Service is not authorized
 
 
 
@@ -1580,16 +1443,7 @@ ShippingAddressId* | string |  Unique id of the order shipment that you want to 
 
 
 
-### Success/Error Codes
 
-Status Code | Description
------ | ---------
-1000 | Unhandled exception
-1003 | Authentication failed
-1004 | Successful
-1009 | No record found
-1016 | Invalid input
-1030 | Service is not authorized
 
 
 
@@ -1898,12 +1752,3 @@ Authentication | Yes
 
 `http://{host}/developerapi/Customer/{merchantId}/Count`
 
-### Success/Error Codes
-
-Code | Description
------ | ---------
-1000 | Unhandled exception
-1003 | Authentication failed
-1004 | Successful
-1009 | No Record found
-1030 | Service is not authorized

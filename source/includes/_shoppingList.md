@@ -63,19 +63,7 @@ refCode | Specify a reference code for your wish list. It is a free flowing text
 
 <aside class="notice"> All parameters marked by * are mandatory.</aside>
 
-### Success/Error Codes
 
-Code | Description
----- | -----------
-500 | Server error
-1000 | Unhandled exception
-1003 | Authentication failed
-1004 | Successful
-1007 | Updated successfully
-1008 | Update failed
-1009 | No record found
-1016 | Invalid Input
-1030 | Service is not authorized
 
 
 
@@ -173,19 +161,6 @@ RefCode | string | Unique reference code of the specific shopping list
 
 
 
-### Success/Error Codes
-
-Code | Description
----- | -----------
-500 | Server error
-1000 | Unhandled exception
-1003 | Authentication failed
-1004 | Successful
-1007 | Updated successfully
-1008 | Update failed
-1009 | No record found
-1016 | Invalid Input
-1030 | Service is not authorized
 
 
 
@@ -262,23 +237,6 @@ IsSelected | Value: true/false
 <aside class="notice"> All parameters marked by * are mandatory.</aside>
 
 
-### Success/Error Codes
-
-Code | Description
----- | -----------
-500 | Server error
-1000 | Unhandled exception
-1003 | Authentication failed
-1004 | Successful
-1007 | Updated successfully
-1008 | Update failed
-1009 | No record found
-1016 | Invalid input
-1017 | User does not exist
-1030 | Service is not authorized
-1045 | Invalid merchant id
-1046 | Invalid location id
-5001 | Invalid user information
 
 
 
@@ -341,17 +299,5 @@ shoppinglistId | The shopping list id that you want to fetch
 
 <aside class="notice"> All parameters marked by * are mandatory.</aside>
 
-### Success/Error Codes
 
-Code | Description
----- | -----------
-500 | Server error
-1000 | Unhandled exception
-1003 | Authentication failed
-1004 | Successful
-1009 | No record found
-1016 | Invalid input
-1017 | User does not exist
-1030 | Service is not authorized
-1045 | Invalid merchant id
 

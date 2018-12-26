@@ -2481,7 +2481,7 @@ Portion  | enum | The portion of the current child item. Value: `W` for whole,`L
 CartReferenceKey | string | Unique reference key associated to the cart item
 Price | float | Price of the current item
 ChildItem | json obj | All add--ons are child in a bundle. For example, crust, sauce, and toppings
-GroupID | int | Unique id associated to the product group. One group can have only one type of item. For example, in a group you can either add only pizzas, drinks, appetizers or deserts
+GroupID | int | Unique user group id associated to the product group. One group can have only one type of item. For example, in a group you can either add only pizzas, drinks, appetizers or deserts
 
 <aside class="notice"> All parameters marked by * are mandatory. </aside>
 
@@ -2505,23 +2505,7 @@ TotalCap | |
 CappedRefKey | | 
 
 
-### Success/Error Codes
 
-Code | Description
----- | -----------
-1000 | Unhandled Exception
-1003 | Authentication Failed
-1004 | Successful
-1009 | No Record Found
-1016 | Invalid Input
-1030 | Service is not Authorized
-5001 | No Bundle items present for the specified product id
-5002 | Invalid Delivery Mode: {DeliveryMode} for Product as IsShip/IsOnline/Instore Pickup is not set
-5003 | Invalid Delivery Mode: {DeliveryMode} for Location Id: {LocationId}
-5004 | ProductId is not available at the specified locationId
-5005 | Product with the specified ProductId is not available
-5006 | Product with the specified ProductId has type 'A' which is not allowed. You cannot add an add-on product directly
-5007 | Invalid variant ProductId
 
 
 
@@ -3207,23 +3191,6 @@ CappedRefKey | |
 
 
 
-### Success/Error Codes
-
-Code | Description
----- | -----------
-1000 | Unhandled Exception
-1003 | Authentication Failed
-1004 | Successful
-1009 | No Record Found
-1016 | Invalid Input
-1030 | Service is not Authorized
-5001 | No Bundle items present for the specified product id
-5002 | Invalid Delivery Mode: {DeliveryMode} for Product as IsShip/IsOnline/Instore Pickup is not set
-5003 | Invalid Delivery Mode: {DeliveryMode} for Location Id: {LocationId}
-5004 | ProductId is not available at the specified locationId
-5005 | Product with the specified ProductId is not available
-5006 | Product with the specified ProductId has type 'A' which is not allowed. You cannot add an add-on product directly
-5007 | Invalid variant ProductId
 
 
 

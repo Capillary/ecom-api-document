@@ -104,19 +104,7 @@ Parameter | Type | Description
 Taskid | int | Unique id generated for the current update location task
 
 
-### Success/Error Codes
 
-Code | Description
----- | -----------
-500 | Server error
-1000 | Unhandled exception
-1003 | Authentication failed
-1007 | Updated successfully
-1008 | Update failed
-1009 | No record found
-1016 | Invalid Input
-1018 | Data update added to the task queue. You can view the status of the update in the Control Panel. An email will be sent to the merchant's registered email id after the task is completed
-1030 | Service is not authorized
 
 
 
@@ -346,19 +334,7 @@ Parameter | Type | Description
 Taskid | int | Unique id generated for the current update task
 
 
-### Success/Error Codes
 
-Code | Description
----- | -----------
-500 | Server error
-1000 | Unhandled exception
-1003 | Authentication failed
-1007 | Updated successfully
-1008 | Update failed
-1009 | No record found
-1016 | Invalid Input
-1018 | Data update added to the task queue. You can view the status of the update in the Control Panel. An email will be sent to the merchant's registered email id after the task is completed
-1030 | Service is not authorized
 
 
 
@@ -672,19 +648,7 @@ Parameter | Type | Description
 --------- | ---- | -----------
 taskid | int | Unique id generated for the current update task
 
-### Success/Error Codes
 
-Code | Description
----- | -----------
-500 | Server error
-1000 | Unhandled exception
-1003 | Authentication failed
-1007 | Updated successfully
-1008 | Update failed
-1009 | No record found
-1016 | Invalid Input
-1018 | Data update added to the task queue. You can view the status of the update in the Control Panel. An email will be sent to the merchant's registered email id after the task is completed
-1030 | Service is not authorized
 
 
 ## Get SKU Price
@@ -789,21 +753,7 @@ channelrefcode | string | Channel code to which the price list is associated
 
 
 
-### Success/Error Codes
 
-Code | Description
----- | -----------
-500 | Server error
-1000 | Unhandled exception
-1003 | Authentication failed
-1004 | Successful
-1007 | Updated successfully
-1008 | Update failed
-1009 | No record found
-1016 | Invalid Input
-1030 | Service is not authorized
-1045 | Invalid merchant id
-1046 | Invalid location id
 
 
 
@@ -876,22 +826,6 @@ Sku* | string | SKU of the product for which you want to fetch reviews
 <aside class="notice"> All parameters marked by * are mandatory.</aside>
 
 
-### Success/Error Codes
-
-Code | Description
----- | -----------
-500 | Server error
-1000 | Unhandled exception
-1003 | Authentication failed
-1004 | Successful
-1007 | Updated successfully
-1008 | Update failed
-1009 | No record found
-1016 | Invalid Input
-1022 | Products not available
-1030 | Service is not authorized
-1033 | Invalid inputs provided. Please provide correct input
-1045 | Invalid merchant id
 
 
 ## Attach Product Images
@@ -1074,19 +1008,7 @@ Taskid | int | Unique id generated for the current task
 
 
 
-### Success/Error Codes
 
-Code | Description
----- | -----------
-500 | Server error
-1000 | Unhandled exception
-1003 | Authentication failed
-1004 | Successful
-1007 | Updated successfully
-1008 | Update failed
-1009 | No record found
-1016 | Invalid Input
-1030 | Service is not authorized
 
 
 
@@ -1208,22 +1130,7 @@ UOM | string | Unit of measurement of the product. It could be `pieces` for the 
 
 
 
-### Success/Error Codes
 
-Code | Description
----- | -----------
-500 | Server error
-1000 | Unhandled exception
-1003 | Authentication failed
-1004 | Successful
-1007 | Updated successfully
-1008 | Update failed
-1009 | No record found
-1016 | Invalid Input
-1022 | Products not available
-1030 | Service is not authorized
-1045 | Invalid merchant id
-1046 | Invalid location id
 
 
 
@@ -1334,22 +1241,7 @@ BulkQuantity | int | Total number of items (quantity) that can be ordered at a t
 UOM | string | Unit of measurement of the product. It could be the `pieces` for items that are sold in numbers and the respective measure for other items such as kgs, and gms 
 
 
-### Success/Error Codes
 
-Code | Description
----- | -----------
-500 | Server error
-1000 | Unhandled exception
-1003 | Authentication failed
-1004 | Successful
-1007 | Updated successfully
-1008 | Update failed
-1009 | No record found
-1016 | Invalid Input
-1022 | Products not available
-1030 | Service is not authorized
-1045 | Invalid merchant id
-1046 | Invalid location id
 
 ## Get Product Variants
 
@@ -1522,22 +1414,7 @@ IsDisplaySwatch | boolean | Whether the illustration of accurate representation 
 flag | | 
 
 
-### Success/Error Codes
 
-Code | Description
----- | -----------
-500 | Server error
-1000 | Unhandled exception
-1003 | Authentication failed
-1004 | Successful
-1007 | Updated successfully
-1008 | Update failed
-1009 | No record found
-1016 | Invalid Input
-1022 | Products not available
-1030 | Service is not authorized
-1045 | Invalid merchant id
-1046 | Invalid location id
 
 
 ## Get Products by Tag
@@ -1646,22 +1523,7 @@ IsReferPrice | |
 UOM | string | Unit of measurement of the product. It could be the `pieces` for items that are sold in numbers and the respective measure for other items such as kgs, and gms
 
 
-### Success/Error Codes
 
-Code | Description
----- | -----------
-500 | Server error
-1000 | Unhandled exception
-1003 | Authentication failed
-1004 | Successful
-1007 | Updated successfully
-1008 | Update failed
-1009 | No record found
-1016 | Invalid Input
-1022 | Products not available
-1030 | Service is not authorized
-1045 | Invalid merchant id
-1046 | Invalid location id
 
 
 ## Add Review
@@ -1733,19 +1595,7 @@ isGoLive* | boolean | Specify `true` to show the review on the storefront, `fals
 <aside class="notice"> All parameters marked by * are mandatory.</aside>
 
 
-### Success/Error Codes
 
-Code | Description
----- | -----------
-500 | Server error
-1000 | Unhandled exception
-1003 | Authentication failed
-1004 | Successful
-1007 | Updated successfully
-1008 | Update failed
-1009 | No record found
-1016 | Invalid Input
-1030 | Service is not authorized
 
 
 
@@ -1829,21 +1679,3 @@ pageNumber | string | Page number from which you want to fetch products on store
 pageSize | string | 
 
 
-### Success/Error Codes
-
-Code | Description
----- | -----------
-500 | Server error
-1000 | Unhandled exception
-1003 | Authentication failed
-1004 | Successful
-1007 | Updated successfully
-1008 | Update failed
-1009 | No record found
-1016 | Invalid Input
-1022 | Products not available
-1028 | Invalid page number
-1030 | Service is not authorized
-1033 | Invalid inputs provided. Please provide correct input
-1045 | Invalid merchant id
-1046 | Invalid location id

@@ -312,19 +312,7 @@ merchantId* | The unique id (GUID) of the merchant for which you want to see sup
 <aside class="notice"> All parameters marked by * are mandatory. </aside>
 
 
-### Success/Error Codes
 
-Code | Description
----- | -----------
-500 | Server error
-1000 | Unhandled exception
-1003 | Authentication failed
-1004 | Successful
-1007 | Updated successfully
-1008 | Update failed
-1009 | No record found
-1016 | Invalid Input
-1030 | Service is not authorized
 
 
 
@@ -600,16 +588,3 @@ StateCode* | The state code for which you want to see the list of supported citi
 
 
 
-### Success/Error Codes
-
-Code | Description
----- | -----------
-500 | Server error
-1000 | Unhandled exception
-1003 | Authentication failed
-1004 | Successful
-1007 | Updated successfully
-1008 | Update failed
-1009 | No record found
-1016 | Invalid Input
-1030 | Service is not authorized

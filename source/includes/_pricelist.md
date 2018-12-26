@@ -82,15 +82,3 @@ TokenPrice | float | Minimum amount required for the customer to reserve the ite
 <aside class="notice"> All parameters marked by * are mandatory. </aside>
 
 
-Code | Description
----- | -----------
-500 | Server error
-1000 | Unhandled exception
-1003 | Authentication failed
-1004 | Successful
-1009 | No record found
-1016 | Invalid input
-1018 | Data update added to the task queue. You can view the status of the update in the Control Panel. An email will be sent to the merchant's registered email id after the task is completed.
-1019 | Data update added to the task queue. You can view the status of update using 'GetProductInformation' 
-1030 | Service is not authorized
-1045 | Invalid merchant id

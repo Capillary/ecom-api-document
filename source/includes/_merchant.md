@@ -41,16 +41,5 @@ Batch Support | No
 `https://{host}/developerapi/Merchant/GetSignedUrl/{{MerchantId}}`
 
 
-### Success/Error Codes
 
-Code | Description
----- | -----------
-500 | Server error
-1000 | Unhandled exception
-1003 | Authentication failed
-1004 | Successful
-1009 | No record found
-1016 | Invalid input
-1030 | Service is not authorized
-1045 | Invalid merchant id
 

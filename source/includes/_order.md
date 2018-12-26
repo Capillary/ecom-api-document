@@ -239,9 +239,6 @@ Code | Description
 1009 | No record found
 1011 | Order is not ready for shipping
 1012 | Username is required
-1013 | Voucher name is required
-1014 | Voucher already exists
-1015 | Invalid campaign id
 1016 | Invalid input
 1017 | User does not exist
 1018 | Data update added to the task queue. You can view the status of the update in the Control Panel. An email will be sent to the merchant's registered email id after the task is completed
@@ -506,6 +503,9 @@ deliverymode | enum | Mode of delivery of the item. Values: `H` for home deliver
 
 
 <aside class="notice">All Parameters marked by * are mandatory.</aside>
+
+
+
 
 
 
