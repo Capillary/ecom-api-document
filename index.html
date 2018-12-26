@@ -23034,6 +23034,286 @@ Batch Support | No</p>
 
 <p><code class="prettyprint">https://{host}/developerapi/Merchant/GetSignedUrl/{{MerchantId}}</code></p>
 
+          <h1 id="response-codes">Response Codes</h1>
+
+<p>The following are different success and error codes pertaining to the Anywhere Commerce APIs:</p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>429</td>
+<td>Rate limit exceeded</td>
+</tr>
+<tr>
+<td>440</td>
+<td>Session expired</td>
+</tr>
+<tr>
+<td>500</td>
+<td>Server error</td>
+</tr>
+<tr>
+<td>1000</td>
+<td>Unhandled exception</td>
+</tr>
+<tr>
+<td>1003</td>
+<td>Authentication failed</td>
+</tr>
+<tr>
+<td>1004</td>
+<td>Successful</td>
+</tr>
+<tr>
+<td>1016</td>
+<td>Invalid Input</td>
+</tr>
+<tr>
+<td>1009</td>
+<td>No record found</td>
+</tr>
+<tr>
+<td>1003</td>
+<td>Authentication failed</td>
+</tr>
+<tr>
+<td>1030</td>
+<td>Service is not authorized</td>
+</tr>
+<tr>
+<td>1001</td>
+<td>Order canceled already</td>
+</tr>
+<tr>
+<td>1002</td>
+<td>Order canceled successfully</td>
+</tr>
+<tr>
+<td>1005</td>
+<td>Order authorized</td>
+</tr>
+<tr>
+<td>1006</td>
+<td>Order id is not available</td>
+</tr>
+<tr>
+<td>1007</td>
+<td>Updated successfully</td>
+</tr>
+<tr>
+<td>1008</td>
+<td>Update failed</td>
+</tr>
+<tr>
+<td>1009</td>
+<td>No record found</td>
+</tr>
+<tr>
+<td>1011</td>
+<td>Order is not ready for shipping</td>
+</tr>
+<tr>
+<td>1012</td>
+<td>Username is required</td>
+</tr>
+<tr>
+<td>1013</td>
+<td>Voucher name is required</td>
+</tr>
+<tr>
+<td>1014</td>
+<td>Voucher already exists</td>
+</tr>
+<tr>
+<td>1015</td>
+<td>Invalid campaign id</td>
+</tr>
+<tr>
+<td>1016</td>
+<td>Invalid input</td>
+</tr>
+<tr>
+<td>1017</td>
+<td>User does not exist</td>
+</tr>
+<tr>
+<td>1028</td>
+<td>Invalid page number</td>
+</tr>
+<tr>
+<td>1018</td>
+<td>Data update added to the task queue. You can view the status of the update in the Control Panel. An email will be sent to the merchant&rsquo;s registered email id after the task is completed.</td>
+</tr>
+<tr>
+<td>1019</td>
+<td>Data update added to the task queue. You can view the status of update using &lsquo;GetProductInformation&rsquo;</td>
+</tr>
+<tr>
+<td>1020</td>
+<td>No common shipping</td>
+</tr>
+<tr>
+<td>1021</td>
+<td>Warning</td>
+</tr>
+<tr>
+<td>1022</td>
+<td>Products not available</td>
+</tr>
+<tr>
+<td>1023</td>
+<td>Invalid city. Please select a valid address</td>
+</tr>
+<tr>
+<td>1024</td>
+<td>PINode is not serviceable for the selected location</td>
+</tr>
+<tr>
+<td>1025</td>
+<td>PIN code not serviceable for the given address</td>
+</tr>
+<tr>
+<td>1027</td>
+<td>Update failed</td>
+</tr>
+<tr>
+<td>1031</td>
+<td>Your account approval is still in process. You cannot access your account now</td>
+</tr>
+<tr>
+<td>1032</td>
+<td>Your account has been locked because of multiple failed login attempts.  Please contact customer support.</td>
+</tr>
+<tr>
+<td>1033</td>
+<td>Invalid inputs provided. Please provide correct input</td>
+</tr>
+<tr>
+<td>1034</td>
+<td>Product is added already</td>
+</tr>
+<tr>
+<td>1035</td>
+<td>Shipment created already</td>
+</tr>
+<tr>
+<td>1036</td>
+<td>No default return shelf found</td>
+</tr>
+<tr>
+<td>1037</td>
+<td>Your account has been locked because of multiple failed login attempts.  Please contact customer support.</td>
+</tr>
+<tr>
+<td>1038</td>
+<td>Invalid OTP</td>
+</tr>
+<tr>
+<td>1039</td>
+<td>Your password has been expired. Please reset the password</td>
+</tr>
+<tr>
+<td>1040</td>
+<td>Invalid password</td>
+</tr>
+<tr>
+<td>1041</td>
+<td>No user account exists with the provided details</td>
+</tr>
+<tr>
+<td>1042</td>
+<td>Your account has not been activated yet. Please try later</td>
+</tr>
+<tr>
+<td>1043</td>
+<td>Order is already authorized</td>
+</tr>
+<tr>
+<td>1044</td>
+<td>Invalid delivery slot</td>
+</tr>
+<tr>
+<td>1045</td>
+<td>Invalid merchant id</td>
+</tr>
+<tr>
+<td>1046</td>
+<td>Invalid location id</td>
+</tr>
+<tr>
+<td>5001</td>
+<td>Invalid user information</td>
+</tr>
+<tr>
+<td>5001</td>
+<td>No Bundle items present for the specified product id</td>
+</tr>
+<tr>
+<td>5002</td>
+<td>Invalid Delivery Mode: {DeliveryMode} for Product as IsShip/IsOnline/Instore Pickup is not set</td>
+</tr>
+<tr>
+<td>5003</td>
+<td>Invalid Delivery Mode: {DeliveryMode} for Location Id: {LocationId}</td>
+</tr>
+<tr>
+<td>5004</td>
+<td>ProductId is not available at the specified locationId</td>
+</tr>
+<tr>
+<td>5005</td>
+<td>Product with the specified ProductId is not available</td>
+</tr>
+<tr>
+<td>5006</td>
+<td>Product with the specified ProductId has type &#39;A&rsquo; which is not allowed. You cannot add an add-on product directly</td>
+</tr>
+<tr>
+<td>5007</td>
+<td>Invalid variant ProductId</td>
+</tr>
+<tr>
+<td>6220</td>
+<td>Invalid ETA start/end time</td>
+</tr>
+<tr>
+<td>6221</td>
+<td>Invalid ETA range</td>
+</tr>
+<tr>
+<td>6222</td>
+<td>Invalid ETA units</td>
+</tr>
+<tr>
+<td>6223</td>
+<td>Invalid end range</td>
+</tr>
+<tr>
+<td>6224</td>
+<td>End date is greater than start date</td>
+</tr>
+<tr>
+<td>6225</td>
+<td>Invalid ETA details</td>
+</tr>
+<tr>
+<td>6226</td>
+<td>No location code passed</td>
+</tr>
+<tr>
+<td>6227</td>
+<td>Invalid location</td>
+</tr>
+<tr>
+<td>6228</td>
+<td>Invalid ETA</td>
+</tr>
+</tbody></table>
+
       </div>
       <div class="dark-box">
           <div class="lang-selector">
