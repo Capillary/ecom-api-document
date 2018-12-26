@@ -20,6 +20,7 @@ includes:
   - store
   - location
   - merchant
+  - errors
 
 
 search: true
