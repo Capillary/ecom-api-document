@@ -316,14 +316,15 @@ merchantId* | The unique id (GUID) of the merchant for which you want to see sup
 
 Code | Description
 ---- | -----------
+500 | Server error
+1000 | Unhandled exception
 1003 | Authentication failed
 1004 | Successful
+1007 | Updated successfully
+1008 | Update failed
+1009 | No record found
 1016 | Invalid Input
-1009 | No Record Found
-1003 | Authentication Failed
-1030 | Service is not Authorized
-1000 | Unhandled Exception
-
+1030 | Service is not authorized
 
 
 
@@ -603,10 +604,12 @@ StateCode* | The state code for which you want to see the list of supported citi
 
 Code | Description
 ---- | -----------
+500 | Server error
+1000 | Unhandled exception
 1003 | Authentication failed
 1004 | Successful
+1007 | Updated successfully
+1008 | Update failed
+1009 | No record found
 1016 | Invalid Input
-1009 | No Record Found
-1003 | Authentication Failed
-1030 | Service is not Authorized
-1000 | Unhandled Exception
+1030 | Service is not authorized

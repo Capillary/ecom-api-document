@@ -658,6 +658,7 @@ issued_at | date-time | The date and time when the access token was generated fo
 
 Code | Description
 ---- | -----------
+500 | Server error
 1000 | Unhandled exception
 1003 | Authentication failed
 1004 | Successful
@@ -731,6 +732,7 @@ merchantId* | string | The unique id (GUID) of the merchant from which you want 
 
 Code | Description
 ---- | -----------
+500 | Server error
 1000 | Unhandled exception
 1003 | Authentication failed
 1004 | Successful
@@ -810,6 +812,7 @@ issued_at | date-time | Date and time when the access token is generated
 
 Code | Description
 ---- | -----------
+500 | Server error
 1000 | Unhandled exception
 1003 | Authentication failed
 1004 | Successful

@@ -111,14 +111,12 @@ Code | Description
 500 | Server error
 1000 | Unhandled exception
 1003 | Authentication failed
-1004 | Successful
 1007 | Updated successfully
 1008 | Update failed
 1009 | No record found
 1016 | Invalid Input
+1018 | Data update added to the task queue. You can view the status of the update in the Control Panel. An email will be sent to the merchant's registered email id after the task is completed
 1030 | Service is not authorized
-
-
 
 
 
@@ -346,6 +344,22 @@ Following table contains descriptions of a few response parameters that require 
 Parameter | Type | Description
 --------- | ---- | -----------
 Taskid | int | Unique id generated for the current update task
+
+
+### Success/Error Codes
+
+Code | Description
+---- | -----------
+500 | Server error
+1000 | Unhandled exception
+1003 | Authentication failed
+1007 | Updated successfully
+1008 | Update failed
+1009 | No record found
+1016 | Invalid Input
+1018 | Data update added to the task queue. You can view the status of the update in the Control Panel. An email will be sent to the merchant's registered email id after the task is completed
+1030 | Service is not authorized
+
 
 
 
@@ -658,6 +672,19 @@ Parameter | Type | Description
 --------- | ---- | -----------
 taskid | int | Unique id generated for the current update task
 
+### Success/Error Codes
+
+Code | Description
+---- | -----------
+500 | Server error
+1000 | Unhandled exception
+1003 | Authentication failed
+1007 | Updated successfully
+1008 | Update failed
+1009 | No record found
+1016 | Invalid Input
+1018 | Data update added to the task queue. You can view the status of the update in the Control Panel. An email will be sent to the merchant's registered email id after the task is completed
+1030 | Service is not authorized
 
 
 ## Get SKU Price
@@ -775,7 +802,8 @@ Code | Description
 1009 | No record found
 1016 | Invalid Input
 1030 | Service is not authorized
-
+1045 | Invalid merchant id
+1046 | Invalid location id
 
 
 
@@ -860,8 +888,10 @@ Code | Description
 1008 | Update failed
 1009 | No record found
 1016 | Invalid Input
+1022 | Products not available
 1030 | Service is not authorized
-
+1033 | Invalid inputs provided. Please provide correct input
+1045 | Invalid merchant id
 
 
 ## Attach Product Images
@@ -1190,7 +1220,11 @@ Code | Description
 1008 | Update failed
 1009 | No record found
 1016 | Invalid Input
+1022 | Products not available
 1030 | Service is not authorized
+1045 | Invalid merchant id
+1046 | Invalid location id
+
 
 
 ## Get Product Details (by SKU)
@@ -1312,8 +1346,10 @@ Code | Description
 1008 | Update failed
 1009 | No record found
 1016 | Invalid Input
+1022 | Products not available
 1030 | Service is not authorized
-
+1045 | Invalid merchant id
+1046 | Invalid location id
 
 ## Get Product Variants
 
@@ -1498,7 +1534,10 @@ Code | Description
 1008 | Update failed
 1009 | No record found
 1016 | Invalid Input
+1022 | Products not available
 1030 | Service is not authorized
+1045 | Invalid merchant id
+1046 | Invalid location id
 
 
 ## Get Products by Tag
@@ -1607,7 +1646,22 @@ IsReferPrice | |
 UOM | string | Unit of measurement of the product. It could be the `pieces` for items that are sold in numbers and the respective measure for other items such as kgs, and gms
 
 
+### Success/Error Codes
 
+Code | Description
+---- | -----------
+500 | Server error
+1000 | Unhandled exception
+1003 | Authentication failed
+1004 | Successful
+1007 | Updated successfully
+1008 | Update failed
+1009 | No record found
+1016 | Invalid Input
+1022 | Products not available
+1030 | Service is not authorized
+1045 | Invalid merchant id
+1046 | Invalid location id
 
 
 ## Add Review
@@ -1771,9 +1825,8 @@ catalogcode | string | Fetch products of a specific catalog code
 category | string | Search by category 
 brand | string | Search product ids by brand
 productTag | string | Search product ids by associated product tags 
-pageNumber | string | 
+pageNumber | string | Page number from which you want to fetch products on storefront
 pageSize | string | 
-attributes | array | 
 
 
 ### Success/Error Codes
@@ -1788,4 +1841,9 @@ Code | Description
 1008 | Update failed
 1009 | No record found
 1016 | Invalid Input
+1022 | Products not available
+1028 | Invalid page number
 1030 | Service is not authorized
+1033 | Invalid inputs provided. Please provide correct input
+1045 | Invalid merchant id
+1046 | Invalid location id

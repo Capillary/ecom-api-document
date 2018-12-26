@@ -884,6 +884,7 @@ Code | Description
 1000 | Unhandled exception
 1003 | Authentication failed
 1004 | Successful
+1005 | Order authorized
 1006 | Order id is not available
 1007 | Updated successfully
 1008 | Update failed

@@ -165,11 +165,11 @@ Following table contains descriptions of a few response parameters that require 
 
 Parameter | Type | Description
 --------- | ---- | -----------
-UserGroupId | int | Unique user group id associated to the product group. One group can have only one type of item. For example, in a group you can either have only pizzas, drinks, appetizers or deserts
-AllowUserToAddItems | boolean | Whether the user is allowed to add items to cart 
-DisplayinMyAccount | boolean | 
-CreatedBy | | 
-RefCode | string | Unique reference code of the current shopping list
+UserGroupId | int | Unique user group id associated to the user
+AllowUserToAddItems | boolean | Whether the user is allowed to add products to the shopping lsit
+DisplayinMyAccount | boolean | Whether the shopping list is shown to the end-user 
+CreatedBy | int | The value is `1` for the created the shopping list and `0` for merchant has created the shopping list 
+RefCode | string | Unique reference code of the specific shopping list
 
 
 
@@ -247,7 +247,8 @@ Batch Support | No
 
 `https://{host}/developerapi/ShoppingList/items/add/{{MerchantId}}`
 
-### Request Attributes
+### Request Body Parameters
+
 Parameter | Description
 --------- | -----------
 UserId* | The unique user identifier of the customer whose wish list details need to be added
@@ -259,6 +260,27 @@ Quantity | The quantity of the item that you want to add to the wish list
 IsSelected | Value: true/false
 
 <aside class="notice"> All parameters marked by * are mandatory.</aside>
+
+
+### Success/Error Codes
+
+Code | Description
+---- | -----------
+500 | Server error
+1000 | Unhandled exception
+1003 | Authentication failed
+1004 | Successful
+1007 | Updated successfully
+1008 | Update failed
+1009 | No record found
+1016 | Invalid input
+1017 | User does not exist
+1030 | Service is not authorized
+1045 | Invalid merchant id
+1046 | Invalid location id
+5001 | Invalid user information
+
+
 
 
 
@@ -318,3 +340,18 @@ UserId* | The unique user identifier of the customer whose shopping list items n
 shoppinglistId | The shopping list id that you want to fetch
 
 <aside class="notice"> All parameters marked by * are mandatory.</aside>
+
+### Success/Error Codes
+
+Code | Description
+---- | -----------
+500 | Server error
+1000 | Unhandled exception
+1003 | Authentication failed
+1004 | Successful
+1009 | No record found
+1016 | Invalid input
+1017 | User does not exist
+1030 | Service is not authorized
+1045 | Invalid merchant id
+
