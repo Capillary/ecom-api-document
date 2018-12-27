@@ -1328,9 +1328,9 @@ accesstoken* | Access token of the logged in user to validate the session
 
 Parameter | Type | Description
 --------- | ---- | -----------
-ShipCity | string | Unique code of the city (as saved in the system) to which the item has to be shipped. Example: 0562 (for Agra), and 250 (Victoria)
-ShipCountry | string | Alpha-2 code of the country. Example: IN (for India), AU (for Australia), and BR (for Brazil)
-ShipState | string | State’s postal abbreviation. Example: KA (for Karnataka), CA (for California), IN (for Indiana)
+ShipCity | string | Unique code of the shipping city (as saved in the system) to which the item has to be shipped. Example: 0562 (for Agra), and 250 (Victoria)
+ShipCountry | string | Alpha-2 code of the shipping country. Example: IN (for India), AU (for Australia), and BR (for Brazil)
+ShipState | string | State’s postal abbreviation (shipping state). Example: KA (for Karnataka), CA (for California), IN (for Indiana)
 DelveryMode | enum | Preferred mode of delivery for the current item. Value: `H` for home delivery, `S` for takeaway items
 Item | json obj | Details of the product with the attributes mentioned below
 ProductID | int | Unique id of the parent product that you want to add to cart
@@ -2436,9 +2436,9 @@ accesstoken* | Access token of the logged in user to validate the session
 
 Parameter | Type | Description
 ---------- | --- | -----------
-ShipCity | string | Unique id associated to the city in the Capillary system
-ShipCountry | string | Alpha-2 code of the country with respect to billing address. Example: IN (for India), AU (for Australia), and BR (for Brazil)
-ShipState | string | State associated to the city
+ShipCity | string | Unique id associated to the shipping city in the Capillary system
+ShipCountry | string | Alpha-2 code of the country with respect to shipping address. Example: IN (for India), AU (for Australia), and BR (for Brazil)
+ShipState | string | State code associated to the shipping city
 DelveryMode | enum | The mode of delivery. Value: `S` for store pick up and `H` for home delivery
 ProductID | int | Unique id of the product that you want to add
 VariantProductID | int | Unique id of the variant product
@@ -3118,9 +3118,9 @@ accesstoken* | Access token of the logged in user to validate the session
 
 Parameter | Type | Description
 -------- | ----- | -----------
-ShipCity | string | Name of the shipping city
-ShipCountry | string | Name of the shipping country
-ShipState | string | Name of the shipping state
+ShipCity | string | Unique id associated to the shipping city in the Capillary system
+ShipCountry | string | Alpha-2 code of the country with respect to the shipping address. Example: IN (for India), AU (for Australia), and BR (for Brazil)
+ShipState | string | State code associated to the shipping city
 DelveryMode | string | Mode of delivery
 Item | json obj | Item details
 ProductID | int | Unique id of the product

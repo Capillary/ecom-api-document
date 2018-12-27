@@ -152,48 +152,6 @@ MarketingNotificationType | string |
 
 
 
-## Register Customer through OTP
-
-> Sample Request
-
-```html
-
-```
-
-> Sample POST Request
-
-```json
-
-```
-
-> Sample Response
-
-```json
-
-```
-
-
-### Resource Information
-| | |
---------- | ----------- |
-URI | `/Customer/{merchantId}/`
-Response Formats | JSON
-HTTP Methods | POST
-Batch Support | No
-Rate Limited? | Yes
-Authentication | Yes
-
-* **Rate limiter** controls the number of incoming and outgoing traffic of a network
-* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
-
-### Request URL
-`https://{host}/developerapi/Customer/{merchantId}`
-
-
-
-
-
-
 
 
 ## Change Password
@@ -289,7 +247,7 @@ https://www.martjack.com/developerapi/Customer/81e77da2-723b-483d-8c0d-49f800c1e
 ```
 
 
-Authorizes login OTP of a registered customer.
+Authorizes an user account through OTP and also registers a new customer.
 
 <aside class="notice">
 When a customer logs in, he receives a unique `UserId` which is required for using customer APIs. 

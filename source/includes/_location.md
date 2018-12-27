@@ -878,7 +878,7 @@ Following table contains descriptions of a few response parameters that require 
 Parameter | Type | Description
 --------- | ---- | -----------
 IsReversePickupEnabled | boolean | Whether reverse pickup is applicable for the product in case of returns
-IsDefaultLNG_LocationName | boolean |  float | Distance of the location from latitude and longitude. Available only if latitude and longitude are set for the location
+IsDefaultLNG_LocationName | boolean |  
 IsParticipateInStock | boolean | Whether the location is participating in stock. The location appears on the storefront only if this is set to true
 
 

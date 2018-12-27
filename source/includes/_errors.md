@@ -8,14 +8,10 @@ Code | Meaning
 440 | Session expired
 500 | Server error
 1000 | Unhandled exception
-1003 | Authentication failed
-1004 | Successful
-1016 | Invalid Input
-1009 | No record found
-1003 | Authentication failed
-1030 | Service is not authorized
 1001 | Order canceled already
 1002 | Order canceled successfully
+1003 | Authentication failed
+1004 | Successful
 1005 | Order authorized
 1006 | Order id is not available
 1007 | Updated successfully
@@ -28,7 +24,6 @@ Code | Meaning
 1015 | Invalid campaign id
 1016 | Invalid input
 1017 | User does not exist
-1028 | Invalid page number
 1018 | Data update added to the task queue. You can view the status of the update in the Control Panel. An email will be sent to the merchant's registered email id after the task is completed.
 1019 | Data update added to the task queue. You can view the status of update using 'GetProductInformation' 
 1020 | No common shipping
@@ -38,6 +33,8 @@ Code | Meaning
 1024 | PINode is not serviceable for the selected location
 1025 | PIN code not serviceable for the given address
 1027 | Update failed
+1028 | Invalid page number
+1030 | Service is not authorized
 1031 | Your account approval is still in process. You cannot access your account now
 1032 | Your account has been locked because of multiple failed login attempts.  Please contact customer support.
 1033 | Invalid inputs provided. Please provide correct input

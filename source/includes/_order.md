@@ -3457,3 +3457,223 @@ TaxCategory | string | Category of tax
 TaxCodeId | int | Unique id of the tax code
 IsTaxOnShipping | boolean | Whether tax is applied on shipping charges
 IsPercentage | boolean | If true, tax rate is calculated on the percentage of the price and false flat amount tax
+
+
+
+## Balance Enquiry
+
+Retrieves the wallet balance of a customer from a specific service. 
+
+> Sample Request
+
+```html
+https://www.martjack.com/developerapi/Order/BalanceEnquiry/81e77da2-723b-483d-8c0d-49f800c1xxxx
+```
+
+> Sample POST Request
+
+```json
+provider=RazorPayWallet&userId=763e7615-5eb6-49a3-b0d4-e0fa571dd15e
+
+```
+
+
+
+> Sample Response
+
+```json
+
+```
+
+
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `Order/BalanceEnquiry/{merchantId}`
+Rate Limited? | No
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | POST
+Batch Support | No
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+
+
+### Request URL
+
+`https://{host}/developerapi/Order/BalanceEnquiry/{merchantId}`
+
+
+
+### Request Body Parameters
+
+Parameter | Type | Description
+--------- | ---- | -----------
+provider* | string | Service provider for which you want to fetch the wallet balance. Example: RazorPayWallet
+userId* | string | Unique GUID of the user for which you want to fetch the wallet balance
+
+
+
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
+
+
+
+## Dispatch Order
+
+Updates order status from shipment created (Waiting for pickup) to dispatch
+
+
+> Sample Request
+
+```html
+https://www.martjack.com/developerapi/Order/Dispatch/81e77da2-723b-483d-8c0d-49f800c1xxxx
+```
+
+> Sample POST Request
+
+```json
+InputFormat=application/json&merchantId=81e77da2-723b-483d-8c0d-49f800c1xxxx&InputData={
+   "dispatch":{
+      "OrderId":"7539139",
+      "items":[
+         {
+            "ShipmentId":"5537113"
+         }
+		 {
+            "ShipmentId":""
+         }
+      ]
+   }
+}
+
+```
+
+
+
+> Sample Response
+
+```json
+{
+   "messageCode":"1004",
+   "Message":"Order No(s) ‘7539139’ has (have) been successfully moved to ‘Dispatched Orders’.",
+   "ErrorCode":0
+}
+```
+
+
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `Order/Dispatch/{merchantId}`
+Rate Limited? | No
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | POST
+Batch Support | No
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+
+
+### Request URL
+
+`https://{host}/developerapi/Order/Dispatch/{merchantId}`
+
+### Request Body Parameters
+
+Parameter | Type | Description
+--------- | ---- | -----------
+orderID* | int | Unique id of the order that you want to dispatch
+shipmentId* | int | Unique shipment id of the item. You can pass multiple shipment ids of the order
+
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
+
+
+
+
+## Deliver Order
+
+Updates order status from dispatch to deliver
+
+
+> Sample Request
+
+```html
+https://www.martjack.com/developerapi/Order/Deliver/81e77da2-723b-483d-8c0d-49f800c1xxxx
+```
+
+> Sample POST Request
+
+```json
+InputFormat=application/json&merchantId=81e77da2-723b-483d-8c0d-49f800c1xxxx&InputData={
+   "deliver":{
+      "OrderId":"7511951",
+      "Comment":"deliver to customer",
+      "DeliverDate":"2018/12/27",
+      "ShowComments":"true",
+      "ReceivedBy":"Tom",
+      "items":[
+         {
+            "ShipmentId":"5522069"
+         }
+		 {
+            "ShipmentId":""
+         }
+      ]
+   }
+}
+
+```
+
+
+
+> Sample Response
+
+```json
+{
+   "messageCode":"1004",
+   "Message":"Order No(s) ‘Order No '7511951' has been successfully moved to ‘Delivered Orders’.  AWB No:2323263626’ has (have) been successfully moved to ‘Dispatched Orders’.",
+   "ErrorCode":0
+}
+```
+
+
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `Order/Deliver/{merchantId}`
+Rate Limited? | No
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | POST
+Batch Support | No
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+
+
+### Request URL
+
+`https://{host}/developerapi/Order/Deliver/{merchantId}`
+
+### Request Body Parameters
+
+Parameter | Type | Description
+--------- | ---- | -----------
+orderID* | int | Unique id of the order that you want to deliver
+comment | string | Comment tracked for the delivery
+deliverDate | date | Date when the item is delivered
+showComments | enum | Whether to show the comment to the customer (on the order summary page)
+receivedBy | string | Person who received the order
+shipmentId* | int | Unique shipment id. You can pass multiple shipment ids as shown in the sample
+
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
+
+
