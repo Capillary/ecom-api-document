@@ -502,66 +502,6 @@ InputData={
 </tr>
 </tbody></table>
 
-<h2 id="register-customer-through-otp">Register Customer through OTP</h2>
-
-<blockquote>
-<p>Sample Request</p>
-</blockquote>
-<pre class="highlight html"><code>
-</code></pre>
-<blockquote>
-<p>Sample POST Request</p>
-</blockquote>
-<pre class="highlight json"><code><span class="w">
-</span></code></pre>
-<blockquote>
-<p>Sample Response</p>
-</blockquote>
-<pre class="highlight json"><code><span class="w">
-</span></code></pre>
-<h3 id="resource-information">Resource Information</h3>
-
-<table><thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead><tbody>
-<tr>
-<td>URI</td>
-<td><code class="prettyprint">/Customer/{merchantId}/</code></td>
-</tr>
-<tr>
-<td>Response Formats</td>
-<td>JSON</td>
-</tr>
-<tr>
-<td>HTTP Methods</td>
-<td>POST</td>
-</tr>
-<tr>
-<td>Batch Support</td>
-<td>No</td>
-</tr>
-<tr>
-<td>Rate Limited?</td>
-<td>Yes</td>
-</tr>
-<tr>
-<td>Authentication</td>
-<td>Yes</td>
-</tr>
-</tbody></table>
-
-<ul>
-<li><strong>Rate limiter</strong> controls the number of incoming and outgoing traffic of a network</li>
-<li><strong>Authentication</strong> verifies the identity of the current user or integration. See Introduction &gt; Authentication (Merchant Setup on Admin Portal) for more details</li>
-</ul>
-
-<h3 id="request-url">Request URL</h3>
-
-<p><code class="prettyprint">https://{host}/developerapi/Customer/{merchantId}</code></p>
-
 <h2 id="change-password">Change Password</h2>
 
 <blockquote>
@@ -683,7 +623,7 @@ InputData={
    </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="mi">0</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Authorizes login OTP of a registered customer.</p>
+<p>Authorizes an user account through OTP and also registers a new customer.</p>
 
 <aside class="notice">
 When a customer logs in, he receives a unique `UserId` which is required for using customer APIs. 
@@ -7545,17 +7485,17 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>ShipCity</td>
 <td>string</td>
-<td>Unique code of the city (as saved in the system) to which the item has to be shipped. Example: 0562 (for Agra), and 250 (Victoria)</td>
+<td>Unique code of the shipping city (as saved in the system) to which the item has to be shipped. Example: 0562 (for Agra), and 250 (Victoria)</td>
 </tr>
 <tr>
 <td>ShipCountry</td>
 <td>string</td>
-<td>Alpha-2 code of the country. Example: IN (for India), AU (for Australia), and BR (for Brazil)</td>
+<td>Alpha-2 code of the shipping country. Example: IN (for India), AU (for Australia), and BR (for Brazil)</td>
 </tr>
 <tr>
 <td>ShipState</td>
 <td>string</td>
-<td>State’s postal abbreviation. Example: KA (for Karnataka), CA (for California), IN (for Indiana)</td>
+<td>State’s postal abbreviation (shipping state). Example: KA (for Karnataka), CA (for California), IN (for Indiana)</td>
 </tr>
 <tr>
 <td>DelveryMode</td>
@@ -8823,17 +8763,17 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>ShipCity</td>
 <td>string</td>
-<td>Unique id associated to the city in the Capillary system</td>
+<td>Unique id associated to the shipping city in the Capillary system</td>
 </tr>
 <tr>
 <td>ShipCountry</td>
 <td>string</td>
-<td>Alpha-2 code of the country with respect to billing address. Example: IN (for India), AU (for Australia), and BR (for Brazil)</td>
+<td>Alpha-2 code of the country with respect to shipping address. Example: IN (for India), AU (for Australia), and BR (for Brazil)</td>
 </tr>
 <tr>
 <td>ShipState</td>
 <td>string</td>
-<td>State associated to the city</td>
+<td>State code associated to the shipping city</td>
 </tr>
 <tr>
 <td>DelveryMode</td>
@@ -9644,17 +9584,17 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>ShipCity</td>
 <td>string</td>
-<td>Name of the shipping city</td>
+<td>Unique id associated to the shipping city in the Capillary system</td>
 </tr>
 <tr>
 <td>ShipCountry</td>
 <td>string</td>
-<td>Name of the shipping country</td>
+<td>Alpha-2 code of the country with respect to the shipping address. Example: IN (for India), AU (for Australia), and BR (for Brazil)</td>
 </tr>
 <tr>
 <td>ShipState</td>
 <td>string</td>
-<td>Name of the shipping state</td>
+<td>State code associated to the shipping city</td>
 </tr>
 <tr>
 <td>DelveryMode</td>
@@ -18300,6 +18240,320 @@ Batch Support | No</p>
 </tr>
 </tbody></table>
 
+<h2 id="balance-enquiry">Balance Enquiry</h2>
+
+<p>Retrieves the wallet balance of a customer from a specific service. </p>
+
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
+<pre class="highlight html"><code>https://www.martjack.com/developerapi/Order/BalanceEnquiry/81e77da2-723b-483d-8c0d-49f800c1xxxx
+</code></pre>
+<blockquote>
+<p>Sample POST Request</p>
+</blockquote>
+<pre class="highlight json"><code><span class="err">provider=RazorPayWallet&amp;userId=</span><span class="mi">763</span><span class="err">e</span><span class="mi">7615-5</span><span class="err">eb</span><span class="mi">6-49</span><span class="err">a</span><span class="mi">3</span><span class="err">-b</span><span class="mi">0</span><span class="err">d</span><span class="mi">4</span><span class="err">-e</span><span class="mi">0</span><span class="err">fa</span><span class="mi">571</span><span class="err">dd</span><span class="mi">15</span><span class="err">e</span><span class="w">
+
+</span></code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="w">
+</span></code></pre>
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td><code class="prettyprint">Order/BalanceEnquiry/{merchantId}</code></td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>POST</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>No</td>
+</tr>
+</tbody></table>
+
+<ul>
+<li><strong>Rate limiter</strong> controls the number of incoming and outgoing traffic of a network</li>
+<li><strong>Authentication</strong> verifies the identity of the current user or integration. See Introduction &gt; Authentication (Merchant Setup on Admin Portal) for more details</li>
+</ul>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">https://{host}/developerapi/Order/BalanceEnquiry/{merchantId}</code></p>
+
+<h3 id="request-body-parameters">Request Body Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>provider*</td>
+<td>string</td>
+<td>Service provider for which you want to fetch the wallet balance. Example: RazorPayWallet</td>
+</tr>
+<tr>
+<td>userId*</td>
+<td>string</td>
+<td>Unique GUID of the user for which you want to fetch the wallet balance</td>
+</tr>
+</tbody></table>
+
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
+
+<h2 id="dispatch-order">Dispatch Order</h2>
+
+<p>Updates order status from shipment created (Waiting for pickup) to dispatch</p>
+
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
+<pre class="highlight html"><code>https://www.martjack.com/developerapi/Order/Dispatch/81e77da2-723b-483d-8c0d-49f800c1xxxx
+</code></pre>
+<blockquote>
+<p>Sample POST Request</p>
+</blockquote>
+<pre class="highlight json"><code><span class="err">InputFormat=application/json&amp;merchantId=</span><span class="mi">81</span><span class="err">e</span><span class="mi">77</span><span class="err">da</span><span class="mi">2-723</span><span class="err">b</span><span class="mi">-483</span><span class="err">d</span><span class="mi">-8</span><span class="err">c</span><span class="mi">0</span><span class="err">d</span><span class="mi">-49</span><span class="err">f</span><span class="mi">800</span><span class="err">c</span><span class="mi">1</span><span class="err">xxxx&amp;InputData=</span><span class="p">{</span><span class="w">
+   </span><span class="nt">"dispatch"</span><span class="p">:{</span><span class="w">
+      </span><span class="nt">"OrderId"</span><span class="p">:</span><span class="s2">"7539139"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"items"</span><span class="p">:[</span><span class="w">
+         </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"ShipmentId"</span><span class="p">:</span><span class="s2">"5537113"</span><span class="w">
+         </span><span class="p">}</span><span class="w">
+         </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"ShipmentId"</span><span class="p">:</span><span class="s2">""</span><span class="w">
+         </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+   </span><span class="nt">"messageCode"</span><span class="p">:</span><span class="s2">"1004"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"Message"</span><span class="p">:</span><span class="s2">"Order No(s) ‘7539139’ has (have) been successfully moved to ‘Dispatched Orders’."</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="mi">0</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td><code class="prettyprint">Order/Dispatch/{merchantId}</code></td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>POST</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>No</td>
+</tr>
+</tbody></table>
+
+<ul>
+<li><strong>Rate limiter</strong> controls the number of incoming and outgoing traffic of a network</li>
+<li><strong>Authentication</strong> verifies the identity of the current user or integration. See Introduction &gt; Authentication (Merchant Setup on Admin Portal) for more details</li>
+</ul>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">https://{host}/developerapi/Order/Dispatch/{merchantId}</code></p>
+
+<h3 id="request-body-parameters">Request Body Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>orderID*</td>
+<td>int</td>
+<td>Unique id of the order that you want to dispatch</td>
+</tr>
+<tr>
+<td>shipmentId*</td>
+<td>int</td>
+<td>Unique shipment id of the item. You can pass multiple shipment ids of the order</td>
+</tr>
+</tbody></table>
+
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
+
+<h2 id="deliver-order">Deliver Order</h2>
+
+<p>Updates order status from dispatch to deliver</p>
+
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
+<pre class="highlight html"><code>https://www.martjack.com/developerapi/Order/Deliver/81e77da2-723b-483d-8c0d-49f800c1xxxx
+</code></pre>
+<blockquote>
+<p>Sample POST Request</p>
+</blockquote>
+<pre class="highlight json"><code><span class="err">InputFormat=application/json&amp;merchantId=</span><span class="mi">81</span><span class="err">e</span><span class="mi">77</span><span class="err">da</span><span class="mi">2-723</span><span class="err">b</span><span class="mi">-483</span><span class="err">d</span><span class="mi">-8</span><span class="err">c</span><span class="mi">0</span><span class="err">d</span><span class="mi">-49</span><span class="err">f</span><span class="mi">800</span><span class="err">c</span><span class="mi">1</span><span class="err">xxxx&amp;InputData=</span><span class="p">{</span><span class="w">
+   </span><span class="nt">"deliver"</span><span class="p">:{</span><span class="w">
+      </span><span class="nt">"OrderId"</span><span class="p">:</span><span class="s2">"7511951"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Comment"</span><span class="p">:</span><span class="s2">"deliver to customer"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"DeliverDate"</span><span class="p">:</span><span class="s2">"2018/12/27"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ShowComments"</span><span class="p">:</span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ReceivedBy"</span><span class="p">:</span><span class="s2">"Tom"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"items"</span><span class="p">:[</span><span class="w">
+         </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"ShipmentId"</span><span class="p">:</span><span class="s2">"5522069"</span><span class="w">
+         </span><span class="p">}</span><span class="w">
+         </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"ShipmentId"</span><span class="p">:</span><span class="s2">""</span><span class="w">
+         </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+   </span><span class="nt">"messageCode"</span><span class="p">:</span><span class="s2">"1004"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"Message"</span><span class="p">:</span><span class="s2">"Order No(s) ‘Order No '7511951' has been successfully moved to ‘Delivered Orders’.  AWB No:2323263626’ has (have) been successfully moved to ‘Dispatched Orders’."</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="mi">0</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td><code class="prettyprint">Order/Deliver/{merchantId}</code></td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>POST</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>No</td>
+</tr>
+</tbody></table>
+
+<ul>
+<li><strong>Rate limiter</strong> controls the number of incoming and outgoing traffic of a network</li>
+<li><strong>Authentication</strong> verifies the identity of the current user or integration. See Introduction &gt; Authentication (Merchant Setup on Admin Portal) for more details</li>
+</ul>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">https://{host}/developerapi/Order/Deliver/{merchantId}</code></p>
+
+<h3 id="request-body-parameters">Request Body Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>orderID*</td>
+<td>int</td>
+<td>Unique id of the order that you want to deliver</td>
+</tr>
+<tr>
+<td>comment</td>
+<td>string</td>
+<td>Comment tracked for the delivery</td>
+</tr>
+<tr>
+<td>deliverDate</td>
+<td>date</td>
+<td>Date when the item is delivered</td>
+</tr>
+<tr>
+<td>showComments</td>
+<td>enum</td>
+<td>Whether to show the comment to the customer (on the order summary page)</td>
+</tr>
+<tr>
+<td>receivedBy</td>
+<td>string</td>
+<td>Person who received the order</td>
+</tr>
+<tr>
+<td>shipmentId*</td>
+<td>int</td>
+<td>Unique shipment id. You can pass multiple shipment ids as shown in the sample</td>
+</tr>
+</tbody></table>
+
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
+
           <h1 id="pricelist">Pricelist</h1>
 
 <h2 id="update-pricelist">Update Pricelist</h2>
@@ -20702,7 +20956,7 @@ Batch Support | No</p>
 <tr>
 <td>IsDefaultLNG_LocationName</td>
 <td>boolean</td>
-<td>float</td>
+<td></td>
 </tr>
 <tr>
 <td>IsParticipateInStock</td>
@@ -21848,36 +22102,20 @@ Batch Support | No</p>
 <td>Unhandled exception</td>
 </tr>
 <tr>
-<td>1003</td>
-<td>Authentication failed</td>
-</tr>
-<tr>
-<td>1004</td>
-<td>Successful</td>
-</tr>
-<tr>
-<td>1016</td>
-<td>Invalid Input</td>
-</tr>
-<tr>
-<td>1009</td>
-<td>No record found</td>
-</tr>
-<tr>
-<td>1003</td>
-<td>Authentication failed</td>
-</tr>
-<tr>
-<td>1030</td>
-<td>Service is not authorized</td>
-</tr>
-<tr>
 <td>1001</td>
 <td>Order canceled already</td>
 </tr>
 <tr>
 <td>1002</td>
 <td>Order canceled successfully</td>
+</tr>
+<tr>
+<td>1003</td>
+<td>Authentication failed</td>
+</tr>
+<tr>
+<td>1004</td>
+<td>Successful</td>
 </tr>
 <tr>
 <td>1005</td>
@@ -21928,10 +22166,6 @@ Batch Support | No</p>
 <td>User does not exist</td>
 </tr>
 <tr>
-<td>1028</td>
-<td>Invalid page number</td>
-</tr>
-<tr>
 <td>1018</td>
 <td>Data update added to the task queue. You can view the status of the update in the Control Panel. An email will be sent to the merchant&rsquo;s registered email id after the task is completed.</td>
 </tr>
@@ -21966,6 +22200,14 @@ Batch Support | No</p>
 <tr>
 <td>1027</td>
 <td>Update failed</td>
+</tr>
+<tr>
+<td>1028</td>
+<td>Invalid page number</td>
+</tr>
+<tr>
+<td>1030</td>
+<td>Service is not authorized</td>
 </tr>
 <tr>
 <td>1031</td>
