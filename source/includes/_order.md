@@ -2610,6 +2610,69 @@ Quantity* | int | Quantity of the current order item
 
 
 
+## Update Shipment Status
+
+Updates the status of a shipment.
+
+
+> Sample Request
+
+```html
+https://www.martjack.com/developerapi/Order/UpdateShipmentStatus/81e77da2-723b-483d-8c0d-49f800c1xxxx
+```
+
+> Sample POST Request
+
+```json
+InputFormat=application/json&merchantId=81e77da2-723b-483d-8c0d-49f800c1xxxx&InputData={  
+   "UpdateShipmentStatus":{  
+      "ShipmentId":"2205635",
+      "Shippingstatus":"D",
+      "ShippingMessage":"Shipment is completed"
+   }
+}
+```
+
+> Sample Response
+
+```json
+{
+    "messageCode": "1007",
+    "Message": "Updated Successfully",
+    "ErrorCode": 0
+}
+```
+
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `Order/UpdateShipmentStatus/{merchantId}`
+Rate Limited? | No
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | POST
+Batch Support | No
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+### Request URL
+
+`https://{host}/developerapi/Order/UpdateShipmentStatus/{merchantId}`
+
+
+### Request Body Parameters
+
+Parameter | Type | Description
+-------- | ----- | -----------
+ShipmentId* | string  | Unique id of the shipment that you want to update
+Shippingstatus* | enum | New status of the current shipment. Values: `I` - RTO initiated, `O` - RTO Received, `L` - RTO Lost, `X` - Others, `S` - Shipment created, `R` - Dispatched, `T` - In transit, `U` - Out for delivery, `D` - Delivered, `C` - RTO Closed, `F` - Cancelled, `E` - RTO Refunded/Replacement closed, `W` - Waiting for Collection (in-store), `G` - At Gate
+ShippingMessage | string | Message that you want to leave  for the shipment
+
+
+ 
+
 
 ## Get Shipment Packages
 
@@ -3676,4 +3739,171 @@ shipmentId* | int | Unique shipment id. You can pass multiple shipment ids as sh
 
 <aside class="notice"> All parameters marked by * are mandatory. </aside>
 
+
+## Update Order Reference
+
+Updates external reference number of an order.
+
+> Sample Request
+
+```html
+https://www.martjack.com/developerapi/Order/UpdateOrderReference/81e77da2-723b-483d-8c0d-49f800c1xxxx
+
+```
+
+> Sample POST Request
+
+```json
+InputFormat=application/json&merchantId=81e77da2-723b-483d-8c0d-49f800c1xxxx&InputData={
+	"OrderId":"4091391",
+	"ReferenceNo":"11751201"
+}
+
+```
+
+> Sample Response
+
+```json
+{  
+   "messageCode":"1004",
+   "Message":"Order Reference =11751201-success has been applied successfully",
+   "ErrorCode":0
+}
+```
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `Order/UpdateOrderReference/{merchantId}`
+Rate Limited? | No
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | POST
+Batch Support | No
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+
+
+### Request URL
+
+`https://{host}/developerapi/Order/UpdateOrderReference/{merchantId}`
+
+### Request Body Parameters
+
+Parameter | Type | Description
+--------- | ---- | -----------
+merchantId* | string | Unique GUID of the merchant
+orderID* | string | Order id for which you want to update reference number
+referenceNumber* | string | Preferred reference number for the  order
+
+<aside class="notice">All parameters marked by * are mandatory. </aside>
+
+
+
+
+## Get Return Request History
+
+Returns the history of return orders of the merchant.
+
+> Sample Request
+
+```html
+https://www.martjack.com/developerapi/Order/GetReturnRequestHistory/81e77da2-723b-483d-8c0d-49f800c1xxxx
+
+```
+
+> Sample POST Request
+
+```json
+InputFormat=application/json&merchantId=81e77da2-723b-483d-8c0d-49f800c1xxxx&InputData={
+	
+}
+
+```
+
+> Sample POST Request
+
+
+```json
+MerchantId=fc93a3a8-f69b-444c-8b76-9848de9338d0&InputFormat=application/json&InputData={
+	"FromDate":"2018-12-06",
+	"ToDate":"2018-12-06"
+}
+
+```
+
+
+> Sample Response
+
+```json
+{  
+   "messageCode":"1004",
+   "Message":"Successful",
+   "ReturnRequestIds":{  
+      "ReturnRequest":[  
+         236285,
+         236279,
+         236267,
+         236265,
+         236263,
+         236261,
+         236259,
+         236257,
+         236251,
+         236233,
+         236189,
+         236185,
+         236147,
+         236141,
+         236131,
+         236095,
+         236089,
+         235855,
+         235853,
+         235849,
+         235847,
+         235843
+      ]
+   },
+   "ErrorCode":0
+}
+
+```
+
+
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `Order/GetReturnRequestHistory/{merchantId}`
+Rate Limited? | No
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | POST
+Batch Support | No
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+
+
+### Request URL
+
+`https://{host}/developerapi/Order/GetReturnRequestHistory/{merchantId}`
+
+### Request Body Parameters
+
+Parameter | Type | Description
+--------- | ---- | -----------
+merchantId* | string | Unique GUID of the merchant
+fromDate | date | Duration for which you want to fetch return orders (fromDate - toDate)
+toDate | date | Duration for which you want to fetch return orders (fromDate - toDate)
+refundStatus | string | Status of the refund. Value: `I` for refund initiated, `C` for refund complete
+status | string | Status of the return. Value: `RC` for Refund completed, `I` for initiated, `R` received, `P` for picked up, `S` pending pickup, `C` closed
+orderId | int | Unique id of the order
+paymentMode | string | Mode of payment. Values: 
+
+<aside class="notice">Any one among the above parameters is mandatory. Param with * is mandatory.</aside>
 
