@@ -3816,15 +3816,6 @@ https://www.martjack.com/developerapi/Order/GetReturnRequestHistory/81e77da2-723
 
 > Sample POST Request
 
-```json
-InputFormat=application/json&merchantId=81e77da2-723b-483d-8c0d-49f800c1xxxx&InputData={
-	
-}
-
-```
-
-> Sample POST Request
-
 
 ```json
 MerchantId=fc93a3a8-f69b-444c-8b76-9848de9338d0&InputFormat=application/json&InputData={
