@@ -3898,3 +3898,177 @@ paymentMode | string | Mode of payment. Values:
 
 <aside class="notice">Any one among the above parameters is mandatory. Param with * is mandatory.</aside>
 
+
+
+## Get Return Request Details
+
+Retrieves the details of a specific return request.
+
+
+> Sample Request
+
+```html
+https://www.martjack.com/developerapi/Order/GetReturnRequest/f48fdd16-92db-4188-854d-1ecd9b62d066/211003
+
+```
+
+> Sample POST Request
+
+
+```json
+{
+  "messageCode": "1004",
+  "Message": "Successful",
+  "ReturnRequest": {
+    "ReturnRequestId": 211003,
+    "MerchantId": "f48fdd16-92db-4188-854d-1ecd9b62d066",
+    "ShipmentId": 5392397,
+    "OrderId": 7238823,
+    "InvoiceNumber": "invoice_hyc-00000460",
+    "DateInitiated": "08-Oct-2018 07:45:12 AM",
+    "DateReceived": "08-Oct-2018 07:47:27 AM",
+    "BillOfSupplyCreditNoteNumber": "",
+    "TaxableCreditNoteNumber": "HYCCNTV_009741",
+    "Source": "2",
+    "RequestStatus": "C",
+    "RequestType": "C",
+    "RefundStatus": "C",
+    "RefundedAmount": 113.66,
+    "ConfirmedRefundAmount": 113.66,
+    "IncludeShippingCost": "False",
+    "IsSelfShip": "False",
+    "ReturnRequestDetail": [
+      {
+        "ReturnRequestDetailId": 330945,
+        "ReturnRequestId": 211003,
+        "OrderItemId": 25601069,
+        "SuggestedReturnAction": "RF",
+        "Reason": "BAQ",
+        "ReturnQty": "1",
+        "IsReceived": "True",
+        "ReceivedQty": "1",
+        "MRP": 114,
+        "ProductPrice": 113.66,
+        "PromotionDiscount": 0,
+        "UOM": "Pieces",
+        "AverageWeight": 0,
+        "IsTaxable": "True",
+        "TaxDetails": [
+          {
+            "TaxCategory": "SGST",
+            "TaxRate": "9",
+            "TaxAmount": 8.66,
+            "IsTaxRatePercentage": true,
+            "TaxCode": "SGI18",
+            "TaxCategoryID": "3580"
+          },
+          {
+            "TaxCategory": "CGST",
+            "TaxRate": "9",
+            "TaxAmount": 8.66,
+            "IsTaxRatePercentage": true,
+            "TaxCode": "CGI18",
+            "TaxCategoryID": "3578"
+          }
+        ],
+        "RefundAmount": 113.66,
+        "ConfirmedRefundAmount": 113.66,
+        "SKU": "100011145",
+        "VariantSKU": null,
+        "ProductID": 11995626,
+        "VariantProductID": 0,
+        "ProductTitle": "Nestle Milkmaid - 400g Tin",
+        "SubStatus": "'",
+        "SubStatusComments": "'"
+      }
+    ],
+    "RequestedPaymentMode": {
+      "PaymentMode": "GV",
+      "BankName": "",
+      "BranchName": "",
+      "IFSCCOde": "",
+      "AccountNumber": "",
+      "AccountName": "",
+      "CityName": ""
+    },
+    "ReturnRequestPayments": [
+      {
+        "ReturnRequestId": 211003,
+        "PaymentDate": "08-Oct-2018 12:00:00 AM",
+        "PaymentMode": "GV",
+        "ReferenceNumber": "ref444333",
+        "Amount": "113.66",
+        "Remarks": "test333",
+        "BankName": null,
+        "IFSCCOde": null,
+        "AccountNumber": "",
+        "AccountName": "",
+        "BranchName": null
+      }
+    ],
+    "PickupDetails": {
+      "Address1": "kandavali malad west",
+      "Address2": "",
+      "CountryCode": "IN",
+      "CountryName": "India",
+      "StateCode": "MH",
+      "StateName": "Maharashtra",
+      "CityCode": "554",
+      "CityName": "",
+      "PostCode": "400064",
+      "Email": "",
+      "FirstName": "Vijay ",
+      "LastName": "",
+      "Mobile": "91-9885296960"
+    },
+    "SubStatus": "",
+    "SubStatusComments": ""
+  },
+  "ErrorCode": 0
+}
+```
+
+
+
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `Order/GetReturnRequest/{merchantId}/{returnRequestId}`
+Rate Limited? | No
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | GET
+Batch Support | No
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+
+
+### Request URL
+
+`https://{host}/developerapi/Order/GetReturnRequest/{merchantId}/{returnRequestId}`
+
+### Request Query Parameters
+
+Parameter | Type | Description
+--------- | ---- | -----------
+merchantId* | string | Unique GUID of the merchant
+returnRequestId* | int | Unique id of the return request that you want to fetch
+
+<aside class="notice">All parameters marked by star are mandatory. </aside>
+
+
+### Response Parameters
+
+Parameter | Type | Description
+--------- | ---- | -----------
+BillOfSupplyCreditNoteNumber | | 
+Source |  | 
+RequestStatus | |  
+RequestType |  | 
+RefundStatus |  | 
+IncludeShippingCost | |  
+IsSelfShip |  | 
+SubStatus |  | 

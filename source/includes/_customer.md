@@ -212,6 +212,76 @@ newPassword* | string | New password that you want to have for the account
 
 
 
+## Change Password (V2)
+
+Lets you change password of a customer account.
+
+
+> Sample Request
+
+```html
+https://www.martjack.com/DeveloperAPI/Customer/v2/changePassword/81e77da2-723b-483d-8c0d-49f800c1exxx/f72da7b6-9566-4c99-b0e6-aa882e7acxxx
+```
+
+> Sample POST Request
+
+```json
+InputFormat=application/json&InputData={
+	"OldPassword":"passwordOld",
+	"NewPassword":"passwordNew"
+}
+
+
+````
+
+
+> Sample Response
+
+```json
+{  
+   "messageCode":"1004",
+   "Message":"Your Password changed Successfully",
+   "ErrorCode":0
+}
+```
+
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `/Customer/v2/changePassword/{{merchantid}}/{[userid}}`
+Response Formats | JSON
+HTTP Methods | POST
+Batch Support | No
+Rate Limited? | No
+Authentication | Yes
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+### Request URL
+
+`https://{host}/developerapi/Customer/v2/changePassword/{{merchantid}}/{[userid}}`
+
+### Additional Header Required
+
+Header | Description
+------ | -----------
+AccessToken* | Access token of the logged in user that you want to logout
+APIversion*  | 1
+
+
+### Request Path Parameters
+
+Parameter | Type | Description
+-------- | ----- | -----------
+merchantId* | string | Unique GUID of the merchant
+userId* | string | Unique GUID of the user 
+
+
+
+
+
 ## Customer Login (with OTP)
 
 
@@ -387,7 +457,7 @@ issued_at | date-time | The date and time when the access token was generated fo
 
 
 
-## Customer Login with Third Party Provider
+## Customer Login (with Third Party Authentication)
 
 Lets you login customers to the merchant store with a third party provider.
 
@@ -482,12 +552,16 @@ issued_at | date-time | The date and time when the access token was generated fo
 
 
 
+
+
 ## Start Customer Session
+
+Starts a new customer session and generates access token that can be used for making customer API calls.
 
 > Sample Request
 
 ```html
-
+http://martjack.com/developerapi/Customer/6c57599f-2c43-4c82-806a-e07c3410f5d3/StartCustomerSession
 ```
 
 > Sample POST Request
@@ -631,6 +705,11 @@ merchantId* | string | The unique id (GUID) of the merchant from which you want 
 
 
 <aside class=notice>All parameters and headers marked by * are mandatory.</aside>
+
+
+
+
+
 
 
 

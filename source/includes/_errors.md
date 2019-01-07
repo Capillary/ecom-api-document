@@ -30,7 +30,7 @@ Code | Meaning
 1021 | Warning
 1022 | Products not available
 1023 | Invalid city. Please select a valid address
-1024 | PINode is not serviceable for the selected location
+1024 | PIN code is not serviceable for the selected location
 1025 | PIN code not serviceable for the given address
 1027 | Update failed
 1028 | Invalid page number
@@ -40,7 +40,7 @@ Code | Meaning
 1033 | Invalid inputs provided. Please provide correct input
 1034 | Product is added already
 1035 | Shipment created already 
-1036 | No default return shelf found
+1036 | No default self return found
 1037 | Your account has been locked because of multiple failed login attempts.  Please contact customer support.
 1038 | Invalid OTP
 1039 | Your password has been expired. Please reset the password
