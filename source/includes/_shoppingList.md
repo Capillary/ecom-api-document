@@ -4,7 +4,7 @@ Shopping list is a wish list or favorite list of a customer. This resource consi
 
 
 ## Add Shopping List
-> Sample POST Request
+> Sample Request
 
 ```html
 https://www.martjack.com/developerapi/ShoppingList/add/81e77da2-723b-483d-8c0d-49f800c1exxx
@@ -13,7 +13,7 @@ https://www.martjack.com/developerapi/ShoppingList/add/81e77da2-723b-483d-8c0d-4
 > Sample POST Request
 
 ```json
-{
+InputFormat=application/json&InputData={
    "ShoppingList":{
       "UserId":"f4473f55-b6b0-4a4c-8ffa-fc1010abbb1f",
       "ShoppingListName":"AWS1",
@@ -176,7 +176,7 @@ https://www.martjack.com/developerapi/ShoppingList/items/add/81e77da2-723b-483d-
 > Sample POST Request
 
 ```json
-{
+InputFormat=application/json&InputData={
    "ShoppingListView":{
       "UserId":"f4473f55-b6b0-4a4c-8ffa-fc1010abxxxx",
       "merchantId":"81e77da2-723b-483d-8c0d-49f800c1xxxx",

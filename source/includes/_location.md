@@ -14,7 +14,7 @@ https://www.martjack.com/developerapi/Location/StoreDeliveryAreaMapping/f48fdd16
 > Sample POST Request
 
 ```json
-{
+InputFormat=application/json&MerchantId=f48fdd16-92db-4188-854d-1ecd9b62e234&ETAfor=ALL&InputData={
    "StoreDeliveryAreaMappings":{
       "StoreDeliveryAreaMapping":[
          {
@@ -197,7 +197,7 @@ https://www.martjack.com/developerapi/Location/UpdateStoreTimings/f48fdd16-92db-
 > Sample POST Request
 
 ```json
-{  
+InputFormat=application/json&MerchantId=f48fdd16-92db-4188-854d-1ecd9b62e234&ETAfor=ALL&InputData={  
    "LocationOpenandCloseTimings":{  
       "DelveryMode":"H",
       "OpenLeadTime":"1",
@@ -1472,7 +1472,7 @@ MerchantId* | string | The unique id (GUID) of the merchant
 https://www.martjack.com/developerapi/Location/Information/f48fdd16-92db-4188-854d-1ecd9b62e234/110/ALL
 ```
 
-> Sample POST Response
+> Sample POST Request
 
 ```json
 InputFormat=application/json&MerchantId=f48fdd16-92db-4188-854d-1ecd9b62e234&ETAfor=ALL&InputData={  

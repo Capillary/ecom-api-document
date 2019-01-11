@@ -7,7 +7,7 @@ Code | Meaning
 429 | Rate limit exceeded
 440 | Session expired
 500 | Server error
-1000 | Unhandled exception
+1000 | Unhandled exception. Please contact support desk 
 1001 | Order canceled already
 1002 | Order canceled successfully
 1003 | Authentication failed

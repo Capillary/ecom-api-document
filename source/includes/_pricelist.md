@@ -12,7 +12,7 @@ https://www.martjack.com/developerapi/Pricelist/f48fdd16-92db-4188-854d-1ecd9b62
 > Sample POST Request
 
 ```json
-MerchantId="0639f7a6-34cc-48b2-9fd9-a80e2ed8xxxx"&InputFormat="application/json"&InputData={  
+MerchantId=0639f7a6-34cc-48b2-9fd9-a80e2ed8xxxx&InputFormat=application/json&InputData={  
    "pricelistitems":{  
       "pricelistiem":{  
          "sku":"zara1234121",

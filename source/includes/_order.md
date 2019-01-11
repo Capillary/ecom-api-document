@@ -493,7 +493,7 @@ http://{{url}}/developerapi/Order/PlaceOrder/81e77da2-723b-483d-8c0d-49f800c1exx
 > Sample POST Request
 
 ```json
-{  
+MerchantID=81e77da2-723b-483d-8c0d-49f800c1exxx&InputFormat=application/json&InputData{  
    "PaymentOption":"COD",
    "PaymentType":"COD",
    "GateWayId":"0",
@@ -871,7 +871,7 @@ https://www.martjack.com/developerapi/Order/ProcessTransaction/81e77da2-723b-483
 > Sample POST Request
 
 ```json
-{  
+MerchantID=81e77da2-723b-483d-8c0d-49f800c1exxx&InputFormat=application/json&InputData{  
    "Transaction":{  
       "OrderID":3146000,
       "ID":"",
@@ -984,7 +984,7 @@ https://www.martjack.com/Order/SaveMerchantTransaction/81e77da2-723b-483d-8c0d-4
 > Sample POST Request
 
 ```json
-{
+MerchantID=81e77da2-723b-483d-8c0d-49f800c1exxx&InputFormat=application/json&InputData{
    "PaymentOption":"OnlineBankTransfer",
    "PaymentType":"OnlineBankTrans",
    "OrderId":1894720,
@@ -1052,7 +1052,7 @@ https://www.martjack.com/DeveloperAPI/order/ReOrder/98d18d82-ba59-4957-9c92-3f89
 > Sample POST Request
 
 ```json
-{
+MerchantID=81e77da2-723b-483d-8c0d-49f800c1exxx&InputFormat=application/json&InputData={
    "orderId":3146765,
    "orderItemId":0,
    "userId":"3cdd1838-7028-40c9-b5c2-bef371fexxxx"
@@ -1454,7 +1454,7 @@ http://{www.martjack.com/developerapi/Order/History/81e77da2-723b-483d-8c0d-49f8
 > Sample POST Request
 
 ```json
-{  
+MerchantID=81e77da2-723b-483d-8c0d-49f800c1exxx&InputFormat=application/json&InputData={  
    "UserId":"94b5215f-28d4-44f5-a1db-c47c5e1c9477",
    "FromDate":"02-02-2018 16:08:45",
    "ToDate":"20-02-2018 23:59:45"
@@ -1819,23 +1819,20 @@ http://www.martjack.com/DeveloperAPI/Order/Ship
 
 
 ```json
-{  
+MerchantID=81e77da2-723b-483d-8c0d-49f800c1exxx&InputFormat=application/json&InputData={  
+   {  
    "shipment":{  
-      "merchantId":"179efd4e-f62d-4d34-ac13-fe42605e5xxx",
-      "OrderId":123456,
-      "AWBNumber":"123",
-      "CourierName":"ARAMEX",
-      "ShipDate":"01-20-2018",
+      "OrderId":"7503709",
+      "LocationRefCode":"",
+      "ShipDate":"2019/11/01",
       "ShipmentType":"normal",
-      " LocationRefCode":"12146",
+      "CourierName":"test",
+      "AWBNumber":"12345",
       "lineitems":[  
          {  
-            "OrderLineId":466157049,
-            "Quantity":1
-         },
-         {  
-            "OrderLineId":466157049,
-            "Quantity":2
+            "OrderLineId":"26147149",
+            "Weight":"3",
+            "Quantity":"1"
          }
       ],
       "ShipmentTrip":{  
@@ -1850,7 +1847,8 @@ http://www.martjack.com/DeveloperAPI/Order/Ship
                "Value":"9090000000"
             }
          ]
-      }
+      },
+      "MerchantId":"fccabc5b-aa81-4346-b536-0fd6bc94c837"
    }
 }
 ```
@@ -1858,9 +1856,23 @@ http://www.martjack.com/DeveloperAPI/Order/Ship
 > Sample Response
 
 ```json
-{  
-   "Message":"Successful",
-   "messageCode":"1004"
+{
+    "messageCode": "1004",
+    "Message": "Successful",
+    "Shipments": [
+        {
+            "LocationId": 0,
+            "ShipmentType": null,
+            "ReceivedBy": null,
+            "DeliveredDate": null,
+            "ShipmentId": 5516207,
+            "OrderId": 0,
+            "ServiceProvider": null,
+            "DocketNumber": null,
+            "ShippingDate": null
+        }
+    ],
+    "ErrorCode": 0
 }
 ```
 
@@ -2286,7 +2298,7 @@ https://www.martjack.com/developerapi/Order/Cancel
 > Sample POST Request
 
 ```json
-{
+MerchantID=f48fdd16-92db-4188-854d-1ecd9b62d066&InputFormat=application/json&InputData={
    "merchantId":"f48fdd16-92db-4188-854d-1ecd9b62d066",
    "OrderId":"6261090",
    "Comment":"Ordered wrong item",
@@ -2360,7 +2372,7 @@ https://www.martjack.com/developerapi/Order/CancelItem
 > Sample POST Request
 
 ```json
-{  
+MerchantID=98d18d82-ba59-4957-9c92-3f89207a3xxx&InputFormat=application/json&InputData={  
    "merchantId":"98d18d82-ba59-4957-9c92-3f89207a3xxx",
    "OrderId":"2658242",
    "Comment":"Test",
@@ -2440,7 +2452,7 @@ https://www.martjack.com/developerapi/Order/ProcessReturn/f48fdd16-92db-4188-854
 > Sample POST Request
 
 ```json
-{  
+InputFormat=application/json&merchantId=f48fdd16-92db-4188-854d-1ecd9b62xxxx&InputData={    
    "OrderId":"6071567",
    "ReturnRequestId":"72380",
    "ReturnChangeAction":{  
@@ -2515,7 +2527,7 @@ https://www.martjack.com/developerapi/Order/CreateShipmentPackages/f48fdd16-92db
 > Sample POST Request
 
 ```json
-{
+InputFormat=application/json&merchantId=f48fdd16-92db-4188-854d-1ecd9b62xxxx&InputData={
   "CreateShipmentPackages": {
 	"OrderID": "6402591",
 	"ShipmentType": "Normal",
@@ -3584,162 +3596,6 @@ userId* | string | Unique GUID of the user for which you want to fetch the walle
 
 
 
-## Dispatch Order
-
-Updates order status from shipment created (Waiting for pickup) to dispatch
-
-
-> Sample Request
-
-```html
-https://www.martjack.com/developerapi/Order/Dispatch/81e77da2-723b-483d-8c0d-49f800c1xxxx
-```
-
-> Sample POST Request
-
-```json
-InputFormat=application/json&merchantId=81e77da2-723b-483d-8c0d-49f800c1xxxx&InputData={
-   "dispatch":{
-      "OrderId":"7539139",
-      "items":[
-         {
-            "ShipmentId":"5537113"
-         }
-		 {
-            "ShipmentId":""
-         }
-      ]
-   }
-}
-
-```
-
-
-
-> Sample Response
-
-```json
-{
-   "messageCode":"1004",
-   "Message":"Order No(s) ‘7539139’ has (have) been successfully moved to ‘Dispatched Orders’.",
-   "ErrorCode":0
-}
-```
-
-
-
-### Resource Information
-| | |
---------- | ----------- |
-URI | `Order/Dispatch/{merchantId}`
-Rate Limited? | No
-Authentication | Yes
-Response Formats | JSON
-HTTP Methods | POST
-Batch Support | No
-
-* **Rate limiter** controls the number of incoming and outgoing traffic of a network
-* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
-
-
-
-### Request URL
-
-`https://{host}/developerapi/Order/Dispatch/{merchantId}`
-
-### Request Body Parameters
-
-Parameter | Type | Description
---------- | ---- | -----------
-orderID* | int | Unique id of the order that you want to dispatch
-shipmentId* | int | Unique shipment id of the item. You can pass multiple shipment ids of the order
-
-<aside class="notice"> All parameters marked by * are mandatory. </aside>
-
-
-
-
-## Deliver Order
-
-Updates order status from dispatch to deliver
-
-
-> Sample Request
-
-```html
-https://www.martjack.com/developerapi/Order/Deliver/81e77da2-723b-483d-8c0d-49f800c1xxxx
-```
-
-> Sample POST Request
-
-```json
-InputFormat=application/json&merchantId=81e77da2-723b-483d-8c0d-49f800c1xxxx&InputData={
-   "deliver":{
-      "OrderId":"7511951",
-      "Comment":"deliver to customer",
-      "DeliverDate":"2018/12/27",
-      "ShowComments":"true",
-      "ReceivedBy":"Tom",
-      "items":[
-         {
-            "ShipmentId":"5522069"
-         }
-		 {
-            "ShipmentId":""
-         }
-      ]
-   }
-}
-
-```
-
-
-
-> Sample Response
-
-```json
-{
-   "messageCode":"1004",
-   "Message":"Order No(s) ‘Order No '7511951' has been successfully moved to ‘Delivered Orders’.  AWB No:2323263626’ has (have) been successfully moved to ‘Dispatched Orders’.",
-   "ErrorCode":0
-}
-```
-
-
-
-### Resource Information
-| | |
---------- | ----------- |
-URI | `Order/Deliver/{merchantId}`
-Rate Limited? | No
-Authentication | Yes
-Response Formats | JSON
-HTTP Methods | POST
-Batch Support | No
-
-* **Rate limiter** controls the number of incoming and outgoing traffic of a network
-* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
-
-
-
-### Request URL
-
-`https://{host}/developerapi/Order/Deliver/{merchantId}`
-
-### Request Body Parameters
-
-Parameter | Type | Description
---------- | ---- | -----------
-orderID* | int | Unique id of the order that you want to deliver
-comment | string | Comment tracked for the delivery
-deliverDate | date | Date when the item is delivered
-showComments | enum | Whether to show the comment to the customer (on the order summary page)
-receivedBy | string | Person who received the order
-shipmentId* | int | Unique shipment id. You can pass multiple shipment ids as shown in the sample
-
-<aside class="notice"> All parameters marked by * are mandatory. </aside>
-
-
 ## Update Order Reference
 
 Updates external reference number of an order.
@@ -3916,7 +3772,7 @@ https://www.martjack.com/developerapi/Order/GetReturnRequest/f48fdd16-92db-4188-
 
 
 ```json
-{
+InputFormat=application/json&InputData={
   "messageCode": "1004",
   "Message": "Successful",
   "ReturnRequest": {

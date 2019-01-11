@@ -593,6 +593,116 @@ InputData={
 
 <aside class=notice>All parameters marked by * are mandatory.</aside>
 
+<h2 id="change-password-v2">Change Password (V2)</h2>
+
+<p>Lets you change password of a customer account.</p>
+
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
+<pre class="highlight html"><code>https://www.martjack.com/DeveloperAPI/Customer/v2/changePassword/81e77da2-723b-483d-8c0d-49f800c1exxx/f72da7b6-9566-4c99-b0e6-aa882e7acxxx
+</code></pre>
+<blockquote>
+<p>Sample POST Request</p>
+</blockquote>
+<pre class="highlight json"><code><span class="err">InputFormat=application/json&amp;InputData=</span><span class="p">{</span><span class="w">
+    </span><span class="nt">"OldPassword"</span><span class="p">:</span><span class="s2">"passwordOld"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"NewPassword"</span><span class="p">:</span><span class="s2">"passwordNew"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+
+</span></code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">  
+   </span><span class="nt">"messageCode"</span><span class="p">:</span><span class="s2">"1004"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"Message"</span><span class="p">:</span><span class="s2">"Your Password changed Successfully"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="mi">0</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td><code class="prettyprint">/Customer/v2/changePassword/{{merchantid}}/{[userid}}</code></td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>POST</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+</tbody></table>
+
+<ul>
+<li><strong>Rate limiter</strong> controls the number of incoming and outgoing traffic of a network</li>
+<li><strong>Authentication</strong> verifies the identity of the current user or integration. See Introduction &gt; Authentication (Merchant Setup on Admin Portal) for more details</li>
+</ul>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">https://{host}/developerapi/Customer/v2/changePassword/{{merchantid}}/{[userid}}</code></p>
+
+<h3 id="additional-header-required">Additional Header Required</h3>
+
+<table><thead>
+<tr>
+<th>Header</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>AccessToken*</td>
+<td>Access token of the logged in user that you want to logout</td>
+</tr>
+<tr>
+<td>APIversion*</td>
+<td>1</td>
+</tr>
+</tbody></table>
+
+<h3 id="request-path-parameters">Request Path Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>merchantId*</td>
+<td>string</td>
+<td>Unique GUID of the merchant</td>
+</tr>
+<tr>
+<td>userId*</td>
+<td>string</td>
+<td>Unique GUID of the user</td>
+</tr>
+</tbody></table>
+
 <h2 id="customer-login-with-otp">Customer Login (with OTP)</h2>
 
 <blockquote>
@@ -864,7 +974,7 @@ The customer has to be logged in to his account to perform to perform any task t
 </tr>
 </tbody></table>
 
-<h2 id="customer-login-with-third-party-provider">Customer Login with Third Party Provider</h2>
+<h2 id="customer-login-with-third-party-authentication">Customer Login (with Third Party Authentication)</h2>
 
 <p>Lets you login customers to the merchant store with a third party provider.</p>
 
@@ -1034,10 +1144,12 @@ The customer has to be logged in to his account to perform to perform any task t
 
 <h2 id="start-customer-session">Start Customer Session</h2>
 
+<p>Starts a new customer session and generates access token that can be used for making customer API calls.</p>
+
 <blockquote>
 <p>Sample Request</p>
 </blockquote>
-<pre class="highlight html"><code>
+<pre class="highlight html"><code>http://martjack.com/developerapi/Customer/6c57599f-2c43-4c82-806a-e07c3410f5d3/StartCustomerSession
 </code></pre>
 <blockquote>
 <p>Sample POST Request</p>
@@ -18897,6 +19009,247 @@ Batch Support | No</p>
 
 <aside class="notice">Any one among the above parameters is mandatory. Param with * is mandatory.</aside>
 
+<h2 id="get-return-request-details">Get Return Request Details</h2>
+
+<p>Retrieves the details of a specific return request.</p>
+
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
+<pre class="highlight html"><code>https://www.martjack.com/developerapi/Order/GetReturnRequest/f48fdd16-92db-4188-854d-1ecd9b62d066/211003
+
+</code></pre>
+<blockquote>
+<p>Sample POST Request</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"messageCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1004"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ReturnRequest"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"ReturnRequestId"</span><span class="p">:</span><span class="w"> </span><span class="mi">211003</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f48fdd16-92db-4188-854d-1ecd9b62d066"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ShipmentId"</span><span class="p">:</span><span class="w"> </span><span class="mi">5392397</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"OrderId"</span><span class="p">:</span><span class="w"> </span><span class="mi">7238823</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"InvoiceNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"invoice_hyc-00000460"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"DateInitiated"</span><span class="p">:</span><span class="w"> </span><span class="s2">"08-Oct-2018 07:45:12 AM"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"DateReceived"</span><span class="p">:</span><span class="w"> </span><span class="s2">"08-Oct-2018 07:47:27 AM"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"BillOfSupplyCreditNoteNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"TaxableCreditNoteNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HYCCNTV_009741"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"RequestStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"C"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"RequestType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"C"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"RefundStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"C"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"RefundedAmount"</span><span class="p">:</span><span class="w"> </span><span class="mf">113.66</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ConfirmedRefundAmount"</span><span class="p">:</span><span class="w"> </span><span class="mf">113.66</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"IncludeShippingCost"</span><span class="p">:</span><span class="w"> </span><span class="s2">"False"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"IsSelfShip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"False"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ReturnRequestDetail"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"ReturnRequestDetailId"</span><span class="p">:</span><span class="w"> </span><span class="mi">330945</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"ReturnRequestId"</span><span class="p">:</span><span class="w"> </span><span class="mi">211003</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"OrderItemId"</span><span class="p">:</span><span class="w"> </span><span class="mi">25601069</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"SuggestedReturnAction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RF"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BAQ"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"ReturnQty"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"IsReceived"</span><span class="p">:</span><span class="w"> </span><span class="s2">"True"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"ReceivedQty"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"MRP"</span><span class="p">:</span><span class="w"> </span><span class="mi">114</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"ProductPrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">113.66</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"PromotionDiscount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"UOM"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pieces"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"AverageWeight"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"IsTaxable"</span><span class="p">:</span><span class="w"> </span><span class="s2">"True"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"TaxDetails"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"TaxCategory"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SGST"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"TaxRate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"TaxAmount"</span><span class="p">:</span><span class="w"> </span><span class="mf">8.66</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"IsTaxRatePercentage"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"TaxCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SGI18"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"TaxCategoryID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3580"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"TaxCategory"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CGST"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"TaxRate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"TaxAmount"</span><span class="p">:</span><span class="w"> </span><span class="mf">8.66</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"IsTaxRatePercentage"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"TaxCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CGI18"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"TaxCategoryID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3578"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nt">"RefundAmount"</span><span class="p">:</span><span class="w"> </span><span class="mf">113.66</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"ConfirmedRefundAmount"</span><span class="p">:</span><span class="w"> </span><span class="mf">113.66</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"SKU"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100011145"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"VariantSKU"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"ProductID"</span><span class="p">:</span><span class="w"> </span><span class="mi">11995626</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"VariantProductID"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"ProductTitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nestle Milkmaid - 400g Tin"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"SubStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"'"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"SubStatusComments"</span><span class="p">:</span><span class="w"> </span><span class="s2">"'"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"RequestedPaymentMode"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"PaymentMode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GV"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"BankName"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"BranchName"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"IFSCCOde"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"AccountNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"AccountName"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"CityName"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"ReturnRequestPayments"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"ReturnRequestId"</span><span class="p">:</span><span class="w"> </span><span class="mi">211003</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"PaymentDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"08-Oct-2018 12:00:00 AM"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"PaymentMode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GV"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"ReferenceNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ref444333"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"113.66"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Remarks"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test333"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"BankName"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"IFSCCOde"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"AccountNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"AccountName"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"BranchName"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"PickupDetails"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"Address1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"kandavali malad west"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Address2"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"CountryCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IN"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"CountryName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"India"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"StateCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MH"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"StateName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Maharashtra"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"CityCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"554"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"CityName"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"PostCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"400064"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Email"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"FirstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Vijay "</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"LastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"91-9885296960"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"SubStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"SubStatusComments"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td><code class="prettyprint">Order/GetReturnRequest/{merchantId}/{returnRequestId}</code></td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>No</td>
+</tr>
+</tbody></table>
+
+<ul>
+<li><strong>Rate limiter</strong> controls the number of incoming and outgoing traffic of a network</li>
+<li><strong>Authentication</strong> verifies the identity of the current user or integration. See Introduction &gt; Authentication (Merchant Setup on Admin Portal) for more details</li>
+</ul>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">https://{host}/developerapi/Order/GetReturnRequest/{merchantId}/{returnRequestId}</code></p>
+
+<h3 id="request-query-parameters">Request Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>merchantId*</td>
+<td>string</td>
+<td>Unique GUID of the merchant</td>
+</tr>
+<tr>
+<td>returnRequestId*</td>
+<td>int</td>
+<td>Unique id of the return request that you want to fetch</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">All parameters marked by star are mandatory. </aside>
+
+<h3 id="response-parameters">Response Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>BillOfSupplyCreditNoteNumber</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Source</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>RequestStatus</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>RequestType</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>RefundStatus</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>IncludeShippingCost</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>IsSelfShip</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>SubStatus</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+
           <h1 id="pricelist">Pricelist</h1>
 
 <h2 id="update-pricelist">Update Pricelist</h2>
@@ -22534,7 +22887,7 @@ Batch Support | No</p>
 </tr>
 <tr>
 <td>1024</td>
-<td>PINode is not serviceable for the selected location</td>
+<td>PIN code is not serviceable for the selected location</td>
 </tr>
 <tr>
 <td>1025</td>
@@ -22574,7 +22927,7 @@ Batch Support | No</p>
 </tr>
 <tr>
 <td>1036</td>
-<td>No default return shelf found</td>
+<td>No default self return found</td>
 </tr>
 <tr>
 <td>1037</td>

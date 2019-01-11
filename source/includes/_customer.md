@@ -16,7 +16,7 @@ https://www.martjack.com/developerapi/Customer/12345678-1234-1234-1234-123456789
 > Sample POST Request
 
 ```json
-{  
+InputFormat=application/json&InputData={  
    "customer":{  
       "UserName":"tom.sawyer@capillarytech.com",
       "FirstName":"Tom",
@@ -176,7 +176,7 @@ https://www.martjack.com/developerapi/Customer/f48fdd16-92db-4188-854d-1ecd9b62x
 }
 ```
 
-Modifies the password of the customer current account. 
+Updates the password of the current customer account. 
 
 <aside class="notice"> No POST request payload is required for this API </aside>
 
@@ -214,7 +214,7 @@ newPassword* | string | New password that you want to have for the account
 
 ## Change Password (V2)
 
-Lets you change password of a customer account.
+Modifies the password of an existing customer account.
 
 
 > Sample Request
@@ -294,7 +294,7 @@ https://www.martjack.com/developerapi/Customer/81e77da2-723b-483d-8c0d-49f800c1e
 > Sample POST Request
 
 ```json
-{
+InputFormat=application/json&InputData={
 "OTP": "2222", 
 "UserName": 599999999
 }
@@ -387,7 +387,7 @@ https://www.martjack.com/developerapi/Customer/12345678-1234-1234-1234-123456789
 > Sample POST Request
 
 ```json
-{  
+InputFormat=application/json&InputData={  
    "username":"tom.sawyer@capillarytech.com",
    "password":"123456!"
 }
@@ -470,7 +470,7 @@ http://martjack.com/developerapi/Customer/9820eca5-d11f-4df1-9b20-983a45ea9631/L
 > Sample POST Request
 
 ```json
-{
+InputFormat=application/json&InputData={
    "provider":"gmail",
    "profileId":"example123",
    "email":"tom.sawyer@capillarytech.com",
@@ -556,7 +556,7 @@ issued_at | date-time | The date and time when the access token was generated fo
 
 ## Start Customer Session
 
-Starts a new customer session and generates access token that can be used for making customer API calls.
+Starts a new customer session and generates access token that can be used for making customer related API calls.
 
 > Sample Request
 
@@ -718,7 +718,7 @@ merchantId* | string | The unique id (GUID) of the merchant from which you want 
 
 ## Get Access Token
 
-> Sample POST Request
+> Sample Request
 
 ```html
  https://www.martjack.com/developerapi/Customer/GetAccessToken/6c57599f-2c43-4c82-806a-e07c3410xxx
@@ -785,7 +785,7 @@ issued_at | date-time | Date and time when the access token is generated
 
 ## Validate Access Token
 
-> Sample POST Request
+> Sample Request
 
 ```html
 https://www.martjack.com/developerapi/Customer/81e77da2-723b-483d-8c0d-49f800c1exxx/gmah4uer4x5clfm1pxczhxxx/ValidateToken
@@ -846,7 +846,7 @@ https://www.martjack.com/developerapi/Customer/f48fdd16-92db-4188-854d-1ecd9b62x
 > Sample POST Request
 
 ```json
-{  
+InputFormat=application/json&InputData={  
    "customerSearch":{  
       "UserName":"tom"
    }
@@ -1059,7 +1059,7 @@ https://www.martjack.com/developerapi/Customer/7c778337-4652-4944-934f-09e0fe56x
 > Sample POST Request
 
 ```json
-{  
+InputFormat=application/json&InputData={  
    "customer":{  
       "UserInfoId":"021e57ca-f19a-42c4-8214-180ad7202044",
       "UserId":"1142e724-0f59-4b43-ace6-f10e0e2fxxxx",
@@ -1166,7 +1166,7 @@ https://www.martjack.com/developerapi/Customer/7c778337-4652-4944-934f-09e0fe56x
 > Sample POST Request
 
 ```json
-{  
+InputFormat=application/json&InputData={  
    "UserProfile":{  
       "UserId":"3562a74e-1292-4d47-ba17-bc0a06af3xxx",
       "ProfileAttributes":{  
@@ -1238,7 +1238,7 @@ https://www.martjack.com/DeveloperAPI/Customer/AddShippingAddress/81e77da2-723b-
 > Sample POST Request
 
 ```json
-{  
+InputFormat=application/json&InputData={  
    "shippingaddress":{  
       "shippingaddressid":"0",
       "userId":"4cded968-8ee1-4591-a50b-41649387bxxx",
@@ -1259,7 +1259,7 @@ https://www.martjack.com/DeveloperAPI/Customer/AddShippingAddress/81e77da2-723b-
 
 ```
 
-> Sample POST Request
+> Sample Response
 
 ```json
 {

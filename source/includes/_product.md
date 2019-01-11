@@ -21,7 +21,7 @@ https://www.martjack.com/developerapi/product/UpdateLocationWiseStock
 
 
 ```json
-MerchantId="0639f7a6-34cc-48b2-9fd9-a80e2ed8xxxx"&InputFormat="application/json"&InputData={
+MerchantId=0639f7a6-34cc-48b2-9fd9-a80e2ed8xxxx&InputFormat=application/json&InputData={
 	"products": {
 		"product": {
 			"sku":"sku1234121",
@@ -109,7 +109,7 @@ Taskid | int | Unique id generated for the current update location task
 
 
 
-## Update Product Information (normal)
+## Update Product Information (normal product)
 
 > Sample Request
 
@@ -118,11 +118,11 @@ https://www.martjack.com/developerapi/product/UpdateProductInfo
 
 ```
 
-> Sample POST Request (for normal product)
+> Sample POST Request
 
 
 ```json
-MerchantId="0639f7a6-34cc-48b2-9fd9-a80e2ed8xxxx"&InputFormat="application/json"&InputData={  
+MerchantId=0639f7a6-34cc-48b2-9fd9-a80e2ed8xxxx&InputFormat=application/json&InputData={  
    "products":{  
       "product":[{  
          "sku":"458636",
@@ -352,7 +352,7 @@ https://www.martjack.com/developerapi/product/UpdateProductInfo
 
 
 ```json
-MerchantId="0639f7a6-34cc-48b2-9fd9-a80e2ed8xxxx"&InputFormat="application/json"&InputData={  
+MerchantId=0639f7a6-34cc-48b2-9fd9-a80e2ed8xxxx&InputFormat=application/json&InputData={  
    "products":{  
       "product":{  
          "sku":"458636",
@@ -656,13 +656,13 @@ taskid | int | Unique id generated for the current update task
 > Sample Request
 
 ```html
-https://www.martjack.com/developerapi/Product/Price/81e77da2-723b-483d-8c0d-49f800c1exxx/PZLG-WM
+https://www.martjack.com/developerapi/Product/Price/MerchantId=f48fdd16-92db-4188-854d-1ecd9b62e234/PZLG-WM
 ```
 
 > Sample POST Request
 
 ```json
-{
+InputFormat=application/json&MerchantId=f48fdd16-92db-4188-854d-1ecd9b62e234&ETAfor=ALL&InputData={
   "sku": "TEQUILA11547BLK",
   "variantsku": "11547BLK",
   "usergroupid": 67,
@@ -841,6 +841,7 @@ https://www.martjack.com/developerapi/Product/AttachImages/f48fdd16-92db-4188-85
 > Sample POST Request
 
 ```json
+MerchantId=f48fdd16-92db-4188-854d-1ecd9b62xxxx&InputFormat=application/json&InputData=
 [
   {
     "sku": "sku42134125",

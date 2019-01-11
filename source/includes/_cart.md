@@ -5,7 +5,7 @@ Cart keeps the record of the items that a customer selects from the merchant sto
 
 ## Send OTP
 
-> Sample POST Request
+> Sample Request
 
 ```html
 https://www.martjack.com/developerapi/carts/V2/SendOTP/81e77da2-723b-483d-8c0d-49f800c1exxx
@@ -14,7 +14,7 @@ https://www.martjack.com/developerapi/carts/V2/SendOTP/81e77da2-723b-483d-8c0d-4
 > Sample POST Request
 
 ```json
-{
+InputFormat=application/json&InputData={
   "customer": {
     "UserName": "tom.sawyer@example.com",
     "merchantId": "81e77da2-723b-483d-8c0d-49f800c1exxx",
@@ -93,7 +93,7 @@ https://www.martjack.com/developerapi/carts/V2/ValidateOTP/81e77da2-723b-483d-8c
 > Sample POST Request
 
 ```json
-{
+InputFormat=application/json&InputData={
 "OTP": "345432",
 "mobile": "7411000000"
 }	
@@ -147,7 +147,7 @@ https://www.martjack.com/developerapi/carts/AddCartItems/81e77da2-723b-483d-8c0d
 > Sample POST Request
 
 ```json
-{  
+InputFormat=application/json&InputData={  
    "cart":{  
       "DelveryMode":"H",
       "Item":[  
@@ -462,7 +462,7 @@ https://www.martjack.com/developerapi/carts/AddCartItems/81e77da2-723b-483d-8c0d
 > Sample POST Request
 
 ```json
-{
+InputFormat=application/json&InputData={
    "cart":{
       "ShipCity":"10773",
       "ShipCountry":"IN",
@@ -1389,7 +1389,7 @@ https://www.martjack.com/developerapi/carts/AddCartItems/81e77da2-723b-483d-8c0d
 > Sample POST Request
 
 ```json
-{
+InputFormat=application/json&InputData={
   "cart": {
     "ShipCity": "846",
     "ShipCountry": "KW",
@@ -2488,7 +2488,7 @@ https://www.martjack.com/developerapi/carts/AddCartItems/81e77da2-723b-483d-8c0d
 > Sample POST Request
 
 ```json
-{
+InputFormat=application/json&InputData={
   "cart": {
     "ShipCity": "",
     "ShipCountry": "",
@@ -3458,7 +3458,7 @@ https://www.martjack.com/developerapi/carts/UpdateCartProperties/81e77da2-723b-4
 > Sample POST Request
 
 ```json
-{  
+InputFormat=application/json&InputData={  
    "DeliverySlotID":415329,
    "DemandedDeliveryDate":"09-06-2018 15:15:00",
    "ShippingModeId":0,
@@ -3838,7 +3838,7 @@ https://www.martjack.com/developerapi/carts/UpdateCartProperties/81e77da2-723b-4
 > Sample POST Request
 
 ```json
-{
+InputFormat=application/json&InputData={
    "Cart":{
       "BillFirstName":"Tom Sawyer",
       "BillMobile":"",
@@ -4630,7 +4630,7 @@ https://www.martjack.com/developerapi/carts/GetAllPromotions/81e77da2-723b-483d-
 > Sample POST Request
 
 ```json
-{
+InputFormat=application/json&InputData={
   "locationcode": "btm",
   "deliverymode": "ship",
   "promotiontype": "cart",
@@ -5193,7 +5193,7 @@ https://www.martjack.com/developerapi/carts/SetDeliverySlot/81e77da2-723b-483d-8
 > Sample POST Request
 
 ```json
-{  
+InputFormat=application/json&InputData={  
    "DeliverySlotId":59849,
    "DeliveryDate":"08-31-2018 09:00:00"
 }
