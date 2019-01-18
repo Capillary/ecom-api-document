@@ -59,6 +59,7 @@ Authorization determines what permissions an authenticated identity has. To obta
 Authorization Type | OAuth 1.0 |
 PublicKey | ${PublicKey} |
 Consumer Secret | {app's secret value} |
+APIVersion | 3 |
 
 ### JWT Authentication
 **JSON Web Token (JWT) Authentication** is a new standard for creating token also called Token Based Authentication. This standard basically provides a set of rules for creating tokens in a very specific way, which makes tokens more useful for you in general.

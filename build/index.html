@@ -288,7 +288,7 @@ InputData={
 <blockquote>
 <p>Sample POST Request</p>
 </blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">  
+<pre class="highlight json"><code><span class="err">InputFormat=application/json&amp;InputData=</span><span class="p">{</span><span class="w">  
    </span><span class="nt">"customer"</span><span class="p">:{</span><span class="w">  
       </span><span class="nt">"UserName"</span><span class="p">:</span><span class="s2">"tom.sawyer@capillarytech.com"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"FirstName"</span><span class="p">:</span><span class="s2">"Tom"</span><span class="p">,</span><span class="w">
@@ -518,7 +518,7 @@ InputData={
    </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="mi">0</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Modifies the password of the customer current account. </p>
+<p>Updates the password of the current customer account. </p>
 
 <aside class="notice"> No POST request payload is required for this API </aside>
 
@@ -595,7 +595,7 @@ InputData={
 
 <h2 id="change-password-v2">Change Password (V2)</h2>
 
-<p>Lets you change password of a customer account.</p>
+<p>Modifies the password of an existing customer account.</p>
 
 <blockquote>
 <p>Sample Request</p>
@@ -713,7 +713,7 @@ InputData={
 <blockquote>
 <p>Sample POST Request</p>
 </blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
+<pre class="highlight json"><code><span class="err">InputFormat=application/json&amp;InputData=</span><span class="p">{</span><span class="w">
 </span><span class="nt">"OTP"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2222"</span><span class="p">,</span><span class="w"> 
 </span><span class="nt">"UserName"</span><span class="p">:</span><span class="w"> </span><span class="mi">599999999</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -859,7 +859,7 @@ The customer has to be logged in to his account to perform to perform any task t
 <blockquote>
 <p>Sample POST Request</p>
 </blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">  
+<pre class="highlight json"><code><span class="err">InputFormat=application/json&amp;InputData=</span><span class="p">{</span><span class="w">  
    </span><span class="nt">"username"</span><span class="p">:</span><span class="s2">"tom.sawyer@capillarytech.com"</span><span class="p">,</span><span class="w">
    </span><span class="nt">"password"</span><span class="p">:</span><span class="s2">"123456!"</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -986,7 +986,7 @@ The customer has to be logged in to his account to perform to perform any task t
 <blockquote>
 <p>Sample POST Request</p>
 </blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
+<pre class="highlight json"><code><span class="err">InputFormat=application/json&amp;InputData=</span><span class="p">{</span><span class="w">
    </span><span class="nt">"provider"</span><span class="p">:</span><span class="s2">"gmail"</span><span class="p">,</span><span class="w">
    </span><span class="nt">"profileId"</span><span class="p">:</span><span class="s2">"example123"</span><span class="p">,</span><span class="w">
    </span><span class="nt">"email"</span><span class="p">:</span><span class="s2">"tom.sawyer@capillarytech.com"</span><span class="p">,</span><span class="w">
@@ -1144,7 +1144,7 @@ The customer has to be logged in to his account to perform to perform any task t
 
 <h2 id="start-customer-session">Start Customer Session</h2>
 
-<p>Starts a new customer session and generates access token that can be used for making customer API calls.</p>
+<p>Starts a new customer session and generates access token that can be used for making customer related API calls.</p>
 
 <blockquote>
 <p>Sample Request</p>
@@ -1391,7 +1391,7 @@ The customer has to be logged in to his account to perform to perform any task t
 <h2 id="get-access-token">Get Access Token</h2>
 
 <blockquote>
-<p>Sample POST Request</p>
+<p>Sample Request</p>
 </blockquote>
 <pre class="highlight html"><code> https://www.martjack.com/developerapi/Customer/GetAccessToken/6c57599f-2c43-4c82-806a-e07c3410xxx
 </code></pre>
@@ -1499,7 +1499,7 @@ The customer has to be logged in to his account to perform to perform any task t
 <h2 id="validate-access-token">Validate Access Token</h2>
 
 <blockquote>
-<p>Sample POST Request</p>
+<p>Sample Request</p>
 </blockquote>
 <pre class="highlight html"><code>https://www.martjack.com/developerapi/Customer/81e77da2-723b-483d-8c0d-49f800c1exxx/gmah4uer4x5clfm1pxczhxxx/ValidateToken
 </code></pre>
@@ -1591,7 +1591,7 @@ The customer has to be logged in to his account to perform to perform any task t
 <blockquote>
 <p>Sample POST Request</p>
 </blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">  
+<pre class="highlight json"><code><span class="err">InputFormat=application/json&amp;InputData=</span><span class="p">{</span><span class="w">  
    </span><span class="nt">"customerSearch"</span><span class="p">:{</span><span class="w">  
       </span><span class="nt">"UserName"</span><span class="p">:</span><span class="s2">"tom"</span><span class="w">
    </span><span class="p">}</span><span class="w">
@@ -1910,7 +1910,7 @@ The customer has to be logged in to his account to perform to perform any task t
 <blockquote>
 <p>Sample POST Request</p>
 </blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">  
+<pre class="highlight json"><code><span class="err">InputFormat=application/json&amp;InputData=</span><span class="p">{</span><span class="w">  
    </span><span class="nt">"customer"</span><span class="p">:{</span><span class="w">  
       </span><span class="nt">"UserInfoId"</span><span class="p">:</span><span class="s2">"021e57ca-f19a-42c4-8214-180ad7202044"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"UserId"</span><span class="p">:</span><span class="s2">"1142e724-0f59-4b43-ace6-f10e0e2fxxxx"</span><span class="p">,</span><span class="w">
@@ -2079,7 +2079,7 @@ The customer has to be logged in to his account to perform to perform any task t
 <blockquote>
 <p>Sample POST Request</p>
 </blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">  
+<pre class="highlight json"><code><span class="err">InputFormat=application/json&amp;InputData=</span><span class="p">{</span><span class="w">  
    </span><span class="nt">"UserProfile"</span><span class="p">:{</span><span class="w">  
       </span><span class="nt">"UserId"</span><span class="p">:</span><span class="s2">"3562a74e-1292-4d47-ba17-bc0a06af3xxx"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"ProfileAttributes"</span><span class="p">:{</span><span class="w">  
@@ -2192,7 +2192,7 @@ The customer has to be logged in to his account to perform to perform any task t
 <blockquote>
 <p>Sample POST Request</p>
 </blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">  
+<pre class="highlight json"><code><span class="err">InputFormat=application/json&amp;InputData=</span><span class="p">{</span><span class="w">  
    </span><span class="nt">"shippingaddress"</span><span class="p">:{</span><span class="w">  
       </span><span class="nt">"shippingaddressid"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"userId"</span><span class="p">:</span><span class="s2">"4cded968-8ee1-4591-a50b-41649387bxxx"</span><span class="p">,</span><span class="w">
@@ -2213,7 +2213,7 @@ The customer has to be logged in to his account to perform to perform any task t
 
 </span></code></pre>
 <blockquote>
-<p>Sample POST Request</p>
+<p>Sample Response</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
     </span><span class="nt">"messageCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1004"</span><span class="p">,</span><span class="w">
@@ -2977,7 +2977,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <blockquote>
 <p>Sample POST Body</p>
 </blockquote>
-<pre class="highlight json"><code><span class="err">MerchantId=</span><span class="s2">"0639f7a6-34cc-48b2-9fd9-a80e2ed8xxxx"</span><span class="err">&amp;InputFormat=</span><span class="s2">"application/json"</span><span class="err">&amp;InputData=</span><span class="p">{</span><span class="w">
+<pre class="highlight json"><code><span class="err">MerchantId=</span><span class="mi">0639</span><span class="err">f</span><span class="mi">7</span><span class="err">a</span><span class="mi">6-34</span><span class="err">cc</span><span class="mi">-48</span><span class="err">b</span><span class="mi">2-9</span><span class="err">fd</span><span class="mi">9</span><span class="err">-a</span><span class="mi">80</span><span class="err">e</span><span class="mi">2</span><span class="err">ed</span><span class="mi">8</span><span class="err">xxxx&amp;InputFormat=application/json&amp;InputData=</span><span class="p">{</span><span class="w">
     </span><span class="nt">"products"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nt">"product"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="nt">"sku"</span><span class="p">:</span><span class="s2">"sku1234121"</span><span class="p">,</span><span class="w">
@@ -3130,7 +3130,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 </tr>
 </tbody></table>
 
-<h2 id="update-product-information-normal">Update Product Information (normal)</h2>
+<h2 id="update-product-information-normal-product">Update Product Information (normal product)</h2>
 
 <blockquote>
 <p>Sample Request</p>
@@ -3139,9 +3139,9 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 </code></pre>
 <blockquote>
-<p>Sample POST Request (for normal product)</p>
+<p>Sample POST Request</p>
 </blockquote>
-<pre class="highlight json"><code><span class="err">MerchantId=</span><span class="s2">"0639f7a6-34cc-48b2-9fd9-a80e2ed8xxxx"</span><span class="err">&amp;InputFormat=</span><span class="s2">"application/json"</span><span class="err">&amp;InputData=</span><span class="p">{</span><span class="w">  
+<pre class="highlight json"><code><span class="err">MerchantId=</span><span class="mi">0639</span><span class="err">f</span><span class="mi">7</span><span class="err">a</span><span class="mi">6-34</span><span class="err">cc</span><span class="mi">-48</span><span class="err">b</span><span class="mi">2-9</span><span class="err">fd</span><span class="mi">9</span><span class="err">-a</span><span class="mi">80</span><span class="err">e</span><span class="mi">2</span><span class="err">ed</span><span class="mi">8</span><span class="err">xxxx&amp;InputFormat=application/json&amp;InputData=</span><span class="p">{</span><span class="w">  
    </span><span class="nt">"products"</span><span class="p">:{</span><span class="w">  
       </span><span class="nt">"product"</span><span class="p">:[{</span><span class="w">  
          </span><span class="nt">"sku"</span><span class="p">:</span><span class="s2">"458636"</span><span class="p">,</span><span class="w">
@@ -3707,7 +3707,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <blockquote>
 <p>Sample POST Request</p>
 </blockquote>
-<pre class="highlight json"><code><span class="err">MerchantId=</span><span class="s2">"0639f7a6-34cc-48b2-9fd9-a80e2ed8xxxx"</span><span class="err">&amp;InputFormat=</span><span class="s2">"application/json"</span><span class="err">&amp;InputData=</span><span class="p">{</span><span class="w">  
+<pre class="highlight json"><code><span class="err">MerchantId=</span><span class="mi">0639</span><span class="err">f</span><span class="mi">7</span><span class="err">a</span><span class="mi">6-34</span><span class="err">cc</span><span class="mi">-48</span><span class="err">b</span><span class="mi">2-9</span><span class="err">fd</span><span class="mi">9</span><span class="err">-a</span><span class="mi">80</span><span class="err">e</span><span class="mi">2</span><span class="err">ed</span><span class="mi">8</span><span class="err">xxxx&amp;InputFormat=application/json&amp;InputData=</span><span class="p">{</span><span class="w">  
    </span><span class="nt">"products"</span><span class="p">:{</span><span class="w">  
       </span><span class="nt">"product"</span><span class="p">:{</span><span class="w">  
          </span><span class="nt">"sku"</span><span class="p">:</span><span class="s2">"458636"</span><span class="p">,</span><span class="w">
@@ -4353,12 +4353,12 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <blockquote>
 <p>Sample Request</p>
 </blockquote>
-<pre class="highlight html"><code>https://www.martjack.com/developerapi/Product/Price/81e77da2-723b-483d-8c0d-49f800c1exxx/PZLG-WM
+<pre class="highlight html"><code>https://www.martjack.com/developerapi/Product/Price/MerchantId=f48fdd16-92db-4188-854d-1ecd9b62e234/PZLG-WM
 </code></pre>
 <blockquote>
 <p>Sample POST Request</p>
 </blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
+<pre class="highlight json"><code><span class="err">InputFormat=application/json&amp;MerchantId=f</span><span class="mi">48</span><span class="err">fdd</span><span class="mi">16-92</span><span class="err">db</span><span class="mi">-4188-854</span><span class="err">d</span><span class="mi">-1</span><span class="err">ecd</span><span class="mi">9</span><span class="err">b</span><span class="mi">62</span><span class="err">e</span><span class="mi">234</span><span class="err">&amp;ETAfor=ALL&amp;InputData=</span><span class="p">{</span><span class="w">
   </span><span class="nt">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TEQUILA11547BLK"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"variantsku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11547BLK"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"usergroupid"</span><span class="p">:</span><span class="w"> </span><span class="mi">67</span><span class="p">,</span><span class="w">
@@ -4623,7 +4623,8 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <blockquote>
 <p>Sample POST Request</p>
 </blockquote>
-<pre class="highlight json"><code><span class="p">[</span><span class="w">
+<pre class="highlight json"><code><span class="err">MerchantId=f</span><span class="mi">48</span><span class="err">fdd</span><span class="mi">16-92</span><span class="err">db</span><span class="mi">-4188-854</span><span class="err">d</span><span class="mi">-1</span><span class="err">ecd</span><span class="mi">9</span><span class="err">b</span><span class="mi">62</span><span class="err">xxxx&amp;InputFormat=application/json&amp;InputData=</span><span class="w">
+</span><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="nt">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sku42134125"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"variants"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -6017,14 +6018,14 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <h2 id="send-otp">Send OTP</h2>
 
 <blockquote>
-<p>Sample POST Request</p>
+<p>Sample Request</p>
 </blockquote>
 <pre class="highlight html"><code>https://www.martjack.com/developerapi/carts/V2/SendOTP/81e77da2-723b-483d-8c0d-49f800c1exxx
 </code></pre>
 <blockquote>
 <p>Sample POST Request</p>
 </blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
+<pre class="highlight json"><code><span class="err">InputFormat=application/json&amp;InputData=</span><span class="p">{</span><span class="w">
   </span><span class="nt">"customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"UserName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tom.sawyer@example.com"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"merchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"81e77da2-723b-483d-8c0d-49f800c1exxx"</span><span class="p">,</span><span class="w">
@@ -6160,7 +6161,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <blockquote>
 <p>Sample POST Request</p>
 </blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
+<pre class="highlight json"><code><span class="err">InputFormat=application/json&amp;InputData=</span><span class="p">{</span><span class="w">
 </span><span class="nt">"OTP"</span><span class="p">:</span><span class="w"> </span><span class="s2">"345432"</span><span class="p">,</span><span class="w">
 </span><span class="nt">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7411000000"</span><span class="w">
 </span><span class="p">}</span><span class="w">   
@@ -6244,7 +6245,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <blockquote>
 <p>Sample POST Request</p>
 </blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">  
+<pre class="highlight json"><code><span class="err">InputFormat=application/json&amp;InputData=</span><span class="p">{</span><span class="w">  
    </span><span class="nt">"cart"</span><span class="p">:{</span><span class="w">  
       </span><span class="nt">"DelveryMode"</span><span class="p">:</span><span class="s2">"H"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"Item"</span><span class="p">:[</span><span class="w">  
@@ -6691,7 +6692,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <blockquote>
 <p>Sample POST Request</p>
 </blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
+<pre class="highlight json"><code><span class="err">InputFormat=application/json&amp;InputData=</span><span class="p">{</span><span class="w">
    </span><span class="nt">"cart"</span><span class="p">:{</span><span class="w">
       </span><span class="nt">"ShipCity"</span><span class="p">:</span><span class="s2">"10773"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"ShipCountry"</span><span class="p">:</span><span class="s2">"IN"</span><span class="p">,</span><span class="w">
@@ -7789,7 +7790,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <blockquote>
 <p>Sample POST Request</p>
 </blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
+<pre class="highlight json"><code><span class="err">InputFormat=application/json&amp;InputData=</span><span class="p">{</span><span class="w">
   </span><span class="nt">"cart"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"ShipCity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"846"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"ShipCountry"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KW"</span><span class="p">,</span><span class="w">
@@ -9029,7 +9030,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <blockquote>
 <p>Sample POST Request</p>
 </blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
+<pre class="highlight json"><code><span class="err">InputFormat=application/json&amp;InputData=</span><span class="p">{</span><span class="w">
   </span><span class="nt">"cart"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"ShipCity"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
     </span><span class="nt">"ShipCountry"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
@@ -10239,7 +10240,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <blockquote>
 <p>Sample POST Request</p>
 </blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">  
+<pre class="highlight json"><code><span class="err">InputFormat=application/json&amp;InputData=</span><span class="p">{</span><span class="w">  
    </span><span class="nt">"DeliverySlotID"</span><span class="p">:</span><span class="mi">415329</span><span class="p">,</span><span class="w">
    </span><span class="nt">"DemandedDeliveryDate"</span><span class="p">:</span><span class="s2">"09-06-2018 15:15:00"</span><span class="p">,</span><span class="w">
    </span><span class="nt">"ShippingModeId"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
@@ -10728,7 +10729,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <blockquote>
 <p>Sample POST Request</p>
 </blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
+<pre class="highlight json"><code><span class="err">InputFormat=application/json&amp;InputData=</span><span class="p">{</span><span class="w">
    </span><span class="nt">"Cart"</span><span class="p">:{</span><span class="w">
       </span><span class="nt">"BillFirstName"</span><span class="p">:</span><span class="s2">"Tom Sawyer"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"BillMobile"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
@@ -11788,7 +11789,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <blockquote>
 <p>Sample POST Request</p>
 </blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
+<pre class="highlight json"><code><span class="err">InputFormat=application/json&amp;InputData=</span><span class="p">{</span><span class="w">
   </span><span class="nt">"locationcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"btm"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"deliverymode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ship"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"promotiontype"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cart"</span><span class="p">,</span><span class="w">
@@ -12542,7 +12543,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <blockquote>
 <p>Sample POST Request</p>
 </blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">  
+<pre class="highlight json"><code><span class="err">InputFormat=application/json&amp;InputData=</span><span class="p">{</span><span class="w">  
    </span><span class="nt">"DeliverySlotId"</span><span class="p">:</span><span class="mi">59849</span><span class="p">,</span><span class="w">
    </span><span class="nt">"DeliveryDate"</span><span class="p">:</span><span class="s2">"08-31-2018 09:00:00"</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -14106,7 +14107,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <blockquote>
 <p>Sample POST Request</p>
 </blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">  
+<pre class="highlight json"><code><span class="err">MerchantID=</span><span class="mi">81</span><span class="err">e</span><span class="mi">77</span><span class="err">da</span><span class="mi">2-723</span><span class="err">b</span><span class="mi">-483</span><span class="err">d</span><span class="mi">-8</span><span class="err">c</span><span class="mi">0</span><span class="err">d</span><span class="mi">-49</span><span class="err">f</span><span class="mi">800</span><span class="err">c</span><span class="mi">1</span><span class="err">exxx&amp;InputFormat=application/json&amp;InputData</span><span class="p">{</span><span class="w">  
    </span><span class="nt">"PaymentOption"</span><span class="p">:</span><span class="s2">"COD"</span><span class="p">,</span><span class="w">
    </span><span class="nt">"PaymentType"</span><span class="p">:</span><span class="s2">"COD"</span><span class="p">,</span><span class="w">
    </span><span class="nt">"GateWayId"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
@@ -14566,7 +14567,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <blockquote>
 <p>Sample POST Request</p>
 </blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">  
+<pre class="highlight json"><code><span class="err">MerchantID=</span><span class="mi">81</span><span class="err">e</span><span class="mi">77</span><span class="err">da</span><span class="mi">2-723</span><span class="err">b</span><span class="mi">-483</span><span class="err">d</span><span class="mi">-8</span><span class="err">c</span><span class="mi">0</span><span class="err">d</span><span class="mi">-49</span><span class="err">f</span><span class="mi">800</span><span class="err">c</span><span class="mi">1</span><span class="err">exxx&amp;InputFormat=application/json&amp;InputData</span><span class="p">{</span><span class="w">  
    </span><span class="nt">"Transaction"</span><span class="p">:{</span><span class="w">  
       </span><span class="nt">"OrderID"</span><span class="p">:</span><span class="mi">3146000</span><span class="p">,</span><span class="w">
       </span><span class="nt">"ID"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
@@ -14744,7 +14745,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <blockquote>
 <p>Sample POST Request</p>
 </blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
+<pre class="highlight json"><code><span class="err">MerchantID=</span><span class="mi">81</span><span class="err">e</span><span class="mi">77</span><span class="err">da</span><span class="mi">2-723</span><span class="err">b</span><span class="mi">-483</span><span class="err">d</span><span class="mi">-8</span><span class="err">c</span><span class="mi">0</span><span class="err">d</span><span class="mi">-49</span><span class="err">f</span><span class="mi">800</span><span class="err">c</span><span class="mi">1</span><span class="err">exxx&amp;InputFormat=application/json&amp;InputData</span><span class="p">{</span><span class="w">
    </span><span class="nt">"PaymentOption"</span><span class="p">:</span><span class="s2">"OnlineBankTransfer"</span><span class="p">,</span><span class="w">
    </span><span class="nt">"PaymentType"</span><span class="p">:</span><span class="s2">"OnlineBankTrans"</span><span class="p">,</span><span class="w">
    </span><span class="nt">"OrderId"</span><span class="p">:</span><span class="mi">1894720</span><span class="p">,</span><span class="w">
@@ -14861,7 +14862,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <blockquote>
 <p>Sample POST Request</p>
 </blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
+<pre class="highlight json"><code><span class="err">MerchantID=</span><span class="mi">81</span><span class="err">e</span><span class="mi">77</span><span class="err">da</span><span class="mi">2-723</span><span class="err">b</span><span class="mi">-483</span><span class="err">d</span><span class="mi">-8</span><span class="err">c</span><span class="mi">0</span><span class="err">d</span><span class="mi">-49</span><span class="err">f</span><span class="mi">800</span><span class="err">c</span><span class="mi">1</span><span class="err">exxx&amp;InputFormat=application/json&amp;InputData=</span><span class="p">{</span><span class="w">
    </span><span class="nt">"orderId"</span><span class="p">:</span><span class="mi">3146765</span><span class="p">,</span><span class="w">
    </span><span class="nt">"orderItemId"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
    </span><span class="nt">"userId"</span><span class="p">:</span><span class="s2">"3cdd1838-7028-40c9-b5c2-bef371fexxxx"</span><span class="w">
@@ -15329,7 +15330,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <blockquote>
 <p>Sample POST Request</p>
 </blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">  
+<pre class="highlight json"><code><span class="err">MerchantID=</span><span class="mi">81</span><span class="err">e</span><span class="mi">77</span><span class="err">da</span><span class="mi">2-723</span><span class="err">b</span><span class="mi">-483</span><span class="err">d</span><span class="mi">-8</span><span class="err">c</span><span class="mi">0</span><span class="err">d</span><span class="mi">-49</span><span class="err">f</span><span class="mi">800</span><span class="err">c</span><span class="mi">1</span><span class="err">exxx&amp;InputFormat=application/json&amp;InputData=</span><span class="p">{</span><span class="w">  
    </span><span class="nt">"UserId"</span><span class="p">:</span><span class="s2">"94b5215f-28d4-44f5-a1db-c47c5e1c9477"</span><span class="p">,</span><span class="w">
    </span><span class="nt">"FromDate"</span><span class="p">:</span><span class="s2">"02-02-2018 16:08:45"</span><span class="p">,</span><span class="w">
    </span><span class="nt">"ToDate"</span><span class="p">:</span><span class="s2">"20-02-2018 23:59:45"</span><span class="w">
@@ -15836,23 +15837,20 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <blockquote>
 <p>Sample POST Request</p>
 </blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">  
+<pre class="highlight json"><code><span class="err">MerchantID=</span><span class="mi">81</span><span class="err">e</span><span class="mi">77</span><span class="err">da</span><span class="mi">2-723</span><span class="err">b</span><span class="mi">-483</span><span class="err">d</span><span class="mi">-8</span><span class="err">c</span><span class="mi">0</span><span class="err">d</span><span class="mi">-49</span><span class="err">f</span><span class="mi">800</span><span class="err">c</span><span class="mi">1</span><span class="err">exxx&amp;InputFormat=application/json&amp;InputData=</span><span class="p">{</span><span class="w">  
+   </span><span class="err">{</span><span class="w">  
    </span><span class="nt">"shipment"</span><span class="p">:{</span><span class="w">  
-      </span><span class="nt">"merchantId"</span><span class="p">:</span><span class="s2">"179efd4e-f62d-4d34-ac13-fe42605e5xxx"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"OrderId"</span><span class="p">:</span><span class="mi">123456</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"AWBNumber"</span><span class="p">:</span><span class="s2">"123"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"CourierName"</span><span class="p">:</span><span class="s2">"ARAMEX"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"ShipDate"</span><span class="p">:</span><span class="s2">"01-20-2018"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"OrderId"</span><span class="p">:</span><span class="s2">"7503709"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"LocationRefCode"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ShipDate"</span><span class="p">:</span><span class="s2">"2019/11/01"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"ShipmentType"</span><span class="p">:</span><span class="s2">"normal"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">" LocationRefCode"</span><span class="p">:</span><span class="s2">"12146"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"CourierName"</span><span class="p">:</span><span class="s2">"test"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"AWBNumber"</span><span class="p">:</span><span class="s2">"12345"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"lineitems"</span><span class="p">:[</span><span class="w">  
          </span><span class="p">{</span><span class="w">  
-            </span><span class="nt">"OrderLineId"</span><span class="p">:</span><span class="mi">466157049</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"Quantity"</span><span class="p">:</span><span class="mi">1</span><span class="w">
-         </span><span class="p">},</span><span class="w">
-         </span><span class="p">{</span><span class="w">  
-            </span><span class="nt">"OrderLineId"</span><span class="p">:</span><span class="mi">466157049</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"Quantity"</span><span class="p">:</span><span class="mi">2</span><span class="w">
+            </span><span class="nt">"OrderLineId"</span><span class="p">:</span><span class="s2">"26147149"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Weight"</span><span class="p">:</span><span class="s2">"3"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Quantity"</span><span class="p">:</span><span class="s2">"1"</span><span class="w">
          </span><span class="p">}</span><span class="w">
       </span><span class="p">],</span><span class="w">
       </span><span class="nt">"ShipmentTrip"</span><span class="p">:{</span><span class="w">  
@@ -15867,16 +15865,31 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
                </span><span class="nt">"Value"</span><span class="p">:</span><span class="s2">"9090000000"</span><span class="w">
             </span><span class="p">}</span><span class="w">
          </span><span class="p">]</span><span class="w">
-      </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"MerchantId"</span><span class="p">:</span><span class="s2">"fccabc5b-aa81-4346-b536-0fd6bc94c837"</span><span class="w">
    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <blockquote>
 <p>Sample Response</p>
 </blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">  
-   </span><span class="nt">"Message"</span><span class="p">:</span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
-   </span><span class="nt">"messageCode"</span><span class="p">:</span><span class="s2">"1004"</span><span class="w">
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"messageCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1004"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Shipments"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"LocationId"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ShipmentType"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ReceivedBy"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"DeliveredDate"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ShipmentId"</span><span class="p">:</span><span class="w"> </span><span class="mi">5516207</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"OrderId"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ServiceProvider"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"DocketNumber"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ShippingDate"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>Lets you create shipping details of a specific order (that is ready to ship).</p>
@@ -16483,7 +16496,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <blockquote>
 <p>Sample POST Request</p>
 </blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
+<pre class="highlight json"><code><span class="err">MerchantID=f</span><span class="mi">48</span><span class="err">fdd</span><span class="mi">16-92</span><span class="err">db</span><span class="mi">-4188-854</span><span class="err">d</span><span class="mi">-1</span><span class="err">ecd</span><span class="mi">9</span><span class="err">b</span><span class="mi">62</span><span class="err">d</span><span class="mi">066</span><span class="err">&amp;InputFormat=application/json&amp;InputData=</span><span class="p">{</span><span class="w">
    </span><span class="nt">"merchantId"</span><span class="p">:</span><span class="s2">"f48fdd16-92db-4188-854d-1ecd9b62d066"</span><span class="p">,</span><span class="w">
    </span><span class="nt">"OrderId"</span><span class="p">:</span><span class="s2">"6261090"</span><span class="p">,</span><span class="w">
    </span><span class="nt">"Comment"</span><span class="p">:</span><span class="s2">"Ordered wrong item"</span><span class="p">,</span><span class="w">
@@ -16594,7 +16607,7 @@ Batch Support | No</p>
 <blockquote>
 <p>Sample POST Request</p>
 </blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">  
+<pre class="highlight json"><code><span class="err">MerchantID=</span><span class="mi">98</span><span class="err">d</span><span class="mi">18</span><span class="err">d</span><span class="mi">82</span><span class="err">-ba</span><span class="mi">59-4957-9</span><span class="err">c</span><span class="mi">92-3</span><span class="err">f</span><span class="mi">89207</span><span class="err">a</span><span class="mi">3</span><span class="err">xxx&amp;InputFormat=application/json&amp;InputData=</span><span class="p">{</span><span class="w">  
    </span><span class="nt">"merchantId"</span><span class="p">:</span><span class="s2">"98d18d82-ba59-4957-9c92-3f89207a3xxx"</span><span class="p">,</span><span class="w">
    </span><span class="nt">"OrderId"</span><span class="p">:</span><span class="s2">"2658242"</span><span class="p">,</span><span class="w">
    </span><span class="nt">"Comment"</span><span class="p">:</span><span class="s2">"Test"</span><span class="p">,</span><span class="w">
@@ -16739,7 +16752,7 @@ Batch Support | No</p>
 <blockquote>
 <p>Sample POST Request</p>
 </blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">  
+<pre class="highlight json"><code><span class="err">InputFormat=application/json&amp;merchantId=f</span><span class="mi">48</span><span class="err">fdd</span><span class="mi">16-92</span><span class="err">db</span><span class="mi">-4188-854</span><span class="err">d</span><span class="mi">-1</span><span class="err">ecd</span><span class="mi">9</span><span class="err">b</span><span class="mi">62</span><span class="err">xxxx&amp;InputData=</span><span class="p">{</span><span class="w">    
    </span><span class="nt">"OrderId"</span><span class="p">:</span><span class="s2">"6071567"</span><span class="p">,</span><span class="w">
    </span><span class="nt">"ReturnRequestId"</span><span class="p">:</span><span class="s2">"72380"</span><span class="p">,</span><span class="w">
    </span><span class="nt">"ReturnChangeAction"</span><span class="p">:{</span><span class="w">  
@@ -16856,7 +16869,7 @@ Batch Support | No</p>
 <blockquote>
 <p>Sample POST Request</p>
 </blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
+<pre class="highlight json"><code><span class="err">InputFormat=application/json&amp;merchantId=f</span><span class="mi">48</span><span class="err">fdd</span><span class="mi">16-92</span><span class="err">db</span><span class="mi">-4188-854</span><span class="err">d</span><span class="mi">-1</span><span class="err">ecd</span><span class="mi">9</span><span class="err">b</span><span class="mi">62</span><span class="err">xxxx&amp;InputData=</span><span class="p">{</span><span class="w">
   </span><span class="nt">"CreateShipmentPackages"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"OrderID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6402591"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"ShipmentType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Normal"</span><span class="p">,</span><span class="w">
@@ -18536,234 +18549,6 @@ Batch Support | No</p>
 
 <aside class="notice"> All parameters marked by * are mandatory. </aside>
 
-<h2 id="dispatch-order">Dispatch Order</h2>
-
-<p>Updates order status from shipment created (Waiting for pickup) to dispatch</p>
-
-<blockquote>
-<p>Sample Request</p>
-</blockquote>
-<pre class="highlight html"><code>https://www.martjack.com/developerapi/Order/Dispatch/81e77da2-723b-483d-8c0d-49f800c1xxxx
-</code></pre>
-<blockquote>
-<p>Sample POST Request</p>
-</blockquote>
-<pre class="highlight json"><code><span class="err">InputFormat=application/json&amp;merchantId=</span><span class="mi">81</span><span class="err">e</span><span class="mi">77</span><span class="err">da</span><span class="mi">2-723</span><span class="err">b</span><span class="mi">-483</span><span class="err">d</span><span class="mi">-8</span><span class="err">c</span><span class="mi">0</span><span class="err">d</span><span class="mi">-49</span><span class="err">f</span><span class="mi">800</span><span class="err">c</span><span class="mi">1</span><span class="err">xxxx&amp;InputData=</span><span class="p">{</span><span class="w">
-   </span><span class="nt">"dispatch"</span><span class="p">:{</span><span class="w">
-      </span><span class="nt">"OrderId"</span><span class="p">:</span><span class="s2">"7539139"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"items"</span><span class="p">:[</span><span class="w">
-         </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"ShipmentId"</span><span class="p">:</span><span class="s2">"5537113"</span><span class="w">
-         </span><span class="p">}</span><span class="w">
-         </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"ShipmentId"</span><span class="p">:</span><span class="s2">""</span><span class="w">
-         </span><span class="p">}</span><span class="w">
-      </span><span class="p">]</span><span class="w">
-   </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-
-</span></code></pre>
-<blockquote>
-<p>Sample Response</p>
-</blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-   </span><span class="nt">"messageCode"</span><span class="p">:</span><span class="s2">"1004"</span><span class="p">,</span><span class="w">
-   </span><span class="nt">"Message"</span><span class="p">:</span><span class="s2">"Order No(s) ‘7539139’ has (have) been successfully moved to ‘Dispatched Orders’."</span><span class="p">,</span><span class="w">
-   </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="mi">0</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<h3 id="resource-information">Resource Information</h3>
-
-<table><thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead><tbody>
-<tr>
-<td>URI</td>
-<td><code class="prettyprint">Order/Dispatch/{merchantId}</code></td>
-</tr>
-<tr>
-<td>Rate Limited?</td>
-<td>No</td>
-</tr>
-<tr>
-<td>Authentication</td>
-<td>Yes</td>
-</tr>
-<tr>
-<td>Response Formats</td>
-<td>JSON</td>
-</tr>
-<tr>
-<td>HTTP Methods</td>
-<td>POST</td>
-</tr>
-<tr>
-<td>Batch Support</td>
-<td>No</td>
-</tr>
-</tbody></table>
-
-<ul>
-<li><strong>Rate limiter</strong> controls the number of incoming and outgoing traffic of a network</li>
-<li><strong>Authentication</strong> verifies the identity of the current user or integration. See Introduction &gt; Authentication (Merchant Setup on Admin Portal) for more details</li>
-</ul>
-
-<h3 id="request-url">Request URL</h3>
-
-<p><code class="prettyprint">https://{host}/developerapi/Order/Dispatch/{merchantId}</code></p>
-
-<h3 id="request-body-parameters">Request Body Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>orderID*</td>
-<td>int</td>
-<td>Unique id of the order that you want to dispatch</td>
-</tr>
-<tr>
-<td>shipmentId*</td>
-<td>int</td>
-<td>Unique shipment id of the item. You can pass multiple shipment ids of the order</td>
-</tr>
-</tbody></table>
-
-<aside class="notice"> All parameters marked by * are mandatory. </aside>
-
-<h2 id="deliver-order">Deliver Order</h2>
-
-<p>Updates order status from dispatch to deliver</p>
-
-<blockquote>
-<p>Sample Request</p>
-</blockquote>
-<pre class="highlight html"><code>https://www.martjack.com/developerapi/Order/Deliver/81e77da2-723b-483d-8c0d-49f800c1xxxx
-</code></pre>
-<blockquote>
-<p>Sample POST Request</p>
-</blockquote>
-<pre class="highlight json"><code><span class="err">InputFormat=application/json&amp;merchantId=</span><span class="mi">81</span><span class="err">e</span><span class="mi">77</span><span class="err">da</span><span class="mi">2-723</span><span class="err">b</span><span class="mi">-483</span><span class="err">d</span><span class="mi">-8</span><span class="err">c</span><span class="mi">0</span><span class="err">d</span><span class="mi">-49</span><span class="err">f</span><span class="mi">800</span><span class="err">c</span><span class="mi">1</span><span class="err">xxxx&amp;InputData=</span><span class="p">{</span><span class="w">
-   </span><span class="nt">"deliver"</span><span class="p">:{</span><span class="w">
-      </span><span class="nt">"OrderId"</span><span class="p">:</span><span class="s2">"7511951"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"Comment"</span><span class="p">:</span><span class="s2">"deliver to customer"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"DeliverDate"</span><span class="p">:</span><span class="s2">"2018/12/27"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"ShowComments"</span><span class="p">:</span><span class="s2">"true"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"ReceivedBy"</span><span class="p">:</span><span class="s2">"Tom"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"items"</span><span class="p">:[</span><span class="w">
-         </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"ShipmentId"</span><span class="p">:</span><span class="s2">"5522069"</span><span class="w">
-         </span><span class="p">}</span><span class="w">
-         </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"ShipmentId"</span><span class="p">:</span><span class="s2">""</span><span class="w">
-         </span><span class="p">}</span><span class="w">
-      </span><span class="p">]</span><span class="w">
-   </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-
-</span></code></pre>
-<blockquote>
-<p>Sample Response</p>
-</blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-   </span><span class="nt">"messageCode"</span><span class="p">:</span><span class="s2">"1004"</span><span class="p">,</span><span class="w">
-   </span><span class="nt">"Message"</span><span class="p">:</span><span class="s2">"Order No(s) ‘Order No '7511951' has been successfully moved to ‘Delivered Orders’.  AWB No:2323263626’ has (have) been successfully moved to ‘Dispatched Orders’."</span><span class="p">,</span><span class="w">
-   </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="mi">0</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<h3 id="resource-information">Resource Information</h3>
-
-<table><thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead><tbody>
-<tr>
-<td>URI</td>
-<td><code class="prettyprint">Order/Deliver/{merchantId}</code></td>
-</tr>
-<tr>
-<td>Rate Limited?</td>
-<td>No</td>
-</tr>
-<tr>
-<td>Authentication</td>
-<td>Yes</td>
-</tr>
-<tr>
-<td>Response Formats</td>
-<td>JSON</td>
-</tr>
-<tr>
-<td>HTTP Methods</td>
-<td>POST</td>
-</tr>
-<tr>
-<td>Batch Support</td>
-<td>No</td>
-</tr>
-</tbody></table>
-
-<ul>
-<li><strong>Rate limiter</strong> controls the number of incoming and outgoing traffic of a network</li>
-<li><strong>Authentication</strong> verifies the identity of the current user or integration. See Introduction &gt; Authentication (Merchant Setup on Admin Portal) for more details</li>
-</ul>
-
-<h3 id="request-url">Request URL</h3>
-
-<p><code class="prettyprint">https://{host}/developerapi/Order/Deliver/{merchantId}</code></p>
-
-<h3 id="request-body-parameters">Request Body Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>orderID*</td>
-<td>int</td>
-<td>Unique id of the order that you want to deliver</td>
-</tr>
-<tr>
-<td>comment</td>
-<td>string</td>
-<td>Comment tracked for the delivery</td>
-</tr>
-<tr>
-<td>deliverDate</td>
-<td>date</td>
-<td>Date when the item is delivered</td>
-</tr>
-<tr>
-<td>showComments</td>
-<td>enum</td>
-<td>Whether to show the comment to the customer (on the order summary page)</td>
-</tr>
-<tr>
-<td>receivedBy</td>
-<td>string</td>
-<td>Person who received the order</td>
-</tr>
-<tr>
-<td>shipmentId*</td>
-<td>int</td>
-<td>Unique shipment id. You can pass multiple shipment ids as shown in the sample</td>
-</tr>
-</tbody></table>
-
-<aside class="notice"> All parameters marked by * are mandatory. </aside>
-
 <h2 id="update-order-reference">Update Order Reference</h2>
 
 <p>Updates external reference number of an order.</p>
@@ -19022,7 +18807,7 @@ Batch Support | No</p>
 <blockquote>
 <p>Sample POST Request</p>
 </blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
+<pre class="highlight json"><code><span class="err">InputFormat=application/json&amp;InputData=</span><span class="p">{</span><span class="w">
   </span><span class="nt">"messageCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1004"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"ReturnRequest"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -19263,7 +19048,7 @@ Batch Support | No</p>
 <blockquote>
 <p>Sample POST Request</p>
 </blockquote>
-<pre class="highlight json"><code><span class="err">MerchantId=</span><span class="s2">"0639f7a6-34cc-48b2-9fd9-a80e2ed8xxxx"</span><span class="err">&amp;InputFormat=</span><span class="s2">"application/json"</span><span class="err">&amp;InputData=</span><span class="p">{</span><span class="w">  
+<pre class="highlight json"><code><span class="err">MerchantId=</span><span class="mi">0639</span><span class="err">f</span><span class="mi">7</span><span class="err">a</span><span class="mi">6-34</span><span class="err">cc</span><span class="mi">-48</span><span class="err">b</span><span class="mi">2-9</span><span class="err">fd</span><span class="mi">9</span><span class="err">-a</span><span class="mi">80</span><span class="err">e</span><span class="mi">2</span><span class="err">ed</span><span class="mi">8</span><span class="err">xxxx&amp;InputFormat=application/json&amp;InputData=</span><span class="p">{</span><span class="w">  
    </span><span class="nt">"pricelistitems"</span><span class="p">:{</span><span class="w">  
       </span><span class="nt">"pricelistiem"</span><span class="p">:{</span><span class="w">  
          </span><span class="nt">"sku"</span><span class="p">:</span><span class="s2">"zara1234121"</span><span class="p">,</span><span class="w">
@@ -19391,14 +19176,14 @@ Batch Support | No</p>
 <h2 id="add-shopping-list">Add Shopping List</h2>
 
 <blockquote>
-<p>Sample POST Request</p>
+<p>Sample Request</p>
 </blockquote>
 <pre class="highlight html"><code>https://www.martjack.com/developerapi/ShoppingList/add/81e77da2-723b-483d-8c0d-49f800c1exxx
 </code></pre>
 <blockquote>
 <p>Sample POST Request</p>
 </blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
+<pre class="highlight json"><code><span class="err">InputFormat=application/json&amp;InputData=</span><span class="p">{</span><span class="w">
    </span><span class="nt">"ShoppingList"</span><span class="p">:{</span><span class="w">
       </span><span class="nt">"UserId"</span><span class="p">:</span><span class="s2">"f4473f55-b6b0-4a4c-8ffa-fc1010abbb1f"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"ShoppingListName"</span><span class="p">:</span><span class="s2">"AWS1"</span><span class="p">,</span><span class="w">
@@ -19657,7 +19442,7 @@ Batch Support | No</p>
 <blockquote>
 <p>Sample POST Request</p>
 </blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
+<pre class="highlight json"><code><span class="err">InputFormat=application/json&amp;InputData=</span><span class="p">{</span><span class="w">
    </span><span class="nt">"ShoppingListView"</span><span class="p">:{</span><span class="w">
       </span><span class="nt">"UserId"</span><span class="p">:</span><span class="s2">"f4473f55-b6b0-4a4c-8ffa-fc1010abxxxx"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"merchantId"</span><span class="p">:</span><span class="s2">"81e77da2-723b-483d-8c0d-49f800c1xxxx"</span><span class="p">,</span><span class="w">
@@ -20519,7 +20304,7 @@ Batch Support | No</p>
 <blockquote>
 <p>Sample POST Request</p>
 </blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
+<pre class="highlight json"><code><span class="err">InputFormat=application/json&amp;MerchantId=f</span><span class="mi">48</span><span class="err">fdd</span><span class="mi">16-92</span><span class="err">db</span><span class="mi">-4188-854</span><span class="err">d</span><span class="mi">-1</span><span class="err">ecd</span><span class="mi">9</span><span class="err">b</span><span class="mi">62</span><span class="err">e</span><span class="mi">234</span><span class="err">&amp;ETAfor=ALL&amp;InputData=</span><span class="p">{</span><span class="w">
    </span><span class="nt">"StoreDeliveryAreaMappings"</span><span class="p">:{</span><span class="w">
       </span><span class="nt">"StoreDeliveryAreaMapping"</span><span class="p">:[</span><span class="w">
          </span><span class="p">{</span><span class="w">
@@ -20771,7 +20556,7 @@ Batch Support | No</p>
 <blockquote>
 <p>Sample POST Request</p>
 </blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">  
+<pre class="highlight json"><code><span class="err">InputFormat=application/json&amp;MerchantId=f</span><span class="mi">48</span><span class="err">fdd</span><span class="mi">16-92</span><span class="err">db</span><span class="mi">-4188-854</span><span class="err">d</span><span class="mi">-1</span><span class="err">ecd</span><span class="mi">9</span><span class="err">b</span><span class="mi">62</span><span class="err">e</span><span class="mi">234</span><span class="err">&amp;ETAfor=ALL&amp;InputData=</span><span class="p">{</span><span class="w">  
    </span><span class="nt">"LocationOpenandCloseTimings"</span><span class="p">:{</span><span class="w">  
       </span><span class="nt">"DelveryMode"</span><span class="p">:</span><span class="s2">"H"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"OpenLeadTime"</span><span class="p">:</span><span class="s2">"1"</span><span class="p">,</span><span class="w">
@@ -22417,7 +22202,7 @@ Batch Support | No</p>
 <pre class="highlight html"><code>https://www.martjack.com/developerapi/Location/Information/f48fdd16-92db-4188-854d-1ecd9b62e234/110/ALL
 </code></pre>
 <blockquote>
-<p>Sample POST Response</p>
+<p>Sample POST Request</p>
 </blockquote>
 <pre class="highlight json"><code><span class="err">InputFormat=application/json&amp;MerchantId=f</span><span class="mi">48</span><span class="err">fdd</span><span class="mi">16-92</span><span class="err">db</span><span class="mi">-4188-854</span><span class="err">d</span><span class="mi">-1</span><span class="err">ecd</span><span class="mi">9</span><span class="err">b</span><span class="mi">62</span><span class="err">e</span><span class="mi">234</span><span class="err">&amp;ETAfor=ALL&amp;InputData=</span><span class="p">{</span><span class="w">  
    </span><span class="nt">"LocationCode"</span><span class="p">:</span><span class="s2">"110"</span><span class="p">,</span><span class="w">
@@ -22795,7 +22580,7 @@ Batch Support | No</p>
 </tr>
 <tr>
 <td>1000</td>
-<td>Unhandled exception</td>
+<td>Unhandled exception. Please contact support desk</td>
 </tr>
 <tr>
 <td>1001</td>

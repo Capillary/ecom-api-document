@@ -966,6 +966,175 @@ PointsBurned | int |  The number of points redeemed for the transaction (if any)
 <aside class="notice"> All parameters marked by * are mandatory. </aside>
  
 
+
+
+## Search Orders
+
+Retrieves orders based on input parameters.
+
+> Sample Request
+ 
+```html
+https://www.martjack.com/Order/Search/1b3420ce-002f-4f66-bbda-cd0828aa2af8
+```
+
+> Sample POST Request
+
+```json
+MerchantId=1b3420ce-002f-4f66-bbda-cd0828aa2af8&InputFormat=application/json&InputData={
+  "OrderSearch": {
+    "Action": "",
+    "CheckOutType": "",
+    "DateFrom": "09\/15\/2017",
+    "DateTo": "09\/16\/2017",
+    "DateType": "",
+    "EmailID": "",
+    "FristName": "",
+    "LastName": "",
+    "MobileNo": "8801312595",
+    "OrderNo": "",
+    "OrderPriceFrom": "",
+    "OrderPriceTo": "",
+    "OrderStatus": "A",
+    "ProductSku": "",
+    "store": "all",
+    "ShippingCostFrom": "",
+    "ShippingCostTo": "",
+    "RecordFrom": 0,
+    "RecordTo": 2
+  }
+}
+```
+
+> Sample Response
+
+```json
+{  
+   "messageCode":"1004",
+   "Message":"Successful",
+   "Orders":[  
+      {  
+         "OrderId":5897350,
+         "Status":"A",
+         "MerchantId":"1b3420ce-002f-4f66-bbda-cd0828aa2af8",
+         "UserId":"41f01343-8771-4bdb-b066-5fadd7b6edbe",
+         "TotalAmount":200,
+         "AmountPayable":200,
+         "OrderDate":"/Date(1505501647000+0530)/",
+         "PaymentDetails":[  
+
+         ],
+         "Rewards":null,
+         "ShippingDiscount":0,
+         "VoucherDiscount":0,
+         "PromotionDiscount":0,
+         "GiftMessage":null,
+         "Promotions":null,
+         "SubStatus":"",
+         "OrderAttributes":null,
+         "SourceLocationID":null,
+         "SourceLocationCode":null,
+         "OrderDateLocal":null,
+         "AutoUpdateTime":"/Date(1547208085386+0530)/",
+         "TimeZone":null
+      },
+      {  
+         "OrderId":5897344,
+         "Status":"A",
+         "MerchantId":"1b3420ce-002f-4f66-bbda-cd0828aa2af8",
+         "UserId":"41f01343-8771-4bdb-b066-5fadd7b6edbe",
+         "TotalAmount":200,
+         "AmountPayable":200,
+         "OrderDate":"/Date(1505501453000+0530)/",
+         "PaymentDetails":[  
+
+         ],
+         "Rewards":null,
+         "ShippingDiscount":0,
+         "VoucherDiscount":0,
+         "PromotionDiscount":0,
+         "GiftMessage":null,
+         "Promotions":null,
+         "SubStatus":"",
+         "OrderAttributes":null,
+         "SourceLocationID":null,
+         "SourceLocationCode":null,
+         "OrderDateLocal":null,
+         "AutoUpdateTime":"/Date(1547208085386+0530)/",
+         "TimeZone":null
+      },
+      {  
+         "OrderId":5895476,
+         "Status":"A",
+         "MerchantId":"1b3420ce-002f-4f66-bbda-cd0828aa2af8",
+         "UserId":"41f01343-8771-4bdb-b066-5fadd7b6edbe",
+         "TotalAmount":200,
+         "AmountPayable":200,
+         "OrderDate":"/Date(1505456608000+0530)/",
+         "PaymentDetails":[  
+
+         ],
+         "Rewards":null,
+         "ShippingDiscount":0,
+         "VoucherDiscount":0,
+         "PromotionDiscount":0,
+         "GiftMessage":null,
+         "Promotions":null,
+         "SubStatus":"",
+         "OrderAttributes":null,
+         "SourceLocationID":null,
+         "SourceLocationCode":null,
+         "OrderDateLocal":null,
+         "AutoUpdateTime":"/Date(1547208085386+0530)/",
+         "TimeZone":null
+      }
+   ],
+   "ErrorCode":0
+}
+```
+ 
+### Resource Information
+
+| | |
+--------- | ----------- |
+URI | `order/Search/{merchantId}`
+Rate Limited? | No
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | POST
+Batch Support | No
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+### Request URL
+
+`https://{host}/developerapi/order/Search/{merchantId}`
+
+### Request Body Parameters
+Parameter | Type | Description
+--------- | ---- | -----------
+Action | 
+CheckOutType | 
+DateFrom | date | Search by order created duration in DateFrom - DateTo in `MM\/DD\/YYYY` format
+DateTo | date | Search by order created duration in DateFrom - DateTo in `MM\/DD\/YYYY` format
+DateType | 
+EmailID | string | Search orders of a specific customer by customer email id
+FristName | string | Search orders by customers' first name
+LastName | string | Search orders by customers' last name
+MobileNo | string | Search orders of a specific customer by mobile number
+OrderNo | | | 
+OrderPriceFrom | float | Search orders by price range in OrderPriceFrom and OrderPriceTo
+OrderPriceTo | float | Search orders by price range in OrderPriceFrom and OrderPriceTo
+OrderStatus | string | Search order by order status `P` for Pending, `A` for Authorized
+ProductSku | string | Search orders of a specific item. Pass the item SKU
+store | | all
+ShippingCostFrom | float | Search orders by shipping cost range between ShippingCostFrom and ShippingCostTo
+ShippingCostTo | float | Search orders by shipping cost range between ShippingCostFrom and ShippingCostTo
+RecordFrom | 
+RecordTo | 
+ 
+ 
  
 
  
@@ -1819,7 +1988,7 @@ http://www.martjack.com/DeveloperAPI/Order/Ship
 
 
 ```json
-MerchantID=81e77da2-723b-483d-8c0d-49f800c1exxx&InputFormat=application/json&InputData={  
+MerchantID=fccabc5b-aa81-4346-b536-0fd6bc94c837&InputFormat=application/json&InputData={  
    {  
    "shipment":{  
       "OrderId":"7503709",
@@ -3537,7 +3706,7 @@ IsPercentage | boolean | If true, tax rate is calculated on the percentage of th
 
 ## Balance Enquiry
 
-Retrieves the wallet balance of a customer from a specific service. 
+Retrieves the wallet balance of a customer of a specific service. For example, loyalty card, RazorPay and so on.
 
 > Sample Request
 
@@ -3548,8 +3717,14 @@ https://www.martjack.com/developerapi/Order/BalanceEnquiry/81e77da2-723b-483d-8c
 > Sample POST Request
 
 ```json
-provider=RazorPayWallet&userId=763e7615-5eb6-49a3-b0d4-e0fa571dd15e
-
+{
+   "merchantId": "276f9496-0e5c-4465-b9ce-784514788ae9",
+   "Provider": "RazorPayWallet",
+   "GatewayId": "34",
+   "UserId": "0d7ded82-fcf4-4931-9216-32a9cb85864e",
+   "CardNumber": "",
+   "CardPin": ""
+}
 ```
 
 
@@ -3557,7 +3732,16 @@ provider=RazorPayWallet&userId=763e7615-5eb6-49a3-b0d4-e0fa571dd15e
 > Sample Response
 
 ```json
-
+{  
+   "messageCode":"1004",
+   "Message":"Successful",
+   "BalanceEnquiryResponseView":{  
+      "Status":"1",
+      "Balance":"200",
+      "Code":"103",
+      "Message":""
+   }
+}
 ```
 
 
@@ -3580,6 +3764,9 @@ Batch Support | No
 ### Request URL
 
 `https://{host}/developerapi/Order/BalanceEnquiry/{merchantId}`
+
+
+
 
 
 
@@ -3920,11 +4107,12 @@ returnRequestId* | int | Unique id of the return request that you want to fetch
 
 Parameter | Type | Description
 --------- | ---- | -----------
-BillOfSupplyCreditNoteNumber | | 
-Source |  | 
-RequestStatus | |  
-RequestType |  | 
-RefundStatus |  | 
-IncludeShippingCost | |  
-IsSelfShip |  | 
-SubStatus |  | 
+BillOfSupplyCreditNoteNumber | string | Credit Note will be generated for any customer returned item received at the merchant warehouse.  Non-taxable items will have "Bill of supply Credit note number" 
+TaxableCreditNoteNumber | string | Credit Note will be generated for any customer returned item received to merchant warehouse. Taxable Items will have this "Taxable credit note number"
+Source | int | values from 1-5. Source from which the return request is made. Example, `1` stands for storefront
+RequestStatus | enum | Current status of the return request. Values: `I` for initiated, `C` for closed
+RequestType | enum | Type of the return request. `R` for return to origin (RTO) `C` for customer return and `CU` for Return created due to item cancellation
+RefundStatus | enum | Current status of the refund. Values: `I` for initiated, `C` for closed
+IncludeShippingCost | enum | `Yes` if the shipping cost is included in the return item, `No` if shipping cost is not included 
+IsSelfShip | enum | ‘Yes` if the user will ship the return package to the merchant, `No`, if the merchant has to pickup the package from the user
+SubStatus | string | The sub-status code of the return request
