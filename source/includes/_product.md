@@ -253,75 +253,75 @@ BrandID* | string | Unique id of the brand associated to the product
 ProductTitle* | string | Title of the product to appear on the product's page
 ProductType* | string | Type of the product. Values: `P` for a normal product, `A` for an add-on products, and `B` for a bundle product or deal product
 CategoryRefCode | string | Reference code of the product category
-Inventory | int |  The number of available products of the current SKU (stock)
+Inventory | int |  The number of available products of the current SKU (quantity)
 MRP | float  | Retail price of the product
-Webprice | float | Selling price of the product on the storefront
-Availability | string | Specify the availability of the product. Values: `Y` if available, `N` if unavailable
+Webprice | float | Selling price of the product on the storefront. Cannot be more than MRP
+Availability | string | Specify Y` if the product is in stock, `N` if unavailable
 BarCode | string | Bar code of the product
-SmallImage | string | Source image of the product -  small size (supported formats: .png, jpg,jpeg, .svc, and .gif)
-LargeImage | string | Source image of the product - large size (supported formats: .png, jpg,jpeg, .svc, and .gif)
-ShortDescription | string | Short description of the product. This will appear on the product showcase page
-ProductDescription | string | Description of the product. This will appear on the product page
-PaymentOptionOnline | enum | Specify `Y` if online payment is supported for the product; `N` if not supported
+SmallImage | string | Source image of the product's small image (100*100) shown in the product showcase. Required if the Custom Type of image is not defined and Extended Properties section of that Product Showcase is not configured accordingly. Supported formats: .png, jpg,jpeg, .svc, and .gif
+LargeImage | string | Source image of the product's large image (300*300) shown on the product details page of the storefront. Supported formats: .png, jpg,jpeg, .svc, and .gif
+ShortDescription | string | Brief description of the product within 500 characters. This will appear on the product details page
+ProductDescription | string | Detailed description of the product which will appear in the Description tab of the product page. Supports up to 50000 characters
+PaymentOptionOnline | enum | Specify `Y` if the product can be purchased online through options such as Credit Card,Debit Card, and Net Banking, `N` if not supported
 PaymentOptionChequeOrDD |enum | Specify `Y` if payment through cheque or DD is supported for the product; `N` if not supported
 PaymentOptionBankTransfer | enum | Specify `Y` if payment through online bank transfer is supported for the product; `N` if not supported
 PaymentOptionCOD | enum | Specify `Y` if cash on delivery is supported for the product; `N` if not supported
-DeliveryOptionShip | enum | Specify `Y` if the product is available for shipping, `N` if not
-DeliveryOptionOffline | enum | pecify `Y` if the product can be purchased offline else specify `N`
-DeliveryOptionOnline | enum | Specify `Y` to allow delivery online such as donations, mobile recharges, gift cards, softwares etc, else specify `N`
-DeliveryOptionInStorePickup | enum | Specify `Y` if the product is available in Store for pick up, else specify `N`
-LocationBased | enum | Specify `Y` if the shipping price is on location basis, Specify `N` for common shipping price to all locations
+DeliveryOptionShip | enum | Specify `Y` if the product is available for shipping, `N` if cannot be shipped
+DeliveryOptionOffline | enum | Specify `Y` 
+DeliveryOptionOnline | enum | Specify `Y` for online delivery products such as such as movies, music, ringtones, donations, mobile recharges, gift cards, softwares etc, else specify `N`
+DeliveryOptionInStorePickup | enum | Specify `Y` if store pick up is supported for the product, else specify `N`
+LocationBased | enum | Specify `Y` if the product inventory needs to be considered as per the shipping location or store, else specify `N`
 ShippingCode | enum | The code of the the type of shipping charges. Most commonly used: flat, india, international, surfaceways, airways
 TaxCode | string | The tax code applicable for the product. Tax code have configured in the CP first. You can associate the relevant value here
 DeliveryTime  | string | The estimated delivery time to be shown on the product page. Example: This product will be delivered in 7 days from the date of order
-CatalogSequence | int | Rank of the product to show up on the storefront
+CatalogSequence | int | Sequence of the product to show up on the storefront
 ProductWeight | float | Weight of the product
 BankProductId | string | System generated id for the product source
 OfferProductDescription | string | .xml file name related to the product offer. Use for sale items
 OfferProductImage | string | Preferred image of the offer product (supported formats: .png, jpg,jpeg, .svc, and .gif)
-PageTitle | string | Title of the product you prefer for SEO
-Keywords | string | Preferred search keyword for the product
+PageTitle | string | Title of the product you prefer to appear in the search results for SEO
+Keywords | string | Preferred meta tag search keyword for the product
 KeywordDescription | | Description of the specified search keyword
 SEOURL | string | The redirect URL when searched on Google
 SmallImageAltText | string | The mouse hover text for small image
 LargeImageAltText | string | The mouse hover text for large image 
 StartDate | date | From when the product has to be displayed on the storefront in `DD/MM/YY` format
 EndDate | date | Until when you want to show the product on the storefront in `DD/MM/YY` format
-StartTime | time | The time from when you want to show on the storefront on the specified start date. Format: `HH:MM:SS`
-EndTime | time | The time from when you want to stop showing the product on the storefront on the specified end date. Format: `HH:MM:SS`
-PeriodicityType | enum | Use this to show items on the storefront specific days. Values: Monthly, Weekly, oneTime  
-PeriodicityRange | string | The days when you want to show the product. For example: in monthly, 1-30 to show on all days of a month, in weekly you can have 1, 3, 5, to display of Sun, Tue, and Thu respectively.  No value is required for `oneTime`. To pass multiple days, use comma separated values. For example, 1,2,5,10
+StartTime | time | The time (on the StartDate) from when you want to show the product on the storefront. Format: `HH:MM:SS`
+EndTime | time | The time (on the EndDate) from when you want to stop showing the product on the storefront on the specified end date. Format: `HH:MM:SS`
+PeriodicityType | enum | Use this to set the time frame when you want to show the product on the storefront. Values: Monthly, Weekly, oneTime  
+PeriodicityRange | string | The days when you want to show the product based on the PeriodicityType. For example: for `Monthly`, you can set 1-30 to show on all days of a month, in weekly you can have 1, 3, 5, to display of Sun, Tue, and Thu respectively.  No value is required for `oneTime`. To pass multiple days, use comma separated values. For example, 1,2,5,10. You can either pass as 1-5, or 1, 2, 3, 4, 5 and so on. Not required for onetime
 ShowExpired | enum | Y, N. To show if the product has to be displayed irrespective of the periodicityRange
 UOM | enum | Unit of measurement of the product. Values: ltrs, kgs, gms, pieces
-LBH | string | Dimensions of the product (Length*Bredth*Height) or the product volume
+LBH | string | Dimensions of the product (Length*Breadth*Height) or the product volume
 BuyingWeight | float | Weight of the product as per the specified UOM. For example, if UOM is kgs then it will consider the specified value in kilo grams
-PkgQty | int |  Quantity of the product in each package
+PkgQty | int |  Lot size (package quantity) of the product that can be purchased. Customer can buy the product only in multiples of the specified `PkgQuantity`
 MinimumOrderQuantity | int | Minimum allowed product quantity per order
 MaximumOrderQuantity | int | Maximum allowed product quantity per order
-PreOrder | enum | Specify `Y` to allow the product booking in advance, else, specify `N`
-BackOrder | enum | Specify `Y` if you want to allow users to place orders even in no stock (0). Specify `N` to disable ordering in case of out of stock
-StockAvailableMessage | string | Specify the stock availability message to show on the priduct page when it goes out of stock. For example, "Stock will be available in 2 days"
+PreOrder | enum | Preorder facilitates booking or reserving an item in advance, usually prebooking new products even before it is launched. Specify `Y` to allow the product booking in advance, else, specify `N`
+BackOrder | enum |Backorder lets users to place an order even if the product is out of stock. Specify `Y` if you want to allow users to place orders even in no stock (0). Specify `N` to disable ordering in case of out of stock
+StockAvailableMessage | string | Specify the stock availability message to show on the product page when it goes out of stock. For example, "Stock will be available in 2 days"
 ProductCondition | enum | Current condition of the product. Value: New, Used
-Warrantybearer | enum | Warranty bearer. Value: No Warranty, Manufacturer
-WarrantyInMonths | int | Warranty period in months
-ReserveQuantity | int | Quantity of items the merchant can reserve in order to fulfill loyal customers
+Warrantybearer | enum | Warranty bearer. Value: No Warranty, Manufacturer, Dealer
+WarrantyInMonths | int | Warranty period in months (if Warrantybearer is Manufacturer or Dealer)
+ReserveQuantity | int | Quantity of items the merchant needs to reserve for special purposes. For example, merchant could reserve some products to fulfill for loyalty customers
 StockAlertQuantity | int | Sends an alert when the quantity of the product is less than this value
 BarCode | string | Barcode of the product. You can pass comma separated values in case of multiple bar codes
-ModelNumber | string | Model number of the product
-CatalogCode | string | Classification code of the product in catalogue
+ModelNumber | string | Model number of the product (if applicable)
+CatalogCode | string | Catelogue code of the product (if any)
 PurchaseDate | date | Required for the used product. Date when the used product is purchased in `MM:DD:YY` format
-ProductNote | string | Additional information to mention about the product
-FormCode | enum | Predefined form codes for deal products
+ProductNote | string | Additional information to mention about the product for internal reference
+FormCode | enum | Predefined form codes for deal products. Ad-hoc Forms allow you to create customised web forms with a number of custom fields and you can use them to receive customized orders from end-users. 
 CheckoutWithTokenPrice | enum | Specify `Y` to enable checkout with token price (preorder amount)
 TokenPrice | float | The token amount required for preorder (if `CheckoutWithTokenPrice` is enabled)
 CostPrice | float | The cost price of the product
-HidePrice | enum | Specify `Y` to hide the price on the storefront, `N` to show the product price
-StdProductCode | int | HSN (Homogeneous Serial Number) of the product
-MPN | string | Manufacturer's product number
+HidePrice | enum | Specify `Y` to hide the price on the storefront, `N` to show the product price. You can show 'Price on Request' Call for Action to reveal the price on customer requests
+StdProductCode | int | For international standard product, specify the HSN (Homogeneous Serial Number) of the product as per the chosen standard product type
+MPN | string | Manufacturer's part number - A unique part number given by the manufacturer of the product
 Vendor | enum | Vendor name associated to the measurement for the product (Predefined vendor)
-VendorSKU | string | SKU of the product in the vendor system
-StdProductType | enum | HSN of the product type. Values: UPC, EAN, GTIN, ASIIN, ISBN10, ISBN13
-FulfillmentServiceRefCode | string | Reference code of the order fulfillment location
+VendorSKU | string | SKU of the product in the vendor system for supplier product
+StdProductType | enum | For international standard products, specify the type of identification or HSN of the product type. Values: `UPC` (Universal Product Code), `EAN` (European Article Numbering), `GTIN`  (Global Trade Item Number), `ASIIN`  (Amazon Standard Identification Number), `ISBN10`, `ISBN13` (International Standard Book Number)
+FulfillmentServiceRefCode | string | Reference code of the order fulfillment service. These services are required for the fulfillment of a deal or online product deliveries such as music, ringtones, movies. It's mandatory for Local Deals
 
 <aside class="notice"> All parameters marked by * are mandatory.</aside>
 
@@ -570,75 +570,75 @@ BrandID* | string | Unique id of the brand associated to the product
 ProductTitle* | string | Title of the product to appear on the product's page
 ProductType* | string | Type of the product. Values: `P` for a normal product, `A` for an add-on products, and `B` for a bundle product or deal product
 CategoryRefCode | string | Reference code of the product category
-Inventory | int |  The number of available products of the current SKU (stock)
+Inventory | int |  The number of available products of the current SKU (quantity)
 MRP | float  | Retail price of the product
-Webprice | float | Selling price of the product on the storefront
-Availability | string | Specify the availability of the product. Values: `Y` if available, `N` if unavailable
+Webprice | float | Selling price of the product on the storefront. Cannot be more than MRP
+Availability | string | Specify Y` if the product is in stock, `N` if unavailable
 BarCode | string | Bar code of the product
-SmallImage | string | Source image of the product -  small size (supported formats: .png, jpg,jpeg, .svc, and .gif)
-LargeImage | string | Source image of the product - large size (supported formats: .png, jpg,jpeg, .svc, and .gif)
-ShortDescription | string | Short description of the product. This will appear on the product showcase page
-ProductDescription | string | Description of the product. This will appear on the product page
-PaymentOptionOnline | enum | Specify `Y` if online payment is supported for the product; `N` if not supported
+SmallImage | string | Source image of the product's small image (100*100) shown in the product showcase. Required if the Custom Type of image is not defined and Extended Properties section of that Product Showcase is not configured accordingly. Supported formats: .png, jpg,jpeg, .svc, and .gif
+LargeImage | string | Source image of the product's large image (300*300) shown on the product details page of the storefront. Supported formats: .png, jpg,jpeg, .svc, and .gif
+ShortDescription | string | Brief description of the product within 500 characters. This will appear on the product details page
+ProductDescription | string | Detailed description of the product which will appear in the Description tab of the product page. Supports up to 50000 characters
+PaymentOptionOnline | enum | Specify `Y` if the product can be purchased online through options such as Credit Card,Debit Card, and Net Banking, `N` if not supported
 PaymentOptionChequeOrDD |enum | Specify `Y` if payment through cheque or DD is supported for the product; `N` if not supported
 PaymentOptionBankTransfer | enum | Specify `Y` if payment through online bank transfer is supported for the product; `N` if not supported
 PaymentOptionCOD | enum | Specify `Y` if cash on delivery is supported for the product; `N` if not supported
-DeliveryOptionShip | enum | Specify `Y` if the product is available for shipping, `N` if not
-DeliveryOptionOffline | enum | pecify `Y` if the product can be purchased offline else specify `N`
-DeliveryOptionOnline | enum | Specify `Y` to allow delivery online such as donations, mobile recharges, gift cards, softwares etc, else specify `N`
-DeliveryOptionInStorePickup | enum | Specify `Y` if the product is available in Store for pick up, else specify `N`
-LocationBased | enum | Specify `Y` if the shipping price is on location basis, Specify `N` for common shipping price to all locations
+DeliveryOptionShip | enum | Specify `Y` if the product is available for shipping, `N` if cannot be shipped
+DeliveryOptionOffline | enum | Specify `Y` 
+DeliveryOptionOnline | enum | Specify `Y` for online delivery products such as such as movies, music, ringtones, donations, mobile recharges, gift cards, softwares etc, else specify `N`
+DeliveryOptionInStorePickup | enum | Specify `Y` if store pick up is supported for the product, else specify `N`
+LocationBased | enum | Specify `Y` if the product inventory needs to be considered as per the shipping location or store, else specify `N`
 ShippingCode | enum | The code of the the type of shipping charges. Most commonly used: flat, india, international, surfaceways, airways
-TaxCode | string | The tax code applicable for the product. Tax code should have configured in the CP first and then you can associate relevant value here
+TaxCode | string | The tax code applicable for the product. Tax code have configured in the CP first. You can associate the relevant value here
 DeliveryTime  | string | The estimated delivery time to be shown on the product page. Example: This product will be delivered in 7 days from the date of order
-CatalogSequence | int | Rank of the product to show up on the storefront
+CatalogSequence | int | Sequence of the product to show up on the storefront
 ProductWeight | float | Weight of the product
 BankProductId | string | System generated id for the product source
 OfferProductDescription | string | .xml file name related to the product offer. Use for sale items
 OfferProductImage | string | Preferred image of the offer product (supported formats: .png, jpg,jpeg, .svc, and .gif)
-PageTitle | string | Title of the product you prefer for SEO
-Keywords | string | Preferred search keyword for the product
+PageTitle | string | Title of the product you prefer to appear in the search results for SEO
+Keywords | string | Preferred meta tag search keyword for the product
 KeywordDescription | | Description of the specified search keyword
 SEOURL | string | The redirect URL when searched on Google
 SmallImageAltText | string | The mouse hover text for small image
 LargeImageAltText | string | The mouse hover text for large image 
 StartDate | date | From when the product has to be displayed on the storefront in `DD/MM/YY` format
 EndDate | date | Until when you want to show the product on the storefront in `DD/MM/YY` format
-StartTime | time | The time from when you want to show on the storefront on the specified start date. Format: `HH:MM:SS`
-EndTime | time | The time from when you want to stop showing the product on the storefront on the specified end date. Format: `HH:MM:SS`
-PeriodicityType | enum | Use this to show items on the storefront specific days. Values: Monthly, Weekly, oneTime  
-PeriodicityRange | string | The days when you want to show the product. For example: in monthly, 1-30 to show on all days of a month, in weekly you can have 1, 3, 5, to display of Sun, Tue, and Thu respectively.  No value is required for `oneTime`. To pass multiple days, use comma separated values. For example, 1,2,5,10
+StartTime | time | The time (on the StartDate) from when you want to show the product on the storefront. Format: `HH:MM:SS`
+EndTime | time | The time (on the EndDate) from when you want to stop showing the product on the storefront on the specified end date. Format: `HH:MM:SS`
+PeriodicityType | enum | Use this to set the time frame when you want to show the product on the storefront. Values: Monthly, Weekly, oneTime  
+PeriodicityRange | string | The days when you want to show the product based on the PeriodicityType. For example: for `Monthly`, you can set 1-30 to show on all days of a month, in weekly you can have 1, 3, 5, to display of Sun, Tue, and Thu respectively.  No value is required for `oneTime`. To pass multiple days, use comma separated values. For example, 1,2,5,10. You can either pass as 1-5, or 1, 2, 3, 4, 5 and so on. Not required for onetime
 ShowExpired | enum | Y, N. To show if the product has to be displayed irrespective of the periodicityRange
-UOM | enum | Unit of measurement of the product. Values: ltrs, kgs, gms
-LBH | string | Dimensions of the product (Length*Bredth*Height) or the product volume
+UOM | enum | Unit of measurement of the product. Values: ltrs, kgs, gms, pieces
+LBH | string | Dimensions of the product (Length*Breadth*Height) or the product volume
 BuyingWeight | float | Weight of the product as per the specified UOM. For example, if UOM is kgs then it will consider the specified value in kilo grams
-PkgQty | int |  Quantity of the product in each package
+PkgQty | int |  Lot size (package quantity) of the product that can be purchased. Customer can buy the product only in multiples of the specified `PkgQuantity`
 MinimumOrderQuantity | int | Minimum allowed product quantity per order
 MaximumOrderQuantity | int | Maximum allowed product quantity per order
-PreOrder | enum | Specify `Y` to allow the product booking in advance, else, specify `N`
-BackOrder | enum | Specify `Y` if you want to allow users to place orders even in no stock (0). Specify `N` to disable ordering in case of out of stock
-StockAvailableMessage | string | Specify the stock availability message to show on the priduct page when it goes out of stock. For example, "Stock will be available in 2 days"
+PreOrder | enum | Preorder facilitates booking or reserving an item in advance, usually prebooking new products even before it is launched. Specify `Y` to allow the product booking in advance, else, specify `N`
+BackOrder | enum |Backorder lets users to place an order even if the product is out of stock. Specify `Y` if you want to allow users to place orders even in no stock (0). Specify `N` to disable ordering in case of out of stock
+StockAvailableMessage | string | Specify the stock availability message to show on the product page when it goes out of stock. For example, "Stock will be available in 2 days"
 ProductCondition | enum | Current condition of the product. Value: New, Used
-Warrantybearer | enum | Warranty bearer. Value: No Warranty, Manufacturer
-WarrantyInMonths | int | Warranty period in months
-ReserveQuantity | int | Quantity of items the merchant can reserve in order to fulfill loyal customers
+Warrantybearer | enum | Warranty bearer. Value: No Warranty, Manufacturer, Dealer
+WarrantyInMonths | int | Warranty period in months (if Warrantybearer is Manufacturer or Dealer)
+ReserveQuantity | int | Quantity of items the merchant needs to reserve for special purposes. For example, merchant could reserve some products to fulfill for loyalty customers
 StockAlertQuantity | int | Sends an alert when the quantity of the product is less than this value
 BarCode | string | Barcode of the product. You can pass comma separated values in case of multiple bar codes
-ModelNumber | string | Model number of the product
-CatalogCode | string | Classification code of the product in catalogue
+ModelNumber | string | Model number of the product (if applicable)
+CatalogCode | string | Catelogue code of the product (if any)
 PurchaseDate | date | Required for the used product. Date when the used product is purchased in `MM:DD:YY` format
-ProductNote | string | Additional information to mention about the product
-FormCode | enum | Predefined form codes for deal products
+ProductNote | string | Additional information to mention about the product for internal reference
+FormCode | enum | Predefined form codes for deal products. Ad-hoc Forms allow you to create customised web forms with a number of custom fields and you can use them to receive customized orders from end-users. 
 CheckoutWithTokenPrice | enum | Specify `Y` to enable checkout with token price (preorder amount)
 TokenPrice | float | The token amount required for preorder (if `CheckoutWithTokenPrice` is enabled)
 CostPrice | float | The cost price of the product
-HidePrice | enum | Specify `Y` to hide the price on the storefront, `N` to show the product price
-StdProductCode | int | HSN (Homogeneous Serial Number) of the product
-MPN | string | Manufacturer's product number
+HidePrice | enum | Specify `Y` to hide the price on the storefront, `N` to show the product price. You can show 'Price on Request' Call for Action to reveal the price on customer requests
+StdProductCode | int | For international standard product, specify the HSN (Homogeneous Serial Number) of the product as per the chosen standard product type
+MPN | string | Manufacturer's part number - A unique part number given by the manufacturer of the product
 Vendor | enum | Vendor name associated to the measurement for the product (Predefined vendor)
-VendorSKU | string | SKU of the product in the vendor system
-StdProductType | enum | HSN of the product type. Values: UPC, EAN, GTIN, ASIIN, ISBN10, ISBN13
-FulfillmentServiceRefCode | string | Reference code of the order fulfillment location
+VendorSKU | string | SKU of the product in the vendor system for supplier product
+StdProductType | enum | For international standard products, specify the type of identification or HSN of the product type. Values: `UPC` (Universal Product Code), `EAN` (European Article Numbering), `GTIN`  (Global Trade Item Number), `ASIIN`  (Amazon Standard Identification Number), `ISBN10`, `ISBN13` (International Standard Book Number)
+FulfillmentServiceRefCode | string | Reference code of the order fulfillment service. These services are required for the fulfillment of a deal or online product deliveries such as music, ringtones, movies. It's mandatory for Local Deals
 
 <aside class="notice"> All parameters marked by * are mandatory.</aside>
 
