@@ -3085,7 +3085,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>stock</td>
 <td>int</td>
-<td>Number of available items of the current SKU. Specify NA for out of stock</td>
+<td>Number of available items of the current SKU. Specify <code class="prettyprint">NA</code> if product is not associated with the location, <code class="prettyprint">0</code> for out of stock</td>
 </tr>
 <tr>
 <td>locationrefcode*</td>
@@ -3295,6 +3295,11 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 </tr>
 </thead><tbody>
 <tr>
+<td>CategoryReference*</td>
+<td>string</td>
+<td>Unique category reference code</td>
+</tr>
+<tr>
 <td>SKU*</td>
 <td>string</td>
 <td>Unique SKU of the product</td>
@@ -3402,7 +3407,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>DeliveryOptionShip</td>
 <td>enum</td>
-<td>Specify <code class="prettyprint">Y</code> if the product can be shipped outside the state, <code class="prettyprint">N</code> if not</td>
+<td>Specify <code class="prettyprint">Y</code> if the product is available for shipping, <code class="prettyprint">N</code> if not</td>
 </tr>
 <tr>
 <td>DeliveryOptionOffline</td>
@@ -3412,7 +3417,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>DeliveryOptionOnline</td>
 <td>enum</td>
-<td>Y, N. If the product can be delivered online (home delivery)</td>
+<td>Specify <code class="prettyprint">Y</code> to allow delivery online such as donations, mobile recharges, gift cards, softwares etc, else specify <code class="prettyprint">N</code></td>
 </tr>
 <tr>
 <td>DeliveryOptionInStorePickup</td>
@@ -3431,8 +3436,8 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 </tr>
 <tr>
 <td>TaxCode</td>
-<td>enum</td>
-<td>The tax code applicable for the product. Value: CSST, IGST, SGST, USST</td>
+<td>string</td>
+<td>The tax code applicable for the product. Tax code have configured in the CP first. You can associate the relevant value here</td>
 </tr>
 <tr>
 <td>DeliveryTime</td>
@@ -3948,6 +3953,11 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 </tr>
 </thead><tbody>
 <tr>
+<td>CategoryReference*</td>
+<td>string</td>
+<td>Unique category reference code</td>
+</tr>
+<tr>
 <td>SKU*</td>
 <td>string</td>
 <td>Unique SKU of the product</td>
@@ -4055,7 +4065,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>DeliveryOptionShip</td>
 <td>enum</td>
-<td>Specify <code class="prettyprint">Y</code> if the product can be shipped outside the state, <code class="prettyprint">N</code> if not</td>
+<td>Specify <code class="prettyprint">Y</code> if the product is available for shipping, <code class="prettyprint">N</code> if not</td>
 </tr>
 <tr>
 <td>DeliveryOptionOffline</td>
@@ -4065,7 +4075,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>DeliveryOptionOnline</td>
 <td>enum</td>
-<td>Y, N. If the product can be delivered online (home delivery)</td>
+<td>Specify <code class="prettyprint">Y</code> to allow delivery online such as donations, mobile recharges, gift cards, softwares etc, else specify <code class="prettyprint">N</code></td>
 </tr>
 <tr>
 <td>DeliveryOptionInStorePickup</td>
@@ -4084,8 +4094,8 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 </tr>
 <tr>
 <td>TaxCode</td>
-<td>enum</td>
-<td>The tax code applicable for the product. Value: CSST, IGST, SGST, USST</td>
+<td>string</td>
+<td>The tax code applicable for the product. Tax code should have configured in the CP first and then you can associate relevant value here</td>
 </tr>
 <tr>
 <td>DeliveryTime</td>
