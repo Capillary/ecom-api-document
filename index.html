@@ -3342,7 +3342,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>Inventory</td>
 <td>int</td>
-<td>The number of available products of the current SKU (stock)</td>
+<td>The number of available products of the current SKU (quantity)</td>
 </tr>
 <tr>
 <td>MRP</td>
@@ -3352,12 +3352,12 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>Webprice</td>
 <td>float</td>
-<td>Selling price of the product on the storefront</td>
+<td>Selling price of the product on the storefront. Cannot be more than MRP</td>
 </tr>
 <tr>
 <td>Availability</td>
 <td>string</td>
-<td>Specify the availability of the product. Values: <code class="prettyprint">Y</code> if available, <code class="prettyprint">N</code> if unavailable</td>
+<td>Specify Y<code class="prettyprint">if the product is in stock,</code>N` if unavailable</td>
 </tr>
 <tr>
 <td>BarCode</td>
@@ -3367,27 +3367,27 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>SmallImage</td>
 <td>string</td>
-<td>Source image of the product -  small size (supported formats: .png, jpg,jpeg, .svc, and .gif)</td>
+<td>Source image of the product&rsquo;s small image (100*100) shown in the product showcase. Required if the Custom Type of image is not defined and Extended Properties section of that Product Showcase is not configured accordingly. Supported formats: .png, jpg,jpeg, .svc, and .gif</td>
 </tr>
 <tr>
 <td>LargeImage</td>
 <td>string</td>
-<td>Source image of the product - large size (supported formats: .png, jpg,jpeg, .svc, and .gif)</td>
+<td>Source image of the product&rsquo;s large image (300*300) shown on the product details page of the storefront. Supported formats: .png, jpg,jpeg, .svc, and .gif</td>
 </tr>
 <tr>
 <td>ShortDescription</td>
 <td>string</td>
-<td>Short description of the product. This will appear on the product showcase page</td>
+<td>Brief description of the product within 500 characters. This will appear on the product details page</td>
 </tr>
 <tr>
 <td>ProductDescription</td>
 <td>string</td>
-<td>Description of the product. This will appear on the product page</td>
+<td>Detailed description of the product which will appear in the Description tab of the product page. Supports up to 50000 characters</td>
 </tr>
 <tr>
 <td>PaymentOptionOnline</td>
 <td>enum</td>
-<td>Specify <code class="prettyprint">Y</code> if online payment is supported for the product; <code class="prettyprint">N</code> if not supported</td>
+<td>Specify <code class="prettyprint">Y</code> if the product can be purchased online through options such as Credit Card,Debit Card, and Net Banking, <code class="prettyprint">N</code> if not supported</td>
 </tr>
 <tr>
 <td>PaymentOptionChequeOrDD</td>
@@ -3407,27 +3407,27 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>DeliveryOptionShip</td>
 <td>enum</td>
-<td>Specify <code class="prettyprint">Y</code> if the product is available for shipping, <code class="prettyprint">N</code> if not</td>
+<td>Specify <code class="prettyprint">Y</code> if the product is available for shipping, <code class="prettyprint">N</code> if cannot be shipped</td>
 </tr>
 <tr>
 <td>DeliveryOptionOffline</td>
 <td>enum</td>
-<td>pecify <code class="prettyprint">Y</code> if the product can be purchased offline else specify <code class="prettyprint">N</code></td>
+<td>Specify <code class="prettyprint">Y</code></td>
 </tr>
 <tr>
 <td>DeliveryOptionOnline</td>
 <td>enum</td>
-<td>Specify <code class="prettyprint">Y</code> to allow delivery online such as donations, mobile recharges, gift cards, softwares etc, else specify <code class="prettyprint">N</code></td>
+<td>Specify <code class="prettyprint">Y</code> for online delivery products such as such as movies, music, ringtones, donations, mobile recharges, gift cards, softwares etc, else specify <code class="prettyprint">N</code></td>
 </tr>
 <tr>
 <td>DeliveryOptionInStorePickup</td>
 <td>enum</td>
-<td>Specify <code class="prettyprint">Y</code> if the product is available in Store for pick up, else specify <code class="prettyprint">N</code></td>
+<td>Specify <code class="prettyprint">Y</code> if store pick up is supported for the product, else specify <code class="prettyprint">N</code></td>
 </tr>
 <tr>
 <td>LocationBased</td>
 <td>enum</td>
-<td>Specify <code class="prettyprint">Y</code> if the shipping price is on location basis, Specify <code class="prettyprint">N</code> for common shipping price to all locations</td>
+<td>Specify <code class="prettyprint">Y</code> if the product inventory needs to be considered as per the shipping location or store, else specify <code class="prettyprint">N</code></td>
 </tr>
 <tr>
 <td>ShippingCode</td>
@@ -3447,7 +3447,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>CatalogSequence</td>
 <td>int</td>
-<td>Rank of the product to show up on the storefront</td>
+<td>Sequence of the product to show up on the storefront</td>
 </tr>
 <tr>
 <td>ProductWeight</td>
@@ -3472,12 +3472,12 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>PageTitle</td>
 <td>string</td>
-<td>Title of the product you prefer for SEO</td>
+<td>Title of the product you prefer to appear in the search results for SEO</td>
 </tr>
 <tr>
 <td>Keywords</td>
 <td>string</td>
-<td>Preferred search keyword for the product</td>
+<td>Preferred meta tag search keyword for the product</td>
 </tr>
 <tr>
 <td>KeywordDescription</td>
@@ -3512,22 +3512,22 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>StartTime</td>
 <td>time</td>
-<td>The time from when you want to show on the storefront on the specified start date. Format: <code class="prettyprint">HH:MM:SS</code></td>
+<td>The time (on the StartDate) from when you want to show the product on the storefront. Format: <code class="prettyprint">HH:MM:SS</code></td>
 </tr>
 <tr>
 <td>EndTime</td>
 <td>time</td>
-<td>The time from when you want to stop showing the product on the storefront on the specified end date. Format: <code class="prettyprint">HH:MM:SS</code></td>
+<td>The time (on the EndDate) from when you want to stop showing the product on the storefront on the specified end date. Format: <code class="prettyprint">HH:MM:SS</code></td>
 </tr>
 <tr>
 <td>PeriodicityType</td>
 <td>enum</td>
-<td>Use this to show items on the storefront specific days. Values: Monthly, Weekly, oneTime</td>
+<td>Use this to set the time frame when you want to show the product on the storefront. Values: Monthly, Weekly, oneTime</td>
 </tr>
 <tr>
 <td>PeriodicityRange</td>
 <td>string</td>
-<td>The days when you want to show the product. For example: in monthly, 1-30 to show on all days of a month, in weekly you can have 1, 3, 5, to display of Sun, Tue, and Thu respectively.  No value is required for <code class="prettyprint">oneTime</code>. To pass multiple days, use comma separated values. For example, 1,2,5,10</td>
+<td>The days when you want to show the product based on the PeriodicityType. For example: for <code class="prettyprint">Monthly</code>, you can set 1-30 to show on all days of a month, in weekly you can have 1, 3, 5, to display of Sun, Tue, and Thu respectively.  No value is required for <code class="prettyprint">oneTime</code>. To pass multiple days, use comma separated values. For example, 1,2,5,10. You can either pass as 1-5, or 1, 2, 3, 4, 5 and so on. Not required for onetime</td>
 </tr>
 <tr>
 <td>ShowExpired</td>
@@ -3542,7 +3542,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>LBH</td>
 <td>string</td>
-<td>Dimensions of the product (Length*Bredth*Height) or the product volume</td>
+<td>Dimensions of the product (Length*Breadth*Height) or the product volume</td>
 </tr>
 <tr>
 <td>BuyingWeight</td>
@@ -3552,7 +3552,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>PkgQty</td>
 <td>int</td>
-<td>Quantity of the product in each package</td>
+<td>Lot size (package quantity) of the product that can be purchased. Customer can buy the product only in multiples of the specified <code class="prettyprint">PkgQuantity</code></td>
 </tr>
 <tr>
 <td>MinimumOrderQuantity</td>
@@ -3567,17 +3567,17 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>PreOrder</td>
 <td>enum</td>
-<td>Specify <code class="prettyprint">Y</code> to allow the product booking in advance, else, specify <code class="prettyprint">N</code></td>
+<td>Preorder facilitates booking or reserving an item in advance, usually prebooking new products even before it is launched. Specify <code class="prettyprint">Y</code> to allow the product booking in advance, else, specify <code class="prettyprint">N</code></td>
 </tr>
 <tr>
 <td>BackOrder</td>
 <td>enum</td>
-<td>Specify <code class="prettyprint">Y</code> if you want to allow users to place orders even in no stock (0). Specify <code class="prettyprint">N</code> to disable ordering in case of out of stock</td>
+<td>Backorder lets users to place an order even if the product is out of stock. Specify <code class="prettyprint">Y</code> if you want to allow users to place orders even in no stock (0). Specify <code class="prettyprint">N</code> to disable ordering in case of out of stock</td>
 </tr>
 <tr>
 <td>StockAvailableMessage</td>
 <td>string</td>
-<td>Specify the stock availability message to show on the priduct page when it goes out of stock. For example, &ldquo;Stock will be available in 2 days&rdquo;</td>
+<td>Specify the stock availability message to show on the product page when it goes out of stock. For example, &ldquo;Stock will be available in 2 days&rdquo;</td>
 </tr>
 <tr>
 <td>ProductCondition</td>
@@ -3587,17 +3587,17 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>Warrantybearer</td>
 <td>enum</td>
-<td>Warranty bearer. Value: No Warranty, Manufacturer</td>
+<td>Warranty bearer. Value: No Warranty, Manufacturer, Dealer</td>
 </tr>
 <tr>
 <td>WarrantyInMonths</td>
 <td>int</td>
-<td>Warranty period in months</td>
+<td>Warranty period in months (if Warrantybearer is Manufacturer or Dealer)</td>
 </tr>
 <tr>
 <td>ReserveQuantity</td>
 <td>int</td>
-<td>Quantity of items the merchant can reserve in order to fulfill loyal customers</td>
+<td>Quantity of items the merchant needs to reserve for special purposes. For example, merchant could reserve some products to fulfill for loyalty customers</td>
 </tr>
 <tr>
 <td>StockAlertQuantity</td>
@@ -3612,12 +3612,12 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>ModelNumber</td>
 <td>string</td>
-<td>Model number of the product</td>
+<td>Model number of the product (if applicable)</td>
 </tr>
 <tr>
 <td>CatalogCode</td>
 <td>string</td>
-<td>Classification code of the product in catalogue</td>
+<td>Catelogue code of the product (if any)</td>
 </tr>
 <tr>
 <td>PurchaseDate</td>
@@ -3627,12 +3627,12 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>ProductNote</td>
 <td>string</td>
-<td>Additional information to mention about the product</td>
+<td>Additional information to mention about the product for internal reference</td>
 </tr>
 <tr>
 <td>FormCode</td>
 <td>enum</td>
-<td>Predefined form codes for deal products</td>
+<td>Predefined form codes for deal products. Ad-hoc Forms allow you to create customised web forms with a number of custom fields and you can use them to receive customized orders from end-users.</td>
 </tr>
 <tr>
 <td>CheckoutWithTokenPrice</td>
@@ -3652,17 +3652,17 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>HidePrice</td>
 <td>enum</td>
-<td>Specify <code class="prettyprint">Y</code> to hide the price on the storefront, <code class="prettyprint">N</code> to show the product price</td>
+<td>Specify <code class="prettyprint">Y</code> to hide the price on the storefront, <code class="prettyprint">N</code> to show the product price. You can show &lsquo;Price on Request&rsquo; Call for Action to reveal the price on customer requests</td>
 </tr>
 <tr>
 <td>StdProductCode</td>
 <td>int</td>
-<td>HSN (Homogeneous Serial Number) of the product</td>
+<td>For international standard product, specify the HSN (Homogeneous Serial Number) of the product as per the chosen standard product type</td>
 </tr>
 <tr>
 <td>MPN</td>
 <td>string</td>
-<td>Manufacturer&rsquo;s product number</td>
+<td>Manufacturer&rsquo;s part number - A unique part number given by the manufacturer of the product</td>
 </tr>
 <tr>
 <td>Vendor</td>
@@ -3672,17 +3672,17 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>VendorSKU</td>
 <td>string</td>
-<td>SKU of the product in the vendor system</td>
+<td>SKU of the product in the vendor system for supplier product</td>
 </tr>
 <tr>
 <td>StdProductType</td>
 <td>enum</td>
-<td>HSN of the product type. Values: UPC, EAN, GTIN, ASIIN, ISBN10, ISBN13</td>
+<td>For international standard products, specify the type of identification or HSN of the product type. Values: <code class="prettyprint">UPC</code> (Universal Product Code), <code class="prettyprint">EAN</code> (European Article Numbering), <code class="prettyprint">GTIN</code>  (Global Trade Item Number), <code class="prettyprint">ASIIN</code>  (Amazon Standard Identification Number), <code class="prettyprint">ISBN10</code>, <code class="prettyprint">ISBN13</code> (International Standard Book Number)</td>
 </tr>
 <tr>
 <td>FulfillmentServiceRefCode</td>
 <td>string</td>
-<td>Reference code of the order fulfillment location</td>
+<td>Reference code of the order fulfillment service. These services are required for the fulfillment of a deal or online product deliveries such as music, ringtones, movies. It&rsquo;s mandatory for Local Deals</td>
 </tr>
 </tbody></table>
 
@@ -4000,7 +4000,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>Inventory</td>
 <td>int</td>
-<td>The number of available products of the current SKU (stock)</td>
+<td>The number of available products of the current SKU (quantity)</td>
 </tr>
 <tr>
 <td>MRP</td>
@@ -4010,12 +4010,12 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>Webprice</td>
 <td>float</td>
-<td>Selling price of the product on the storefront</td>
+<td>Selling price of the product on the storefront. Cannot be more than MRP</td>
 </tr>
 <tr>
 <td>Availability</td>
 <td>string</td>
-<td>Specify the availability of the product. Values: <code class="prettyprint">Y</code> if available, <code class="prettyprint">N</code> if unavailable</td>
+<td>Specify Y<code class="prettyprint">if the product is in stock,</code>N` if unavailable</td>
 </tr>
 <tr>
 <td>BarCode</td>
@@ -4025,27 +4025,27 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>SmallImage</td>
 <td>string</td>
-<td>Source image of the product -  small size (supported formats: .png, jpg,jpeg, .svc, and .gif)</td>
+<td>Source image of the product&rsquo;s small image (100*100) shown in the product showcase. Required if the Custom Type of image is not defined and Extended Properties section of that Product Showcase is not configured accordingly. Supported formats: .png, jpg,jpeg, .svc, and .gif</td>
 </tr>
 <tr>
 <td>LargeImage</td>
 <td>string</td>
-<td>Source image of the product - large size (supported formats: .png, jpg,jpeg, .svc, and .gif)</td>
+<td>Source image of the product&rsquo;s large image (300*300) shown on the product details page of the storefront. Supported formats: .png, jpg,jpeg, .svc, and .gif</td>
 </tr>
 <tr>
 <td>ShortDescription</td>
 <td>string</td>
-<td>Short description of the product. This will appear on the product showcase page</td>
+<td>Brief description of the product within 500 characters. This will appear on the product details page</td>
 </tr>
 <tr>
 <td>ProductDescription</td>
 <td>string</td>
-<td>Description of the product. This will appear on the product page</td>
+<td>Detailed description of the product which will appear in the Description tab of the product page. Supports up to 50000 characters</td>
 </tr>
 <tr>
 <td>PaymentOptionOnline</td>
 <td>enum</td>
-<td>Specify <code class="prettyprint">Y</code> if online payment is supported for the product; <code class="prettyprint">N</code> if not supported</td>
+<td>Specify <code class="prettyprint">Y</code> if the product can be purchased online through options such as Credit Card,Debit Card, and Net Banking, <code class="prettyprint">N</code> if not supported</td>
 </tr>
 <tr>
 <td>PaymentOptionChequeOrDD</td>
@@ -4065,27 +4065,27 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>DeliveryOptionShip</td>
 <td>enum</td>
-<td>Specify <code class="prettyprint">Y</code> if the product is available for shipping, <code class="prettyprint">N</code> if not</td>
+<td>Specify <code class="prettyprint">Y</code> if the product is available for shipping, <code class="prettyprint">N</code> if cannot be shipped</td>
 </tr>
 <tr>
 <td>DeliveryOptionOffline</td>
 <td>enum</td>
-<td>pecify <code class="prettyprint">Y</code> if the product can be purchased offline else specify <code class="prettyprint">N</code></td>
+<td>Specify <code class="prettyprint">Y</code></td>
 </tr>
 <tr>
 <td>DeliveryOptionOnline</td>
 <td>enum</td>
-<td>Specify <code class="prettyprint">Y</code> to allow delivery online such as donations, mobile recharges, gift cards, softwares etc, else specify <code class="prettyprint">N</code></td>
+<td>Specify <code class="prettyprint">Y</code> for online delivery products such as such as movies, music, ringtones, donations, mobile recharges, gift cards, softwares etc, else specify <code class="prettyprint">N</code></td>
 </tr>
 <tr>
 <td>DeliveryOptionInStorePickup</td>
 <td>enum</td>
-<td>Specify <code class="prettyprint">Y</code> if the product is available in Store for pick up, else specify <code class="prettyprint">N</code></td>
+<td>Specify <code class="prettyprint">Y</code> if store pick up is supported for the product, else specify <code class="prettyprint">N</code></td>
 </tr>
 <tr>
 <td>LocationBased</td>
 <td>enum</td>
-<td>Specify <code class="prettyprint">Y</code> if the shipping price is on location basis, Specify <code class="prettyprint">N</code> for common shipping price to all locations</td>
+<td>Specify <code class="prettyprint">Y</code> if the product inventory needs to be considered as per the shipping location or store, else specify <code class="prettyprint">N</code></td>
 </tr>
 <tr>
 <td>ShippingCode</td>
@@ -4095,7 +4095,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>TaxCode</td>
 <td>string</td>
-<td>The tax code applicable for the product. Tax code should have configured in the CP first and then you can associate relevant value here</td>
+<td>The tax code applicable for the product. Tax code have configured in the CP first. You can associate the relevant value here</td>
 </tr>
 <tr>
 <td>DeliveryTime</td>
@@ -4105,7 +4105,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>CatalogSequence</td>
 <td>int</td>
-<td>Rank of the product to show up on the storefront</td>
+<td>Sequence of the product to show up on the storefront</td>
 </tr>
 <tr>
 <td>ProductWeight</td>
@@ -4130,12 +4130,12 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>PageTitle</td>
 <td>string</td>
-<td>Title of the product you prefer for SEO</td>
+<td>Title of the product you prefer to appear in the search results for SEO</td>
 </tr>
 <tr>
 <td>Keywords</td>
 <td>string</td>
-<td>Preferred search keyword for the product</td>
+<td>Preferred meta tag search keyword for the product</td>
 </tr>
 <tr>
 <td>KeywordDescription</td>
@@ -4170,22 +4170,22 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>StartTime</td>
 <td>time</td>
-<td>The time from when you want to show on the storefront on the specified start date. Format: <code class="prettyprint">HH:MM:SS</code></td>
+<td>The time (on the StartDate) from when you want to show the product on the storefront. Format: <code class="prettyprint">HH:MM:SS</code></td>
 </tr>
 <tr>
 <td>EndTime</td>
 <td>time</td>
-<td>The time from when you want to stop showing the product on the storefront on the specified end date. Format: <code class="prettyprint">HH:MM:SS</code></td>
+<td>The time (on the EndDate) from when you want to stop showing the product on the storefront on the specified end date. Format: <code class="prettyprint">HH:MM:SS</code></td>
 </tr>
 <tr>
 <td>PeriodicityType</td>
 <td>enum</td>
-<td>Use this to show items on the storefront specific days. Values: Monthly, Weekly, oneTime</td>
+<td>Use this to set the time frame when you want to show the product on the storefront. Values: Monthly, Weekly, oneTime</td>
 </tr>
 <tr>
 <td>PeriodicityRange</td>
 <td>string</td>
-<td>The days when you want to show the product. For example: in monthly, 1-30 to show on all days of a month, in weekly you can have 1, 3, 5, to display of Sun, Tue, and Thu respectively.  No value is required for <code class="prettyprint">oneTime</code>. To pass multiple days, use comma separated values. For example, 1,2,5,10</td>
+<td>The days when you want to show the product based on the PeriodicityType. For example: for <code class="prettyprint">Monthly</code>, you can set 1-30 to show on all days of a month, in weekly you can have 1, 3, 5, to display of Sun, Tue, and Thu respectively.  No value is required for <code class="prettyprint">oneTime</code>. To pass multiple days, use comma separated values. For example, 1,2,5,10. You can either pass as 1-5, or 1, 2, 3, 4, 5 and so on. Not required for onetime</td>
 </tr>
 <tr>
 <td>ShowExpired</td>
@@ -4195,12 +4195,12 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>UOM</td>
 <td>enum</td>
-<td>Unit of measurement of the product. Values: ltrs, kgs, gms</td>
+<td>Unit of measurement of the product. Values: ltrs, kgs, gms, pieces</td>
 </tr>
 <tr>
 <td>LBH</td>
 <td>string</td>
-<td>Dimensions of the product (Length*Bredth*Height) or the product volume</td>
+<td>Dimensions of the product (Length*Breadth*Height) or the product volume</td>
 </tr>
 <tr>
 <td>BuyingWeight</td>
@@ -4210,7 +4210,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>PkgQty</td>
 <td>int</td>
-<td>Quantity of the product in each package</td>
+<td>Lot size (package quantity) of the product that can be purchased. Customer can buy the product only in multiples of the specified <code class="prettyprint">PkgQuantity</code></td>
 </tr>
 <tr>
 <td>MinimumOrderQuantity</td>
@@ -4225,17 +4225,17 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>PreOrder</td>
 <td>enum</td>
-<td>Specify <code class="prettyprint">Y</code> to allow the product booking in advance, else, specify <code class="prettyprint">N</code></td>
+<td>Preorder facilitates booking or reserving an item in advance, usually prebooking new products even before it is launched. Specify <code class="prettyprint">Y</code> to allow the product booking in advance, else, specify <code class="prettyprint">N</code></td>
 </tr>
 <tr>
 <td>BackOrder</td>
 <td>enum</td>
-<td>Specify <code class="prettyprint">Y</code> if you want to allow users to place orders even in no stock (0). Specify <code class="prettyprint">N</code> to disable ordering in case of out of stock</td>
+<td>Backorder lets users to place an order even if the product is out of stock. Specify <code class="prettyprint">Y</code> if you want to allow users to place orders even in no stock (0). Specify <code class="prettyprint">N</code> to disable ordering in case of out of stock</td>
 </tr>
 <tr>
 <td>StockAvailableMessage</td>
 <td>string</td>
-<td>Specify the stock availability message to show on the priduct page when it goes out of stock. For example, &ldquo;Stock will be available in 2 days&rdquo;</td>
+<td>Specify the stock availability message to show on the product page when it goes out of stock. For example, &ldquo;Stock will be available in 2 days&rdquo;</td>
 </tr>
 <tr>
 <td>ProductCondition</td>
@@ -4245,17 +4245,17 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>Warrantybearer</td>
 <td>enum</td>
-<td>Warranty bearer. Value: No Warranty, Manufacturer</td>
+<td>Warranty bearer. Value: No Warranty, Manufacturer, Dealer</td>
 </tr>
 <tr>
 <td>WarrantyInMonths</td>
 <td>int</td>
-<td>Warranty period in months</td>
+<td>Warranty period in months (if Warrantybearer is Manufacturer or Dealer)</td>
 </tr>
 <tr>
 <td>ReserveQuantity</td>
 <td>int</td>
-<td>Quantity of items the merchant can reserve in order to fulfill loyal customers</td>
+<td>Quantity of items the merchant needs to reserve for special purposes. For example, merchant could reserve some products to fulfill for loyalty customers</td>
 </tr>
 <tr>
 <td>StockAlertQuantity</td>
@@ -4270,12 +4270,12 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>ModelNumber</td>
 <td>string</td>
-<td>Model number of the product</td>
+<td>Model number of the product (if applicable)</td>
 </tr>
 <tr>
 <td>CatalogCode</td>
 <td>string</td>
-<td>Classification code of the product in catalogue</td>
+<td>Catelogue code of the product (if any)</td>
 </tr>
 <tr>
 <td>PurchaseDate</td>
@@ -4285,12 +4285,12 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>ProductNote</td>
 <td>string</td>
-<td>Additional information to mention about the product</td>
+<td>Additional information to mention about the product for internal reference</td>
 </tr>
 <tr>
 <td>FormCode</td>
 <td>enum</td>
-<td>Predefined form codes for deal products</td>
+<td>Predefined form codes for deal products. Ad-hoc Forms allow you to create customised web forms with a number of custom fields and you can use them to receive customized orders from end-users.</td>
 </tr>
 <tr>
 <td>CheckoutWithTokenPrice</td>
@@ -4310,17 +4310,17 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>HidePrice</td>
 <td>enum</td>
-<td>Specify <code class="prettyprint">Y</code> to hide the price on the storefront, <code class="prettyprint">N</code> to show the product price</td>
+<td>Specify <code class="prettyprint">Y</code> to hide the price on the storefront, <code class="prettyprint">N</code> to show the product price. You can show &#39;Price on Request&rsquo; Call for Action to reveal the price on customer requests</td>
 </tr>
 <tr>
 <td>StdProductCode</td>
 <td>int</td>
-<td>HSN (Homogeneous Serial Number) of the product</td>
+<td>For international standard product, specify the HSN (Homogeneous Serial Number) of the product as per the chosen standard product type</td>
 </tr>
 <tr>
 <td>MPN</td>
 <td>string</td>
-<td>Manufacturer&rsquo;s product number</td>
+<td>Manufacturer&rsquo;s part number - A unique part number given by the manufacturer of the product</td>
 </tr>
 <tr>
 <td>Vendor</td>
@@ -4330,17 +4330,17 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>VendorSKU</td>
 <td>string</td>
-<td>SKU of the product in the vendor system</td>
+<td>SKU of the product in the vendor system for supplier product</td>
 </tr>
 <tr>
 <td>StdProductType</td>
 <td>enum</td>
-<td>HSN of the product type. Values: UPC, EAN, GTIN, ASIIN, ISBN10, ISBN13</td>
+<td>For international standard products, specify the type of identification or HSN of the product type. Values: <code class="prettyprint">UPC</code> (Universal Product Code), <code class="prettyprint">EAN</code> (European Article Numbering), <code class="prettyprint">GTIN</code>  (Global Trade Item Number), <code class="prettyprint">ASIIN</code>  (Amazon Standard Identification Number), <code class="prettyprint">ISBN10</code>, <code class="prettyprint">ISBN13</code> (International Standard Book Number)</td>
 </tr>
 <tr>
 <td>FulfillmentServiceRefCode</td>
 <td>string</td>
-<td>Reference code of the order fulfillment location</td>
+<td>Reference code of the order fulfillment service. These services are required for the fulfillment of a deal or online product deliveries such as music, ringtones, movies. It&rsquo;s mandatory for Local Deals</td>
 </tr>
 </tbody></table>
 
