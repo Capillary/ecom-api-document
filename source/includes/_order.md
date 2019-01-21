@@ -3303,13 +3303,7 @@ orderID* | int | Unique id the order for which you want to track shipment detail
 
 Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.
 
-Parameter | Type | Description
---------- | ---- | -----------
-DocketNumber | string | AWB number of the shipment
-UseMailBoxAddress | enum | 
-VerificationMethod |  | 
-VerificationValue |  | 
-CMSID | | 
+
 
 
 

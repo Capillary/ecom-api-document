@@ -267,7 +267,7 @@ PaymentOptionChequeOrDD |enum | Specify `Y` if payment through cheque or DD is s
 PaymentOptionBankTransfer | enum | Specify `Y` if payment through online bank transfer is supported for the product; `N` if not supported
 PaymentOptionCOD | enum | Specify `Y` if cash on delivery is supported for the product; `N` if not supported
 DeliveryOptionShip | enum | Specify `Y` if the product is available for shipping, `N` if cannot be shipped
-DeliveryOptionOffline | enum | Specify `Y` 
+DeliveryOptionOffline | enum | Specify `Y` if the product can be ordered offline such as 'Call for actions'
 DeliveryOptionOnline | enum | Specify `Y` for online delivery products such as such as movies, music, ringtones, donations, mobile recharges, gift cards, softwares etc, else specify `N`
 DeliveryOptionInStorePickup | enum | Specify `Y` if store pick up is supported for the product, else specify `N`
 LocationBased | enum | Specify `Y` if the product inventory needs to be considered as per the shipping location or store, else specify `N`
@@ -975,12 +975,11 @@ PageTitle | Type | Description
 sku | string | SKU of the item for which you want to add images
 images | json obj | Image details to be attached based on the variant property and value
 filename | string  | Name of the image file
-sequence| int | Sequence rank of the image. 1 appears 1st. 
 deepzoom | string | .xml file regarding the zooming effects on mouse hover or product clicks
 zoom | string | The large image that you need to show when clicked on the product ((supported formats: .png, jpg,jpeg, .svc, and .gif))
 smallimage | string | The small image that appears on the product quick view - showcase (supported formats: .png, jpg,jpeg,.svc, and .gif)
 thumbnail | string | Thumbnails of the product images that appears on the product view page (supported formats: .png, jpg,jpeg,.svc, and .gif)
-alttext | string | The alt text that needs to appear on mouse hover for the image (filename)
+alttext | string | The alternative text or mouse hover text for the image
 viewport | enum | The view angle of the current image. Values: Front, Back, Left, Right, Bottom
 swatchimages  | obj | Represents the property values of the variant product - illustration of accurate representation of color, pattern or texture
 variantproperty | enum | Property name of the current variant. Property names as defined for the merchant
@@ -990,15 +989,13 @@ documents | | Documents of the product pertaining to the product information
 type | string | Document purpose. Supported Values: Overview, Product Tour, Specifications, Menu, How it works, Terms and Conditions
 seoinfo | string | Search Engine Optimization of the document
 filename | string | Document type with extension. Supported formats: .doc, .docx, .pdf
-sequence | int | Sequence order of the document/picture/video to appear on the product page
+sequence | int | Sequence order of the respective document/picture/video on the product page
 videos | obj | Videos related to the product   
 type | string | Source of the video. Supported Values: YouTube, Vimeo, Scribd, 
 seoinfo | string | Search Engine Optimization information of the video
-filename | string | Filename of the video with extension
+filename | string | Filename of the video with the respective extension
 view360 | obj | 3d images of the product
 type | string | Type of the view 360 degree file name. Value: `local_flash`
-seoinfo | string | Search Engine Optimization for the 360 degree video
-filename | string | File name of the video with the respective extension
 
 <aside class="notice"> All parameters marked by * are mandatory.</aside>
 
@@ -1120,11 +1117,11 @@ Following table contains descriptions of a few response parameters that require 
 
 Parameter | Type | Description
 --------- | ---- | -----------
-CatlogSequence | int | Sequence of the product in catalog
+CatlogSequence | int | Sequence of the product in the respective product category to appear on the storefront
 MarkupPrice | double | 
 MarkupType | string | 
-IsShippingConfigured | boolean | Whether the shipping cost is enabled for the item or not
-IsTaxConfigured | boolean | Whether tax enabled for the item or not
+IsShippingConfigured | boolean | Whether the shipping is enabled for the item or not
+IsTaxConfigured | boolean | Whether tax is enabled for the item or not
 StartDate | date-time | The duration for which the product is shown on the storefront (StartDate - EndDate)
 EndDate | date-time | The duration for which the product is shown on the storefront (StartDate - EndDate)
 SeoURL | string | The SEO friendly URL of the product 
@@ -1239,10 +1236,10 @@ Following table contains descriptions of a few response parameters that require 
 
 Parameter | Type | Description
 --------- | ---- | -----------
-CatlogSequence | int | The sequence of the product in catalog
+CatlogSequence | int | Sequence of the product in the respective product category to appear on the storefront
 MarkupPrice | | 
 MarkupType | | 
-BulkQuantity | int | Total number of items (quantity) that can be ordered at a time. Value will `0` if not applicable 
+BulkQuantity | int | Maximum number of items (quantity) that can be ordered at a time. Value will `0` if not applicable 
 UOM | string | Unit of measurement of the product. It could be the `pieces` for items that are sold in numbers and the respective measure for other items such as kgs, and gms 
 
 
