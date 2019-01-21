@@ -2685,6 +2685,20 @@ SubstatusChangeComments | string  | Specify the reason for return sub-status cha
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## Create Shipment Packages
 
 > Sample Request
@@ -3292,7 +3306,7 @@ Following table contains descriptions of a few response parameters that require 
 Parameter | Type | Description
 --------- | ---- | -----------
 DocketNumber | string | AWB number of the shipment
-UseMailBoxAddress | enum | Value: 
+UseMailBoxAddress | enum | 
 VerificationMethod |  | 
 VerificationValue |  | 
 CMSID | | 
@@ -4116,3 +4130,10 @@ RefundStatus | enum | Current status of the refund. Values: `I` for initiated, `
 IncludeShippingCost | enum | `Yes` if the shipping cost is included in the return item, `No` if shipping cost is not included 
 IsSelfShip | enum | ‘Yes` if the user will ship the return package to the merchant, `No`, if the merchant has to pickup the package from the user
 SubStatus | string | The sub-status code of the return request
+
+
+
+
+
+
+

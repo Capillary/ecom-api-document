@@ -84,7 +84,7 @@ Parameter | Datatype | Description
 --------- | -------- | ----------
 sku* | string | SKU of the product of a specific location for which you want to update stock and price
 variantsku* | string | The variant SKU of the current item (only for variant products)
-stock | int | Number of available items of the current SKU. Specify NA for out of stock
+stock | int | Number of available items of the current SKU. Specify `NA` if product is not associated with the location, `0` for out of stock
 locationrefcode* | string | Location reference code of the location for which product stock/price update is made (physical store or warehouse)
 Quantity  | int | The quantity of the item for which you want to update the price
 MRP  | float | Retail price of the item
@@ -125,7 +125,8 @@ https://www.martjack.com/developerapi/product/UpdateProductInfo
 MerchantId=0639f7a6-34cc-48b2-9fd9-a80e2ed8xxxx&InputFormat=application/json&InputData={  
    "products":{  
       "product":[{  
-         "sku":"458636",
+         "CategoryReference":"CU00378158",
+		 "sku":"458636",
          "variantsku":"",
          "BrandID":"1756",
          "ProductTitle":"Capillary Mens Jeans",
@@ -243,6 +244,7 @@ Batch Support | No
 ### Request Body Parameters
 Parameter | Type | Description 
 -------- | --------- | -----------
+CategoryReference* | string | Unique category reference code 
 SKU* | string | Unique SKU of the product
 VariantSKU | string  | Unique SKU of the variant product. *Required for a variant product
 VariantProperty | string | The property of the variant product such as size, color, and weight. *Required for Variant Product
@@ -264,13 +266,13 @@ PaymentOptionOnline | enum | Specify `Y` if online payment is supported for the 
 PaymentOptionChequeOrDD |enum | Specify `Y` if payment through cheque or DD is supported for the product; `N` if not supported
 PaymentOptionBankTransfer | enum | Specify `Y` if payment through online bank transfer is supported for the product; `N` if not supported
 PaymentOptionCOD | enum | Specify `Y` if cash on delivery is supported for the product; `N` if not supported
-DeliveryOptionShip | enum | Specify `Y` if the product can be shipped outside the state, `N` if not
+DeliveryOptionShip | enum | Specify `Y` if the product is available for shipping, `N` if not
 DeliveryOptionOffline | enum | pecify `Y` if the product can be purchased offline else specify `N`
-DeliveryOptionOnline | enum | Y, N. If the product can be delivered online (home delivery)
+DeliveryOptionOnline | enum | Specify `Y` to allow delivery online such as donations, mobile recharges, gift cards, softwares etc, else specify `N`
 DeliveryOptionInStorePickup | enum | Specify `Y` if the product is available in Store for pick up, else specify `N`
 LocationBased | enum | Specify `Y` if the shipping price is on location basis, Specify `N` for common shipping price to all locations
 ShippingCode | enum | The code of the the type of shipping charges. Most commonly used: flat, india, international, surfaceways, airways
-TaxCode | enum | The tax code applicable for the product. Value: CSST, IGST, SGST, USST
+TaxCode | string | The tax code applicable for the product. Tax code have configured in the CP first. You can associate the relevant value here
 DeliveryTime  | string | The estimated delivery time to be shown on the product page. Example: This product will be delivered in 7 days from the date of order
 CatalogSequence | int | Rank of the product to show up on the storefront
 ProductWeight | float | Weight of the product
@@ -355,6 +357,7 @@ https://www.martjack.com/developerapi/product/UpdateProductInfo
 MerchantId=0639f7a6-34cc-48b2-9fd9-a80e2ed8xxxx&InputFormat=application/json&InputData={  
    "products":{  
       "product":{  
+		 "CategoryReference":"CU00378158",
          "sku":"458636",
          "variantsku":"",
          "BrandID":"1756",
@@ -558,6 +561,7 @@ Batch Support | No
 ### Request Body Parameters
 Parameter | Type | Description 
 -------- | --------- | -----------
+CategoryReference* | string | Unique category reference code
 SKU* | string | Unique SKU of the product
 VariantSKU | string  | Unique SKU of the variant product. *Required for a variant product
 VariantProperty | string | The property of the variant product such as size, color, and weight. *Required for Variant Product
@@ -579,13 +583,13 @@ PaymentOptionOnline | enum | Specify `Y` if online payment is supported for the 
 PaymentOptionChequeOrDD |enum | Specify `Y` if payment through cheque or DD is supported for the product; `N` if not supported
 PaymentOptionBankTransfer | enum | Specify `Y` if payment through online bank transfer is supported for the product; `N` if not supported
 PaymentOptionCOD | enum | Specify `Y` if cash on delivery is supported for the product; `N` if not supported
-DeliveryOptionShip | enum | Specify `Y` if the product can be shipped outside the state, `N` if not
+DeliveryOptionShip | enum | Specify `Y` if the product is available for shipping, `N` if not
 DeliveryOptionOffline | enum | pecify `Y` if the product can be purchased offline else specify `N`
-DeliveryOptionOnline | enum | Y, N. If the product can be delivered online (home delivery)
+DeliveryOptionOnline | enum | Specify `Y` to allow delivery online such as donations, mobile recharges, gift cards, softwares etc, else specify `N`
 DeliveryOptionInStorePickup | enum | Specify `Y` if the product is available in Store for pick up, else specify `N`
 LocationBased | enum | Specify `Y` if the shipping price is on location basis, Specify `N` for common shipping price to all locations
 ShippingCode | enum | The code of the the type of shipping charges. Most commonly used: flat, india, international, surfaceways, airways
-TaxCode | enum | The tax code applicable for the product. Value: CSST, IGST, SGST, USST
+TaxCode | string | The tax code applicable for the product. Tax code should have configured in the CP first and then you can associate relevant value here
 DeliveryTime  | string | The estimated delivery time to be shown on the product page. Example: This product will be delivered in 7 days from the date of order
 CatalogSequence | int | Rank of the product to show up on the storefront
 ProductWeight | float | Weight of the product
