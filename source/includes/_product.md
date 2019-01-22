@@ -1224,7 +1224,7 @@ Authentication | Yes
 Parameter | Type | Description
 --------- | ---- | -----------
 merchantId* | string | Unique GUID of the merchant
-sku* | string |  SKU of the product that you want to fetch
+sku* | string | SKU of the product that you want to fetch
 NoofReview | string | Number of reviews received for the product
 UOM | string | Unit of measurement of the product. It could be `pieces` for items that are sold as a piece and the respective measure for other items such as kgs, and gms 
 
@@ -1239,7 +1239,7 @@ Parameter | Type | Description
 CatlogSequence | int | Sequence of the product in the respective product category to appear on the storefront
 MarkupPrice | | 
 MarkupType | | 
-BulkQuantity | int | Maximum number of items (quantity) that can be ordered at a time. Value will `0` if not applicable 
+BulkQuantity | int | Lot size or batch size of the product. Value will `0` if not applicable 
 UOM | string | Unit of measurement of the product. It could be the `pieces` for items that are sold in numbers and the respective measure for other items such as kgs, and gms 
 
 
