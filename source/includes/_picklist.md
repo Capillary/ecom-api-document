@@ -1,6 +1,6 @@
 # Picklist
 
-
+Picklist is a document that contains the list of order items to be picked up from inventory for further processing. Picklist is maintained by shippers with large inventory or multiple orders. This resource provides all APIs related creating and managing picklist.
 
 
 
@@ -13,7 +13,7 @@ Lets you update item picklist of an order.
 > Sample Request
 
 ```html
-https://www.martjack.com/developerapi/
+https://www.martjack.com/developerapi/PickList/ConfirmPicklistItems/81e77da2-723b-483d-8c0d-49f800c1exxx
 
 ```
 
@@ -22,7 +22,7 @@ https://www.martjack.com/developerapi/
 
 ```json
 
-MerchantID={{Merchantid}}&InputFormat=application/json&InputData={ 
+MerchantID=81e77da2-723b-483d-8c0d-49f800c1exxx&InputFormat=application/json&InputData={ 
   "PickListOrderLines": {
     "PickListOrderLine": [
       {
@@ -59,7 +59,7 @@ MerchantID={{Merchantid}}&InputFormat=application/json&InputData={
 ### Resource Information
 | | |
 --------- | ----------- |
-URI | `/Order/PickList/ConfirmPicklist/{MerchantId}`
+URI | `/PickList/ConfirmPicklist/{MerchantId}`
 Rate Limited? | No
 Authentication | Yes
 Response Formats | JSON
@@ -94,7 +94,7 @@ isVariance | boolean | Whether there is change in the price of the current item 
 > Sample Request
 
 ```html
-
+https://{host}/developerapi/PickList/ProcessPicklist/f48fdd16-92db-4188-854d-1ecd9b62d066
 ```
 
 > Sample POST Request
@@ -181,3 +181,46 @@ MerchantId=f48fdd16-92db-4188-854d-1ecd9b62d066&InputFormat=application/json&Inp
 
 
 Process the picklist once created from verification to confirmation.
+
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `/PickList/ProcessPicklist/{MerchantId}`
+Rate Limited? | No
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | POST
+Batch Support | No
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+### Request URL
+
+`https://{host}/developerapi/PickList/ProcessPicklist/{MerchantId}`
+
+
+### Request Body Parameters
+
+Parameter | Type | Description
+-------- | ----- | -----------
+MerchantID | string | Unique GUID of the merchant
+PickListId* | int | Unique id of the picklist
+SubStatus | enum | Unique 2 character code of the picklist/picklist item sub-status. Values are as per configured in the CP
+PicklistOperatorID | string | Unique id of the staff who confirms the picklist
+Comments | string | Any comments related to the picklist. You can pass this both at the request level and item level
+ConfirmPicking | enum | Specify `1` to confirm pick up, `0` if not confirmed. `0` will be considered as the default value if no value is passed
+OrderPickListDetailId | int | 
+RetransactionID | int | Order id of the item
+PicklistID | int | Unique id of the picklist
+RedetailsID | int | Unique item id as in the REtransaction table 
+PicklistOperatorID | string | Unique id of the operator
+PickListItemStatus | enum | The status of the current item. `F` for found, `N` for not found, `C` for cancel. If no value is passed, not found is considered as the default value
+Weight | int | Weight of the item 
+ActualPrice | float | Net price of the item. The item price can be changed if `isVariance` is set to true
+isVariance | boolean | Whether there is change in the price of the current item  during picklist creation. In case of any difference, the item price can be changed by passing the `ActualPrice` of the itemPickingPrice":60,
+PicklistCustomFields | obj | Picklist level custom field details as a key and value pairs
+
+
+## 

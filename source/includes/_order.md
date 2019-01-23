@@ -2610,6 +2610,86 @@ TobeCancelledOrderItems | obj | Specify the items that you want to cancel in `Or
 
 
 
+## Add item to an Order
+
+Lets you add an item to existing order.
+
+> Sample Request
+
+```html
+https://www.martjack.com/developerapi/Order?
+
+```
+
+
+> Sample POST Request
+
+```json
+
+MerchantID={{Merchantid}}&InputFormat=application/json&InputData={  
+   "OrderID":6419643,
+   "SKU":"Fruits0025",
+   "VarientSKU":"Fruits0025-2-New",
+   "Quantity":1,
+   "LocationCode":"20518",
+   "DeliveryMode":"H",
+   "ItemAction":1
+}
+
+
+```
+
+> Sample Response
+
+```json
+{
+    "messageCode": "1004",
+    "Message": "Successful",
+    "ErrorCode": 0
+}
+
+```
+
+
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `/Order/AddOrderLineItem/{MerchantId}`
+Rate Limited? | No
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | POST
+Batch Support | No
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+### Request URL
+
+`https://{host}/developerapi/Order/AddOrderLineItem/{MerchantId}`
+
+
+### Request Body Parameters
+
+Parameter | Type | Description
+-------- | ----- | -----------
+OrderID | int | Unique id of the order for which you want to add items
+SKU | string | SKU of the product that you want to add/update
+VarientSKU | string | Variant SKU of the item that you want to add
+Quantity | int | Quantity of the item that you want to add (adds to the order list. Not overrides
+LocationCode | int | Location code of the item
+DeliveryMode | enum | Mode of delivery of the current item. Values: `H` for home delivery, `S` for store pick-up
+ItemAction | enum | Specify `1` to add items to the existing list. Only one value is supported currently
+
+
+
+
+
+
+
+
+
 ## Process Return
 
 > Sample Request
@@ -3020,7 +3100,7 @@ DocketNumber | string | AWB number of the shipment
 
 
 
-## Get Activity History
+## Get Order Activity History
 
 > Sample Request
 
@@ -3514,7 +3594,7 @@ ShipStateCode | string | State code of the product delivery location
 SKU* | string | SKU of the product for which you want to calculate tax (Required for variant product)
 VarientSKU | string | SKU of the variant product for which you want to calculate tax
 Quantity* | int | Number of the item for which you want to calculate tax
-DeliveryMode* | enum | Mode of delivery of the current item. Mode of delivery of the item. Values: `H` for home delivery, `S` for store pick-up
+DeliveryMode* | enum | Mode of delivery of the current item. Values: `H` for home delivery, `S` for store pick-up
 UnitPrice* | float | Price of a single item
 
 <aside class="notice"> All parameters marked by * are mandatory. </aside>
@@ -3695,7 +3775,7 @@ BundleItem | obj | Details of the bundle product
 SKU* | string | SKU of the product for which you want to calculate tax (Required for variant product)
 VarientSKU | string | SKU of the variant product for which you want to calculate tax
 Quantity* | int | Number of the item for which you want to calculate tax
-DeliveryMode* | enum | Mode of delivery of the current item. Mode of delivery of the item. Values: `H` for home delivery, `S` for store pick-up
+DeliveryMode* | enum | Mode of delivery of the current item. Values: `H` for home delivery, `S` for store pick-up
 UnitPrice* | float | Price of a single item
 
 <aside class="notice"> All parameters marked by * are mandatory. </aside>
@@ -3854,7 +3934,7 @@ referenceNumber* | string | Preferred reference number for the  order
 
 
 
-## Get Return Request History
+## Search Return Requests
 
 Returns the history of return orders of the merchant.
 
@@ -4124,6 +4204,245 @@ RefundStatus | enum | Current status of the refund. Values: `I` for initiated, `
 IncludeShippingCost | enum | `Yes` if the shipping cost is included in the return item, `No` if shipping cost is not included 
 IsSelfShip | enum | ‘Yes` if the user will ship the return package to the merchant, `No`, if the merchant has to pickup the package from the user
 SubStatus | string | The sub-status code of the return request
+
+
+## Get Return Request Details (by Order ID)
+
+Returns all return request details of a specific order.
+
+> Sample Request
+
+```html
+https://www.martjack.com/developerapi/Order/GetReturnRequestByOrderID/9403244b-2231-4550-ae96-2dbb5d0c1694/6758025
+
+```
+
+
+> Sample Response
+
+```json
+{
+  "messageCode": "1004",
+  "Message": "Successful",
+  "ReturnRequests": [
+    {
+      "ReturnRequestId": 201782,
+      "MerchantId": "9403244b-2231-4550-ae96-2dbb5d0c1694",
+      "ShipmentId": 0,
+      "OrderId": 7124734,
+      "InvoiceNumber": "",
+      "DateInitiated": "10-Sep-2018 12:34:26 PM",
+      "DateReceived": "10-Sep-2018 12:34:26 PM",
+      "BillOfSupplyCreditNoteNumber": "",
+      "TaxableCreditNoteNumber": "",
+      "Source": "2",
+      "RequestStatus": "R",
+      "RequestType": "CU",
+      "RefundStatus": "I",
+      "RefundedAmount": 0,
+      "ConfirmedRefundAmount": 1019,
+      "IncludeShippingCost": "False",
+      "IsSelfShip": "False",
+      "ReturnRequestDetail": [
+        {
+          "ReturnRequestDetailId": 317918,
+          "ReturnRequestId": 201782,
+          "OrderItemId": 25364654,
+          "SuggestedReturnAction": "RF",
+          "Reason": "NDA",
+          "ReturnQty": "1",
+          "IsReceived": "True",
+          "ReceivedQty": "1",
+          "MRP": 1695.000,
+          "ProductPrice": 1019,
+          "PromotionDiscount": 0,
+          "UOM": "Pieces",
+          "AverageWeight": 0,
+          "IsTaxable": "False",
+          "TaxDetails": [
+            
+          ],
+          "RefundAmount": 1019,
+          "ConfirmedRefundAmount": 1019,
+          "SKU": "103694029",
+          "VariantSKU": null,
+          "ProductID": 13133426,
+          "VariantProductID": 0,
+          "ProductTitle": "USHA STEAM IRON TEFLON3713",
+          "SubStatus": "'",
+          "SubStatusComments": "'"
+        }
+      ],
+      "RequestedPaymentMode": {
+        "PaymentMode": "",
+        "BankName": "",
+        "BranchName": "",
+        "IFSCCOde": "",
+        "AccountNumber": "",
+        "AccountName": "",
+        "CityName": ""
+      },
+      "ReturnRequestPayments": [
+        {
+          "ReturnRequestId": 201782,
+          "PaymentDate": "19-Sep-2018 10:51:44 AM",
+          "PaymentMode": "PAYTM",
+          "ReferenceNumber": "20180919111212801300168654405302427",
+          "Amount": "1,019",
+          "Remarks": "Refund request was raised for this transaction. But it is pending state.",
+          "BankName": null,
+          "IFSCCOde": null,
+          "AccountNumber": "",
+          "AccountName": "",
+          "BranchName": null
+        }
+      ],
+      "PickupDetails": {
+        "Address1": "",
+        "Address2": "",
+        "CountryCode": "",
+        "CountryName": "",
+        "StateCode": "",
+        "StateName": "",
+        "CityCode": "",
+        "CityName": "",
+        "PostCode": "",
+        "Email": "",
+        "FirstName": "",
+        "LastName": "",
+        "Mobile": ""
+      },
+      "SubStatus": "",
+      "SubStatusComments": ""
+    }
+  ],
+  "ErrorCode": 0
+}
+
+
+```
+
+
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `/Order/GetReturnRequestByOrderID/{MerchantId}/{OrderId}`
+Rate Limited? | No
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | GET
+Batch Support | No
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+### Request URL
+
+`https://{host}/developerapi/Order/GetReturnRequestByOrderID/{MerchantId}/{OrderId}`
+
+
+### Request Path Parameters
+
+Parameter | Type | Description
+-------- | ----- | -----------
+MerchantId* | string | Unique GUID of the merchant
+OrderId* | int | Unique order id for which you want to fetch return request details
+
+
+
+
+
+### Response Parameters
+
+Parameter | Type | Description
+--------- | ---- | -----------
+BillOfSupplyCreditNoteNumber | string | Credit Note will be generated for any customer returned item received at the merchant warehouse.  Non-taxable items will have "Bill of supply Credit note number" 
+TaxableCreditNoteNumber | string | Credit Note will be generated for any customer returned item received to merchant warehouse. Taxable Items will have this "Taxable credit note number"
+Source | int | values from 1-5. Source from which the return request is made. Example, `1` stands for storefront
+RequestStatus | enum | Current status of the return request. Values: `I` for initiated, `C` for closed
+RequestType | enum | Type of the return request. `R` for return to origin (RTO) `C` for customer return and `CU` for Return created due to item cancellation
+RefundStatus | enum | Current status of the refund. Values: `I` for initiated, `C` for closed
+IncludeShippingCost | enum | `Yes` if the shipping cost is included in the return item, `No` if shipping cost is not included 
+IsSelfShip | enum | ‘Yes` if the user will ship the return package to the merchant, `No`, if the merchant has to pickup the package from the user
+SubStatus | string | The sub-status code of the return request
+
+
+
+
+
+## Edit Order Item Price
+
+Lets you modify the price of an existing order item.
+
+> Sample Request
+
+```html
+https://www.martjack.com/developerapi/Order/EditOrderLineItem/81e77da2-723b-483d-8c0d-49f800c1exxx
+
+```
+
+
+> Sample POST Request
+
+```json
+
+MerchantID=81e77da2-723b-483d-8c0d-49f800c1exxx&InputFormat=application/json&InputData=[  
+   {  
+      "OrderID":7504015,
+      "OrderItemID":"26147611",
+      "Price":"1250",
+      "MRP":"2600",
+      "ConsiderCurrentPriceandMRP":"False",
+      "ReasonForPriceOverride":"check price override"
+   }
+]
+
+
+```
+
+> Sample Response
+
+```json
+{
+    "messageCode": "1004",
+    "Message": "Successful",
+    "ErrorCode": 0
+}
+
+```
+
+
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `/Order/EditOrderLineItem/{MerchantId}`
+Rate Limited? | No
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | POST
+Batch Support | No
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+### Request URL
+
+`https://{host}/developerapi/Order/EditOrderLineItem/{MerchantId}`
+
+
+### Request Body Parameters
+
+Parameter | Type | Description
+-------- | ----- | -----------
+OrderID | int | Unique id of the order for which you want to update item price
+OrderItemID | int | Unique id of the order item that you want to update
+Price | float | New price of the order item
+MRP | float | New maximum retail price of the order item
+ConsiderCurrentPriceandMRP | boolean | Specify `False` to use the new prices specified, `True` to consider the prices of the as per the CP
+ReasonForPriceOverride | string | Specify the reason for updating the order item price
+
 
 
 

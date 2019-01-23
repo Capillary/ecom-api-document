@@ -14,9 +14,10 @@ includes:
   - customer
   - product
   - cart
-  - order
   - pricelist
   - shoppingList
+  - order
+  - picklist
   - store
   - location
   - merchant
