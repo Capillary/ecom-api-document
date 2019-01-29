@@ -4206,7 +4206,7 @@ IsSelfShip | enum | ‘Yes` if the user will ship the return package to the merc
 SubStatus | string | The sub-status code of the return request
 
 
-## Get Return Request Details (by Order ID)
+## Get Return Request (by Order ID)
 
 Returns all return request details of a specific order.
 

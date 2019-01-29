@@ -82,3 +82,66 @@ TokenPrice | float | Minimum amount required for the customer to reserve the ite
 <aside class="notice"> All parameters marked by * are mandatory. </aside>
 
 
+## Delete Products
+
+Deletes the slab of products in the pricelist.
+
+> Sample Request
+
+```html
+https://www.martjack.com/developerapi/Details/Delete/0639f7a6-34cc-48b2-9fd9-a80e2ed8xxxx/3456
+```
+
+> Sample POST Request (Raw)
+
+```json
+productId=14149215&quantity=7
+```
+
+> Sample POST Request (x-www-form-urlencoded Payload)
+
+```json
+MerchantId=0639f7a6-34cc-48b2-9fd9-a80e2ed8xxxx&InputFormat=application/json&InputData={
+"productId":14149215,
+"quantity":7
+}
+
+
+
+> Sample Response
+
+```json
+
+```
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `Product/Pricelist/Details/Delete/{MerchantId}/{PricelistRefCode}`
+Rate Limited? | No
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | POST
+Batch Support | No
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+### Request URL
+
+`https://{host}/developerapi/Product/Pricelist/Details/Delete/{MerchantId}/{PricelistRefCode}`
+
+
+### Request Path Parameters
+
+Parameter | Type | Description
+--------- | ---- | -----------
+MerchantId* | string | Unique GUID of the merchant
+PricelistRefCode* | string | Unique reference code of the pricelist
+
+### Request Body Parameters
+
+Parameter | Type | Description
+--------- | ---- | -----------
+productid* | int | Unique id of the product that you want to delete
+quantity* | int | Quantity of items that you want to delete
