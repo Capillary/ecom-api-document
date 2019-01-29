@@ -115,14 +115,14 @@ InputData={
 "customer":{
 "MobileNo":"917411639xxx",
 "UserName":"917411639xxx",
-"merchantId":"98d18d82-ba59-4957-9c92-3f89207a34f6
+"merchantId":"98d18d82-ba59-4957-9c92-3f89207auyf6
 "}}&InputFormat=application/json
 
 
 
 ## Generating Signature for Developer APIs
 
-An API signature is a credential that consists of consumer key along with nonce, timestamp, oauth version and signature associated to the specific app. You can create API signature to authenticate your merchant app and access Anywhere Commerce APIs instead of the app's consumer key and password. The signature allows our servers to verify whether a request generated using the API key is authorized.
+An API signature is a credential that consists of consumer key along with nonce, timestamp, oauth version and signature associated to the specific app. You can create API signature to authenticate your merchant app and access Anywhere Commerce APIs instead of the app's consumer key and password. The signature allows our servers to verify whether a request generated using the API key is authorized. In an API call, signature is validated first followed by app permissions.
 
 The following process guides you how to to generate and use signature.
 
@@ -137,6 +137,7 @@ Following are the different parameters required to generate signature.
 * oauth_timestamp
 * oauth_version
 * oauth_signature
+
 
 ### How to generate the parameters required for signature?
 
@@ -217,30 +218,6 @@ oauth_consumer_key=QFTSEOUC
 
 
 
-
-
-
-Required for signature:
-
-:
-
-
-How to generate these?
-
-
-How to push these in the API? - Header or URL?
-
-
-How the process ha
-
-> Signatire verification process
-Signature will be validated first then APP permissions
-TAKE PUBLIC KEY FROM THE request AND GENERAATES THE SIGNATURER
-2. Fetch SecretKey and addon id by Public Key
-3. Generate signature based on Public Key, Secret key, Noonce, Timestamp, signature method and auth version
-4. Compare signature from client and server
-
-Then it will go for API check
 
 
 
