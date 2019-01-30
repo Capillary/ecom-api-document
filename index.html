@@ -6141,7 +6141,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 </thead><tbody>
 <tr>
 <td>URI</td>
-<td><code class="prettyprint">carts/SendOTP/V2/{{MerchantId}}</code></td>
+<td><code class="prettyprint">carts//V2/SendOTP/{MerchantId}</code></td>
 </tr>
 <tr>
 <td>Rate Limited?</td>
@@ -6172,7 +6172,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/carts/SendOTP/V2/{{MerchantId}}</code></p>
+<p><code class="prettyprint">https://{host}/developerapi/carts/V2/SendOTP/{MerchantId}</code></p>
 
 <h3 id="request-parameters">Request Parameters</h3>
 
@@ -18241,6 +18241,138 @@ Batch Support | No</p>
 </tbody></table>
 
 <aside class="notice"> All parameters marked by * are mandatory. </aside>
+
+<h2 id="update-order-sub-status">Update Order Sub-status</h2>
+
+<p>Lets you modify the sub-status of an order or item to rejected (to trigger the allocation rules again).</p>
+
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
+<pre class="highlight html"><code>https://www.martjack.com/developerapi/Order/ChangeSubStatus/81e77da2-723b-483d-8c0d-49f800c1xxxx/7680905
+</code></pre>
+<blockquote>
+<p>Sample POST Request</p>
+</blockquote>
+<pre class="highlight json"><code><span class="err">MerchantId=</span><span class="mi">81</span><span class="err">e</span><span class="mi">77</span><span class="err">da</span><span class="mi">2-723</span><span class="err">b</span><span class="mi">-483</span><span class="err">d</span><span class="mi">-8</span><span class="err">c</span><span class="mi">0</span><span class="err">d</span><span class="mi">-49</span><span class="err">f</span><span class="mi">800</span><span class="err">c</span><span class="mi">1</span><span class="err">xxxx&amp;InputFormat=application/json&amp;InputData=</span><span class="p">{</span><span class="w">
+   </span><span class="nt">"ChangeSubStatus"</span><span class="p">:{</span><span class="w">
+      </span><span class="nt">"SubStatus"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"OperatorId"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ItemLevelSubStatus"</span><span class="p">:[</span><span class="w">
+         </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"OrderLineId"</span><span class="p">:</span><span class="s2">"26529393"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"SubStatus"</span><span class="p">:</span><span class="s2">"RJ"</span><span class="w">
+         </span><span class="p">},</span><span class="w">
+         </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"OrderLineId"</span><span class="p">:</span><span class="s2">"26529395"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"SubStatus"</span><span class="p">:</span><span class="s2">"RJ"</span><span class="w">
+         </span><span class="p">},</span><span class="w">
+         </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"OrderLineId"</span><span class="p">:</span><span class="s2">"26529397"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"SubStatus"</span><span class="p">:</span><span class="s2">"RJ"</span><span class="w">
+         </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"messageCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1004"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td><code class="prettyprint">/Order/ChangeSubStatus/{MerchantId}/OrderId</code></td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>POST</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>No</td>
+</tr>
+</tbody></table>
+
+<ul>
+<li><strong>Rate limiter</strong> controls the number of incoming and outgoing traffic of a network</li>
+<li><strong>Authentication</strong> verifies the identity of the current user or integration. See Introduction &gt; Authentication (Merchant Setup on Admin Portal) for more details</li>
+</ul>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">https://{host}/developerapi/Order/ChangeSubStatus/{MerchantId}/OrderId</code></p>
+
+<h3 id="request-path-parameters">Request Path Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>MerchantId*</td>
+<td>string</td>
+<td>Unique GUID of the order</td>
+</tr>
+<tr>
+<td>OrderId*</td>
+<td>int</td>
+<td>Order id for which you want to update sub-status</td>
+</tr>
+</tbody></table>
+
+<h3 id="request-body-parameters">Request Body Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>OperatorId</td>
+<td>string</td>
+<td>Unique id of the staff updating the order substatus.</td>
+</tr>
+<tr>
+<td>OrderLineId*</td>
+<td>int</td>
+<td>Line item id of for which you want to update status</td>
+</tr>
+<tr>
+<td>SubStatus*</td>
+<td>enum</td>
+<td>New status of the order or order line item. <code class="prettyprint">RJ</code> for rejected. Either pass it at the order level or line-item level as per needed</td>
+</tr>
+</tbody></table>
 
 <h2 id="update-shipment-status">Update Shipment Status</h2>
 
