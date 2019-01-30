@@ -41,7 +41,7 @@ Sends OTP to the specified mobile number or email id.
 ### Resource Information
 Parameter | Description
 --------- | -----------
-URI | `carts/SendOTP/V2/{{MerchantId}}`
+URI | `carts//V2/SendOTP/{MerchantId}`
 Rate Limited? | No
 Authentication | Yes
 Response Formats | JSON
@@ -53,7 +53,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/carts/SendOTP/V2/{{MerchantId}}`
+`https://{host}/developerapi/carts/V2/SendOTP/{MerchantId}`
 
 ### Request Parameters
 Parameter | Description

@@ -2884,6 +2884,95 @@ Quantity* | int | Quantity of the current order item
 <aside class="notice"> All parameters marked by * are mandatory. </aside>
 
 
+## Update Order Sub-status
+
+Lets you modify the sub-status of an order or item to rejected (to trigger the allocation rules again).
+
+
+> Sample Request
+
+```html
+https://www.martjack.com/developerapi/Order/ChangeSubStatus/81e77da2-723b-483d-8c0d-49f800c1xxxx/7680905
+```
+
+
+> Sample POST Request
+
+```json
+MerchantId=81e77da2-723b-483d-8c0d-49f800c1xxxx&InputFormat=application/json&InputData={
+   "ChangeSubStatus":{
+      "SubStatus":"",
+      "OperatorId":"",
+      "ItemLevelSubStatus":[
+         {
+            "OrderLineId":"26529393",
+            "SubStatus":"RJ"
+         },
+         {
+            "OrderLineId":"26529395",
+            "SubStatus":"RJ"
+         },
+         {
+            "OrderLineId":"26529397",
+            "SubStatus":"RJ"
+         }
+      ]
+   }
+}
+```
+
+> Sample Response
+
+```json
+{
+    "messageCode": "1004",
+    "Message": "Successful",
+    "ErrorCode": 0
+}
+```
+
+
+
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `/Order/ChangeSubStatus/{MerchantId}/OrderId`
+Rate Limited? | No
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | POST
+Batch Support | No
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+### Request URL
+
+`https://{host}/developerapi/Order/ChangeSubStatus/{MerchantId}/OrderId`
+
+
+### Request Path Parameters
+
+Parameter | Type | Description
+-------- | ----- | -----------
+MerchantId* | string | Unique GUID of the order
+OrderId* | int | Order id for which you want to update sub-status
+
+
+
+### Request Body Parameters
+
+Parameter | Type | Description
+-------- | ----- | -----------
+OperatorId | string | Unique id of the staff updating the order substatus.
+OrderLineId* | int | Line item id of for which you want to update status
+SubStatus* | enum | New status of the order or order line item. `RJ` for rejected. Either pass it at the order level or line-item level as per needed
+
+
+
+
+
 
 ## Update Shipment Status
 

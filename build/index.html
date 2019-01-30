@@ -273,12 +273,12 @@ InputData={
 &ldquo;customer&rdquo;:{
 &ldquo;MobileNo&rdquo;:&ldquo;917411639xxx&rdquo;,
 &ldquo;UserName&rdquo;:&ldquo;917411639xxx&rdquo;,
-&ldquo;merchantId&rdquo;:&ldquo;98d18d82-ba59-4957-9c92-3f89207a34f6
+&ldquo;merchantId&rdquo;:&ldquo;98d18d82-ba59-4957-9c92-3f89207auyf6
 &rdquo;}}&amp;InputFormat=application/json</p>
 
 <h2 id="generating-signature-for-developer-apis">Generating Signature for Developer APIs</h2>
 
-<p>An API signature is a credential that consists of consumer key along with nonce, timestamp, oauth version and signature associated to the specific app. You can create API signature to authenticate your merchant app and access Anywhere Commerce APIs instead of the app&rsquo;s consumer key and password. The signature allows our servers to verify whether a request generated using the API key is authorized.</p>
+<p>An API signature is a credential that consists of consumer key along with nonce, timestamp, oauth version and signature associated to the specific app. You can create API signature to authenticate your merchant app and access Anywhere Commerce APIs instead of the app&rsquo;s consumer key and password. The signature allows our servers to verify whether a request generated using the API key is authorized. In an API call, signature is validated first followed by app permissions.</p>
 
 <p>The following process guides you how to to generate and use signature.</p>
 
@@ -359,27 +359,6 @@ oauth_consumer_key=QFTSEOUC
 &amp;oauth_timestamp=1548658766
 &amp;oauth_version=1.0
 &amp;oauth_signature=AeBXqh%2BfPmuVmUdksCAJ%2FyxNv3c%3D</p>
-
-<p>Required for signature:</p>
-
-<p>:</p>
-
-<p>How to generate these?</p>
-
-<p>How to push these in the API? - Header or URL?</p>
-
-<p>How the process ha</p>
-
-<blockquote>
-<p>Signatire verification process
-Signature will be validated first then APP permissions
-TAKE PUBLIC KEY FROM THE request AND GENERAATES THE SIGNATURER
-2. Fetch SecretKey and addon id by Public Key
-3. Generate signature based on Public Key, Secret key, Noonce, Timestamp, signature method and auth version
-4. Compare signature from client and server</p>
-</blockquote>
-
-<p>Then it will go for API check</p>
 
           <h1 id="customer">Customer</h1>
 
