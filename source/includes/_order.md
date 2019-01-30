@@ -2967,7 +2967,7 @@ Parameter | Type | Description
 -------- | ----- | -----------
 OperatorId | string | Unique id of the staff updating the order substatus.
 OrderLineId* | int | Line item id of for which you want to update status
-SubStatus* | enum | New status of the order or order line item. `RJ` for rejected. Either pass it at the order level or line-item level as per needed
+SubStatus* | enum | New status of the order or order line item as configured in the CP. Either pass it at the order level or line-item. For example, `RJ` for rejected. You can find the configured sub-statuses in the CP Settings > Application settings > Order settings > Order Substatus
 
 
 
