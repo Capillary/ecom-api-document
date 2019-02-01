@@ -984,7 +984,7 @@ https://www.martjack.com/Order/Search/1b3420ce-002f-4f66-bbda-cd0828aa2af8
 MerchantId=1b3420ce-002f-4f66-bbda-cd0828aa2af8&InputFormat=application/json&InputData={
   "OrderSearch": {
     "Action": "",
-    "CheckOutType": "",
+    "CheckOutType": "Online Payment",
     "DateFrom": "09\/15\/2017",
     "DateTo": "09\/16\/2017",
     "DateType": "",
@@ -1115,26 +1115,24 @@ Batch Support | No
 Parameter | Type | Description
 --------- | ---- | -----------
 Action | 
-CheckOutType | 
+CheckOutType | string | Type of check out. For example, Online Payment, Cash on DeliveredDate 
 DateFrom | date | Search by order created duration in DateFrom - DateTo in `MM\/DD\/YYYY` format
 DateTo | date | Search by order created duration in DateFrom - DateTo in `MM\/DD\/YYYY` format
-DateType | 
+DateType | | 
 EmailID | string | Search orders of a specific customer by customer email id
 FristName | string | Search orders by customers' first name
 LastName | string | Search orders by customers' last name
 MobileNo | string | Search orders of a specific customer by mobile number
-OrderNo | | | 
+OrderNo | int | Fetch details of a specific order by order number
 OrderPriceFrom | float | Search orders by price range in OrderPriceFrom and OrderPriceTo
 OrderPriceTo | float | Search orders by price range in OrderPriceFrom and OrderPriceTo
 OrderStatus | string | Search order by order status `P` for Pending, `A` for Authorized
 ProductSku | string | Search orders of a specific item. Pass the item SKU
-store | | all
+store | string | Search orders of a specific store by store code. Specify `all` to fetch orders of all stores
 ShippingCostFrom | float | Search orders by shipping cost range between ShippingCostFrom and ShippingCostTo
 ShippingCostTo | float | Search orders by shipping cost range between ShippingCostFrom and ShippingCostTo
-RecordFrom | 
-RecordTo | 
- 
- 
+RecordFrom | int | From the fetch results, specify the record range that you want to see in RecordFrom and RecordTo. For example, out of 80 results you can prefer to see only records after 30 or between 30-60
+RecordTo | int | From the fetch results, specify the record range that you want to see in RecordFrom and RecordTo. For example, out of 80 results you can prefer to see only first 30 records or between 30-70
  
 
  

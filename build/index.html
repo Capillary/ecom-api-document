@@ -305,23 +305,23 @@ InputData={
 
 <p>You can generate Nonce using the following API</p>
 
-<p><code class="prettyprint">http://{{url}}/developerapi//OAuth/Nounce</code></p>
+<p><code class="prettyprint">http://{{url}}/developerapi/OAuth/Nounce</code></p>
 
 <h4 id="generating-timestamp">Generating TimeStamp</h4>
 
 <p>Use the following API to generate TimeStamp</p>
 
-<p><code class="prettyprint">http://{{url}}/developerapi//OAuth/TimeStamp</code></p>
+<p><code class="prettyprint">http://{{url}}/developerapi/OAuth/TimeStamp</code></p>
 
 <h4 id="generating-outh-signature">Generating Outh Signature</h4>
 
 <p>To generate Outh Signature use the following </p>
 
-<p><code class="prettyprint">/OAuth/Signature/{public_key}/{secret_key}/{timeStamp}/{nonce}/{GET/POST}?url={URL}</code></p>
+<p><code class="prettyprint">developerapi/OAuth/Signature/{public_key}/{secret_key}/{timeStamp}/{nonce}/{GET/POST}?url={URL}</code></p>
 
 <p>Example:</p>
 
-<p><code class="prettyprint">http://www.martjack.com/OAuth/Signature//QFTBNOUC/NDH1BYBFRYHSPDJXFV3RGISB/1548658024/5681074/POST?url=http://staging.ecom.capillary.in/Customer/06e2d5fc-402b-475e-be79-592c2df95398/Create</code></p>
+<p><code class="prettyprint">http://www.martjack.com/OAuth/Signature//QFTBNOUC/NDH1BYBFRYHSPDJXFV3RGISB/1548658024/5681074/POST?url=http://www.martjack.com/Customer/06e2d5fc-402b-475e-be79-592c2df95398/Create</code></p>
 
 <p>Once you get the oauth_signature, you can make API calls.
 For example:</p>
@@ -15561,7 +15561,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <pre class="highlight json"><code><span class="err">MerchantId=</span><span class="mi">1</span><span class="err">b</span><span class="mi">3420</span><span class="err">ce</span><span class="mi">-002</span><span class="err">f</span><span class="mi">-4</span><span class="err">f</span><span class="mi">66</span><span class="err">-bbda-cd</span><span class="mi">0828</span><span class="err">aa</span><span class="mi">2</span><span class="err">af</span><span class="mi">8</span><span class="err">&amp;InputFormat=application/json&amp;InputData=</span><span class="p">{</span><span class="w">
   </span><span class="nt">"OrderSearch"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"Action"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"CheckOutType"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"CheckOutType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Online Payment"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"DateFrom"</span><span class="p">:</span><span class="w"> </span><span class="s2">"09\/15\/2017"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"DateTo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"09\/16\/2017"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"DateType"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
@@ -15727,8 +15727,8 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 </tr>
 <tr>
 <td>CheckOutType</td>
-<td></td>
-<td></td>
+<td>string</td>
+<td>Type of check out. For example, Online Payment, Cash on DeliveredDate</td>
 </tr>
 <tr>
 <td>DateFrom</td>
@@ -15767,8 +15767,8 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 </tr>
 <tr>
 <td>OrderNo</td>
-<td></td>
-<td></td>
+<td>int</td>
+<td>Fetch details of a specific order by order number</td>
 </tr>
 <tr>
 <td>OrderPriceFrom</td>
@@ -15792,8 +15792,8 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 </tr>
 <tr>
 <td>store</td>
-<td></td>
-<td>all</td>
+<td>string</td>
+<td>Search orders of a specific store by store code. Specify <code class="prettyprint">all</code> to fetch orders of all stores</td>
 </tr>
 <tr>
 <td>ShippingCostFrom</td>
@@ -15807,13 +15807,13 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 </tr>
 <tr>
 <td>RecordFrom</td>
-<td></td>
-<td></td>
+<td>int</td>
+<td>From the fetch results, specify the record range that you want to see in RecordFrom and RecordTo. For example, out of 80 results you can prefer to see only records after 30 or between 30-60</td>
 </tr>
 <tr>
 <td>RecordTo</td>
-<td></td>
-<td></td>
+<td>int</td>
+<td>From the fetch results, specify the record range that you want to see in RecordFrom and RecordTo. For example, out of 80 results you can prefer to see only first 30 records or between 30-70</td>
 </tr>
 </tbody></table>
 
