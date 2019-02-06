@@ -1681,3 +1681,75 @@ pageNumber | string | Page number from which you want to fetch products on store
 pageSize | string | 
 
 
+
+## Update Product Attribute
+
+Lets you update an attribute of a product by SKU or product id.
+
+> Sample Request
+
+```html
+https://www.martjack.com/developerapi/Product/UpdateProductAttribute/0639f7a6-34cc-48b2-9fd9-a80e2ed8xxxx
+
+```
+
+
+> Sample POST Request
+
+```json
+
+MerchantId=0639f7a6-34cc-48b2-9fd9-a80e2ed8xxxx&InputFormat=application/json&InputData={
+{
+  "ProductAttribute": {
+    "sku": "Fruits0023",
+    "variantsku": "Fruits0023-1",
+    "locationrefcode": "Hyd001",
+    "AttributeId": "CU00325850-001",
+    "AttributeValue": "NewValue",
+    "ProductId": "11631696"
+  }
+}
+```
+
+> Sample Response
+
+```json
+{
+    "messageCode": "1018",
+    "Message": "Data update added to task queue. You can view the status of update in control panel. Also email will be send to merchant registered email after task completion.",
+    "Taskid": "2718747",
+    "ErrorCode": 0
+}
+
+```
+
+
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `Product/UpdateProductAttribute/{MerchantId}`
+Rate Limited? | No
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | POST
+Batch Support | No
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+### Request URL
+
+`https://{host}/developerapi/Product/UpdateProductAttribute/{MerchantId}`
+
+
+### Request Body Parameters
+
+Parameter | Type | Description
+-------- | ----- | -----------
+sku | string | SKU of the product for which you want to update attributes
+variantsku | string | SKU of the variant product 
+locationrefcode | string | Location reference code of the product
+AttributeId | string | Unique id of the attribute that you want to update
+AttributeValue | string | New value of the current attribute
+ProductId | int | Unique id of the product (to update product by product id)

@@ -832,6 +832,117 @@ accesstoken* | string | The access token generated for a user session (use `/Cus
 <aside class="notice"> All parameters marked by * are mandatory. </aside>
 
 
+## Activate User Account
+
+Activates a deactivated user account.
+
+> Sample Request
+
+```html
+https://www.martjack.com/developerapi/Activation/f48fdd16-92db-4188-854d-1ecd9b62xxxx/07e8f0eb-8c5d-4ad7-ab6e-ca7a72687d63
+
+```
+
+
+
+> Sample Response
+
+```json
+{
+  "messageCode": "1004",
+  "Message": "Successful",
+  "ErrorCode": 0
+}
+
+```
+
+
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `/Customer/Activation/{MerchantId}/{UserId}`
+Rate Limited? | No
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | GET
+Batch Support | No
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+### Request URL
+
+`https://{host}/developerapi/Customer/Activation/{MerchantId}/{UserId}`
+
+
+### Request Body Parameters
+
+Parameter | Type | Description
+-------- | ----- | -----------
+merchantId* | string | Unique GUID of the merchant
+UserId* | string | Unique GUID of the user that you want to activate
+
+
+
+
+
+
+
+
+## Deactivate User Account
+
+Deactivates an active user account.
+
+> Sample Request
+
+```html
+https://www.martjack.com/developerapi/Customer/DeActivation/f48fdd16-92db-4188-854d-1ecd9b62xxxx/07e8f0eb-8c5d-4ad7-ab6e-ca7a72687d63
+
+```
+
+
+
+> Sample Response
+
+```json
+{
+  "messageCode": "1004",
+  "Message": "Successful",
+  "ErrorCode": 0
+}
+
+```
+
+
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `/Customer/DeActivation{MerchantId}/{UserId}`
+Rate Limited? | No
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | GET
+Batch Support | No
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+### Request URL
+
+`https://{host}/developerapi/Customer/DeActivation/{MerchantId}/{UserId}`
+
+
+### Request Body Parameters
+
+Parameter | Type | Description
+-------- | ----- | -----------
+merchantId* | string | Unique GUID of the merchant
+UserId* | string | Unique GUID of the user that you want to deactivate
+
+
+
 
 
 ## Fetch Customers (Search)
@@ -1005,7 +1116,7 @@ https://www.martjack.com/developerapi/Customer/81e77da2-723b-483d-8c0d-49f800c1x
 
 ```
 
-Retrieves the details of a specific customer.
+Retrieves the details of a specific customer by user id.
 
 ### Resource Information
 | | |
