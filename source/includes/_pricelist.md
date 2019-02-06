@@ -82,9 +82,9 @@ TokenPrice | float | Minimum amount required for the customer to reserve the ite
 <aside class="notice"> All parameters marked by * are mandatory. </aside>
 
 
-## Delete Products
+## Delete Product Slab
 
-Deletes the slab of products in the pricelist.
+Deletes the slab of the product in the pricelist.
 
 > Sample Request
 
@@ -111,7 +111,11 @@ MerchantId=0639f7a6-34cc-48b2-9fd9-a80e2ed8xxxx&InputFormat=application/json&Inp
 > Sample Response
 
 ```json
-
+{
+    "messageCode": "1004",
+    "Message": "Successful",
+    "ErrorCode": 0
+}
 ```
 
 ### Resource Information
