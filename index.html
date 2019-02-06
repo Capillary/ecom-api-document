@@ -16875,7 +16875,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>Sku</td>
 <td>string</td>
-<td>Filter the search results by SKU id based on the ids matching the specified value. For example, if you specify 100,  you will get the list of orders with item SKU ids starting with 100. You can also fetch a specific ordered item by passing the exact SKU id.</td>
+<td>Filter the search results by SKU id based on the ids matching the specified value. For example, if you specify 100,  you will get the list of orders with item SKU ids starting with 100. You can also fetch a specific ordered item by passing the exact SKU id</td>
 </tr>
 <tr>
 <td>OrderId</td>
@@ -16890,7 +16890,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>store</td>
 <td>string</td>
-<td></td>
+<td>Fetch orders based on the user role. Values: mystore, all, GUID and so on. For example, you can pass the GUID of a supplier to get all orders of the supplier</td>
 </tr>
 <tr>
 <td>WithRewards</td>
@@ -17190,8 +17190,8 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 </tr>
 <tr>
 <td>StockAction</td>
-<td></td>
-<td></td>
+<td>string</td>
+<td>Whether the item participates in reduction of stock or not. Value: UpdateStock,Do Not UpdateStock, None</td>
 </tr>
 <tr>
 <td>IsBackOrder</td>
@@ -19221,17 +19221,17 @@ Batch Support | No</p>
 <tr>
 <td>RETransactionId</td>
 <td>int</td>
-<td>Order id</td>
+<td>Unique Order id associated</td>
 </tr>
 <tr>
 <td>ConversationType</td>
-<td></td>
-<td></td>
+<td>-</td>
+<td>-Deprecated-</td>
 </tr>
 <tr>
 <td>LogAction</td>
 <td>enum</td>
-<td>P</td>
+<td>enum</td>
 </tr>
 </tbody></table>
 
@@ -19364,6 +19364,30 @@ Batch Support | No</p>
 <h3 id="response-parameters">Response Parameters</h3>
 
 <p>Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>UseMailBoxAddress</td>
+<td>boolean</td>
+<td>Whether the user&rsquo;s mail address of the location is used or not</td>
+</tr>
+<tr>
+<td>VerificationMethod</td>
+<td>string</td>
+<td>Verification type for item delivery or return pick-up. Currently we support <code class="prettyprint">OTP</code></td>
+</tr>
+<tr>
+<td>VerificationValue</td>
+<td>string</td>
+<td>Value of the specified VerificationMethod</td>
+</tr>
+</tbody></table>
 
 <h2 id="get-shipment-history">Get Shipment History</h2>
 
@@ -23104,6 +23128,10 @@ Batch Support | No</p>
 
 <aside class="notice"> All parameters marked by * are mandatory.</aside>
 
+<h3 id="response-parameters">Response Parameters</h3>
+
+<p>Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.</p>
+
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -23129,35 +23157,12 @@ Batch Support | No</p>
 <tr>
 <td>IsDefaultLNG_LocationName</td>
 <td>boolean</td>
-<td>Distance of the location from latitude and longitude. Available only if latitude and longitude are set for the location</td>
+<td>Whether the language is the default language of the current location or not</td>
 </tr>
-</tbody></table>
-
-<h3 id="response-parameters">Response Parameters</h3>
-
-<p>Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.</p>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
 <tr>
 <td>IsReversePickupEnabled</td>
 <td>boolean</td>
 <td>Whether reverse pickup is applicable for the product in case of returns</td>
-</tr>
-<tr>
-<td>IsDefaultLNG_LocationName</td>
-<td>boolean</td>
-<td></td>
-</tr>
-<tr>
-<td>IsParticipateInStock</td>
-<td>boolean</td>
-<td>Whether the location is participating in stock. The location appears on the storefront only if this is set to true</td>
 </tr>
 </tbody></table>
 
@@ -23816,7 +23821,7 @@ Batch Support | No</p>
 <tr>
 <td>IsDefaultLNG_LocationName</td>
 <td>boolean</td>
-<td>Distance of the location from latitude and longitude. Available only if latitude and longitude are set for the location</td>
+<td>Whether the language is default language of the location or not</td>
 </tr>
 </tbody></table>
 
