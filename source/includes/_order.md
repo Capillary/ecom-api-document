@@ -1738,10 +1738,10 @@ ToDate | date-time | Specify the duration for which you want to fetch the order 
 Status | enum | Filter the search results by order status(P=Pending, F=Cancel, A=Approved)
 ShipDateFrom | date-time | Filter the search results by shipped date range - from (ShipDateFrom) and to (ShipDateTo) in  (mm-dd-yyyy hh:mm:ss format). If ShipDateFrom is specified, then you also need to specify ShipDateTo
 ShipDateTo | date-time | Filter the search results by shipped date range - from (ShipDateFrom) and to (ShipDateTo) in  (mm-dd-yyyy hh:mm:ss format). If ShipDateFrom is specified, then you also need to specify ShipDateTo
-Sku | string | Filter the search results by SKU id based on the ids matching the specified value. For example, if you specify 100,  you will get the list of orders with item SKU ids starting with 100. You can also fetch a specific ordered item by passing the exact SKU id.
+Sku | string | Filter the search results by SKU id based on the ids matching the specified value. For example, if you specify 100,  you will get the list of orders with item SKU ids starting with 100. You can also fetch a specific ordered item by passing the exact SKU id
 OrderId | int | Filter the search results by order id or order number. For example, if you specify 5550,  you will get the list of all orders with order ids starting with 5500. You can also fetch a specific order by passing the exact order id.
 FromOrder | string | The orderId sequence from which you want to fetch orders.  For example, if you pass 34000, you will get all orders with orderId greater than or equal to 34000
-store | string |  
+store | string | Fetch orders based on the user role. Values: mystore, all, GUID and so on. For example, you can pass the GUID of a supplier to get all orders of the supplier 
 WithRewards | boolean | Retrieve the list of orders with loyalty rewards. Send  ‘True’ if you required reward/loyalty details. By default value will be ‘False’
 LocationId | string | Order fulfillment location
 OperatorId | string | The logged in user id of Anywhere Commerce's Control Panel.
@@ -1967,7 +1967,7 @@ Parameter | Type | Description
 -------- | ----- | -----------
 LeadTime | int | In minutes. Booking is allowed at least x minutes before the booking slot
 ConversionFactor | float | The currency conversion ratio for merchants with multiple currencies, 
-StockAction | | 
+StockAction | string | Whether the item participates in reduction of stock or not. Value: UpdateStock,Do Not UpdateStock, None 
 IsBackOrder | enum | Can the item be ordered even when out of stock. Value: `true`, or `false`
 
 
@@ -3361,9 +3361,9 @@ Following table contains descriptions of a few response parameters that require 
 Parameter | Type | Description
 --------- | ---- | ----------
 ConversationLogId | int | Unique id of the activity for internal reference
-RETransactionId | int | Order id
-ConversationType | | 
-LogAction | enum | P | 
+RETransactionId | int | Unique Order id associated
+ConversationType | - | -Deprecated-
+LogAction | enum | enum | Action associated to the log. For example, P (payment), and S (shipment)
 
 
 
@@ -3469,6 +3469,12 @@ orderID* | int | Unique id the order for which you want to track shipment detail
 ### Response Parameters
 
 Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.
+
+Parameter | Type | Description
+--------- | ---- | -----------
+UseMailBoxAddress | boolean | Whether the user's mail address of the location is used or not 
+VerificationMethod | string | Verification type for item delivery or return pick-up. Currently we support `OTP`
+VerificationValue | string | Value of the specified VerificationMethod
 
 
 

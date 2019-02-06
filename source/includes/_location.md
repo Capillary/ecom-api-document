@@ -863,23 +863,17 @@ LocationId* | int | Location id for which you want to see the details
 
 <aside class="notice"> All parameters marked by * are mandatory.</aside>
 
-Parameter | Type | Description
---------- | ---- | -----------
-DistancefromInputLatLong | float | Distance of the location from latitude and longitude. Available only if latitude and longitude are set for the location
-IsParticipateInStock | boolean | Whether the location is participating in stock. The location appears on the storefront only if this is set to true 
-IsOfflinneCheckoutEnabled | boolean | Whether offline ordering is available for the location
-IsDefaultLNG_LocationName | boolean | Distance of the location from latitude and longitude. Available only if latitude and longitude are set for the location
-
-
 ### Response Parameters
 
 Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.
 
 Parameter | Type | Description
 --------- | ---- | -----------
+DistancefromInputLatLong | float | Distance of the location from latitude and longitude. Available only if latitude and longitude are set for the location
+IsParticipateInStock | boolean | Whether the location is participating in stock. The location appears on the storefront only if this is set to true 
+IsOfflinneCheckoutEnabled | boolean | Whether offline ordering is available for the location
+IsDefaultLNG_LocationName | boolean | Whether the language is the default language of the current location or not
 IsReversePickupEnabled | boolean | Whether reverse pickup is applicable for the product in case of returns
-IsDefaultLNG_LocationName | boolean |  
-IsParticipateInStock | boolean | Whether the location is participating in stock. The location appears on the storefront only if this is set to true
 
 
 
@@ -1400,7 +1394,7 @@ DistancefromInputLatLong | float | Distance of the location from latitude and lo
 AdditionalDetails | json obj | Custom field details 
 IsParticipateInStock | boolean | Whether the location is participating in stock. The location appears on the storefront only if this is set to true
 IsOfflinneCheckoutEnabled | boolean | Whether offline ordering is available for the location
-IsDefaultLNG_LocationName | boolean | Distance of the location from latitude and longitude. Available only if latitude and longitude are set for the location
+IsDefaultLNG_LocationName | boolean | Whether the language is default language of the location or not
 
 
 
