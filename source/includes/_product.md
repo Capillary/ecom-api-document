@@ -1250,7 +1250,7 @@ UOM | string | Unit of measurement of the product. It could be the `pieces` for 
 > Sample Request
 
 ```html
-https://www.martjack.com/developerapi/Product/9820eca5-d11f-4df1-9b20-983a45ea9631/12322048/true
+https://www.martjack.com/developerapi/Product/9820eca5-d11f-4df1-9b20-983a45ea9631/12322048
 ```
 
 
@@ -1365,16 +1365,16 @@ https://www.martjack.com/developerapi/Product/9820eca5-d11f-4df1-9b20-983a45ea96
 
 
 
+Retrieves all variants of a parent product.
 
 
-Retrieves all the available variants of a product.
 
 ### Resource Information
 | | |
 --------- | ----------- |
-URI | `/Product/Varients/{merchantId}/{productId}/{availability}`
+URI | `/Product/Varients/{merchantId}/{ParentProductId}`
 Response Formats | JSON
-HTTP Methods | POST
+HTTP Methods | GET
 Batch Support | Yes
 Rate Limited? | No
 Authentication | Yes
@@ -1383,7 +1383,7 @@ Authentication | Yes
 * **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
 
 ### Request URL
-`https://{host}/developerapi/Product/Varients/{merchantId}/{productId}/{availability}`
+`https://{host}/developerapi/Product/Varients/{merchantId}/{ParentProductId}`
 
 
 ### Request Path Parameters
@@ -1391,8 +1391,7 @@ Authentication | Yes
 Parameter | Type | Description
 --------- | ---- | -----------
 merchantId* | string | Unique GUID of the merchant
-productId* | string |  Unique id of the product for which you want to fetch available variants
-availability | boolean | Pass `true` to retrieve only active variant products, `false` to retrieve both active and inactive variant products
+productId* | string |  Unique id of the parent product for which you want to fetch available variants
 
 <aside class="notice"> All parameters marked by * are mandatory.</aside>
 
@@ -1406,14 +1405,14 @@ ReferenceProductVariantId | int | Reference id of the product variant
 StartDate | date-time | The duration (between `StartDate` and `EndDate`) for which the product is shown on the storefront 
 EndDate | date-time | The duration (between `StartDate` and `EndDate`) for which the product is shown on the storefront
 IsDropShipping | boolean | 
-MarkupPrice | | 
-MarkupType | | 
+MarkupPrice | float | 
+MarkupType | float | 
 IsReferProductInfo | boolean | 
-IsReferPrice | | 
-ReserveQuantity | int | Total quantity of items reserved for 
+IsReferPrice | float | 
+ReserveQuantity | int | Quantity of items the merchant needs to reserve for special purposes. For example, merchant could reserve some products to fulfill for loyalty customers
 ReOrderStockLevel | int | Quantity of items to be reordered
 IsDisplaySwatch | boolean | Whether the illustration of accurate representation of color, pattern or texture of the product is shown on the storefront
-flag | | 
+flag | string | 
 
 
 
@@ -2015,175 +2014,6 @@ variantProductId* | int | Unique id of the variant product that you want to fetc
 <aside class="notice">All parameters marked by * are mandatory. </aside>
 
 
-## Get Product Variants
-
-Retrieves the variants of a specific product.
-
-> Sample Request
-
-```html
-https://www.martjack.com/developerapi/Product/Varients/{Merchantid}/{ParentProductId}
-
-```
-
-
-> Sample Response
-
-```json
-{
-   "messageCode":"1004",
-   "Message":"Successful",
-   "ProductVarient":[
-      {
-         "variantProductId":"27686",
-         "productId":8283282,
-         "MRP":70,
-         "WebPrice":70,
-         "SKU":"IN-Veg-Cheese-Rglr-Mdm",
-         "Inventory":15540000,
-         "ReferenceProductVariantId":0,
-         "productType":"",
-         "merchantId":"98d18d82-ba59-4957-9c92-3f89207a34f6",
-         "BulkQuantity":1,
-         "Availability":true,
-         "StartDate":"/Date(-2209008600000+0530)/",
-         "EndDate":"/Date(-2209008600000+0530)/",
-         "CostPrice":0,
-         "BarCode":"",
-         "CatalogCode":"",
-         "IsDropShipping":false,
-         "MarkupPrice":0,
-         "MarkupType":"",
-         "IsReferProductInfo":false,
-         "IsReferPrice":false,
-         "TokenPrice":0,
-         "Flag":"",
-         "ReserveQuantity":0,
-         "ReOrderStockLevel":0,
-         "StockAlertQuantity":0,
-         "PreOrderMessage":"",
-         "PreOrder":false,
-         "BackOrder":false,
-         "IsStockEnabled":false,
-         "WebPriceWithoutDiscount":0,
-         "ProductVariantValueViews":[
-            {
-               "valueId":5008728,
-               "variantProductId":27686,
-               "variantPropertyId":2108,
-               "variantPropertyValueId":24374,
-               "IsDisplaySwatch":false,
-               "Rank":1,
-               "variantPropertyName":"Size",
-               "variantValue":"Medium | Serves 2",
-               "flag":""
-            },
-            {
-               "valueId":5008730,
-               "variantProductId":27686,
-               "variantPropertyId":2110,
-               "variantPropertyValueId":24378,
-               "IsDisplaySwatch":false,
-               "Rank":1,
-               "variantPropertyName":"Strength",
-               "variantValue":"Regular",
-               "flag":""
-            }
-         ]
-      },
-      
-      
-      {
-         "variantProductId":"27692",
-         "productId":8283282,
-         "MRP":100,
-         "WebPrice":100,
-         "SKU":"IN-Veg-Cheese-Ext-Sml",
-         "Inventory":15540000,
-         "ReferenceProductVariantId":0,
-         "productType":"",
-         "merchantId":"98d18d82-ba59-4957-9c92-3f89207a34f6",
-         "BulkQuantity":1,
-         "Availability":true,
-         "StartDate":"/Date(-2209008600000+0530)/",
-         "EndDate":"/Date(-2209008600000+0530)/",
-         "CostPrice":0,
-         "BarCode":"",
-         "CatalogCode":"",
-         "IsDropShipping":false,
-         "MarkupPrice":0,
-         "MarkupType":"",
-         "IsReferProductInfo":false,
-         "IsReferPrice":false,
-         "TokenPrice":0,
-         "Flag":"",
-         "ReserveQuantity":0,
-         "ReOrderStockLevel":0,
-         "StockAlertQuantity":0,
-         "PreOrderMessage":"",
-         "PreOrder":false,
-         "BackOrder":false,
-         "IsStockEnabled":false,
-         "WebPriceWithoutDiscount":0,
-         "ProductVariantValueViews":[
-            {
-               "valueId":5008740,
-               "variantProductId":27692,
-               "variantPropertyId":2108,
-               "variantPropertyValueId":24376,
-               "IsDisplaySwatch":false,
-               "Rank":2,
-               "variantPropertyName":"Size",
-               "variantValue":"Personal | Serves 1",
-               "flag":""
-            },
-            {
-               "valueId":5008742,
-               "variantProductId":27692,
-               "variantPropertyId":2110,
-               "variantPropertyValueId":24380,
-               "IsDisplaySwatch":false,
-               "Rank":2,
-               "variantPropertyName":"Strength",
-               "variantValue":"Extra",
-               "flag":""
-            }
-         ]
-      }
-   ],
-   "ErrorCode":0
-}
-
-```
-
-
-
-### Resource Information
-| | |
---------- | ----------- |
-URI | `/Product/Varients/{Merchantid}/{ParentProductId}`
-Rate Limited? | No
-Authentication | Yes
-Response Formats | JSON
-HTTP Methods | GET
-Batch Support | No
-
-* **Rate limiter** controls the number of incoming and outgoing traffic of a network
-* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
-
-### Request URL
-
-`https://{host}/developerapi/Product/Varients/{Merchantid}/{ParentProductId}`
-
-
-### Request Body Parameters
-
-Parameter | Type | Description
--------- | ----- | -----------
-MerchantId* | string | Unique GUID of the merchant
-ParentProductId* | int | Unique id of the parent product for which you want to fetch all the available variants
-
-<aside class="notice">All parameters marked by * are mandatory. </aside>
 
 
 ## Get Category Information
