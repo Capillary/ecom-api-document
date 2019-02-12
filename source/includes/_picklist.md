@@ -223,4 +223,238 @@ isVariance | boolean | Whether there is change in the price of the current item 
 PicklistCustomFields | obj | Picklist level custom field details as a key and value pairs
 
 
-## 
+## Get Picklist Summary
+
+Retrieves the details of a specific  specific  picklist.
+
+
+> Sample Request
+
+```html
+https://www.martjack.com/developerapi/PickList/GetPickListSummary/f48fdd16-92db-4188-854d-1ecd9b62e546/168891
+
+```
+
+
+
+> Sample Response
+
+```json
+{
+  "messageCode": "1004",
+  "Message": "Successful",
+  "PickList": {
+    "PickListId": 168891,
+    "PickListName": "FabTest",
+    "PickListCode": "PK168890",
+    "MerchantId": "f48fdd16-92db-4188-854d-1ecd9b62e546",
+    "PickerName": "Tim James",
+    "PickListStatus": "Completed",
+    "CreatedBy": "tim.james@capillarytech.com",
+    "CreatedOn": "/Date(1549867811000+0530)/",
+    "ModifiedOn": "1/1/0001 12:00:00 AM",
+    "ModifiedBy": null,
+    "LocationId": 18340,
+    "PickListOrder": [
+      {
+        "ChannelId": 0,
+        "OrderPickListId": 1586811,
+        "PickListId": 168891,
+        "PickListOrderItems": [
+          {
+            "ProductTitle": "Onion Red",
+            "ProductSKU": "100556",
+            "VariantSKU": "100556-1kg",
+            "CategoryCode": "CU00373956",
+            "PickListCode": null,
+            "BarCodes": [
+              {
+                "BarCode": "100556-123"
+              },
+              {
+                "BarCode": "100556-1kg"
+              }
+            ],
+            "CategoryName": "MID",
+            "ProductCost": 0,
+            "variantDescription": "Weight=1000gm",
+            "MRP": 1009,
+            "CurrencyCode": null,
+            "UOM": "Gms",
+            "OrderPickListDetailId": 3114155,
+            "PickListId": 168891,
+            "OrderId": 7506553,
+            "OrderLineId": 26152287,
+            "ProductId": 14106036,
+            "ChildProductId": 10178766,
+            "Quantity": 1,
+            "PickQuantity": 0,
+            "OrderItemPickStatus": "N",
+            "LocationID": 18340,
+            "ShelveCode": "",
+            "IsHold": "False",
+            "Weight": 1000,
+            "variantattributevalue": null,
+            "PicklistOperatorID": "00000000-0000-0000-0000-000000000000",
+            "SubStatus": "",
+            "Comments": ""
+          },
+          {
+            "ProductTitle": "Onion Red",
+            "ProductSKU": "100556",
+            "VariantSKU": "100556-1kg",
+            "CategoryCode": "CU00373956",
+            "PickListCode": null,
+            "BarCodes": [
+              {
+                "BarCode": "100556-123"
+              },
+              {
+                "BarCode": "100556-1kg"
+              }
+            ],
+            "CategoryName": "MID",
+            "ProductCost": 0,
+            "variantDescription": "Weight=1000gm",
+            "MRP": 1009,
+            "CurrencyCode": null,
+            "UOM": "Gms",
+            "OrderPickListDetailId": 3114157,
+            "PickListId": 168891,
+            "OrderId": 7506553,
+            "OrderLineId": 26152287,
+            "ProductId": 14106036,
+            "ChildProductId": 10178766,
+            "Quantity": 1,
+            "PickQuantity": 0,
+            "OrderItemPickStatus": "N",
+            "LocationID": 18340,
+            "ShelveCode": "",
+            "IsHold": "False",
+            "Weight": 1000,
+            "variantattributevalue": null,
+            "PicklistOperatorID": "00000000-0000-0000-0000-000000000000",
+            "SubStatus": "",
+            "Comments": ""
+          },
+          {
+            "ProductTitle": "Go Buttermilk - Masala Chaas Ginger & Jeera",
+            "ProductSKU": "1000681",
+            "VariantSKU": "101101241",
+            "CategoryCode": "CU00333530",
+            "PickListCode": null,
+            "BarCodes": [
+              {
+                "BarCode": "101101241"
+              },
+              {
+                "BarCode": "8906001028352"
+              }
+            ],
+            "CategoryName": "Flavoured Milk",
+            "ProductCost": 0,
+            "variantDescription": "Volume=1L Tetra Pack",
+            "MRP": 50,
+            "CurrencyCode": null,
+            "UOM": "Pieces",
+            "OrderPickListDetailId": 3114159,
+            "PickListId": 168891,
+            "OrderId": 7506553,
+            "OrderLineId": 26152289,
+            "ProductId": 12322046,
+            "ChildProductId": 9076978,
+            "Quantity": 1,
+            "PickQuantity": 0,
+            "OrderItemPickStatus": "N",
+            "LocationID": 18340,
+            "ShelveCode": "",
+            "IsHold": "False",
+            "Weight": 0,
+            "variantattributevalue": null,
+            "PicklistOperatorID": "00000000-0000-0000-0000-000000000000",
+            "SubStatus": "",
+            "Comments": ""
+          },
+          {
+            "ProductTitle": "Go Buttermilk - Masala Chaas Ginger & Jeera",
+            "ProductSKU": "1000681",
+            "VariantSKU": "101101241",
+            "CategoryCode": "CU00333530",
+            "PickListCode": null,
+            "BarCodes": [
+              {
+                "BarCode": "101101241"
+              },
+              {
+                "BarCode": "8906001028352"
+              }
+            ],
+            "CategoryName": "Flavoured Milk",
+            "ProductCost": 0,
+            "variantDescription": "Volume=1L Tetra Pack",
+            "MRP": 50,
+            "CurrencyCode": null,
+            "UOM": "Pieces",
+            "OrderPickListDetailId": 3114161,
+            "PickListId": 168891,
+            "OrderId": 7506553,
+            "OrderLineId": 26152289,
+            "ProductId": 12322046,
+            "ChildProductId": 9076978,
+            "Quantity": 1,
+            "PickQuantity": 0,
+            "OrderItemPickStatus": "N",
+            "LocationID": 18340,
+            "ShelveCode": "",
+            "IsHold": "False",
+            "Weight": 0,
+            "variantattributevalue": null,
+            "PicklistOperatorID": "00000000-0000-0000-0000-000000000000",
+            "SubStatus": "",
+            "Comments": ""
+          }
+        ],
+        "Status": "PICKING",
+        "TotalAmount": 2118,
+        "TotalNoOfItems": 4,
+        "channelName": null
+      }
+    ],
+    "PicklistOperatorID": "00000000-0000-0000-0000-000000000000",
+    "SubStatus": "",
+    "Comments": ""
+  },
+  "ErrorCode": 0
+}
+
+```
+
+
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `/PickList/GetPickListSummary/{MerchantId}/{pickListId}`
+Rate Limited? | No
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | POST
+Batch Support | No
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+### Request URL
+
+`https://{host}/developerapi/PickList/GetPickListSummary/{MerchantId}/{pickListId}`
+
+
+### Request Body Parameters
+
+Parameter | Type | Description
+-------- | ----- | -----------
+
+
+
+
+

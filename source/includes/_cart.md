@@ -41,7 +41,7 @@ Sends OTP to the specified mobile number or email id.
 ### Resource Information
 Parameter | Description
 --------- | -----------
-URI | `carts//V2/SendOTP/{MerchantId}`
+URI | `carts/V2/SendOTP/{MerchantId}`
 Rate Limited? | No
 Authentication | Yes
 Response Formats | JSON
@@ -428,13 +428,13 @@ IsFreeProduct | boolean | Whether the item is a free gift item
 Por | enum | The portion of the product for which the topping is applied. Value: W for whole, R for right, L for left (left, right usually applies for toppings)
 CartPromotionRules | array | The rules that are applied to the cart items
 DemandedDeliveryDate | date | Date and time of delivery as requested by the customer
-RemainTotal | float | 
-ShippingZoneType | 
+RemainTotal | float | Deprecated
+ShippingZoneType | string | Dictionary containing merchant id mapping to the payment type. It is used in validations
 ComboSuggestion | array | Suggestions related the deal items based on the items in the cart
 ConvertedDeals | array | The cart items that are converted to deal items 
-PriceCapped | | 
-TotalCap | | 
-CappedRefKey | | 
+PriceCapped | float | Deprecated
+TotalCap | float | Deprecated
+CappedRefKey | string | Deprecated
 
 
 ### Success/Error Codes
@@ -1356,13 +1356,10 @@ IsFreeProduct | boolean | Whether the item is a free gift item
 Por | enum | The portion of the product for which the topping is applied. Value: W for whole, R for right, L for left (left, right usually applies for toppings)
 CartPromotionRules | array | The rules that are applied to the cart items
 DemandedDeliveryDate | date | Date and time of delivery as requested by the customer
-RemainTotal | float | 
-ShippingZoneType | 
+RemainTotal | float | Deprecated
+ShippingZoneType | string | Dictionary containing merchant id mapping to the payment type. It is being used in validations
 ComboSuggestion | array | Suggestions related the deal items based on the items in the cart
-ConvertedDeals | array | The cart items that are converted to deal items 
-PriceCapped | | 
-TotalCap | | 
-CappedRefKey | | 
+ConvertedDeals | array | The cart items that are converted to deal items  
 
 ### Success/Error Codes
 
@@ -2464,13 +2461,10 @@ IsFreeProduct | boolean | Whether the item is a free gift item
 Por | enum | The portion of the product for which the topping is applied. Value: W for whole, R for right, L for left (left, right usually applies for toppings)
 CartPromotionRules | array | The rules that are applied to the cart items
 DemandedDeliveryDate | date | Date and time of delivery as requested by the customer
-RemainTotal | float | 
-ShippingZoneType | 
+RemainTotal | float | Deprecated
+ShippingZoneType | string | Dictionary containing merchant id mapping to the payment type. It is being used in validations 
 ComboSuggestion | array | Suggestions related the deal items based on the items in the cart
 ConvertedDeals | array | The cart items that are converted to deal items 
-PriceCapped | | 
-TotalCap | | 
-CappedRefKey | | 
 
 
 
@@ -3149,13 +3143,10 @@ IsFreeProduct | boolean | Whether the item is a free gift item
 Por | enum | The portion of the product for which the topping is applied. Value: W for whole, R for right, L for left (left, right usually applies for toppings)
 CartPromotionRules | array | The rules that are applied to the cart items
 DemandedDeliveryDate | date | Date and time of delivery as requested by the customer
-RemainTotal | float | 
-ShippingZoneType | 
+RemainTotal | float | Deprecated
+ShippingZoneType | string | Dictionary containing merchant id mapping to the payment type. It is being used in validations
 ComboSuggestion | array | Suggestions related the deal items based on the items in the cart
 ConvertedDeals | array | The cart items that are converted to deal items 
-PriceCapped | | 
-TotalCap | | 
-CappedRefKey | | 
 
 
 
@@ -4141,9 +4132,9 @@ Following table contains descriptions of a few response parameters that require 
 Parameter | Type | Description
 --------- | ---- | -----------
 IsFreeProduct | boolean | If the item is a gift item and is given for free of cost
-PriceCapped | | 
-TotalCap | | 
-CappedRefKey | | 
+PriceCapped | float | Deprecated
+TotalCap | float | Deprecated
+CappedRefKey | string | Deprecated
 SupplierId | string | Unique GUID of the merchant (product supplier)
 Por | enum | The portion of the product for which the topping is applied. Value: W for whole, R for right, L for left (left, right usually applies for toppings)
 GroupId | int | Unique group id associated to the product. Applicable in case of a bundle or deal products
@@ -4376,11 +4367,11 @@ Following table contains descriptions of a few response parameters that require 
 Parameter | Type | Description
 --------- | ---- | -----------
 IsFreeProduct | boolean | If the item is a gift item and is given for free of cost
-PriceCapped | | 
-TotalCap | | 
-CappedRefKey | | 
+PriceCapped | float | Deprecated
+TotalCap | float | Deprecated
+CappedRefKey | string | Deprecated
 SupplierId | string | Unique GUID of the merchant (supplier of the product)
-Por | enum | 
+Por | enum | The portion of the product for which the voucher is applied. Value: `W` for whole, `R` for right, `L` for left (left, right usually applies for toppings)
 GroupId | int | 
 ComboSuggestion | | 
 
@@ -5430,9 +5421,6 @@ IsFreeProduct | boolean | Whether the item is a free gift item
 Por | enum | The portion of the product for which the topping is applied. Value: W for whole, R for right, L for left (left, right usually applies for toppings)
 ComboSuggestion | array | Suggestions related the deal items based on the items in the cart
 ConvertedDeals | array | The cart items that are converted to deal items 
-PriceCapped | | 
-TotalCap | | 
-CappedRefKey | | 
 
 
 
@@ -5719,9 +5707,7 @@ IsFreeProduct | boolean | Whether the item is a free gift item
 Por | enum | The portion of the product for which the topping is applied. Value: W for whole, R for right, L for left (left, right usually applies for toppings)
 ComboSuggestion | array | Suggestions related the deal items based on the items in the cart
 ConvertedDeals | array | The cart items that are converted to deal items 
-PriceCapped | | 
-TotalCap | | 
-CappedRefKey | | 
+
 
 
 

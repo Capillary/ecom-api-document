@@ -154,6 +154,8 @@ MarketingNotificationType | string |
 
 
 
+
+
 ## Change Password
 
 
@@ -277,6 +279,174 @@ Parameter | Type | Description
 -------- | ----- | -----------
 merchantId* | string | Unique GUID of the merchant
 userId* | string | Unique GUID of the user 
+
+
+
+
+## Generate Reset ID (V2)
+
+Generates unique reset id to the provided email id to reset password. 
+
+
+> Sample Request
+
+```html
+https://www.martjack.com/DeveloperAPI/Customer/81e77da2-723b-483d-8c0d-49f800c1exxx/V2/ResetPassword
+```
+
+
+
+
+
+> Sample POST Request
+
+```json
+InputFormat=application/json&InputData={
+  "ResetPasswordDetails": {
+    "UserName": "tom.sawyer@example.com",
+    "resettype": "Email",
+    "Url": "https://www.example.nightlysites.capillary.in"
+  }
+}
+
+````
+
+
+
+> Sample Response
+
+```json
+
+```
+
+
+
+
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `/Customer/{MerchantId}/v2/resetPassword`
+Response Formats | JSON
+HTTP Methods | POST
+Batch Support | No
+Rate Limited? | No
+Authentication | Yes
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+### Request URL
+
+`https://{host}/developerapi/Customer/{MerchantId}/v2/resetPassword`
+
+### Additional Header Required
+
+Header | Description
+------ | -----------
+AccessToken* | Access token of the logged in user
+
+
+### Request Body Parameters
+
+Parameter | Type | Description
+-------- | ----- | -----------
+merchantId* | string | Unique GUID of the merchant
+UserName* | string | Unique login id of the user - email id
+Resettype | enum | `Email`
+Url | string | Reset password link sent to the email id. The URL you provide will be appended with the reset id
+
+
+
+
+## Validate Reset Request
+
+Validates the OTP sent to mobile number or reset id sent to email id to reset the password.
+
+
+> Sample Request
+
+```html
+https://www.martjack.com/DeveloperAPI/Customer/81e77da2-723b-483d-8c0d-49f800c1exxx/ValidateResetRequest
+```
+
+
+
+> Sample POST Request (mobile number validation)
+
+```json
+InputFormat=application/json&InputData={
+  "ResetPasswordDetails": {
+    "UserName": "9876000000",
+    "Resettype": "mobile",
+    "otp": "3423"
+  }
+}
+
+````
+
+
+> Sample Response
+
+```json
+{  
+   "messageCode":"1004",
+   "Message":"Successful",
+   "ErrorCode":0
+}
+
+```
+
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `/Customer/{MerchantId}/ValidateResetRequest`
+Response Formats | JSON
+HTTP Methods | POST
+Batch Support | No
+Rate Limited? | No
+Authentication | Yes
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+### Request URL
+
+`https://{host}/developerapi/Customer/{MerchantId}/ValidateResetRequest`
+
+### Additional Header Required
+
+Header | Description
+------ | -----------
+AccessToken* | Access token of the logged in user
+
+
+### Request Body Parameters
+
+Parameter | Type | Description
+-------- | ----- | -----------
+merchantId* | string | Unique GUID of the merchant
+UserName* | string | Username of the customer account - mobile number or email id
+Resettype* | enum | Specify `mobile` for mobile number validation, `email` for email id validation
+resetid | string | Unique reset id generated while reseting password through email id. Required when `Resettype` is email (generated through ResetPassword API when username is email id)
+OTP | int | Unique OTP sent to the mobile number. Required when `Resettype` is mobile (generated through ResetPassword API when username is mobile number)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -1753,3 +1753,497 @@ locationrefcode | string | Location reference code of the product
 AttributeId | string | Unique id of the attribute that you want to update
 AttributeValue | string | New value of the current attribute
 ProductId | int | Unique id of the product (to update product by product id)
+
+
+
+## Get Bundle Items by Bundle Product ID
+
+Retrieves the details of all items of a specific bundle (by bundle id).
+
+
+> Sample Request
+
+```html
+https://www.martjack.com/developerapi/Product/GetBundleItemsbyBundleProductId/4d00cd2b-28e8-4950-b8b9-2ecf50e88933/45678902
+
+```
+
+
+> Sample Response
+
+```json
+
+    "messageCode": "1004",
+    "Message": "Successful",
+    "BundleItems": [
+        {
+            "ProductId": 8284396,
+            "VariantProductId": "28732",
+            "ProductSku": "IN-veg-GreenCapsicum",
+            "VariantSKU": "IN-veg-GreenCapsicum-Rglr-Mdm",
+            "ProductTitle": "Green Capsicum",
+            "ProductType": "A",
+            "MRP": 70,
+            "WebPrice": 70
+        },
+        {
+            "ProductId": 8284396,
+            "VariantProductId": "28734",
+            "ProductSku": "IN-veg-GreenCapsicum",
+            "VariantSKU": "IN-veg-GreenCapsicum-Rglr-Sml",
+            "ProductTitle": "Green Capsicum",
+            "ProductType": "A",
+            "MRP": 50,
+            "WebPrice": 50
+        },
+        {
+            "ProductId": 8284396,
+            "VariantProductId": "29028",
+            "ProductSku": "IN-veg-GreenCapsicum",
+            "VariantSKU": "IN-Veg-GreenCapsicum-GrDip",
+            "ProductTitle": "Green Capsicum",
+            "ProductType": "A",
+            "MRP": 100,
+            "WebPrice": 100
+        },
+        {
+            "ProductId": 8283298,
+            "VariantProductId": "27750",
+            "ProductSku": "IN-Veg-Onion",
+            "VariantSKU": "IN-Veg-Onion-Rglr-Mdm",
+            "ProductTitle": "Onion",
+            "ProductType": "A",
+            "MRP": 70,
+            "WebPrice": 70
+        },
+        {
+            "ProductId": 8283298,
+            "VariantProductId": "27754",
+            "ProductSku": "IN-Veg-Onion",
+            "VariantSKU": "IN-Veg-Onion-Rglr-Sml",
+            "ProductTitle": "Onion",
+            "ProductType": "A",
+            "MRP": 50,
+            "WebPrice": 50
+        },
+        {
+            "ProductId": 8283298,
+            "VariantProductId": "28984",
+            "ProductSku": "IN-Veg-Onion",
+            "VariantSKU": "IN-Veg-Onion-GrDip",
+            "ProductTitle": "Onion",
+            "ProductType": "A",
+            "MRP": 100,
+            "WebPrice": 100
+        },
+        {
+            "ProductId": 8283296,
+            "VariantProductId": "27742",
+            "ProductSku": "IN-Veg-Sweet-Corn",
+            "VariantSKU": "IN-Veg-Sweet-Corn-Rglr-Mdm",
+            "ProductTitle": "Sweet Corn",
+            "ProductType": "A",
+            "MRP": 70,
+            "WebPrice": 70
+        },
+        {
+            "ProductId": 8283296,
+            "VariantProductId": "27746",
+            "ProductSku": "IN-Veg-Sweet-Corn",
+            "VariantSKU": "IN-Veg-Sweet-Corn-Rglr-Sml",
+            "ProductTitle": "Sweet Corn",
+            "ProductType": "A",
+            "MRP": 50,
+            "WebPrice": 50
+        },
+        {
+            "ProductId": 8283296,
+            "VariantProductId": "29014",
+            "ProductSku": "IN-Veg-Sweet-Corn",
+            "VariantSKU": "IN-Veg-Sweet-Corn-GrDip",
+            "ProductTitle": "Sweet Corn",
+            "ProductType": "A",
+            "MRP": 100,
+            "WebPrice": 100
+        }
+    ],
+    "ErrorCode": 0
+}
+
+```
+
+
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `/Product/GetBundleItemsbyBundleProductId/{Merchantid}/{Productid}`
+Rate Limited? | No
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | GET
+Batch Support | No
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+### Request URL
+
+`https://{host}/developerapi/Product/GetBundleItemsbyBundleProductId/{Merchantid}/{Productid}`
+
+
+### Request Path Parameters
+
+Parameter | Type | Description
+-------- | ----- | -----------
+MerchantId* | string | Unique GUID of the merchant
+ProductId* | int | Unique id of the bundle product that you want fetch
+
+<aside class="notice">All parameters marked by * are mandatory. </aside>
+
+
+## Get Variant Products by Variant ID
+
+Retrieves the details of all products of a variant (by variant id).
+
+> Sample Request
+
+```html
+https://www.martjack.com/developerapi//Product/ProductVarient/0639f7a6-34cc-48b2-9fd9-a80e2ed88dfe/27686
+
+```
+
+
+> Sample Response
+
+```json
+{
+    "messageCode": "1004",
+    "Message": "Successful",
+    "ProductVarient": [
+        {
+            "variantProductId": "27686",
+            "productId": 8283282,
+            "MRP": 70,
+            "WebPrice": 70,
+            "SKU": "IN-Veg-Cheese-Rglr-Mdm",
+            "Inventory": 15540000,
+            "ReferenceProductVariantId": 0,
+            "productType": "",
+            "merchantId": "98d18d82-ba59-4957-9c92-3f89207a34f6",
+            "BulkQuantity": 1,
+            "Availability": true,
+            "StartDate": "/Date(-2209008600000+0530)/",
+            "EndDate": "/Date(-2209008600000+0530)/",
+            "CostPrice": 0,
+            "BarCode": "",
+            "CatalogCode": "",
+            "IsDropShipping": false,
+            "MarkupPrice": 0,
+            "MarkupType": "",
+            "IsReferProductInfo": false,
+            "IsReferPrice": false,
+            "TokenPrice": 0,
+            "Flag": null,
+            "ReserveQuantity": 0,
+            "ReOrderStockLevel": 0,
+            "StockAlertQuantity": 0,
+            "PreOrderMessage": "",
+            "PreOrder": false,
+            "BackOrder": false,
+            "IsStockEnabled": false,
+            "WebPriceWithoutDiscount": 0,
+            "ProductVariantValueViews": [
+                {
+                    "valueId": 5008728,
+                    "variantProductId": 27686,
+                    "variantPropertyId": 2108,
+                    "variantPropertyValueId": 24374,
+                    "IsDisplaySwatch": false,
+                    "Rank": 1,
+                    "variantPropertyName": "Size",
+                    "variantValue": "Medium | Serves 2",
+                    "flag": ""
+                },
+                {
+                    "valueId": 5008730,
+                    "variantProductId": 27686,
+                    "variantPropertyId": 2110,
+                    "variantPropertyValueId": 24378,
+                    "IsDisplaySwatch": false,
+                    "Rank": 1,
+                    "variantPropertyName": "Strength",
+                    "variantValue": "Regular",
+                    "flag": ""
+                }
+            ]
+        }
+    ],
+    "ErrorCode": 0
+}
+
+```
+
+
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `/Product/ProductVarient/{MerchantId}/{variantProductId}`
+Rate Limited? | No
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | GET
+Batch Support | No
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+### Request URL
+
+`https://{host}/developerapi/Product/ProductVarient/{MerchantId}/{variantProductId}`
+
+
+### Request Path Parameters
+
+Parameter | Type | Description
+-------- | ----- | -----------
+MerchantId* | string | Unique GUID of the merchant
+variantProductId* | int | Unique id of the variant product that you want to fetch
+
+<aside class="notice">All parameters marked by * are mandatory. </aside>
+
+
+## Get Product Variants
+
+Retrieves the variants of a specific product.
+
+> Sample Request
+
+```html
+https://www.martjack.com/developerapi/Product/Varients/{Merchantid}/{ParentProductId}
+
+```
+
+
+> Sample Response
+
+```json
+{
+   "messageCode":"1004",
+   "Message":"Successful",
+   "ProductVarient":[
+      {
+         "variantProductId":"27686",
+         "productId":8283282,
+         "MRP":70,
+         "WebPrice":70,
+         "SKU":"IN-Veg-Cheese-Rglr-Mdm",
+         "Inventory":15540000,
+         "ReferenceProductVariantId":0,
+         "productType":"",
+         "merchantId":"98d18d82-ba59-4957-9c92-3f89207a34f6",
+         "BulkQuantity":1,
+         "Availability":true,
+         "StartDate":"/Date(-2209008600000+0530)/",
+         "EndDate":"/Date(-2209008600000+0530)/",
+         "CostPrice":0,
+         "BarCode":"",
+         "CatalogCode":"",
+         "IsDropShipping":false,
+         "MarkupPrice":0,
+         "MarkupType":"",
+         "IsReferProductInfo":false,
+         "IsReferPrice":false,
+         "TokenPrice":0,
+         "Flag":"",
+         "ReserveQuantity":0,
+         "ReOrderStockLevel":0,
+         "StockAlertQuantity":0,
+         "PreOrderMessage":"",
+         "PreOrder":false,
+         "BackOrder":false,
+         "IsStockEnabled":false,
+         "WebPriceWithoutDiscount":0,
+         "ProductVariantValueViews":[
+            {
+               "valueId":5008728,
+               "variantProductId":27686,
+               "variantPropertyId":2108,
+               "variantPropertyValueId":24374,
+               "IsDisplaySwatch":false,
+               "Rank":1,
+               "variantPropertyName":"Size",
+               "variantValue":"Medium | Serves 2",
+               "flag":""
+            },
+            {
+               "valueId":5008730,
+               "variantProductId":27686,
+               "variantPropertyId":2110,
+               "variantPropertyValueId":24378,
+               "IsDisplaySwatch":false,
+               "Rank":1,
+               "variantPropertyName":"Strength",
+               "variantValue":"Regular",
+               "flag":""
+            }
+         ]
+      },
+      
+      
+      {
+         "variantProductId":"27692",
+         "productId":8283282,
+         "MRP":100,
+         "WebPrice":100,
+         "SKU":"IN-Veg-Cheese-Ext-Sml",
+         "Inventory":15540000,
+         "ReferenceProductVariantId":0,
+         "productType":"",
+         "merchantId":"98d18d82-ba59-4957-9c92-3f89207a34f6",
+         "BulkQuantity":1,
+         "Availability":true,
+         "StartDate":"/Date(-2209008600000+0530)/",
+         "EndDate":"/Date(-2209008600000+0530)/",
+         "CostPrice":0,
+         "BarCode":"",
+         "CatalogCode":"",
+         "IsDropShipping":false,
+         "MarkupPrice":0,
+         "MarkupType":"",
+         "IsReferProductInfo":false,
+         "IsReferPrice":false,
+         "TokenPrice":0,
+         "Flag":"",
+         "ReserveQuantity":0,
+         "ReOrderStockLevel":0,
+         "StockAlertQuantity":0,
+         "PreOrderMessage":"",
+         "PreOrder":false,
+         "BackOrder":false,
+         "IsStockEnabled":false,
+         "WebPriceWithoutDiscount":0,
+         "ProductVariantValueViews":[
+            {
+               "valueId":5008740,
+               "variantProductId":27692,
+               "variantPropertyId":2108,
+               "variantPropertyValueId":24376,
+               "IsDisplaySwatch":false,
+               "Rank":2,
+               "variantPropertyName":"Size",
+               "variantValue":"Personal | Serves 1",
+               "flag":""
+            },
+            {
+               "valueId":5008742,
+               "variantProductId":27692,
+               "variantPropertyId":2110,
+               "variantPropertyValueId":24380,
+               "IsDisplaySwatch":false,
+               "Rank":2,
+               "variantPropertyName":"Strength",
+               "variantValue":"Extra",
+               "flag":""
+            }
+         ]
+      }
+   ],
+   "ErrorCode":0
+}
+
+```
+
+
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `/Product/Varients/{Merchantid}/{ParentProductId}`
+Rate Limited? | No
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | GET
+Batch Support | No
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+### Request URL
+
+`https://{host}/developerapi/Product/Varients/{Merchantid}/{ParentProductId}`
+
+
+### Request Body Parameters
+
+Parameter | Type | Description
+-------- | ----- | -----------
+MerchantId* | string | Unique GUID of the merchant
+ParentProductId* | int | Unique id of the parent product for which you want to fetch all the available variants
+
+<aside class="notice">All parameters marked by * are mandatory. </aside>
+
+
+## Get Category Information
+
+Retrieves the details of a specific category.
+
+> Sample Request
+
+```html
+https://www.martjack.com/developerapi/Category/Information/98d18d82-ba59-4957-9c92-3f89207a34f6/CU00216534
+
+```
+
+
+> Sample Response
+
+```json
+
+{
+    "messageCode": "1004",
+    "Message": "Successful",
+    "Category": {
+        "CategoryId": "CU00216534",
+        "CategoryName": "Desserts",
+        "ParentCategoryId": "CU00216530",
+        "Lineage": "/CU00216530/CU00216534/",
+        "Depth": 1,
+        "IsLeaf": true,
+        "ReferenceCode": "CU00216534",
+        "ProductCount": 2
+    },
+    "ErrorCode": 0
+}
+
+```
+
+
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `/Category/Information/{MerchantId}/{CategoryId}`
+Rate Limited? | No
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | GET
+Batch Support | No
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+### Request URL
+
+`https://{host}/developerapi/Category/Information/{MerchantId}/{CategoryId}`
+
+
+### Request Body Parameters
+
+Parameter | Type | Description
+-------- | ----- | -----------
+MerchantId* | string | Unique GUID of the merchant
+CategoryId* | string | Unique id of the category for which you want to fetch details
+
+<aside class="notice">All parameters marked by * are mandatory. </aside>
