@@ -1773,6 +1773,7 @@ https://www.martjack.com/developerapi/Product/GetBundleItemsbyBundleProductId/4d
 
 ```json
 
+{
     "messageCode": "1004",
     "Message": "Successful",
     "BundleItems": [
@@ -1897,7 +1898,7 @@ Batch Support | No
 Parameter | Type | Description
 -------- | ----- | -----------
 MerchantId* | string | Unique GUID of the merchant
-ProductId* | int | Unique id of the bundle product that you want fetch
+ProductId* | int | Product id of the bundle product that you want fetch
 
 <aside class="notice">All parameters marked by * are mandatory. </aside>
 
