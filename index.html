@@ -791,6 +791,244 @@ oauth_consumer_key=QFTSEOUC
 </tr>
 </tbody></table>
 
+<h2 id="generate-reset-id-v2">Generate Reset ID (V2)</h2>
+
+<p>Generates unique reset id to the provided email id to reset password. </p>
+
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
+<pre class="highlight html"><code>https://www.martjack.com/DeveloperAPI/Customer/81e77da2-723b-483d-8c0d-49f800c1exxx/V2/ResetPassword
+</code></pre>
+<blockquote>
+<p>Sample POST Request</p>
+</blockquote>
+<pre class="highlight json"><code><span class="err">InputFormat=application/json&amp;InputData=</span><span class="p">{</span><span class="w">
+  </span><span class="nt">"ResetPasswordDetails"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"UserName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tom.sawyer@example.com"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"resettype"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Email"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.example.nightlysites.capillary.in"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="w">
+</span></code></pre>
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td><code class="prettyprint">/Customer/{MerchantId}/v2/resetPassword</code></td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>POST</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+</tbody></table>
+
+<ul>
+<li><strong>Rate limiter</strong> controls the number of incoming and outgoing traffic of a network</li>
+<li><strong>Authentication</strong> verifies the identity of the current user or integration. See Introduction &gt; Authentication (Merchant Setup on Admin Portal) for more details</li>
+</ul>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">https://{host}/developerapi/Customer/{MerchantId}/v2/resetPassword</code></p>
+
+<h3 id="additional-header-required">Additional Header Required</h3>
+
+<table><thead>
+<tr>
+<th>Header</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>AccessToken*</td>
+<td>Access token of the logged in user</td>
+</tr>
+</tbody></table>
+
+<h3 id="request-body-parameters">Request Body Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>merchantId*</td>
+<td>string</td>
+<td>Unique GUID of the merchant</td>
+</tr>
+<tr>
+<td>UserName*</td>
+<td>string</td>
+<td>Unique login id of the user - email id</td>
+</tr>
+<tr>
+<td>Resettype</td>
+<td>enum</td>
+<td><code class="prettyprint">Email</code></td>
+</tr>
+<tr>
+<td>Url</td>
+<td>string</td>
+<td>Reset password link sent to the email id. The URL you provide will be appended with the reset id</td>
+</tr>
+</tbody></table>
+
+<h2 id="validate-reset-request">Validate Reset Request</h2>
+
+<p>Validates the OTP sent to mobile number or reset id sent to email id to reset the password.</p>
+
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
+<pre class="highlight html"><code>https://www.martjack.com/DeveloperAPI/Customer/81e77da2-723b-483d-8c0d-49f800c1exxx/ValidateResetRequest
+</code></pre>
+<blockquote>
+<p>Sample POST Request (mobile number validation)</p>
+</blockquote>
+<pre class="highlight json"><code><span class="err">InputFormat=application/json&amp;InputData=</span><span class="p">{</span><span class="w">
+  </span><span class="nt">"ResetPasswordDetails"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"UserName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9876000000"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Resettype"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mobile"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"otp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3423"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">  
+   </span><span class="nt">"messageCode"</span><span class="p">:</span><span class="s2">"1004"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"Message"</span><span class="p">:</span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="mi">0</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td><code class="prettyprint">/Customer/{MerchantId}/ValidateResetRequest</code></td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>POST</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+</tbody></table>
+
+<ul>
+<li><strong>Rate limiter</strong> controls the number of incoming and outgoing traffic of a network</li>
+<li><strong>Authentication</strong> verifies the identity of the current user or integration. See Introduction &gt; Authentication (Merchant Setup on Admin Portal) for more details</li>
+</ul>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">https://{host}/developerapi/Customer/{MerchantId}/ValidateResetRequest</code></p>
+
+<h3 id="additional-header-required">Additional Header Required</h3>
+
+<table><thead>
+<tr>
+<th>Header</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>AccessToken*</td>
+<td>Access token of the logged in user</td>
+</tr>
+</tbody></table>
+
+<h3 id="request-body-parameters">Request Body Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>merchantId*</td>
+<td>string</td>
+<td>Unique GUID of the merchant</td>
+</tr>
+<tr>
+<td>UserName*</td>
+<td>string</td>
+<td>Username of the customer account - mobile number or email id</td>
+</tr>
+<tr>
+<td>Resettype*</td>
+<td>enum</td>
+<td>Specify <code class="prettyprint">mobile</code> for mobile number validation, <code class="prettyprint">email</code> for email id validation</td>
+</tr>
+<tr>
+<td>resetid</td>
+<td>string</td>
+<td>Unique reset id generated while reseting password through email id. Required when <code class="prettyprint">Resettype</code> is email (generated through ResetPassword API when username is email id)</td>
+</tr>
+<tr>
+<td>OTP</td>
+<td>int</td>
+<td>Unique OTP sent to the mobile number. Required when <code class="prettyprint">Resettype</code> is mobile (generated through ResetPassword API when username is mobile number)</td>
+</tr>
+</tbody></table>
+
 <h2 id="customer-login-with-otp">Customer Login (with OTP)</h2>
 
 <blockquote>
@@ -6385,6 +6623,630 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 </tr>
 </tbody></table>
 
+<h2 id="get-bundle-items-by-bundle-product-id">Get Bundle Items by Bundle Product ID</h2>
+
+<p>Retrieves the details of all items of a specific bundle (by bundle id).</p>
+
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
+<pre class="highlight html"><code>https://www.martjack.com/developerapi/Product/GetBundleItemsbyBundleProductId/4d00cd2b-28e8-4950-b8b9-2ecf50e88933/45678902
+
+</code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="w">
+    </span><span class="s2">"messageCode"</span><span class="err">:</span><span class="w"> </span><span class="s2">"1004"</span><span class="err">,</span><span class="w">
+    </span><span class="s2">"Message"</span><span class="err">:</span><span class="w"> </span><span class="s2">"Successful"</span><span class="err">,</span><span class="w">
+    </span><span class="s2">"BundleItems"</span><span class="err">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"ProductId"</span><span class="p">:</span><span class="w"> </span><span class="mi">8284396</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"VariantProductId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"28732"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ProductSku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IN-veg-GreenCapsicum"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"VariantSKU"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IN-veg-GreenCapsicum-Rglr-Mdm"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ProductTitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Green Capsicum"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ProductType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"MRP"</span><span class="p">:</span><span class="w"> </span><span class="mi">70</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"WebPrice"</span><span class="p">:</span><span class="w"> </span><span class="mi">70</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"ProductId"</span><span class="p">:</span><span class="w"> </span><span class="mi">8284396</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"VariantProductId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"28734"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ProductSku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IN-veg-GreenCapsicum"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"VariantSKU"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IN-veg-GreenCapsicum-Rglr-Sml"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ProductTitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Green Capsicum"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ProductType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"MRP"</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"WebPrice"</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"ProductId"</span><span class="p">:</span><span class="w"> </span><span class="mi">8284396</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"VariantProductId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"29028"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ProductSku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IN-veg-GreenCapsicum"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"VariantSKU"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IN-Veg-GreenCapsicum-GrDip"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ProductTitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Green Capsicum"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ProductType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"MRP"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"WebPrice"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"ProductId"</span><span class="p">:</span><span class="w"> </span><span class="mi">8283298</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"VariantProductId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"27750"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ProductSku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IN-Veg-Onion"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"VariantSKU"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IN-Veg-Onion-Rglr-Mdm"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ProductTitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Onion"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ProductType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"MRP"</span><span class="p">:</span><span class="w"> </span><span class="mi">70</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"WebPrice"</span><span class="p">:</span><span class="w"> </span><span class="mi">70</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"ProductId"</span><span class="p">:</span><span class="w"> </span><span class="mi">8283298</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"VariantProductId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"27754"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ProductSku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IN-Veg-Onion"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"VariantSKU"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IN-Veg-Onion-Rglr-Sml"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ProductTitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Onion"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ProductType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"MRP"</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"WebPrice"</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"ProductId"</span><span class="p">:</span><span class="w"> </span><span class="mi">8283298</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"VariantProductId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"28984"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ProductSku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IN-Veg-Onion"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"VariantSKU"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IN-Veg-Onion-GrDip"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ProductTitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Onion"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ProductType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"MRP"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"WebPrice"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"ProductId"</span><span class="p">:</span><span class="w"> </span><span class="mi">8283296</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"VariantProductId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"27742"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ProductSku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IN-Veg-Sweet-Corn"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"VariantSKU"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IN-Veg-Sweet-Corn-Rglr-Mdm"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ProductTitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sweet Corn"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ProductType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"MRP"</span><span class="p">:</span><span class="w"> </span><span class="mi">70</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"WebPrice"</span><span class="p">:</span><span class="w"> </span><span class="mi">70</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"ProductId"</span><span class="p">:</span><span class="w"> </span><span class="mi">8283296</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"VariantProductId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"27746"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ProductSku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IN-Veg-Sweet-Corn"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"VariantSKU"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IN-Veg-Sweet-Corn-Rglr-Sml"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ProductTitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sweet Corn"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ProductType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"MRP"</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"WebPrice"</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"ProductId"</span><span class="p">:</span><span class="w"> </span><span class="mi">8283296</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"VariantProductId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"29014"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ProductSku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IN-Veg-Sweet-Corn"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"VariantSKU"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IN-Veg-Sweet-Corn-GrDip"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ProductTitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sweet Corn"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ProductType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"MRP"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"WebPrice"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="err">,</span><span class="w">
+    </span><span class="s2">"ErrorCode"</span><span class="err">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="err">}</span><span class="w">
+
+</span></code></pre>
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td><code class="prettyprint">/Product/GetBundleItemsbyBundleProductId/{Merchantid}/{Productid}</code></td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>No</td>
+</tr>
+</tbody></table>
+
+<ul>
+<li><strong>Rate limiter</strong> controls the number of incoming and outgoing traffic of a network</li>
+<li><strong>Authentication</strong> verifies the identity of the current user or integration. See Introduction &gt; Authentication (Merchant Setup on Admin Portal) for more details</li>
+</ul>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">https://{host}/developerapi/Product/GetBundleItemsbyBundleProductId/{Merchantid}/{Productid}</code></p>
+
+<h3 id="request-path-parameters">Request Path Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>MerchantId*</td>
+<td>string</td>
+<td>Unique GUID of the merchant</td>
+</tr>
+<tr>
+<td>ProductId*</td>
+<td>int</td>
+<td>Unique id of the bundle product that you want fetch</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">All parameters marked by * are mandatory. </aside>
+
+<h2 id="get-variant-products-by-variant-id">Get Variant Products by Variant ID</h2>
+
+<p>Retrieves the details of all products of a variant (by variant id).</p>
+
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
+<pre class="highlight html"><code>https://www.martjack.com/developerapi//Product/ProductVarient/0639f7a6-34cc-48b2-9fd9-a80e2ed88dfe/27686
+
+</code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"messageCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1004"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ProductVarient"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"variantProductId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"27686"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"productId"</span><span class="p">:</span><span class="w"> </span><span class="mi">8283282</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"MRP"</span><span class="p">:</span><span class="w"> </span><span class="mi">70</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"WebPrice"</span><span class="p">:</span><span class="w"> </span><span class="mi">70</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"SKU"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IN-Veg-Cheese-Rglr-Mdm"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Inventory"</span><span class="p">:</span><span class="w"> </span><span class="mi">15540000</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ReferenceProductVariantId"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"productType"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"merchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"98d18d82-ba59-4957-9c92-3f89207a34f6"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"BulkQuantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Availability"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"StartDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/Date(-2209008600000+0530)/"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"EndDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/Date(-2209008600000+0530)/"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"CostPrice"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"BarCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"CatalogCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"IsDropShipping"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"MarkupPrice"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"MarkupType"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"IsReferProductInfo"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"IsReferPrice"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"TokenPrice"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Flag"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ReserveQuantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ReOrderStockLevel"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"StockAlertQuantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"PreOrderMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"PreOrder"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"BackOrder"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"IsStockEnabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"WebPriceWithoutDiscount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ProductVariantValueViews"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nt">"valueId"</span><span class="p">:</span><span class="w"> </span><span class="mi">5008728</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"variantProductId"</span><span class="p">:</span><span class="w"> </span><span class="mi">27686</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"variantPropertyId"</span><span class="p">:</span><span class="w"> </span><span class="mi">2108</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"variantPropertyValueId"</span><span class="p">:</span><span class="w"> </span><span class="mi">24374</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"IsDisplaySwatch"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"Rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"variantPropertyName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Size"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"variantValue"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Medium | Serves 2"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"flag"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nt">"valueId"</span><span class="p">:</span><span class="w"> </span><span class="mi">5008730</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"variantProductId"</span><span class="p">:</span><span class="w"> </span><span class="mi">27686</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"variantPropertyId"</span><span class="p">:</span><span class="w"> </span><span class="mi">2110</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"variantPropertyValueId"</span><span class="p">:</span><span class="w"> </span><span class="mi">24378</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"IsDisplaySwatch"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"Rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"variantPropertyName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Strength"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"variantValue"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Regular"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"flag"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td><code class="prettyprint">/Product/ProductVarient/{MerchantId}/{variantProductId}</code></td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>No</td>
+</tr>
+</tbody></table>
+
+<ul>
+<li><strong>Rate limiter</strong> controls the number of incoming and outgoing traffic of a network</li>
+<li><strong>Authentication</strong> verifies the identity of the current user or integration. See Introduction &gt; Authentication (Merchant Setup on Admin Portal) for more details</li>
+</ul>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">https://{host}/developerapi/Product/ProductVarient/{MerchantId}/{variantProductId}</code></p>
+
+<h3 id="request-path-parameters">Request Path Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>MerchantId*</td>
+<td>string</td>
+<td>Unique GUID of the merchant</td>
+</tr>
+<tr>
+<td>variantProductId*</td>
+<td>int</td>
+<td>Unique id of the variant product that you want to fetch</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">All parameters marked by * are mandatory. </aside>
+
+<h2 id="get-product-variants">Get Product Variants</h2>
+
+<p>Retrieves the variants of a specific product.</p>
+
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
+<pre class="highlight html"><code>https://www.martjack.com/developerapi/Product/Varients/{Merchantid}/{ParentProductId}
+
+</code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+   </span><span class="nt">"messageCode"</span><span class="p">:</span><span class="s2">"1004"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"Message"</span><span class="p">:</span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"ProductVarient"</span><span class="p">:[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+         </span><span class="nt">"variantProductId"</span><span class="p">:</span><span class="s2">"27686"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"productId"</span><span class="p">:</span><span class="mi">8283282</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"MRP"</span><span class="p">:</span><span class="mi">70</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"WebPrice"</span><span class="p">:</span><span class="mi">70</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"SKU"</span><span class="p">:</span><span class="s2">"IN-Veg-Cheese-Rglr-Mdm"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"Inventory"</span><span class="p">:</span><span class="mi">15540000</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"ReferenceProductVariantId"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"productType"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"merchantId"</span><span class="p">:</span><span class="s2">"98d18d82-ba59-4957-9c92-3f89207a34f6"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"BulkQuantity"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"Availability"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"StartDate"</span><span class="p">:</span><span class="s2">"/Date(-2209008600000+0530)/"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"EndDate"</span><span class="p">:</span><span class="s2">"/Date(-2209008600000+0530)/"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"CostPrice"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"BarCode"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"CatalogCode"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"IsDropShipping"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"MarkupPrice"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"MarkupType"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"IsReferProductInfo"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"IsReferPrice"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"TokenPrice"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"Flag"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"ReserveQuantity"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"ReOrderStockLevel"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"StockAlertQuantity"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"PreOrderMessage"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"PreOrder"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"BackOrder"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"IsStockEnabled"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"WebPriceWithoutDiscount"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"ProductVariantValueViews"</span><span class="p">:[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+               </span><span class="nt">"valueId"</span><span class="p">:</span><span class="mi">5008728</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"variantProductId"</span><span class="p">:</span><span class="mi">27686</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"variantPropertyId"</span><span class="p">:</span><span class="mi">2108</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"variantPropertyValueId"</span><span class="p">:</span><span class="mi">24374</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"IsDisplaySwatch"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"Rank"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"variantPropertyName"</span><span class="p">:</span><span class="s2">"Size"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"variantValue"</span><span class="p">:</span><span class="s2">"Medium | Serves 2"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"flag"</span><span class="p">:</span><span class="s2">""</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+               </span><span class="nt">"valueId"</span><span class="p">:</span><span class="mi">5008730</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"variantProductId"</span><span class="p">:</span><span class="mi">27686</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"variantPropertyId"</span><span class="p">:</span><span class="mi">2110</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"variantPropertyValueId"</span><span class="p">:</span><span class="mi">24378</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"IsDisplaySwatch"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"Rank"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"variantPropertyName"</span><span class="p">:</span><span class="s2">"Strength"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"variantValue"</span><span class="p">:</span><span class="s2">"Regular"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"flag"</span><span class="p">:</span><span class="s2">""</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+         </span><span class="p">]</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+
+
+      </span><span class="p">{</span><span class="w">
+         </span><span class="nt">"variantProductId"</span><span class="p">:</span><span class="s2">"27692"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"productId"</span><span class="p">:</span><span class="mi">8283282</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"MRP"</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"WebPrice"</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"SKU"</span><span class="p">:</span><span class="s2">"IN-Veg-Cheese-Ext-Sml"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"Inventory"</span><span class="p">:</span><span class="mi">15540000</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"ReferenceProductVariantId"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"productType"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"merchantId"</span><span class="p">:</span><span class="s2">"98d18d82-ba59-4957-9c92-3f89207a34f6"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"BulkQuantity"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"Availability"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"StartDate"</span><span class="p">:</span><span class="s2">"/Date(-2209008600000+0530)/"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"EndDate"</span><span class="p">:</span><span class="s2">"/Date(-2209008600000+0530)/"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"CostPrice"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"BarCode"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"CatalogCode"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"IsDropShipping"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"MarkupPrice"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"MarkupType"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"IsReferProductInfo"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"IsReferPrice"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"TokenPrice"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"Flag"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"ReserveQuantity"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"ReOrderStockLevel"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"StockAlertQuantity"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"PreOrderMessage"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"PreOrder"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"BackOrder"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"IsStockEnabled"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"WebPriceWithoutDiscount"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"ProductVariantValueViews"</span><span class="p">:[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+               </span><span class="nt">"valueId"</span><span class="p">:</span><span class="mi">5008740</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"variantProductId"</span><span class="p">:</span><span class="mi">27692</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"variantPropertyId"</span><span class="p">:</span><span class="mi">2108</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"variantPropertyValueId"</span><span class="p">:</span><span class="mi">24376</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"IsDisplaySwatch"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"Rank"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"variantPropertyName"</span><span class="p">:</span><span class="s2">"Size"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"variantValue"</span><span class="p">:</span><span class="s2">"Personal | Serves 1"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"flag"</span><span class="p">:</span><span class="s2">""</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+               </span><span class="nt">"valueId"</span><span class="p">:</span><span class="mi">5008742</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"variantProductId"</span><span class="p">:</span><span class="mi">27692</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"variantPropertyId"</span><span class="p">:</span><span class="mi">2110</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"variantPropertyValueId"</span><span class="p">:</span><span class="mi">24380</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"IsDisplaySwatch"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"Rank"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"variantPropertyName"</span><span class="p">:</span><span class="s2">"Strength"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"variantValue"</span><span class="p">:</span><span class="s2">"Extra"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"flag"</span><span class="p">:</span><span class="s2">""</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+         </span><span class="p">]</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+   </span><span class="p">],</span><span class="w">
+   </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="mi">0</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td><code class="prettyprint">/Product/Varients/{Merchantid}/{ParentProductId}</code></td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>No</td>
+</tr>
+</tbody></table>
+
+<ul>
+<li><strong>Rate limiter</strong> controls the number of incoming and outgoing traffic of a network</li>
+<li><strong>Authentication</strong> verifies the identity of the current user or integration. See Introduction &gt; Authentication (Merchant Setup on Admin Portal) for more details</li>
+</ul>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">https://{host}/developerapi/Product/Varients/{Merchantid}/{ParentProductId}</code></p>
+
+<h3 id="request-body-parameters">Request Body Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>MerchantId*</td>
+<td>string</td>
+<td>Unique GUID of the merchant</td>
+</tr>
+<tr>
+<td>ParentProductId*</td>
+<td>int</td>
+<td>Unique id of the parent product for which you want to fetch all the available variants</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">All parameters marked by * are mandatory. </aside>
+
+<h2 id="get-category-information">Get Category Information</h2>
+
+<p>Retrieves the details of a specific category.</p>
+
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
+<pre class="highlight html"><code>https://www.martjack.com/developerapi/Category/Information/98d18d82-ba59-4957-9c92-3f89207a34f6/CU00216534
+
+</code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="w">
+</span><span class="p">{</span><span class="w">
+    </span><span class="nt">"messageCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1004"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Category"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"CategoryId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CU00216534"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"CategoryName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Desserts"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"ParentCategoryId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CU00216530"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Lineage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/CU00216530/CU00216534/"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Depth"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"IsLeaf"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"ReferenceCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CU00216534"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"ProductCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td><code class="prettyprint">/Category/Information/{MerchantId}/{CategoryId}</code></td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>No</td>
+</tr>
+</tbody></table>
+
+<ul>
+<li><strong>Rate limiter</strong> controls the number of incoming and outgoing traffic of a network</li>
+<li><strong>Authentication</strong> verifies the identity of the current user or integration. See Introduction &gt; Authentication (Merchant Setup on Admin Portal) for more details</li>
+</ul>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">https://{host}/developerapi/Category/Information/{MerchantId}/{CategoryId}</code></p>
+
+<h3 id="request-body-parameters">Request Body Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>MerchantId*</td>
+<td>string</td>
+<td>Unique GUID of the merchant</td>
+</tr>
+<tr>
+<td>CategoryId*</td>
+<td>string</td>
+<td>Unique id of the category for which you want to fetch details</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">All parameters marked by * are mandatory. </aside>
+
           <h1 id="carts">Carts</h1>
 
 <p>Cart keeps the record of the items that a customer selects from the merchant store to buy. The <code class="prettyprint">carts</code> resource provides APIs to make modifications to the cart items, shipping modes, coupons; and retrieve cart items, shipping modes, payment options, and online payment types.</p>
@@ -6430,7 +7292,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 </thead><tbody>
 <tr>
 <td>URI</td>
-<td><code class="prettyprint">carts//V2/SendOTP/{MerchantId}</code></td>
+<td><code class="prettyprint">carts/V2/SendOTP/{MerchantId}</code></td>
 </tr>
 <tr>
 <td>Rate Limited?</td>
@@ -6984,12 +7846,12 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>RemainTotal</td>
 <td>float</td>
-<td></td>
+<td>Deprecated</td>
 </tr>
 <tr>
 <td>ShippingZoneType</td>
-<td></td>
-<td></td>
+<td>string</td>
+<td>Dictionary containing merchant id mapping to the payment type. It is used in validations</td>
 </tr>
 <tr>
 <td>ComboSuggestion</td>
@@ -7003,18 +7865,18 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 </tr>
 <tr>
 <td>PriceCapped</td>
-<td></td>
-<td></td>
+<td>float</td>
+<td>Deprecated</td>
 </tr>
 <tr>
 <td>TotalCap</td>
-<td></td>
-<td></td>
+<td>float</td>
+<td>Deprecated</td>
 </tr>
 <tr>
 <td>CappedRefKey</td>
-<td></td>
-<td></td>
+<td>string</td>
+<td>Deprecated</td>
 </tr>
 </tbody></table>
 
@@ -8082,12 +8944,12 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>RemainTotal</td>
 <td>float</td>
-<td></td>
+<td>Deprecated</td>
 </tr>
 <tr>
 <td>ShippingZoneType</td>
-<td></td>
-<td></td>
+<td>string</td>
+<td>Dictionary containing merchant id mapping to the payment type. It is being used in validations</td>
 </tr>
 <tr>
 <td>ComboSuggestion</td>
@@ -8098,21 +8960,6 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <td>ConvertedDeals</td>
 <td>array</td>
 <td>The cart items that are converted to deal items</td>
-</tr>
-<tr>
-<td>PriceCapped</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>TotalCap</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>CappedRefKey</td>
-<td></td>
-<td></td>
 </tr>
 </tbody></table>
 
@@ -9360,12 +10207,12 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>RemainTotal</td>
 <td>float</td>
-<td></td>
+<td>Deprecated</td>
 </tr>
 <tr>
 <td>ShippingZoneType</td>
-<td></td>
-<td></td>
+<td>string</td>
+<td>Dictionary containing merchant id mapping to the payment type. It is being used in validations</td>
 </tr>
 <tr>
 <td>ComboSuggestion</td>
@@ -9376,21 +10223,6 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <td>ConvertedDeals</td>
 <td>array</td>
 <td>The cart items that are converted to deal items</td>
-</tr>
-<tr>
-<td>PriceCapped</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>TotalCap</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>CappedRefKey</td>
-<td></td>
-<td></td>
 </tr>
 </tbody></table>
 
@@ -10196,12 +11028,12 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>RemainTotal</td>
 <td>float</td>
-<td></td>
+<td>Deprecated</td>
 </tr>
 <tr>
 <td>ShippingZoneType</td>
-<td></td>
-<td></td>
+<td>string</td>
+<td>Dictionary containing merchant id mapping to the payment type. It is being used in validations</td>
 </tr>
 <tr>
 <td>ComboSuggestion</td>
@@ -10212,21 +11044,6 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <td>ConvertedDeals</td>
 <td>array</td>
 <td>The cart items that are converted to deal items</td>
-</tr>
-<tr>
-<td>PriceCapped</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>TotalCap</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>CappedRefKey</td>
-<td></td>
-<td></td>
 </tr>
 </tbody></table>
 
@@ -11521,18 +12338,18 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 </tr>
 <tr>
 <td>PriceCapped</td>
-<td></td>
-<td></td>
+<td>float</td>
+<td>Deprecated</td>
 </tr>
 <tr>
 <td>TotalCap</td>
-<td></td>
-<td></td>
+<td>float</td>
+<td>Deprecated</td>
 </tr>
 <tr>
 <td>CappedRefKey</td>
-<td></td>
-<td></td>
+<td>string</td>
+<td>Deprecated</td>
 </tr>
 <tr>
 <td>SupplierId</td>
@@ -11828,18 +12645,18 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 </tr>
 <tr>
 <td>PriceCapped</td>
-<td></td>
-<td></td>
+<td>float</td>
+<td>Deprecated</td>
 </tr>
 <tr>
 <td>TotalCap</td>
-<td></td>
-<td></td>
+<td>float</td>
+<td>Deprecated</td>
 </tr>
 <tr>
 <td>CappedRefKey</td>
-<td></td>
-<td></td>
+<td>string</td>
+<td>Deprecated</td>
 </tr>
 <tr>
 <td>SupplierId</td>
@@ -11849,7 +12666,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>Por</td>
 <td>enum</td>
-<td></td>
+<td>The portion of the product for which the voucher is applied. Value: <code class="prettyprint">W</code> for whole, <code class="prettyprint">R</code> for right, <code class="prettyprint">L</code> for left (left, right usually applies for toppings)</td>
 </tr>
 <tr>
 <td>GroupId</td>
@@ -13219,21 +14036,6 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <td>array</td>
 <td>The cart items that are converted to deal items</td>
 </tr>
-<tr>
-<td>PriceCapped</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>TotalCap</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>CappedRefKey</td>
-<td></td>
-<td></td>
-</tr>
 </tbody></table>
 
 <h2 id="get-delivery-slots">Get Delivery Slots</h2>
@@ -13577,21 +14379,6 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <td>ConvertedDeals</td>
 <td>array</td>
 <td>The cart items that are converted to deal items</td>
-</tr>
-<tr>
-<td>PriceCapped</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>TotalCap</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>CappedRefKey</td>
-<td></td>
-<td></td>
 </tr>
 </tbody></table>
 
@@ -21384,6 +22171,261 @@ Batch Support | No</p>
 <td>obj</td>
 <td>Picklist level custom field details as a key and value pairs</td>
 </tr>
+</tbody></table>
+
+<h2 id="get-picklist-summary">Get Picklist Summary</h2>
+
+<p>Retrieves the details of a specific  specific  picklist.</p>
+
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
+<pre class="highlight html"><code>https://www.martjack.com/developerapi/PickList/GetPickListSummary/f48fdd16-92db-4188-854d-1ecd9b62e546/168891
+
+</code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"messageCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1004"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"PickList"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"PickListId"</span><span class="p">:</span><span class="w"> </span><span class="mi">168891</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"PickListName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FabTest"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"PickListCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PK168890"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f48fdd16-92db-4188-854d-1ecd9b62e546"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"PickerName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tim James"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"PickListStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Completed"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"CreatedBy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tim.james@capillarytech.com"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"CreatedOn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/Date(1549867811000+0530)/"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ModifiedOn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1/1/0001 12:00:00 AM"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ModifiedBy"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"LocationId"</span><span class="p">:</span><span class="w"> </span><span class="mi">18340</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"PickListOrder"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"ChannelId"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"OrderPickListId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1586811</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"PickListId"</span><span class="p">:</span><span class="w"> </span><span class="mi">168891</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"PickListOrderItems"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"ProductTitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Onion Red"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ProductSKU"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100556"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"VariantSKU"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100556-1kg"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"CategoryCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CU00373956"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"PickListCode"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"BarCodes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+              </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"BarCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100556-123"</span><span class="w">
+              </span><span class="p">},</span><span class="w">
+              </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"BarCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100556-1kg"</span><span class="w">
+              </span><span class="p">}</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="nt">"CategoryName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MID"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ProductCost"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"variantDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Weight=1000gm"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"MRP"</span><span class="p">:</span><span class="w"> </span><span class="mi">1009</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"CurrencyCode"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"UOM"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Gms"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"OrderPickListDetailId"</span><span class="p">:</span><span class="w"> </span><span class="mi">3114155</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"PickListId"</span><span class="p">:</span><span class="w"> </span><span class="mi">168891</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"OrderId"</span><span class="p">:</span><span class="w"> </span><span class="mi">7506553</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"OrderLineId"</span><span class="p">:</span><span class="w"> </span><span class="mi">26152287</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ProductId"</span><span class="p">:</span><span class="w"> </span><span class="mi">14106036</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ChildProductId"</span><span class="p">:</span><span class="w"> </span><span class="mi">10178766</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"PickQuantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"OrderItemPickStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"N"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"LocationID"</span><span class="p">:</span><span class="w"> </span><span class="mi">18340</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ShelveCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"IsHold"</span><span class="p">:</span><span class="w"> </span><span class="s2">"False"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Weight"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"variantattributevalue"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"PicklistOperatorID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00000000-0000-0000-0000-000000000000"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"SubStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Comments"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"ProductTitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Onion Red"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ProductSKU"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100556"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"VariantSKU"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100556-1kg"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"CategoryCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CU00373956"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"PickListCode"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"BarCodes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+              </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"BarCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100556-123"</span><span class="w">
+              </span><span class="p">},</span><span class="w">
+              </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"BarCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100556-1kg"</span><span class="w">
+              </span><span class="p">}</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="nt">"CategoryName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MID"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ProductCost"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"variantDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Weight=1000gm"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"MRP"</span><span class="p">:</span><span class="w"> </span><span class="mi">1009</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"CurrencyCode"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"UOM"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Gms"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"OrderPickListDetailId"</span><span class="p">:</span><span class="w"> </span><span class="mi">3114157</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"PickListId"</span><span class="p">:</span><span class="w"> </span><span class="mi">168891</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"OrderId"</span><span class="p">:</span><span class="w"> </span><span class="mi">7506553</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"OrderLineId"</span><span class="p">:</span><span class="w"> </span><span class="mi">26152287</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ProductId"</span><span class="p">:</span><span class="w"> </span><span class="mi">14106036</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ChildProductId"</span><span class="p">:</span><span class="w"> </span><span class="mi">10178766</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"PickQuantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"OrderItemPickStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"N"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"LocationID"</span><span class="p">:</span><span class="w"> </span><span class="mi">18340</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ShelveCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"IsHold"</span><span class="p">:</span><span class="w"> </span><span class="s2">"False"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Weight"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"variantattributevalue"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"PicklistOperatorID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00000000-0000-0000-0000-000000000000"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"SubStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Comments"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"ProductTitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Go Buttermilk - Masala Chaas Ginger &amp; Jeera"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ProductSKU"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1000681"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"VariantSKU"</span><span class="p">:</span><span class="w"> </span><span class="s2">"101101241"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"CategoryCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CU00333530"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"PickListCode"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"BarCodes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+              </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"BarCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"101101241"</span><span class="w">
+              </span><span class="p">},</span><span class="w">
+              </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"BarCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8906001028352"</span><span class="w">
+              </span><span class="p">}</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="nt">"CategoryName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Flavoured Milk"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ProductCost"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"variantDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Volume=1L Tetra Pack"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"MRP"</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"CurrencyCode"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"UOM"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pieces"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"OrderPickListDetailId"</span><span class="p">:</span><span class="w"> </span><span class="mi">3114159</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"PickListId"</span><span class="p">:</span><span class="w"> </span><span class="mi">168891</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"OrderId"</span><span class="p">:</span><span class="w"> </span><span class="mi">7506553</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"OrderLineId"</span><span class="p">:</span><span class="w"> </span><span class="mi">26152289</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ProductId"</span><span class="p">:</span><span class="w"> </span><span class="mi">12322046</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ChildProductId"</span><span class="p">:</span><span class="w"> </span><span class="mi">9076978</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"PickQuantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"OrderItemPickStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"N"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"LocationID"</span><span class="p">:</span><span class="w"> </span><span class="mi">18340</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ShelveCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"IsHold"</span><span class="p">:</span><span class="w"> </span><span class="s2">"False"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Weight"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"variantattributevalue"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"PicklistOperatorID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00000000-0000-0000-0000-000000000000"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"SubStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Comments"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"ProductTitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Go Buttermilk - Masala Chaas Ginger &amp; Jeera"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ProductSKU"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1000681"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"VariantSKU"</span><span class="p">:</span><span class="w"> </span><span class="s2">"101101241"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"CategoryCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CU00333530"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"PickListCode"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"BarCodes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+              </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"BarCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"101101241"</span><span class="w">
+              </span><span class="p">},</span><span class="w">
+              </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"BarCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8906001028352"</span><span class="w">
+              </span><span class="p">}</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="nt">"CategoryName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Flavoured Milk"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ProductCost"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"variantDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Volume=1L Tetra Pack"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"MRP"</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"CurrencyCode"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"UOM"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pieces"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"OrderPickListDetailId"</span><span class="p">:</span><span class="w"> </span><span class="mi">3114161</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"PickListId"</span><span class="p">:</span><span class="w"> </span><span class="mi">168891</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"OrderId"</span><span class="p">:</span><span class="w"> </span><span class="mi">7506553</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"OrderLineId"</span><span class="p">:</span><span class="w"> </span><span class="mi">26152289</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ProductId"</span><span class="p">:</span><span class="w"> </span><span class="mi">12322046</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ChildProductId"</span><span class="p">:</span><span class="w"> </span><span class="mi">9076978</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"PickQuantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"OrderItemPickStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"N"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"LocationID"</span><span class="p">:</span><span class="w"> </span><span class="mi">18340</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ShelveCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"IsHold"</span><span class="p">:</span><span class="w"> </span><span class="s2">"False"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Weight"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"variantattributevalue"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"PicklistOperatorID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00000000-0000-0000-0000-000000000000"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"SubStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Comments"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nt">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PICKING"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"TotalAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">2118</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"TotalNoOfItems"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"channelName"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"PicklistOperatorID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00000000-0000-0000-0000-000000000000"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"SubStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Comments"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td><code class="prettyprint">/PickList/GetPickListSummary/{MerchantId}/{pickListId}</code></td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>POST</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>No</td>
+</tr>
+</tbody></table>
+
+<ul>
+<li><strong>Rate limiter</strong> controls the number of incoming and outgoing traffic of a network</li>
+<li><strong>Authentication</strong> verifies the identity of the current user or integration. See Introduction &gt; Authentication (Merchant Setup on Admin Portal) for more details</li>
+</ul>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">https://{host}/developerapi/PickList/GetPickListSummary/{MerchantId}/{pickListId}</code></p>
+
+<h3 id="request-body-parameters">Request Body Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
 </tbody></table>
 
           <h1 id="store">Store</h1>
