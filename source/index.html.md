@@ -22,6 +22,7 @@ includes:
   - store
   - location
   - merchant
+  - category
   - errors
 
 

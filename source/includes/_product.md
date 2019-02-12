@@ -1250,7 +1250,7 @@ UOM | string | Unit of measurement of the product. It could be the `pieces` for 
 > Sample Request
 
 ```html
-https://www.martjack.com/developerapi/Product/9820eca5-d11f-4df1-9b20-983a45ea9631/12322048
+https://www.martjack.com/developerapi/Product/9820eca5-d11f-4df1-9b20-983a45ea9631/12322048/true
 ```
 
 
@@ -1372,7 +1372,7 @@ Retrieves all variants of a parent product.
 ### Resource Information
 | | |
 --------- | ----------- |
-URI | `/Product/Varients/{merchantId}/{ParentProductId}`
+URI | `/Product/Varients/{merchantId}/{ParentProductId}/{availability}`
 Response Formats | JSON
 HTTP Methods | GET
 Batch Support | Yes
@@ -1383,7 +1383,7 @@ Authentication | Yes
 * **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
 
 ### Request URL
-`https://{host}/developerapi/Product/Varients/{merchantId}/{ParentProductId}`
+`https://{host}/developerapi/Product/Varients/{merchantId}/{ParentProductId}/{availability}`
 
 
 ### Request Path Parameters
@@ -1392,6 +1392,7 @@ Parameter | Type | Description
 --------- | ---- | -----------
 merchantId* | string | Unique GUID of the merchant
 productId* | string |  Unique id of the parent product for which you want to fetch available variants
+availability | enum | Specify `active` to get only active variants
 
 <aside class="notice"> All parameters marked by * are mandatory.</aside>
 
@@ -1757,13 +1758,13 @@ ProductId | int | Unique id of the product (to update product by product id)
 
 ## Get Bundle Items by Bundle Product ID
 
-Retrieves all the default items of a specific bundle (by product id).
+Retrieves default items of a specific bundle by product id.
 
 
 > Sample Request
 
 ```html
-https://www.martjack.com/developerapi/Product/GetBundleItemsbyBundleProductId/4d00cd2b-28e8-4950-b8b9-2ecf50e88933/45678902
+https://www.martjack.com/developerapi/Product/GetBundleItemsbyBundleProductId/4d00cd2b-28e8-4950-b8b9-2ecf50e88933/8284396
 
 ```
 
@@ -1877,7 +1878,7 @@ https://www.martjack.com/developerapi/Product/GetBundleItemsbyBundleProductId/4d
 ### Resource Information
 | | |
 --------- | ----------- |
-URI | `/Product/GetBundleItemsbyBundleProductId/{Merchantid}/{Productid}`
+URI | `/Product/GetBundleItemsbyBundleProductId/{Merchantid}/{Productid}/{isdefault}`
 Rate Limited? | No
 Authentication | Yes
 Response Formats | JSON
@@ -1889,7 +1890,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Product/GetBundleItemsbyBundleProductId/{Merchantid}/{Productid}`
+`https://{host}/developerapi/Product/GetBundleItemsbyBundleProductId/{Merchantid}/{Productid}/{isdefault}`
 
 
 ### Request Path Parameters
@@ -1898,6 +1899,7 @@ Parameter | Type | Description
 -------- | ----- | -----------
 MerchantId* | string | Unique GUID of the merchant
 ProductId* | int | Product id of the bundle product that you want fetch
+isdefault | boolean | Specify `true` to get the details of only bundle default items
 
 <aside class="notice">All parameters marked by * are mandatory. </aside>
 
