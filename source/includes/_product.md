@@ -1758,7 +1758,7 @@ ProductId | int | Unique id of the product (to update product by product id)
 
 ## Get Bundle Items by Bundle Product ID
 
-Retrieves the details of all items of a specific bundle (by bundle id).
+Retrieves all the default items of a specific bundle (by product id).
 
 
 > Sample Request
