@@ -12473,12 +12473,12 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>GroupId</td>
 <td>int</td>
-<td></td>
+<td>Determines the bundle group id of the nested cart item</td>
 </tr>
 <tr>
 <td>ComboSuggestion</td>
-<td></td>
-<td></td>
+<td>array</td>
+<td>Product suggestions based on the cart items to increase the basket/cart size</td>
 </tr>
 </tbody></table>
 
@@ -16426,6 +16426,148 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <aside class="notice"> All parameters marked by * are mandatory. </aside>
  
 
+<p>## Update Transaction</p>
+
+<p>Updates status of a specific transaction based on the input parameters.</p>
+
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
+<pre class="highlight html"><code>https://www.martjack.com/developerapi/Order/UpdateTransaction/f48fdd16-92db-4188-854d-1ecd9b72d066
+
+</code></pre>
+<blockquote>
+<p>Sample POST Request</p>
+</blockquote>
+<pre class="highlight json"><code><span class="w">
+</span><span class="err">InputFormat=application/json&amp;InputData=</span><span class="p">{</span><span class="w">
+</span><span class="nt">"Transaction"</span><span class="p">:</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"OrderId"</span><span class="p">:</span><span class="s2">"7448357"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"PaymentStatus"</span><span class="p">:</span><span class="s2">"A"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"RespCode"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"CurrencyCode"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"TxnID"</span><span class="p">:</span><span class="s2">"7600793"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"RespMsg"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"PaymentType"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"DeliverOption"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"GatewayOption"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="err">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+
+</span></code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"messageCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1007"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Updated Successfully"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td><code class="prettyprint">/Order/UpdateTransaction/{merchantId}</code></td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>POST</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>No</td>
+</tr>
+</tbody></table>
+
+<ul>
+<li><strong>Rate limiter</strong> controls the number of incoming and outgoing traffic of a network</li>
+<li><strong>Authentication</strong> verifies the identity of the current user or integration. See Introduction &gt; Authentication (Merchant Setup on Admin Portal) for more details</li>
+</ul>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">https://{host}/developerapi//Order/UpdateTransaction/{merchantId}</code></p>
+
+<h3 id="request-body-parameters">Request Body Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>orderId*</td>
+<td>int</td>
+<td>Unique id of the order for which you want to update a transaction</td>
+</tr>
+<tr>
+<td>paymentStatus</td>
+<td>enum</td>
+<td>New status of the current transaction. Values: <code class="prettyprint">P</code> for pending, <code class="prettyprint">A</code> for authorized, `F for failed</td>
+</tr>
+<tr>
+<td>respCode</td>
+<td>string</td>
+<td>Unique code generated for the transaction from the payment gateway</td>
+</tr>
+<tr>
+<td>txnID*</td>
+<td>long</td>
+<td>Unique id of the specific transaction that you want to update</td>
+</tr>
+<tr>
+<td>respMsg</td>
+<td>string</td>
+<td>Response message received for the transaction from the payment gateway</td>
+</tr>
+<tr>
+<td>gVcode</td>
+<td>string</td>
+<td>Coupon code used for the order (to update gift voucher transaction )</td>
+</tr>
+<tr>
+<td>pointsBurned</td>
+<td>int</td>
+<td>Number of points burned for the transaction (to update points based transaction)</td>
+</tr>
+<tr>
+<td>bankEMICharges</td>
+<td>string</td>
+<td>Monthly EMI charges for the transaction (for transaction through card EMI)</td>
+</tr>
+<tr>
+<td>pGReferenceId</td>
+<td>string</td>
+<td>Unique id generated by the payment gateway for the transaction</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">All parameters marked by * are mandatory. You also need to pass the dependent parameters based on the transaction type.</aside>
+
 <h2 id="search-orders">Search Orders</h2>
 
 <p>Retrieves orders based on input parameters.</p>
@@ -17252,18 +17394,18 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 </thead><tbody>
 <tr>
 <td>PriceCapped</td>
-<td></td>
-<td></td>
+<td>float</td>
+<td>-Deprecated-</td>
 </tr>
 <tr>
 <td>TotalCap</td>
-<td></td>
-<td></td>
+<td>-</td>
+<td>-Deprecated-</td>
 </tr>
 <tr>
 <td>CappedRefKey</td>
-<td></td>
-<td></td>
+<td>-</td>
+<td>-Deprecated-</td>
 </tr>
 <tr>
 <td>Por</td>
@@ -17273,7 +17415,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>GroupId</td>
 <td>int</td>
-<td></td>
+<td>Determines the bundle group id of the nested cart item</td>
 </tr>
 <tr>
 <td>IsFreeProduct</td>
@@ -19122,7 +19264,7 @@ Batch Support | No</p>
 
 <aside class="notice"> All parameters marked by * are mandatory. </aside>
 
-<h2 id="update-order-sub-status">Update Order Sub-status</h2>
+<h2 id="change-order-sub-status">Change Order Sub-status</h2>
 
 <p>Lets you modify the sub-status of an order or item to rejected (to trigger the allocation rules again).</p>
 
@@ -21618,6 +21760,99 @@ Batch Support | No</p>
 </tr>
 </tbody></table>
 
+<h2 id="get-document">Get Document</h2>
+
+<p>Generates either dispatch  or invoice document.</p>
+
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
+<pre class="highlight html"><code>https://www.martjack.com/developerapi/Order/GetDocument/81e77da2-723b-483d-8c0d-49f800c1exxx/7752817/invoice/invoice_hyc-00000571
+
+</code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="w">
+</span><span class="err">You</span><span class="w"> </span><span class="err">will</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="err">an</span><span class="w"> </span><span class="err">option</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">download</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">document.</span><span class="w">
+
+</span></code></pre>
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td><code class="prettyprint">/</code></td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>No</td>
+</tr>
+</tbody></table>
+
+<ul>
+<li><strong>Rate limiter</strong> controls the number of incoming and outgoing traffic of a network</li>
+<li><strong>Authentication</strong> verifies the identity of the current user or integration. See Introduction &gt; Authentication (Merchant Setup on Admin Portal) for more details</li>
+</ul>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">https://{host}/developerapi/Order/GetDocument/{{MerchantId}/{OrderId}/{objectType}/{objectValue}</code></p>
+
+<h3 id="request-path-parameters">Request Path Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>MerchantId*</td>
+<td>string</td>
+<td>Unique GUID of the merchant</td>
+</tr>
+<tr>
+<td>orderId*</td>
+<td>int</td>
+<td>Order id for which you want to generate the required document</td>
+</tr>
+<tr>
+<td>objectType*</td>
+<td>enum</td>
+<td>Specify <code class="prettyprint">Invoice</code> to generate invoice invoice, <code class="prettyprint">Shipment</code> to get the dispatch document of the  order</td>
+</tr>
+<tr>
+<td>objectValue*</td>
+<td>string</td>
+<td>Specify invoice id or shipment id based on the <code class="prettyprint">objectType</code></td>
+</tr>
+</tbody></table>
+
+<aside class="notice">All parameters marked by * are mandatory.</aside>
+
           <h1 id="picklist">Picklist</h1>
 
 <p>Picklist is a document that contains the list of order items to be picked up from inventory for further processing. Picklist is maintained by shippers with large inventory or multiple orders. This resource provides all APIs related creating and managing picklist.</p>
@@ -22228,6 +22463,592 @@ Batch Support | No</p>
 <th>Description</th>
 </tr>
 </thead><tbody>
+</tbody></table>
+
+<h2 id="get-picklists-of-a-merchant">Get PickLists of a Merchant</h2>
+
+<p>Lets you fetch picklists of a specific merchant based on the input parameters. By default, it will fetch the details of the last one week.</p>
+
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
+<pre class="highlight html"><code>https://www.martjack.com/developerapi/PickList/f48fdd16-92db-4188-854d-1ecd9b62d066
+
+</code></pre>
+<blockquote>
+<p>Sample POST Request</p>
+</blockquote>
+<pre class="highlight json"><code><span class="w">
+</span><span class="err">MerchantID=f</span><span class="mi">48</span><span class="err">fdd</span><span class="mi">16-92</span><span class="err">db</span><span class="mi">-4188-854</span><span class="err">d</span><span class="mi">-1</span><span class="err">ecd</span><span class="mi">9</span><span class="err">b</span><span class="mi">62</span><span class="err">d</span><span class="mi">066</span><span class="err">&amp;InputFormat=application/json&amp;InputData=</span><span class="p">{</span><span class="w">
+</span><span class="nt">"Createdon"</span><span class="p">:</span><span class="s2">"2019-02-13"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"PickListCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+</span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+
+
+
+
+</span><span class="err">}</span><span class="w">
+
+
+</span></code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"messageCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1004"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"PickLists"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"PickListId"</span><span class="p">:</span><span class="w"> </span><span class="mi">176599</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"PickListName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FabTest"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"PickListCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PK176598"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f48fdd16-92db-4188-854d-1ecd9b62d066"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"PickerName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"James"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"PickListStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Completed"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"CreatedBy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"james@example.com"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"CreatedOn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/Date(1550023525000+0530)/"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ModifiedOn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2/13/2019 7:35:48 AM"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ModifiedBy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2/13/2019 7:35:48 AM"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"LocationId"</span><span class="p">:</span><span class="w"> </span><span class="mi">18340</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"PicklistOperatorID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00000000-0000-0000-0000-000000000000"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"SubStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Comments"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"PickListId"</span><span class="p">:</span><span class="w"> </span><span class="mi">176597</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"PickListName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FabTest"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"PickListCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PK176596"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f48fdd16-92db-4188-854d-1ecd9b62d066"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"PickerName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"James"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"PickListStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Completed"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"CreatedBy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"james@example.com"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"CreatedOn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/Date(1550023438000+0530)/"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ModifiedOn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2/13/2019 7:34:25 AM"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ModifiedBy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2/13/2019 7:34:25 AM"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"LocationId"</span><span class="p">:</span><span class="w"> </span><span class="mi">18340</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"PicklistOperatorID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00000000-0000-0000-0000-000000000000"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"SubStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Comments"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"PickListId"</span><span class="p">:</span><span class="w"> </span><span class="mi">176565</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"PickListName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FabTest"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"PickListCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PK176564"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f48fdd16-92db-4188-854d-1ecd9b62d066"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"PickerName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Malad Picker1"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"PickListStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Created"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"CreatedBy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tom.sawyer@capillarytech.com"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"CreatedOn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/Date(1550020430000+0530)/"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ModifiedOn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2/13/2019 6:43:50 AM"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ModifiedBy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2/13/2019 6:43:50 AM"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"LocationId"</span><span class="p">:</span><span class="w"> </span><span class="mi">18340</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"PicklistOperatorID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00000000-0000-0000-0000-000000000000"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"SubStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Comments"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td><code class="prettyprint">/PickList/{MerchantId}</code></td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>POST</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>No</td>
+</tr>
+</tbody></table>
+
+<ul>
+<li><strong>Rate limiter</strong> controls the number of incoming and outgoing traffic of a network</li>
+<li><strong>Authentication</strong> verifies the identity of the current user or integration. See Introduction &gt; Authentication (Merchant Setup on Admin Portal) for more details</li>
+</ul>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">https://{host}/developerapi/PickList/{MerchantId}</code></p>
+
+<h3 id="request-path-parameters">Request Path Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>MerchantId</td>
+<td>string</td>
+<td>Unique GUID of the merchant</td>
+</tr>
+<tr>
+<td>status</td>
+<td>string</td>
+<td>Fetch picklists by status. Values: Created, In Picking (in progress), Completed/Picked (picked up)</td>
+</tr>
+<tr>
+<td>picklistCode</td>
+<td>string</td>
+<td>Unique code of the picklist to fetch details by picklist code</td>
+</tr>
+<tr>
+<td>createdOn</td>
+<td>date</td>
+<td>Fetch picklists created on a specific date. Pass the date in <code class="prettyprint">MM/DD/YYYY</code> format</td>
+</tr>
+<tr>
+<td>locationId</td>
+<td>int</td>
+<td>Fetch picklist of a specific location by location id</td>
+</tr>
+<tr>
+<td>searchFromDate</td>
+<td>date</td>
+<td>Get picklists created on and after a specific date. Pass the date in <code class="prettyprint">MM/DD/YYYY</code> format</td>
+</tr>
+<tr>
+<td>searchSku</td>
+<td>string</td>
+<td>Fetch picklists consisting of a specific SKU.</td>
+</tr>
+<tr>
+<td>pageNumber</td>
+<td>int</td>
+<td>For results in multiple pages, specify the page number that you want to see</td>
+</tr>
+<tr>
+<td>pageSize</td>
+<td>int</td>
+<td>Specify the number of results to be shown per page</td>
+</tr>
+<tr>
+<td>pickerId</td>
+<td>string</td>
+<td>Picker id assigned to the picklist</td>
+</tr>
+<tr>
+<td>picklistOperatorID</td>
+<td>string</td>
+<td>Fetch picklists  of a specific operator. Pass the unique GUID of the operator</td>
+</tr>
+<tr>
+<td>subStatusCode</td>
+<td>enum</td>
+<td>Unique 2 character code of the picklist item sub-status. Values are as per configured in the CP</td>
+</tr>
+<tr>
+<td>channelId</td>
+<td>string</td>
+<td>Channel id of the marketplace</td>
+</tr>
+</tbody></table>
+
+<h2 id="get-picklist-with-order-info">Get PickList with Order Info</h2>
+
+<p>Retrieves picklist details along with the order details based on the input parameters. </p>
+
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
+<pre class="highlight html"><code>https://www.martjack.com/developerapi/PickList/GetPickListswithOrdersInfo/f48fdd16-92db-4188-854d-1ecd9b62d066
+</code></pre>
+<blockquote>
+<p>Sample POST Request</p>
+</blockquote>
+<pre class="highlight json"><code><span class="w">
+</span><span class="err">MerchantID=f</span><span class="mi">48</span><span class="err">fdd</span><span class="mi">16-92</span><span class="err">db</span><span class="mi">-4188-854</span><span class="err">d</span><span class="mi">-1</span><span class="err">ecd</span><span class="mi">9</span><span class="err">b</span><span class="mi">62</span><span class="err">d</span><span class="mi">066</span><span class="err">&amp;InputFormat=application/json&amp;InputData=</span><span class="p">{</span><span class="w">
+</span><span class="nt">"Createdon"</span><span class="p">:</span><span class="s2">"2019-02-13"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"PickListCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+</span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+   </span><span class="nt">"messageCode"</span><span class="p">:</span><span class="s2">"1004"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"Message"</span><span class="p">:</span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"PickerPickLists"</span><span class="p">:[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+         </span><span class="nt">"PickListId"</span><span class="p">:</span><span class="mi">176599</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"PickListName"</span><span class="p">:</span><span class="s2">"FabTest"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"PickListCode"</span><span class="p">:</span><span class="s2">"PK176598"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"MerchantId"</span><span class="p">:</span><span class="s2">"f48fdd16-92db-4188-854d-1ecd9b62d066"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"PickerName"</span><span class="p">:</span><span class="s2">"s animesh"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"PickListStatus"</span><span class="p">:</span><span class="s2">"Completed"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"CreatedBy"</span><span class="p">:</span><span class="s2">"hyctest@martjack.com"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"CreatedOn"</span><span class="p">:</span><span class="s2">"2/13/2019 7:35:25 AM"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"ModifiedOn"</span><span class="p">:</span><span class="s2">"1/1/0001 12:00:00 AM"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"ModifiedBy"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"LocationId"</span><span class="p">:</span><span class="mi">18340</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"PickListOrder"</span><span class="p">:[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+               </span><span class="nt">"DeliveryOption"</span><span class="p">:</span><span class="s2">"ship"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"DeliverySlotEndTime"</span><span class="p">:</span><span class="s2">"9:30 PM"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"DeliverySlotID"</span><span class="p">:</span><span class="mi">33380</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"DeliverySlotStartTime"</span><span class="p">:</span><span class="s2">"7:00 PM"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"DemandedDeliveryDate"</span><span class="p">:</span><span class="s2">"13-Feb-2019"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"OrderDate"</span><span class="p">:</span><span class="s2">"2/13/2019 7:29:54 AM"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"OrderPickListId"</span><span class="p">:</span><span class="mi">1648637</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"PickListId"</span><span class="p">:</span><span class="mi">176599</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"PickListOrderItems"</span><span class="p">:[</span><span class="w">
+                  </span><span class="p">{</span><span class="w">
+                     </span><span class="nt">"BarCodes"</span><span class="p">:[</span><span class="w">
+                        </span><span class="p">{</span><span class="w">
+                           </span><span class="nt">"BarCode"</span><span class="p">:</span><span class="s2">"100556-123"</span><span class="w">
+                        </span><span class="p">},</span><span class="w">
+                        </span><span class="p">{</span><span class="w">
+                           </span><span class="nt">"BarCode"</span><span class="p">:</span><span class="s2">"100556-1kg"</span><span class="w">
+                        </span><span class="p">}</span><span class="w">
+                     </span><span class="p">],</span><span class="w">
+                     </span><span class="nt">"CategoryCode"</span><span class="p">:</span><span class="s2">"CU00373956"</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"CategoryName"</span><span class="p">:</span><span class="s2">"MID"</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"ChildProductId"</span><span class="p">:</span><span class="mi">10178766</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"Comments"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"CurrencyCode"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"CustomFieldValues"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"IsHold"</span><span class="p">:</span><span class="s2">"False"</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"LocationCode"</span><span class="p">:</span><span class="s2">"1001"</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"LocationID"</span><span class="p">:</span><span class="mi">18340</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"MRP"</span><span class="p">:</span><span class="mi">1009</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"OrderId"</span><span class="p">:</span><span class="mi">7752939</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"OrderItemPickStatus"</span><span class="p">:</span><span class="s2">"N"</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"OrderLineId"</span><span class="p">:</span><span class="mi">26696085</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"OrderPickListDetailId"</span><span class="p">:</span><span class="mi">3313945</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"PickListCode"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"PickListId"</span><span class="p">:</span><span class="mi">176599</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"PickQuantity"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"PicklistOperatorID"</span><span class="p">:</span><span class="s2">"00000000-0000-0000-0000-000000000000"</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"ProductCost"</span><span class="p">:</span><span class="mi">1009</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"ProductId"</span><span class="p">:</span><span class="mi">14106036</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"ProductSKU"</span><span class="p">:</span><span class="s2">"100556"</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"ProductTitle"</span><span class="p">:</span><span class="s2">"Onion Red"</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"Quantity"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"ShelveCode"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"SubStatus"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"UOM"</span><span class="p">:</span><span class="s2">"Gms"</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"VariantSKU"</span><span class="p">:</span><span class="s2">"100556-1kg"</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"Weight"</span><span class="p">:</span><span class="mi">1000</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"variantDescription"</span><span class="p">:</span><span class="s2">"Weight=1000gm"</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"variantattributevalue"</span><span class="p">:</span><span class="kc">null</span><span class="w">
+                  </span><span class="p">},</span><span class="w">
+                  </span><span class="p">{</span><span class="w">
+                     </span><span class="nt">"BarCodes"</span><span class="p">:[</span><span class="w">
+                        </span><span class="p">{</span><span class="w">
+                           </span><span class="nt">"BarCode"</span><span class="p">:</span><span class="s2">"100556-123"</span><span class="w">
+                        </span><span class="p">},</span><span class="w">
+                        </span><span class="p">{</span><span class="w">
+                           </span><span class="nt">"BarCode"</span><span class="p">:</span><span class="s2">"100556-1kg"</span><span class="w">
+                        </span><span class="p">}</span><span class="w">
+                     </span><span class="p">],</span><span class="w">
+                     </span><span class="nt">"CategoryCode"</span><span class="p">:</span><span class="s2">"CU00373956"</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"CategoryName"</span><span class="p">:</span><span class="s2">"MID"</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"ChildProductId"</span><span class="p">:</span><span class="mi">10178766</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"Comments"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"CurrencyCode"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"CustomFieldValues"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"IsHold"</span><span class="p">:</span><span class="s2">"False"</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"LocationCode"</span><span class="p">:</span><span class="s2">"1001"</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"LocationID"</span><span class="p">:</span><span class="mi">18340</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"MRP"</span><span class="p">:</span><span class="mi">1009</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"OrderId"</span><span class="p">:</span><span class="mi">7752939</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"OrderItemPickStatus"</span><span class="p">:</span><span class="s2">"N"</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"OrderLineId"</span><span class="p">:</span><span class="mi">26696085</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"OrderPickListDetailId"</span><span class="p">:</span><span class="mi">3313947</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"PickListCode"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"PickListId"</span><span class="p">:</span><span class="mi">176599</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"PickQuantity"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"PicklistOperatorID"</span><span class="p">:</span><span class="s2">"00000000-0000-0000-0000-000000000000"</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"ProductCost"</span><span class="p">:</span><span class="mi">1009</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"ProductId"</span><span class="p">:</span><span class="mi">14106036</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"ProductSKU"</span><span class="p">:</span><span class="s2">"100556"</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"ProductTitle"</span><span class="p">:</span><span class="s2">"Onion Red"</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"Quantity"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"ShelveCode"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"SubStatus"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"UOM"</span><span class="p">:</span><span class="s2">"Gms"</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"VariantSKU"</span><span class="p">:</span><span class="s2">"100556-1kg"</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"Weight"</span><span class="p">:</span><span class="mi">1000</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"variantDescription"</span><span class="p">:</span><span class="s2">"Weight=1000gm"</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"variantattributevalue"</span><span class="p">:</span><span class="kc">null</span><span class="w">
+                  </span><span class="p">}</span><span class="w">
+               </span><span class="p">],</span><span class="w">
+               </span><span class="nt">"Status"</span><span class="p">:</span><span class="s2">"PICKED"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"TotalAmount"</span><span class="p">:</span><span class="mi">2018</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"TotalNoOfItems"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"channelId"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"channelName"</span><span class="p">:</span><span class="kc">null</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+         </span><span class="p">],</span><span class="w">
+         </span><span class="nt">"PicklistOperatorID"</span><span class="p">:</span><span class="s2">"00000000-0000-0000-0000-000000000000"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"SubStatus"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"Comments"</span><span class="p">:</span><span class="s2">""</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+         </span><span class="nt">"PickListId"</span><span class="p">:</span><span class="mi">176597</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"PickListName"</span><span class="p">:</span><span class="s2">"FabTest"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"PickListCode"</span><span class="p">:</span><span class="s2">"PK176596"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"MerchantId"</span><span class="p">:</span><span class="s2">"f48fdd16-92db-4188-854d-1ecd9b62d066"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"PickerName"</span><span class="p">:</span><span class="s2">"s animesh"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"PickListStatus"</span><span class="p">:</span><span class="s2">"Completed"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"CreatedBy"</span><span class="p">:</span><span class="s2">"hyctest@martjack.com"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"CreatedOn"</span><span class="p">:</span><span class="s2">"2/13/2019 7:33:58 AM"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"ModifiedOn"</span><span class="p">:</span><span class="s2">"1/1/0001 12:00:00 AM"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"ModifiedBy"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"LocationId"</span><span class="p">:</span><span class="mi">18340</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"PickListOrder"</span><span class="p">:[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+               </span><span class="nt">"DeliveryOption"</span><span class="p">:</span><span class="s2">"ship"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"DeliverySlotEndTime"</span><span class="p">:</span><span class="s2">"9:30 PM"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"DeliverySlotID"</span><span class="p">:</span><span class="mi">33380</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"DeliverySlotStartTime"</span><span class="p">:</span><span class="s2">"7:00 PM"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"DemandedDeliveryDate"</span><span class="p">:</span><span class="s2">"13-Feb-2019"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"OrderDate"</span><span class="p">:</span><span class="s2">"2/13/2019 7:29:52 AM"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"OrderPickListId"</span><span class="p">:</span><span class="mi">1648635</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"PickListId"</span><span class="p">:</span><span class="mi">176597</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"PickListOrderItems"</span><span class="p">:[</span><span class="w">
+                  </span><span class="p">{</span><span class="w">
+                     </span><span class="nt">"BarCodes"</span><span class="p">:[</span><span class="w">
+                        </span><span class="p">{</span><span class="w">
+                           </span><span class="nt">"BarCode"</span><span class="p">:</span><span class="s2">"100556-123"</span><span class="w">
+                        </span><span class="p">},</span><span class="w">
+                        </span><span class="p">{</span><span class="w">
+                           </span><span class="nt">"BarCode"</span><span class="p">:</span><span class="s2">"100556-1kg"</span><span class="w">
+                        </span><span class="p">}</span><span class="w">
+                     </span><span class="p">],</span><span class="w">
+                     </span><span class="nt">"CategoryCode"</span><span class="p">:</span><span class="s2">"CU00373956"</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"CategoryName"</span><span class="p">:</span><span class="s2">"MID"</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"ChildProductId"</span><span class="p">:</span><span class="mi">10178766</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"Comments"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"CurrencyCode"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"CustomFieldValues"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"IsHold"</span><span class="p">:</span><span class="s2">"False"</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"LocationCode"</span><span class="p">:</span><span class="s2">"1001"</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"LocationID"</span><span class="p">:</span><span class="mi">18340</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"MRP"</span><span class="p">:</span><span class="mi">1009</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"OrderId"</span><span class="p">:</span><span class="mi">7752937</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"OrderItemPickStatus"</span><span class="p">:</span><span class="s2">"N"</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"OrderLineId"</span><span class="p">:</span><span class="mi">26696083</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"OrderPickListDetailId"</span><span class="p">:</span><span class="mi">3313941</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"PickListCode"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"PickListId"</span><span class="p">:</span><span class="mi">176597</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"PickQuantity"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"PicklistOperatorID"</span><span class="p">:</span><span class="s2">"00000000-0000-0000-0000-000000000000"</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"ProductCost"</span><span class="p">:</span><span class="mi">1009</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"ProductId"</span><span class="p">:</span><span class="mi">14106036</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"ProductSKU"</span><span class="p">:</span><span class="s2">"100556"</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"ProductTitle"</span><span class="p">:</span><span class="s2">"Onion Red"</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"Quantity"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"ShelveCode"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"SubStatus"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"UOM"</span><span class="p">:</span><span class="s2">"Gms"</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"VariantSKU"</span><span class="p">:</span><span class="s2">"100556-1kg"</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"Weight"</span><span class="p">:</span><span class="mi">1000</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"variantDescription"</span><span class="p">:</span><span class="s2">"Weight=1000gm"</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"variantattributevalue"</span><span class="p">:</span><span class="kc">null</span><span class="w">
+                  </span><span class="p">},</span><span class="w">
+                  </span><span class="p">{</span><span class="w">
+                     </span><span class="nt">"BarCodes"</span><span class="p">:[</span><span class="w">
+                        </span><span class="p">{</span><span class="w">
+                           </span><span class="nt">"BarCode"</span><span class="p">:</span><span class="s2">"100556-123"</span><span class="w">
+                        </span><span class="p">},</span><span class="w">
+                        </span><span class="p">{</span><span class="w">
+                           </span><span class="nt">"BarCode"</span><span class="p">:</span><span class="s2">"100556-1kg"</span><span class="w">
+                        </span><span class="p">}</span><span class="w">
+                     </span><span class="p">],</span><span class="w">
+                     </span><span class="nt">"CategoryCode"</span><span class="p">:</span><span class="s2">"CU00373956"</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"CategoryName"</span><span class="p">:</span><span class="s2">"MID"</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"ChildProductId"</span><span class="p">:</span><span class="mi">10178766</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"Comments"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"CurrencyCode"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"CustomFieldValues"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"IsHold"</span><span class="p">:</span><span class="s2">"False"</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"LocationCode"</span><span class="p">:</span><span class="s2">"1001"</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"LocationID"</span><span class="p">:</span><span class="mi">18340</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"MRP"</span><span class="p">:</span><span class="mi">1009</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"OrderId"</span><span class="p">:</span><span class="mi">7752937</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"OrderItemPickStatus"</span><span class="p">:</span><span class="s2">"F"</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"OrderLineId"</span><span class="p">:</span><span class="mi">26696083</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"OrderPickListDetailId"</span><span class="p">:</span><span class="mi">3313943</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"PickListCode"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"PickListId"</span><span class="p">:</span><span class="mi">176597</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"PickQuantity"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"PicklistOperatorID"</span><span class="p">:</span><span class="s2">"00000000-0000-0000-0000-000000000000"</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"ProductCost"</span><span class="p">:</span><span class="mi">1009</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"ProductId"</span><span class="p">:</span><span class="mi">14106036</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"ProductSKU"</span><span class="p">:</span><span class="s2">"100556"</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"ProductTitle"</span><span class="p">:</span><span class="s2">"Onion Red"</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"Quantity"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"ShelveCode"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"SubStatus"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"UOM"</span><span class="p">:</span><span class="s2">"Gms"</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"VariantSKU"</span><span class="p">:</span><span class="s2">"100556-1kg"</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"Weight"</span><span class="p">:</span><span class="mi">1000</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"variantDescription"</span><span class="p">:</span><span class="s2">"Weight=1000gm"</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"variantattributevalue"</span><span class="p">:</span><span class="kc">null</span><span class="w">
+                  </span><span class="p">}</span><span class="w">
+               </span><span class="p">],</span><span class="w">
+               </span><span class="nt">"Status"</span><span class="p">:</span><span class="s2">"PICKED"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"TotalAmount"</span><span class="p">:</span><span class="mi">2018</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"TotalNoOfItems"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"channelId"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"channelName"</span><span class="p">:</span><span class="kc">null</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+         </span><span class="p">],</span><span class="w">
+         </span><span class="nt">"PicklistOperatorID"</span><span class="p">:</span><span class="s2">"00000000-0000-0000-0000-000000000000"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"SubStatus"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"Comments"</span><span class="p">:</span><span class="s2">""</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+   </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td><code class="prettyprint">/PickList/GetPickListswithOrdersInfo/{MerchantId}</code></td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>POST</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>No</td>
+</tr>
+</tbody></table>
+
+<ul>
+<li><strong>Rate limiter</strong> controls the number of incoming and outgoing traffic of a network</li>
+<li><strong>Authentication</strong> verifies the identity of the current user or integration. See Introduction &gt; Authentication (Merchant Setup on Admin Portal) for more details</li>
+</ul>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">https://{host}/developerapi/PickList/GetPickListswithOrdersInfo/{MerchantId}</code></p>
+
+<h3 id="request-body-parameters">Request Body Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>MerchantId</td>
+<td>string</td>
+<td>Unique GUID of the merchant</td>
+</tr>
+<tr>
+<td>status</td>
+<td>string</td>
+<td>Fetch picklists by status. Values: Created, In Picking (in progress), Completed/Picked (picked up)</td>
+</tr>
+<tr>
+<td>picklistCode</td>
+<td>string</td>
+<td>Unique code of the picklist to fetch details by picklist code</td>
+</tr>
+<tr>
+<td>createdOn</td>
+<td>date</td>
+<td>Fetch picklists created on a specific date. Pass the date in <code class="prettyprint">MM/DD/YYYY</code> format</td>
+</tr>
+<tr>
+<td>locationId</td>
+<td>int</td>
+<td>Fetch picklist of a specific location by location id</td>
+</tr>
+<tr>
+<td>searchFromDate</td>
+<td>date</td>
+<td>Get picklists created on and after a specific date. Pass the date in <code class="prettyprint">MM/DD/YYYY</code> format</td>
+</tr>
+<tr>
+<td>searchSku</td>
+<td>string</td>
+<td>Fetch picklists consisting of a specific SKU.</td>
+</tr>
+<tr>
+<td>pageNumber</td>
+<td>int</td>
+<td>For results in multiple pages, specify the page number that you want to see</td>
+</tr>
+<tr>
+<td>pageSize</td>
+<td>int</td>
+<td>Specify the number of results to be shown per page</td>
+</tr>
+<tr>
+<td>pickerId</td>
+<td>string</td>
+<td>Picker id assigned to the picklist</td>
+</tr>
+<tr>
+<td>picklistOperatorID</td>
+<td>string</td>
+<td>Fetch picklists  of a specific operator. Pass the unique GUID of the operator</td>
+</tr>
+<tr>
+<td>subStatusCode</td>
+<td>enum</td>
+<td>Unique 2 character code of the picklist item sub-status. Values are as per configured in the CP</td>
+</tr>
+<tr>
+<td>channelId</td>
+<td>string</td>
+<td>Channel id of the marketplace</td>
+</tr>
 </tbody></table>
 
           <h1 id="store">Store</h1>
