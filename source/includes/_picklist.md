@@ -458,3 +458,450 @@ Parameter | Type | Description
 
 
 
+
+## Get PickLists of a Merchant
+
+Lets you fetch picklists of a specific merchant based on the input parameters. By default, it will fetch the details of the last one week.
+
+> Sample Request
+
+```html
+https://www.martjack.com/developerapi/PickList/f48fdd16-92db-4188-854d-1ecd9b62d066
+
+```
+
+
+> Sample POST Request
+
+```json
+
+MerchantID=f48fdd16-92db-4188-854d-1ecd9b62d066&InputFormat=application/json&InputData={
+"Createdon":"2019-02-13",
+"PickListCode": "",
+"status": "",
+
+
+
+
+}
+
+
+```
+
+> Sample Response
+
+```json
+{
+  "messageCode": "1004",
+  "Message": "Successful",
+  "PickLists": [
+    {
+      "PickListId": 176599,
+      "PickListName": "FabTest",
+      "PickListCode": "PK176598",
+      "MerchantId": "f48fdd16-92db-4188-854d-1ecd9b62d066",
+      "PickerName": "James",
+      "PickListStatus": "Completed",
+      "CreatedBy": "james@example.com",
+      "CreatedOn": "/Date(1550023525000+0530)/",
+      "ModifiedOn": "2/13/2019 7:35:48 AM",
+      "ModifiedBy": "2/13/2019 7:35:48 AM",
+      "LocationId": 18340,
+      "PicklistOperatorID": "00000000-0000-0000-0000-000000000000",
+      "SubStatus": "",
+      "Comments": ""
+    },
+    {
+      "PickListId": 176597,
+      "PickListName": "FabTest",
+      "PickListCode": "PK176596",
+      "MerchantId": "f48fdd16-92db-4188-854d-1ecd9b62d066",
+      "PickerName": "James",
+      "PickListStatus": "Completed",
+      "CreatedBy": "james@example.com",
+      "CreatedOn": "/Date(1550023438000+0530)/",
+      "ModifiedOn": "2/13/2019 7:34:25 AM",
+      "ModifiedBy": "2/13/2019 7:34:25 AM",
+      "LocationId": 18340,
+      "PicklistOperatorID": "00000000-0000-0000-0000-000000000000",
+      "SubStatus": "",
+      "Comments": ""
+    },
+    {
+      "PickListId": 176565,
+      "PickListName": "FabTest",
+      "PickListCode": "PK176564",
+      "MerchantId": "f48fdd16-92db-4188-854d-1ecd9b62d066",
+      "PickerName": "Malad Picker1",
+      "PickListStatus": "Created",
+      "CreatedBy": "tom.sawyer@capillarytech.com",
+      "CreatedOn": "/Date(1550020430000+0530)/",
+      "ModifiedOn": "2/13/2019 6:43:50 AM",
+      "ModifiedBy": "2/13/2019 6:43:50 AM",
+      "LocationId": 18340,
+      "PicklistOperatorID": "00000000-0000-0000-0000-000000000000",
+      "SubStatus": "",
+      "Comments": ""
+    }
+  ],
+  "ErrorCode": 0
+}
+
+```
+
+
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `/PickList/{MerchantId}`
+Rate Limited? | No
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | POST
+Batch Support | No
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+### Request URL
+
+`https://{host}/developerapi/PickList/{MerchantId}`
+
+
+### Request Path Parameters
+
+Parameter | Type | Description
+-------- | ----- | -----------
+MerchantId | string | Unique GUID of the merchant
+status | string | Fetch picklists by status. Values: Created, In Picking (in progress), Completed/Picked (picked up)
+picklistCode | string | Unique code of the picklist to fetch details by picklist code
+createdOn | date | Fetch picklists created on a specific date. Pass the date in `MM/DD/YYYY` format
+locationId | int | Fetch picklist of a specific location by location id
+searchFromDate | date | Get picklists created on and after a specific date. Pass the date in `MM/DD/YYYY` format
+searchSku | string | Fetch picklists consisting of a specific SKU.
+pageNumber | int | For results in multiple pages, specify the page number that you want to see
+pageSize | int | Specify the number of results to be shown per page
+pickerId | string | Picker id assigned to the picklist
+picklistOperatorID | string | Fetch picklists  of a specific operator. Pass the unique GUID of the operator
+subStatusCode | enum | Unique 2 character code of the picklist item sub-status. Values are as per configured in the CP
+channelId | string | Channel id of the marketplace
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Get PickList with Order Info
+
+Retrieves picklist details along with the order details based on the input parameters. 
+
+
+> Sample Request
+
+```html
+https://www.martjack.com/developerapi/PickList/GetPickListswithOrdersInfo/f48fdd16-92db-4188-854d-1ecd9b62d066
+```
+
+
+> Sample POST Request
+
+```json
+
+MerchantID=f48fdd16-92db-4188-854d-1ecd9b62d066&InputFormat=application/json&InputData={
+"Createdon":"2019-02-13",
+"PickListCode": "",
+"status": ""
+
+}
+
+```
+
+> Sample Response
+
+```json
+{
+   "messageCode":"1004",
+   "Message":"Successful",
+   "PickerPickLists":[
+      {
+         "PickListId":176599,
+         "PickListName":"FabTest",
+         "PickListCode":"PK176598",
+         "MerchantId":"f48fdd16-92db-4188-854d-1ecd9b62d066",
+         "PickerName":"s animesh",
+         "PickListStatus":"Completed",
+         "CreatedBy":"hyctest@martjack.com",
+         "CreatedOn":"2/13/2019 7:35:25 AM",
+         "ModifiedOn":"1/1/0001 12:00:00 AM",
+         "ModifiedBy":null,
+         "LocationId":18340,
+         "PickListOrder":[
+            {
+               "DeliveryOption":"ship",
+               "DeliverySlotEndTime":"9:30 PM",
+               "DeliverySlotID":33380,
+               "DeliverySlotStartTime":"7:00 PM",
+               "DemandedDeliveryDate":"13-Feb-2019",
+               "OrderDate":"2/13/2019 7:29:54 AM",
+               "OrderPickListId":1648637,
+               "PickListId":176599,
+               "PickListOrderItems":[
+                  {
+                     "BarCodes":[
+                        {
+                           "BarCode":"100556-123"
+                        },
+                        {
+                           "BarCode":"100556-1kg"
+                        }
+                     ],
+                     "CategoryCode":"CU00373956",
+                     "CategoryName":"MID",
+                     "ChildProductId":10178766,
+                     "Comments":"",
+                     "CurrencyCode":null,
+                     "CustomFieldValues":null,
+                     "IsHold":"False",
+                     "LocationCode":"1001",
+                     "LocationID":18340,
+                     "MRP":1009,
+                     "OrderId":7752939,
+                     "OrderItemPickStatus":"N",
+                     "OrderLineId":26696085,
+                     "OrderPickListDetailId":3313945,
+                     "PickListCode":null,
+                     "PickListId":176599,
+                     "PickQuantity":0,
+                     "PicklistOperatorID":"00000000-0000-0000-0000-000000000000",
+                     "ProductCost":1009,
+                     "ProductId":14106036,
+                     "ProductSKU":"100556",
+                     "ProductTitle":"Onion Red",
+                     "Quantity":1,
+                     "ShelveCode":"",
+                     "SubStatus":"",
+                     "UOM":"Gms",
+                     "VariantSKU":"100556-1kg",
+                     "Weight":1000,
+                     "variantDescription":"Weight=1000gm",
+                     "variantattributevalue":null
+                  },
+                  {
+                     "BarCodes":[
+                        {
+                           "BarCode":"100556-123"
+                        },
+                        {
+                           "BarCode":"100556-1kg"
+                        }
+                     ],
+                     "CategoryCode":"CU00373956",
+                     "CategoryName":"MID",
+                     "ChildProductId":10178766,
+                     "Comments":"",
+                     "CurrencyCode":null,
+                     "CustomFieldValues":null,
+                     "IsHold":"False",
+                     "LocationCode":"1001",
+                     "LocationID":18340,
+                     "MRP":1009,
+                     "OrderId":7752939,
+                     "OrderItemPickStatus":"N",
+                     "OrderLineId":26696085,
+                     "OrderPickListDetailId":3313947,
+                     "PickListCode":null,
+                     "PickListId":176599,
+                     "PickQuantity":0,
+                     "PicklistOperatorID":"00000000-0000-0000-0000-000000000000",
+                     "ProductCost":1009,
+                     "ProductId":14106036,
+                     "ProductSKU":"100556",
+                     "ProductTitle":"Onion Red",
+                     "Quantity":1,
+                     "ShelveCode":"",
+                     "SubStatus":"",
+                     "UOM":"Gms",
+                     "VariantSKU":"100556-1kg",
+                     "Weight":1000,
+                     "variantDescription":"Weight=1000gm",
+                     "variantattributevalue":null
+                  }
+               ],
+               "Status":"PICKED",
+               "TotalAmount":2018,
+               "TotalNoOfItems":2,
+               "channelId":0,
+               "channelName":null
+            }
+         ],
+         "PicklistOperatorID":"00000000-0000-0000-0000-000000000000",
+         "SubStatus":"",
+         "Comments":""
+      },
+      {
+         "PickListId":176597,
+         "PickListName":"FabTest",
+         "PickListCode":"PK176596",
+         "MerchantId":"f48fdd16-92db-4188-854d-1ecd9b62d066",
+         "PickerName":"s animesh",
+         "PickListStatus":"Completed",
+         "CreatedBy":"hyctest@martjack.com",
+         "CreatedOn":"2/13/2019 7:33:58 AM",
+         "ModifiedOn":"1/1/0001 12:00:00 AM",
+         "ModifiedBy":null,
+         "LocationId":18340,
+         "PickListOrder":[
+            {
+               "DeliveryOption":"ship",
+               "DeliverySlotEndTime":"9:30 PM",
+               "DeliverySlotID":33380,
+               "DeliverySlotStartTime":"7:00 PM",
+               "DemandedDeliveryDate":"13-Feb-2019",
+               "OrderDate":"2/13/2019 7:29:52 AM",
+               "OrderPickListId":1648635,
+               "PickListId":176597,
+               "PickListOrderItems":[
+                  {
+                     "BarCodes":[
+                        {
+                           "BarCode":"100556-123"
+                        },
+                        {
+                           "BarCode":"100556-1kg"
+                        }
+                     ],
+                     "CategoryCode":"CU00373956",
+                     "CategoryName":"MID",
+                     "ChildProductId":10178766,
+                     "Comments":"",
+                     "CurrencyCode":null,
+                     "CustomFieldValues":null,
+                     "IsHold":"False",
+                     "LocationCode":"1001",
+                     "LocationID":18340,
+                     "MRP":1009,
+                     "OrderId":7752937,
+                     "OrderItemPickStatus":"N",
+                     "OrderLineId":26696083,
+                     "OrderPickListDetailId":3313941,
+                     "PickListCode":null,
+                     "PickListId":176597,
+                     "PickQuantity":0,
+                     "PicklistOperatorID":"00000000-0000-0000-0000-000000000000",
+                     "ProductCost":1009,
+                     "ProductId":14106036,
+                     "ProductSKU":"100556",
+                     "ProductTitle":"Onion Red",
+                     "Quantity":1,
+                     "ShelveCode":"",
+                     "SubStatus":"",
+                     "UOM":"Gms",
+                     "VariantSKU":"100556-1kg",
+                     "Weight":1000,
+                     "variantDescription":"Weight=1000gm",
+                     "variantattributevalue":null
+                  },
+                  {
+                     "BarCodes":[
+                        {
+                           "BarCode":"100556-123"
+                        },
+                        {
+                           "BarCode":"100556-1kg"
+                        }
+                     ],
+                     "CategoryCode":"CU00373956",
+                     "CategoryName":"MID",
+                     "ChildProductId":10178766,
+                     "Comments":"",
+                     "CurrencyCode":null,
+                     "CustomFieldValues":null,
+                     "IsHold":"False",
+                     "LocationCode":"1001",
+                     "LocationID":18340,
+                     "MRP":1009,
+                     "OrderId":7752937,
+                     "OrderItemPickStatus":"F",
+                     "OrderLineId":26696083,
+                     "OrderPickListDetailId":3313943,
+                     "PickListCode":null,
+                     "PickListId":176597,
+                     "PickQuantity":0,
+                     "PicklistOperatorID":"00000000-0000-0000-0000-000000000000",
+                     "ProductCost":1009,
+                     "ProductId":14106036,
+                     "ProductSKU":"100556",
+                     "ProductTitle":"Onion Red",
+                     "Quantity":1,
+                     "ShelveCode":"",
+                     "SubStatus":"",
+                     "UOM":"Gms",
+                     "VariantSKU":"100556-1kg",
+                     "Weight":1000,
+                     "variantDescription":"Weight=1000gm",
+                     "variantattributevalue":null
+                  }
+               ],
+               "Status":"PICKED",
+               "TotalAmount":2018,
+               "TotalNoOfItems":2,
+               "channelId":0,
+               "channelName":null
+            }
+         ],
+         "PicklistOperatorID":"00000000-0000-0000-0000-000000000000",
+         "SubStatus":"",
+         "Comments":""
+      }
+   ]
+}
+
+```
+
+
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `/PickList/GetPickListswithOrdersInfo/{MerchantId}`
+Rate Limited? | No
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | POST
+Batch Support | No
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+### Request URL
+
+`https://{host}/developerapi/PickList/GetPickListswithOrdersInfo/{MerchantId}`
+
+
+### Request Body Parameters
+
+Parameter | Type | Description
+-------- | ----- | -----------
+MerchantId | string | Unique GUID of the merchant
+status | string | Fetch picklists by status. Values: Created, In Picking (in progress), Completed/Picked (picked up)
+picklistCode | string | Unique code of the picklist to fetch details by picklist code
+createdOn | date | Fetch picklists created on a specific date. Pass the date in `MM/DD/YYYY` format
+locationId | int | Fetch picklist of a specific location by location id
+searchFromDate | date | Get picklists created on and after a specific date. Pass the date in `MM/DD/YYYY` format
+searchSku | string | Fetch picklists consisting of a specific SKU.
+pageNumber | int | For results in multiple pages, specify the page number that you want to see
+pageSize | int | Specify the number of results to be shown per page
+pickerId | string | Picker id assigned to the picklist
+picklistOperatorID | string | Fetch picklists  of a specific operator. Pass the unique GUID of the operator
+subStatusCode | enum | Unique 2 character code of the picklist item sub-status. Values are as per configured in the CP
+channelId | string | Channel id of the marketplace
+

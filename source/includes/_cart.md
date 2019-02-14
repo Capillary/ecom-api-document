@@ -4372,8 +4372,8 @@ TotalCap | float | Deprecated
 CappedRefKey | string | Deprecated
 SupplierId | string | Unique GUID of the merchant (supplier of the product)
 Por | enum | The portion of the product for which the voucher is applied. Value: `W` for whole, `R` for right, `L` for left (left, right usually applies for toppings)
-GroupId | int | 
-ComboSuggestion | | 
+GroupId | int | Determines the bundle group id of the nested cart item
+ComboSuggestion | array | Product suggestions based on the cart items to increase the basket/cart size
 
 
 
