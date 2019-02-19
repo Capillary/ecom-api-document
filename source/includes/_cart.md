@@ -4618,7 +4618,7 @@ https://www.martjack.com/developerapi/Carts/Remove/{MerchantId}/{cartReferneKey}
 
 
 
-```
+
 
 > Sample Response
 
