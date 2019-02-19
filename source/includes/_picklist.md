@@ -912,3 +912,60 @@ picklistOperatorID | string | Fetch picklists  of a specific operator. Pass the 
 subStatusCode | enum | Unique 2 character code of the picklist item sub-status. Values are as per configured in the CP
 channelId | string | Channel id of the marketplace
 
+
+## Get PickList Items
+
+
+
+
+
+
+> Sample Request
+
+```html
+https://www.martjack.com/developerapi/PickList/GetPickListItems/f48fdd16-92db-4188-854d-1ecd9b62d066/176599/
+
+```
+
+
+
+
+> Sample Response
+
+```json
+
+
+```
+
+
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `/PickList/GetPickListItems/{MerchantId}/{pickListId}/{orderItemStatus}`
+Rate Limited? | No
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | POST
+Batch Support | No
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+### Request URL
+
+`https://{host}/developerapi/PickList/GetPickListItems/{MerchantId}/{pickListId}/{orderItemStatus}`
+
+
+### Request Path Parameters
+
+Parameter | Type | Description
+-------- | ----- | -----------
+MerchantId* | string | Unique GUID of the merchant
+pickListId* | int | Unique id of the picklist for which you want to fetch items
+orderItemStatus* | string | Found, Not found, canceled 
+
+
+
+
+

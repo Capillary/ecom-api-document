@@ -302,9 +302,8 @@ https://www.martjack.com/DeveloperAPI/Customer/81e77da2-723b-483d-8c0d-49f800c1e
 
 ```json
 InputFormat=application/json&InputData={
-  "ResetPasswordDetails": {
+  "ResetPasswordRequest": {
     "UserName": "tom.sawyer@example.com",
-    "resettype": "Email",
     "Url": "https://www.example.nightlysites.capillary.in"
   }
 }
@@ -316,7 +315,11 @@ InputFormat=application/json&InputData={
 > Sample Response
 
 ```json
-
+{
+    "messageCode": "1004",
+    "Message": "Successful",
+    "ErrorCode": 0
+}
 ```
 
 
@@ -353,7 +356,6 @@ Parameter | Type | Description
 -------- | ----- | -----------
 merchantId* | string | Unique GUID of the merchant
 UserName* | string | Unique login id of the user - email id
-Resettype | enum | `Email`
 Url | string | Reset password link sent to the email id. The URL you provide will be appended with the reset id
 
 
@@ -389,10 +391,11 @@ InputFormat=application/json&InputData={
 > Sample Response
 
 ```json
-{  
-   "messageCode":"1004",
-   "Message":"Successful",
-   "ErrorCode":0
+{
+    "messageCode": "1004",
+    "Message": "Successful",
+    "ErrorCode": 0,
+    "UserId": "3aed9e45-65d8-4b21-8ec1-b25134499744"
 }
 
 ```
