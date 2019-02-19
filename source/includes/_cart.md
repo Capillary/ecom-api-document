@@ -3384,54 +3384,6 @@ IsFreeProduct | boolean | Whether the product is a gift item or deal item availa
 
 
 
-## Remove Cart Items
-
-> Sample Request
-
-```html
-https://www.martjack.com/developerapi/carts/RemoveAll/81e77da2-723b-483d-8c0d-49f800c1exxx
-```
-
-> Sample Response
-
-```json
-
-```
-
-Removes all the current cart items.
-
-
-### Resource Information
-| | |
---------- | ----------- |
-URI | `/Carts/RemoveAll/{merchantId}`
-Rate Limited? | No
-Authentication | Yes
-Response Formats | JSON
-HTTP Methods | GET
-Batch Support | No
-
-* **Rate limiter** controls the number of incoming and outgoing traffic of a network
-* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
-
-### Request URL
-`https://{host}/developerapi/Carts/RemoveAll/{merchantId}`
-
-### Additional Header Required
-
-Header | Description
------- | ------
-accesstoken* | Access token of the logged in user to validate the session
-
-### Request Query Parameters
-
-Parameter | Type | Description
---------- | ---- | ----------
-merchantId* | string | Unique GUID of the merchant
-
-<aside class="notice"> All parameters marked by * are mandatory. </aside>
-
-
 
 
 
@@ -3813,6 +3765,1058 @@ Value | string | Specify the value of the order attribute that you want to set f
 IsSelected | boolean | Whether the selected attribute value is applicable for the customer or not
 
 <aside class="notice"> All parameters marked by * are mandatory. </aside>
+
+
+
+
+
+
+
+
+
+
+
+## Get Cart Items
+
+Retrieves current cart items of a user.
+
+
+
+
+
+> Sample Request
+
+```html
+https://www.martjack.com/developerapi/Carts/cart/81e77da2-723b-483d-8c0d-49f800c1exxx
+
+```
+
+
+
+
+> Sample Response
+
+```json
+{  
+   "messageCode":"1004",
+   "Message":"Successful",
+   "Carts":{  
+      "MerchantId":"4d00cd2b-28e8-4950-b8b9-2ecf50e44933",
+      "ProductCost":5.650000000000001,
+      "ShippingCost":0.5,
+      "VoucherDiscount":0,
+      "PromotionDiscount":0,
+      "TaxAmount":0,
+      "OrderTotal":6.15,
+      "VoucherCode":"",
+      "UserSelectedCurrency":"INR",
+      "Bill_FirstName":"Pallav",
+      "Bill_LastName":"Kumar",
+      "Bill_Address1":"",
+      "Bill_Address2":"",
+      "Bill_CountryCode":"",
+      "_Bill_StateCode":"",
+      "Bill_City":"Other",
+      "Bill_CityCode":"554",
+      "Bill_OtherCityName":"",
+      "Bill_Telephone":"",
+      "Bill_Mobile":"55555555",
+      "Bill_PostCode":"",
+      "Bill_Email":"tom.sawyer@example.com",
+      "Ship_FirstName":"Pallav",
+      "Ship_LastName":"Kumar",
+      "Ship_Address1":"",
+      "Ship_Address2":"",
+      "Ship_CountryCode":"KW",
+      "Ship_StateCode":"KW2",
+      "Ship_City":"846",
+      "Ship_CityCode":"846",
+      "Ship_OtherCityName":"",
+      "Ship_Telephone":"",
+      "Ship_Mobile":"55555555",
+      "Ship_PostCode":"",
+      "Ship_Email":"tom.sawyer@example.com",
+      "CartItems":[  
+         {  
+            "ProductId":13047461,
+            "VariantProductId":0,
+            "MRP":0,
+            "WebPrice":0,
+            "Quantity":1,
+            "description":"BUY ONE GET ONE FREE- Medium",
+            "SupplierId":"4d00cd2b-28e8-4950-b8b9-2ecf50e44933",
+            "CartReferenceKey":"97fe77f4-412e-4aea-8d3c-e95dd0423861",
+            "IsFreeProduct":false,
+            "PriceCapped":false,
+            "TotalCap":0,
+            "CappedRefKey":"00000000-0000-0000-0000-000000000000",
+            "CatalogpromotionDiscount":0,
+            "BundleCartReferenceKey":"00000000-0000-0000-0000-000000000000",
+            "BundleCartItems":[  
+               {  
+                  "ProductId":13047273,
+                  "VariantProductId":0,
+                  "MRP":0,
+                  "WebPrice":0,
+                  "Quantity":1,
+                  "description":"Chicken Supreme",
+                  "SupplierId":"4d00cd2b-28e8-4950-b8b9-2ecf50e44933",
+                  "CartReferenceKey":"13a4fab9-3bbc-484c-b081-b3ed72d83342",
+                  "TotalCap":0,
+                  "CatalogpromotionDiscount":0,
+                  "BundleCartReferenceKey":"97fe77f4-412e-4aea-8d3c-e95dd0423861",
+                  "ItemPromotionDiscountAmount":0,
+                  "IsPrimaryProduct":false,
+                  "IsPromotionProduct":false,
+                  "VariantsInfo":[  
+
+                  ],
+                  "Por":"W",
+                  "CartPromotionRules":[  
+
+                  ],
+                  "CategoryId":"CU00357451",
+                  "CategoryName":"Chicken",
+                  "BrandId":"BB1760",
+                  "BrandName":"Pizza Hut",
+                  "GroupId":13317
+               },
+               {  
+                  "ProductId":13047215,
+                  "VariantProductId":9757487,
+                  "MRP":4.25,
+                  "WebPrice":3.25,
+                  "Quantity":1,
+                  "description":"Chicken Supreme",
+                  "SupplierId":"4d00cd2b-28e8-4950-b8b9-2ecf50e44933",
+                  "CartReferenceKey":"0ab3f8ab-7840-4d40-bad5-950e64da288a",
+                  "TotalCap":0,
+                  "CatalogpromotionDiscount":0,
+                  "BundleCartReferenceKey":"13a4fab9-3bbc-484c-b081-b3ed72d83342",
+                  "ItemPromotionDiscountAmount":0,
+                  "IsPrimaryProduct":true,
+                  "IsPromotionProduct":false,
+                  "VariantsInfo":[  
+                     {  
+                        "PropertyName":"Crust",
+                        "Value":"Classic"
+                     },
+                     {  
+                        "PropertyName":"Size",
+                        "Value":"Medium"
+                     }
+                  ],
+                  "Por":"W",
+                  "IsDefaultBundleItem":true,
+                  "CartPromotionRules":[  
+
+                  ],
+                  "CategoryId":"CU00357457",
+                  "CategoryName":null,
+                  "BrandId":"BB1760",
+                  "BrandName":"Pizza Hut",
+                  "GroupId":13317
+               },
+               {  
+                  "ProductId":13047255,
+                  "VariantProductId":9757701,
+                  "MRP":0.5,
+                  "WebPrice":0,
+                  "Quantity":1,
+                  "description":"Mozarella",
+                  "SupplierId":"4d00cd2b-28e8-4950-b8b9-2ecf50e44933",
+                  "CartReferenceKey":"d2b252a0-58ff-4a56-8a2f-a4b828bc15a6",
+                  "TotalCap":0,
+                  "CatalogpromotionDiscount":0,
+                  "BundleCartReferenceKey":"13a4fab9-3bbc-484c-b081-b3ed72d83342",
+                  "ItemPromotionDiscountAmount":0,
+                  "IsPrimaryProduct":false,
+                  "IsPromotionProduct":false,
+                  "VariantsInfo":[  
+                     {  
+                        "PropertyName":"Strength",
+                        "Value":"Regular"
+                     },
+                     {  
+                        "PropertyName":"Size",
+                        "Value":"Medium"
+                     }
+                  ],
+                  "Por":"W",
+                  "IsDefaultBundleItem":true,
+                  "CartPromotionRules":[  
+
+                  ],
+                  "CategoryId":"CU00357497",
+                  "CategoryName":null,
+                  "BrandId":"BB1760",
+                  "BrandName":"Pizza Hut",
+                  "GroupId":13129
+               },
+               {  
+                  "ProductId":13047267,
+                  "VariantProductId":9757725,
+                  "MRP":0.5,
+                  "WebPrice":0,
+                  "Quantity":1,
+                  "description":"Sliced Black Olives",
+                  "SupplierId":"4d00cd2b-28e8-4950-b8b9-2ecf50e44933",
+                  "CartReferenceKey":"c946dfbb-c7d4-4482-be3a-0f55ea0ff701",
+                  "TotalCap":0,
+                  "CatalogpromotionDiscount":0,
+                  "BundleCartReferenceKey":"13a4fab9-3bbc-484c-b081-b3ed72d83342",
+                  "ItemPromotionDiscountAmount":0,
+                  "IsPrimaryProduct":false,
+                  "IsPromotionProduct":false,
+                  "VariantsInfo":[  
+                     {  
+                        "PropertyName":"Strength",
+                        "Value":"Regular"
+                     },
+                     {  
+                        "PropertyName":"Size",
+                        "Value":"Medium"
+                     }
+                  ],
+                  "Por":"W",
+                  "IsDefaultBundleItem":true,
+                  "CartPromotionRules":[  
+
+                  ],
+                  "CategoryId":"CU00357497",
+                  "CategoryName":null,
+                  "BrandId":"BB1760",
+                  "BrandName":"Pizza Hut",
+                  "GroupId":13129
+               },
+               {  
+                  "ProductId":13047231,
+                  "VariantProductId":9757689,
+                  "MRP":0.5,
+                  "WebPrice":0,
+                  "Quantity":1,
+                  "description":"Chargrilled Chicken",
+                  "SupplierId":"4d00cd2b-28e8-4950-b8b9-2ecf50e44933",
+                  "CartReferenceKey":"a944f99d-5729-41f1-a51a-a6ca7b7d8637",
+                  "TotalCap":0,
+                  "CatalogpromotionDiscount":0,
+                  "BundleCartReferenceKey":"13a4fab9-3bbc-484c-b081-b3ed72d83342",
+                  "ItemPromotionDiscountAmount":0,
+                  "IsPrimaryProduct":false,
+                  "IsPromotionProduct":false,
+                  "VariantsInfo":[  
+                     {  
+                        "PropertyName":"Strength",
+                        "Value":"Regular"
+                     },
+                     {  
+                        "PropertyName":"Size",
+                        "Value":"Medium"
+                     }
+                  ],
+                  "Por":"W",
+                  "IsDefaultBundleItem":true,
+                  "CartPromotionRules":[  
+
+                  ],
+                  "CategoryId":"CU00357497",
+                  "CategoryName":null,
+                  "BrandId":"BB1760",
+                  "BrandName":"Pizza Hut",
+                  "GroupId":13131
+               },
+               {  
+                  "ProductId":13047233,
+                  "VariantProductId":9757695,
+                  "MRP":0.5,
+                  "WebPrice":0.4,
+                  "Quantity":1,
+                  "description":"Beef Pepperoni",
+                  "SupplierId":"4d00cd2b-28e8-4950-b8b9-2ecf50e44933",
+                  "CartReferenceKey":"a6d6f5ee-0b60-49b1-a504-9a63b42a4789",
+                  "TotalCap":0,
+                  "CatalogpromotionDiscount":0,
+                  "BundleCartReferenceKey":"13a4fab9-3bbc-484c-b081-b3ed72d83342",
+                  "ItemPromotionDiscountAmount":0,
+                  "IsPrimaryProduct":false,
+                  "IsPromotionProduct":false,
+                  "VariantsInfo":[  
+                     {  
+                        "PropertyName":"Strength",
+                        "Value":"Regular"
+                     },
+                     {  
+                        "PropertyName":"Size",
+                        "Value":"Medium"
+                     }
+                  ],
+                  "Por":"W",
+                  "IsDefaultBundleItem":true,
+                  "CartPromotionRules":[  
+
+                  ],
+                  "CategoryId":"CU00357497",
+                  "CategoryName":null,
+                  "BrandId":"BB1760",
+                  "BrandName":"Pizza Hut",
+                  "GroupId":13131
+               },
+               {  
+                  "ProductId":13047235,
+                  "VariantProductId":9757693,
+                  "MRP":0.5,
+                  "WebPrice":0.4,
+                  "Quantity":1,
+                  "description":"Calamari Catch",
+                  "SupplierId":"4d00cd2b-28e8-4950-b8b9-2ecf50e44933",
+                  "CartReferenceKey":"5caec831-1597-45ca-af9d-11beafc35b91",
+                  "TotalCap":0,
+                  "CatalogpromotionDiscount":0,
+                  "BundleCartReferenceKey":"13a4fab9-3bbc-484c-b081-b3ed72d83342",
+                  "ItemPromotionDiscountAmount":0,
+                  "IsPrimaryProduct":false,
+                  "IsPromotionProduct":false,
+                  "VariantsInfo":[  
+                     {  
+                        "PropertyName":"Strength",
+                        "Value":"Regular"
+                     },
+                     {  
+                        "PropertyName":"Size",
+                        "Value":"Medium"
+                     }
+                  ],
+                  "Por":"W",
+                  "IsDefaultBundleItem":true,
+                  "CartPromotionRules":[  
+
+                  ],
+                  "CategoryId":"CU00357497",
+                  "CategoryName":null,
+                  "BrandId":"BB1760",
+                  "BrandName":"Pizza Hut",
+                  "GroupId":13131
+               },
+               {  
+                  "ProductId":13047237,
+                  "VariantProductId":9757691,
+                  "MRP":0.5,
+                  "WebPrice":0.4,
+                  "Quantity":1,
+                  "description":"Beef",
+                  "SupplierId":"4d00cd2b-28e8-4950-b8b9-2ecf50e44933",
+                  "CartReferenceKey":"ca206f95-ec4b-4a07-8651-652b61838960",
+                  "TotalCap":0,
+                  "CatalogpromotionDiscount":0,
+                  "BundleCartReferenceKey":"13a4fab9-3bbc-484c-b081-b3ed72d83342",
+                  "ItemPromotionDiscountAmount":0,
+                  "IsPrimaryProduct":false,
+                  "IsPromotionProduct":false,
+                  "VariantsInfo":[  
+                     {  
+                        "PropertyName":"Strength",
+                        "Value":"Regular"
+                     },
+                     {  
+                        "PropertyName":"Size",
+                        "Value":"Medium"
+                     }
+                  ],
+                  "Por":"W",
+                  "IsDefaultBundleItem":true,
+                  "CartPromotionRules":[  
+
+                  ],
+                  "CategoryId":"CU00357497",
+                  "CategoryName":null,
+                  "BrandId":"BB1760",
+                  "BrandName":"Pizza Hut",
+                  "GroupId":13131
+               },
+               {  
+                  "ProductId":13047241,
+                  "VariantProductId":9757697,
+                  "MRP":0.5,
+                  "WebPrice":0,
+                  "Quantity":1,
+                  "description":"Chicken Pepperoni",
+                  "SupplierId":"4d00cd2b-28e8-4950-b8b9-2ecf50e44933",
+                  "CartReferenceKey":"10ec62e0-0938-4b4e-a066-254d9aa65818",
+                  "TotalCap":0,
+                  "CatalogpromotionDiscount":0,
+                  "BundleCartReferenceKey":"13a4fab9-3bbc-484c-b081-b3ed72d83342",
+                  "ItemPromotionDiscountAmount":0,
+                  "IsPrimaryProduct":false,
+                  "IsPromotionProduct":false,
+                  "VariantsInfo":[  
+                     {  
+                        "PropertyName":"Strength",
+                        "Value":"Regular"
+                     },
+                     {  
+                        "PropertyName":"Size",
+                        "Value":"Medium"
+                     }
+                  ],
+                  "Por":"W",
+                  "IsDefaultBundleItem":true,
+                  "CartPromotionRules":[  
+
+                  ],
+                  "CategoryId":"CU00357497",
+                  "CategoryName":null,
+                  "BrandId":"BB1760",
+                  "BrandName":"Pizza Hut",
+                  "GroupId":13131
+               },
+               {  
+                  "ProductId":13047257,
+                  "VariantProductId":9757699,
+                  "MRP":0.5,
+                  "WebPrice":0,
+                  "Quantity":1,
+                  "description":"Pizza Sauce",
+                  "SupplierId":"4d00cd2b-28e8-4950-b8b9-2ecf50e44933",
+                  "CartReferenceKey":"b3aa047a-091d-488f-b8a8-abde211ad008",
+                  "TotalCap":0,
+                  "CatalogpromotionDiscount":0,
+                  "BundleCartReferenceKey":"13a4fab9-3bbc-484c-b081-b3ed72d83342",
+                  "ItemPromotionDiscountAmount":0,
+                  "IsPrimaryProduct":false,
+                  "IsPromotionProduct":false,
+                  "VariantsInfo":[  
+                     {  
+                        "PropertyName":"Strength",
+                        "Value":"Regular"
+                     },
+                     {  
+                        "PropertyName":"Size",
+                        "Value":"Medium"
+                     }
+                  ],
+                  "Por":"W",
+                  "IsDefaultBundleItem":true,
+                  "CartPromotionRules":[  
+
+                  ],
+                  "CategoryId":"CU00357497",
+                  "CategoryName":null,
+                  "BrandId":"BB1760",
+                  "BrandName":"Pizza Hut",
+                  "GroupId":13133
+               },
+               {  
+                  "ProductId":13047319,
+                  "VariantProductId":0,
+                  "MRP":0,
+                  "WebPrice":0,
+                  "Quantity":1,
+                  "description":"Classic Pepperoni",
+                  "SupplierId":"4d00cd2b-28e8-4950-b8b9-2ecf50e44933",
+                  "CartReferenceKey":"e4d5eecd-62a1-40a6-bd00-7607f3d1107d",
+                  "TotalCap":0,
+                  "CatalogpromotionDiscount":0,
+                  "BundleCartReferenceKey":"97fe77f4-412e-4aea-8d3c-e95dd0423861",
+                  "ItemPromotionDiscountAmount":0,
+                  "IsPrimaryProduct":false,
+                  "IsPromotionProduct":false,
+                  "VariantsInfo":[  
+
+                  ],
+                  "Por":"W",
+                  "CartPromotionRules":[  
+
+                  ],
+                  "CategoryId":"CU00357450",
+                  "CategoryName":"Beef",
+                  "BrandId":"BB1760",
+                  "BrandName":"Pizza Hut",
+                  "GroupId":13319
+               },
+               {  
+                  "ProductId":13047219,
+                  "VariantProductId":9757497,
+                  "MRP":4.25,
+                  "WebPrice":0,
+                  "Quantity":1,
+                  "description":"Classic Pepperoni",
+                  "SupplierId":"4d00cd2b-28e8-4950-b8b9-2ecf50e44933",
+                  "CartReferenceKey":"0255ff10-0bc2-4518-aef5-9af37668750d",
+                  "TotalCap":0,
+                  "CatalogpromotionDiscount":0,
+                  "BundleCartReferenceKey":"e4d5eecd-62a1-40a6-bd00-7607f3d1107d",
+                  "ItemPromotionDiscountAmount":0,
+                  "IsPrimaryProduct":true,
+                  "IsPromotionProduct":false,
+                  "VariantsInfo":[  
+                     {  
+                        "PropertyName":"Crust",
+                        "Value":"Pan"
+                     },
+                     {  
+                        "PropertyName":"Size",
+                        "Value":"Medium"
+                     }
+                  ],
+                  "Por":"W",
+                  "IsDefaultBundleItem":true,
+                  "CartPromotionRules":[  
+
+                  ],
+                  "CategoryId":"CU00357457",
+                  "CategoryName":null,
+                  "BrandId":"BB1760",
+                  "BrandName":"Pizza Hut",
+                  "GroupId":13319
+               },
+               {  
+                  "ProductId":13047247,
+                  "VariantProductId":9757709,
+                  "MRP":0.5,
+                  "WebPrice":0.4,
+                  "Quantity":1,
+                  "description":"Green Chillies",
+                  "SupplierId":"4d00cd2b-28e8-4950-b8b9-2ecf50e44933",
+                  "CartReferenceKey":"368a2174-938e-47f2-94e9-aafed11206f8",
+                  "TotalCap":0,
+                  "CatalogpromotionDiscount":0,
+                  "BundleCartReferenceKey":"e4d5eecd-62a1-40a6-bd00-7607f3d1107d",
+                  "ItemPromotionDiscountAmount":0,
+                  "IsPrimaryProduct":false,
+                  "IsPromotionProduct":false,
+                  "VariantsInfo":[  
+                     {  
+                        "PropertyName":"Strength",
+                        "Value":"Regular"
+                     },
+                     {  
+                        "PropertyName":"Size",
+                        "Value":"Medium"
+                     }
+                  ],
+                  "Por":"W",
+                  "IsDefaultBundleItem":true,
+                  "CartPromotionRules":[  
+
+                  ],
+                  "CategoryId":"CU00357497",
+                  "CategoryName":null,
+                  "BrandId":"BB1760",
+                  "BrandName":"Pizza Hut",
+                  "GroupId":13219
+               },
+               {  
+                  "ProductId":13047249,
+                  "VariantProductId":9757711,
+                  "MRP":0.5,
+                  "WebPrice":0.4,
+                  "Quantity":1,
+                  "description":"Green Pepper Strips",
+                  "SupplierId":"4d00cd2b-28e8-4950-b8b9-2ecf50e44933",
+                  "CartReferenceKey":"cff5fc90-375e-4914-b09b-1a3a97b64c1e",
+                  "TotalCap":0,
+                  "CatalogpromotionDiscount":0,
+                  "BundleCartReferenceKey":"e4d5eecd-62a1-40a6-bd00-7607f3d1107d",
+                  "ItemPromotionDiscountAmount":0,
+                  "IsPrimaryProduct":false,
+                  "IsPromotionProduct":false,
+                  "VariantsInfo":[  
+                     {  
+                        "PropertyName":"Strength",
+                        "Value":"Regular"
+                     },
+                     {  
+                        "PropertyName":"Size",
+                        "Value":"Medium"
+                     }
+                  ],
+                  "Por":"W",
+                  "IsDefaultBundleItem":true,
+                  "CartPromotionRules":[  
+
+                  ],
+                  "CategoryId":"CU00357497",
+                  "CategoryName":null,
+                  "BrandId":"BB1760",
+                  "BrandName":"Pizza Hut",
+                  "GroupId":13219
+               },
+               {  
+                  "ProductId":13047251,
+                  "VariantProductId":9757713,
+                  "MRP":0.5,
+                  "WebPrice":0.4,
+                  "Quantity":1,
+                  "description":"Jalapeno",
+                  "SupplierId":"4d00cd2b-28e8-4950-b8b9-2ecf50e44933",
+                  "CartReferenceKey":"9b9e43cd-a4e2-4ad2-aa5a-eb165c371ecf",
+                  "TotalCap":0,
+                  "CatalogpromotionDiscount":0,
+                  "BundleCartReferenceKey":"e4d5eecd-62a1-40a6-bd00-7607f3d1107d",
+                  "ItemPromotionDiscountAmount":0,
+                  "IsPrimaryProduct":false,
+                  "IsPromotionProduct":false,
+                  "VariantsInfo":[  
+                     {  
+                        "PropertyName":"Strength",
+                        "Value":"Regular"
+                     },
+                     {  
+                        "PropertyName":"Size",
+                        "Value":"Medium"
+                     }
+                  ],
+                  "Por":"W",
+                  "IsDefaultBundleItem":true,
+                  "CartPromotionRules":[  
+
+                  ],
+                  "CategoryId":"CU00357497",
+                  "CategoryName":null,
+                  "BrandId":"BB1760",
+                  "BrandName":"Pizza Hut",
+                  "GroupId":13219
+               },
+               {  
+                  "ProductId":13047255,
+                  "VariantProductId":9757701,
+                  "MRP":0.5,
+                  "WebPrice":0,
+                  "Quantity":1,
+                  "description":"Mozarella",
+                  "SupplierId":"4d00cd2b-28e8-4950-b8b9-2ecf50e44933",
+                  "CartReferenceKey":"8a61d1b4-c496-4b41-8a3a-c70a0fa510ef",
+                  "TotalCap":0,
+                  "CatalogpromotionDiscount":0,
+                  "BundleCartReferenceKey":"e4d5eecd-62a1-40a6-bd00-7607f3d1107d",
+                  "ItemPromotionDiscountAmount":0,
+                  "IsPrimaryProduct":false,
+                  "IsPromotionProduct":false,
+                  "VariantsInfo":[  
+                     {  
+                        "PropertyName":"Strength",
+                        "Value":"Regular"
+                     },
+                     {  
+                        "PropertyName":"Size",
+                        "Value":"Medium"
+                     }
+                  ],
+                  "Por":"W",
+                  "IsDefaultBundleItem":true,
+                  "CartPromotionRules":[  
+
+                  ],
+                  "CategoryId":"CU00357497",
+                  "CategoryName":null,
+                  "BrandId":"BB1760",
+                  "BrandName":"Pizza Hut",
+                  "GroupId":13219
+               },
+               {  
+                  "ProductId":13047233,
+                  "VariantProductId":9757695,
+                  "MRP":0.5,
+                  "WebPrice":0,
+                  "Quantity":1,
+                  "description":"Beef Pepperoni",
+                  "SupplierId":"4d00cd2b-28e8-4950-b8b9-2ecf50e44933",
+                  "CartReferenceKey":"920be3f6-7eff-41d7-9521-fceaae03cd30",
+                  "TotalCap":0,
+                  "CatalogpromotionDiscount":0,
+                  "BundleCartReferenceKey":"e4d5eecd-62a1-40a6-bd00-7607f3d1107d",
+                  "ItemPromotionDiscountAmount":0,
+                  "IsPrimaryProduct":false,
+                  "IsPromotionProduct":false,
+                  "VariantsInfo":[  
+                     {  
+                        "PropertyName":"Strength",
+                        "Value":"Regular"
+                     },
+                     {  
+                        "PropertyName":"Size",
+                        "Value":"Medium"
+                     }
+                  ],
+                  "Por":"W",
+                  "IsDefaultBundleItem":true,
+                  "CartPromotionRules":[  
+
+                  ],
+                  "CategoryId":"CU00357497",
+                  "CategoryName":null,
+                  "BrandId":"BB1760",
+                  "BrandName":"Pizza Hut",
+                  "GroupId":13221
+               },
+               {  
+                  "ProductId":13047257,
+                  "VariantProductId":9757699,
+                  "MRP":0.5,
+                  "WebPrice":0,
+                  "Quantity":1,
+                  "description":"Pizza Sauce",
+                  "SupplierId":"4d00cd2b-28e8-4950-b8b9-2ecf50e44933",
+                  "CartReferenceKey":"fe6c9b1b-55b4-4db0-aea7-fe5bd253865b",
+                  "TotalCap":0,
+                  "CatalogpromotionDiscount":0,
+                  "BundleCartReferenceKey":"e4d5eecd-62a1-40a6-bd00-7607f3d1107d",
+                  "ItemPromotionDiscountAmount":0,
+                  "IsPrimaryProduct":false,
+                  "IsPromotionProduct":false,
+                  "VariantsInfo":[  
+                     {  
+                        "PropertyName":"Strength",
+                        "Value":"Regular"
+                     },
+                     {  
+                        "PropertyName":"Size",
+                        "Value":"Medium"
+                     }
+                  ],
+                  "Por":"W",
+                  "IsDefaultBundleItem":true,
+                  "CartPromotionRules":[  
+
+                  ],
+                  "CategoryId":"CU00357497",
+                  "CategoryName":null,
+                  "BrandId":"BB1760",
+                  "BrandName":"Pizza Hut",
+                  "GroupId":13223
+               }
+            ],
+            "IsPrimaryProduct":false,
+            "ItemPromotionDiscountAmount":0,
+            "IsPromotionProduct":false,
+            "Por":"",
+            "IsDefaultBundleItem":false,
+            "ProductImage":"//images.sg.content-cdn.io/cdn//in-resources/4d00cd2b-28e8-4950-b8b9-2ecf50e44933/Images/ProductImages/Source/PWA-PHBOGOF-270718.jpg;width=100;height=100;scale=canvas;anchor=bottomcenter",
+            "CartPromotionRules":[  
+
+            ],
+            "CategoryId":"CU00357471",
+            "CategoryName":"Deals",
+            "BrandId":"BB1760",
+            "BrandName":"Pizza Hut",
+            "ParentCartItems":null
+         }
+      ],
+      "Suppliers":[  
+         {  
+            "SupplierId":"4d00cd2b-28e8-4950-b8b9-2ecf50e44933",
+            "SupplierName":"KuwaitTestStore",
+            "IsSelected":false,
+            "OrderStatus":null
+         }
+      ],
+      "ShippingOptions":[  
+         {  
+            "SupplierId":"4d00cd2b-28e8-4950-b8b9-2ecf50e44933",
+            "ShippingMode":"12141",
+            "ShippingModeId":12141,
+            "isselected":true
+         }
+      ],
+      "PaymentOptionsChannel":[  
+         {  
+            "MerchantId":"4d00cd2b-28e8-4950-b8b9-2ecf50e44933",
+            "PaymentType":"COD",
+            "Paymentoption":"COD",
+            "GatewayId":"0",
+            "GatewayTitle":"COD",
+            "PaidAmount":0,
+            "EnalbeOTP":false
+         },
+         {  
+            "MerchantId":"4d00cd2b-28e8-4950-b8b9-2ecf50e44933",
+            "PaymentType":"OnlineBankTrans",
+            "Paymentoption":"OnlineBankTransfer",
+            "GatewayId":"10961",
+            "GatewayTitle":"OnlineBankTrans",
+            "PaidAmount":0,
+            "EnalbeOTP":false
+         }
+      ],
+      "ErrorCollection":null,
+      "GiftMsg":"",
+      "DemandedDeliveryDate":"/Date(-2208988800000)/",
+      "RemainTotal":0,
+      "ShippingZoneType":null,
+      "DeliverySlotID":0,
+      "FailedProducts":null,
+      "PickupFirstName":"Tom",
+      "PickupLastName":"Sawyer",
+      "PickupEmail":"tom.sawyer@example.com",
+      "PickupMobile":"55555555",
+      "LocationId":"27299",
+      "TaxDetail":[  
+
+      ],
+      "ComboSuggestion":[  
+
+      ],
+      "ConvertedDeals":[  
+
+      ]
+   },
+   "FailedItems":[  
+
+   ],
+   "ErrorCode":0
+}
+
+```
+
+
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `/Carts/cart/{merchantId}`
+Rate Limited? | No
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | GET
+Batch Support | No
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+### Request URL
+
+`https://{host}/developerapi/Carts/cart/{merchantId}`
+
+
+
+### Additional Header Required
+
+Header | Description
+------ | ------
+accesstoken* | Access token of the logged in user to validate the session
+
+
+
+
+
+
+
+
+## Remove a Cart Item
+
+Removes an item from the current cart.
+
+
+
+
+> Sample Request
+
+```html
+https://www.martjack.com/developerapi/Carts/Remove/{MerchantId}/{cartReferneKey}/{quantity}
+
+```
+
+
+
+```
+
+> Sample Response
+
+```json
+{
+    
+    "messageCode": "1004",
+    "Message": "Successful",
+    "ErrorCode": 0
+}
+```
+
+
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `/Carts/Remove/{MerchantId}/{cartReferneKey}/{quantity}`
+Rate Limited? | No
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | GET
+Batch Support | No
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+### Request URL
+
+`https://{host}/developerapi/Carts/Remove/{MerchantId}/{cartReferneKey}/{quantity}`
+
+### Additional Header Required
+
+Header | Description
+------ | ------
+accesstoken* | Access token of the logged in user to validate the session
+
+
+
+### Request Path Parameters
+
+Parameter | Type | Description
+-------- | ----- | -----------
+MerchantId* | string | Unique GUID of the merchant
+cartReferenceKey* | string | Unique reference key of the cart item that you want to remove
+quantity* | int | Quantity of the item that you want to remove
+
+
+<aside class="notice"> All parameters marked by * are mandatory.</aside>
+
+
+
+
+
+
+## Remove All Cart Items
+
+> Sample Request
+
+```html
+https://www.martjack.com/developerapi/carts/RemoveAll/81e77da2-723b-483d-8c0d-49f800c1exxx
+```
+
+> Sample Response
+
+```json
+{
+    
+    "messageCode": "1004",
+    "Message": "Successful",
+    "ErrorCode": 0
+}
+```
+
+Removes all the current cart items. This does not remove shipping address, billing address or location information.
+
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `/Carts/RemoveAll/{merchantId}`
+Rate Limited? | No
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | GET
+Batch Support | No
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+### Request URL
+`https://{host}/developerapi/Carts/RemoveAll/{merchantId}`
+
+### Additional Header Required
+
+Header | Description
+------ | ------
+accesstoken* | Access token of the logged in user to validate the session
+
+### Request Path Parameters
+
+Parameter | Type | Description
+--------- | ---- | ----------
+merchantId* | string | Unique GUID of the merchant
+
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
+
+
+
+
+
+
+
+
+## Clear Cart Items
+
+Removes entire cart details such as cart items, location, billing address and shipping address.
+
+
+
+
+
+> Sample Request
+
+```html
+https://www.martjack.com/developerapi/Carts/clear/81e77da2-723b-483d-8c0d-49f800c1exxx
+
+```
+
+
+
+```
+
+> Sample Response
+
+```json
+{
+    
+    "messageCode": "1004",
+    "Message": "Successful",
+    "ErrorCode": 0
+}
+
+```
+
+
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `/Carts/clear/{MerchantId}`
+Rate Limited? | No
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | GET
+Batch Support | No
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+### Request URL
+
+`https://{host}/developerapi/Carts/clear/{MerchantId}`
+
+
+### Request Path Parameters
+
+Parameter | Type | Description
+-------- | ----- | -----------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -5720,7 +6724,7 @@ ConvertedDeals | array | The cart items that are converted to deal items
 > Sample Request
 
 ```html
-https://www.martjack.com/DeveloperAPI/Cart/TargetBlocks/81e77da2-723b-483d-8c0d-49f800c1exxx
+https://www.martjack.com/DeveloperAPI/Carts/TargetBlocks/81e77da2-723b-483d-8c0d-49f800c1exxx
 ```
 
 > Sample Response
@@ -5744,7 +6748,7 @@ Retrieves product recommendations based on the cart items.
 ### Resource Information
 | | |
 --------- | ----------- |
-URI | `Cart/TargetBlocks/{merchantId}`
+URI | `Carts/TargetBlocks/{merchantId}`
 Response Formats | JSON
 HTTP Methods | GET
 Batch Support | No
@@ -5756,7 +6760,7 @@ Authentication | Yes
 
 ### Request URL
 
-`http://{host}/developerapi/Cart/TargetBlocks/{merchantId}`
+`http://{host}/developerapi/Carts/TargetBlocks/{merchantId}`
 
 ### Additional Header Required
 

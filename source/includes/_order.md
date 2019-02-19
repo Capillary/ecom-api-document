@@ -1040,7 +1040,7 @@ Batch Support | No
 Parameter | Type | Description
 -------- | ----- | -----------
 orderId* | int | Unique id of the order for which you want to update a transaction
-paymentStatus | enum | New status of the current transaction. Values: `P` for pending, `A` for authorized, `F for failed
+paymentStatus | enum | New status of the current transaction. Values: `P` for pending, `A` for authorized, `F` for failed
 respCode | string | Unique code generated for the transaction from the payment gateway 
 txnID* | long | Unique id of the specific transaction that you want to update
 respMsg | string | Response message received for the transaction from the payment gateway

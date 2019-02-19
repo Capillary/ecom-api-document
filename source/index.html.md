@@ -172,7 +172,7 @@ To generate Outh Signature use the following
 
 Example:
 
-`http://www.martjack.com/OAuth/Signature//QFTBNOUC/NDH1BYBFRYHSPDJXFV3RGISB/1548658024/5681074/POST?url=http://www.martjack.com/Customer/06e2d5fc-402b-475e-be79-592c2df95398/Create`
+`http://www.martjack.com/developerapi/OAuth/Signature//QFTBNOUC/NDH1BYBFRYHSPDJXFV3RGISB/1548658024/5681074/POST?url=http://www.martjack.com/Customer/06e2d5fc-402b-475e-be79-592c2df95398/Create`
 
 
 Once you get the oauth_signature, you can make API calls.
