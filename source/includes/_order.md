@@ -4625,13 +4625,14 @@ Batch Support | No
 
 Parameter | Type | Description
 -------- | ----- | -----------
-OrderID | int | Unique id of the order for which you want to update item price
+OrderID* | int | Unique id of the order for which you want to update item price
 OrderItemID | int | Unique id of the order item that you want to update
 Price | float | New price of the order item
 MRP | float | New maximum retail price of the order item
 ConsiderCurrentPriceandMRP | boolean | Specify `False` to use the new prices specified, `True` to consider the prices of the as per the CP
 ReasonForPriceOverride | string | Specify the reason for updating the order item price
 
+<aside class="notice">All parameters marked by * and other parameters that are required to update order item price are mandatory. </aside> 
 
 
 
@@ -4648,20 +4649,16 @@ https://www.martjack.com/developerapi/Order/GetDocument/81e77da2-723b-483d-8c0d-
 
 
 
-> Sample Response
+> Response: You will see an option to download the document.
 
-```json
 
-You will see an option to download the document.
-
-```
 
 
 
 ### Resource Information
 | | |
 --------- | ----------- |
-URI | `/`
+URI | `/Order/GetDocument/{MerchantId}/{OrderId}/{objectType}/{objectValue}`
 Rate Limited? | No
 Authentication | Yes
 Response Formats | JSON

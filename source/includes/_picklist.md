@@ -86,6 +86,7 @@ Weight | int | Weight of the item
 ActualPrice | float | Net price of the item. The item price can be changed if `isVariance` is set to true
 isVariance | boolean | Whether there is change in the price of the current item  during picklist creation. In case of any difference, the item price can be changed by passing the `ActualPrice` of the item
 
+<aside class="notice">All parameters marked by * are mandatory.</aside>
 
 
 ## Process Picklist
@@ -220,7 +221,12 @@ PickListItemStatus | enum | The status of the current item. `F` for found, `N` f
 Weight | int | Weight of the item 
 ActualPrice | float | Net price of the item. The item price can be changed if `isVariance` is set to true
 isVariance | boolean | Whether there is change in the price of the current item  during picklist creation. In case of any difference, the item price can be changed by passing the `ActualPrice` of the itemPickingPrice":60,
-PicklistCustomFields | obj | Picklist level custom field details as a key and value pairs
+PicklistCustomFields | obj | Picklist level custom field details - key and value pairs
+
+<aside class="notice">All parameters marked by * are mandatory.</aside>
+
+
+
 
 
 ## Get Picklist Summary
@@ -453,7 +459,8 @@ Batch Support | No
 
 Parameter | Type | Description
 -------- | ----- | -----------
-
+MerchantId* | string | Unique GUID of the merchant
+pickListId* | int | Unique id of the picklist that you want to fetch
 
 
 
@@ -602,7 +609,7 @@ channelId | string | Channel id of the marketplace
 
 ## Get PickList with Order Info
 
-Retrieves picklist details along with the order details based on the input parameters. 
+Retrieves details of a picklist along with the order details based on the input parameters. 
 
 
 > Sample Request

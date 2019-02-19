@@ -4750,7 +4750,6 @@ https://www.martjack.com/developerapi/Carts/clear/81e77da2-723b-483d-8c0d-49f800
 
 
 
-```
 
 > Sample Response
 
