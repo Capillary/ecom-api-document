@@ -804,9 +804,8 @@ oauth_consumer_key=QFTSEOUC
 <p>Sample POST Request</p>
 </blockquote>
 <pre class="highlight json"><code><span class="err">InputFormat=application/json&amp;InputData=</span><span class="p">{</span><span class="w">
-  </span><span class="nt">"ResetPasswordDetails"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="nt">"ResetPasswordRequest"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"UserName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tom.sawyer@example.com"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"resettype"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Email"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"Url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.example.nightlysites.capillary.in"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -815,7 +814,11 @@ oauth_consumer_key=QFTSEOUC
 <blockquote>
 <p>Sample Response</p>
 </blockquote>
-<pre class="highlight json"><code><span class="w">
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"messageCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1004"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre>
 <h3 id="resource-information">Resource Information</h3>
 
@@ -894,11 +897,6 @@ oauth_consumer_key=QFTSEOUC
 <td>Unique login id of the user - email id</td>
 </tr>
 <tr>
-<td>Resettype</td>
-<td>enum</td>
-<td><code class="prettyprint">Email</code></td>
-</tr>
-<tr>
 <td>Url</td>
 <td>string</td>
 <td>Reset password link sent to the email id. The URL you provide will be appended with the reset id</td>
@@ -929,10 +927,11 @@ oauth_consumer_key=QFTSEOUC
 <blockquote>
 <p>Sample Response</p>
 </blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">  
-   </span><span class="nt">"messageCode"</span><span class="p">:</span><span class="s2">"1004"</span><span class="p">,</span><span class="w">
-   </span><span class="nt">"Message"</span><span class="p">:</span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
-   </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="mi">0</span><span class="w">
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"messageCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1004"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"UserId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3aed9e45-65d8-4b21-8ec1-b25134499744"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
 </span></code></pre>
@@ -12671,18 +12670,18 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 </blockquote>
 <pre class="highlight html"><code>https://www.martjack.com/developerapi/Carts/clear/81e77da2-723b-483d-8c0d-49f800c1exxx
 
-</code></pre><pre class="highlight plaintext"><code>
-&gt; Sample Response
-
-```json
-{
-
-    "messageCode": "1004",
-    "Message": "Successful",
-    "ErrorCode": 0
-}
-
 </code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+
+    </span><span class="nt">"messageCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1004"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
 <h3 id="resource-information">Resource Information</h3>
 
 <table><thead>
@@ -22754,7 +22753,7 @@ Batch Support | No</p>
 </tr>
 </thead><tbody>
 <tr>
-<td>OrderID</td>
+<td>OrderID*</td>
 <td>int</td>
 <td>Unique id of the order for which you want to update item price</td>
 </tr>
@@ -22785,6 +22784,8 @@ Batch Support | No</p>
 </tr>
 </tbody></table>
 
+<aside class="notice">All parameters marked by * and other parameters that are required to update order item price are mandatory. </aside> 
+
 <h2 id="get-document">Get Document</h2>
 
 <p>Generates either dispatch  or invoice document.</p>
@@ -22796,12 +22797,9 @@ Batch Support | No</p>
 
 </code></pre>
 <blockquote>
-<p>Sample Response</p>
+<p>Response: You will see an option to download the document.</p>
 </blockquote>
-<pre class="highlight json"><code><span class="w">
-</span><span class="err">You</span><span class="w"> </span><span class="err">will</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="err">an</span><span class="w"> </span><span class="err">option</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">download</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">document.</span><span class="w">
 
-</span></code></pre>
 <h3 id="resource-information">Resource Information</h3>
 
 <table><thead>
@@ -22812,7 +22810,7 @@ Batch Support | No</p>
 </thead><tbody>
 <tr>
 <td>URI</td>
-<td><code class="prettyprint">/</code></td>
+<td><code class="prettyprint">/Order/GetDocument/{MerchantId}/{OrderId}/{objectType}/{objectValue}</code></td>
 </tr>
 <tr>
 <td>Rate Limited?</td>
@@ -23011,6 +23009,8 @@ Batch Support | No</p>
 <td>Whether there is change in the price of the current item  during picklist creation. In case of any difference, the item price can be changed by passing the <code class="prettyprint">ActualPrice</code> of the item</td>
 </tr>
 </tbody></table>
+
+<aside class="notice">All parameters marked by * are mandatory.</aside>
 
 <h2 id="process-picklist">Process Picklist</h2>
 
@@ -23231,9 +23231,11 @@ Batch Support | No</p>
 <tr>
 <td>PicklistCustomFields</td>
 <td>obj</td>
-<td>Picklist level custom field details as a key and value pairs</td>
+<td>Picklist level custom field details - key and value pairs</td>
 </tr>
 </tbody></table>
+
+<aside class="notice">All parameters marked by * are mandatory.</aside>
 
 <h2 id="get-picklist-summary">Get Picklist Summary</h2>
 
@@ -23488,6 +23490,16 @@ Batch Support | No</p>
 <th>Description</th>
 </tr>
 </thead><tbody>
+<tr>
+<td>MerchantId*</td>
+<td>string</td>
+<td>Unique GUID of the merchant</td>
+</tr>
+<tr>
+<td>pickListId*</td>
+<td>int</td>
+<td>Unique id of the picklist that you want to fetch</td>
+</tr>
 </tbody></table>
 
 <h2 id="get-picklists-of-a-merchant">Get PickLists of a Merchant</h2>
@@ -23697,7 +23709,7 @@ Batch Support | No</p>
 
 <h2 id="get-picklist-with-order-info">Get PickList with Order Info</h2>
 
-<p>Retrieves picklist details along with the order details based on the input parameters. </p>
+<p>Retrieves details of a picklist along with the order details based on the input parameters. </p>
 
 <blockquote>
 <p>Sample Request</p>
@@ -24073,6 +24085,270 @@ Batch Support | No</p>
 <td>channelId</td>
 <td>string</td>
 <td>Channel id of the marketplace</td>
+</tr>
+</tbody></table>
+
+<h2 id="get-picklist-items">Get PickList Items</h2>
+
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
+<pre class="highlight html"><code>https://www.martjack.com/developerapi/PickList/GetPickListItems/f48fdd16-92db-4188-854d-1ecd9b62d066/168917/P
+
+</code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+   </span><span class="nt">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1004"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"PickListOrderItems"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+         </span><span class="nt">"ProductTitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Blue Straight Cotton Jacket"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"ProductSKU"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WINTERW12140BLU"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"VariantSKU"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8907319139341"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"CategoryCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CU00302566"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"PickListCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PK168916"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"CategoryName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jackets"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"ProductCost"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"variantDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Size=34"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"MRP"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2599.0000"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"UOM"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pieces"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"OrderPickListDetailId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3114191"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"PickListId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"168917"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"OrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7507597"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"OrderLineId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"26154847"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"ProductId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11481094"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"ChildProductId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7800898"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"Quantity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"PickQuantity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"OrderItemPickStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"LocationID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"ShelveCode"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+         </span><span class="nt">"IsHold"</span><span class="p">:</span><span class="w"> </span><span class="s2">"False"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"Weight"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"BarCodes"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+         </span><span class="nt">"PicklistOperatorID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00000000-0000-0000-0000-000000000000"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"SubStatus"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+         </span><span class="nt">"Comments"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+         </span><span class="nt">"ProductTitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Blue Straight Cotton Jacket"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"ProductSKU"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WINTERW12140BLU"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"VariantSKU"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8907319139341"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"CategoryCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CU00302566"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"PickListCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PK168916"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"CategoryName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jackets"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"ProductCost"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"variantDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Size=34"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"MRP"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2599.0000"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"UOM"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pieces"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"OrderPickListDetailId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3114193"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"PickListId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"168917"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"OrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7507597"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"OrderLineId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"26154847"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"ProductId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11481094"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"ChildProductId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7800898"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"Quantity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"PickQuantity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"OrderItemPickStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"LocationID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"ShelveCode"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+         </span><span class="nt">"IsHold"</span><span class="p">:</span><span class="w"> </span><span class="s2">"False"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"Weight"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"BarCodes"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+         </span><span class="nt">"PicklistOperatorID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00000000-0000-0000-0000-000000000000"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"SubStatus"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+         </span><span class="nt">"Comments"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+         </span><span class="nt">"ProductTitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Blue Straight Cotton Jacket"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"ProductSKU"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WINTERW12140BLU"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"VariantSKU"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8907319139334"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"CategoryCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CU00302566"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"PickListCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PK168916"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"CategoryName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jackets"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"ProductCost"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"variantDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Size=32"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"MRP"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2599.0000"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"UOM"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pieces"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"OrderPickListDetailId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3114195"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"PickListId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"168917"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"OrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7507597"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"OrderLineId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"26154849"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"ProductId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11481094"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"ChildProductId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7800896"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"Quantity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"PickQuantity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"OrderItemPickStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"LocationID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"ShelveCode"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+         </span><span class="nt">"IsHold"</span><span class="p">:</span><span class="w"> </span><span class="s2">"False"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"Weight"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"BarCodes"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+         </span><span class="nt">"PicklistOperatorID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00000000-0000-0000-0000-000000000000"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"SubStatus"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+         </span><span class="nt">"Comments"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+         </span><span class="nt">"ProductTitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Blue Straight Cotton Jacket"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"ProductSKU"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WINTERW12140BLU"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"VariantSKU"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8907319139334"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"CategoryCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CU00302566"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"PickListCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PK168916"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"CategoryName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jackets"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"ProductCost"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"variantDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Size=32"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"MRP"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2599.0000"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"UOM"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pieces"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"OrderPickListDetailId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3114197"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"PickListId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"168917"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"OrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7507597"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"OrderLineId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"26154849"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"ProductId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11481094"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"ChildProductId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7800896"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"Quantity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"PickQuantity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"OrderItemPickStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"LocationID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"ShelveCode"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+         </span><span class="nt">"IsHold"</span><span class="p">:</span><span class="w"> </span><span class="s2">"False"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"Weight"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"BarCodes"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+         </span><span class="nt">"PicklistOperatorID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00000000-0000-0000-0000-000000000000"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"SubStatus"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+         </span><span class="nt">"Comments"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+         </span><span class="nt">"ProductTitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Blue Straight Poly Cotton Kurta"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"ProductSKU"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WINTERW13282AW17BLU"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"VariantSKU"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8907319271133"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"CategoryCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CU00302566"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"PickListCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PK168916"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"CategoryName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jackets"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"ProductCost"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"variantDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Size=M"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"MRP"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4995.0000"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"UOM"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pieces"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"OrderPickListDetailId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3114199"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"PickListId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"168917"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"OrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7507597"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"OrderLineId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"26154851"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"ProductId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12407946"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"ChildProductId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9186262"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"Quantity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"PickQuantity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"OrderItemPickStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"LocationID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"ShelveCode"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+         </span><span class="nt">"IsHold"</span><span class="p">:</span><span class="w"> </span><span class="s2">"False"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"Weight"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"BarCodes"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+         </span><span class="nt">"PicklistOperatorID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00000000-0000-0000-0000-000000000000"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"SubStatus"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+         </span><span class="nt">"Comments"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+         </span><span class="nt">"ProductTitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Blue Straight Poly Cotton Kurta"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"ProductSKU"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WINTERW13282AW17BLU"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"VariantSKU"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8907319271133"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"CategoryCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CU00302566"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"PickListCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PK168916"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"CategoryName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jackets"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"ProductCost"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"variantDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Size=M"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"MRP"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4995.0000"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"UOM"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pieces"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"OrderPickListDetailId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3114201"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"PickListId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"168917"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"OrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7507597"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"OrderLineId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"26154851"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"ProductId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12407946"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"ChildProductId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9186262"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"Quantity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"PickQuantity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"OrderItemPickStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"LocationID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"ShelveCode"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+         </span><span class="nt">"IsHold"</span><span class="p">:</span><span class="w"> </span><span class="s2">"False"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"Weight"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"BarCodes"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+         </span><span class="nt">"PicklistOperatorID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00000000-0000-0000-0000-000000000000"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"SubStatus"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+         </span><span class="nt">"Comments"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+   </span><span class="p">],</span><span class="w">
+   </span><span class="nt">"AllocatedItems"</span><span class="p">:</span><span class="w"> </span><span class="s2">"false"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td><code class="prettyprint">/PickList/GetPickListItems/{MerchantId}/{pickListId}/{orderItemStatus}</code></td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>POST</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>No</td>
+</tr>
+</tbody></table>
+
+<ul>
+<li><strong>Rate limiter</strong> controls the number of incoming and outgoing traffic of a network</li>
+<li><strong>Authentication</strong> verifies the identity of the current user or integration. See Introduction &gt; Authentication (Merchant Setup on Admin Portal) for more details</li>
+</ul>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">https://{host}/developerapi/PickList/GetPickListItems/{MerchantId}/{pickListId}/{orderItemStatus}</code></p>
+
+<h3 id="request-path-parameters">Request Path Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>MerchantId*</td>
+<td>string</td>
+<td>Unique GUID of the merchant</td>
+</tr>
+<tr>
+<td>pickListId*</td>
+<td>int</td>
+<td>Unique id of the picklist for which you want to fetch items</td>
+</tr>
+<tr>
+<td>orderItemStatus*</td>
+<td>string</td>
+<td>Get the order items by item status. Values: <code class="prettyprint">P</code> for Pending, <code class="prettyprint">F</code> for Found, <code class="prettyprint">N</code> for Not Found,  <code class="prettyprint">R</code> for Removed, <code class="prettyprint">C</code> for  Canceled</td>
 </tr>
 </tbody></table>
 

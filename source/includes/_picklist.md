@@ -923,7 +923,7 @@ channelId | string | Channel id of the marketplace
 > Sample Request
 
 ```html
-https://www.martjack.com/developerapi/PickList/GetPickListItems/f48fdd16-92db-4188-854d-1ecd9b62d066/176599/
+https://www.martjack.com/developerapi/PickList/GetPickListItems/f48fdd16-92db-4188-854d-1ecd9b62d066/168917/P
 
 ```
 
@@ -933,7 +933,188 @@ https://www.martjack.com/developerapi/PickList/GetPickListItems/f48fdd16-92db-41
 > Sample Response
 
 ```json
-
+{
+   "Code": "1004",
+   "Message": "Successful",
+   "ErrorCode": "0",
+   "PickListOrderItems": [
+      {
+         "ProductTitle": "Blue Straight Cotton Jacket",
+         "ProductSKU": "WINTERW12140BLU",
+         "VariantSKU": "8907319139341",
+         "CategoryCode": "CU00302566",
+         "PickListCode": "PK168916",
+         "CategoryName": "Jackets",
+         "ProductCost": "0",
+         "variantDescription": "Size=34",
+         "MRP": "2599.0000",
+         "UOM": "Pieces",
+         "OrderPickListDetailId": "3114191",
+         "PickListId": "168917",
+         "OrderId": "7507597",
+         "OrderLineId": "26154847",
+         "ProductId": "11481094",
+         "ChildProductId": "7800898",
+         "Quantity": "1",
+         "PickQuantity": "0",
+         "OrderItemPickStatus": "A",
+         "LocationID": "0",
+         "ShelveCode": [],
+         "IsHold": "False",
+         "Weight": "0",
+         "BarCodes": [],
+         "PicklistOperatorID": "00000000-0000-0000-0000-000000000000",
+         "SubStatus": [],
+         "Comments": []
+      },
+      {
+         "ProductTitle": "Blue Straight Cotton Jacket",
+         "ProductSKU": "WINTERW12140BLU",
+         "VariantSKU": "8907319139341",
+         "CategoryCode": "CU00302566",
+         "PickListCode": "PK168916",
+         "CategoryName": "Jackets",
+         "ProductCost": "0",
+         "variantDescription": "Size=34",
+         "MRP": "2599.0000",
+         "UOM": "Pieces",
+         "OrderPickListDetailId": "3114193",
+         "PickListId": "168917",
+         "OrderId": "7507597",
+         "OrderLineId": "26154847",
+         "ProductId": "11481094",
+         "ChildProductId": "7800898",
+         "Quantity": "1",
+         "PickQuantity": "0",
+         "OrderItemPickStatus": "A",
+         "LocationID": "0",
+         "ShelveCode": [],
+         "IsHold": "False",
+         "Weight": "0",
+         "BarCodes": [],
+         "PicklistOperatorID": "00000000-0000-0000-0000-000000000000",
+         "SubStatus": [],
+         "Comments": []
+      },
+      {
+         "ProductTitle": "Blue Straight Cotton Jacket",
+         "ProductSKU": "WINTERW12140BLU",
+         "VariantSKU": "8907319139334",
+         "CategoryCode": "CU00302566",
+         "PickListCode": "PK168916",
+         "CategoryName": "Jackets",
+         "ProductCost": "0",
+         "variantDescription": "Size=32",
+         "MRP": "2599.0000",
+         "UOM": "Pieces",
+         "OrderPickListDetailId": "3114195",
+         "PickListId": "168917",
+         "OrderId": "7507597",
+         "OrderLineId": "26154849",
+         "ProductId": "11481094",
+         "ChildProductId": "7800896",
+         "Quantity": "1",
+         "PickQuantity": "0",
+         "OrderItemPickStatus": "A",
+         "LocationID": "0",
+         "ShelveCode": [],
+         "IsHold": "False",
+         "Weight": "0",
+         "BarCodes": [],
+         "PicklistOperatorID": "00000000-0000-0000-0000-000000000000",
+         "SubStatus": [],
+         "Comments": []
+      },
+      {
+         "ProductTitle": "Blue Straight Cotton Jacket",
+         "ProductSKU": "WINTERW12140BLU",
+         "VariantSKU": "8907319139334",
+         "CategoryCode": "CU00302566",
+         "PickListCode": "PK168916",
+         "CategoryName": "Jackets",
+         "ProductCost": "0",
+         "variantDescription": "Size=32",
+         "MRP": "2599.0000",
+         "UOM": "Pieces",
+         "OrderPickListDetailId": "3114197",
+         "PickListId": "168917",
+         "OrderId": "7507597",
+         "OrderLineId": "26154849",
+         "ProductId": "11481094",
+         "ChildProductId": "7800896",
+         "Quantity": "1",
+         "PickQuantity": "0",
+         "OrderItemPickStatus": "A",
+         "LocationID": "0",
+         "ShelveCode": [],
+         "IsHold": "False",
+         "Weight": "0",
+         "BarCodes": [],
+         "PicklistOperatorID": "00000000-0000-0000-0000-000000000000",
+         "SubStatus": [],
+         "Comments": []
+      },
+      {
+         "ProductTitle": "Blue Straight Poly Cotton Kurta",
+         "ProductSKU": "WINTERW13282AW17BLU",
+         "VariantSKU": "8907319271133",
+         "CategoryCode": "CU00302566",
+         "PickListCode": "PK168916",
+         "CategoryName": "Jackets",
+         "ProductCost": "0",
+         "variantDescription": "Size=M",
+         "MRP": "4995.0000",
+         "UOM": "Pieces",
+         "OrderPickListDetailId": "3114199",
+         "PickListId": "168917",
+         "OrderId": "7507597",
+         "OrderLineId": "26154851",
+         "ProductId": "12407946",
+         "ChildProductId": "9186262",
+         "Quantity": "1",
+         "PickQuantity": "0",
+         "OrderItemPickStatus": "A",
+         "LocationID": "0",
+         "ShelveCode": [],
+         "IsHold": "False",
+         "Weight": "0",
+         "BarCodes": [],
+         "PicklistOperatorID": "00000000-0000-0000-0000-000000000000",
+         "SubStatus": [],
+         "Comments": []
+      },
+      {
+         "ProductTitle": "Blue Straight Poly Cotton Kurta",
+         "ProductSKU": "WINTERW13282AW17BLU",
+         "VariantSKU": "8907319271133",
+         "CategoryCode": "CU00302566",
+         "PickListCode": "PK168916",
+         "CategoryName": "Jackets",
+         "ProductCost": "0",
+         "variantDescription": "Size=M",
+         "MRP": "4995.0000",
+         "UOM": "Pieces",
+         "OrderPickListDetailId": "3114201",
+         "PickListId": "168917",
+         "OrderId": "7507597",
+         "OrderLineId": "26154851",
+         "ProductId": "12407946",
+         "ChildProductId": "9186262",
+         "Quantity": "1",
+         "PickQuantity": "0",
+         "OrderItemPickStatus": "A",
+         "LocationID": "0",
+         "ShelveCode": [],
+         "IsHold": "False",
+         "Weight": "0",
+         "BarCodes": [],
+         "PicklistOperatorID": "00000000-0000-0000-0000-000000000000",
+         "SubStatus": [],
+         "Comments": []
+      }
+   ],
+   "AllocatedItems": "false"
+}
 
 ```
 
@@ -963,7 +1144,10 @@ Parameter | Type | Description
 -------- | ----- | -----------
 MerchantId* | string | Unique GUID of the merchant
 pickListId* | int | Unique id of the picklist for which you want to fetch items
-orderItemStatus* | string | Found, Not found, canceled 
+orderItemStatus* | string | Get the order items by item status. Values: `P` for Pending, `F` for Found, `N` for Not Found,  `R` for Removed, `C` for  Canceled
+
+
+
 
 
 
