@@ -2561,7 +2561,7 @@ VariantMasterProductId | int | Unique id of the master product for the current v
 > Sample Request
 
 ```html
-https://www.martjack.com/developerapi/
+https://www.martjack.com/developerapi/f48fdd16-92db-4188-854d-1ecd9b62d066/7506651
 
 ```
 
@@ -2615,7 +2615,14 @@ orderId* | int | Order id for which you want to see the current status
 <aside class="notice"> All parameters marked by * are mandatory. </aside>
 
 
+### Response Parameters
 
+Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.
+
+Parameter | Type | Description
+--------- | ---- | -----------
+status | enum | Current status of an order `P` for pending, `C` for canceled, `F` failed, `A` for authorized,  `S` for shipped, `D` for delivered
+SubStatus | enum | Sub status of the as configured in the CP. For example, RJ for rejected. You can find the order sub-statuses configured on the CP Settings > Application settings > Order settings > Order Substatus
 
 
 
