@@ -2551,7 +2551,78 @@ VariantMasterProductId | int | Unique id of the master product for the current v
 
 
 
+## Get Order Status
+
+
+
+
+
+
+> Sample Request
+
+```html
+https://www.martjack.com/developerapi/
+
+```
+
+
+
+
+> Sample Response
+
+```json
+{
+  "messageCode": "1004",
+  "Message": null,
+  "ErrorCode": 0,
+  "OrderStatus": {
+    "OrderId": 7506651,
+    "status": "D",
+    "subStatus": ""
+  }
+}
+
+```
+
+Retrieves current status of an order based on the order id.
+
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `Order/GetOrderStatus/{MerchantId}/{orderId}`
+Rate Limited? | No
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | POST
+Batch Support | No
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+### Request URL
+
+`https://{host}/developerapi/Order/GetOrderStatus/{MerchantId}/{orderId}`
+
+
+### Request Path Parameters
+
+Parameter | Type | Description
+-------- | ----- | -----------
+MerchantId* | string | Unique GUID of the merchant
+orderId* | int | Order id for which you want to see the current status 
+
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
+
+
+
+
+
+
+
+
 ## Cancel Order
+
 > Sample Request
 
 ```html
@@ -2592,7 +2663,7 @@ Cancels a specific order of a customer placed on a merchant store. However, an o
 
 ### Resource Information
 
- |  |  |
+| | |
 --------- | ----------- | 
 URI | `Order/Cancel`
 Rate Limited? | No
@@ -4687,5 +4758,60 @@ objectValue* | string | Specify invoice id or shipment id based on the `objectTy
 
 
 
+## Get Manifest Details
+
+Retrieves details of a specific shipping manifest.
+
+> Sample Request
+
+```html
+https://www.martjack.com/DeveloperAPI/Order/GetManifest/81e77da2-723b-483d-8c0d-49f800c1exxx/138931
+```
+
+> Sample Response
+
+```json
+{
+  "messageCode": "1004",
+  "Message": "Successful",
+  "Manifests": [
+    {
+      "ManifestId": 138931,
+      "ManifestNo": "00005604",
+      "NoOfItems": 1,
+      "LocationId": 14908,
+      "LocName": "Holisol Delhi",
+      "ShippingProvider": "FedEx",
+      "CreatedDate": "/Date(1549889694000+0530)/"
+    }
+  ],
+  "ErrorCode": 0
+}
+```
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `/Order/GetManifest/{MerchantId}/{ManifestId}`
+Rate Limited? | No
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | POST
+Batch Support | No
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+### Request URL
+
+`https://{host}/developerapi/Order/GetManifest/{MerchantId}/{ManifestId}`
+
+
+### Request Path Parameters
+
+Parameter | Type | Description
+-------- | ----- | -----------
+MerchantId* | string | Unique GUID of the merchant
+ManifestId* | int | Unique id of the shipping manifest for which you want to fetch details
 
 
