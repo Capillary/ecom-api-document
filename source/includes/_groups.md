@@ -66,9 +66,90 @@ userId* | string | Unique GUID of the customer that you want to add
 <aside class="notice">All parameters marked by * are mandatory. </aside>
 
 
+## Get User Group Details
+
+Retrieves the details of a specific user group based on the user group id passed.
 
 
-## Get Customers of a Group
+
+
+
+
+> Sample Request
+
+```html
+https://www.martjack.com/developerapi/CustomerGroups/9820eca5-d11f-4df1-9b20-983a45ea9631/8714
+
+```
+
+
+
+
+> Sample Response
+
+```json
+{
+  "messageCode": "1004",
+  "Message": "Successful",
+  "CostumerGroup": [
+    {
+      "UserGroupId": 8714,
+      "UserGroupName": "NewUser",
+      "GroupDescription": "NewGroup",
+      "MerchantId": "9820eca5-d11f-4df1-9b20-983a45ea9631",
+      "CreatedDate": "/Date(1498093383000+0530)/",
+      "IsActive": false,
+      "MessageDate": "/Date(-2208988800000)/",
+      "UpdatedDate": "/Date(-2208988800000)/",
+      "MemberCount": 0
+    }
+  ],
+  "ErrorCode": 0
+}
+
+```
+
+
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `/CustomerGroups/{merchantId}/{userGroupId}`
+Rate Limited? | No
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | GET
+Batch Support | No
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+### Request URL
+
+`https://{host}/developerapi/CustomerGroups/{merchantId}/{userGroupId}`
+
+
+### Request Path Parameters
+
+Parameter | Type | Description
+-------- | ----- | -----------
+merchantId* | string | Unique GUID of the merchant
+userGroupId* | int | Unique id of the customer group that you want to fetch
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Get Users of a Group
 
 Retrieves the details all members of a specific group based on the group id passed.
 
@@ -237,7 +318,7 @@ userGroupId* | int | Unique id of the user group
 
 
 
-## Get Customer Groups of a User
+## Get Customer Groups by User ID
 
 Retrieves the list of all groups in which a specific user is available based on the user id passed.
 
