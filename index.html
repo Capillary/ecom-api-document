@@ -3456,6 +3456,643 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <p><code class="prettyprint">http://{host}/developerapi/Customer/{merchantId}/Count</code></p>
 
+          <h1 id="customer-groups">Customer Groups</h1>
+
+<h2 id="add-user-to-a-customer-group">Add User to a Customer Group</h2>
+
+<p>Lets you add a user to a specific customer group.</p>
+
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
+<pre class="highlight html"><code>https://www.martjack.com/developerapi/CustomerGroups/Consumer/9820eca5-d11f-4df1-9b20-983a45ea9631/32124/9820eca5-d11f-4df1-9b20-983a45ea9631/Add
+
+</code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"messageCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1004"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Customer Created Successfully"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td><code class="prettyprint">/CustomerGroups/Consumer/{merchantId}/{userGroupId}/{userId}/Add</code></td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>No</td>
+</tr>
+</tbody></table>
+
+<ul>
+<li><strong>Rate limiter</strong> controls the number of incoming and outgoing traffic of a network</li>
+<li><strong>Authentication</strong> verifies the identity of the current user or integration. See Introduction &gt; Authentication (Merchant Setup on Admin Portal) for more details</li>
+</ul>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">https://{host}/developerapi/CustomerGroups/Consumer/{merchantId}/{userGroupId}/{userId}/Add</code></p>
+
+<h3 id="request-path-parameters">Request Path Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>MerchantId*</td>
+<td>string</td>
+<td>Unique GUID of the merchantId</td>
+</tr>
+<tr>
+<td>userGroupId*</td>
+<td>int</td>
+<td>Unique id of the customer group in which you want to add customer</td>
+</tr>
+<tr>
+<td>userId*</td>
+<td>string</td>
+<td>Unique GUID of the customer that you want to add</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">All parameters marked by * are mandatory. </aside>
+
+<h2 id="get-customers-of-a-group">Get Customers of a Group</h2>
+
+<p>Retrieves the details all members of a specific group based on the group id passed.</p>
+
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
+<pre class="highlight html"><code>https://www.martjack.com/developerapi/CustomerGroups/Consumer/9820eca5-d11f-4df1-9b20-983a45ea9631/{userGroupId}
+
+</code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="nt">"messageCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1004"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"Customers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"UserProfiles"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"UserInfoId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0597c6ee-eb13-42a2-bbdf-38690b272cc1"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"UserId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"31a7d819-e4ab-4c2d-985a-5ee9a003d694"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9820eca5-d11f-4df1-9b20-983a45ea9631"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"UserName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tom.sawyer@capillarytech.com"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"FirstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tom"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"LastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sawyer"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"PostalAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"AlternateEmail"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"32"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Pin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"560001"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KA"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IN"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"PhoneNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MG Road"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"MobileNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"917400000000"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"BirthDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1/1/1993 12:00:00 AM"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Gender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"male"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Occupation"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Industry"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"OtherArea"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"CountryName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"India"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"StateName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Karnataka"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"CityName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bangalore"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"AreaName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MG Road"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"OtherCity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OtherCity"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"IsReceiveOffers"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Password"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ConfirmPassword"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Countries"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"States"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"CommunicationType"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"MarketingNotificationType"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"UserProfiles"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"UserInfoId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9f39c75e-ca82-4284-a1a8-05668a3a9941"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"UserId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0025fc54-a2d2-4ba8-800f-3c0ac91e9385"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9820eca5-d11f-4df1-9b20-983a45ea9631"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"UserName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jim.carvan@example.com"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"FirstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jim"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"LastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Carvan"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"PostalAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"AlternateEmail"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"554"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Pin"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TG"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IN"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"PhoneNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Street"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"MobileNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"91-9898000000"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"BirthDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1/1/1900 12:00:00 AM"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Gender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"M"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Occupation"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Industry"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"OtherArea"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"CountryName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"India"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"StateName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Telangana"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"CityName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Other"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"AreaName"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"OtherCity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"554"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"IsReceiveOffers"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Password"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ConfirmPassword"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Countries"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"States"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"CommunicationType"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"MarketingNotificationType"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"UserProfiles"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"UserInfoId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6fa05537-c88e-4339-833e-45fd0eb2e67b"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"UserId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0cdaacfc-b705-4803-9864-56d169d9c65b"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9820eca5-d11f-4df1-9b20-983a45ea9631"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"UserName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"d@p.jo"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"FirstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fn"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"LastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ln"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"PostalAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"zs"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"AlternateEmail"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"554"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Pin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"560076"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bihar"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IN"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"PhoneNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Street"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"MobileNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"919843111111"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"BirthDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1/1/0001 12:00:00 AM"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Gender"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Occupation"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Industry"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"OtherArea"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"CountryName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"India"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"StateName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bihar"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"CityName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Other"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"AreaName"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"OtherCity"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"IsReceiveOffers"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Password"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ConfirmPassword"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Countries"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"States"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"CommunicationType"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"MarketingNotificationType"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td><code class="prettyprint">/CustomerGroups/Consumer/{merchantId}/{userGroupId}</code></td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>No</td>
+</tr>
+</tbody></table>
+
+<ul>
+<li><strong>Rate limiter</strong> controls the number of incoming and outgoing traffic of a network</li>
+<li><strong>Authentication</strong> verifies the identity of the current user or integration. See Introduction &gt; Authentication (Merchant Setup on Admin Portal) for more details</li>
+</ul>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">https://{host}/developerapi/CustomerGroups/Consumer/{merchantId}/{userGroupId}</code></p>
+
+<h3 id="request-path-parameters">Request Path Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>merchantId*</td>
+<td>string</td>
+<td>Unique GUID of the merchantId</td>
+</tr>
+<tr>
+<td>userGroupId*</td>
+<td>int</td>
+<td>Unique id of the user group</td>
+</tr>
+</tbody></table>
+
+<aside class="notice"> All parameters marked by * are mandatory.</aside>
+
+<h2 id="get-customer-groups-of-a-user">Get Customer Groups of a User</h2>
+
+<p>Retrieves the list of all groups in which a specific user is available based on the user id passed.</p>
+
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
+<pre class="highlight html"><code>https://www.martjack.com/developerapi/CustomerGroups/Group/9820eca5-d11f-4df1-9b20-983a45ea9631/31a7d819-e4ab-4c2d-985a-5ee9a003d694
+
+</code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"messageCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1004"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"CostumerGroup"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"UserGroupId"</span><span class="p">:</span><span class="w"> </span><span class="mi">8714</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"UserGroupName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NewUser"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"GroupDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NewGroup"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9820eca5-d11f-4df1-9b20-983a45ea9631"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"CreatedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/Date(1498093383000+0530)/"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"IsActive"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"MessageDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/Date(-2208988800000)/"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"UpdatedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/Date(-2208988800000)/"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"MemberCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td><code class="prettyprint">/CustomerGroups/Group/{merchantId}/{userId}</code></td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>No</td>
+</tr>
+</tbody></table>
+
+<ul>
+<li><strong>Rate limiter</strong> controls the number of incoming and outgoing traffic of a network</li>
+<li><strong>Authentication</strong> verifies the identity of the current user or integration. See Introduction &gt; Authentication (Merchant Setup on Admin Portal) for more details</li>
+</ul>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">https://{host}/developerapi/CustomerGroups/Group/{merchantId}/{userId}</code></p>
+
+<h3 id="request-path-parameters">Request Path Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>MerchantId*</td>
+<td>string</td>
+<td>Unique GUID of the merchantId</td>
+</tr>
+<tr>
+<td>userId*</td>
+<td>string</td>
+<td>Unique GUID of the user for which you want to fetch user groups</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">All parameters marked by * are mandatory.</aside>
+
+<h2 id="get-customer-groups-of-a-merchant">Get Customer Groups of a Merchant</h2>
+
+<p>Retrieves all the customer groups created for the merchant.</p>
+
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
+<pre class="highlight html"><code>https://www.martjack.com/developerapi/CustomerGroups/9820eca5-d11f-4df1-9b20-983a45ea9631
+
+</code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"messageCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1004"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"CostumerGroup"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"UserGroupId"</span><span class="p">:</span><span class="w"> </span><span class="mi">7990</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"UserGroupName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Group1"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"GroupDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Default"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9820eca5-d11f-4df1-9b20-983a45ea9631"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"CreatedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/Date(1457510943000+0530)/"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"IsActive"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"MessageDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/Date(-2208988800000)/"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"UpdatedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/Date(-2208988800000)/"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"MemberCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">143</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"UserGroupId"</span><span class="p">:</span><span class="w"> </span><span class="mi">8188</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"UserGroupName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Group2"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"GroupDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Testing Purpose"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9820eca5-d11f-4df1-9b20-983a45ea9631"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"CreatedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/Date(1465542242000+0530)/"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"IsActive"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"MessageDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/Date(-2208988800000)/"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"UpdatedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/Date(-2208988800000)/"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"MemberCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">32</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"UserGroupId"</span><span class="p">:</span><span class="w"> </span><span class="mi">8496</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"UserGroupName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Group3"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"GroupDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hi"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9820eca5-d11f-4df1-9b20-983a45ea9631"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"CreatedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/Date(1488417120000+0530)/"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"IsActive"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"MessageDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/Date(-2208988800000)/"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"UpdatedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/Date(-2208988800000)/"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"MemberCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"UserGroupId"</span><span class="p">:</span><span class="w"> </span><span class="mi">9313</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"UserGroupName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Group3"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"GroupDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Testing"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9820eca5-d11f-4df1-9b20-983a45ea9631"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"CreatedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/Date(1547103219000+0530)/"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"IsActive"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"MessageDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/Date(-2208988800000)/"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"UpdatedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/Date(-2208988800000)/"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"MemberCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td><code class="prettyprint">/CustomerGroups/{merchantId}</code></td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>No</td>
+</tr>
+</tbody></table>
+
+<ul>
+<li><strong>Rate limiter</strong> controls the number of incoming and outgoing traffic of a network</li>
+<li><strong>Authentication</strong> verifies the identity of the current user or integration. See Introduction &gt; Authentication (Merchant Setup on Admin Portal) for more details</li>
+</ul>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">https://{host}/developerapi/CustomerGroups/{merchantId}</code></p>
+
+<h3 id="request-path-parameters">Request Path Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>merchantId*</td>
+<td>string</td>
+<td>Unique GUID of the merchant</td>
+</tr>
+</tbody></table>
+
+<h3 id="response-parameters">Response Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>CreatedDate</td>
+<td>date</td>
+<td>Date when the group is created</td>
+</tr>
+<tr>
+<td>IsActive</td>
+<td>enum</td>
+<td>States whether the group is true or false</td>
+</tr>
+<tr>
+<td>MessageDate</td>
+<td>date</td>
+<td></td>
+</tr>
+<tr>
+<td>UpdatedDate</td>
+<td>date</td>
+<td></td>
+</tr>
+<tr>
+<td>MemberCount</td>
+<td>int</td>
+<td>Total members in the group</td>
+</tr>
+</tbody></table>
+
+<h2 id="remove-user">Remove User</h2>
+
+<p>Removes a specific member from the group.</p>
+
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
+<pre class="highlight html"><code>https://www.martjack.com/developerapi/CustomerGroups/Consumer/9820eca5-d11f-4df1-9b20-983a45ea9631/8714/0cdaacfc-b705-4803-9864-56d199d9c65b/Remove
+
+</code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="nt">"messageCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1004"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Deleted Successfully"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td><code class="prettyprint">/CustomerGroups/Consumer/{merchantId}/{userGroupId}/{userId}/Remove</code></td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>No</td>
+</tr>
+</tbody></table>
+
+<ul>
+<li><strong>Rate limiter</strong> controls the number of incoming and outgoing traffic of a network</li>
+<li><strong>Authentication</strong> verifies the identity of the current user or integration. See Introduction &gt; Authentication (Merchant Setup on Admin Portal) for more details</li>
+</ul>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">https://{host}/developerapi/CustomerGroups/Consumer/{merchantId}/{userGroupId}/{userId}/Remove</code></p>
+
+<h3 id="request-path-parameters">Request Path Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>MerchantId*</td>
+<td>string</td>
+<td>Unique GUID of the merchant</td>
+</tr>
+<tr>
+<td>userGroupId*</td>
+<td>int</td>
+<td>Unique group id from which you want to remove a user</td>
+</tr>
+<tr>
+<td>userId*</td>
+<td>string</td>
+<td>Unique GUID of the user that you want to remove</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">All parameters marked by * are mandatory.</aside>
+
           <h1 id="product">Product</h1>
 
 <p>A product is an item that a merchant sells on the Anywhere Commerce platform. This resource consists of APIs related managing product inventory of a merchant such as variable and bundle items, product categories, location, and promotions; and also to fetch product details.</p>
@@ -15538,6 +16175,218 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 </tr>
 </tbody></table>
 
+<h2 id="get-pricelist">Get Pricelist</h2>
+
+<p>Retrieves all locations for which pricelist is configured.</p>
+
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
+<pre class="highlight html"><code>https://www.martjack.com/developerapi/Pricelist/9820eca5-d11f-4df1-9b20-983a45ea9631
+
+</code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"messageCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1004"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"PriceListDetails"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2498</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"India"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9820eca5-d11f-4df1-9b20-983a45ea9631"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"UserGroupId"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"LocationId"</span><span class="p">:</span><span class="w"> </span><span class="mi">17038</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"CreatedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/Date(1469171538000+0530)/"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Status"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ReferenceCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IND"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2500</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"International"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9820eca5-d11f-4df1-9b20-983a45ea9631"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"UserGroupId"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"LocationId"</span><span class="p">:</span><span class="w"> </span><span class="mi">17036</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"CreatedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/Date(1469171604000+0530)/"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Status"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ReferenceCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"INTL"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2878</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"India"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9820eca5-d11f-4df1-9b20-983a45ea9631"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"UserGroupId"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"LocationId"</span><span class="p">:</span><span class="w"> </span><span class="mi">17038</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"CreatedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/Date(1493272531000+0530)/"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Status"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ReferenceCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"INDFK"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2890</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"India"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9820eca5-d11f-4df1-9b20-983a45ea9631"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"UserGroupId"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"LocationId"</span><span class="p">:</span><span class="w"> </span><span class="mi">17038</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"CreatedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/Date(1493368445000+0530)/"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Status"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ReferenceCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IndiaFK"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2900</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Telangana"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9820eca5-d11f-4df1-9b20-983a45ea9631"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"UserGroupId"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"LocationId"</span><span class="p">:</span><span class="w"> </span><span class="mi">18692</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"CreatedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/Date(1494482769000+0530)/"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Status"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ReferenceCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test111"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2912</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TestP"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9820eca5-d11f-4df1-9b20-983a45ea9631"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"UserGroupId"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"LocationId"</span><span class="p">:</span><span class="w"> </span><span class="mi">17038</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"CreatedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/Date(1495716987000+0530)/"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Status"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ReferenceCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TEtst"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3108</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Delhi"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9820eca5-d11f-4df1-9b20-983a45ea9631"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"UserGroupId"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"LocationId"</span><span class="p">:</span><span class="w"> </span><span class="mi">16696</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"CreatedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/Date(1509702432000+0530)/"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Status"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ReferenceCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"delhi"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3673</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bang"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9820eca5-d11f-4df1-9b20-983a45ea9631"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"UserGroupId"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"LocationId"</span><span class="p">:</span><span class="w"> </span><span class="mi">17430</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"CreatedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/Date(1547027898000+0530)/"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Status"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ReferenceCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bang001"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3757</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bang"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9820eca5-d11f-4df1-9b20-983a45ea9631"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"UserGroupId"</span><span class="p">:</span><span class="w"> </span><span class="mi">8496</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"LocationId"</span><span class="p">:</span><span class="w"> </span><span class="mi">17430</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"CreatedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/Date(1549448228000+0530)/"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Status"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ReferenceCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bang002"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td><code class="prettyprint">/Pricelist/{MerchantId}</code></td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>No</td>
+</tr>
+</tbody></table>
+
+<ul>
+<li><strong>Rate limiter</strong> controls the number of incoming and outgoing traffic of a network</li>
+<li><strong>Authentication</strong> verifies the identity of the current user or integration. See Introduction &gt; Authentication (Merchant Setup on Admin Portal) for more details</li>
+</ul>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">https://{host}/developerapi/Pricelist/{merchantId}</code></p>
+
+<h3 id="request-path-parameters">Request Path Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>MerchantId*</td>
+<td>string</td>
+<td>Unique GUID of the merchant for which you want to fetch available price lists</td>
+</tr>
+</tbody></table>
+
+<h3 id="response-parameters">Response Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Id</td>
+<td>int</td>
+<td>Unique pricelist id</td>
+</tr>
+<tr>
+<td>Name</td>
+<td>string</td>
+<td>Name  of the location</td>
+</tr>
+<tr>
+<td>LocationId</td>
+<td>int</td>
+<td>Unique id of the location</td>
+</tr>
+<tr>
+<td>CreatedDate</td>
+<td>date</td>
+<td>Date when the price list is created</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>enum</td>
+<td>Current status of the price list. Value: <code class="prettyprint">true</code> for Active and <code class="prettyprint">false</code> for inactive</td>
+</tr>
+<tr>
+<td>ReferenceCode</td>
+<td>string</td>
+<td>Unique location reference code</td>
+</tr>
+</tbody></table>
+
           <h1 id="shopping-list">Shopping List</h1>
 
 <p>Shopping list is a wish list or favorite list of a customer. This resource consists of APIs to add and manage a customer&rsquo;s wish list.</p>
@@ -21132,7 +21981,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <blockquote>
 <p>Sample Request</p>
 </blockquote>
-<pre class="highlight html"><code>https://www.martjack.com/developerapi/getshipments/389d3f1a-8c9a-41bd-9b3a-e6c2f031527d/6564132
+<pre class="highlight html"><code>https://www.martjack.com/developerapi/Order/getshipments/389d3f1a-8c9a-41bd-9b3a-e6c2f031527d/6564132
 </code></pre>
 <blockquote>
 <p>Sample Response</p>
@@ -24581,6 +25430,90 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <td>Get the order items by item status. Values: <code class="prettyprint">P</code> for Pending, <code class="prettyprint">F</code> for Found, <code class="prettyprint">N</code> for Not Found,  <code class="prettyprint">R</code> for Removed, <code class="prettyprint">C</code> for  Canceled</td>
 </tr>
 </tbody></table>
+
+<h2 id="get-substitutes-of-picklist-item">Get Substitutes of Picklist Item</h2>
+
+<p>Retrieves the list of alternative products of a specific picklist item by product id.</p>
+
+<p>Substitutes are the product alternatives used in case of unavailability or insufficient quantity of actual product during pickup. </p>
+
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
+<pre class="highlight html"><code>https://www.martjack.com/developerapi/PickList/GetItemsubstitutes/9820eca5-d11f-4df1-9b20-983a45ea9631/14105696
+
+</code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="w">
+
+</span></code></pre>
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td><code class="prettyprint">/PickList/GetItemsubstitutes/{merchantId}/{productId}</code></td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>No</td>
+</tr>
+</tbody></table>
+
+<ul>
+<li><strong>Rate limiter</strong> controls the number of incoming and outgoing traffic of a network</li>
+<li><strong>Authentication</strong> verifies the identity of the current user or integration. See Introduction &gt; Authentication (Merchant Setup on Admin Portal) for more details</li>
+</ul>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">https://{host}/developerapi/PickList/GetItemsubstitutes/{merchantId}/{productId}</code></p>
+
+<h3 id="request-path-parameters">Request Path Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>MerchantId*</td>
+<td>string</td>
+<td>Unique GUID of the merchant</td>
+</tr>
+<tr>
+<td>ProductId*</td>
+<td>int</td>
+<td>Unique product id for which you want to fetch substitutes</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">All parameters marked by * are mandatory.</aside>
 
           <h1 id="store">Store</h1>
 
