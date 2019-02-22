@@ -19619,7 +19619,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <blockquote>
 <p>Sample Request</p>
 </blockquote>
-<pre class="highlight html"><code>https://www.martjack.com/developerapi/
+<pre class="highlight html"><code>https://www.martjack.com/developerapi/f48fdd16-92db-4188-854d-1ecd9b62d066/7506651
 
 </code></pre>
 <blockquote>
@@ -19704,6 +19704,29 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 </tbody></table>
 
 <aside class="notice"> All parameters marked by * are mandatory. </aside>
+
+<h3 id="response-parameters">Response Parameters</h3>
+
+<p>Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>status</td>
+<td>enum</td>
+<td>Current status of an order <code class="prettyprint">P</code> for pending, <code class="prettyprint">C</code> for canceled, <code class="prettyprint">F</code> failed, <code class="prettyprint">A</code> for authorized,  <code class="prettyprint">S</code> for shipped, <code class="prettyprint">D</code> for delivered</td>
+</tr>
+<tr>
+<td>SubStatus</td>
+<td>enum</td>
+<td>Sub status of the as configured in the CP. For example, RJ for rejected. You can find the order sub-statuses configured on the CP Settings &gt; Application settings &gt; Order settings &gt; Order Substatus</td>
+</tr>
+</tbody></table>
 
 <h2 id="cancel-order">Cancel Order</h2>
 

@@ -3548,7 +3548,7 @@ LogAction | enum | enum | Action associated to the log. For example, P (payment)
 > Sample Request
 
 ```html
-https://www.martjack.com/developerapi/getshipments/389d3f1a-8c9a-41bd-9b3a-e6c2f031527d/6564132
+https://www.martjack.com/developerapi/Order/getshipments/389d3f1a-8c9a-41bd-9b3a-e6c2f031527d/6564132
 ```
 
 

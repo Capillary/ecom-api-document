@@ -13,6 +13,7 @@ toc_footers:
 
 includes:
   - customer
+  - groups
   - product
   - cart
   - pricelist

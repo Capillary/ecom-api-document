@@ -152,4 +152,168 @@ quantity* | int | Quantity of items that you want to delete
 
 
 
+## Get Pricelist
+
+Retrieves all locations for which pricelist is configured.
+
+
+
+
+
+
+
+> Sample Request
+
+```html
+https://www.martjack.com/developerapi/Pricelist/9820eca5-d11f-4df1-9b20-983a45ea9631
+
+```
+
+
+
+
+> Sample Response
+
+```json
+{
+  "messageCode": "1004",
+  "Message": "Successful",
+  "PriceListDetails": [
+    {
+      "Id": 2498,
+      "Name": "India",
+      "MerchantId": "9820eca5-d11f-4df1-9b20-983a45ea9631",
+      "UserGroupId": 0,
+      "LocationId": 17038,
+      "CreatedDate": "/Date(1469171538000+0530)/",
+      "Status": true,
+      "ReferenceCode": "IND"
+    },
+    {
+      "Id": 2500,
+      "Name": "International",
+      "MerchantId": "9820eca5-d11f-4df1-9b20-983a45ea9631",
+      "UserGroupId": 0,
+      "LocationId": 17036,
+      "CreatedDate": "/Date(1469171604000+0530)/",
+      "Status": true,
+      "ReferenceCode": "INTL"
+    },
+    {
+      "Id": 2878,
+      "Name": "India",
+      "MerchantId": "9820eca5-d11f-4df1-9b20-983a45ea9631",
+      "UserGroupId": 0,
+      "LocationId": 17038,
+      "CreatedDate": "/Date(1493272531000+0530)/",
+      "Status": true,
+      "ReferenceCode": "INDFK"
+    },
+    {
+      "Id": 2890,
+      "Name": "India",
+      "MerchantId": "9820eca5-d11f-4df1-9b20-983a45ea9631",
+      "UserGroupId": 0,
+      "LocationId": 17038,
+      "CreatedDate": "/Date(1493368445000+0530)/",
+      "Status": true,
+      "ReferenceCode": "IndiaFK"
+    },
+    {
+      "Id": 2900,
+      "Name": "Telangana",
+      "MerchantId": "9820eca5-d11f-4df1-9b20-983a45ea9631",
+      "UserGroupId": 0,
+      "LocationId": 18692,
+      "CreatedDate": "/Date(1494482769000+0530)/",
+      "Status": false,
+      "ReferenceCode": "Test111"
+    },
+    {
+      "Id": 2912,
+      "Name": "TestP",
+      "MerchantId": "9820eca5-d11f-4df1-9b20-983a45ea9631",
+      "UserGroupId": 0,
+      "LocationId": 17038,
+      "CreatedDate": "/Date(1495716987000+0530)/",
+      "Status": true,
+      "ReferenceCode": "TEtst"
+    },
+    {
+      "Id": 3108,
+      "Name": "Delhi",
+      "MerchantId": "9820eca5-d11f-4df1-9b20-983a45ea9631",
+      "UserGroupId": 0,
+      "LocationId": 16696,
+      "CreatedDate": "/Date(1509702432000+0530)/",
+      "Status": true,
+      "ReferenceCode": "delhi"
+    },
+    {
+      "Id": 3673,
+      "Name": "bang",
+      "MerchantId": "9820eca5-d11f-4df1-9b20-983a45ea9631",
+      "UserGroupId": 0,
+      "LocationId": 17430,
+      "CreatedDate": "/Date(1547027898000+0530)/",
+      "Status": true,
+      "ReferenceCode": "bang001"
+    },
+    {
+      "Id": 3757,
+      "Name": "bang",
+      "MerchantId": "9820eca5-d11f-4df1-9b20-983a45ea9631",
+      "UserGroupId": 8496,
+      "LocationId": 17430,
+      "CreatedDate": "/Date(1549448228000+0530)/",
+      "Status": true,
+      "ReferenceCode": "bang002"
+    }
+  ],
+  "ErrorCode": 0
+}
+
+```
+
+
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `/Pricelist/{MerchantId}`
+Rate Limited? | No
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | GET
+Batch Support | No
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+### Request URL
+
+`https://{host}/developerapi/Pricelist/{merchantId}`
+
+
+### Request Path Parameters
+
+Parameter | Type | Description
+-------- | ----- | -----------
+MerchantId* | string | Unique GUID of the merchant for which you want to fetch available price lists
+
+
+### Response Parameters
+
+Parameter | Type | Description
+--------- | ---- | -----------
+Id | int | Unique pricelist id
+Name | string | Name  of the location
+LocationId | int | Unique id of the location
+CreatedDate | date | Date when the price list is created
+Status | enum | Current status of the price list. Value: `true` for Active and `false` for inactive
+ReferenceCode | string | Unique location reference code
+
+
+
+
 

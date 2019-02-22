@@ -1150,6 +1150,70 @@ orderItemStatus* | string | Get the order items by item status. Values: `P` for 
 
 
 
+## Get Substitutes of Picklist Item
+
+Retrieves the list of alternative products of a specific picklist item by product id.
+
+Substitutes are the product alternatives used in case of unavailability or insufficient quantity of actual product during pickup. 
+
+
+
+
+
+
+> Sample Request
+
+```html
+https://www.martjack.com/developerapi/PickList/GetItemsubstitutes/9820eca5-d11f-4df1-9b20-983a45ea9631/14105696
+
+```
+
+
+
+
+> Sample Response
+
+```json
+
+
+```
+
+
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `/PickList/GetItemsubstitutes/{merchantId}/{productId}`
+Rate Limited? | No
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | GET
+Batch Support | No
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+### Request URL
+
+`https://{host}/developerapi/PickList/GetItemsubstitutes/{merchantId}/{productId}`
+
+
+### Request Path Parameters
+
+Parameter | Type | Description
+-------- | ----- | -----------
+MerchantId* | string | Unique GUID of the merchant
+ProductId* | int | Unique product id for which you want to fetch substitutes
+
+<aside class="notice">All parameters marked by * are mandatory.</aside>
+
+
+
+
+
+
+
+
 
 
 
