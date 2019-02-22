@@ -3549,7 +3549,104 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <aside class="notice">All parameters marked by * are mandatory. </aside>
 
-<h2 id="get-customers-of-a-group">Get Customers of a Group</h2>
+<h2 id="get-user-group-details">Get User Group Details</h2>
+
+<p>Retrieves the details of a specific user group based on the user group id passed.</p>
+
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
+<pre class="highlight html"><code>https://www.martjack.com/developerapi/CustomerGroups/9820eca5-d11f-4df1-9b20-983a45ea9631/8714
+
+</code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"messageCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1004"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"CostumerGroup"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"UserGroupId"</span><span class="p">:</span><span class="w"> </span><span class="mi">8714</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"UserGroupName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NewUser"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"GroupDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NewGroup"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9820eca5-d11f-4df1-9b20-983a45ea9631"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"CreatedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/Date(1498093383000+0530)/"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"IsActive"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"MessageDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/Date(-2208988800000)/"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"UpdatedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/Date(-2208988800000)/"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"MemberCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td><code class="prettyprint">/CustomerGroups/{merchantId}/{userGroupId}</code></td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>No</td>
+</tr>
+</tbody></table>
+
+<ul>
+<li><strong>Rate limiter</strong> controls the number of incoming and outgoing traffic of a network</li>
+<li><strong>Authentication</strong> verifies the identity of the current user or integration. See Introduction &gt; Authentication (Merchant Setup on Admin Portal) for more details</li>
+</ul>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">https://{host}/developerapi/CustomerGroups/{merchantId}/{userGroupId}</code></p>
+
+<h3 id="request-path-parameters">Request Path Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>merchantId*</td>
+<td>string</td>
+<td>Unique GUID of the merchant</td>
+</tr>
+<tr>
+<td>userGroupId*</td>
+<td>int</td>
+<td>Unique id of the customer group that you want to fetch</td>
+</tr>
+</tbody></table>
+
+<h2 id="get-users-of-a-group">Get Users of a Group</h2>
 
 <p>Retrieves the details all members of a specific group based on the group id passed.</p>
 
@@ -3742,7 +3839,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <aside class="notice"> All parameters marked by * are mandatory.</aside>
 
-<h2 id="get-customer-groups-of-a-user">Get Customer Groups of a User</h2>
+<h2 id="get-customer-groups-by-user-id">Get Customer Groups by User ID</h2>
 
 <p>Retrieves the list of all groups in which a specific user is available based on the user id passed.</p>
 
