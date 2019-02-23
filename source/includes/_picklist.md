@@ -1164,7 +1164,7 @@ Substitutes are the product alternatives used in case of unavailability or insuf
 > Sample Request
 
 ```html
-https://www.martjack.com/developerapi/PickList/GetItemsubstitutes/9820eca5-d11f-4df1-9b20-983a45ea9631/14105696
+https://www.martjack.com/developerapi/PickList/GetItemsubstitutes/9820eca5-d11f-4df1-9b20-983a45ea9631/11989616
 
 ```
 
@@ -1174,6 +1174,26 @@ https://www.martjack.com/developerapi/PickList/GetItemsubstitutes/9820eca5-d11f-
 > Sample Response
 
 ```json
+{
+    "messageCode": "1004",
+    "Message": "Successful",
+    "SubstituteViews": [
+        {
+            "Merchantid": "9820eca5-d11f-4df1-9b20-983a45ea9631",
+            "ProductId": 11989616,
+            "VariantProductId": 0,
+            "ProductSKU": "101356308",
+            "VariantSKU": "",
+            "ProductTitle": "Pepsi Mini Can-150 ml",
+            "Sequence": 1,
+            "UOM": "Pieces",
+            "BuyingWeight": 0,
+            "ProductImage": "http://images.sg.content-cdn.io/cdn/in-resources/f48fdd16-92db-4188-854d-1ecd9b62d066/Images/ProductImages/Source/No-image.jpg"
+        }
+    ],
+    "ErrorCode": 0
+}
+
 
 
 ```

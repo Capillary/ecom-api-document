@@ -1758,7 +1758,7 @@ ProductId | int | Unique id of the product (to update product by product id)
 
 ## Get Bundle Items by Bundle Product ID
 
-Retrieves default items of a specific bundle by product id.
+Retrieves the items of a specific bundle by product id. You can also fetch the details of all default items of each bundle group. 
 
 
 > Sample Request
@@ -2017,37 +2017,62 @@ variantProductId* | int | Unique id of the variant product that you want to fetc
 
 
 
+## Get MSMQ Task Details
 
-## Get Category Information
+Retrieves the details of the specific bulk upload task.
 
-Retrieves the details of a specific category.
+
+
+
+
 
 > Sample Request
 
 ```html
-https://www.martjack.com/developerapi/Category/Information/98d18d82-ba59-4957-9c92-3f89207a34f6/CU00216534
+https://www.martjack.com/developerapi/Product/MSMQTaskDetails/993c939a-a2e8-4934-bbf5-390f37457a55/7374227
 
 ```
+
+
 
 
 > Sample Response
 
 ```json
-
 {
-    "messageCode": "1004",
+
     "Message": "Successful",
-    "Category": {
-        "CategoryId": "CU00216534",
-        "CategoryName": "Desserts",
-        "ParentCategoryId": "CU00216530",
-        "Lineage": "/CU00216530/CU00216534/",
-        "Depth": 1,
-        "IsLeaf": true,
-        "ReferenceCode": "CU00216534",
-        "ProductCount": 2
+
+    "TaskMsmqDetails": {
+
+        "StartDate": "/Date(1550819955000+0530)/",
+
+        "Validations": null,
+
+        "TaskID": 7374227,
+
+        "NoOfRows": 1,
+
+        "TaskName": "LctnWiseStocknPriceUploadTask",
+
+        "CreatedDate": "/Date(1550819985882+0530)/",
+
+        "ParamValue": "/mnt/bulkupload/Resources/993c939a-a2e8-4934-bbf5-390f37457a55/Upload/API_LocationWiseStock[22022019124914475].xlsx",
+
+        "MerchantId": "993c939a-a2e8-4934-bbf5-390f37457a55",
+
+        "LastUpdated": "/Date(1550819985882+0530)/",
+
+        "TaskStatus": "C",
+
+        "ParamName": " (stock-price) "
+
     },
+
+    "messageCode": "1004",
+
     "ErrorCode": 0
+
 }
 
 ```
@@ -2057,7 +2082,7 @@ https://www.martjack.com/developerapi/Category/Information/98d18d82-ba59-4957-9c
 ### Resource Information
 | | |
 --------- | ----------- |
-URI | `/Category/Information/{MerchantId}/{CategoryId}`
+URI | `/Product/MSMQTaskDetails/{merchantid}/{taskid}`
 Rate Limited? | No
 Authentication | Yes
 Response Formats | JSON
@@ -2069,14 +2094,140 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Category/Information/{MerchantId}/{CategoryId}`
+`https://{host}/developerapi/Product/MSMQTaskDetails/{merchantid}/{taskid}`
 
 
-### Request Body Parameters
+### Request Path Parameters
 
 Parameter | Type | Description
 -------- | ----- | -----------
 MerchantId* | string | Unique GUID of the merchant
-CategoryId* | string | Unique id of the category for which you want to fetch details
+taskId* | int | Unique id of the bulk upload task
 
 <aside class="notice">All parameters marked by * are mandatory. </aside>
+
+### Response Parameters
+
+Parameter | Type | Description
+--------- | ---- | -----------
+merchantId* | string | Unique GUID of the merchant
+taskId* | int | 
+
+
+## Get MSMQ Error Details
+
+Retrieves error details of a specific bulk upload task.
+
+
+
+
+
+
+
+> Sample Request
+
+```html
+https://www.martjack.com/developerapi/Product/MSMQErrorDetails/993c939a-a2e8-4934-bbf5-390f37457a55/7374227
+
+```
+
+
+
+
+> Sample Response
+
+```json
+{
+
+    "Message": "Successful",
+
+    "TaskMsmqDetails": {
+
+        "StartDate": "/Date(1550819955000+0530)/",
+
+        "Validations": null,
+
+        "TaskID": 7374227,
+
+        "NoOfRows": 1,
+
+        "TaskName": "LctnWiseStocknPriceUploadTask",
+
+        "CreatedDate": "/Date(1550819985882+0530)/",
+
+        "ParamValue": "/mnt/bulkupload/Resources/993c939a-a2e8-4934-bbf5-390f37457a55/Upload/API_LocationWiseStock[22022019124914475].xlsx",
+
+        "MerchantId": "993c939a-a2e8-4934-bbf5-390f37457a55",
+
+        "LastUpdated": "/Date(1550819985882+0530)/",
+
+        "TaskStatus": "C",
+
+        "ParamName": " (stock-price) "
+
+    },
+
+    "messageCode": "1004",
+
+    "ErrorCode": 0
+
+}
+
+
+
+
+```
+
+
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `/Product/MSMQErrorDetails/{merchantid}/{taskid}`
+Rate Limited? | No
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | GET
+Batch Support | No
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+### Request URL
+
+`https://{host}/developerapi/Product/MSMQErrorDetails/{merchantid}/{taskid}`
+
+
+### Request Path Parameters
+
+Parameter | Type | Description
+-------- | ----- | -----------
+merchantId* | string | Unique GUID of the merchant
+taskId* | int | Unique id of the bulk upload task
+
+<aside class="notice">All parameters marked by * are mandatory. </aside>
+
+
+
+
+### Response Parameters
+
+
+
+
+Parameter | Type | Description
+--------- | ---- | -----------
+TaskStatus | enum | Status of the task. Values `C` for completed, `U` for in progress, `F` for failed
+ParamValue  | string | Path of the file with file name
+Task name | string | Name of the task. Based on the bulk action, it could be LctnWiseStocknPriceUploadTask ,ProductPriceListUpload ,BulkProductTagsUpload etc
+
+
+
+
+
+
+
+
+
+
+

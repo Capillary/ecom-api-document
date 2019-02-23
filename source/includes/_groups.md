@@ -1,7 +1,8 @@
 # Customer Groups
 
+Customer groups let you classify customers into different segments based on a similar attribute or rule. You can define a specific discount or prices to customer groups.
 
-
+Customers can be added to a group manually or using rules. This resource contains APIs related to accessing group details and managing group members.
 
 
 ## Add User to a Customer Group
@@ -66,7 +67,7 @@ userId* | string | Unique GUID of the customer that you want to add
 <aside class="notice">All parameters marked by * are mandatory. </aside>
 
 
-## Get User Group Details
+## Get Details of a Customer Group
 
 Retrieves the details of a specific user group based on the user group id passed.
 
@@ -504,8 +505,8 @@ Parameter | Type | Description
 -------- | ----- | -----------
 CreatedDate | date | Date when the group is created 
 IsActive | enum | States whether the group is true or false
-MessageDate | date |
-UpdatedDate | date | 
+MessageDate | date | -NA-
+UpdatedDate | date | Date when the group is updated - user added or removed
 MemberCount | int | Total members in the group
 
 
