@@ -473,7 +473,7 @@ Lets you fetch picklists of a specific merchant based on the input parameters. B
 > Sample Request
 
 ```html
-https://www.martjack.com/developerapi/PickList/f48fdd16-92db-4188-854d-1ecd9b62d066
+https://www.martjack.com/developerapi/PickList/GetPickLists/f48fdd16-92db-4188-854d-1ecd9b62d066
 
 ```
 
@@ -561,7 +561,7 @@ MerchantID=f48fdd16-92db-4188-854d-1ecd9b62d066&InputFormat=application/json&Inp
 ### Resource Information
 | | |
 --------- | ----------- |
-URI | `/PickList/{MerchantId}`
+URI | `/PickList/GetPickLists/{MerchantId}`
 Rate Limited? | No
 Authentication | Yes
 Response Formats | JSON
@@ -573,10 +573,10 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/PickList/{MerchantId}`
+`https://{host}/developerapi/PickList/GetPickLists/{MerchantId}`
 
 
-### Request Path Parameters
+### Request Body Parameters
 
 Parameter | Type | Description
 -------- | ----- | -----------
