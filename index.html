@@ -5601,7 +5601,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <blockquote>
 <p>Sample POST Request</p>
 </blockquote>
-<pre class="highlight json"><code><span class="err">InputFormat=application/json&amp;MerchantId=f</span><span class="mi">48</span><span class="err">fdd</span><span class="mi">16-92</span><span class="err">db</span><span class="mi">-4188-854</span><span class="err">d</span><span class="mi">-1</span><span class="err">ecd</span><span class="mi">9</span><span class="err">b</span><span class="mi">62</span><span class="err">e</span><span class="mi">234</span><span class="err">&amp;ETAfor=ALL&amp;InputData=</span><span class="p">{</span><span class="w">
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TEQUILA11547BLK"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"variantsku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11547BLK"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"usergroupid"</span><span class="p">:</span><span class="w"> </span><span class="mi">67</span><span class="p">,</span><span class="w">
@@ -5687,6 +5687,20 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <h3 id="request-url">Request URL</h3>
 
 <p><code class="prettyprint">https://{host}/developerapi/Product/Price/{MerchantId}</code></p>
+
+<h3 id="additional-header-required">Additional Header Required</h3>
+
+<table><thead>
+<tr>
+<th>Header</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>content-type*</td>
+<td>Pass this as <code class="prettyprint">application/json</code></td>
+</tr>
+</tbody></table>
 
 <h3 id="request-body-parameters-information">Request Body Parameters Information</h3>
 
@@ -5866,7 +5880,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <blockquote>
 <p>Sample POST Request</p>
 </blockquote>
-<pre class="highlight json"><code><span class="err">MerchantId=f</span><span class="mi">48</span><span class="err">fdd</span><span class="mi">16-92</span><span class="err">db</span><span class="mi">-4188-854</span><span class="err">d</span><span class="mi">-1</span><span class="err">ecd</span><span class="mi">9</span><span class="err">b</span><span class="mi">62</span><span class="err">xxxx&amp;InputFormat=application/json&amp;InputData=</span><span class="w">
+<pre class="highlight json"><code><span class="w">
 </span><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="nt">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sku42134125"</span><span class="p">,</span><span class="w">
@@ -6011,6 +6025,20 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <h3 id="request-url">Request URL</h3>
 
 <p><code class="prettyprint">https://{host}/developerapi/Product/AttachImages/{{MerchantId}}</code></p>
+
+<h3 id="additional-header-required">Additional Header Required</h3>
+
+<table><thead>
+<tr>
+<th>Header</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>content-type*</td>
+<td>Pass this as <code class="prettyprint">application/json</code></td>
+</tr>
+</tbody></table>
 
 <h3 id="request-body-parameters">Request Body Parameters</h3>
 
@@ -7691,7 +7719,9 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <h2 id="get-msmq-task-details">Get MSMQ Task Details</h2>
 
-<p>Retrieves the details of the specific bulk upload task.</p>
+<p>Retrieves the details of the specific bulk task. Bulk tools could be bulk product upload, bundle upload, product images upload, pricelist upload, stock-price upload and so on. </p>
+
+<p>MSMQ: Microsoft Messaging Queue</p>
 
 <blockquote>
 <p>Sample Request</p>
@@ -7828,7 +7858,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <h2 id="get-msmq-error-details">Get MSMQ Error Details</h2>
 
-<p>Retrieves error details of a specific bulk upload task.</p>
+<p>Retrieves error details of a specific bulk tools task. Bulk tools could be bulk product upload, bundle upload, product images upload, pricelist upload, stock-price upload and so on.</p>
 
 <blockquote>
 <p>Sample Request</p>
