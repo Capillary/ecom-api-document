@@ -666,7 +666,7 @@ https://www.martjack.com/developerapi/Product/Price/MerchantId=f48fdd16-92db-418
 > Sample POST Request
 
 ```json
-InputFormat=application/json&MerchantId=f48fdd16-92db-4188-854d-1ecd9b62e234&ETAfor=ALL&InputData={
+{
   "sku": "TEQUILA11547BLK",
   "variantsku": "11547BLK",
   "usergroupid": 67,
@@ -732,6 +732,15 @@ Batch Support | No
 ### Request URL
 
 `https://{host}/developerapi/Product/Price/{MerchantId}`
+
+
+### Additional Header Required
+
+Header | Value
+------ | -----------
+content-type* | Pass this as `application/json`
+
+
 
 ### Request Body Parameters Information
 Parameter | Type | Description 
@@ -845,7 +854,7 @@ https://www.martjack.com/developerapi/Product/AttachImages/f48fdd16-92db-4188-85
 > Sample POST Request
 
 ```json
-MerchantId=f48fdd16-92db-4188-854d-1ecd9b62xxxx&InputFormat=application/json&InputData=
+
 [
   {
     "sku": "sku42134125",
@@ -967,6 +976,16 @@ Batch Support | Yes
 
 ### Request URL
 `https://{host}/developerapi/Product/AttachImages/{{MerchantId}}`
+
+
+### Additional Header Required
+
+Header | Value
+------ | -----------
+content-type* | Pass this as `application/json`
+
+
+
 
 ### Request Body Parameters
 
@@ -2019,7 +2038,9 @@ variantProductId* | int | Unique id of the variant product that you want to fetc
 
 ## Get MSMQ Task Details
 
-Retrieves the details of the specific bulk upload task.
+Retrieves the details of the specific bulk task. Bulk tools could be bulk product upload, bundle upload, product images upload, pricelist upload, stock-price upload and so on. 
+
+MSMQ: Microsoft Messaging Queue
 
 
 
@@ -2116,7 +2137,7 @@ taskId* | int |
 
 ## Get MSMQ Error Details
 
-Retrieves error details of a specific bulk upload task.
+Retrieves error details of a specific bulk tools task. Bulk tools could be bulk product upload, bundle upload, product images upload, pricelist upload, stock-price upload and so on.
 
 
 

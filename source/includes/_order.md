@@ -858,6 +858,83 @@ ValidationResponse | json obj | Response object received from the payment gatewa
 
 
 
+## Authorize Order
+
+Authorizes an order from the payment pending status.
+
+
+
+> Sample Request
+
+```html
+https://www.martjack.com/developerapi/order/Authorize
+
+```
+
+
+
+> Sample POST Request (RAW)
+
+```json
+OrderID=7507817&merchantId=f48fdd16-92db-4188-854d-1ecd9b62d066&PaymentType=Credit&bankInstrumentNumber=12444&bankName=KOTAK&pGResponse=ewe23232323232
+
+```
+
+
+
+> Sample Response
+
+```json
+{
+   "Code": "1005",
+   "Message": "Order Authorized successfully",
+   "ErrorCode": "0",
+   "AllocatedItems": "false"
+}
+
+```
+
+
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `/order/Authorize`
+Rate Limited? | No
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | POST
+Batch Support | No
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+### Request URL
+
+`https://{host}/developerapi/order/Authorize`
+
+
+### Request Body Parameters
+
+Parameter | Type | Description
+-------- | ----- | -----------
+merchantId* | string | Unique GUID of the merchant
+OrderID* | int | Unique id of the order that you want to authorize 
+PaymentType* | string | The type of payment for the order. Only values predefined for the merchant in the back-end are supported. Example: OBT (Online bank transfer), TPG (Third party gateway), Credit, GV (Gift voucher) and so on
+bankInstrumentNumber | string | Instrument number generated for payment clearance
+bankName | string | Name of the bank
+PGResponse* | string | The response received from the payment gateway 
+
+<aside class="notice">All parameters marked by * are mandatory. </aside>
+
+
+
+
+
+
+
+
+
 
 
 ## Process Transaction
@@ -2168,7 +2245,7 @@ OrderId* | int |  The order id of the current shipment item
 AWBNumber* | string |  The air way bill number generated for the shipment
 CourierName* | string |  The courier service used for shipment
 ShipDate* | date |  The date on which the order is shipped in `dd/mm/yy` format
-ShipmentType* | enum |  The type of shipment. Current supported value: normal, 
+ShipmentType* | enum |  The type of shipment. Value: `Normal` for shipments from warehouse to customer, `Reverse` for shipments customer to warehouse 
 LocationRefCode* | string |  Location reference code of the order fulfillment store
 lineitems* | obj |  The details of each line item. Specify `OrderLineId` and `Quantity`
 ShipmentTrip | obj |  Provide more details details of the shipping using the parameters specified below. You can use this if applicable for the current merchant
@@ -2782,7 +2859,7 @@ TobeCancelledOrderItems | obj | Specify the items that you want to cancel in `Or
 
 
 
-## Add item to an Order
+## Add Order Lineitem
 
 Lets you add an item to existing order.
 
@@ -3042,7 +3119,7 @@ Batch Support | No
 Parameter | Type | Description
 -------- | ----- | -----------
 OrderID* | int | The order id for which you want to create shipment packages
-ShipmentType* | string  | Type of shipment. Supported value: `Normal`
+ShipmentType* | string  | Type of shipment. Value: `Normal` for shipments from warehouse to customer, `Reverse` for shipments customer to warehouse
 AirwayBillNo* | string | Airway bill number provided by the courier service
 CourierName* | string | Name of the courier service used for shipment
 ShipmentPickupDate* | date-time | Pickup date of the shipment in `YYYY\/MM\/DD` format
@@ -3264,7 +3341,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Order/ShipmentDetails/9403244b-2231-4550-ae96-2dbb5d0c1694/5471021`
+`https://{host}/developerapi/Order/ShipmentPackages/{merchantId}`
 
 
 ### Response Parameters
@@ -3283,7 +3360,7 @@ UOM | string | Unit of measurement of the product. Values: ltrs, kgs, gms, piece
 > Sample Request
 
 ```html
-http://www.martjack.com/DeveloperAPI/Order/Authorize
+http://www.martjack.com/DeveloperAPI/Order/f48fdd16-92db-4188-854d-1ecd9b62xxxx/5471021
 ```
 
 > Sample Response
@@ -3542,6 +3619,165 @@ LogAction | enum | enum | Action associated to the log. For example, P (payment)
 
 
 
+## Get Order Shipments
+
+Retrieves shipment details of a specific order.
+
+
+
+
+
+
+> Sample Request
+
+```html
+https://www.martjack.com/developerapi/Order/9820eca5-d11f-4df1-9b20-983a45ea9631/176543/Shipments
+
+```
+
+
+
+
+> Sample Response
+
+```json
+{
+  "messageCode": "1004",
+  "Message": "Successful",
+  "Shipments": [
+    {
+      "LocationId": 14856,
+      "ShipmentType": "Normal",
+      "ReceivedBy": "",
+      "DeliveredDate": "26-Feb-2019",
+      "ShipmentId": 5516837,
+      "OrderId": 7508407,
+      "ServiceProvider": "BMSP",
+      "DocketNumber": "AWB3399204",
+      "ShippingDate": "26-Feb-2019",
+      "ShippingCharges": "0",
+      "ShipmentItems": [
+        {
+          "OrderLineId": 26156133,
+          "Quantity": 1,
+          "ShipmentCustomFields": null
+        }
+      ],
+      "CollectableAmount": "0"
+    },
+    {
+      "LocationId": 14856,
+      "ShipmentType": "Normal",
+      "ReceivedBy": "",
+      "DeliveredDate": "26-Feb-2019",
+      "ShipmentId": 5516839,
+      "OrderId": 7508407,
+      "ServiceProvider": "BNPS",
+      "DocketNumber": "awb6385902",
+      "ShippingDate": "26-Feb-2019",
+      "ShippingCharges": "0",
+      "ShipmentItems": [
+        {
+          "OrderLineId": 26156123,
+          "Quantity": 2,
+          "ShipmentCustomFields": null
+        }
+      ],
+      "CollectableAmount": "0"
+    },
+    {
+      "LocationId": 14856,
+      "ShipmentType": "Normal",
+      "ReceivedBy": "",
+      "DeliveredDate": "26-Feb-2019",
+      "ShipmentId": 5516841,
+      "OrderId": 7508407,
+      "ServiceProvider": "BMPS",
+      "DocketNumber": "AWB9972903",
+      "ShippingDate": "26-Feb-2019",
+      "ShippingCharges": "0",
+      "ShipmentItems": [
+        {
+          "OrderLineId": 26156131,
+          "Quantity": 2,
+          "ShipmentCustomFields": null
+        }
+      ],
+      "CollectableAmount": "0"
+    },
+    {
+      "LocationId": 14856,
+      "ShipmentType": "Normal",
+      "ReceivedBy": "",
+      "DeliveredDate": "26-Feb-2019",
+      "ShipmentId": 5516843,
+      "OrderId": 7508407,
+      "ServiceProvider": "BMPS",
+      "DocketNumber": "AWB77920023",
+      "ShippingDate": "26-Feb-2019",
+      "ShippingCharges": "0",
+      "ShipmentItems": [
+        {
+          "OrderLineId": 26156129,
+          "Quantity": 2,
+          "ShipmentCustomFields": null
+        }
+      ],
+      "CollectableAmount": "0"
+    }
+  ],
+  "ErrorCode": 0
+}
+
+```
+
+
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `/Order/{merchantId}/{orderId}/Shipments`
+Rate Limited? | No
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | GET
+Batch Support | No
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+### Request URL
+
+`https://{host}/developerapi/Order/{merchantId}/{orderId}/Shipments`
+
+
+### Request Path Parameters
+
+Parameter | Type | Description
+-------- | ----- | -----------
+merchantId* | string | Unique GUID of the merchant
+orderId* | int | Unique id of the order for which you want to fetch shipments
+
+<aside class="notice">All parameters marked by * are mandatory. </aside>
+
+
+
+### Response Parameters
+
+Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are self explanatory or already in the request body.
+
+
+Parameter | Type | Description
+--------- | ---- | -----------
+ShipmentType | enum | Type of shipment. Value: `Normal` for shipments from warehouse to customer, `Reverse` for shipments customer to warehouse
+ReceivedBy | string | Customer who received the shipment
+ServiceProvider | string | Name of the logistic provider
+CollectableAmount | int | Amount to the collected from the receiver (used for COD orders)
+
+
+
+
+
 
 ## Get Shipments
 
@@ -3732,7 +3968,95 @@ Parameter | Type | Description
 -------- | ----- | -----------
 CreatedDateFrom | date | Get shipments created in a specific duration between `CreatedDateFrom` and `CreatedDateTo`
 CreatedDateTo | date | Get shipments created in a specific duration between `CreatedDateFrom` and `CreatedDateTo`
-ShippingStatus | enum | Get shipments by shipment status. You can pass multiple values separated by comma. Values: `I` - RTO initiated, `O`	- RTO Received, `L`	- RTO Lost, `X`	- Others, `S` - Shipment created, `R`	- Dispatched, `T`	- In transit, `U`	- Out for delivery, `D` - Delivered, `C`	- RTO Closed, `F`	- Cancelled, `E`	- RTO Refunded/Replacement closed, `W`	- Waiting for Collection  (in-store), `G`	- At Gate
+ShippingStatus | enum | Get shipments by shipment status. You can pass multiple values separated by comma. Values: `I` - RTO initiated, `O`	- RTO Received, `L`	- RTO Lost, `X`	- Others, `S` - Shipment created, `R`	- Dispatched, `T`	- In transit, `U`	- Out for delivery, `D` - Delivered, `C`	- RTO Closed, `F`	- Canceled, `E`	- RTO Refunded/Replacement closed, `W`	- Waiting for Collection  (in-store), `G`	- At Gate
+
+
+
+## Update Shipment Courier Details
+
+Updates courier details of a specific shipment.
+
+
+
+
+
+
+
+> Sample Request
+
+```html
+https://www.martjack.com/developerapi/Order/UpdateShipmentCourierDetails/9820eca5-d11f-4df1-9b20-983a45ea9631
+
+```
+
+
+> Sample POST Request (RAW)
+
+
+```json
+MerchantId={{MID}}&ShipmentId=5516733&awbNumber=AWB965979&islabelReady=true&providerId=MPBS
+
+```
+
+
+
+
+> Sample Response
+
+```json
+{
+    "messageCode": "1007",
+    "Message": "Updated Successfully",
+    "ErrorCode": 0
+}
+
+```
+
+
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `/Order/UpdateShipmentCourierDetails/{merchantId}`
+Rate Limited? | No
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | POST
+Batch Support | No
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+### Request URL
+
+`https://{host}/developerapi/Order/UpdateShipmentCourierDetails/{merchantId}`
+
+
+### Request Body Parameters
+
+Parameter | Type | Description
+-------- | ----- | -----------
+merchantId* | string | Unique GUID of the merchant
+shipmentId | long | New shipment id that you want to update with
+aWBNumber | string | New AWB number that you want to update with
+islabelReady | enum | Specify `true` if the shipment label is ready, else specify `false`. You will get an option to download the shipment label as PDF if available
+userId | string | CP logged in user id
+providerId | int | Unique id of the shipment provider
+dispatchLabelContentType | | 
+
+<aside class="notice"> Provide at least one of the above parameters that you want to update. </aside>    
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -4638,7 +4962,7 @@ SubStatus | string | The sub-status code of the return request
 
 
 
-## Edit Order Item Price
+## Edit Order Lineitem Price
 
 Lets you modify the price of an existing order item.
 
