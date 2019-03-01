@@ -2628,10 +2628,380 @@ VariantMasterProductId | int | Unique id of the master product for the current v
 
 
 
+
+## Get Order Details (by ReferenceNo)
+
+Retrieves the details of a specific order based on the order reference number passed.
+
+
+
+
+
+
+> Sample Request
+
+```html
+https://www.martjack.com/developerapi/Order/DetailsByRefCode/9820eca5-d11f-4df1-9b20-983a45ea9631/order1
+
+```
+
+
+
+
+> Sample Response
+
+```json
+{
+  "messageCode": "1004",
+  "Message": "Successful",
+  "OrderLines": [
+    {
+      "OrderLineId": 26808837,
+      "OrderId": 7804535,
+      "ProductId": 14105696,
+      "VariantProductId": 10175720,
+      "IsParentProduct": true,
+      "Description": "Size=10-11 yrs",
+      "Quantity": 1,
+      "ShippingCost": 0,
+      "ProductPrice": 8750,
+      "TotalPromotionDiscount": 0,
+      "ReturnReason": "0",
+      "ReturnAction": "",
+      "StockAction": "",
+      "ReturnQty": 0,
+      "IsBackOrder": false,
+      "TotalVoucherDiscount": 0,
+      "TotalTaxAmount": 0,
+      "ShippingVoucherDiscount": 0,
+      "CustomFields": null,
+      "VariantMasterProductId": 0,
+      "Orderrefreneceno": "order1",
+      "CancelQuantity": 0,
+      "PromotionIds": null,
+      "SubStatus": null,
+      "IsFreebie": 0,
+      "FreebieParent": null
+    },
+    {
+      "OrderLineId": 26493499,
+      "OrderId": 7664867,
+      "ProductId": 12973016,
+      "VariantProductId": 9929422,
+      "IsParentProduct": true,
+      "Description": "Size=FREE",
+      "Quantity": 1,
+      "ShippingCost": 0,
+      "ProductPrice": 8750,
+      "TotalPromotionDiscount": 0,
+      "ReturnReason": "1",
+      "ReturnAction": "RP",
+      "StockAction": "DS",
+      "ReturnQty": 1,
+      "IsBackOrder": false,
+      "TotalVoucherDiscount": 0,
+      "TotalTaxAmount": 0,
+      "ShippingVoucherDiscount": 0,
+      "CustomFields": null,
+      "VariantMasterProductId": 0,
+      "Orderrefreneceno": "order1",
+      "CancelQuantity": 0,
+      "PromotionIds": null,
+      "SubStatus": null,
+      "IsFreebie": 0,
+      "FreebieParent": null
+    },
+    {
+      "OrderLineId": 26105069,
+      "OrderId": 7483875,
+      "ProductId": 12973016,
+      "VariantProductId": 9929422,
+      "IsParentProduct": true,
+      "Description": "Size=FREE",
+      "Quantity": 1,
+      "ShippingCost": 0,
+      "ProductPrice": 8750,
+      "TotalPromotionDiscount": 0,
+      "ReturnReason": "0",
+      "ReturnAction": "",
+      "StockAction": "",
+      "ReturnQty": 0,
+      "IsBackOrder": false,
+      "TotalVoucherDiscount": 0,
+      "TotalTaxAmount": 0,
+      "ShippingVoucherDiscount": 0,
+      "CustomFields": null,
+      "VariantMasterProductId": 0,
+      "Orderrefreneceno": "order1",
+      "CancelQuantity": 0,
+      "PromotionIds": null,
+      "SubStatus": null,
+      "IsFreebie": 0,
+      "FreebieParent": null
+    },
+    {
+      "OrderLineId": 25927335,
+      "OrderId": 7400925,
+      "ProductId": 10997762,
+      "VariantProductId": 6740894,
+      "IsParentProduct": true,
+      "Description": "Colour=Yellow;Size=32",
+      "Quantity": 1,
+      "ShippingCost": 0,
+      "ProductPrice": 8750,
+      "TotalPromotionDiscount": 0,
+      "ReturnReason": "0",
+      "ReturnAction": "",
+      "StockAction": "",
+      "ReturnQty": 0,
+      "IsBackOrder": false,
+      "TotalVoucherDiscount": 0,
+      "TotalTaxAmount": 0,
+      "ShippingVoucherDiscount": 0,
+      "CustomFields": null,
+      "VariantMasterProductId": 0,
+      "Orderrefreneceno": "order1",
+      "CancelQuantity": 0,
+      "PromotionIds": null,
+      "SubStatus": null,
+      "IsFreebie": 0,
+      "FreebieParent": null
+    },
+    {
+      "OrderLineId": 24075722,
+      "OrderId": 6593334,
+      "ProductId": 11002174,
+      "VariantProductId": 6763842,
+      "IsParentProduct": true,
+      "Description": "Colour=Orange;Size=32",
+      "Quantity": 1,
+      "ShippingCost": 0,
+      "ProductPrice": 5000,
+      "TotalPromotionDiscount": 0,
+      "ReturnReason": "0",
+      "ReturnAction": "",
+      "StockAction": "",
+      "ReturnQty": 0,
+      "IsBackOrder": false,
+      "TotalVoucherDiscount": 0,
+      "TotalTaxAmount": 0,
+      "ShippingVoucherDiscount": 0,
+      "CustomFields": null,
+      "VariantMasterProductId": 0,
+      "Orderrefreneceno": "order1",
+      "CancelQuantity": 0,
+      "PromotionIds": null,
+      "SubStatus": null,
+      "IsFreebie": 0,
+      "FreebieParent": null
+    }
+  ],
+  "ErrorCode": 0
+}
+
+```
+
+
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `/Order/DetailsByRefCode/{merchantId}/{orderReferenceNo}`
+Rate Limited? | No
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | GET
+Batch Support | No
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+### Request URL
+
+`https://{host}/developerapi/Order/DetailsByRefCode/{merchantId}/{orderReferenceNo}`
+
+
+### Request Path Parameters
+
+Parameter | Type | Description
+-------- | ----- | -----------
+merchantId* | string | Unique GUID of the merchant
+orderReferenceNo* | string | Reference number of the order that you want to fetch
+
+
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
+
+
+### Response Parameters
+
+
+Parameter | Type | Description
+-------- | ----- | -----------
+TotalPromotionDiscount | float | Total promotional discount received for the product
+ReturnReason | string | Reason for returning the item. Applicable for return items 
+IsBackOrder | boolean | Can the item be ordered even when out of stock
+ShippingVoucherDiscount | float | Discount on shipping through voucher
+SubStatus | enum | Sub status of the as configured in the CP. For example, RJ for rejected. You can find the order sub-statuses configured on the CP Settings > Application settings > Order settings > Order Substatus
+IsFreebie | enum | Whether the item is a free gift item. Value `0` for no, `1` for yes
+FreebieParent | string | Unique id of the freebie parent product 
+
+
+
+
+## Get Order Lineitem Details
+
+Retrieves the details of a specific order line item.
+
+
+
+
+
+
+> Sample Request
+
+```html
+https://www.martjack.com/developerapi/Order/LineItem/9820eca5-d11f-4df1-9b20-983a45ea9631/24075722
+
+```
+
+
+
+
+> Sample Response
+
+```json
+{
+  "messageCode": "1004",
+  "Message": "Successful",
+  "OrderLines": [
+    {
+      "OrderLineId": 26156123,
+      "OrderId": 6593334,
+      "ProductId": 14144855,
+      "VariantProductId": 0,
+      "IsParentProduct": false,
+      "Description": "",
+      "Quantity": 2,
+      "ShippingCost": 0,
+      "ProductPrice": 68,
+      "TotalPromotionDiscount": 0,
+      "ReturnReason": "0",
+      "ReturnAction": "",
+      "StockAction": "",
+      "ReturnQty": 0,
+      "IsBackOrder": false,
+      "TotalVoucherDiscount": 0,
+      "TotalTaxAmount": 0,
+      "ShippingVoucherDiscount": 0,
+      "CustomFields": null,
+      "VariantMasterProductId": 0,
+      "Orderrefreneceno": "150147",
+      "CancelQuantity": 0,
+      "PromotionIds": null,
+      "SubStatus": null,
+      "IsFreebie": 0,
+      "FreebieParent": null
+    },
+	{
+      "OrderLineId": 24075722,
+      "OrderId": 6593334,
+      "ProductId": 11002174,
+      "VariantProductId": 6763842,
+      "IsParentProduct": true,
+      "Description": "Colour=Orange;Size=32",
+      "Quantity": 1,
+      "ShippingCost": 0,
+      "ProductPrice": 5000,
+      "TotalPromotionDiscount": 0,
+      "ReturnReason": "0",
+      "ReturnAction": "",
+      "StockAction": "",
+      "ReturnQty": 0,
+      "IsBackOrder": false,
+      "TotalVoucherDiscount": 0,
+      "TotalTaxAmount": 0,
+      "ShippingVoucherDiscount": 0,
+      "CustomFields": "",
+      "VariantMasterProductId": 0,
+      "LocationCode": "OCDEL",
+      "DeliveryMode": "H",
+      "VendorId": "00000000-0000-0000-0000-000000000000",
+      "ItemStatus": "IC",
+      "SKU": "RB3196",
+      "VariantSku": "RB3196-8903098726550",
+      "ProductTitle": "Chanderi Straight Suit Set By Rohit Bal(Colour=Orange;Size=32)",
+      "LocationId": 16696,
+      "CancelQuantity": 0,
+      "PromotionIds": null,
+      "SubStatus": null,
+      "IsFreebie": 0,
+      "FreebieParent": null
+    }
+  ],
+  "ErrorCode": 0
+}
+
+```
+
+
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `/Order/LineItem/{merchantId}/{orderLineId}`
+Rate Limited? | No
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | POST
+Batch Support | No
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+### Request URL
+
+`https://{host}/developerapi/Order/LineItem/{merchantId}/{orderLineId}`
+
+
+### Request Path Parameters
+
+Parameter | Type | Description
+-------- | ----- | -----------
+merchantId* | string | Unique GUID of the merchant
+orderLineId* | int | Unique id of the order line item
+
+
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
+
+
+### Response Parameters
+
+
+Parameter | Type | Description
+-------- | ----- | -----------
+TotalPromotionDiscount | float | Total promotional discount received for the item
+ReturnReason | string | Reason for returning the item. Applicable for return items 
+IsBackOrder | boolean | Can the item be ordered even when out of stock
+ShippingVoucherDiscount | float | Discount on shipping through voucher
+VendorId | string | Unique GUID of the supplier of the item
+ItemStatus | enum | Current status of the item. Authorized - `A`, Return Initiated - `RI`, Reverse Shipment Initiated - `RS`, Reverse Shipment Received - `RR`, Shipment Closed - `RC`, Shipment Created - `S`, RTO Initiated - `I`, RTO Received - `O`, RTO Lost - `L`, Others - `X`, Dispatched - `R`, In Transit - `T`, Out for Delivered - `U`, Delivered - `D`, RTO Closed - `C`, Refund - `AF`, Reverse Shipment Picked - `RP`, Returned - `SR`, Cancelled - `IC`, Failed - `F`, Partially Cancelled - `PC`, Pending - `P`, Picklist Created - `PLC`, Picklist Completed - `PLCL`, In Picking - `PLIP`, Cancelled - Refund Initiated - `ICI`, Cancelled & Refunded - `ICC`, Partial Cancelled & Refund Initiated - `PCI`, Partial Cancelled - Refunded - `PCC`, RTO - Refunded/Replacement Closed - `E`, Waiting for Collection - `W`, At Gate - `G`.
+SubStatus | enum | Sub status of the as configured in the CP. For example, RJ for rejected. You can find the order sub-statuses configured on the CP Settings > Application settings > Order settings > Order Substatus
+IsFreebie | enum | Whether the item is a free gift item. Value `0`, for no and `1` for yes
+FreebieParent | string | Unique freebie id of the parent product (parent product for which the item is free)
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## Get Order Status
-
-
-
 
 
 
@@ -5144,5 +5514,154 @@ Parameter | Type | Description
 -------- | ----- | -----------
 MerchantId* | string | Unique GUID of the merchant
 ManifestId* | int | Unique id of the shipping manifest for which you want to fetch details
+
+
+
+
+
+
+
+
+
+## Get Advance Tax Voucher
+
+Retrieves Advance tax voucher (ATV) details of a specific order.
+
+
+
+
+
+
+> Sample Request
+
+```html
+https://www.martjack.com/developerapi/Order/TaxVoucher/9820eca5-d11f-4df1-9b20-983a45ea9631/7704209
+
+```
+
+
+
+
+> Sample Response
+
+```json
+
+{
+  "messageCode": "1004",
+  "Message": "Successful",
+  "TaxVouchers": [
+    {
+      "TaxVoucherNumber": "atv_biba/001052",
+      "OrderId": 7704209,
+      "BillFirstname": "Tom",
+      "LocationCode": null,
+      "BillLastname": null,
+      "VoucherItems": [
+        {
+          "OrderLineId": 26578947,
+          "sku": "AFROFUSION10302",
+          "VariantSku": "AFROFUSION10302-8903098887787",
+          "ProductPrice": 599,
+          "HSNCode": "62114210",
+          "Qty": 1,
+          "MRP": 999,
+          "TaxDetails": [
+            {
+              "TaxCategory": "CGST",
+              "TaxRate": "2.5",
+              "TaxAmount": 15.72,
+              "IsTaxRatePercentage": true,
+              "TaxCode": "GST_TEST"
+            },
+            {
+              "TaxCategory": "SGST",
+              "TaxRate": "2.5",
+              "TaxAmount": 15.72,
+              "IsTaxRatePercentage": true,
+              "TaxCode": "GST_TEST"
+            }
+          ],
+          "UOM": "Pieces",
+          "BuyingWeight": 0
+        }
+      ],
+      "BillCountry": "India",
+      "BillingState": "Telangana",
+      "GSTBillingStateUTCode": "36",
+      "BillCity": "Hyderabad",
+      "BillEmail": "tom.sawyer@caapillarytech.com",
+      "BillZIP": "500033",
+      "BillPhone": "",
+      "BillMobile": "9422996500",
+      "BillAddress1": "sample address",
+      "ShipFirstname": "Tom",
+      "ShipLastname": "Sawyer",
+      "ShipCountry": "India",
+      "ShipState": "Telangana",
+      "GSTShipStateUTCode": "36",
+      "ShipCity": "Hyderabad",
+      "ShipEmail": "tom.sawyer@caapillarytech.com",
+      "ShipZip": "500033",
+      "ShipPhone": "",
+      "ShipMobile": "9422000000",
+      "ShipAddress1": "sample address1",
+      "ShipOtherCity": ""
+    }
+  ],
+  "ErrorCode": 0
+}
+```
+
+
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `/Order/TaxVoucher/{merchantId}/{orderId}`
+Rate Limited? | No
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | GET
+Batch Support | No
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+### Request URL
+
+`https://{host}/developerapi/Order/TaxVoucher/{merchantId}/{orderId}`
+
+
+### Request Path Parameters
+
+Parameter | Type | Description
+-------- | ----- | -----------
+merchantId* | string | Unique GUID of the merchant
+orderId* | int | Unique id of the order for which you want to fetch tax details
+
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
+
+
+### Response Parameters
+
+Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.
+
+Parameter | Type | Description
+-------- | ----- | -----------
+TaxVoucherNumber | string | Advance tax voucher number (as generated through the Document Series in Advanced Settings)
+LocationCode | int | Location code of the delivery location
+OrderLineId | int | Unique id of the order line item
+HSNCode | string | The HSN code is the 'Harmonized System Nomenclature code number' that is required for GST. The 'HSN code' is shown at item level
+TaxCategory | string | Category of the current tax. For example: STT, VAT, GST, and CST
+IsTaxRatePercentage | enum | True for percentage based tax rates and false for flat rate tax
+TaxCode | string | Unique tax code associated to the product 
+UOM | string | Unit of measurement of the current item
+BuyingWeight | float | Weight of the current item if `UOM` is kgs or gms
+
+
+
+
+
+
 
 

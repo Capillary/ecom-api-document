@@ -6769,3 +6769,215 @@ AccessToken* | Access token of the current session (you can generate using GET A
 
 
 
+## Get Common Stores for Cart Items
+
+Retrieves the details of stores which stocks a specific cart item based on the product id or product sku passed. You can also search by available product quantity.
+
+
+
+
+
+
+
+> Sample Request
+
+```html
+https://www.martjack.com/developerapi/Carts/GetCommonStoresforCartItems/f48fdd16-92db-4188-854d-1ecd9b62d066
+
+```
+
+> Sample POST Request
+
+```json
+MerchantID=f48fdd16-92db-4188-854d-1ecd9b62d066&InputFormat=application/json&InputData={
+[
+   {
+       "ProductId": "0",
+      "VariantProductId": "0",
+      "ProductSku": "61751356",
+      "Quantity": 1
+   }
+]
+}
+```
+
+
+> Sample Response
+
+```json
+{
+    "messageCode": "1004",
+    "Message": "Locations received",
+    "Locations": [
+        {
+            "DistancefromInputLatLong": 0,
+            "ParentLocationID": 0,
+            "LocationId": 22880,
+            "LocationCode": "PIJ",
+            "LocationName": "7-PIJ-Justice Pondok Indah",
+            "Address1": "Pondok Indah Mall 2 2nd Floor, 210",
+            "Address2": "",
+            "City": "25676",
+            "CityName": null,
+            "Area": "",
+            "State": "ID10",
+            "StateName": null,
+            "Country": "ID",
+            "CountryName": null,
+            "Pin": "12310",
+            "Contact1": "021-75920875",
+            "Contact2": "",
+            "Description": "",
+            "Latitude": -6.26557,
+            "Longitude": 106.784,
+            "LocationType": null,
+            "MerchantId": "f48fdd16-92db-4188-854d-1ecd9b62d066",
+            "IsDistributionCenter": true,
+            "EmailId": "justice.pon.ind@exampleretail.com",
+            "IsParticipateInStock": true,
+            "IsDefaultLocation": false,
+            "IsOfflinneCheckoutEnabled": false,
+            "IsPointOfSale": false,
+            "IsOfflineDeals": false,
+            "IsInStorePickup": true,
+            "Remarks": null,
+            "CST": "",
+            "VAT": "",
+            "TINNo": "",
+            "GSTINNO": "",
+            "IsReversePickupEnabled": false,
+            "IsDefaultLNG_LocationName": true,
+            "IsDefaultLNG_Description": true,
+            "IsDefaultLNG_Address1": true,
+            "StoreTimings": null,
+            "HomeDeliveryTimings": null,
+            "TakeawayTimings": null
+        },
+        {
+            "DistancefromInputLatLong": 0,
+            "ParentLocationID": 0,
+            "LocationId": 22888,
+            "LocationCode": "KKJ",
+            "LocationName": "7-KKJ-Justice Kota Kasablanka  ",
+            "Address1": "Level-2, 239A\r\n",
+            "Address2": "",
+            "City": "25676",
+            "CityName": null,
+            "Area": "",
+            "State": "ID10",
+            "StateName": null,
+            "Country": "ID",
+            "CountryName": null,
+            "Pin": "12870",
+            "Contact1": "021-29626167",
+            "Contact2": "",
+            "Description": "",
+            "Latitude": -6.22387,
+            "Longitude": 106.843,
+            "LocationType": null,
+            "MerchantId": "f48fdd16-92db-4188-854d-1ecd9b62d066",
+            "IsDistributionCenter": true,
+            "EmailId": "justice.kot.kas@exampleretail.com",
+            "IsParticipateInStock": true,
+            "IsDefaultLocation": false,
+            "IsOfflinneCheckoutEnabled": false,
+            "IsPointOfSale": false,
+            "IsOfflineDeals": false,
+            "IsInStorePickup": true,
+            "Remarks": null,
+            "CST": "",
+            "VAT": "",
+            "TINNo": "",
+            "GSTINNO": "",
+            "IsReversePickupEnabled": false,
+            "IsDefaultLNG_LocationName": true,
+            "IsDefaultLNG_Description": true,
+            "IsDefaultLNG_Address1": true,
+            "StoreTimings": null,
+            "HomeDeliveryTimings": null,
+            "TakeawayTimings": null
+        },
+        {
+            "DistancefromInputLatLong": 0,
+            "ParentLocationID": 0,
+            "LocationId": 25687,
+            "LocationCode": "LPJ",
+            "LocationName": "7-LPJ-Justice Lippo Puri",
+            "Address1": "Jl Puri Indah Raya Blok U 1, Puri Indah CBD, Jakarta Barat",
+            "Address2": "",
+            "City": "",
+            "CityName": null,
+            "Area": "",
+            "State": "ID-JK",
+            "StateName": null,
+            "Country": "ID",
+            "CountryName": null,
+            "Pin": "11610",
+            "Contact1": "",
+            "Contact2": "",
+            "Description": "",
+            "Latitude": -6.18758,
+            "Longitude": 106.739,
+            "LocationType": null,
+            "MerchantId": "f48fdd16-92db-4188-854d-1ecd9b62d066",
+            "IsDistributionCenter": true,
+            "EmailId": "justice.lip.pur@examplegroup.com",
+            "IsParticipateInStock": true,
+            "IsDefaultLocation": false,
+            "IsOfflinneCheckoutEnabled": false,
+            "IsPointOfSale": false,
+            "IsOfflineDeals": false,
+            "IsInStorePickup": true,
+            "Remarks": null,
+            "CST": "",
+            "VAT": "",
+            "TINNo": "",
+            "GSTINNO": "",
+            "IsReversePickupEnabled": false,
+            "IsDefaultLNG_LocationName": true,
+            "IsDefaultLNG_Description": true,
+            "IsDefaultLNG_Address1": true,
+            "StoreTimings": null,
+            "HomeDeliveryTimings": null,
+            "TakeawayTimings": null
+        }
+    ],
+    "ErrorCode": 0
+}
+
+
+```
+
+
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `Carts/GetCommonStoresforCartItems/{merchantId}`
+Rate Limited? | No
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | POST
+Batch Support | No
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+### Request URL
+
+`https://{host}/developerapi/Carts/GetCommonStoresforCartItems/{merchantId}`
+
+
+### Request Body Parameters
+
+Parameter | Type | Description
+-------- | ----- | -----------
+ProductId** | int | Unique id of the product for which you want to fetch available stores
+ProductSKU** | string | Unique SKU of the product for which you want to fetch available stores
+VariantProductSKU | string | Unique SKU of the variant product for which you want to fetch available stores. Default value: 0
+Quantity | int | Check by available quantity. 
+
+<aside class="notice"> **Pass any one parameter - either ProductId or ProductSKU. </aside>
+
+
+

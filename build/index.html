@@ -18437,6 +18437,119 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 </tr>
 </tbody></table>
 
+<h2 id="authorize-order">Authorize Order</h2>
+
+<p>Authorizes an order from the payment pending status.</p>
+
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
+<pre class="highlight html"><code>https://www.martjack.com/developerapi/order/Authorize
+
+</code></pre>
+<blockquote>
+<p>Sample POST Request (RAW)</p>
+</blockquote>
+<pre class="highlight json"><code><span class="err">OrderID=</span><span class="mi">7507817</span><span class="err">&amp;merchantId=f</span><span class="mi">48</span><span class="err">fdd</span><span class="mi">16-92</span><span class="err">db</span><span class="mi">-4188-854</span><span class="err">d</span><span class="mi">-1</span><span class="err">ecd</span><span class="mi">9</span><span class="err">b</span><span class="mi">62</span><span class="err">d</span><span class="mi">066</span><span class="err">&amp;PaymentType=Credit&amp;bankInstrumentNumber=</span><span class="mi">12444</span><span class="err">&amp;bankName=KOTAK&amp;pGResponse=ewe</span><span class="mi">23232323232</span><span class="w">
+
+</span></code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+   </span><span class="nt">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1005"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Order Authorized successfully"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"AllocatedItems"</span><span class="p">:</span><span class="w"> </span><span class="s2">"false"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td><code class="prettyprint">/order/Authorize</code></td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>POST</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>No</td>
+</tr>
+</tbody></table>
+
+<ul>
+<li><strong>Rate limiter</strong> controls the number of incoming and outgoing traffic of a network</li>
+<li><strong>Authentication</strong> verifies the identity of the current user or integration. See Introduction &gt; Authentication (Merchant Setup on Admin Portal) for more details</li>
+</ul>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">https://{host}/developerapi/order/Authorize</code></p>
+
+<h3 id="request-body-parameters">Request Body Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>merchantId*</td>
+<td>string</td>
+<td>Unique GUID of the merchant</td>
+</tr>
+<tr>
+<td>OrderID*</td>
+<td>int</td>
+<td>Unique id of the order that you want to authorize</td>
+</tr>
+<tr>
+<td>PaymentType*</td>
+<td>string</td>
+<td>The type of payment for the order. Only values predefined for the merchant in the back-end are supported. Example: OBT (Online bank transfer), TPG (Third party gateway), Credit, GV (Gift voucher) and so on</td>
+</tr>
+<tr>
+<td>bankInstrumentNumber</td>
+<td>string</td>
+<td>Instrument number generated for payment clearance</td>
+</tr>
+<tr>
+<td>bankName</td>
+<td>string</td>
+<td>Name of the bank</td>
+</tr>
+<tr>
+<td>PGResponse*</td>
+<td>string</td>
+<td>The response received from the payment gateway</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">All parameters marked by * are mandatory. </aside>
+
 <h2 id="process-transaction">Process Transaction</h2>
 
 <blockquote>
@@ -20267,7 +20380,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>ShipmentType*</td>
 <td>enum</td>
-<td>The type of shipment. Current supported value: normal,</td>
+<td>The type of shipment. Value: <code class="prettyprint">Normal</code> for shipments from warehouse to customer, <code class="prettyprint">Reverse</code> for shipments customer to warehouse</td>
 </tr>
 <tr>
 <td>LocationRefCode*</td>
@@ -21172,7 +21285,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <aside class="notice"> All parameters marked by * are mandatory. </aside>
 
-<h2 id="add-item-to-an-order">Add item to an Order</h2>
+<h2 id="add-order-lineitem">Add Order Lineitem</h2>
 
 <p>Lets you add an item to existing order.</p>
 
@@ -21539,7 +21652,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>ShipmentType*</td>
 <td>string</td>
-<td>Type of shipment. Supported value: <code class="prettyprint">Normal</code></td>
+<td>Type of shipment. Value: <code class="prettyprint">Normal</code> for shipments from warehouse to customer, <code class="prettyprint">Reverse</code> for shipments customer to warehouse</td>
 </tr>
 <tr>
 <td>AirwayBillNo*</td>
@@ -21898,7 +22011,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Order/ShipmentDetails/9403244b-2231-4550-ae96-2dbb5d0c1694/5471021</code></p>
+<p><code class="prettyprint">https://{host}/developerapi/Order/ShipmentPackages/{merchantId}</code></p>
 
 <h3 id="response-parameters">Response Parameters</h3>
 
@@ -21933,7 +22046,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <blockquote>
 <p>Sample Request</p>
 </blockquote>
-<pre class="highlight html"><code>http://www.martjack.com/DeveloperAPI/Order/Authorize
+<pre class="highlight html"><code>http://www.martjack.com/DeveloperAPI/Order/f48fdd16-92db-4188-854d-1ecd9b62xxxx/5471021
 </code></pre>
 <blockquote>
 <p>Sample Response</p>
@@ -22292,6 +22405,207 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 </tr>
 </tbody></table>
 
+<h2 id="get-order-shipments">Get Order Shipments</h2>
+
+<p>Retrieves shipment details of a specific order.</p>
+
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
+<pre class="highlight html"><code>https://www.martjack.com/developerapi/Order/9820eca5-d11f-4df1-9b20-983a45ea9631/176543/Shipments
+
+</code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"messageCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1004"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"Shipments"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"LocationId"</span><span class="p">:</span><span class="w"> </span><span class="mi">14856</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ShipmentType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Normal"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ReceivedBy"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"DeliveredDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"26-Feb-2019"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ShipmentId"</span><span class="p">:</span><span class="w"> </span><span class="mi">5516837</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"OrderId"</span><span class="p">:</span><span class="w"> </span><span class="mi">7508407</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ServiceProvider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BMSP"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"DocketNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AWB3399204"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ShippingDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"26-Feb-2019"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ShippingCharges"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ShipmentItems"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"OrderLineId"</span><span class="p">:</span><span class="w"> </span><span class="mi">26156133</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"Quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"ShipmentCustomFields"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nt">"CollectableAmount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"LocationId"</span><span class="p">:</span><span class="w"> </span><span class="mi">14856</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ShipmentType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Normal"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ReceivedBy"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"DeliveredDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"26-Feb-2019"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ShipmentId"</span><span class="p">:</span><span class="w"> </span><span class="mi">5516839</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"OrderId"</span><span class="p">:</span><span class="w"> </span><span class="mi">7508407</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ServiceProvider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BNPS"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"DocketNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"awb6385902"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ShippingDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"26-Feb-2019"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ShippingCharges"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ShipmentItems"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"OrderLineId"</span><span class="p">:</span><span class="w"> </span><span class="mi">26156123</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"Quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"ShipmentCustomFields"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nt">"CollectableAmount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"LocationId"</span><span class="p">:</span><span class="w"> </span><span class="mi">14856</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ShipmentType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Normal"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ReceivedBy"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"DeliveredDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"26-Feb-2019"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ShipmentId"</span><span class="p">:</span><span class="w"> </span><span class="mi">5516841</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"OrderId"</span><span class="p">:</span><span class="w"> </span><span class="mi">7508407</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ServiceProvider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BMPS"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"DocketNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AWB9972903"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ShippingDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"26-Feb-2019"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ShippingCharges"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ShipmentItems"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"OrderLineId"</span><span class="p">:</span><span class="w"> </span><span class="mi">26156131</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"Quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"ShipmentCustomFields"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nt">"CollectableAmount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"LocationId"</span><span class="p">:</span><span class="w"> </span><span class="mi">14856</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ShipmentType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Normal"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ReceivedBy"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"DeliveredDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"26-Feb-2019"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ShipmentId"</span><span class="p">:</span><span class="w"> </span><span class="mi">5516843</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"OrderId"</span><span class="p">:</span><span class="w"> </span><span class="mi">7508407</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ServiceProvider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BMPS"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"DocketNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AWB77920023"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ShippingDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"26-Feb-2019"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ShippingCharges"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ShipmentItems"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"OrderLineId"</span><span class="p">:</span><span class="w"> </span><span class="mi">26156129</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"Quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"ShipmentCustomFields"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nt">"CollectableAmount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td><code class="prettyprint">/Order/{merchantId}/{orderId}/Shipments</code></td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>No</td>
+</tr>
+</tbody></table>
+
+<ul>
+<li><strong>Rate limiter</strong> controls the number of incoming and outgoing traffic of a network</li>
+<li><strong>Authentication</strong> verifies the identity of the current user or integration. See Introduction &gt; Authentication (Merchant Setup on Admin Portal) for more details</li>
+</ul>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">https://{host}/developerapi/Order/{merchantId}/{orderId}/Shipments</code></p>
+
+<h3 id="request-path-parameters">Request Path Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>merchantId*</td>
+<td>string</td>
+<td>Unique GUID of the merchant</td>
+</tr>
+<tr>
+<td>orderId*</td>
+<td>int</td>
+<td>Unique id of the order for which you want to fetch shipments</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">All parameters marked by * are mandatory. </aside>
+
+<h3 id="response-parameters">Response Parameters</h3>
+
+<p>Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are self explanatory or already in the request body.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ShipmentType</td>
+<td>enum</td>
+<td>Type of shipment. Value: <code class="prettyprint">Normal</code> for shipments from warehouse to customer, <code class="prettyprint">Reverse</code> for shipments customer to warehouse</td>
+</tr>
+<tr>
+<td>ReceivedBy</td>
+<td>string</td>
+<td>Customer who received the shipment</td>
+</tr>
+<tr>
+<td>ServiceProvider</td>
+<td>string</td>
+<td>Name of the logistic provider</td>
+</tr>
+<tr>
+<td>CollectableAmount</td>
+<td>int</td>
+<td>Amount to the collected from the receiver (used for COD orders)</td>
+</tr>
+</tbody></table>
+
 <h2 id="get-shipments">Get Shipments</h2>
 
 <blockquote>
@@ -22557,9 +22871,126 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>ShippingStatus</td>
 <td>enum</td>
-<td>Get shipments by shipment status. You can pass multiple values separated by comma. Values: <code class="prettyprint">I</code> - RTO initiated, <code class="prettyprint">O</code> - RTO Received, <code class="prettyprint">L</code> - RTO Lost, <code class="prettyprint">X</code> - Others, <code class="prettyprint">S</code> - Shipment created, <code class="prettyprint">R</code>   - Dispatched, <code class="prettyprint">T</code>   - In transit, <code class="prettyprint">U</code>   - Out for delivery, <code class="prettyprint">D</code> - Delivered, <code class="prettyprint">C</code>    - RTO Closed, <code class="prettyprint">F</code>   - Cancelled, <code class="prettyprint">E</code>    - RTO Refunded/Replacement closed, <code class="prettyprint">W</code>  - Waiting for Collection  (in-store), <code class="prettyprint">G</code>   - At Gate</td>
+<td>Get shipments by shipment status. You can pass multiple values separated by comma. Values: <code class="prettyprint">I</code> - RTO initiated, <code class="prettyprint">O</code> - RTO Received, <code class="prettyprint">L</code> - RTO Lost, <code class="prettyprint">X</code> - Others, <code class="prettyprint">S</code> - Shipment created, <code class="prettyprint">R</code>   - Dispatched, <code class="prettyprint">T</code>   - In transit, <code class="prettyprint">U</code>   - Out for delivery, <code class="prettyprint">D</code> - Delivered, <code class="prettyprint">C</code>    - RTO Closed, <code class="prettyprint">F</code>   - Canceled, <code class="prettyprint">E</code> - RTO Refunded/Replacement closed, <code class="prettyprint">W</code>  - Waiting for Collection  (in-store), <code class="prettyprint">G</code>   - At Gate</td>
 </tr>
 </tbody></table>
+
+<h2 id="update-shipment-courier-details">Update Shipment Courier Details</h2>
+
+<p>Updates courier details of a specific shipment.</p>
+
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
+<pre class="highlight html"><code>https://www.martjack.com/developerapi/Order/UpdateShipmentCourierDetails/9820eca5-d11f-4df1-9b20-983a45ea9631
+
+</code></pre>
+<blockquote>
+<p>Sample POST Request (RAW)</p>
+</blockquote>
+<pre class="highlight json"><code><span class="err">MerchantId=</span><span class="p">{</span><span class="err">{MID</span><span class="p">}</span><span class="err">}&amp;ShipmentId=</span><span class="mi">5516733</span><span class="err">&amp;awbNumber=AWB</span><span class="mi">965979</span><span class="err">&amp;islabelReady=</span><span class="kc">true</span><span class="err">&amp;providerId=MPBS</span><span class="w">
+
+</span></code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"messageCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1007"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Updated Successfully"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td><code class="prettyprint">/Order/UpdateShipmentCourierDetails/{merchantId}</code></td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>POST</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>No</td>
+</tr>
+</tbody></table>
+
+<ul>
+<li><strong>Rate limiter</strong> controls the number of incoming and outgoing traffic of a network</li>
+<li><strong>Authentication</strong> verifies the identity of the current user or integration. See Introduction &gt; Authentication (Merchant Setup on Admin Portal) for more details</li>
+</ul>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">https://{host}/developerapi/Order/UpdateShipmentCourierDetails/{merchantId}</code></p>
+
+<h3 id="request-body-parameters">Request Body Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>merchantId*</td>
+<td>string</td>
+<td>Unique GUID of the merchant</td>
+</tr>
+<tr>
+<td>shipmentId</td>
+<td>long</td>
+<td>New shipment id that you want to update with</td>
+</tr>
+<tr>
+<td>aWBNumber</td>
+<td>string</td>
+<td>New AWB number that you want to update with</td>
+</tr>
+<tr>
+<td>islabelReady</td>
+<td>enum</td>
+<td>Specify <code class="prettyprint">true</code> if the shipment label is ready, else specify <code class="prettyprint">false</code>. You will get an option to download the shipment label as PDF if available</td>
+</tr>
+<tr>
+<td>userId</td>
+<td>string</td>
+<td>CP logged in user id</td>
+</tr>
+<tr>
+<td>providerId</td>
+<td>int</td>
+<td>Unique id of the shipment provider</td>
+</tr>
+<tr>
+<td>dispatchLabelContentType</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<aside class="notice"> Provide at least one of the above parameters that you want to update. </aside>    
 
 <h2 id="calculate-tax-normal-product">Calculate Tax (Normal Product)</h2>
 
@@ -23965,7 +24396,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 </tr>
 </tbody></table>
 
-<h2 id="edit-order-item-price">Edit Order Item Price</h2>
+<h2 id="edit-order-lineitem-price">Edit Order Lineitem Price</h2>
 
 <p>Lets you modify the price of an existing order item.</p>
 
