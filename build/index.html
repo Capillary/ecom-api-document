@@ -16241,6 +16241,251 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 </tr>
 </tbody></table>
 
+<h2 id="get-common-stores-for-cart-items">Get Common Stores for Cart Items</h2>
+
+<p>Retrieves the details of stores which stocks a specific cart item based on the product id or product sku passed. You can also search by available product quantity.</p>
+
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
+<pre class="highlight html"><code>https://www.martjack.com/developerapi/Carts/GetCommonStoresforCartItems/f48fdd16-92db-4188-854d-1ecd9b62d066
+
+</code></pre>
+<blockquote>
+<p>Sample POST Request</p>
+</blockquote>
+<pre class="highlight json"><code><span class="err">MerchantID=f</span><span class="mi">48</span><span class="err">fdd</span><span class="mi">16-92</span><span class="err">db</span><span class="mi">-4188-854</span><span class="err">d</span><span class="mi">-1</span><span class="err">ecd</span><span class="mi">9</span><span class="err">b</span><span class="mi">62</span><span class="err">d</span><span class="mi">066</span><span class="err">&amp;InputFormat=application/json&amp;InputData=</span><span class="p">{</span><span class="w">
+</span><span class="err">[</span><span class="w">
+   </span><span class="err">{</span><span class="w">
+       </span><span class="nt">"ProductId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"VariantProductId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ProductSku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"61751356"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="err">]</span><span class="w">
+</span><span class="err">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"messageCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1004"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Locations received"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Locations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"DistancefromInputLatLong"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ParentLocationID"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"LocationId"</span><span class="p">:</span><span class="w"> </span><span class="mi">22880</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"LocationCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PIJ"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"LocationName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7-PIJ-Justice Pondok Indah"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Address1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pondok Indah Mall 2 2nd Floor, 210"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Address2"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"25676"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"CityName"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Area"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID10"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"StateName"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"CountryName"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Pin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12310"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Contact1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"021-75920875"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Contact2"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">-6.26557</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">106.784</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"LocationType"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f48fdd16-92db-4188-854d-1ecd9b62d066"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"IsDistributionCenter"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"EmailId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"justice.pon.ind@exampleretail.com"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"IsParticipateInStock"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"IsDefaultLocation"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"IsOfflinneCheckoutEnabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"IsPointOfSale"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"IsOfflineDeals"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"IsInStorePickup"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Remarks"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"CST"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"VAT"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"TINNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"GSTINNO"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"IsReversePickupEnabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"IsDefaultLNG_LocationName"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"IsDefaultLNG_Description"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"IsDefaultLNG_Address1"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"StoreTimings"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"HomeDeliveryTimings"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"TakeawayTimings"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"DistancefromInputLatLong"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ParentLocationID"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"LocationId"</span><span class="p">:</span><span class="w"> </span><span class="mi">22888</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"LocationCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KKJ"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"LocationName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7-KKJ-Justice Kota Kasablanka  "</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Address1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Level-2, 239A\r\n"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Address2"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"25676"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"CityName"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Area"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID10"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"StateName"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"CountryName"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Pin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12870"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Contact1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"021-29626167"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Contact2"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">-6.22387</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">106.843</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"LocationType"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f48fdd16-92db-4188-854d-1ecd9b62d066"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"IsDistributionCenter"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"EmailId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"justice.kot.kas@exampleretail.com"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"IsParticipateInStock"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"IsDefaultLocation"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"IsOfflinneCheckoutEnabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"IsPointOfSale"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"IsOfflineDeals"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"IsInStorePickup"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Remarks"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"CST"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"VAT"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"TINNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"GSTINNO"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"IsReversePickupEnabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"IsDefaultLNG_LocationName"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"IsDefaultLNG_Description"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"IsDefaultLNG_Address1"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"StoreTimings"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"HomeDeliveryTimings"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"TakeawayTimings"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"DistancefromInputLatLong"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ParentLocationID"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"LocationId"</span><span class="p">:</span><span class="w"> </span><span class="mi">25687</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"LocationCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LPJ"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"LocationName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7-LPJ-Justice Lippo Puri"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Address1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jl Puri Indah Raya Blok U 1, Puri Indah CBD, Jakarta Barat"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Address2"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"CityName"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Area"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-JK"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"StateName"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"CountryName"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Pin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11610"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Contact1"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Contact2"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">-6.18758</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">106.739</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"LocationType"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f48fdd16-92db-4188-854d-1ecd9b62d066"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"IsDistributionCenter"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"EmailId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"justice.lip.pur@examplegroup.com"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"IsParticipateInStock"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"IsDefaultLocation"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"IsOfflinneCheckoutEnabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"IsPointOfSale"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"IsOfflineDeals"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"IsInStorePickup"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Remarks"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"CST"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"VAT"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"TINNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"GSTINNO"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"IsReversePickupEnabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"IsDefaultLNG_LocationName"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"IsDefaultLNG_Description"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"IsDefaultLNG_Address1"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"StoreTimings"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"HomeDeliveryTimings"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"TakeawayTimings"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+
+</span></code></pre>
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td><code class="prettyprint">Carts/GetCommonStoresforCartItems/{merchantId}</code></td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>POST</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>No</td>
+</tr>
+</tbody></table>
+
+<ul>
+<li><strong>Rate limiter</strong> controls the number of incoming and outgoing traffic of a network</li>
+<li><strong>Authentication</strong> verifies the identity of the current user or integration. See Introduction &gt; Authentication (Merchant Setup on Admin Portal) for more details</li>
+</ul>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">https://{host}/developerapi/Carts/GetCommonStoresforCartItems/{merchantId}</code></p>
+
+<h3 id="request-body-parameters">Request Body Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ProductId**</td>
+<td>int</td>
+<td>Unique id of the product for which you want to fetch available stores</td>
+</tr>
+<tr>
+<td>ProductSKU**</td>
+<td>string</td>
+<td>Unique SKU of the product for which you want to fetch available stores</td>
+</tr>
+<tr>
+<td>VariantProductSKU</td>
+<td>string</td>
+<td>Unique SKU of the variant product for which you want to fetch available stores. Default value: 0</td>
+</tr>
+<tr>
+<td>Quantity</td>
+<td>int</td>
+<td>Check by available quantity.</td>
+</tr>
+</tbody></table>
+
+<aside class="notice"> **Pass any one parameter - either ProductId or ProductSKU. </aside>
+
           <h1 id="pricelist">Pricelist</h1>
 
 <h2 id="update-pricelist">Update Pricelist</h2>
@@ -20892,6 +21137,487 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 </tr>
 </tbody></table>
 
+<h2 id="get-order-details-by-referenceno">Get Order Details (by ReferenceNo)</h2>
+
+<p>Retrieves the details of a specific order based on the order reference number passed.</p>
+
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
+<pre class="highlight html"><code>https://www.martjack.com/developerapi/Order/DetailsByRefCode/9820eca5-d11f-4df1-9b20-983a45ea9631/order1
+
+</code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"messageCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1004"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"OrderLines"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"OrderLineId"</span><span class="p">:</span><span class="w"> </span><span class="mi">26808837</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"OrderId"</span><span class="p">:</span><span class="w"> </span><span class="mi">7804535</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ProductId"</span><span class="p">:</span><span class="w"> </span><span class="mi">14105696</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"VariantProductId"</span><span class="p">:</span><span class="w"> </span><span class="mi">10175720</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"IsParentProduct"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Size=10-11 yrs"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ShippingCost"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ProductPrice"</span><span class="p">:</span><span class="w"> </span><span class="mi">8750</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"TotalPromotionDiscount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ReturnReason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ReturnAction"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"StockAction"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ReturnQty"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"IsBackOrder"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"TotalVoucherDiscount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"TotalTaxAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ShippingVoucherDiscount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"CustomFields"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"VariantMasterProductId"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Orderrefreneceno"</span><span class="p">:</span><span class="w"> </span><span class="s2">"order1"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"CancelQuantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"PromotionIds"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"SubStatus"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"IsFreebie"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"FreebieParent"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"OrderLineId"</span><span class="p">:</span><span class="w"> </span><span class="mi">26493499</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"OrderId"</span><span class="p">:</span><span class="w"> </span><span class="mi">7664867</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ProductId"</span><span class="p">:</span><span class="w"> </span><span class="mi">12973016</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"VariantProductId"</span><span class="p">:</span><span class="w"> </span><span class="mi">9929422</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"IsParentProduct"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Size=FREE"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ShippingCost"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ProductPrice"</span><span class="p">:</span><span class="w"> </span><span class="mi">8750</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"TotalPromotionDiscount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ReturnReason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ReturnAction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RP"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"StockAction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DS"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ReturnQty"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"IsBackOrder"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"TotalVoucherDiscount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"TotalTaxAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ShippingVoucherDiscount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"CustomFields"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"VariantMasterProductId"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Orderrefreneceno"</span><span class="p">:</span><span class="w"> </span><span class="s2">"order1"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"CancelQuantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"PromotionIds"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"SubStatus"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"IsFreebie"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"FreebieParent"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"OrderLineId"</span><span class="p">:</span><span class="w"> </span><span class="mi">26105069</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"OrderId"</span><span class="p">:</span><span class="w"> </span><span class="mi">7483875</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ProductId"</span><span class="p">:</span><span class="w"> </span><span class="mi">12973016</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"VariantProductId"</span><span class="p">:</span><span class="w"> </span><span class="mi">9929422</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"IsParentProduct"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Size=FREE"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ShippingCost"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ProductPrice"</span><span class="p">:</span><span class="w"> </span><span class="mi">8750</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"TotalPromotionDiscount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ReturnReason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ReturnAction"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"StockAction"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ReturnQty"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"IsBackOrder"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"TotalVoucherDiscount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"TotalTaxAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ShippingVoucherDiscount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"CustomFields"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"VariantMasterProductId"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Orderrefreneceno"</span><span class="p">:</span><span class="w"> </span><span class="s2">"order1"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"CancelQuantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"PromotionIds"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"SubStatus"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"IsFreebie"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"FreebieParent"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"OrderLineId"</span><span class="p">:</span><span class="w"> </span><span class="mi">25927335</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"OrderId"</span><span class="p">:</span><span class="w"> </span><span class="mi">7400925</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ProductId"</span><span class="p">:</span><span class="w"> </span><span class="mi">10997762</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"VariantProductId"</span><span class="p">:</span><span class="w"> </span><span class="mi">6740894</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"IsParentProduct"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Colour=Yellow;Size=32"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ShippingCost"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ProductPrice"</span><span class="p">:</span><span class="w"> </span><span class="mi">8750</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"TotalPromotionDiscount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ReturnReason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ReturnAction"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"StockAction"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ReturnQty"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"IsBackOrder"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"TotalVoucherDiscount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"TotalTaxAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ShippingVoucherDiscount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"CustomFields"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"VariantMasterProductId"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Orderrefreneceno"</span><span class="p">:</span><span class="w"> </span><span class="s2">"order1"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"CancelQuantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"PromotionIds"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"SubStatus"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"IsFreebie"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"FreebieParent"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"OrderLineId"</span><span class="p">:</span><span class="w"> </span><span class="mi">24075722</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"OrderId"</span><span class="p">:</span><span class="w"> </span><span class="mi">6593334</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ProductId"</span><span class="p">:</span><span class="w"> </span><span class="mi">11002174</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"VariantProductId"</span><span class="p">:</span><span class="w"> </span><span class="mi">6763842</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"IsParentProduct"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Colour=Orange;Size=32"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ShippingCost"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ProductPrice"</span><span class="p">:</span><span class="w"> </span><span class="mi">5000</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"TotalPromotionDiscount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ReturnReason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ReturnAction"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"StockAction"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ReturnQty"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"IsBackOrder"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"TotalVoucherDiscount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"TotalTaxAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ShippingVoucherDiscount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"CustomFields"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"VariantMasterProductId"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Orderrefreneceno"</span><span class="p">:</span><span class="w"> </span><span class="s2">"order1"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"CancelQuantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"PromotionIds"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"SubStatus"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"IsFreebie"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"FreebieParent"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td><code class="prettyprint">/Order/DetailsByRefCode/{merchantId}/{orderReferenceNo}</code></td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>No</td>
+</tr>
+</tbody></table>
+
+<ul>
+<li><strong>Rate limiter</strong> controls the number of incoming and outgoing traffic of a network</li>
+<li><strong>Authentication</strong> verifies the identity of the current user or integration. See Introduction &gt; Authentication (Merchant Setup on Admin Portal) for more details</li>
+</ul>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">https://{host}/developerapi/Order/DetailsByRefCode/{merchantId}/{orderReferenceNo}</code></p>
+
+<h3 id="request-path-parameters">Request Path Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>merchantId*</td>
+<td>string</td>
+<td>Unique GUID of the merchant</td>
+</tr>
+<tr>
+<td>orderReferenceNo*</td>
+<td>string</td>
+<td>Reference number of the order that you want to fetch</td>
+</tr>
+</tbody></table>
+
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
+
+<h3 id="response-parameters">Response Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>TotalPromotionDiscount</td>
+<td>float</td>
+<td>Total promotional discount received for the product</td>
+</tr>
+<tr>
+<td>ReturnReason</td>
+<td>string</td>
+<td>Reason for returning the item. Applicable for return items</td>
+</tr>
+<tr>
+<td>IsBackOrder</td>
+<td>boolean</td>
+<td>Can the item be ordered even when out of stock</td>
+</tr>
+<tr>
+<td>ShippingVoucherDiscount</td>
+<td>float</td>
+<td>Discount on shipping through voucher</td>
+</tr>
+<tr>
+<td>SubStatus</td>
+<td>enum</td>
+<td>Sub status of the as configured in the CP. For example, RJ for rejected. You can find the order sub-statuses configured on the CP Settings &gt; Application settings &gt; Order settings &gt; Order Substatus</td>
+</tr>
+<tr>
+<td>IsFreebie</td>
+<td>enum</td>
+<td>Whether the item is a free gift item. Value <code class="prettyprint">0</code> for no, <code class="prettyprint">1</code> for yes</td>
+</tr>
+<tr>
+<td>FreebieParent</td>
+<td>string</td>
+<td>Unique id of the freebie parent product</td>
+</tr>
+</tbody></table>
+
+<h2 id="get-order-lineitem-details">Get Order Lineitem Details</h2>
+
+<p>Retrieves the details of a specific order line item.</p>
+
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
+<pre class="highlight html"><code>https://www.martjack.com/developerapi/Order/LineItem/9820eca5-d11f-4df1-9b20-983a45ea9631/24075722
+
+</code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"messageCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1004"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"OrderLines"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"OrderLineId"</span><span class="p">:</span><span class="w"> </span><span class="mi">26156123</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"OrderId"</span><span class="p">:</span><span class="w"> </span><span class="mi">6593334</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ProductId"</span><span class="p">:</span><span class="w"> </span><span class="mi">14144855</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"VariantProductId"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"IsParentProduct"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ShippingCost"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ProductPrice"</span><span class="p">:</span><span class="w"> </span><span class="mi">68</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"TotalPromotionDiscount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ReturnReason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ReturnAction"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"StockAction"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ReturnQty"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"IsBackOrder"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"TotalVoucherDiscount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"TotalTaxAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ShippingVoucherDiscount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"CustomFields"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"VariantMasterProductId"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Orderrefreneceno"</span><span class="p">:</span><span class="w"> </span><span class="s2">"150147"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"CancelQuantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"PromotionIds"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"SubStatus"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"IsFreebie"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"FreebieParent"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"OrderLineId"</span><span class="p">:</span><span class="w"> </span><span class="mi">24075722</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"OrderId"</span><span class="p">:</span><span class="w"> </span><span class="mi">6593334</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ProductId"</span><span class="p">:</span><span class="w"> </span><span class="mi">11002174</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"VariantProductId"</span><span class="p">:</span><span class="w"> </span><span class="mi">6763842</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"IsParentProduct"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Colour=Orange;Size=32"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ShippingCost"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ProductPrice"</span><span class="p">:</span><span class="w"> </span><span class="mi">5000</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"TotalPromotionDiscount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ReturnReason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ReturnAction"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"StockAction"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ReturnQty"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"IsBackOrder"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"TotalVoucherDiscount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"TotalTaxAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ShippingVoucherDiscount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"CustomFields"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"VariantMasterProductId"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"LocationCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OCDEL"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"DeliveryMode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"H"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"VendorId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00000000-0000-0000-0000-000000000000"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ItemStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IC"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"SKU"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RB3196"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"VariantSku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RB3196-8903098726550"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ProductTitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chanderi Straight Suit Set By Rohit Bal(Colour=Orange;Size=32)"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"LocationId"</span><span class="p">:</span><span class="w"> </span><span class="mi">16696</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"CancelQuantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"PromotionIds"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"SubStatus"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"IsFreebie"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"FreebieParent"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td><code class="prettyprint">/Order/LineItem/{merchantId}/{orderLineId}</code></td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>POST</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>No</td>
+</tr>
+</tbody></table>
+
+<ul>
+<li><strong>Rate limiter</strong> controls the number of incoming and outgoing traffic of a network</li>
+<li><strong>Authentication</strong> verifies the identity of the current user or integration. See Introduction &gt; Authentication (Merchant Setup on Admin Portal) for more details</li>
+</ul>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">https://{host}/developerapi/Order/LineItem/{merchantId}/{orderLineId}</code></p>
+
+<h3 id="request-path-parameters">Request Path Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>merchantId*</td>
+<td>string</td>
+<td>Unique GUID of the merchant</td>
+</tr>
+<tr>
+<td>orderLineId*</td>
+<td>int</td>
+<td>Unique id of the order line item</td>
+</tr>
+</tbody></table>
+
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
+
+<h3 id="response-parameters">Response Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>TotalPromotionDiscount</td>
+<td>float</td>
+<td>Total promotional discount received for the item</td>
+</tr>
+<tr>
+<td>ReturnReason</td>
+<td>string</td>
+<td>Reason for returning the item. Applicable for return items</td>
+</tr>
+<tr>
+<td>IsBackOrder</td>
+<td>boolean</td>
+<td>Can the item be ordered even when out of stock</td>
+</tr>
+<tr>
+<td>ShippingVoucherDiscount</td>
+<td>float</td>
+<td>Discount on shipping through voucher</td>
+</tr>
+<tr>
+<td>VendorId</td>
+<td>string</td>
+<td>Unique GUID of the supplier of the item</td>
+</tr>
+<tr>
+<td>ItemStatus</td>
+<td>enum</td>
+<td>Current status of the item. Authorized - <code class="prettyprint">A</code>, Return Initiated - <code class="prettyprint">RI</code>, Reverse Shipment Initiated - <code class="prettyprint">RS</code>, Reverse Shipment Received - <code class="prettyprint">RR</code>, Shipment Closed - <code class="prettyprint">RC</code>, Shipment Created - <code class="prettyprint">S</code>, RTO Initiated - <code class="prettyprint">I</code>, RTO Received - <code class="prettyprint">O</code>, RTO Lost - <code class="prettyprint">L</code>, Others - <code class="prettyprint">X</code>, Dispatched - <code class="prettyprint">R</code>, In Transit - <code class="prettyprint">T</code>, Out for Delivered - <code class="prettyprint">U</code>, Delivered - <code class="prettyprint">D</code>, RTO Closed - <code class="prettyprint">C</code>, Refund - <code class="prettyprint">AF</code>, Reverse Shipment Picked - <code class="prettyprint">RP</code>, Returned - <code class="prettyprint">SR</code>, Cancelled - <code class="prettyprint">IC</code>, Failed - <code class="prettyprint">F</code>, Partially Cancelled - <code class="prettyprint">PC</code>, Pending - <code class="prettyprint">P</code>, Picklist Created - <code class="prettyprint">PLC</code>, Picklist Completed - <code class="prettyprint">PLCL</code>, In Picking - <code class="prettyprint">PLIP</code>, Cancelled - Refund Initiated - <code class="prettyprint">ICI</code>, Cancelled &amp; Refunded - <code class="prettyprint">ICC</code>, Partial Cancelled &amp; Refund Initiated - <code class="prettyprint">PCI</code>, Partial Cancelled - Refunded - <code class="prettyprint">PCC</code>, RTO - Refunded/Replacement Closed - <code class="prettyprint">E</code>, Waiting for Collection - <code class="prettyprint">W</code>, At Gate - <code class="prettyprint">G</code>.</td>
+</tr>
+<tr>
+<td>SubStatus</td>
+<td>enum</td>
+<td>Sub status of the as configured in the CP. For example, RJ for rejected. You can find the order sub-statuses configured on the CP Settings &gt; Application settings &gt; Order settings &gt; Order Substatus</td>
+</tr>
+<tr>
+<td>IsFreebie</td>
+<td>enum</td>
+<td>Whether the item is a free gift item. Value <code class="prettyprint">0</code>, for no and <code class="prettyprint">1</code> for yes</td>
+</tr>
+<tr>
+<td>FreebieParent</td>
+<td>string</td>
+<td>Unique freebie id of the parent product (parent product for which the item is free)</td>
+</tr>
+</tbody></table>
+
 <h2 id="get-order-status">Get Order Status</h2>
 
 <blockquote>
@@ -24699,6 +25425,209 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <td>ManifestId*</td>
 <td>int</td>
 <td>Unique id of the shipping manifest for which you want to fetch details</td>
+</tr>
+</tbody></table>
+
+<h2 id="get-advance-tax-voucher">Get Advance Tax Voucher</h2>
+
+<p>Retrieves Advance tax voucher (ATV) details of a specific order.</p>
+
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
+<pre class="highlight html"><code>https://www.martjack.com/developerapi/Order/TaxVoucher/9820eca5-d11f-4df1-9b20-983a45ea9631/7704209
+
+</code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="nt">"messageCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1004"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"TaxVouchers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"TaxVoucherNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"atv_biba/001052"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"OrderId"</span><span class="p">:</span><span class="w"> </span><span class="mi">7704209</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"BillFirstname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tom"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"LocationCode"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"BillLastname"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"VoucherItems"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"OrderLineId"</span><span class="p">:</span><span class="w"> </span><span class="mi">26578947</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AFROFUSION10302"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"VariantSku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AFROFUSION10302-8903098887787"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"ProductPrice"</span><span class="p">:</span><span class="w"> </span><span class="mi">599</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"HSNCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"62114210"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"Qty"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"MRP"</span><span class="p">:</span><span class="w"> </span><span class="mi">999</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"TaxDetails"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+              </span><span class="nt">"TaxCategory"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CGST"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"TaxRate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.5"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"TaxAmount"</span><span class="p">:</span><span class="w"> </span><span class="mf">15.72</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"IsTaxRatePercentage"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"TaxCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GST_TEST"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+              </span><span class="nt">"TaxCategory"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SGST"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"TaxRate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.5"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"TaxAmount"</span><span class="p">:</span><span class="w"> </span><span class="mf">15.72</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"IsTaxRatePercentage"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"TaxCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GST_TEST"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">],</span><span class="w">
+          </span><span class="nt">"UOM"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pieces"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"BuyingWeight"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nt">"BillCountry"</span><span class="p">:</span><span class="w"> </span><span class="s2">"India"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"BillingState"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Telangana"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"GSTBillingStateUTCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"36"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"BillCity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hyderabad"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"BillEmail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tom.sawyer@caapillarytech.com"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"BillZIP"</span><span class="p">:</span><span class="w"> </span><span class="s2">"500033"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"BillPhone"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"BillMobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9422996500"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"BillAddress1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sample address"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ShipFirstname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tom"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ShipLastname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sawyer"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ShipCountry"</span><span class="p">:</span><span class="w"> </span><span class="s2">"India"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ShipState"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Telangana"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"GSTShipStateUTCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"36"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ShipCity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hyderabad"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ShipEmail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tom.sawyer@caapillarytech.com"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ShipZip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"500033"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ShipPhone"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ShipMobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9422000000"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ShipAddress1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sample address1"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ShipOtherCity"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td><code class="prettyprint">/Order/TaxVoucher/{merchantId}/{orderId}</code></td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>No</td>
+</tr>
+</tbody></table>
+
+<ul>
+<li><strong>Rate limiter</strong> controls the number of incoming and outgoing traffic of a network</li>
+<li><strong>Authentication</strong> verifies the identity of the current user or integration. See Introduction &gt; Authentication (Merchant Setup on Admin Portal) for more details</li>
+</ul>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">https://{host}/developerapi/Order/TaxVoucher/{merchantId}/{orderId}</code></p>
+
+<h3 id="request-path-parameters">Request Path Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>merchantId*</td>
+<td>string</td>
+<td>Unique GUID of the merchant</td>
+</tr>
+<tr>
+<td>orderId*</td>
+<td>int</td>
+<td>Unique id of the order for which you want to fetch tax details</td>
+</tr>
+</tbody></table>
+
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
+
+<h3 id="response-parameters">Response Parameters</h3>
+
+<p>Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>TaxVoucherNumber</td>
+<td>string</td>
+<td>Advance tax voucher number (as generated through the Document Series in Advanced Settings)</td>
+</tr>
+<tr>
+<td>LocationCode</td>
+<td>int</td>
+<td>Location code of the delivery location</td>
+</tr>
+<tr>
+<td>OrderLineId</td>
+<td>int</td>
+<td>Unique id of the order line item</td>
+</tr>
+<tr>
+<td>HSNCode</td>
+<td>string</td>
+<td>The HSN code is the &lsquo;Harmonized System Nomenclature code number&rsquo; that is required for GST. The &#39;HSN code&rsquo; is shown at item level</td>
+</tr>
+<tr>
+<td>TaxCategory</td>
+<td>string</td>
+<td>Category of the current tax. For example: STT, VAT, GST, and CST</td>
+</tr>
+<tr>
+<td>IsTaxRatePercentage</td>
+<td>enum</td>
+<td>True for percentage based tax rates and false for flat rate tax</td>
+</tr>
+<tr>
+<td>TaxCode</td>
+<td>string</td>
+<td>Unique tax code associated to the product</td>
+</tr>
+<tr>
+<td>UOM</td>
+<td>string</td>
+<td>Unit of measurement of the current item</td>
+</tr>
+<tr>
+<td>BuyingWeight</td>
+<td>float</td>
+<td>Weight of the current item if <code class="prettyprint">UOM</code> is kgs or gms</td>
 </tr>
 </tbody></table>
 
