@@ -97,7 +97,7 @@ InputFormat=application/json&InputData={
 ### Resource Information
 | | |
 --------- | ----------- | 
-URI | `Customer/{{merchantId}}/Create`
+URI | `Customer/{merchantId}/Create`
 Response Formats | JSON
 HTTP Method | POST
 Batch Support | No
@@ -771,7 +771,7 @@ MerchantId=6c57599f-2c43-4c82-806a-e07c3410f5d3&InputFormat=application/json&Inp
 
 | | |
 --------- | ----------- |
-URI | `/Customer/{{MerchantId}}/StartCustomerSession`
+URI | `/Customer/{MerchantId}/StartCustomerSession`
 Response Formats | JSON
 HTTP Methods | POST (No POST body is required)
 Batch Support | No
@@ -848,7 +848,7 @@ Logs out current user. No POST body is required for this API.
 
 | | |
 --------- | ----------- |
-URI | `/Customer/{{MerchantId}}/Logout`
+URI | `/Customer/{MerchantId}/Logout`
 Response Formats | JSON
 HTTP Methods | POST (No POST body is required)
 Batch Support | No
@@ -1012,7 +1012,7 @@ Activates a deactivated user account.
 > Sample Request
 
 ```html
-https://www.martjack.com/developerapi/Activation/f48fdd16-92db-4188-854d-1ecd9b62xxxx/07e8f0eb-8c5d-4ad7-ab6e-ca7a72687d63
+https://www.martjack.com/developerapi/Customer/Activation/f48fdd16-92db-4188-854d-1ecd9b62xxxx/07e8f0eb-8c5d-4ad7-ab6e-ca7a72687d63
 
 ```
 
@@ -1773,7 +1773,7 @@ ShippingAddressId* | string |  Unique id of the order shipment that you want to 
 > Sample Request
 
 ```html
- https://www.martjack.com/DeveloperAPI//Customer/9820eca5-d11f-4df1-9b20-983a45ea9631/All
+ https://www.martjack.com/DeveloperAPI/Customer/9820eca5-d11f-4df1-9b20-983a45ea9631/All
 ```
 
 > Sample Response

@@ -1387,7 +1387,7 @@ amount* | float |  The amount paid through the current payment type for the tran
 > Sample Request
 
 ```html
-https://www.martjack.com/DeveloperAPI/order/ReOrder/98d18d82-ba59-4957-9c92-3f89207a34f6 98d18d82-ba59-4957-9c92-3f89207xxxx
+https://www.martjack.com/DeveloperAPI/order/ReOrder/98d18d82-ba59-4957-9c92-3f89207a34f6
 ```
 > Sample POST Request
 
@@ -2160,7 +2160,6 @@ http://www.martjack.com/DeveloperAPI/Order/Ship
 
 ```json
 MerchantID=fccabc5b-aa81-4346-b536-0fd6bc94c837&InputFormat=application/json&InputData={  
-   {  
    "shipment":{  
       "OrderId":"7503709",
       "LocationRefCode":"",
@@ -2980,7 +2979,7 @@ FreebieParent | string | Unique freebie id of the parent product (parent product
 > Sample Request
 
 ```html
-https://www.martjack.com/developerapi/f48fdd16-92db-4188-854d-1ecd9b62d066/7506651
+https://www.martjack.com/developerapi/Order/GetOrderStatus/f48fdd16-92db-4188-854d-1ecd9b62d066/7506651
 
 ```
 
@@ -3208,7 +3207,7 @@ Lets you add an item to existing order.
 > Sample Request
 
 ```html
-https://www.martjack.com/developerapi/Order?
+https://www.martjack.com/developerapi/Order/AddOrderLineItem/98d18d82-ba59-4957-9c92-3f89207a32d4
 
 ```
 
@@ -3217,7 +3216,7 @@ https://www.martjack.com/developerapi/Order?
 
 ```json
 
-MerchantID={{Merchantid}}&InputFormat=application/json&InputData={  
+MerchantID=98d18d82-ba59-4957-9c92-3f89207a32d4&InputFormat=application/json&InputData={  
    "OrderID":6419643,
    "SKU":"Fruits0025",
    "VarientSKU":"Fruits0025-2-New",
@@ -3441,7 +3440,7 @@ Creates shipment packages for a specific order.
 ### Resource Information
 | | |
 --------- | ----------- |
-URI | `/Order/ShipmentPackages/{MerchantId}`
+URI | `/Order/CreateShipmentPackages/{MerchantId}`
 Rate Limited? | No
 Authentication | Yes
 Response Formats | JSON
@@ -3453,7 +3452,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Order/ShipmentPackages/{MerchantId}`
+`https://{host}/developerapi/Order/CreateShipmentPackages/{MerchantId}`
 
 
 ### Request Body Parameters
@@ -3702,7 +3701,7 @@ UOM | string | Unit of measurement of the product. Values: ltrs, kgs, gms, piece
 > Sample Request
 
 ```html
-http://www.martjack.com/DeveloperAPI/Order/f48fdd16-92db-4188-854d-1ecd9b62xxxx/5471021
+http://www.martjack.com/DeveloperAPI/Order/ShipmentDetails/f48fdd16-92db-4188-854d-1ecd9b62xxxx/5471021
 ```
 
 > Sample Response

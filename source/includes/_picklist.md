@@ -95,7 +95,7 @@ isVariance | boolean | Whether there is change in the price of the current item 
 > Sample Request
 
 ```html
-https://{host}/developerapi/PickList/ProcessPicklist/f48fdd16-92db-4188-854d-1ecd9b62d066
+https://www.martjack.com/developerapi/PickList/ProcessPicklist/f48fdd16-92db-4188-854d-1ecd9b62d066
 ```
 
 > Sample POST Request
@@ -482,14 +482,11 @@ https://www.martjack.com/developerapi/PickList/GetPickLists/f48fdd16-92db-4188-8
 
 ```json
 
-MerchantID=f48fdd16-92db-4188-854d-1ecd9b62d066&InputFormat=application/json&InputData={
+MerchantID=f48fdd16-92db-4188-854d-1ecd9b62d066&InputFormat=application/json&InputData=
+{
 "Createdon":"2019-02-13",
 "PickListCode": "",
-"status": "",
-
-
-
-
+"status": ""
 }
 
 
