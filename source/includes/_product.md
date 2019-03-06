@@ -2328,7 +2328,7 @@ tag | string |
 <aside class="notice"> All parameters marked by * are mandatory. </aside>
 
 
-## Ger Products by Location and Tag
+## Ger Products by Tag & Location
 
 Retrieves the products with a specific tag in a specific location.
 

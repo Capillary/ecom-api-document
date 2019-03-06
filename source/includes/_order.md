@@ -3358,6 +3358,81 @@ SubstatusChangeComments | string  | Specify the reason for return sub-status cha
 
 
 
+## Update Return Request Status
+
+Lets you update status of a return request.
+
+
+
+
+
+
+> Sample Request
+
+```html
+https://www.martjack.com/developerapi/Order/UpdateReturnRequestStatus/9820eca5-d11f-4df1-9b20-983a45ea9631
+
+```
+
+> Sample POST Request
+
+```json
+MerchantId=9820eca5-d11f-4df1-9b20-983a45ea9631&InputFormat=application/json&InputData={
+   "UpdateReturnRequestStatus":{
+      "ReturnRequestID":"820083",
+      "Status":"P",
+      "OperatorId":"6c57599f-2c43-4c82-806a-e07c3410f5d3"
+   }
+}
+
+```
+
+
+> Sample Response
+
+```json
+{
+   "messageCode":"1007",
+   "Message":"Updated Successfully",
+   "ErrorCode":0
+}
+
+```
+
+
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `/Order/UpdateReturnRequestStatus/{merchantId}`
+Rate Limited? | No
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | POST
+Batch Support | No
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+### Request URL
+
+`https://{host}/developerapi/Order/UpdateReturnRequestStatus/{merchantId}`
+
+
+### Request Body Parameters
+
+Parameter | Type | Description
+-------- | ----- | -----------
+merchantId* | string | Unique GUID of the merchant
+ReturnRequestID* | int | Unique id of the return request that you want to update
+Status* | enum | New status of the return request. Values: Refund Completed - `RC`, Initiated - `I`, Received - `R`, Picked - `P`, Pending Pickup - `S`, Closed
+- `C`, 
+OperatorId | string | Unique id of the store operator who want to update the status
+
+
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
+
+
 
 
 
@@ -3558,6 +3633,107 @@ Parameter | Type | Description
 OperatorId | string | Unique id of the staff updating the order substatus.
 OrderLineId* | int | Line item id of for which you want to update status
 SubStatus* | enum | New status of the order or order line item as configured in the CP. Either pass it at the order level or line-item. For example, `RJ` for rejected. You can find the configured sub-statuses in the CP Settings > Application settings > Order settings > Order Substatus
+
+
+## Update Shipment Trip Details
+
+Lets you update the trip details of a specific shipment. For example, you can provide rider details, vehicle number, contact details, tracking URL and so on.
+
+
+
+
+
+
+> Sample Request
+
+```html
+https://www.martjack.com/developerapi/
+
+```
+
+> Sample POST Request
+
+```json
+InputFormat=application/json&InputData={
+  "ShipmentId": 123456,
+  "RiderId": 0,
+  "RiderCode": "PH001",
+  "VehicleNumber": "MH01123456",
+  "TripRefNo": "123456",
+  "Comments": "Shipment is on vehicle for final delivery",
+  "OperatorID": "00000000-0000-0000-0000-000000000000",
+  "ShipmentTripAttributes": [
+    {
+      "Name": "Mobile",
+      "Value": "6362245119"
+    },
+    {
+      "Name": "Name",
+      "Value": "Jane Doe"
+    },
+    {
+      "Name": "Map URL",
+      "Value": "www.capillarytech.in"
+    }
+  ]
+}
+
+```
+
+
+> Sample Response
+
+```json
+{
+  "messageCode": "1004",
+  "Message": "Shipment Trip Information is saved successfully.",
+  "ErrorCode": 0
+}
+
+```
+
+
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `/Order/UpdateShipmentTripDetails/{MerchantId}`
+Rate Limited? | No
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | POST
+Batch Support | No
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+### Request URL
+
+`https://{host}/developerapi/Order/UpdateShipmentTripDetails/{MerchantId}`
+
+
+### Request Body Parameters
+
+Parameter | Type | Description
+-------- | ----- | -----------
+ShipmentId* | int | Unique id of the shipment that you want to update
+RiderId** | int | Unique id of the rider who delivers the shipment. Rider ID has to be preconfigured against the merchant. Either RiderId or RiderCode is mandatory
+RiderCode** | string | Unique code of the rider who delivers the shipment. Rider Code has to be preconfigured against the merchant. Either RiderId or RiderCode is mandatory
+VehicleNumber | string | Vehicle number of the delivery vehicle
+TripRefNo | string | Unique trip reference number
+Comments | string | Specify any comments that need to be specified for the shipment
+OperatorID | string | Unique CP GUID who updates the shipment trip details
+ShipmentTripAttributes | obj | Provide additional details of the shipment in each obj Name-Value (key-value pairs). You can pass your preferred combination of attribute name and value that are applicable for the shipment
+
+
+
+<aside class="notice"> 
+* All parameters marked by * are mandatory.
+* ** You need to provide either rider id or rider code
+* You need to pass other parameters that are applicable to the shipment type 
+</aside>
+
+
 
 
 
@@ -5426,6 +5602,81 @@ objectType* | enum | Specify `Invoice` to generate invoice invoice, `Shipment` t
 objectValue* | string | Specify invoice id or shipment id based on the `objectType`
 
 <aside class="notice">All parameters marked by * are mandatory.</aside>
+
+
+
+## Update Manifest Status
+
+Lets you update the status of a manifest.
+
+
+
+
+> Sample Request
+
+```html
+https://www.martjack.com/developerapi/Order/UpdateManifest/9820eca5-d11f-4df1-9b20-983a45ea9631
+
+```
+
+> Sample POST Request
+
+```json
+InputFormat=application/json&InputData={
+   "Status":"Closed",
+   "ManifestId":"149057"
+}
+```
+
+
+> Sample Response
+
+```json
+{
+   "messageCode":"1004",
+   "Message":"Successful",
+   "ErrorCode":0
+}
+
+```
+
+
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `/Order/UpdateManifest/{merchantId}`
+Rate Limited? | No
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | POST
+Batch Support | No
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+### Request URL
+
+`https://{host}/developerapi/Order/UpdateManifest/{merchantId}`
+
+
+### Request Body Parameters
+
+Parameter | Type | Description
+-------- | ----- | -----------
+ManifestId* | int | Unique id of the manifest that you want to update
+status | enum | New status of the manifest. Values: `Created`, `Closed`
+tripId | 
+
+
+
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
+
+
+
+
+
+
 
 
 
