@@ -5605,6 +5605,119 @@ objectValue* | string | Specify invoice id or shipment id based on the `objectTy
 
 
 
+## Add Manifest
+
+Adds shipping manifest details for multiple shipments.
+
+
+
+
+
+
+
+> Sample Request
+
+```html
+https://www.martjack.com/developerapi/Order/AddManifest/{merchantId}
+
+```
+
+> Sample POST Request
+
+```json
+MerchantId=89d3f1a-8c9a-41bd-9b3a-e6c2f031527d&InputFormat=application/json&InputData={
+   "MerchantId":"389d3f1a-8c9a-41bd-9b3a-e6c2f031527d",
+   "ShippingProvider":"eKart",
+   "UserId":"00000000-0000-0000-0000-000000000000",
+   "LocationId":"18584",
+   "ChannelId":"32",
+   "items":[
+      {
+         "shipmentId":"6123456"
+      },
+      {
+         "shipmentId":"2123456"
+      },
+      {
+         "shipmentId":"9123456"
+      }
+   ],
+   "TripId":"TRIP-7935"
+}
+
+
+```
+
+
+> Sample Response
+
+```json
+{
+  "messageCode": "1004",
+  "Message": "Successful",
+  "ManifestIds": {
+    "ManifestId": 149069,
+    "ManifestMessages": [
+      {
+        "ShipmentID": 6123456,
+        "Message": "Success"
+      },
+      {
+        "ShipmentID": 2123456,
+        "Message": "Success"
+      },
+      {
+        "ShipmentID": 9123456,
+        "Message": "No record found"
+      }
+    ],
+    "ErrorMessages": null
+  },
+  "ErrorCode": 0
+}
+
+
+```
+
+
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `/Order/AddManifest/{merchantId}`
+Rate Limited? | No
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | POST
+Batch Support | No
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+### Request URL
+
+`https://{host}/developerapi/Order/AddManifest/{merchantId}`
+
+
+### Request Body Parameters
+
+Parameter | Type | Description
+-------- | ----- | -----------
+merchantId* | string | Unique GUID of the merchant
+ShippingProvider* | string | Name of the shipping service
+UserId | string | Unique GUID of the current user that updates the manifest details
+LocationId | Unique location id of the shipment
+ChannelId* | int | Channel id of the marketplace
+shipmentId* | long | Unique id of each shipment
+TripId | string | Unique id of the shipment trip
+
+
+
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
+
+
+
+
 ## Update Manifest Status
 
 Lets you update the status of a manifest.
@@ -5673,115 +5786,6 @@ tripId |
 <aside class="notice"> All parameters marked by * are mandatory. </aside>
 
 
-## Add Manifest
-
-Adds shipping manifest details for multiple shipments.
-
-
-
-
-
-
-
-> Sample Request
-
-```html
-https://www.martjack.com/developerapi/Order/AddManifest/{merchantId}
-
-```
-
-> Sample POST Request
-
-```json
-MerchantId=89d3f1a-8c9a-41bd-9b3a-e6c2f031527d&InputFormat=application/json&InputData={
-   "MerchantId":"389d3f1a-8c9a-41bd-9b3a-e6c2f031527d",
-   "ShippingProvider":"eKart",
-   "UserId":"00000000-0000-0000-0000-000000000000",
-   "LocationId":"18584",
-   "ChannelId":"32",
-   "items":[
-      {
-         "shipmentId":"A123456"
-      },
-      {
-         "shipmentId":"B123456"
-      },
-      {
-         "shipmentId":"C123456"
-      }
-   ],
-   "TripId":"TRIP-7935"
-}
-}
-
-```
-
-
-> Sample Response
-
-```json
-{
-  "messageCode": "1004",
-  "Message": "Successful",
-  "ManifestIds": {
-    "ManifestId": 149069,
-    "ManifestMessages": [
-      {
-        "ShipmentID": A123456,
-        "Message": "Success"
-      },
-      {
-        "ShipmentID": B123456,
-        "Message": "Success"
-      },
-      {
-        "ShipmentID": C123456,
-        "Message": "No record found"
-      }
-    ],
-    "ErrorMessages": null
-  },
-  "ErrorCode": 0
-}
-
-
-```
-
-
-
-### Resource Information
-| | |
---------- | ----------- |
-URI | `/Order/AddManifest/{merchantId}`
-Rate Limited? | No
-Authentication | Yes
-Response Formats | JSON
-HTTP Methods | POST
-Batch Support | No
-
-* **Rate limiter** controls the number of incoming and outgoing traffic of a network
-* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
-
-### Request URL
-
-`https://{host}/developerapi/Order/AddManifest/{merchantId}`
-
-
-### Request Body Parameters
-
-Parameter | Type | Description
--------- | ----- | -----------
-merchantId* | string | Unique GUID of the merchant
-ShippingProvider* | string | Name of the shipping service
-UserId | string | Unique GUID of the current user that updates the manifest details
-LocationId | Unique location id of the shipment
-ChannelId* | int | Channel id of the marketplace
-shipmentId* | long | Unique id of each shipment
-TripId | string | Unique id generated for the shipment trip
-
-
-
-<aside class="notice"> All parameters marked by * are mandatory. </aside>
 
 
 
