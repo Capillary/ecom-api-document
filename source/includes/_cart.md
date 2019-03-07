@@ -7297,16 +7297,18 @@ https://www.martjack.com/developerapi/Carts/GetCommonStoresforCartItems/f48fdd16
 
 ```json
 
-MerchantID=f48fdd16-92db-4188-854d-1ecd9b62d066&InputFormat=application/json&InputData={
-[
-   {
+MerchantID=f48fdd16-92db-4188-854d-1ecd9b62d066&InputFormat=application/json&InputData=
+{
+	[
+	{
       "ProductId": "0",
       "VariantProductId": "0",
       "ProductSku": "61751356",
       "Quantity": 1
-   }
-]
+	}
+	]
 }
+
 ```
 
 
