@@ -2073,3 +2073,61 @@ Authentication | Yes
 
 `http://{host}/developerapi/Customer/{merchantId}/Count`
 
+
+## Get Customer Shipping Address
+
+Retrieves shipping address of a specific customer.
+
+
+
+
+
+
+> Sample Request
+
+```html
+https://www.martjack.com/developerapi/Customer/
+
+```
+
+
+
+
+> Sample Response
+
+```json
+
+
+```
+
+
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `/`
+Rate Limited? | No
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | GET
+Batch Support | No
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+### Request URL
+
+`https://{host}/developerapi/Customer/`
+
+
+### Request Path Parameters
+
+Parameter | Type | Description
+-------- | ----- | -----------
+merchantId* | string | Unique GUID of the merchant
+
+
+
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
+
+

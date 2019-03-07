@@ -81,6 +81,64 @@ MobileNo* | string | Registered mobile number of the user
 
 
 
+## Save COD OTP
+
+
+
+
+> Sample Request
+
+```json
+https://www.martjack.com/developerapi/Carts/SaveCodOTP/993c939a-a2e8-4934-bbf5-390f37457a55/8765
+```
+
+> Sample Response
+
+```json
+{
+   "messageCode":"1016",
+   "Message":"Invalid Input",
+   "ErrorCode":440
+}
+```
+
+
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `/Carts/SaveCodOTP/{merchantId}/{smsCode}`
+Rate Limited? | No
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | POST
+Batch Support | No
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+### Request URL
+
+`https://{host}/developerapi/Carts/SaveCodOTP/{merchantId}/{smsCode}`
+
+
+### Request Path Parameters
+
+Parameter | Type | Description
+-------- | ----- | -----------
+merchantId* | string | Unique GUID of the merchant
+
+
+
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
+
+
+
+
+
+
+
+
 
 
 ## Validate OTP
@@ -3149,6 +3207,356 @@ ComboSuggestion | array | Suggestions related the deal items based on the items 
 ConvertedDeals | array | The cart items that are converted to deal items 
 
 
+## Edit Cart Items
+
+Lets you modify a current cart item with a different variant, quantity and bundle item. 
+
+
+
+
+
+
+
+> Sample Request
+
+```html
+https://www.martjack.com/developerapi/carts/edit/2002cbfe-9adf-42ac-9bfd-8e013fee7c18
+
+```
+
+> Sample POST Request
+
+```json
+InputData={
+   "CartID":"5yef3kq51no12tgqwmyqdtsy",
+   "DeliveryMode":"S",
+   "Item":{
+      "ProductID":8504427,
+      "VariantProductID":0,
+      "Quantity":1,
+      "Status":"A",
+      "LocationId":13250,
+      "Portion":"W",
+      "CartReferenceKey":"757eca2a-edac-435d-9025-0ecc3487d847",
+      "Price":2.95,
+      "ChildItem":[
+         {
+            "ProductID":8302873,
+            "VariantProductID":55531,
+            "Quantity":1,
+            "Status":"A",
+            "Portion":"W"
+         },
+         {
+            "ProductID":8302905,
+            "VariantProductID":55669,
+            "Quantity":1,
+            "Status":"A",
+            "Portion":"W",
+            "GroupID":25865
+         },
+         {
+            "ProductID":8302895,
+            "VariantProductID":55673,
+            "Quantity":1,
+            "Status":"A",
+            "Portion":"W",
+            "GroupID":25873
+         }
+      ]
+   }
+}&InputFormat=application/json
+
+```
+
+
+> Sample Response
+
+```json
+{
+   "messageCode":"1004",
+   "Message":"Successful",
+   "Carts":{
+      "MerchantId":"2002cbfe-9adf-42ac-9bfd-8e013fee7c18",
+      "ProductCost":2.95,
+      "ShippingCost":0.0,
+      "VoucherDiscount":0.0,
+      "PromotionDiscount":0.0,
+      "TaxAmount":0.0,
+      "OrderTotal":2.95,
+      "VoucherCode":"",
+      "UserSelectedCurrency":"KWD",
+      "Bill_FirstName":null,
+      "Bill_LastName":"",
+      "Bill_Address1":"",
+      "Bill_Address2":null,
+      "Bill_CountryCode":"",
+      "_Bill_StateCode":null,
+      "Bill_City":"Other",
+      "Bill_CityCode":"554",
+      "Bill_OtherCityName":null,
+      "Bill_Telephone":null,
+      "Bill_Mobile":null,
+      "Bill_PostCode":null,
+      "Bill_Email":"",
+      "Ship_FirstName":null,
+      "Ship_LastName":"",
+      "Ship_Address1":"",
+      "Ship_Address2":null,
+      "Ship_CountryCode":"KW",
+      "Ship_StateCode":"KW13",
+      "Ship_City":"39432",
+      "Ship_CityCode":"39432",
+      "Ship_OtherCityName":null,
+      "Ship_Telephone":null,
+      "Ship_Mobile":null,
+      "Ship_PostCode":null,
+      "Ship_Email":null,
+      "CartItems":[
+         {
+            "ProductId":8504427,
+            "VariantProductId":0,
+            "MRP":2.95,
+            "WebPrice":0.0,
+            "Quantity":1.0,
+            "description":"Margherita",
+            "SupplierId":"2002cbfe-9adf-42ac-9bfd-8e013fee7c18",
+            "CartReferenceKey":"fcea905c-281a-4d2f-9f25-bba358fd724c",
+            "PriceCapped":false,
+            "IsFreeProduct":false,
+            "TotalCap":0,
+            "CappedRefKey":"00000000-0000-0000-0000-000000000000",
+            "CatalogpromotionDiscount":0.0,
+            "BundleCartReferenceKey":"00000000-0000-0000-0000-000000000000",
+            "BundleCartItems":[
+               {
+                  "ProductId":8302873,
+                  "VariantProductId":55531,
+                  "MRP":3.95,
+                  "WebPrice":2.95,
+                  "Quantity":1.0,
+                  "description":"Margherita",
+                  "SupplierId":"2002cbfe-9adf-42ac-9bfd-8e013fee7c18",
+                  "CartReferenceKey":"ca541045-a4d3-4ff1-9bfa-5edfb00200f3",
+                  "TotalCap":0,
+                  "CatalogpromotionDiscount":0.0,
+                  "BundleCartReferenceKey":"fcea905c-281a-4d2f-9f25-bba358fd724c",
+                  "ItemPromotionDiscountAmount":0.0,
+                  "IsPrimaryProduct":true,
+                  "IsPromotionProduct":false,
+                  "VariantsInfo":[
+                     {
+                        "PropertyName":"Crust",
+                        "Value":"San Francisco"
+                     },
+                     {
+                        "PropertyName":"Size",
+                        "Value":"Medium"
+                     }
+                  ],
+                  "Por":"W",
+                  "IsDefaultBundleItem":true,
+                  "CartPromotionRules":[
+
+                  ],
+                  "CategoryId":"CU00215634",
+                  "CategoryName":null,
+                  "BrandId":"BB1760",
+                  "BrandName":"Pizza Hut",
+                  "GroupId":25857
+               },
+               {
+                  "ProductId":8302905,
+                  "VariantProductId":55669,
+                  "MRP":0.5,
+                  "WebPrice":0.0,
+                  "Quantity":1.0,
+                  "description":"Mozarella",
+                  "SupplierId":"2002cbfe-9adf-42ac-9bfd-8e013fee7c18",
+                  "CartReferenceKey":"fe969f1b-a3a7-4907-9df4-fa130709056e",
+                  "TotalCap":0,
+                  "CatalogpromotionDiscount":0.0,
+                  "BundleCartReferenceKey":"fcea905c-281a-4d2f-9f25-bba358fd724c",
+                  "ItemPromotionDiscountAmount":0.0,
+                  "IsPrimaryProduct":false,
+                  "IsPromotionProduct":false,
+                  "VariantsInfo":[
+                     {
+                        "PropertyName":"Strength",
+                        "Value":"Regular"
+                     },
+                     {
+                        "PropertyName":"Size",
+                        "Value":"Medium"
+                     }
+                  ],
+                  "Por":"W",
+                  "IsDefaultBundleItem":true,
+                  "CartPromotionRules":[
+
+                  ],
+                  "CategoryId":"CU00217392",
+                  "CategoryName":null,
+                  "BrandId":"BB1760",
+                  "BrandName":"Pizza Hut",
+                  "GroupId":25865
+               },
+               {
+                  "ProductId":8302895,
+                  "VariantProductId":55673,
+                  "MRP":0.5,
+                  "WebPrice":0.0,
+                  "Quantity":1.0,
+                  "description":"Pizza Sauce",
+                  "SupplierId":"2002cbfe-9adf-42ac-9bfd-8e013fee7c18",
+                  "CartReferenceKey":"7f2cb6a7-9787-4d56-bcda-a8a5980ca9bf",
+                  "TotalCap":0,
+                  "CatalogpromotionDiscount":0.0,
+                  "BundleCartReferenceKey":"fcea905c-281a-4d2f-9f25-bba358fd724c",
+                  "ItemPromotionDiscountAmount":0.0,
+                  "IsPrimaryProduct":false,
+                  "IsPromotionProduct":false,
+                  "VariantsInfo":[
+                     {
+                        "PropertyName":"Strength",
+                        "Value":"Regular"
+                     },
+                     {
+                        "PropertyName":"Size",
+                        "Value":"Medium"
+                     }
+                  ],
+                  "Por":"W",
+                  "IsDefaultBundleItem":true,
+                  "CartPromotionRules":[
+
+                  ],
+                  "CategoryId":"CU00217392",
+                  "CategoryName":null,
+                  "BrandId":"BB1760",
+                  "BrandName":"Pizza Hut",
+                  "GroupId":25873
+               }
+            ],
+            "ItemPromotionDiscountAmount":0.0,
+            "IsPrimaryProduct":false,
+            "IsPromotionProduct":false,
+            "Por":"",
+            "IsDefaultBundleItem":false,
+            "ProductImage":"//imagecdn.pizzahut.me/azure//yum-resources/2002cbfe-9adf-42ac-9bfd-8e013fee7c18/Images/ProductImages/Large/PWA-Margherita.jpg;width=100;height=100;scale=canvas;anchor=bottomcenter",
+            "CartPromotionRules":[
+
+            ],
+            "CategoryId":"CU00215658",
+            "CategoryName":"Vegetarian",
+            "BrandId":"BB1760",
+            "BrandName":"Pizza Hut",
+            "ParentCartItems":null
+         }
+      ],
+      "Suppliers":[
+         {
+            "SupplierId":"2002cbfe-9adf-42ac-9bfd-8e013fee7c18",
+            "SupplierName":"Pizza Hut",
+            "IsSelected":false,
+            "OrderStatus":null
+         }
+      ],
+      "ShippingOptions":[
+         {
+            "SupplierId":"2002cbfe-9adf-42ac-9bfd-8e013fee7c18",
+            "ShippingMode":"9276",
+            "ShippingModeId":9276,
+            "isselected":true
+         }
+      ],
+      "PaymentOptionsChannel":[
+         {
+            "MerchantId":"2002cbfe-9adf-42ac-9bfd-8e013fee7c18",
+            "PaymentType":"COD",
+            "Paymentoption":"COD",
+            "GatewayId":"0",
+            "GatewayTitle":"COD",
+            "PaidAmount":0.0,
+            "EnalbeOTP":false
+         },
+         {
+            "MerchantId":"2002cbfe-9adf-42ac-9bfd-8e013fee7c18",
+            "PaymentType":"Credit",
+            "Paymentoption":"OnlineBankTransfer",
+            "GatewayId":"10961",
+            "GatewayTitle":"OnlineBankTrans",
+            "PaidAmount":0,
+            "EnalbeOTP":false
+         }
+      ],
+      "ErrorCollection":null,
+      "GiftMsg":"",
+      "DemandedDeliveryDate":"/Date(-2208988800000)/",
+      "RemainTotal":0,
+      "ShippingZoneType":null,
+      "DeliverySlotID":0,
+      "FailedProducts":null,
+      "PickupFirstName":"Tom",
+      "PickupLastName":"Sawyer",
+      "PickupEmail":"tom.sawyer@example.com",
+      "PickupMobile":"55555555",
+      "LocationId":"27299",
+      "TaxDetail":[
+
+      ],
+      "ComboSuggestion":[
+
+      ],
+      "ConvertedDeals":[
+
+      ]
+   },
+   "ErrorCode":0
+}
+
+```
+
+
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `/carts/edit/{merchantId}`
+Rate Limited? | No
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | POST
+Batch Support | No
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+### Request URL
+
+`https://{host}/developerapi/carts/edit/{merchantId}`
+
+
+### Request Body Parameters
+
+Parameter | Type | Description
+-------- | ----- | -----------
+merchantId* | string | Unique GUID of the merchant
+
+
+
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -4790,6 +5198,105 @@ Parameter | Type | Description
 
 
 
+
+
+## Add Order Attributes
+
+Lets you add order attributes to the cart items that will be reflected once the order is placed. Order attributes are custom fields of an order.
+
+
+
+
+
+
+> Sample Request
+
+```html
+https://www.martjack.com/developerapi/carts/AddOrderAttributes/98d18d82-ba59-4957-9c92-3f89207a34f6
+
+```
+
+
+> Sample POST Request
+
+```json
+InputFormat=application/json&InputData=[
+   {
+      "EntityFieldID":1,
+      "EntityFieldName":"IsImmediateOrder",
+      "Type":"1",
+      "IsPredefined":true,
+      "IsMandatory":true,
+      "SelectedValue":"true",
+      "OrderEntityFieldValues":[
+         {
+            "EntityFieldValueID":1,
+            "EntityFieldID":1,
+            "Value":"true",
+            "IsSelected":true
+         }
+      ]
+   },
+   {
+      "EntityFieldID":2,
+      "EntityFieldName":"channel",
+      "Type":"1",
+      "IsPredefined":true,
+      "IsMandatory":true,
+      "SelectedValue":"APP,android",
+      "OrderEntityFieldValues":[
+         {
+            "EntityFieldID":2,
+            "EntityFieldValueID":2,
+            "Value":"APP,android",
+            "IsSelected":true
+         }
+      ]
+   }
+]
+```
+
+
+> Sample Response
+
+```json
+{
+   "messageCode":"1004",
+   "Message":"Successful",
+   "ErrorCode":0
+}
+
+```
+
+
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `/carts/AddOrderAttributes/{merchantId}`
+Rate Limited? | No
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | POST
+Batch Support | No
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+### Request URL
+
+`https://{host}/developerapi/carts/AddOrderAttributes/{merchantId}`
+
+
+### Request Path Parameters
+
+Parameter | Type | Description
+-------- | ----- | -----------
+merchantId* | string | Unique GUID of the merchant
+
+
+
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
 
 
 
@@ -6789,10 +7296,11 @@ https://www.martjack.com/developerapi/Carts/GetCommonStoresforCartItems/f48fdd16
 > Sample POST Request
 
 ```json
+
 MerchantID=f48fdd16-92db-4188-854d-1ecd9b62d066&InputFormat=application/json&InputData={
 [
    {
-       "ProductId": "0",
+      "ProductId": "0",
       "VariantProductId": "0",
       "ProductSku": "61751356",
       "Quantity": 1
@@ -6979,5 +7487,472 @@ Quantity | int | Check by available quantity.
 
 <aside class="notice"> **Pass any one parameter - either ProductId or ProductSKU. </aside>
 
+
+
+## Get Saved Cart Items
+
+Retrieves the details of cart items saved by a specific user.
+
+
+
+
+
+
+> Sample Request
+
+```html
+https://www.martjack.com/developerapi/Customer/SavedCart/9820eca5-d11f-4df1-9b20-983a45ea9631/0025fc54-a2d2-4ba8-800f-3c0ac91d9385
+
+```
+
+
+
+
+> Sample Response
+
+```json
+{
+  "messageCode": "1004",
+  "Message": "Successful",
+  "SavedCartItems": [
+    {
+      "CartItemId": 13222238,
+      "ProductId": 11000246,
+      "VariantProductId": 6752012,
+      "MerchantId": "9820eca5-d11f-4df1-9b20-983a45ea9631",
+      "StockAvailability": true,
+      "LastUpdated": "/Date(1474022999000+0530)/"
+    }
+  ],
+  "ErrorCode": 0
+}
+
+```
+
+
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `/Customer/SavedCart/{merchantId}/{UserId}`
+Rate Limited? | No
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | GET
+Batch Support | No
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+### Request URL
+
+`https://{host}/developerapi/Customer/SavedCart/{merchantId}/{UserId}`
+
+
+### Request Path Parameters
+
+Parameter | Type | Description
+-------- | ----- | -----------
+merchantId* | string | Unique GUID of the merchant
+user* | string | Unique GUID of the user for which you want to fetch saved cart items
+
+
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
+
+
+
+### Response Parameters
+
+Parameter | Type | Description
+--------- | ---- | -----------
+CartItemId | int | Unique cart id
+ProductId | long | Unique id of the product in cart
+VariantProductId | long | Unique id of the variant product
+StockAvailability | boolean | Whether the product is in stock or not
+LastUpdated | date | UST Date when the cart is updated
+
+
+## Get Payment Types
+
+Retrieves all the supported payment types based on the cart items of the current session.
+
+
+
+
+
+
+> Sample Request
+
+```html
+https://www.martjack.com/developerapi/Carts/TPG/PaymentTypes/9820eca5-d11f-4df1-9b20-983a45ea9631
+
+```
+
+
+
+
+> Sample Response
+
+```json
+{
+  "messageCode": "1004",
+  "Message": "Successful",
+  "PaymentOptionsChannel": [
+    {
+      "MerchantId": "9820eca5-d11f-4df1-9b20-983a45ea9631",
+      "PaymentType": "Credit",
+      "Paymentoption": "PAYU",
+      "GatewayId": "11780",
+      "GatewayTitle": "PayU Credit Card",
+      "PaidAmount": 0,
+      "EnalbeOTP": false
+    },
+    {
+      "MerchantId": "9820eca5-d11f-4df1-9b20-983a45ea9631",
+      "PaymentType": "Credit",
+      "Paymentoption": "PaymentWallet",
+      "GatewayId": "13507",
+      "GatewayTitle": "dd",
+      "PaidAmount": 0,
+      "EnalbeOTP": false
+    },
+    {
+      "MerchantId": "9820eca5-d11f-4df1-9b20-983a45ea9631",
+      "PaymentType": "Credit",
+      "Paymentoption": "WORLDHOSTEDPAY",
+      "GatewayId": "13579",
+      "GatewayTitle": "WorldPayHosted",
+      "PaidAmount": 0,
+      "EnalbeOTP": false
+    },
+    {
+      "MerchantId": "9820eca5-d11f-4df1-9b20-983a45ea9631",
+      "PaymentType": "Credit",
+      "Paymentoption": "VOUCHAGRAM",
+      "GatewayId": "13687",
+      "GatewayTitle": "Gyftr",
+      "PaidAmount": 0,
+      "EnalbeOTP": false
+    },
+    {
+      "MerchantId": "9820eca5-d11f-4df1-9b20-983a45ea9631",
+      "PaymentType": "Credit",
+      "Paymentoption": "RAZORPAY",
+      "GatewayId": "13779",
+      "GatewayTitle": "RazorPay",
+      "PaidAmount": 0,
+      "EnalbeOTP": false
+    }
+  ],
+  "ErrorCode": 0
+}
+
+```
+
+
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `/Carts/TPG/PaymentTypes/{merchantId}`
+Rate Limited? | No
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | GET
+Batch Support | No
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+### Request URL
+
+`https://{host}/developerapi/Carts/TPG/PaymentTypes/{merchantId}`
+
+
+### Request Body Parameters
+
+Parameter | Type | Description
+-------- | ----- | -----------
+merchantId* | string | Unique GUID of the merchant
+PaymentType | string | Type of payment
+Paymentoption | string | 
+GatewayId | string | 
+GatewayTitle | string | name of the payment gateway
+PaidAmount | float | 
+EnalbeOTP | boolean | 
+GatewayContent | 
+LocationID | 
+CurrencyCode | 
+IsEnabled | 
+
+
+
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
+
+
+
+## Location Add to Cart
+
+
+> Sample Request
+
+```json
+http://www.martjack.com/developerapi/Carts/LocationCart/993c939a-a2e8-4934-bbf5-390f37457a55/13038134/9972544/1/24342/INR
+```
+
+> Sample Response
+
+```json
+{
+   "messageCode":"1004",
+   "Message":"Successful",
+   "Carts":{
+      "MerchantId":"993c939a-a2e8-4934-bbf5-390f37457a55",
+      "ProductCost":7660.0,
+      "ShippingCost":120.0,
+      "VoucherDiscount":0.0,
+      "PromotionDiscount":0.0,
+      "TaxAmount":0.0,
+      "OrderTotal":7780.0,
+      "VoucherCode":"",
+      "UserSelectedCurrency":"INR",
+      "Bill_FirstName":null,
+      "Bill_LastName":"Test",
+      "Bill_Address1":"AutoTestAddres1Bill",
+      "Bill_Address2":"",
+      "Bill_CountryCode":"IN",
+      "_Bill_StateCode":"KA",
+      "Bill_City":"Bangalore",
+      "Bill_CityCode":"32",
+      "Bill_OtherCityName":"195",
+      "Bill_Telephone":"040-33123456",
+      "Bill_Mobile":"91-9898989898",
+      "Bill_PostCode":"560029",
+      "Bill_Email":"",
+      "Ship_FirstName":"AutoTestNameBill2337g1",
+      "Ship_LastName":"Test",
+      "Ship_Address1":"AutoTestAddres1Bill",
+      "Ship_Address2":"",
+      "Ship_CountryCode":"IN",
+      "Ship_StateCode":"KA",
+      "Ship_City":"32",
+      "Ship_CityCode":"32",
+      "Ship_OtherCityName":"195",
+      "Ship_Telephone":"040-33123456",
+      "Ship_Mobile":"91-9898989898",
+      "Ship_PostCode":"560029",
+      "Ship_Email":"",
+      "CartItems":[
+         {
+            "ProductId":13037156,
+            "VariantProductId":9970442,
+            "MRP":1500.0,
+            "WebPrice":1200.0,
+            "Quantity":3.0,
+            "description":"Format Shirt 01",
+            "SupplierId":"993c939a-a2e8-4934-bbf5-390f37457a55",
+            "CartReferenceKey":"c4f7081a-89b2-460a-a60a-b5f312a79c50",
+            "PriceCapped":false,
+            "IsFreeProduct":false,
+            "TotalCap":0,
+            "CappedRefKey":"00000000-0000-0000-0000-000000000000",
+            "CatalogpromotionDiscount":0.0,
+            "BundleCartReferenceKey":"00000000-0000-0000-0000-000000000000",
+            "ItemPromotionDiscountAmount":0.0,
+            "IsPrimaryProduct":false,
+            "IsPromotionProduct":false,
+            "VariantsInfo":[
+               {
+                  "PropertyName":"Size",
+                  "Value":"Medium"
+               }
+            ],
+            "Por":"",
+            "IsDefaultBundleItem":false,
+            "ProductImage":"//images.sg.content-cdn.io/cdn//test-resources/993c939a-a2e8-4934-bbf5-390f37457a55/Images/ProductImages/Source/formalshirt.jpg;width=100;height=100;scale=canvas;anchor=bottomcenter",
+            "CartPromotionRules":[
+
+            ],
+            "CategoryId":"CU00366338",
+            "CategoryName":null,
+            "BrandId":"All001",
+            "BrandName":"Allen Solly",
+            "ParentCartItems":null
+         },
+         {
+            "ProductId":13038134,
+            "VariantProductId":9972546,
+            "MRP":1500.0,
+            "WebPrice":1355.0,
+            "Quantity":2.0,
+            "description":"TShirt Product 01",
+            "SupplierId":"993c939a-a2e8-4934-bbf5-390f37457a55",
+            "CartReferenceKey":"2a48bc32-bf8c-4097-9a85-0a728749dc57",
+            "PriceCapped":false,
+            "IsFreeProduct":false,
+            "TotalCap":0,
+            "CappedRefKey":"00000000-0000-0000-0000-000000000000",
+            "CatalogpromotionDiscount":0.0,
+            "BundleCartReferenceKey":"00000000-0000-0000-0000-000000000000",
+            "ItemPromotionDiscountAmount":0.0,
+            "IsPrimaryProduct":false,
+            "IsPromotionProduct":false,
+            "VariantsInfo":[
+               {
+                  "PropertyName":"Size",
+                  "Value":"Small"
+               }
+            ],
+            "Por":"",
+            "IsDefaultBundleItem":false,
+            "ProductImage":"//images.sg.content-cdn.io/cdn//test-resources/993c939a-a2e8-4934-bbf5-390f37457a55/Images/ProductImages/Source/71FItmnzmdL._UL1500_.jpg;width=100;height=100;scale=canvas;anchor=bottomcenter",
+            "CartPromotionRules":[
+
+            ],
+            "CategoryId":"CU00366336",
+            "CategoryName":null,
+            "BrandId":"Nik002",
+            "BrandName":"NIKE",
+            "ParentCartItems":null
+         },
+         {
+            "ProductId":13038134,
+            "VariantProductId":9972544,
+            "MRP":1500.0,
+            "WebPrice":1350.0,
+            "Quantity":1.0,
+            "description":"TShirt Product 01",
+            "SupplierId":"993c939a-a2e8-4934-bbf5-390f37457a55",
+            "CartReferenceKey":"8dd9ce47-e35d-4f23-b37c-d8299ea7c95b",
+            "PriceCapped":false,
+            "IsFreeProduct":false,
+            "TotalCap":0,
+            "CappedRefKey":"00000000-0000-0000-0000-000000000000",
+            "CatalogpromotionDiscount":0.0,
+            "BundleCartReferenceKey":"00000000-0000-0000-0000-000000000000",
+            "ItemPromotionDiscountAmount":0.0,
+            "IsPrimaryProduct":false,
+            "IsPromotionProduct":false,
+            "VariantsInfo":[
+               {
+                  "PropertyName":"Size",
+                  "Value":"Medium"
+               }
+            ],
+            "Por":"",
+            "IsDefaultBundleItem":false,
+            "ProductImage":"//images.sg.content-cdn.io/cdn//test-resources/993c939a-a2e8-4934-bbf5-390f37457a55/Images/ProductImages/Source/71FItmnzmdL._UL1500_.jpg;width=100;height=100;scale=canvas;anchor=bottomcenter",
+            "CartPromotionRules":[
+
+            ],
+            "CategoryId":"CU00366336",
+            "CategoryName":null,
+            "BrandId":"Nik002",
+            "BrandName":"NIKE",
+            "ParentCartItems":null
+         }
+      ],
+      "Suppliers":[
+         {
+            "SupplierId":"993c939a-a2e8-4934-bbf5-390f37457a55",
+            "SupplierName":"testorg2",
+            "IsSelected":false,
+            "OrderStatus":null
+         }
+      ],
+      "ShippingOptions":[
+         {
+            "SupplierId":"993c939a-a2e8-4934-bbf5-390f37457a55",
+            "ShippingMode":"0",
+            "ShippingModeId":0,
+            "isselected":true
+         }
+      ],
+      "PaymentOptionsChannel":[
+         {
+            "MerchantId":"993c939a-a2e8-4934-bbf5-390f37457a55",
+            "PaymentType":"COD",
+            "Paymentoption":"COD",
+            "GatewayId":"0",
+            "GatewayTitle":"COD",
+            "PaidAmount":0.0,
+            "EnalbeOTP":false
+         },
+         {
+            "MerchantId":"993c939a-a2e8-4934-bbf5-390f37457a55",
+            "PaymentType":"ChequeDD",
+            "Paymentoption":"ChequeDD",
+            "GatewayId":"10994",
+            "GatewayTitle":"ChequeDD",
+            "PaidAmount":0.0,
+            "EnalbeOTP":false
+         },
+         {
+            "MerchantId":"993c939a-a2e8-4934-bbf5-390f37457a55",
+            "PaymentType":"OnlineBankTrans",
+            "Paymentoption":"OnlineBankTransfer",
+            "GatewayId":"10996",
+            "GatewayTitle":"OnlineBankTrans",
+            "PaidAmount":0.0,
+            "EnalbeOTP":false
+         }
+      ],
+      "ErrorCollection":null,
+      "GiftMsg":"",
+      "DemandedDeliveryDate":"1900-01-01T00:00:00Z",
+      "RemainTotal":0.0,
+      "ShippingZoneType":null,
+      "DeliverySlotID":0,
+      "FailedProducts":null,
+      "PickupLastName":"Test",
+      "PickupEmail":"",
+      "PickupMobile":"91-9898989898",
+      "LocationId":"24342",
+      "TaxDetail":[
+
+      ],
+      "ComboSuggestion":[
+
+      ],
+      "ConvertedDeals":[
+
+      ]
+   },
+   "ErrorCode":0
+}
+```
+
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `/Carts/LocationCart/{merchantId}/{productId}/{varProductId}/{quantity}/{locationId}/{currency}`
+Rate Limited? | No
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | GET
+Batch Support | No
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+### Request URL
+
+`https://{host}/developerapi//Carts/LocationCart/{merchantId}/{productId}/{varProductId}/{quantity}/{locationId}/{currency}`
+
+
+### Request Path Parameters
+
+Parameter | Type | Description
+-------- | ----- | -----------
+merchantId* | string | Unique GUID of the merchant
+productId* | int | 
+varProductId* | | 
+quantity* | int | 
+locationId* | int | 
+currency* | float | 
+
+
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
 
 
