@@ -2074,6 +2074,9 @@ Authentication | Yes
 `http://{host}/developerapi/Customer/{merchantId}/Count`
 
 
+
+
+
 ## Get Customer Shipping Address
 
 Retrieves shipping address of a specific customer.
@@ -2086,7 +2089,7 @@ Retrieves shipping address of a specific customer.
 > Sample Request
 
 ```html
-https://www.martjack.com/developerapi/Customer/
+https://www.martjack.com/developerapi/Customer/GetShippingAddress/9820eca5-d11f-4df1-9b20-983a45ea9631/0025fc54-a2d2-4ba8-800f-3c0ac91d9385
 
 ```
 
@@ -2096,7 +2099,30 @@ https://www.martjack.com/developerapi/Customer/
 > Sample Response
 
 ```json
-
+{
+  "messageCode": "1004",
+  "Message": "Successful",
+  "ShippingAddresses": [
+    {
+      "shippingaddressid": 580439,
+      "userId": "0025fc54-a2d2-4ba8-800f-3c0ac91d9385",
+      "firstname": "Tom",
+      "lastname": "Sawyer",
+      "address1": "26/1, MG Road, DST Plazza",
+      "address2": "Opp Hanuman Statue",
+      "state": "DL",
+      "pin": "110096",
+      "countrycode": "IN",
+      "citycode": "113",
+      "phoneno": "-",
+      "mobileno": "91-9871000000",
+      "email": "tom.sawyer@example.com",
+      "othercity": "Delhi",
+      "AddressType": "0"
+    }
+  ],
+  "ErrorCode": 0
+}
 
 ```
 
@@ -2105,7 +2131,7 @@ https://www.martjack.com/developerapi/Customer/
 ### Resource Information
 | | |
 --------- | ----------- |
-URI | `/`
+URI | `/Customer/GetShippingAddress/{merchantId}/{userId}`
 Rate Limited? | No
 Authentication | Yes
 Response Formats | JSON
@@ -2117,7 +2143,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Customer/`
+`https://{host}/developerapi/Customer/GetShippingAddress/{merchantId}/{userId}`
 
 
 ### Request Path Parameters
@@ -2125,9 +2151,84 @@ Batch Support | No
 Parameter | Type | Description
 -------- | ----- | -----------
 merchantId* | string | Unique GUID of the merchant
-
+userId* | string | Unique GUID of the user whose shipping address needs to be fetched
 
 
 <aside class="notice"> All parameters marked by * are mandatory. </aside>
+
+
+## Get Store Operators
+
+Retrieves the details of store operators based on the user role and location id passed.
+
+
+
+
+
+
+
+> Sample Request
+
+```html
+https://www.martjack.com/developerapi/Customer/GetStoreOperators/9820eca5-d11f-4df1-9b20-983a45ea9631/17722/0abde087-16c9-4057-ac9d-f82d94473c39
+
+```
+
+
+
+
+> Sample Response
+
+```json
+{
+  "messageCode": "1004",
+  "Message": "Successful",
+  "StoreOperators": [
+    {
+      "FirstName": "Jim",
+      "LastName": "karpet",
+      "Email": "jim@cmail.com",
+      "OperatorId": "03b3a81d-c168-4cbc-ae9d-c79ccee5adb9",
+      "StoreIDs": [
+        17722
+      ]
+    }
+  ],
+  "ErrorCode": 0
+}
+
+```
+
+
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `/Customer/GetStoreOperators/{merchantId}/{locationId}/{roleid}`
+Rate Limited? | No
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | GET
+Batch Support | No
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+### Request URL
+
+`https://{host}/developerapi/Customer/GetStoreOperators/{merchantId}/{locationId}/{roleid}`
+
+
+### Request Path Parameters
+
+Parameter | Type | Description
+-------- | ----- | -----------
+merchantId* | string | Unique GUID of the merchant
+locationId* | int | Filter results by location id. If you want to fetch from all the locations, pass '0'
+roleid* | string | Unique role id for which you want to fetch operators 
+
+
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
+
 
 

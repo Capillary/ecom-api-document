@@ -72,7 +72,7 @@ refCode | Specify a reference code for your wish list. It is a free flowing text
 > Sample Request
 
 ```html
-https://www.martjack.com/developerapi/ShoppingList/add/81e77da2-723b-483d-8c0d-49f800c1exxx/f4473f55-b6b0-4a4c-8ffa-fc1010abxxxx/43700/true
+https://www.martjack.com/developerapi/ShoppingList/81e77da2-723b-483d-8c0d-49f800c1exxx/f4473f55-b6b0-4a4c-8ffa-fc1010abxxxx/43700/true
 ```
 
 > Sample Response
@@ -275,7 +275,7 @@ Retrieves items of a specific wish list
 ### Resource Information
 | |  |
 --------- | ----------- |
-URI | `ShoppingList/items/{{MerchantId}}/UserId/{shopping list id}`
+URI | `/ShoppingList/Items/{merchantId}/{shoppingListId}/{userId}`
 Rate Limited? | No
 Authentication | Yes
 Response Formats | JSON
@@ -287,7 +287,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/ShoppingList/items/{{MerchantId}}/{shoppinglistId}/{UserId}`
+`https://{host}/developerapi/ShoppingList/Items/{merchantId}/{shoppingListId}/{userId}`
 
 
 ### Request Parameters

@@ -226,7 +226,7 @@ Lets you update normal product details.
 ### Resource Information
 | | |
 --------- | ----------- |
-URI | `Product/UpdateProductInfo`
+URI | `/Product/UpdateProductInfo`
 Rate Limited? | No
 Authentication | Yes
 Response Formats | JSON
@@ -1033,7 +1033,7 @@ Taskid | int | Unique id generated for the current task
 
 
 
-## Get Product Details by Location
+## Get Product Details (by Location)
 
 > Sample Request
 
@@ -1269,7 +1269,7 @@ UOM | string | Unit of measurement of the product. It could be the `pieces` for 
 > Sample Request
 
 ```html
-https://www.martjack.com/developerapi/Product/9820eca5-d11f-4df1-9b20-983a45ea9631/12322048/true
+https://www.martjack.com/developerapi/Product/Varients/9820eca5-d11f-4df1-9b20-983a45ea9631/12322048/true
 ```
 
 
@@ -1628,12 +1628,15 @@ isGoLive* | boolean | Specify `true` to show the review on the storefront, `fals
 > Sample Request
 
 ```html
-https://www.martjack.com/developerapi/81e77da2-723b-483d-8c0d-49f800c1exxx/Search
+https://www.martjack.com/developerapi/Product/81e77da2-723b-483d-8c0d-49f800c1exxx/Search
 ```
 
 > Sample POST Request
 
 ```json
+InputFormat=application/json&InputData={
+  "merchantId": "9820eca5-d11f-4df1-9b20-983a45ea9631"
+}
 
 ```
 
@@ -1669,7 +1672,7 @@ Retrieves product ids based on the input parameters
 ### Resource Information
 | | |
 --------- | ----------- |
-URI | `Product/{MerchantId}/Search`
+URI | `/Product/{MerchantId}/Search`
 Rate Limited? | No
 Authentication | Yes
 Response Formats | JSON
@@ -1689,15 +1692,15 @@ Batch Support | No
 
 Parameter | Type | Description
 -------- | ----- | -----------
-MerchantId* | string | Unique GUID of the merchant
-keyword | string | 
+MerchantId | string | Unique GUID of the merchant
+keyword | string | Search product by meta tag keyword
 SKU | string  | Search product by SKU
 catalogcode | string | Fetch products of a specific catalog code
 category | string | Search by category 
 brand | string | Search product ids by brand
 productTag | string | Search product ids by associated product tags 
-pageNumber | string | Page number from which you want to fetch products on storefront
-pageSize | string | 
+pageNumber | int | Page number from which you want to fetch products on storefront
+pageSize | int | Number of results to be shown per page
 
 
 
@@ -1718,7 +1721,6 @@ https://www.martjack.com/developerapi/Product/UpdateProductAttribute/0639f7a6-34
 ```json
 
 MerchantId=0639f7a6-34cc-48b2-9fd9-a80e2ed8xxxx&InputFormat=application/json&InputData={
-{
   "ProductAttribute": {
     "sku": "Fruits0023",
     "variantsku": "Fruits0023-1",
@@ -1930,7 +1932,7 @@ Retrieves the details of all products of a variant (by variant id).
 > Sample Request
 
 ```html
-https://www.martjack.com/developerapi//Product/ProductVarient/0639f7a6-34cc-48b2-9fd9-a80e2ed88dfe/27686
+https://www.martjack.com/developerapi/Product/ProductVarient/0639f7a6-34cc-48b2-9fd9-a80e2ed88dfe/27686
 
 ```
 
@@ -2129,10 +2131,12 @@ taskId* | int | Unique id of the bulk upload task
 
 ### Response Parameters
 
+Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.
+
+
 Parameter | Type | Description
 --------- | ---- | -----------
-merchantId* | string | Unique GUID of the merchant
-taskId* | int | 
+taskId | int | Unique id generated for the task
 
 
 ## Get MSMQ Error Details
@@ -2233,6 +2237,7 @@ taskId* | int | Unique id of the bulk upload task
 
 ### Response Parameters
 
+Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.
 
 
 

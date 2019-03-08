@@ -3207,7 +3207,277 @@ ComboSuggestion | array | Suggestions related the deal items based on the items 
 ConvertedDeals | array | The cart items that are converted to deal items 
 
 
-## Edit Cart Items
+## Location Add to Cart
+
+
+> Sample Request
+
+```html
+http://www.martjack.com/developerapi/Carts/LocationCart/993c939a-a2e8-4934-bbf5-390f37457a55/13038134/9972544/1/24342/INR
+```
+
+> Sample Response
+
+```json
+{
+   "messageCode":"1004",
+   "Message":"Successful",
+   "Carts":{
+      "MerchantId":"993c939a-a2e8-4934-bbf5-390f37457a55",
+      "ProductCost":7660.0,
+      "ShippingCost":120.0,
+      "VoucherDiscount":0.0,
+      "PromotionDiscount":0.0,
+      "TaxAmount":0.0,
+      "OrderTotal":7780.0,
+      "VoucherCode":"",
+      "UserSelectedCurrency":"INR",
+      "Bill_FirstName":null,
+      "Bill_LastName":"Test",
+      "Bill_Address1":"AutoTestAddres1Bill",
+      "Bill_Address2":"",
+      "Bill_CountryCode":"IN",
+      "_Bill_StateCode":"KA",
+      "Bill_City":"Bangalore",
+      "Bill_CityCode":"32",
+      "Bill_OtherCityName":"195",
+      "Bill_Telephone":"040-33123456",
+      "Bill_Mobile":"91-9898989898",
+      "Bill_PostCode":"560029",
+      "Bill_Email":"",
+      "Ship_FirstName":"AutoTestNameBill2337g1",
+      "Ship_LastName":"Test",
+      "Ship_Address1":"AutoTestAddres1Bill",
+      "Ship_Address2":"",
+      "Ship_CountryCode":"IN",
+      "Ship_StateCode":"KA",
+      "Ship_City":"32",
+      "Ship_CityCode":"32",
+      "Ship_OtherCityName":"195",
+      "Ship_Telephone":"040-33123456",
+      "Ship_Mobile":"91-9898989898",
+      "Ship_PostCode":"560029",
+      "Ship_Email":"",
+      "CartItems":[
+         {
+            "ProductId":13037156,
+            "VariantProductId":9970442,
+            "MRP":1500.0,
+            "WebPrice":1200.0,
+            "Quantity":3.0,
+            "description":"Format Shirt 01",
+            "SupplierId":"993c939a-a2e8-4934-bbf5-390f37457a55",
+            "CartReferenceKey":"c4f7081a-89b2-460a-a60a-b5f312a79c50",
+            "PriceCapped":false,
+            "IsFreeProduct":false,
+            "TotalCap":0,
+            "CappedRefKey":"00000000-0000-0000-0000-000000000000",
+            "CatalogpromotionDiscount":0.0,
+            "BundleCartReferenceKey":"00000000-0000-0000-0000-000000000000",
+            "ItemPromotionDiscountAmount":0.0,
+            "IsPrimaryProduct":false,
+            "IsPromotionProduct":false,
+            "VariantsInfo":[
+               {
+                  "PropertyName":"Size",
+                  "Value":"Medium"
+               }
+            ],
+            "Por":"",
+            "IsDefaultBundleItem":false,
+            "ProductImage":"//images.sg.content-cdn.io/cdn//test-resources/993c939a-a2e8-4934-bbf5-390f37457a55/Images/ProductImages/Source/formalshirt.jpg;width=100;height=100;scale=canvas;anchor=bottomcenter",
+            "CartPromotionRules":[
+
+            ],
+            "CategoryId":"CU00366338",
+            "CategoryName":null,
+            "BrandId":"All001",
+            "BrandName":"Allen Solly",
+            "ParentCartItems":null
+         },
+         {
+            "ProductId":13038134,
+            "VariantProductId":9972546,
+            "MRP":1500.0,
+            "WebPrice":1355.0,
+            "Quantity":2.0,
+            "description":"TShirt Product 01",
+            "SupplierId":"993c939a-a2e8-4934-bbf5-390f37457a55",
+            "CartReferenceKey":"2a48bc32-bf8c-4097-9a85-0a728749dc57",
+            "PriceCapped":false,
+            "IsFreeProduct":false,
+            "TotalCap":0,
+            "CappedRefKey":"00000000-0000-0000-0000-000000000000",
+            "CatalogpromotionDiscount":0.0,
+            "BundleCartReferenceKey":"00000000-0000-0000-0000-000000000000",
+            "ItemPromotionDiscountAmount":0.0,
+            "IsPrimaryProduct":false,
+            "IsPromotionProduct":false,
+            "VariantsInfo":[
+               {
+                  "PropertyName":"Size",
+                  "Value":"Small"
+               }
+            ],
+            "Por":"",
+            "IsDefaultBundleItem":false,
+            "ProductImage":"//images.sg.content-cdn.io/cdn//test-resources/993c939a-a2e8-4934-bbf5-390f37457a55/Images/ProductImages/Source/71FItmnzmdL._UL1500_.jpg;width=100;height=100;scale=canvas;anchor=bottomcenter",
+            "CartPromotionRules":[
+
+            ],
+            "CategoryId":"CU00366336",
+            "CategoryName":null,
+            "BrandId":"Nik002",
+            "BrandName":"NIKE",
+            "ParentCartItems":null
+         },
+         {
+            "ProductId":13038134,
+            "VariantProductId":9972544,
+            "MRP":1500.0,
+            "WebPrice":1350.0,
+            "Quantity":1.0,
+            "description":"TShirt Product 01",
+            "SupplierId":"993c939a-a2e8-4934-bbf5-390f37457a55",
+            "CartReferenceKey":"8dd9ce47-e35d-4f23-b37c-d8299ea7c95b",
+            "PriceCapped":false,
+            "IsFreeProduct":false,
+            "TotalCap":0,
+            "CappedRefKey":"00000000-0000-0000-0000-000000000000",
+            "CatalogpromotionDiscount":0.0,
+            "BundleCartReferenceKey":"00000000-0000-0000-0000-000000000000",
+            "ItemPromotionDiscountAmount":0.0,
+            "IsPrimaryProduct":false,
+            "IsPromotionProduct":false,
+            "VariantsInfo":[
+               {
+                  "PropertyName":"Size",
+                  "Value":"Medium"
+               }
+            ],
+            "Por":"",
+            "IsDefaultBundleItem":false,
+            "ProductImage":"//images.sg.content-cdn.io/cdn//test-resources/993c939a-a2e8-4934-bbf5-390f37457a55/Images/ProductImages/Source/71FItmnzmdL._UL1500_.jpg;width=100;height=100;scale=canvas;anchor=bottomcenter",
+            "CartPromotionRules":[
+
+            ],
+            "CategoryId":"CU00366336",
+            "CategoryName":null,
+            "BrandId":"Nik002",
+            "BrandName":"NIKE",
+            "ParentCartItems":null
+         }
+      ],
+      "Suppliers":[
+         {
+            "SupplierId":"993c939a-a2e8-4934-bbf5-390f37457a55",
+            "SupplierName":"testorg2",
+            "IsSelected":false,
+            "OrderStatus":null
+         }
+      ],
+      "ShippingOptions":[
+         {
+            "SupplierId":"993c939a-a2e8-4934-bbf5-390f37457a55",
+            "ShippingMode":"0",
+            "ShippingModeId":0,
+            "isselected":true
+         }
+      ],
+      "PaymentOptionsChannel":[
+         {
+            "MerchantId":"993c939a-a2e8-4934-bbf5-390f37457a55",
+            "PaymentType":"COD",
+            "Paymentoption":"COD",
+            "GatewayId":"0",
+            "GatewayTitle":"COD",
+            "PaidAmount":0.0,
+            "EnalbeOTP":false
+         },
+         {
+            "MerchantId":"993c939a-a2e8-4934-bbf5-390f37457a55",
+            "PaymentType":"ChequeDD",
+            "Paymentoption":"ChequeDD",
+            "GatewayId":"10994",
+            "GatewayTitle":"ChequeDD",
+            "PaidAmount":0.0,
+            "EnalbeOTP":false
+         },
+         {
+            "MerchantId":"993c939a-a2e8-4934-bbf5-390f37457a55",
+            "PaymentType":"OnlineBankTrans",
+            "Paymentoption":"OnlineBankTransfer",
+            "GatewayId":"10996",
+            "GatewayTitle":"OnlineBankTrans",
+            "PaidAmount":0.0,
+            "EnalbeOTP":false
+         }
+      ],
+      "ErrorCollection":null,
+      "GiftMsg":"",
+      "DemandedDeliveryDate":"1900-01-01T00:00:00Z",
+      "RemainTotal":0.0,
+      "ShippingZoneType":null,
+      "DeliverySlotID":0,
+      "FailedProducts":null,
+      "PickupLastName":"Test",
+      "PickupEmail":"",
+      "PickupMobile":"91-9898989898",
+      "LocationId":"24342",
+      "TaxDetail":[
+
+      ],
+      "ComboSuggestion":[
+
+      ],
+      "ConvertedDeals":[
+
+      ]
+   },
+   "ErrorCode":0
+}
+```
+
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `/Carts/LocationCart/{merchantId}/{productId}/{varProductId}/{quantity}/{locationId}/{currency}`
+Rate Limited? | No
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | GET
+Batch Support | No
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+### Request URL
+
+`https://{host}/developerapi/Carts/LocationCart/{merchantId}/{productId}/{varProductId}/{quantity}/{locationId}/{currency}`
+
+
+### Request Path Parameters
+
+Parameter | Type | Description
+-------- | ----- | -----------
+merchantId* | string | Unique GUID of the merchant
+productId* | int | Unique id the parent product that you want to add to cart
+varProductId* | string | Unique variant id of the variant product
+quantity* | int | Quantity of items that you want to add
+locationId* | int | Location id of the  current store location
+currency* | float | Currency code as per the store location 
+
+
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
+
+
+
+
+
+
+
+## Edit Cart Item
 
 Lets you modify a current cart item with a different variant, quantity and bundle item. 
 
@@ -3535,6 +3805,13 @@ Batch Support | No
 ### Request URL
 
 `https://{host}/developerapi/carts/edit/{merchantId}`
+
+
+### Additional Header Required
+
+Header | Description
+------ | ------
+accesstoken* | Access token of the logged in user to validate the session
 
 
 ### Request Body Parameters
@@ -5190,12 +5467,18 @@ Batch Support | No
 
 `https://{host}/developerapi/Carts/clear/{MerchantId}`
 
+### Additional Header Required
+
+Header | Description
+------ | ------
+accesstoken* | Access token of the logged in user to validate the session
+
 
 ### Request Path Parameters
 
 Parameter | Type | Description
 -------- | ----- | -----------
-
+merchantId* | string | Unique GUID of the merchant
 
 
 
@@ -5286,6 +5569,12 @@ Batch Support | No
 ### Request URL
 
 `https://{host}/developerapi/carts/AddOrderAttributes/{merchantId}`
+
+### Additional Header Required
+
+Header | Description
+------ | ------
+accesstoken* | Access token of the logged in user to validate the session
 
 
 ### Request Path Parameters
@@ -6241,6 +6530,8 @@ starttime | date-time | Start date of the current promotion
 endtime | date-time | End date of the current promotion
 repetitive | boolean | Whether the promotion rules are repeated for each items or it has to be only once
 allowfurtherpromotions | boolean | If further 'Cart Promotions' is applied on the cart item (even after applying a promotion)
+
+
 
 
 
@@ -7299,14 +7590,16 @@ https://www.martjack.com/developerapi/Carts/GetCommonStoresforCartItems/f48fdd16
 
 MerchantID=f48fdd16-92db-4188-854d-1ecd9b62d066&InputFormat=application/json&InputData=
 {
-	[
-	{
+  "products": [
+    {
       "ProductId": "0",
       "VariantProductId": "0",
       "ProductSku": "61751356",
       "Quantity": 1
-	}
-	]
+    }
+  ],
+  "Longitude": "",
+  "Latitude": ""
 }
 
 ```
@@ -7486,6 +7779,10 @@ ProductId** | int | Unique id of the product for which you want to fetch availab
 ProductSKU** | string | Unique SKU of the product for which you want to fetch available stores
 VariantProductSKU | string | Unique SKU of the variant product for which you want to fetch available stores. Default value: 0
 Quantity | int | Check by available quantity. 
+Latitude | float | Get common store in the specific latitude and longitude
+Longitude | float | Get common store in the specific latitude and longitude
+
+
 
 <aside class="notice"> **Pass any one parameter - either ProductId or ProductSKU. </aside>
 
@@ -7574,387 +7871,7 @@ StockAvailability | boolean | Whether the product is in stock or not
 LastUpdated | date | UST Date when the cart is updated
 
 
-## Get Payment Types
-
-Retrieves all the supported payment types based on the cart items of the current session.
 
 
-
-
-
-
-> Sample Request
-
-```html
-https://www.martjack.com/developerapi/Carts/TPG/PaymentTypes/9820eca5-d11f-4df1-9b20-983a45ea9631
-
-```
-
-
-
-
-> Sample Response
-
-```json
-{
-  "messageCode": "1004",
-  "Message": "Successful",
-  "PaymentOptionsChannel": [
-    {
-      "MerchantId": "9820eca5-d11f-4df1-9b20-983a45ea9631",
-      "PaymentType": "Credit",
-      "Paymentoption": "PAYU",
-      "GatewayId": "11780",
-      "GatewayTitle": "PayU Credit Card",
-      "PaidAmount": 0,
-      "EnalbeOTP": false
-    },
-    {
-      "MerchantId": "9820eca5-d11f-4df1-9b20-983a45ea9631",
-      "PaymentType": "Credit",
-      "Paymentoption": "PaymentWallet",
-      "GatewayId": "13507",
-      "GatewayTitle": "dd",
-      "PaidAmount": 0,
-      "EnalbeOTP": false
-    },
-    {
-      "MerchantId": "9820eca5-d11f-4df1-9b20-983a45ea9631",
-      "PaymentType": "Credit",
-      "Paymentoption": "WORLDHOSTEDPAY",
-      "GatewayId": "13579",
-      "GatewayTitle": "WorldPayHosted",
-      "PaidAmount": 0,
-      "EnalbeOTP": false
-    },
-    {
-      "MerchantId": "9820eca5-d11f-4df1-9b20-983a45ea9631",
-      "PaymentType": "Credit",
-      "Paymentoption": "VOUCHAGRAM",
-      "GatewayId": "13687",
-      "GatewayTitle": "Gyftr",
-      "PaidAmount": 0,
-      "EnalbeOTP": false
-    },
-    {
-      "MerchantId": "9820eca5-d11f-4df1-9b20-983a45ea9631",
-      "PaymentType": "Credit",
-      "Paymentoption": "RAZORPAY",
-      "GatewayId": "13779",
-      "GatewayTitle": "RazorPay",
-      "PaidAmount": 0,
-      "EnalbeOTP": false
-    }
-  ],
-  "ErrorCode": 0
-}
-
-```
-
-
-
-### Resource Information
-| | |
---------- | ----------- |
-URI | `/Carts/TPG/PaymentTypes/{merchantId}`
-Rate Limited? | No
-Authentication | Yes
-Response Formats | JSON
-HTTP Methods | GET
-Batch Support | No
-
-* **Rate limiter** controls the number of incoming and outgoing traffic of a network
-* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
-
-### Request URL
-
-`https://{host}/developerapi/Carts/TPG/PaymentTypes/{merchantId}`
-
-
-### Request Body Parameters
-
-Parameter | Type | Description
--------- | ----- | -----------
-merchantId* | string | Unique GUID of the merchant
-PaymentType | string | Type of payment
-Paymentoption | string | 
-GatewayId | string | 
-GatewayTitle | string | name of the payment gateway
-PaidAmount | float | 
-EnalbeOTP | boolean | 
-GatewayContent | 
-LocationID | 
-CurrencyCode | 
-IsEnabled | 
-
-
-
-<aside class="notice"> All parameters marked by * are mandatory. </aside>
-
-
-
-## Location Add to Cart
-
-
-> Sample Request
-
-```json
-http://www.martjack.com/developerapi/Carts/LocationCart/993c939a-a2e8-4934-bbf5-390f37457a55/13038134/9972544/1/24342/INR
-```
-
-> Sample Response
-
-```json
-{
-   "messageCode":"1004",
-   "Message":"Successful",
-   "Carts":{
-      "MerchantId":"993c939a-a2e8-4934-bbf5-390f37457a55",
-      "ProductCost":7660.0,
-      "ShippingCost":120.0,
-      "VoucherDiscount":0.0,
-      "PromotionDiscount":0.0,
-      "TaxAmount":0.0,
-      "OrderTotal":7780.0,
-      "VoucherCode":"",
-      "UserSelectedCurrency":"INR",
-      "Bill_FirstName":null,
-      "Bill_LastName":"Test",
-      "Bill_Address1":"AutoTestAddres1Bill",
-      "Bill_Address2":"",
-      "Bill_CountryCode":"IN",
-      "_Bill_StateCode":"KA",
-      "Bill_City":"Bangalore",
-      "Bill_CityCode":"32",
-      "Bill_OtherCityName":"195",
-      "Bill_Telephone":"040-33123456",
-      "Bill_Mobile":"91-9898989898",
-      "Bill_PostCode":"560029",
-      "Bill_Email":"",
-      "Ship_FirstName":"AutoTestNameBill2337g1",
-      "Ship_LastName":"Test",
-      "Ship_Address1":"AutoTestAddres1Bill",
-      "Ship_Address2":"",
-      "Ship_CountryCode":"IN",
-      "Ship_StateCode":"KA",
-      "Ship_City":"32",
-      "Ship_CityCode":"32",
-      "Ship_OtherCityName":"195",
-      "Ship_Telephone":"040-33123456",
-      "Ship_Mobile":"91-9898989898",
-      "Ship_PostCode":"560029",
-      "Ship_Email":"",
-      "CartItems":[
-         {
-            "ProductId":13037156,
-            "VariantProductId":9970442,
-            "MRP":1500.0,
-            "WebPrice":1200.0,
-            "Quantity":3.0,
-            "description":"Format Shirt 01",
-            "SupplierId":"993c939a-a2e8-4934-bbf5-390f37457a55",
-            "CartReferenceKey":"c4f7081a-89b2-460a-a60a-b5f312a79c50",
-            "PriceCapped":false,
-            "IsFreeProduct":false,
-            "TotalCap":0,
-            "CappedRefKey":"00000000-0000-0000-0000-000000000000",
-            "CatalogpromotionDiscount":0.0,
-            "BundleCartReferenceKey":"00000000-0000-0000-0000-000000000000",
-            "ItemPromotionDiscountAmount":0.0,
-            "IsPrimaryProduct":false,
-            "IsPromotionProduct":false,
-            "VariantsInfo":[
-               {
-                  "PropertyName":"Size",
-                  "Value":"Medium"
-               }
-            ],
-            "Por":"",
-            "IsDefaultBundleItem":false,
-            "ProductImage":"//images.sg.content-cdn.io/cdn//test-resources/993c939a-a2e8-4934-bbf5-390f37457a55/Images/ProductImages/Source/formalshirt.jpg;width=100;height=100;scale=canvas;anchor=bottomcenter",
-            "CartPromotionRules":[
-
-            ],
-            "CategoryId":"CU00366338",
-            "CategoryName":null,
-            "BrandId":"All001",
-            "BrandName":"Allen Solly",
-            "ParentCartItems":null
-         },
-         {
-            "ProductId":13038134,
-            "VariantProductId":9972546,
-            "MRP":1500.0,
-            "WebPrice":1355.0,
-            "Quantity":2.0,
-            "description":"TShirt Product 01",
-            "SupplierId":"993c939a-a2e8-4934-bbf5-390f37457a55",
-            "CartReferenceKey":"2a48bc32-bf8c-4097-9a85-0a728749dc57",
-            "PriceCapped":false,
-            "IsFreeProduct":false,
-            "TotalCap":0,
-            "CappedRefKey":"00000000-0000-0000-0000-000000000000",
-            "CatalogpromotionDiscount":0.0,
-            "BundleCartReferenceKey":"00000000-0000-0000-0000-000000000000",
-            "ItemPromotionDiscountAmount":0.0,
-            "IsPrimaryProduct":false,
-            "IsPromotionProduct":false,
-            "VariantsInfo":[
-               {
-                  "PropertyName":"Size",
-                  "Value":"Small"
-               }
-            ],
-            "Por":"",
-            "IsDefaultBundleItem":false,
-            "ProductImage":"//images.sg.content-cdn.io/cdn//test-resources/993c939a-a2e8-4934-bbf5-390f37457a55/Images/ProductImages/Source/71FItmnzmdL._UL1500_.jpg;width=100;height=100;scale=canvas;anchor=bottomcenter",
-            "CartPromotionRules":[
-
-            ],
-            "CategoryId":"CU00366336",
-            "CategoryName":null,
-            "BrandId":"Nik002",
-            "BrandName":"NIKE",
-            "ParentCartItems":null
-         },
-         {
-            "ProductId":13038134,
-            "VariantProductId":9972544,
-            "MRP":1500.0,
-            "WebPrice":1350.0,
-            "Quantity":1.0,
-            "description":"TShirt Product 01",
-            "SupplierId":"993c939a-a2e8-4934-bbf5-390f37457a55",
-            "CartReferenceKey":"8dd9ce47-e35d-4f23-b37c-d8299ea7c95b",
-            "PriceCapped":false,
-            "IsFreeProduct":false,
-            "TotalCap":0,
-            "CappedRefKey":"00000000-0000-0000-0000-000000000000",
-            "CatalogpromotionDiscount":0.0,
-            "BundleCartReferenceKey":"00000000-0000-0000-0000-000000000000",
-            "ItemPromotionDiscountAmount":0.0,
-            "IsPrimaryProduct":false,
-            "IsPromotionProduct":false,
-            "VariantsInfo":[
-               {
-                  "PropertyName":"Size",
-                  "Value":"Medium"
-               }
-            ],
-            "Por":"",
-            "IsDefaultBundleItem":false,
-            "ProductImage":"//images.sg.content-cdn.io/cdn//test-resources/993c939a-a2e8-4934-bbf5-390f37457a55/Images/ProductImages/Source/71FItmnzmdL._UL1500_.jpg;width=100;height=100;scale=canvas;anchor=bottomcenter",
-            "CartPromotionRules":[
-
-            ],
-            "CategoryId":"CU00366336",
-            "CategoryName":null,
-            "BrandId":"Nik002",
-            "BrandName":"NIKE",
-            "ParentCartItems":null
-         }
-      ],
-      "Suppliers":[
-         {
-            "SupplierId":"993c939a-a2e8-4934-bbf5-390f37457a55",
-            "SupplierName":"testorg2",
-            "IsSelected":false,
-            "OrderStatus":null
-         }
-      ],
-      "ShippingOptions":[
-         {
-            "SupplierId":"993c939a-a2e8-4934-bbf5-390f37457a55",
-            "ShippingMode":"0",
-            "ShippingModeId":0,
-            "isselected":true
-         }
-      ],
-      "PaymentOptionsChannel":[
-         {
-            "MerchantId":"993c939a-a2e8-4934-bbf5-390f37457a55",
-            "PaymentType":"COD",
-            "Paymentoption":"COD",
-            "GatewayId":"0",
-            "GatewayTitle":"COD",
-            "PaidAmount":0.0,
-            "EnalbeOTP":false
-         },
-         {
-            "MerchantId":"993c939a-a2e8-4934-bbf5-390f37457a55",
-            "PaymentType":"ChequeDD",
-            "Paymentoption":"ChequeDD",
-            "GatewayId":"10994",
-            "GatewayTitle":"ChequeDD",
-            "PaidAmount":0.0,
-            "EnalbeOTP":false
-         },
-         {
-            "MerchantId":"993c939a-a2e8-4934-bbf5-390f37457a55",
-            "PaymentType":"OnlineBankTrans",
-            "Paymentoption":"OnlineBankTransfer",
-            "GatewayId":"10996",
-            "GatewayTitle":"OnlineBankTrans",
-            "PaidAmount":0.0,
-            "EnalbeOTP":false
-         }
-      ],
-      "ErrorCollection":null,
-      "GiftMsg":"",
-      "DemandedDeliveryDate":"1900-01-01T00:00:00Z",
-      "RemainTotal":0.0,
-      "ShippingZoneType":null,
-      "DeliverySlotID":0,
-      "FailedProducts":null,
-      "PickupLastName":"Test",
-      "PickupEmail":"",
-      "PickupMobile":"91-9898989898",
-      "LocationId":"24342",
-      "TaxDetail":[
-
-      ],
-      "ComboSuggestion":[
-
-      ],
-      "ConvertedDeals":[
-
-      ]
-   },
-   "ErrorCode":0
-}
-```
-
-
-### Resource Information
-| | |
---------- | ----------- |
-URI | `/Carts/LocationCart/{merchantId}/{productId}/{varProductId}/{quantity}/{locationId}/{currency}`
-Rate Limited? | No
-Authentication | Yes
-Response Formats | JSON
-HTTP Methods | GET
-Batch Support | No
-
-* **Rate limiter** controls the number of incoming and outgoing traffic of a network
-* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
-
-### Request URL
-
-`https://{host}/developerapi//Carts/LocationCart/{merchantId}/{productId}/{varProductId}/{quantity}/{locationId}/{currency}`
-
-
-### Request Path Parameters
-
-Parameter | Type | Description
--------- | ----- | -----------
-merchantId* | string | Unique GUID of the merchant
-productId* | int | 
-varProductId* | | 
-quantity* | int | 
-locationId* | int | 
-currency* | float | 
-
-
-<aside class="notice"> All parameters marked by * are mandatory. </aside>
 
 
