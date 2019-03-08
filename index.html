@@ -3463,13 +3463,36 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <blockquote>
 <p>Sample Request</p>
 </blockquote>
-<pre class="highlight html"><code>https://www.martjack.com/developerapi/Customer/
+<pre class="highlight html"><code>https://www.martjack.com/developerapi/Customer/GetShippingAddress/9820eca5-d11f-4df1-9b20-983a45ea9631/0025fc54-a2d2-4ba8-800f-3c0ac91d9385
 
 </code></pre>
 <blockquote>
 <p>Sample Response</p>
 </blockquote>
-<pre class="highlight json"><code><span class="w">
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"messageCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1004"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ShippingAddresses"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"shippingaddressid"</span><span class="p">:</span><span class="w"> </span><span class="mi">580439</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"userId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0025fc54-a2d2-4ba8-800f-3c0ac91d9385"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"firstname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tom"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"lastname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sawyer"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"address1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"26/1, MG Road, DST Plazza"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"address2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Opp Hanuman Statue"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DL"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"pin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"110096"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"countrycode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IN"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"citycode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"113"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"phoneno"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"mobileno"</span><span class="p">:</span><span class="w"> </span><span class="s2">"91-9871000000"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tom.sawyer@example.com"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"othercity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Delhi"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"AddressType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="p">}</span><span class="w">
 
 </span></code></pre>
 <h3 id="resource-information">Resource Information</h3>
@@ -3482,7 +3505,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 </thead><tbody>
 <tr>
 <td>URI</td>
-<td><code class="prettyprint">/</code></td>
+<td><code class="prettyprint">/Customer/GetShippingAddress/{merchantId}/{userId}</code></td>
 </tr>
 <tr>
 <td>Rate Limited?</td>
@@ -3513,7 +3536,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Customer/</code></p>
+<p><code class="prettyprint">https://{host}/developerapi/Customer/GetShippingAddress/{merchantId}/{userId}</code></p>
 
 <h3 id="request-path-parameters">Request Path Parameters</h3>
 
@@ -3528,6 +3551,113 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <td>merchantId*</td>
 <td>string</td>
 <td>Unique GUID of the merchant</td>
+</tr>
+<tr>
+<td>userId*</td>
+<td>string</td>
+<td>Unique GUID of the user whose shipping address needs to be fetched</td>
+</tr>
+</tbody></table>
+
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
+
+<h2 id="get-store-operators">Get Store Operators</h2>
+
+<p>Retrieves the details of store operators based on the user role and location id passed.</p>
+
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
+<pre class="highlight html"><code>https://www.martjack.com/developerapi/Customer/GetStoreOperators/9820eca5-d11f-4df1-9b20-983a45ea9631/17722/0abde087-16c9-4057-ac9d-f82d94473c39
+
+</code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"messageCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1004"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"StoreOperators"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"FirstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jim"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"LastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"karpet"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jim@cmail.com"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"OperatorId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"03b3a81d-c168-4cbc-ae9d-c79ccee5adb9"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"StoreIDs"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="mi">17722</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td><code class="prettyprint">/Customer/GetStoreOperators/{merchantId}/{locationId}/{roleid}</code></td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>No</td>
+</tr>
+</tbody></table>
+
+<ul>
+<li><strong>Rate limiter</strong> controls the number of incoming and outgoing traffic of a network</li>
+<li><strong>Authentication</strong> verifies the identity of the current user or integration. See Introduction &gt; Authentication (Merchant Setup on Admin Portal) for more details</li>
+</ul>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">https://{host}/developerapi/Customer/GetStoreOperators/{merchantId}/{locationId}/{roleid}</code></p>
+
+<h3 id="request-path-parameters">Request Path Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>merchantId*</td>
+<td>string</td>
+<td>Unique GUID of the merchant</td>
+</tr>
+<tr>
+<td>locationId*</td>
+<td>int</td>
+<td>Filter results by location id. If you want to fetch from all the locations, pass &lsquo;0&rsquo;</td>
+</tr>
+<tr>
+<td>roleid*</td>
+<td>string</td>
+<td>Unique role id for which you want to fetch operators</td>
 </tr>
 </tbody></table>
 
@@ -4556,7 +4686,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 </thead><tbody>
 <tr>
 <td>URI</td>
-<td><code class="prettyprint">Product/UpdateProductInfo</code></td>
+<td><code class="prettyprint">/Product/UpdateProductInfo</code></td>
 </tr>
 <tr>
 <td>Rate Limited?</td>
@@ -6268,7 +6398,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 </tr>
 </tbody></table>
 
-<h2 id="get-product-details-by-location">Get Product Details by Location</h2>
+<h2 id="get-product-details-by-location">Get Product Details (by Location)</h2>
 
 <blockquote>
 <p>Sample Request</p>
@@ -6659,7 +6789,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <blockquote>
 <p>Sample Request</p>
 </blockquote>
-<pre class="highlight html"><code>https://www.martjack.com/developerapi/Product/9820eca5-d11f-4df1-9b20-983a45ea9631/12322048/true
+<pre class="highlight html"><code>https://www.martjack.com/developerapi/Product/Varients/9820eca5-d11f-4df1-9b20-983a45ea9631/12322048/true
 </code></pre>
 <blockquote>
 <p>Sample Response</p>
@@ -7212,12 +7342,15 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <blockquote>
 <p>Sample Request</p>
 </blockquote>
-<pre class="highlight html"><code>https://www.martjack.com/developerapi/81e77da2-723b-483d-8c0d-49f800c1exxx/Search
+<pre class="highlight html"><code>https://www.martjack.com/developerapi/Product/81e77da2-723b-483d-8c0d-49f800c1exxx/Search
 </code></pre>
 <blockquote>
 <p>Sample POST Request</p>
 </blockquote>
-<pre class="highlight json"><code><span class="w">
+<pre class="highlight json"><code><span class="err">InputFormat=application/json&amp;InputData=</span><span class="p">{</span><span class="w">
+  </span><span class="nt">"merchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9820eca5-d11f-4df1-9b20-983a45ea9631"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
 </span></code></pre>
 <blockquote>
 <p>Sample Response</p>
@@ -7255,7 +7388,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 </thead><tbody>
 <tr>
 <td>URI</td>
-<td><code class="prettyprint">Product/{MerchantId}/Search</code></td>
+<td><code class="prettyprint">/Product/{MerchantId}/Search</code></td>
 </tr>
 <tr>
 <td>Rate Limited?</td>
@@ -7298,14 +7431,14 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 </tr>
 </thead><tbody>
 <tr>
-<td>MerchantId*</td>
+<td>MerchantId</td>
 <td>string</td>
 <td>Unique GUID of the merchant</td>
 </tr>
 <tr>
 <td>keyword</td>
 <td>string</td>
-<td></td>
+<td>Search product by meta tag keyword</td>
 </tr>
 <tr>
 <td>SKU</td>
@@ -7334,13 +7467,13 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 </tr>
 <tr>
 <td>pageNumber</td>
-<td>string</td>
+<td>int</td>
 <td>Page number from which you want to fetch products on storefront</td>
 </tr>
 <tr>
 <td>pageSize</td>
-<td>string</td>
-<td></td>
+<td>int</td>
+<td>Number of results to be shown per page</td>
 </tr>
 </tbody></table>
 
@@ -7359,7 +7492,6 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 </blockquote>
 <pre class="highlight json"><code><span class="w">
 </span><span class="err">MerchantId=</span><span class="mi">0639</span><span class="err">f</span><span class="mi">7</span><span class="err">a</span><span class="mi">6-34</span><span class="err">cc</span><span class="mi">-48</span><span class="err">b</span><span class="mi">2-9</span><span class="err">fd</span><span class="mi">9</span><span class="err">-a</span><span class="mi">80</span><span class="err">e</span><span class="mi">2</span><span class="err">ed</span><span class="mi">8</span><span class="err">xxxx&amp;InputFormat=application/json&amp;InputData=</span><span class="p">{</span><span class="w">
-</span><span class="err">{</span><span class="w">
   </span><span class="nt">"ProductAttribute"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fruits0023"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"variantsku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fruits0023-1"</span><span class="p">,</span><span class="w">
@@ -7656,7 +7788,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <blockquote>
 <p>Sample Request</p>
 </blockquote>
-<pre class="highlight html"><code>https://www.martjack.com/developerapi//Product/ProductVarient/0639f7a6-34cc-48b2-9fd9-a80e2ed88dfe/27686
+<pre class="highlight html"><code>https://www.martjack.com/developerapi/Product/ProductVarient/0639f7a6-34cc-48b2-9fd9-a80e2ed88dfe/27686
 
 </code></pre>
 <blockquote>
@@ -7914,6 +8046,8 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <h3 id="response-parameters">Response Parameters</h3>
 
+<p>Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.</p>
+
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -7922,14 +8056,9 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 </tr>
 </thead><tbody>
 <tr>
-<td>merchantId*</td>
-<td>string</td>
-<td>Unique GUID of the merchant</td>
-</tr>
-<tr>
-<td>taskId*</td>
+<td>taskId</td>
 <td>int</td>
-<td></td>
+<td>Unique id generated for the task</td>
 </tr>
 </tbody></table>
 
@@ -8053,6 +8182,8 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <aside class="notice">All parameters marked by * are mandatory. </aside>
 
 <h3 id="response-parameters">Response Parameters</h3>
+
+<p>Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.</p>
 
 <table><thead>
 <tr>
@@ -12373,7 +12504,321 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 </tr>
 </tbody></table>
 
-<h2 id="edit-cart-items">Edit Cart Items</h2>
+<h2 id="location-add-to-cart">Location Add to Cart</h2>
+
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
+<pre class="highlight html"><code>http://www.martjack.com/developerapi/Carts/LocationCart/993c939a-a2e8-4934-bbf5-390f37457a55/13038134/9972544/1/24342/INR
+</code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+   </span><span class="nt">"messageCode"</span><span class="p">:</span><span class="s2">"1004"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"Message"</span><span class="p">:</span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"Carts"</span><span class="p">:{</span><span class="w">
+      </span><span class="nt">"MerchantId"</span><span class="p">:</span><span class="s2">"993c939a-a2e8-4934-bbf5-390f37457a55"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ProductCost"</span><span class="p">:</span><span class="mf">7660.0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ShippingCost"</span><span class="p">:</span><span class="mf">120.0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"VoucherDiscount"</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"PromotionDiscount"</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"TaxAmount"</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"OrderTotal"</span><span class="p">:</span><span class="mf">7780.0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"VoucherCode"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"UserSelectedCurrency"</span><span class="p">:</span><span class="s2">"INR"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Bill_FirstName"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Bill_LastName"</span><span class="p">:</span><span class="s2">"Test"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Bill_Address1"</span><span class="p">:</span><span class="s2">"AutoTestAddres1Bill"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Bill_Address2"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Bill_CountryCode"</span><span class="p">:</span><span class="s2">"IN"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"_Bill_StateCode"</span><span class="p">:</span><span class="s2">"KA"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Bill_City"</span><span class="p">:</span><span class="s2">"Bangalore"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Bill_CityCode"</span><span class="p">:</span><span class="s2">"32"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Bill_OtherCityName"</span><span class="p">:</span><span class="s2">"195"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Bill_Telephone"</span><span class="p">:</span><span class="s2">"040-33123456"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Bill_Mobile"</span><span class="p">:</span><span class="s2">"91-9898989898"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Bill_PostCode"</span><span class="p">:</span><span class="s2">"560029"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Bill_Email"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Ship_FirstName"</span><span class="p">:</span><span class="s2">"AutoTestNameBill2337g1"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Ship_LastName"</span><span class="p">:</span><span class="s2">"Test"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Ship_Address1"</span><span class="p">:</span><span class="s2">"AutoTestAddres1Bill"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Ship_Address2"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Ship_CountryCode"</span><span class="p">:</span><span class="s2">"IN"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Ship_StateCode"</span><span class="p">:</span><span class="s2">"KA"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Ship_City"</span><span class="p">:</span><span class="s2">"32"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Ship_CityCode"</span><span class="p">:</span><span class="s2">"32"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Ship_OtherCityName"</span><span class="p">:</span><span class="s2">"195"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Ship_Telephone"</span><span class="p">:</span><span class="s2">"040-33123456"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Ship_Mobile"</span><span class="p">:</span><span class="s2">"91-9898989898"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Ship_PostCode"</span><span class="p">:</span><span class="s2">"560029"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Ship_Email"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"CartItems"</span><span class="p">:[</span><span class="w">
+         </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"ProductId"</span><span class="p">:</span><span class="mi">13037156</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"VariantProductId"</span><span class="p">:</span><span class="mi">9970442</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"MRP"</span><span class="p">:</span><span class="mf">1500.0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"WebPrice"</span><span class="p">:</span><span class="mf">1200.0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Quantity"</span><span class="p">:</span><span class="mf">3.0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"description"</span><span class="p">:</span><span class="s2">"Format Shirt 01"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"SupplierId"</span><span class="p">:</span><span class="s2">"993c939a-a2e8-4934-bbf5-390f37457a55"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"CartReferenceKey"</span><span class="p">:</span><span class="s2">"c4f7081a-89b2-460a-a60a-b5f312a79c50"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"PriceCapped"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"IsFreeProduct"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"TotalCap"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"CappedRefKey"</span><span class="p">:</span><span class="s2">"00000000-0000-0000-0000-000000000000"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"CatalogpromotionDiscount"</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"BundleCartReferenceKey"</span><span class="p">:</span><span class="s2">"00000000-0000-0000-0000-000000000000"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ItemPromotionDiscountAmount"</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"IsPrimaryProduct"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"IsPromotionProduct"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"VariantsInfo"</span><span class="p">:[</span><span class="w">
+               </span><span class="p">{</span><span class="w">
+                  </span><span class="nt">"PropertyName"</span><span class="p">:</span><span class="s2">"Size"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"Value"</span><span class="p">:</span><span class="s2">"Medium"</span><span class="w">
+               </span><span class="p">}</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="nt">"Por"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"IsDefaultBundleItem"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ProductImage"</span><span class="p">:</span><span class="s2">"//images.sg.content-cdn.io/cdn//test-resources/993c939a-a2e8-4934-bbf5-390f37457a55/Images/ProductImages/Source/formalshirt.jpg;width=100;height=100;scale=canvas;anchor=bottomcenter"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"CartPromotionRules"</span><span class="p">:[</span><span class="w">
+
+            </span><span class="p">],</span><span class="w">
+            </span><span class="nt">"CategoryId"</span><span class="p">:</span><span class="s2">"CU00366338"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"CategoryName"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"BrandId"</span><span class="p">:</span><span class="s2">"All001"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"BrandName"</span><span class="p">:</span><span class="s2">"Allen Solly"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ParentCartItems"</span><span class="p">:</span><span class="kc">null</span><span class="w">
+         </span><span class="p">},</span><span class="w">
+         </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"ProductId"</span><span class="p">:</span><span class="mi">13038134</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"VariantProductId"</span><span class="p">:</span><span class="mi">9972546</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"MRP"</span><span class="p">:</span><span class="mf">1500.0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"WebPrice"</span><span class="p">:</span><span class="mf">1355.0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Quantity"</span><span class="p">:</span><span class="mf">2.0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"description"</span><span class="p">:</span><span class="s2">"TShirt Product 01"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"SupplierId"</span><span class="p">:</span><span class="s2">"993c939a-a2e8-4934-bbf5-390f37457a55"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"CartReferenceKey"</span><span class="p">:</span><span class="s2">"2a48bc32-bf8c-4097-9a85-0a728749dc57"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"PriceCapped"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"IsFreeProduct"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"TotalCap"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"CappedRefKey"</span><span class="p">:</span><span class="s2">"00000000-0000-0000-0000-000000000000"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"CatalogpromotionDiscount"</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"BundleCartReferenceKey"</span><span class="p">:</span><span class="s2">"00000000-0000-0000-0000-000000000000"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ItemPromotionDiscountAmount"</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"IsPrimaryProduct"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"IsPromotionProduct"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"VariantsInfo"</span><span class="p">:[</span><span class="w">
+               </span><span class="p">{</span><span class="w">
+                  </span><span class="nt">"PropertyName"</span><span class="p">:</span><span class="s2">"Size"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"Value"</span><span class="p">:</span><span class="s2">"Small"</span><span class="w">
+               </span><span class="p">}</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="nt">"Por"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"IsDefaultBundleItem"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ProductImage"</span><span class="p">:</span><span class="s2">"//images.sg.content-cdn.io/cdn//test-resources/993c939a-a2e8-4934-bbf5-390f37457a55/Images/ProductImages/Source/71FItmnzmdL._UL1500_.jpg;width=100;height=100;scale=canvas;anchor=bottomcenter"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"CartPromotionRules"</span><span class="p">:[</span><span class="w">
+
+            </span><span class="p">],</span><span class="w">
+            </span><span class="nt">"CategoryId"</span><span class="p">:</span><span class="s2">"CU00366336"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"CategoryName"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"BrandId"</span><span class="p">:</span><span class="s2">"Nik002"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"BrandName"</span><span class="p">:</span><span class="s2">"NIKE"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ParentCartItems"</span><span class="p">:</span><span class="kc">null</span><span class="w">
+         </span><span class="p">},</span><span class="w">
+         </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"ProductId"</span><span class="p">:</span><span class="mi">13038134</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"VariantProductId"</span><span class="p">:</span><span class="mi">9972544</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"MRP"</span><span class="p">:</span><span class="mf">1500.0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"WebPrice"</span><span class="p">:</span><span class="mf">1350.0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Quantity"</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"description"</span><span class="p">:</span><span class="s2">"TShirt Product 01"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"SupplierId"</span><span class="p">:</span><span class="s2">"993c939a-a2e8-4934-bbf5-390f37457a55"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"CartReferenceKey"</span><span class="p">:</span><span class="s2">"8dd9ce47-e35d-4f23-b37c-d8299ea7c95b"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"PriceCapped"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"IsFreeProduct"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"TotalCap"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"CappedRefKey"</span><span class="p">:</span><span class="s2">"00000000-0000-0000-0000-000000000000"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"CatalogpromotionDiscount"</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"BundleCartReferenceKey"</span><span class="p">:</span><span class="s2">"00000000-0000-0000-0000-000000000000"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ItemPromotionDiscountAmount"</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"IsPrimaryProduct"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"IsPromotionProduct"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"VariantsInfo"</span><span class="p">:[</span><span class="w">
+               </span><span class="p">{</span><span class="w">
+                  </span><span class="nt">"PropertyName"</span><span class="p">:</span><span class="s2">"Size"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"Value"</span><span class="p">:</span><span class="s2">"Medium"</span><span class="w">
+               </span><span class="p">}</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="nt">"Por"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"IsDefaultBundleItem"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ProductImage"</span><span class="p">:</span><span class="s2">"//images.sg.content-cdn.io/cdn//test-resources/993c939a-a2e8-4934-bbf5-390f37457a55/Images/ProductImages/Source/71FItmnzmdL._UL1500_.jpg;width=100;height=100;scale=canvas;anchor=bottomcenter"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"CartPromotionRules"</span><span class="p">:[</span><span class="w">
+
+            </span><span class="p">],</span><span class="w">
+            </span><span class="nt">"CategoryId"</span><span class="p">:</span><span class="s2">"CU00366336"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"CategoryName"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"BrandId"</span><span class="p">:</span><span class="s2">"Nik002"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"BrandName"</span><span class="p">:</span><span class="s2">"NIKE"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ParentCartItems"</span><span class="p">:</span><span class="kc">null</span><span class="w">
+         </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nt">"Suppliers"</span><span class="p">:[</span><span class="w">
+         </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"SupplierId"</span><span class="p">:</span><span class="s2">"993c939a-a2e8-4934-bbf5-390f37457a55"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"SupplierName"</span><span class="p">:</span><span class="s2">"testorg2"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"IsSelected"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"OrderStatus"</span><span class="p">:</span><span class="kc">null</span><span class="w">
+         </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nt">"ShippingOptions"</span><span class="p">:[</span><span class="w">
+         </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"SupplierId"</span><span class="p">:</span><span class="s2">"993c939a-a2e8-4934-bbf5-390f37457a55"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ShippingMode"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ShippingModeId"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"isselected"</span><span class="p">:</span><span class="kc">true</span><span class="w">
+         </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nt">"PaymentOptionsChannel"</span><span class="p">:[</span><span class="w">
+         </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"MerchantId"</span><span class="p">:</span><span class="s2">"993c939a-a2e8-4934-bbf5-390f37457a55"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"PaymentType"</span><span class="p">:</span><span class="s2">"COD"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Paymentoption"</span><span class="p">:</span><span class="s2">"COD"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"GatewayId"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"GatewayTitle"</span><span class="p">:</span><span class="s2">"COD"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"PaidAmount"</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"EnalbeOTP"</span><span class="p">:</span><span class="kc">false</span><span class="w">
+         </span><span class="p">},</span><span class="w">
+         </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"MerchantId"</span><span class="p">:</span><span class="s2">"993c939a-a2e8-4934-bbf5-390f37457a55"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"PaymentType"</span><span class="p">:</span><span class="s2">"ChequeDD"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Paymentoption"</span><span class="p">:</span><span class="s2">"ChequeDD"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"GatewayId"</span><span class="p">:</span><span class="s2">"10994"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"GatewayTitle"</span><span class="p">:</span><span class="s2">"ChequeDD"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"PaidAmount"</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"EnalbeOTP"</span><span class="p">:</span><span class="kc">false</span><span class="w">
+         </span><span class="p">},</span><span class="w">
+         </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"MerchantId"</span><span class="p">:</span><span class="s2">"993c939a-a2e8-4934-bbf5-390f37457a55"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"PaymentType"</span><span class="p">:</span><span class="s2">"OnlineBankTrans"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Paymentoption"</span><span class="p">:</span><span class="s2">"OnlineBankTransfer"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"GatewayId"</span><span class="p">:</span><span class="s2">"10996"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"GatewayTitle"</span><span class="p">:</span><span class="s2">"OnlineBankTrans"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"PaidAmount"</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"EnalbeOTP"</span><span class="p">:</span><span class="kc">false</span><span class="w">
+         </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nt">"ErrorCollection"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"GiftMsg"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"DemandedDeliveryDate"</span><span class="p">:</span><span class="s2">"1900-01-01T00:00:00Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"RemainTotal"</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ShippingZoneType"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"DeliverySlotID"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"FailedProducts"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"PickupLastName"</span><span class="p">:</span><span class="s2">"Test"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"PickupEmail"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"PickupMobile"</span><span class="p">:</span><span class="s2">"91-9898989898"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"LocationId"</span><span class="p">:</span><span class="s2">"24342"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"TaxDetail"</span><span class="p">:[</span><span class="w">
+
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nt">"ComboSuggestion"</span><span class="p">:[</span><span class="w">
+
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nt">"ConvertedDeals"</span><span class="p">:[</span><span class="w">
+
+      </span><span class="p">]</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="mi">0</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td><code class="prettyprint">/Carts/LocationCart/{merchantId}/{productId}/{varProductId}/{quantity}/{locationId}/{currency}</code></td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>No</td>
+</tr>
+</tbody></table>
+
+<ul>
+<li><strong>Rate limiter</strong> controls the number of incoming and outgoing traffic of a network</li>
+<li><strong>Authentication</strong> verifies the identity of the current user or integration. See Introduction &gt; Authentication (Merchant Setup on Admin Portal) for more details</li>
+</ul>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">https://{host}/developerapi/Carts/LocationCart/{merchantId}/{productId}/{varProductId}/{quantity}/{locationId}/{currency}</code></p>
+
+<h3 id="request-path-parameters">Request Path Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>merchantId*</td>
+<td>string</td>
+<td>Unique GUID of the merchant</td>
+</tr>
+<tr>
+<td>productId*</td>
+<td>int</td>
+<td>Unique id the parent product that you want to add to cart</td>
+</tr>
+<tr>
+<td>varProductId*</td>
+<td>string</td>
+<td>Unique variant id of the variant product</td>
+</tr>
+<tr>
+<td>quantity*</td>
+<td>int</td>
+<td>Quantity of items that you want to add</td>
+</tr>
+<tr>
+<td>locationId*</td>
+<td>int</td>
+<td>Location id of the  current store location</td>
+</tr>
+<tr>
+<td>currency*</td>
+<td>float</td>
+<td>Currency code as per the store location</td>
+</tr>
+</tbody></table>
+
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
+
+<h2 id="edit-cart-item">Edit Cart Item</h2>
 
 <p>Lets you modify a current cart item with a different variant, quantity and bundle item. </p>
 
@@ -12715,6 +13160,20 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <h3 id="request-url">Request URL</h3>
 
 <p><code class="prettyprint">https://{host}/developerapi/carts/edit/{merchantId}</code></p>
+
+<h3 id="additional-header-required">Additional Header Required</h3>
+
+<table><thead>
+<tr>
+<th>Header</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>accesstoken*</td>
+<td>Access token of the logged in user to validate the session</td>
+</tr>
+</tbody></table>
 
 <h3 id="request-body-parameters">Request Body Parameters</h3>
 
@@ -14611,6 +15070,20 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <p><code class="prettyprint">https://{host}/developerapi/Carts/clear/{MerchantId}</code></p>
 
+<h3 id="additional-header-required">Additional Header Required</h3>
+
+<table><thead>
+<tr>
+<th>Header</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>accesstoken*</td>
+<td>Access token of the logged in user to validate the session</td>
+</tr>
+</tbody></table>
+
 <h3 id="request-path-parameters">Request Path Parameters</h3>
 
 <table><thead>
@@ -14620,6 +15093,11 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <th>Description</th>
 </tr>
 </thead><tbody>
+<tr>
+<td>merchantId*</td>
+<td>string</td>
+<td>Unique GUID of the merchant</td>
+</tr>
 </tbody></table>
 
 <h2 id="add-order-attributes">Add Order Attributes</h2>
@@ -14722,6 +15200,20 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <h3 id="request-url">Request URL</h3>
 
 <p><code class="prettyprint">https://{host}/developerapi/carts/AddOrderAttributes/{merchantId}</code></p>
+
+<h3 id="additional-header-required">Additional Header Required</h3>
+
+<table><thead>
+<tr>
+<th>Header</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>accesstoken*</td>
+<td>Access token of the logged in user to validate the session</td>
+</tr>
+</tbody></table>
 
 <h3 id="request-path-parameters">Request Path Parameters</h3>
 
@@ -17309,15 +17801,17 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <pre class="highlight json"><code><span class="w">
 </span><span class="err">MerchantID=f</span><span class="mi">48</span><span class="err">fdd</span><span class="mi">16-92</span><span class="err">db</span><span class="mi">-4188-854</span><span class="err">d</span><span class="mi">-1</span><span class="err">ecd</span><span class="mi">9</span><span class="err">b</span><span class="mi">62</span><span class="err">d</span><span class="mi">066</span><span class="err">&amp;InputFormat=application/json&amp;InputData=</span><span class="w">
 </span><span class="p">{</span><span class="w">
-    </span><span class="err">[</span><span class="w">
-    </span><span class="err">{</span><span class="w">
+  </span><span class="nt">"products"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
       </span><span class="nt">"ProductId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"VariantProductId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"ProductSku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"61751356"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"Quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
     </span><span class="p">}</span><span class="w">
-    </span><span class="err">]</span><span class="w">
-</span><span class="err">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"Longitude"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"Latitude"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+</span><span class="p">}</span><span class="w">
 
 </span></code></pre>
 <blockquote>
@@ -17537,6 +18031,16 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <td>int</td>
 <td>Check by available quantity.</td>
 </tr>
+<tr>
+<td>Latitude</td>
+<td>float</td>
+<td>Get common store in the specific latitude and longitude</td>
+</tr>
+<tr>
+<td>Longitude</td>
+<td>float</td>
+<td>Get common store in the specific latitude and longitude</td>
+</tr>
 </tbody></table>
 
 <aside class="notice"> **Pass any one parameter - either ProductId or ProductSKU. </aside>
@@ -17672,498 +18176,6 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <td>UST Date when the cart is updated</td>
 </tr>
 </tbody></table>
-
-<h2 id="get-payment-types">Get Payment Types</h2>
-
-<p>Retrieves all the supported payment types based on the cart items of the current session.</p>
-
-<blockquote>
-<p>Sample Request</p>
-</blockquote>
-<pre class="highlight html"><code>https://www.martjack.com/developerapi/Carts/TPG/PaymentTypes/9820eca5-d11f-4df1-9b20-983a45ea9631
-
-</code></pre>
-<blockquote>
-<p>Sample Response</p>
-</blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"messageCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1004"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"PaymentOptionsChannel"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9820eca5-d11f-4df1-9b20-983a45ea9631"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"PaymentType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Credit"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"Paymentoption"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PAYU"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"GatewayId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11780"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"GatewayTitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PayU Credit Card"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"PaidAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"EnalbeOTP"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9820eca5-d11f-4df1-9b20-983a45ea9631"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"PaymentType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Credit"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"Paymentoption"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PaymentWallet"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"GatewayId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"13507"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"GatewayTitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dd"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"PaidAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"EnalbeOTP"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9820eca5-d11f-4df1-9b20-983a45ea9631"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"PaymentType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Credit"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"Paymentoption"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WORLDHOSTEDPAY"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"GatewayId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"13579"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"GatewayTitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WorldPayHosted"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"PaidAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"EnalbeOTP"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9820eca5-d11f-4df1-9b20-983a45ea9631"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"PaymentType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Credit"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"Paymentoption"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VOUCHAGRAM"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"GatewayId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"13687"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"GatewayTitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Gyftr"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"PaidAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"EnalbeOTP"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9820eca5-d11f-4df1-9b20-983a45ea9631"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"PaymentType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Credit"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"Paymentoption"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RAZORPAY"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"GatewayId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"13779"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"GatewayTitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RazorPay"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"PaidAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"EnalbeOTP"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">],</span><span class="w">
-  </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
-</span><span class="p">}</span><span class="w">
-
-</span></code></pre>
-<h3 id="resource-information">Resource Information</h3>
-
-<table><thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead><tbody>
-<tr>
-<td>URI</td>
-<td><code class="prettyprint">/Carts/TPG/PaymentTypes/{merchantId}</code></td>
-</tr>
-<tr>
-<td>Rate Limited?</td>
-<td>No</td>
-</tr>
-<tr>
-<td>Authentication</td>
-<td>Yes</td>
-</tr>
-<tr>
-<td>Response Formats</td>
-<td>JSON</td>
-</tr>
-<tr>
-<td>HTTP Methods</td>
-<td>GET</td>
-</tr>
-<tr>
-<td>Batch Support</td>
-<td>No</td>
-</tr>
-</tbody></table>
-
-<ul>
-<li><strong>Rate limiter</strong> controls the number of incoming and outgoing traffic of a network</li>
-<li><strong>Authentication</strong> verifies the identity of the current user or integration. See Introduction &gt; Authentication (Merchant Setup on Admin Portal) for more details</li>
-</ul>
-
-<h3 id="request-url">Request URL</h3>
-
-<p><code class="prettyprint">https://{host}/developerapi/Carts/TPG/PaymentTypes/{merchantId}</code></p>
-
-<h3 id="request-body-parameters">Request Body Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>merchantId*</td>
-<td>string</td>
-<td>Unique GUID of the merchant</td>
-</tr>
-<tr>
-<td>PaymentType</td>
-<td>string</td>
-<td>Type of payment</td>
-</tr>
-<tr>
-<td>Paymentoption</td>
-<td>string</td>
-<td></td>
-</tr>
-<tr>
-<td>GatewayId</td>
-<td>string</td>
-<td></td>
-</tr>
-<tr>
-<td>GatewayTitle</td>
-<td>string</td>
-<td>name of the payment gateway</td>
-</tr>
-<tr>
-<td>PaidAmount</td>
-<td>float</td>
-<td></td>
-</tr>
-<tr>
-<td>EnalbeOTP</td>
-<td>boolean</td>
-<td></td>
-</tr>
-<tr>
-<td>GatewayContent</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>LocationID</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>CurrencyCode</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>IsEnabled</td>
-<td></td>
-<td></td>
-</tr>
-</tbody></table>
-
-<aside class="notice"> All parameters marked by * are mandatory. </aside>
-
-<h2 id="location-add-to-cart">Location Add to Cart</h2>
-
-<blockquote>
-<p>Sample Request</p>
-</blockquote>
-<pre class="highlight json"><code><span class="err">http://www.martjack.com/developerapi/Carts/LocationCart/</span><span class="mi">993</span><span class="err">c</span><span class="mi">939</span><span class="err">a-a</span><span class="mi">2</span><span class="err">e</span><span class="mi">8-4934</span><span class="err">-bbf</span><span class="mi">5-390</span><span class="err">f</span><span class="mi">37457</span><span class="err">a</span><span class="mi">55</span><span class="err">/</span><span class="mi">13038134</span><span class="err">/</span><span class="mi">9972544</span><span class="err">/</span><span class="mi">1</span><span class="err">/</span><span class="mi">24342</span><span class="err">/INR</span><span class="w">
-</span></code></pre>
-<blockquote>
-<p>Sample Response</p>
-</blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-   </span><span class="nt">"messageCode"</span><span class="p">:</span><span class="s2">"1004"</span><span class="p">,</span><span class="w">
-   </span><span class="nt">"Message"</span><span class="p">:</span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
-   </span><span class="nt">"Carts"</span><span class="p">:{</span><span class="w">
-      </span><span class="nt">"MerchantId"</span><span class="p">:</span><span class="s2">"993c939a-a2e8-4934-bbf5-390f37457a55"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"ProductCost"</span><span class="p">:</span><span class="mf">7660.0</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"ShippingCost"</span><span class="p">:</span><span class="mf">120.0</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"VoucherDiscount"</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"PromotionDiscount"</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"TaxAmount"</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"OrderTotal"</span><span class="p">:</span><span class="mf">7780.0</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"VoucherCode"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"UserSelectedCurrency"</span><span class="p">:</span><span class="s2">"INR"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"Bill_FirstName"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"Bill_LastName"</span><span class="p">:</span><span class="s2">"Test"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"Bill_Address1"</span><span class="p">:</span><span class="s2">"AutoTestAddres1Bill"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"Bill_Address2"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"Bill_CountryCode"</span><span class="p">:</span><span class="s2">"IN"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"_Bill_StateCode"</span><span class="p">:</span><span class="s2">"KA"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"Bill_City"</span><span class="p">:</span><span class="s2">"Bangalore"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"Bill_CityCode"</span><span class="p">:</span><span class="s2">"32"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"Bill_OtherCityName"</span><span class="p">:</span><span class="s2">"195"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"Bill_Telephone"</span><span class="p">:</span><span class="s2">"040-33123456"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"Bill_Mobile"</span><span class="p">:</span><span class="s2">"91-9898989898"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"Bill_PostCode"</span><span class="p">:</span><span class="s2">"560029"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"Bill_Email"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"Ship_FirstName"</span><span class="p">:</span><span class="s2">"AutoTestNameBill2337g1"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"Ship_LastName"</span><span class="p">:</span><span class="s2">"Test"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"Ship_Address1"</span><span class="p">:</span><span class="s2">"AutoTestAddres1Bill"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"Ship_Address2"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"Ship_CountryCode"</span><span class="p">:</span><span class="s2">"IN"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"Ship_StateCode"</span><span class="p">:</span><span class="s2">"KA"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"Ship_City"</span><span class="p">:</span><span class="s2">"32"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"Ship_CityCode"</span><span class="p">:</span><span class="s2">"32"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"Ship_OtherCityName"</span><span class="p">:</span><span class="s2">"195"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"Ship_Telephone"</span><span class="p">:</span><span class="s2">"040-33123456"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"Ship_Mobile"</span><span class="p">:</span><span class="s2">"91-9898989898"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"Ship_PostCode"</span><span class="p">:</span><span class="s2">"560029"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"Ship_Email"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"CartItems"</span><span class="p">:[</span><span class="w">
-         </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"ProductId"</span><span class="p">:</span><span class="mi">13037156</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"VariantProductId"</span><span class="p">:</span><span class="mi">9970442</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"MRP"</span><span class="p">:</span><span class="mf">1500.0</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"WebPrice"</span><span class="p">:</span><span class="mf">1200.0</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"Quantity"</span><span class="p">:</span><span class="mf">3.0</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"description"</span><span class="p">:</span><span class="s2">"Format Shirt 01"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"SupplierId"</span><span class="p">:</span><span class="s2">"993c939a-a2e8-4934-bbf5-390f37457a55"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"CartReferenceKey"</span><span class="p">:</span><span class="s2">"c4f7081a-89b2-460a-a60a-b5f312a79c50"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"PriceCapped"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"IsFreeProduct"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"TotalCap"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"CappedRefKey"</span><span class="p">:</span><span class="s2">"00000000-0000-0000-0000-000000000000"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"CatalogpromotionDiscount"</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"BundleCartReferenceKey"</span><span class="p">:</span><span class="s2">"00000000-0000-0000-0000-000000000000"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"ItemPromotionDiscountAmount"</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"IsPrimaryProduct"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"IsPromotionProduct"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"VariantsInfo"</span><span class="p">:[</span><span class="w">
-               </span><span class="p">{</span><span class="w">
-                  </span><span class="nt">"PropertyName"</span><span class="p">:</span><span class="s2">"Size"</span><span class="p">,</span><span class="w">
-                  </span><span class="nt">"Value"</span><span class="p">:</span><span class="s2">"Medium"</span><span class="w">
-               </span><span class="p">}</span><span class="w">
-            </span><span class="p">],</span><span class="w">
-            </span><span class="nt">"Por"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"IsDefaultBundleItem"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"ProductImage"</span><span class="p">:</span><span class="s2">"//images.sg.content-cdn.io/cdn//test-resources/993c939a-a2e8-4934-bbf5-390f37457a55/Images/ProductImages/Source/formalshirt.jpg;width=100;height=100;scale=canvas;anchor=bottomcenter"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"CartPromotionRules"</span><span class="p">:[</span><span class="w">
-
-            </span><span class="p">],</span><span class="w">
-            </span><span class="nt">"CategoryId"</span><span class="p">:</span><span class="s2">"CU00366338"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"CategoryName"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"BrandId"</span><span class="p">:</span><span class="s2">"All001"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"BrandName"</span><span class="p">:</span><span class="s2">"Allen Solly"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"ParentCartItems"</span><span class="p">:</span><span class="kc">null</span><span class="w">
-         </span><span class="p">},</span><span class="w">
-         </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"ProductId"</span><span class="p">:</span><span class="mi">13038134</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"VariantProductId"</span><span class="p">:</span><span class="mi">9972546</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"MRP"</span><span class="p">:</span><span class="mf">1500.0</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"WebPrice"</span><span class="p">:</span><span class="mf">1355.0</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"Quantity"</span><span class="p">:</span><span class="mf">2.0</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"description"</span><span class="p">:</span><span class="s2">"TShirt Product 01"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"SupplierId"</span><span class="p">:</span><span class="s2">"993c939a-a2e8-4934-bbf5-390f37457a55"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"CartReferenceKey"</span><span class="p">:</span><span class="s2">"2a48bc32-bf8c-4097-9a85-0a728749dc57"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"PriceCapped"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"IsFreeProduct"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"TotalCap"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"CappedRefKey"</span><span class="p">:</span><span class="s2">"00000000-0000-0000-0000-000000000000"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"CatalogpromotionDiscount"</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"BundleCartReferenceKey"</span><span class="p">:</span><span class="s2">"00000000-0000-0000-0000-000000000000"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"ItemPromotionDiscountAmount"</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"IsPrimaryProduct"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"IsPromotionProduct"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"VariantsInfo"</span><span class="p">:[</span><span class="w">
-               </span><span class="p">{</span><span class="w">
-                  </span><span class="nt">"PropertyName"</span><span class="p">:</span><span class="s2">"Size"</span><span class="p">,</span><span class="w">
-                  </span><span class="nt">"Value"</span><span class="p">:</span><span class="s2">"Small"</span><span class="w">
-               </span><span class="p">}</span><span class="w">
-            </span><span class="p">],</span><span class="w">
-            </span><span class="nt">"Por"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"IsDefaultBundleItem"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"ProductImage"</span><span class="p">:</span><span class="s2">"//images.sg.content-cdn.io/cdn//test-resources/993c939a-a2e8-4934-bbf5-390f37457a55/Images/ProductImages/Source/71FItmnzmdL._UL1500_.jpg;width=100;height=100;scale=canvas;anchor=bottomcenter"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"CartPromotionRules"</span><span class="p">:[</span><span class="w">
-
-            </span><span class="p">],</span><span class="w">
-            </span><span class="nt">"CategoryId"</span><span class="p">:</span><span class="s2">"CU00366336"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"CategoryName"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"BrandId"</span><span class="p">:</span><span class="s2">"Nik002"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"BrandName"</span><span class="p">:</span><span class="s2">"NIKE"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"ParentCartItems"</span><span class="p">:</span><span class="kc">null</span><span class="w">
-         </span><span class="p">},</span><span class="w">
-         </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"ProductId"</span><span class="p">:</span><span class="mi">13038134</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"VariantProductId"</span><span class="p">:</span><span class="mi">9972544</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"MRP"</span><span class="p">:</span><span class="mf">1500.0</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"WebPrice"</span><span class="p">:</span><span class="mf">1350.0</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"Quantity"</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"description"</span><span class="p">:</span><span class="s2">"TShirt Product 01"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"SupplierId"</span><span class="p">:</span><span class="s2">"993c939a-a2e8-4934-bbf5-390f37457a55"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"CartReferenceKey"</span><span class="p">:</span><span class="s2">"8dd9ce47-e35d-4f23-b37c-d8299ea7c95b"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"PriceCapped"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"IsFreeProduct"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"TotalCap"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"CappedRefKey"</span><span class="p">:</span><span class="s2">"00000000-0000-0000-0000-000000000000"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"CatalogpromotionDiscount"</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"BundleCartReferenceKey"</span><span class="p">:</span><span class="s2">"00000000-0000-0000-0000-000000000000"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"ItemPromotionDiscountAmount"</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"IsPrimaryProduct"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"IsPromotionProduct"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"VariantsInfo"</span><span class="p">:[</span><span class="w">
-               </span><span class="p">{</span><span class="w">
-                  </span><span class="nt">"PropertyName"</span><span class="p">:</span><span class="s2">"Size"</span><span class="p">,</span><span class="w">
-                  </span><span class="nt">"Value"</span><span class="p">:</span><span class="s2">"Medium"</span><span class="w">
-               </span><span class="p">}</span><span class="w">
-            </span><span class="p">],</span><span class="w">
-            </span><span class="nt">"Por"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"IsDefaultBundleItem"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"ProductImage"</span><span class="p">:</span><span class="s2">"//images.sg.content-cdn.io/cdn//test-resources/993c939a-a2e8-4934-bbf5-390f37457a55/Images/ProductImages/Source/71FItmnzmdL._UL1500_.jpg;width=100;height=100;scale=canvas;anchor=bottomcenter"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"CartPromotionRules"</span><span class="p">:[</span><span class="w">
-
-            </span><span class="p">],</span><span class="w">
-            </span><span class="nt">"CategoryId"</span><span class="p">:</span><span class="s2">"CU00366336"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"CategoryName"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"BrandId"</span><span class="p">:</span><span class="s2">"Nik002"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"BrandName"</span><span class="p">:</span><span class="s2">"NIKE"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"ParentCartItems"</span><span class="p">:</span><span class="kc">null</span><span class="w">
-         </span><span class="p">}</span><span class="w">
-      </span><span class="p">],</span><span class="w">
-      </span><span class="nt">"Suppliers"</span><span class="p">:[</span><span class="w">
-         </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"SupplierId"</span><span class="p">:</span><span class="s2">"993c939a-a2e8-4934-bbf5-390f37457a55"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"SupplierName"</span><span class="p">:</span><span class="s2">"testorg2"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"IsSelected"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"OrderStatus"</span><span class="p">:</span><span class="kc">null</span><span class="w">
-         </span><span class="p">}</span><span class="w">
-      </span><span class="p">],</span><span class="w">
-      </span><span class="nt">"ShippingOptions"</span><span class="p">:[</span><span class="w">
-         </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"SupplierId"</span><span class="p">:</span><span class="s2">"993c939a-a2e8-4934-bbf5-390f37457a55"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"ShippingMode"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"ShippingModeId"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"isselected"</span><span class="p">:</span><span class="kc">true</span><span class="w">
-         </span><span class="p">}</span><span class="w">
-      </span><span class="p">],</span><span class="w">
-      </span><span class="nt">"PaymentOptionsChannel"</span><span class="p">:[</span><span class="w">
-         </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"MerchantId"</span><span class="p">:</span><span class="s2">"993c939a-a2e8-4934-bbf5-390f37457a55"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"PaymentType"</span><span class="p">:</span><span class="s2">"COD"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"Paymentoption"</span><span class="p">:</span><span class="s2">"COD"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"GatewayId"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"GatewayTitle"</span><span class="p">:</span><span class="s2">"COD"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"PaidAmount"</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"EnalbeOTP"</span><span class="p">:</span><span class="kc">false</span><span class="w">
-         </span><span class="p">},</span><span class="w">
-         </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"MerchantId"</span><span class="p">:</span><span class="s2">"993c939a-a2e8-4934-bbf5-390f37457a55"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"PaymentType"</span><span class="p">:</span><span class="s2">"ChequeDD"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"Paymentoption"</span><span class="p">:</span><span class="s2">"ChequeDD"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"GatewayId"</span><span class="p">:</span><span class="s2">"10994"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"GatewayTitle"</span><span class="p">:</span><span class="s2">"ChequeDD"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"PaidAmount"</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"EnalbeOTP"</span><span class="p">:</span><span class="kc">false</span><span class="w">
-         </span><span class="p">},</span><span class="w">
-         </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"MerchantId"</span><span class="p">:</span><span class="s2">"993c939a-a2e8-4934-bbf5-390f37457a55"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"PaymentType"</span><span class="p">:</span><span class="s2">"OnlineBankTrans"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"Paymentoption"</span><span class="p">:</span><span class="s2">"OnlineBankTransfer"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"GatewayId"</span><span class="p">:</span><span class="s2">"10996"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"GatewayTitle"</span><span class="p">:</span><span class="s2">"OnlineBankTrans"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"PaidAmount"</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"EnalbeOTP"</span><span class="p">:</span><span class="kc">false</span><span class="w">
-         </span><span class="p">}</span><span class="w">
-      </span><span class="p">],</span><span class="w">
-      </span><span class="nt">"ErrorCollection"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"GiftMsg"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"DemandedDeliveryDate"</span><span class="p">:</span><span class="s2">"1900-01-01T00:00:00Z"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"RemainTotal"</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"ShippingZoneType"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"DeliverySlotID"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"FailedProducts"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"PickupLastName"</span><span class="p">:</span><span class="s2">"Test"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"PickupEmail"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"PickupMobile"</span><span class="p">:</span><span class="s2">"91-9898989898"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"LocationId"</span><span class="p">:</span><span class="s2">"24342"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"TaxDetail"</span><span class="p">:[</span><span class="w">
-
-      </span><span class="p">],</span><span class="w">
-      </span><span class="nt">"ComboSuggestion"</span><span class="p">:[</span><span class="w">
-
-      </span><span class="p">],</span><span class="w">
-      </span><span class="nt">"ConvertedDeals"</span><span class="p">:[</span><span class="w">
-
-      </span><span class="p">]</span><span class="w">
-   </span><span class="p">},</span><span class="w">
-   </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="mi">0</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<h3 id="resource-information">Resource Information</h3>
-
-<table><thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead><tbody>
-<tr>
-<td>URI</td>
-<td><code class="prettyprint">/Carts/LocationCart/{merchantId}/{productId}/{varProductId}/{quantity}/{locationId}/{currency}</code></td>
-</tr>
-<tr>
-<td>Rate Limited?</td>
-<td>No</td>
-</tr>
-<tr>
-<td>Authentication</td>
-<td>Yes</td>
-</tr>
-<tr>
-<td>Response Formats</td>
-<td>JSON</td>
-</tr>
-<tr>
-<td>HTTP Methods</td>
-<td>GET</td>
-</tr>
-<tr>
-<td>Batch Support</td>
-<td>No</td>
-</tr>
-</tbody></table>
-
-<ul>
-<li><strong>Rate limiter</strong> controls the number of incoming and outgoing traffic of a network</li>
-<li><strong>Authentication</strong> verifies the identity of the current user or integration. See Introduction &gt; Authentication (Merchant Setup on Admin Portal) for more details</li>
-</ul>
-
-<h3 id="request-url">Request URL</h3>
-
-<p><code class="prettyprint">https://{host}/developerapi//Carts/LocationCart/{merchantId}/{productId}/{varProductId}/{quantity}/{locationId}/{currency}</code></p>
-
-<h3 id="request-path-parameters">Request Path Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>merchantId*</td>
-<td>string</td>
-<td>Unique GUID of the merchant</td>
-</tr>
-<tr>
-<td>productId*</td>
-<td>int</td>
-<td></td>
-</tr>
-<tr>
-<td>varProductId*</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>quantity*</td>
-<td>int</td>
-<td></td>
-</tr>
-<tr>
-<td>locationId*</td>
-<td>int</td>
-<td></td>
-</tr>
-<tr>
-<td>currency*</td>
-<td>float</td>
-<td></td>
-</tr>
-</tbody></table>
-
-<aside class="notice"> All parameters marked by * are mandatory. </aside>
 
           <h1 id="pricelist">Pricelist</h1>
 
@@ -18738,7 +18750,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <blockquote>
 <p>Sample Request</p>
 </blockquote>
-<pre class="highlight html"><code>https://www.martjack.com/developerapi/ShoppingList/add/81e77da2-723b-483d-8c0d-49f800c1exxx/f4473f55-b6b0-4a4c-8ffa-fc1010abxxxx/43700/true
+<pre class="highlight html"><code>https://www.martjack.com/developerapi/ShoppingList/81e77da2-723b-483d-8c0d-49f800c1exxx/f4473f55-b6b0-4a4c-8ffa-fc1010abxxxx/43700/true
 </code></pre>
 <blockquote>
 <p>Sample Response</p>
@@ -19048,7 +19060,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 </thead><tbody>
 <tr>
 <td>URI</td>
-<td><code class="prettyprint">ShoppingList/items/{{MerchantId}}/UserId/{shopping list id}</code></td>
+<td><code class="prettyprint">/ShoppingList/Items/{merchantId}/{shoppingListId}/{userId}</code></td>
 </tr>
 <tr>
 <td>Rate Limited?</td>
@@ -19079,7 +19091,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/ShoppingList/items/{{MerchantId}}/{shoppinglistId}/{UserId}</code></p>
+<p><code class="prettyprint">https://{host}/developerapi/ShoppingList/Items/{merchantId}/{shoppingListId}/{userId}</code></p>
 
 <h3 id="request-parameters">Request Parameters</h3>
 
