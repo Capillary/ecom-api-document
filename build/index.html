@@ -5803,7 +5803,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <blockquote>
 <p>Sample Request</p>
 </blockquote>
-<pre class="highlight html"><code>https://www.martjack.com/developerapi/Product/Price/MerchantId=f48fdd16-92db-4188-854d-1ecd9b62e234/PZLG-WM
+<pre class="highlight html"><code>https://www.martjack.com/developerapi/Product/Price/f48fdd16-92db-4188-854d-1ecd9b62e234
 </code></pre>
 <blockquote>
 <p>Sample POST Request</p>
@@ -6200,7 +6200,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 </thead><tbody>
 <tr>
 <td>URI</td>
-<td><code class="prettyprint">/Product/AttachImages/{{MerchantId}}</code></td>
+<td><code class="prettyprint">/Product/AttachImages/{MerchantId}</code></td>
 </tr>
 <tr>
 <td>Rate Limited?</td>
@@ -6231,7 +6231,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Product/AttachImages/{{MerchantId}}</code></p>
+<p><code class="prettyprint">https://{host}/developerapi/Product/AttachImages/{MerchantId}</code></p>
 
 <h3 id="additional-header-required">Additional Header Required</h3>
 
@@ -18684,7 +18684,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 </thead><tbody>
 <tr>
 <td>URI</td>
-<td><code class="prettyprint">ShoppingList/add/{{MerchantId}}</code></td>
+<td><code class="prettyprint">ShoppingList/add/{MerchantId}</code></td>
 </tr>
 <tr>
 <td>Rate Limited?</td>
@@ -18715,30 +18715,35 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/ShoppingList/add/{{MerchantId}}</code></p>
+<p><code class="prettyprint">https://{host}/developerapi/ShoppingList/add/{MerchantId}</code></p>
 
 <h3 id="request-parameters">Request Parameters</h3>
 
 <table><thead>
 <tr>
 <th>Parameter</th>
+<th>Type</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>UserId*</td>
+<td>string</td>
 <td>The unique user identifier of the customer whose wish list details need to be added</td>
 </tr>
 <tr>
 <td>ShoppingListName*</td>
+<td>string</td>
 <td>Specify a name for the current wish list</td>
 </tr>
 <tr>
 <td>privacyLevel</td>
+<td>string</td>
 <td>Specify whether to make the wish list public to make it to everyone or private to make it visible only for you (Value: <code class="prettyprint">Pr</code>, <code class="prettyprint">Pu</code>). Default value: <code class="prettyprint">Pr</code></td>
 </tr>
 <tr>
 <td>refCode</td>
+<td>string</td>
 <td>Specify a reference code for your wish list. It is a free flowing text and accepts any string that you pass</td>
 </tr>
 </tbody></table>
@@ -18803,7 +18808,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 </thead><tbody>
 <tr>
 <td>URI</td>
-<td><code class="prettyprint">ShoppingList/{{MerchantId}}/UserId/{shopping list id}/true</code></td>
+<td><code class="prettyprint">ShoppingList/{MerchantId}/{UserId}/{shoppingListId}/{GetDefaultWishlist}</code></td>
 </tr>
 <tr>
 <td>Rate Limited?</td>
@@ -18834,31 +18839,36 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/ShoppingList/add/{{MerchantId}}/{UserId}/{shoppinglistId}/{get default wish list - true/false}</code></p>
+<p><code class="prettyprint">https://{host}/developerapi/ShoppingList/{MerchantId}/{UserId}/{shoppinglistId}/{GetDefaultWishlist}</code></p>
 
 <h3 id="request-parameters">Request Parameters</h3>
 
 <table><thead>
 <tr>
 <th>Parameter</th>
+<th>Type</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>MerchantId*</td>
+<td>string</td>
 <td>The unique id (GUID) of the merchant account from which you want to fetch customer&rsquo;s wish list</td>
 </tr>
 <tr>
 <td>UserId*</td>
+<td>string</td>
 <td>The unique user identifier of the customer whose details need to be retrieved</td>
 </tr>
 <tr>
 <td>shoppinglistId</td>
+<td>string</td>
 <td>The shopping list id that you want to fetch</td>
 </tr>
 <tr>
 <td>GetDefaultWishlist</td>
-<td>Specify <code class="prettyprint">true</code> to retrieve even the default wish list along with customer&rsquo;s (merchant level), <code class="prettyprint">false</code> to retrieve only the customer&rsquo;s wish list</td>
+<td>boolean</td>
+<td>Specify <code class="prettyprint">true</code> to retrieve default wish list, <code class="prettyprint">false</code> to retrieve only the customer&rsquo;s wish list and not default wish list</td>
 </tr>
 </tbody></table>
 
@@ -18948,7 +18958,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 </thead><tbody>
 <tr>
 <td>URI</td>
-<td><code class="prettyprint">ShoppingList/items/add/{{MerchantId}}</code></td>
+<td><code class="prettyprint">ShoppingList/items/add/{MerchantId}</code></td>
 </tr>
 <tr>
 <td>Rate Limited?</td>
@@ -18979,42 +18989,50 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/ShoppingList/items/add/{{MerchantId}}</code></p>
+<p><code class="prettyprint">https://{host}/developerapi/ShoppingList/items/add/{MerchantId}</code></p>
 
 <h3 id="request-body-parameters">Request Body Parameters</h3>
 
 <table><thead>
 <tr>
 <th>Parameter</th>
+<th>Type</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>UserId*</td>
+<td>string</td>
 <td>The unique user identifier of the customer whose wish list details need to be added</td>
 </tr>
 <tr>
 <td>merchantId*</td>
+<td>string</td>
 <td>The unique id (GUID) of the merchant account in which the customer&rsquo;s wish list is created</td>
 </tr>
 <tr>
 <td>ShoppingListId*</td>
+<td>int</td>
 <td>Specify a name for the current wish list</td>
 </tr>
 <tr>
 <td>ProductId</td>
+<td>int</td>
 <td>The unique product id that you want to add to the wish list</td>
 </tr>
 <tr>
 <td>VarProductId</td>
+<td>int</td>
 <td>The unique variant product id (if applicable)</td>
 </tr>
 <tr>
 <td>Quantity</td>
+<td>int</td>
 <td>The quantity of the item that you want to add to the wish list</td>
 </tr>
 <tr>
 <td>IsSelected</td>
+<td>boolean</td>
 <td>Value: true/false</td>
 </tr>
 </tbody></table>
@@ -19098,19 +19116,23 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <table><thead>
 <tr>
 <th>Parameter</th>
+<th>Type</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>MerchantId*</td>
+<td>string</td>
 <td>The unique id (GUID) of the merchant account from which you want to fetch customer&rsquo;s wish list</td>
 </tr>
 <tr>
 <td>UserId*</td>
+<td>string</td>
 <td>The unique user identifier of the customer whose shopping list items need to be retrieved</td>
 </tr>
 <tr>
 <td>shoppinglistId</td>
+<td>int</td>
 <td>The shopping list id that you want to fetch</td>
 </tr>
 </tbody></table>
@@ -29676,7 +29698,7 @@ OperatorId | string | Unique id of the store operator who want to update the sta
 </thead><tbody>
 <tr>
 <td>URI</td>
-<td><code class="prettyprint">/Store/Countries/{{MerchantId}}</code></td>
+<td><code class="prettyprint">/Store/Countries/{MerchantId}</code></td>
 </tr>
 <tr>
 <td>Rate Limited?</td>
@@ -29707,7 +29729,7 @@ OperatorId | string | Unique id of the store operator who want to update the sta
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Store/Countries/{{MerchantId}}</code></p>
+<p><code class="prettyprint">https://{host}/developerapi/Store/Countries/{MerchantId}</code></p>
 
 <h3 id="request-parameter">Request Parameter</h3>
 
@@ -29970,7 +29992,7 @@ OperatorId | string | Unique id of the store operator who want to update the sta
 </thead><tbody>
 <tr>
 <td>URI</td>
-<td><code class="prettyprint">/Store/Cities/{{MerchantId}}/{{StateCode}}</code></td>
+<td><code class="prettyprint">/Store/Cities/{MerchantId}/{StateCode}</code></td>
 </tr>
 <tr>
 <td>Rate Limited?</td>
@@ -31215,7 +31237,7 @@ OperatorId | string | Unique id of the store operator who want to update the sta
 </thead><tbody>
 <tr>
 <td>URI</td>
-<td><code class="prettyprint">/Location/Information/{{MerchantId}}/GetCities</code></td>
+<td><code class="prettyprint">/Location/{MerchantId}/GetCities</code></td>
 </tr>
 <tr>
 <td>Rate Limited?</td>
@@ -31246,7 +31268,7 @@ OperatorId | string | Unique id of the store operator who want to update the sta
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Location/Information/{{MerchantId}}/GetCities</code></p>
+<p><code class="prettyprint">https://{host}/developerapi/Location/{MerchantId}/GetCities</code></p>
 
 <h3 id="request-path-parameters">Request Path Parameters</h3>
 
@@ -31913,7 +31935,7 @@ OperatorId | string | Unique id of the store operator who want to update the sta
 <blockquote>
 <p>Sample Request</p>
 </blockquote>
-<pre class="highlight html"><code>https://www.martjack.com/developerapi/Location/Information/f48fdd16-92db-4188-854d-1ecd9b62e234/110/ALL
+<pre class="highlight html"><code>https://www.martjack.com/developerapi/Location/UpdateLocationETA/f48fdd16-92db-4188-854d-1ecd9b62e234/ALL
 </code></pre>
 <blockquote>
 <p>Sample POST Request</p>
@@ -31964,7 +31986,7 @@ OperatorId | string | Unique id of the store operator who want to update the sta
 </thead><tbody>
 <tr>
 <td>URI</td>
-<td><code class="prettyprint">/Location/UpdateLocationETA/{merchantId}/{OrderDeliveryType}/{merchantId}</code></td>
+<td><code class="prettyprint">/Location/UpdateLocationETA/{merchantId}/{OrderDeliveryType}</code></td>
 </tr>
 <tr>
 <td>Rate Limited?</td>
@@ -32121,7 +32143,7 @@ OperatorId | string | Unique id of the store operator who want to update the sta
 </thead><tbody>
 <tr>
 <td>URI</td>
-<td><code class="prettyprint">/Location/UpdateLocationETA/{merchantId}/{LocationCode}/{OrderDeliveryType}</code></td>
+<td><code class="prettyprint">/Location/Information/{merchantId}/{LocationCode}/{OrderDeliveryType}</code></td>
 </tr>
 <tr>
 <td>Rate Limited?</td>
@@ -32152,7 +32174,7 @@ OperatorId | string | Unique id of the store operator who want to update the sta
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Location/UpdateLocationETA/{merchantId}/{LocationCode}/{OrderDeliveryType}</code></p>
+<p><code class="prettyprint">https://{host}/developerapi/Location/Information/{merchantId}/{LocationCode}/{OrderDeliveryType}</code></p>
 
 <h3 id="request-query-parameters">Request Query Parameters</h3>
 
@@ -32212,7 +32234,7 @@ OperatorId | string | Unique id of the store operator who want to update the sta
 <p>Merchant users can use the resource to access their Blob server and merchant details.</p>
 
 <h2 id="get-signed-url">Get Signed URL</h2>
-<pre class="highlight html"><code>https://www.martjack.com/developerapi/Merchant/GetSignedUrl/{{MerchantId}}
+<pre class="highlight html"><code>https://www.martjack.com/developerapi/Merchant/GetSignedUrl/{MerchantId}
 </code></pre>
 <blockquote>
 <p>Sample Response</p>
@@ -32237,7 +32259,7 @@ OperatorId | string | Unique id of the store operator who want to update the sta
 </thead><tbody>
 <tr>
 <td>URI</td>
-<td><code class="prettyprint">Merchant/GetSignedUrl/{{MerchantId}}</code></td>
+<td><code class="prettyprint">Merchant/GetSignedUrl/{MerchantId}</code></td>
 </tr>
 <tr>
 <td>Rate Limited?</td>
@@ -32268,7 +32290,7 @@ OperatorId | string | Unique id of the store operator who want to update the sta
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Merchant/GetSignedUrl/{{MerchantId}}</code></p>
+<p><code class="prettyprint">https://{host}/developerapi/Merchant/GetSignedUrl/{MerchantId}</code></p>
 
           <h1 id="category">Category</h1>
 

@@ -964,7 +964,7 @@ https://www.martjack.com/developerapi/Product/AttachImages/f48fdd16-92db-4188-85
 ### Resource Information
 | | |
 --------- | ----------- |
-URI | `/Product/AttachImages/{{MerchantId}}`
+URI | `/Product/AttachImages/{MerchantId}`
 Rate Limited? | No
 Authentication | Yes
 Response Formats | JSON
@@ -975,7 +975,7 @@ Batch Support | Yes
 * **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
 
 ### Request URL
-`https://{host}/developerapi/Product/AttachImages/{{MerchantId}}`
+`https://{host}/developerapi/Product/AttachImages/{MerchantId}`
 
 
 ### Additional Header Required

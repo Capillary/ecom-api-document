@@ -6,7 +6,7 @@ Merchant users can use the resource to access their Blob server and merchant det
 
 ## Get Signed URL
 ```html
-https://www.martjack.com/developerapi/Merchant/GetSignedUrl/{{MerchantId}}
+https://www.martjack.com/developerapi/Merchant/GetSignedUrl/{MerchantId}
 ```
 
 > Sample Response
@@ -26,7 +26,7 @@ Provides authentication to the Merchant to access the Blob server.
 ### Resource Information
 | | |
 --------- | ----------- |
-URI | `Merchant/GetSignedUrl/{{MerchantId}}`
+URI | `Merchant/GetSignedUrl/{MerchantId}`
 Rate Limited? | No
 Authentication | Yes
 Response Formats | JSON
@@ -38,7 +38,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Merchant/GetSignedUrl/{{MerchantId}}`
+`https://{host}/developerapi/Merchant/GetSignedUrl/{MerchantId}`
 
 
 

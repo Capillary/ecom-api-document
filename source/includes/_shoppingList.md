@@ -39,7 +39,7 @@ Creates a shopping list for a specific customer. This just creates a shopping li
 ### Resource Information
 |  |  |
 --------- | ----------- |
-URI | `ShoppingList/add/{{MerchantId}}`
+URI | `ShoppingList/add/{MerchantId}`
 Rate Limited? | No
 Authentication | Yes
 Response Formats | JSON
@@ -51,7 +51,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/ShoppingList/add/{{MerchantId}}`
+`https://{host}/developerapi/ShoppingList/add/{MerchantId}`
 
 ### Request Parameters
 Parameter | Type | Description
