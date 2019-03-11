@@ -932,7 +932,7 @@ Retrieves all the configured delivery cities of the merchant with details such a
 ### Resource Information
 | | |
 --------- | ----------- |
-URI | `/Location/Information/{{MerchantId}}/GetCities`
+URI | `/Location/{MerchantId}/GetCities`
 Rate Limited? | No
 Authentication | Yes
 Response Formats | JSON
@@ -944,7 +944,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Location/Information/{{MerchantId}}/GetCities`
+`https://{host}/developerapi/Location/{MerchantId}/GetCities`
 
 ### Request Path Parameters
 Parameter | Type | Description
@@ -1463,7 +1463,7 @@ MerchantId* | string | The unique id (GUID) of the merchant
 > Sample Request
 
 ```html
-https://www.martjack.com/developerapi/Location/Information/f48fdd16-92db-4188-854d-1ecd9b62e234/110/ALL
+https://www.martjack.com/developerapi/Location/UpdateLocationETA/f48fdd16-92db-4188-854d-1ecd9b62e234/ALL
 ```
 
 > Sample POST Request
@@ -1513,7 +1513,7 @@ Lets you add or update order ETA (Estimated Time of Arrival) for a location incl
 
 | | |
 --------- | ----------- |
-URI | `/Location/UpdateLocationETA/{merchantId}/{OrderDeliveryType}/{merchantId}`
+URI | `/Location/UpdateLocationETA/{merchantId}/{OrderDeliveryType}`
 Rate Limited? | No
 Authentication | Yes
 Response Formats | JSON
@@ -1598,7 +1598,7 @@ Retrieves Estimated Time of Arrival (ETA) of an order for a specific location an
 
 | | |
 --------- | ----------- |
-URI | `/Location/UpdateLocationETA/{merchantId}/{LocationCode}/{OrderDeliveryType}`
+URI | `/Location/Information/{merchantId}/{LocationCode}/{OrderDeliveryType}`
 Rate Limited? | No
 Authentication | Yes
 Response Formats | JSON
@@ -1610,7 +1610,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Location/UpdateLocationETA/{merchantId}/{LocationCode}/{OrderDeliveryType}`
+`https://{host}/developerapi/Location/Information/{merchantId}/{LocationCode}/{OrderDeliveryType}`
 
 ### Request Query Parameters
 

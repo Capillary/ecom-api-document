@@ -54,12 +54,12 @@ Batch Support | No
 `https://{host}/developerapi/ShoppingList/add/{{MerchantId}}`
 
 ### Request Parameters
-Parameter | Description
---------- | -----------
-UserId* | The unique user identifier of the customer whose wish list details need to be added
-ShoppingListName* | Specify a name for the current wish list
-privacyLevel | Specify whether to make the wish list public to make it to everyone or private to make it visible only for you (Value: `Pr`, `Pu`). Default value: `Pr`
-refCode | Specify a reference code for your wish list. It is a free flowing text and accepts any string that you pass
+Parameter | Type | Description
+--------- | ---- | -----------
+UserId* | string | The unique user identifier of the customer whose wish list details need to be added
+ShoppingListName* | string | Specify a name for the current wish list
+privacyLevel | string | Specify whether to make the wish list public to make it to everyone or private to make it visible only for you (Value: `Pr`, `Pu`). Default value: `Pr`
+refCode | string | Specify a reference code for your wish list. It is a free flowing text and accepts any string that you pass
 
 <aside class="notice"> All parameters marked by * are mandatory.</aside>
 
@@ -121,7 +121,7 @@ Retrieves the details of a specific wish list of a customer.
 ### Resource Information
 |  |  |
 --------- | ----------- |
-URI | `ShoppingList/{{MerchantId}}/UserId/{shopping list id}/true`
+URI | `ShoppingList/{MerchantId}/{UserId}/{shoppingListId}/{GetDefaultWishlist}`
 Rate Limited? | No
 Authentication | Yes
 Response Formats | JSON
@@ -133,16 +133,16 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/ShoppingList/add/{{MerchantId}}/{UserId}/{shoppinglistId}/{get default wish list - true/false}`
+`https://{host}/developerapi/ShoppingList/{MerchantId}/{UserId}/{shoppinglistId}/{GetDefaultWishlist}`
 
 
 ### Request Parameters
-Parameter | Description
---------- | -----------
-MerchantId* | The unique id (GUID) of the merchant account from which you want to fetch customer's wish list 
-UserId* | The unique user identifier of the customer whose details need to be retrieved
-shoppinglistId | The shopping list id that you want to fetch
-GetDefaultWishlist | Specify `true` to retrieve even the default wish list along with customer's (merchant level), `false` to retrieve only the customer's wish list
+Parameter | Type | Description
+--------- | ---- | ------------
+MerchantId* | string | The unique id (GUID) of the merchant account from which you want to fetch customer's wish list 
+UserId* | string | The unique user identifier of the customer whose details need to be retrieved
+shoppinglistId | string | The shopping list id that you want to fetch
+GetDefaultWishlist | boolean | Specify `true` to retrieve default wish list, `false` to retrieve only the customer's wish list and not default wish list
 
 <aside class="notice"> All parameters marked by * are mandatory.</aside>
 
@@ -207,7 +207,7 @@ Adds items to an existing wish list of a customer
 ### Resource Information
 |  |  |
 --------- | ----------- |
-URI | `ShoppingList/items/add/{{MerchantId}}`
+URI | `ShoppingList/items/add/{MerchantId}`
 Rate Limited? | No
 Authentication | Yes
 Response Formats | JSON
@@ -220,19 +220,19 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/ShoppingList/items/add/{{MerchantId}}`
+`https://{host}/developerapi/ShoppingList/items/add/{MerchantId}`
 
 ### Request Body Parameters
 
-Parameter | Description
---------- | -----------
-UserId* | The unique user identifier of the customer whose wish list details need to be added
-merchantId* | The unique id (GUID) of the merchant account in which the customer's wish list is created
-ShoppingListId* | Specify a name for the current wish list
-ProductId | The unique product id that you want to add to the wish list
-VarProductId | The unique variant product id (if applicable) 
-Quantity | The quantity of the item that you want to add to the wish list
-IsSelected | Value: true/false
+Parameter | Type | Description
+--------- | ---- | -----------
+UserId* | string | The unique user identifier of the customer whose wish list details need to be added
+merchantId* | string | The unique id (GUID) of the merchant account in which the customer's wish list is created
+ShoppingListId* | int | Specify a name for the current wish list
+ProductId | int | The unique product id that you want to add to the wish list
+VarProductId | int | The unique variant product id (if applicable) 
+Quantity | int | The quantity of the item that you want to add to the wish list
+IsSelected | boolean | Value: true/false
 
 <aside class="notice"> All parameters marked by * are mandatory.</aside>
 
@@ -291,11 +291,11 @@ Batch Support | No
 
 
 ### Request Parameters
-Parameter | Description
---------- | -----------
-MerchantId* | The unique id (GUID) of the merchant account from which you want to fetch customer's wish list 
-UserId* | The unique user identifier of the customer whose shopping list items need to be retrieved
-shoppinglistId | The shopping list id that you want to fetch
+Parameter | Type | Description
+--------- | ---- | -----------
+MerchantId* | string | The unique id (GUID) of the merchant account from which you want to fetch customer's wish list 
+UserId* | string | The unique user identifier of the customer whose shopping list items need to be retrieved
+shoppinglistId | int | The shopping list id that you want to fetch
 
 <aside class="notice"> All parameters marked by * are mandatory.</aside>
 

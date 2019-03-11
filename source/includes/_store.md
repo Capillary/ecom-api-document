@@ -289,7 +289,7 @@ Retrieves all the countries (with country code and phone code) supported for a s
 ### Resource Information
 |  |  |
 --------- | ----------- |
-URI | `/Store/Countries/{{MerchantId}}`
+URI | `/Store/Countries/{MerchantId}`
 Rate Limited? | No
 Authentication | Yes
 Response Formats | JSON
@@ -301,7 +301,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Store/Countries/{{MerchantId}}`
+`https://{host}/developerapi/Store/Countries/{MerchantId}`
 
 
 ### Request Parameter
@@ -563,7 +563,7 @@ Retrieves all the  supported cities of a specific state
 ### Resource Information
 |  |  |
 --------- | ----------- |
-URI | `/Store/Cities/{{MerchantId}}/{{StateCode}}`
+URI | `/Store/Cities/{MerchantId}/{StateCode}`
 Rate Limited? | No
 Authentication | Yes
 Response Formats | JSON
