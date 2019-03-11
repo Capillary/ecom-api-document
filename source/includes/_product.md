@@ -660,7 +660,7 @@ taskid | int | Unique id generated for the current update task
 > Sample Request
 
 ```html
-https://www.martjack.com/developerapi/Product/Price/MerchantId=f48fdd16-92db-4188-854d-1ecd9b62e234/PZLG-WM
+https://www.martjack.com/developerapi/Product/Price/f48fdd16-92db-4188-854d-1ecd9b62e234
 ```
 
 > Sample POST Request
