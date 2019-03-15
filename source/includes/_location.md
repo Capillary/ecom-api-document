@@ -1066,6 +1066,83 @@ MerchantId* | string | The unique id (GUID) of the merchant for which you want t
 
 
 
+## Add Delivery Area
+
+Adds delivery areas to a city, state or country.
+
+
+
+
+
+
+> Sample Request
+
+```html
+https://www.martjack.com/developerapi/Location/AddDeliveryArea/f48fdd16-92db-4188-854d-1ecd9b62d066
+
+```
+
+> Sample POST Request (RAW)
+
+```json
+MerchantId=f48fdd16-92db-4188-854d-1ecd9b62d066&pincodes=500090&deliveryAreaName=hyderabad&areaType=cn&isArchive=false&deliveryRefCode=hyd&areaTypeIDs=36618
+
+
+```
+
+> Sample Response
+
+```json
+
+{
+    "messageCode": "1004",
+    "Message": "Successful",
+    "ErrorCode": 0
+}
+
+
+```
+
+
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `/Location/AddDeliveryArea/{merchantId}`
+Rate Limited? | No
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | POST
+Batch Support | No
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+### Request URL
+
+`https://{host}/developerapi/Location/AddDeliveryArea/{merchantId}`
+
+
+### Request Body Parameters
+
+Parameter | Type | Description
+-------- | ----- | -----------
+merchantId* | string | Unique GUID of the merchant
+pincodes | string | PIN codes that you want to associate to the delivery area. Specify each PIN code separating with comma 
+deliveryAreaName | string | Name of the delivery area without space
+areaType | enum | Type of delivery area. Value: `cn` for country, `ct` for city, `st` for state
+areaTypeIDs | string | 
+isArchive | boolean | Specify `false` to make the delivery area active
+deliveryAreaID | int | Unique id of the delivery area
+
+
+
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
+
+
+
+
+
 
 
 
@@ -1759,7 +1836,7 @@ https://www.martjack.com/developerapi/Location/f48fdd16-92db-4188-854d-1ecd9b62d
 
 > Sample POST Request (RAW)
 
-...json
+```json
 
 MerchantId=f48fdd16-92db-4188-854d-1ecd9b62d066&countryid=IN&stateid=HR&cityid=58&pincodes=500090&deliveryareaid=1231
 
@@ -1792,7 +1869,6 @@ MerchantId=f48fdd16-92db-4188-854d-1ecd9b62d066&countryid=IN&stateid=HR&cityid=5
         }
 ]
 }
-
 
 ```
 
@@ -1832,6 +1908,104 @@ deliveryareaid | string | Fetch a specific delivery area details by delivery are
 
 
 <aside class="notice"> All parameters marked by * are mandatory. </aside>
+
+
+
+
+## Get Location Log
+
+Retrieves logs of the merchant for a specific location.
+
+
+
+
+> Sample Request
+
+```html
+https://www.martjack.com/developerapi/Location/Log/f48fdd16-92db-4188-854d-1ecd9b62d066/1001/02-02-2018/01-01-2019
+
+```
+
+
+
+
+> Sample Response
+
+```json
+{
+    "messageCode": "1004",
+    "Message": "Successful",
+    "StoreLog": [
+        {
+            "locationname": "Sample Mumbai store1",
+            "locationcode": "1001",
+            "logtype": "StoreTime",
+            "logdetails": "Home Delivery Timings",
+            "logdetailsvalue": "",
+            "logdatetime": "11/20/2018 6:29:14 PM",
+            "user": "hypertown@cj_test.com",
+            "reasoncode": "",
+            "weekdayid": "0",
+            "weekdayname": "Sunday",
+            "starttime": "17:00:00",
+            "endtime": "02:30:00",
+            "startleadtime": "30",
+            "endleadtime": "30"
+        },
+        {
+            "locationname": "Sample Mumbai store1",
+            "locationcode": "1001",
+            "logtype": "StoreTime",
+            "logdetails": "Home Delivery Timings",
+            "logdetailsvalue": "",
+            "logdatetime": "11/20/2018 5:57:45 PM",
+            "user": "hypertown@cj_test.com",
+            "reasoncode": "",
+            "weekdayid": "0",
+            "weekdayname": "Sunday",
+            "starttime": "17:00:00",
+            "endtime": "02:30:00",
+            "startleadtime": "30",
+            "endleadtime": "30"
+        }
+]
+}
+
+
+```
+
+
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `/Location/Log/{merchantId}/{locationCode}/{fromDate}/{toDate}`
+Rate Limited? | No
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | GET
+Batch Support | No
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+### Request URL
+
+`https://{host}/developerapi/Location/Log/{merchantId}/{locationCode}/{fromDate}/{toDate}`
+
+
+### Request Path Parameters
+
+Parameter | Type | Description
+-------- | ----- | -----------
+merchantId* | string | Unique GUID of the merchant
+locationCode* | string | Location code for which you want to see the logistics
+fromDate* | date | Specify the duration for which you want to see the log in `fromDate` and `toDate`. Specify the date in `MM-DD-YYYY` format
+toDate* | date | Specify the duration for which you want to see the log in `fromDate` and `toDate`. Specify the date in `MM-DD-YYYY` format
+
+
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
+
 
 
 

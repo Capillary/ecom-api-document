@@ -4623,3 +4623,306 @@ locationid* | int | Specify the location id of the specified PIN code. A locatio
 
 
 
+
+
+## Get Product IDs (Auto Complete)
+
+Retrieves product ids of a specific location matching the search keyword. You can limit the number of results to display.
+
+> Sample Request
+
+```html
+http://www.martjack.com/developerapi/Product/ProductAutoComplete/993c939a-a2e8-4934-bbf5-390f37457a55/t-shirt/5/24342
+```
+
+> Sample Response
+
+```json
+{
+    "messageCode": "1004",
+    "Message": "Successful",
+    "Suggestions": [
+        "13036942"
+    ],
+    "ErrorCode": 0
+}
+```
+
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `/ProductAutoComplete/{merchantId}/{keyword}/{limit}/{locationId}`
+Rate Limited? | No
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | GET
+Batch Support | No
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+### Request URL
+
+`https://{host}/developerapi/ProductAutoComplete/{merchantId}/{keyword}/{limit}/{locationId}`
+
+
+### Request Path Parameters
+
+Parameter | Type | Description
+-------- | ----- | -----------
+merchantId* | string | Unique GUID of the merchant
+keyword* | string | Search meta tag keyword by which you want to get product ids
+limit* | int | Limit number of results to be displayed
+locationId* | int | Location id from which you want to fetch product ids
+
+
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
+
+
+## Get Upscale Products
+
+Retrieves all up sale products of a specific location along with each product details. 
+
+
+> Sample Request
+
+```html
+http://www.martjack.com/developerapi/Product/UpSale/f48fdd16-92db-4188-854d-1ecd9b62d066/11996474/0
+```
+
+> Sample Response
+
+```jsom
+{
+    "messageCode": "1004",
+    "Message": "Successful",
+    "Products": [
+        {
+            "ProductId": 11997154,
+            "ProductTitle": "Y Cook Sweet Corn Boiled - Double, 2 Pieces Pouch",
+            "MRP": 68,
+            "WebPrice": 68,
+            "CostPrice": 0,
+            "Rating": 0,
+            "IsParentProduct": false,
+            "Availability": true,
+            "BrandId": "298460",
+            "CatlogSequence": 0,
+            "CatalogCode": "",
+            "SKU": "100646951",
+            "Taxtotal": 0,
+            "MarkupPrice": 0,
+            "MarkupType": "",
+            "BulkQuantity": 1,
+            "ProductWeight": 0,
+            "ProductType": "P",
+            "SmallImageAltText": "Y Cook Sweet Corn Boiled - Double, 2 Pieces Pouch",
+            "IsShippingConfigured": false,
+            "IsTaxConfigured": false,
+            "StartDate": "/Date(-2209008600000+0530)/",
+            "EndDate": "/Date(-2209008600000+0530)/",
+            "SeoURL": "http://www.hyctest.nightlysites.capillary.in/y-cook-sweet-corn-boiled---double-2-pieces-pouch/p/11997154",
+            "DeliveryTime": "Delivered in 5 Working days",
+            "TokenPriceCheckout": false,
+            "IsReferPrice": false,
+            "ShortDescription": "",
+            "TokenPrice": 0,
+            "SmallImage": "",
+            "Brandname": "Healthy No 1",
+            "CategoryId": "CU00333414",
+            "CategoryName": "Fresh Vegetables",
+            "Fulldescription": null,
+            "NoofReview": "0",
+            "BarCode": "",
+            "ProductSequence": 0,
+            "UOM": "Pieces"
+        },
+        {
+            "ProductId": 11997156,
+            "ProductTitle": "Y Cook Sweet Corn Boiled - Single, 1 Piece Pouch",
+            "MRP": 35,
+            "WebPrice": 35,
+            "CostPrice": 0,
+            "Rating": 0,
+            "IsParentProduct": false,
+            "Availability": true,
+            "BrandId": "298460",
+            "CatlogSequence": 0,
+            "CatalogCode": "",
+            "SKU": "100646950",
+            "Taxtotal": 0,
+            "MarkupPrice": 0,
+            "MarkupType": "",
+            "BulkQuantity": 1,
+            "ProductWeight": 0,
+            "ProductType": "P",
+            "SmallImageAltText": "Y Cook Sweet Corn Boiled - Single, 1 Piece Pouch",
+            "IsShippingConfigured": false,
+            "IsTaxConfigured": false,
+            "StartDate": "/Date(-2209008600000+0530)/",
+            "EndDate": "/Date(-2209008600000+0530)/",
+            "SeoURL": "http://www.hyctest.nightlysites.capillary.in/y-cook-sweet-corn-boiled---single-1-piece-pouch/p/11997156",
+            "DeliveryTime": "Delivered in 5 Working days",
+            "TokenPriceCheckout": false,
+            "IsReferPrice": false,
+            "ShortDescription": "",
+            "TokenPrice": 0,
+            "SmallImage": "",
+            "Brandname": "Healthy No 1",
+            "CategoryId": "CU00333414",
+            "CategoryName": "Fresh Vegetables",
+            "Fulldescription": null,
+            "NoofReview": "0",
+            "BarCode": "",
+            "ProductSequence": 0,
+            "UOM": "Pieces"
+        }
+    ],
+    "ErrorCode": 0
+}
+```
+
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `/Product/UpSale/{merchantId}/{productId}/{locationId}`
+Rate Limited? | No
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | GEY
+Batch Support | No
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+### Request URL
+
+`https://{host}/developerapi/Product/UpSale/{merchantId}/{productId}/{locationId}`
+
+
+### Request Path Parameters
+
+Parameter | Type | Description
+-------- | ----- | -----------
+merchantId* | string | Unique GUID of the merchant
+productId* | int | Product id for which you want to fetch upscale products
+locationId* | int | Provide the specific location id
+
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
+
+
+## Validate Location
+
+Validates inventory of a variant product for a specific location. 
+
+> Sample Request
+
+```html
+http://www.martjack.com/developerapi/Product/ValidateLocation/f48fdd16-92db-4188-854d-1ecd9b62d066/14106036/10178766/500090/18340/1
+````
+
+> Sample Response:
+
+```json
+{
+    "messageCode": "1004",
+    "Message": "Successful",
+    "ErrorCode": 0
+}
+```
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `/Product/ValidateLocation/{merchantId}/{productId}/{variantProductId}/{pinCode}/{locationId}/{quantity}`
+Rate Limited? | No
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | GET
+Batch Support | No
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+### Request URL
+
+`https://{host}/developerapi/Product/ValidateLocation/{merchantId}/{productId}/{variantProductId}/{pinCode}/{locationId}/{quantity}`
+
+
+### Request Path Parameters
+
+Parameter | Type | Description
+-------- | ----- | -----------
+merchantId* | string | Unique GUID of the merchant
+productId* | int | Unique id of the parent product
+variantProductId* | int | Unique id of the variant product that you want to validate the stock available
+pinCode* | int | PIN code for which you want to validate the stock availability
+locationId* | int | Specify the location id associated to the specified PIN code
+quantity* | int | Quantity of items that you want to check the availability
+
+
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
+
+
+## Remove Offer Text
+
+Removes offer text for the merchant.
+
+
+
+
+
+
+> Sample Request
+
+```html
+https://www.martjack.com/developerapi/Product/RemoveOfferText/f48fdd16-92db-4188-854d-1ecd9b62d066
+
+```
+
+
+
+
+> Sample Response
+
+```json
+{
+    "messageCode": "1004",
+    "Message": "Successful",
+    "ErrorCode": 0
+}
+```
+
+
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `Product/RemoveOfferText/{merchantId}`
+Rate Limited? | No
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | GET
+Batch Support | No
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+### Request URL
+
+`https://{host}/developerapi/Product/RemoveOfferText/{merchantId}`
+
+
+### Request Path Parameters
+
+Parameter | Type | Description
+-------- | ----- | -----------
+merchantId* | string | Unique GUID of the merchant
+
+
+
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
+
+
