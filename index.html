@@ -11493,6 +11493,458 @@ Batch Support | No</p>
 
 <aside class="notice"> All parameters marked by * are mandatory. </aside>
 
+<h2 id="get-product-ids-auto-complete">Get Product IDs (Auto Complete)</h2>
+
+<p>Retrieves product ids of a specific location matching the search keyword. You can limit the number of results to display.</p>
+
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
+<pre class="highlight html"><code>http://www.martjack.com/developerapi/Product/ProductAutoComplete/993c939a-a2e8-4934-bbf5-390f37457a55/t-shirt/5/24342
+</code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"messageCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1004"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Suggestions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"13036942"</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td><code class="prettyprint">/ProductAutoComplete/{merchantId}/{keyword}/{limit}/{locationId}</code></td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>No</td>
+</tr>
+</tbody></table>
+
+<ul>
+<li><strong>Rate limiter</strong> controls the number of incoming and outgoing traffic of a network</li>
+<li><strong>Authentication</strong> verifies the identity of the current user or integration. See Introduction &gt; Authentication (Merchant Setup on Admin Portal) for more details</li>
+</ul>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">https://{host}/developerapi/ProductAutoComplete/{merchantId}/{keyword}/{limit}/{locationId}</code></p>
+
+<h3 id="request-path-parameters">Request Path Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>merchantId*</td>
+<td>string</td>
+<td>Unique GUID of the merchant</td>
+</tr>
+<tr>
+<td>keyword*</td>
+<td>string</td>
+<td>Search meta tag keyword by which you want to get product ids</td>
+</tr>
+<tr>
+<td>limit*</td>
+<td>int</td>
+<td>Limit number of results to be displayed</td>
+</tr>
+<tr>
+<td>locationId*</td>
+<td>int</td>
+<td>Location id from which you want to fetch product ids</td>
+</tr>
+</tbody></table>
+
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
+
+<h2 id="get-upscale-products">Get Upscale Products</h2>
+
+<p>Retrieves all up sale products of a specific location along with each product details. </p>
+
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
+<pre class="highlight html"><code>http://www.martjack.com/developerapi/Product/UpSale/f48fdd16-92db-4188-854d-1ecd9b62d066/11996474/0
+</code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight plaintext"><code>{
+    "messageCode": "1004",
+    "Message": "Successful",
+    "Products": [
+        {
+            "ProductId": 11997154,
+            "ProductTitle": "Y Cook Sweet Corn Boiled - Double, 2 Pieces Pouch",
+            "MRP": 68,
+            "WebPrice": 68,
+            "CostPrice": 0,
+            "Rating": 0,
+            "IsParentProduct": false,
+            "Availability": true,
+            "BrandId": "298460",
+            "CatlogSequence": 0,
+            "CatalogCode": "",
+            "SKU": "100646951",
+            "Taxtotal": 0,
+            "MarkupPrice": 0,
+            "MarkupType": "",
+            "BulkQuantity": 1,
+            "ProductWeight": 0,
+            "ProductType": "P",
+            "SmallImageAltText": "Y Cook Sweet Corn Boiled - Double, 2 Pieces Pouch",
+            "IsShippingConfigured": false,
+            "IsTaxConfigured": false,
+            "StartDate": "/Date(-2209008600000+0530)/",
+            "EndDate": "/Date(-2209008600000+0530)/",
+            "SeoURL": "http://www.hyctest.nightlysites.capillary.in/y-cook-sweet-corn-boiled---double-2-pieces-pouch/p/11997154",
+            "DeliveryTime": "Delivered in 5 Working days",
+            "TokenPriceCheckout": false,
+            "IsReferPrice": false,
+            "ShortDescription": "",
+            "TokenPrice": 0,
+            "SmallImage": "",
+            "Brandname": "Healthy No 1",
+            "CategoryId": "CU00333414",
+            "CategoryName": "Fresh Vegetables",
+            "Fulldescription": null,
+            "NoofReview": "0",
+            "BarCode": "",
+            "ProductSequence": 0,
+            "UOM": "Pieces"
+        },
+        {
+            "ProductId": 11997156,
+            "ProductTitle": "Y Cook Sweet Corn Boiled - Single, 1 Piece Pouch",
+            "MRP": 35,
+            "WebPrice": 35,
+            "CostPrice": 0,
+            "Rating": 0,
+            "IsParentProduct": false,
+            "Availability": true,
+            "BrandId": "298460",
+            "CatlogSequence": 0,
+            "CatalogCode": "",
+            "SKU": "100646950",
+            "Taxtotal": 0,
+            "MarkupPrice": 0,
+            "MarkupType": "",
+            "BulkQuantity": 1,
+            "ProductWeight": 0,
+            "ProductType": "P",
+            "SmallImageAltText": "Y Cook Sweet Corn Boiled - Single, 1 Piece Pouch",
+            "IsShippingConfigured": false,
+            "IsTaxConfigured": false,
+            "StartDate": "/Date(-2209008600000+0530)/",
+            "EndDate": "/Date(-2209008600000+0530)/",
+            "SeoURL": "http://www.hyctest.nightlysites.capillary.in/y-cook-sweet-corn-boiled---single-1-piece-pouch/p/11997156",
+            "DeliveryTime": "Delivered in 5 Working days",
+            "TokenPriceCheckout": false,
+            "IsReferPrice": false,
+            "ShortDescription": "",
+            "TokenPrice": 0,
+            "SmallImage": "",
+            "Brandname": "Healthy No 1",
+            "CategoryId": "CU00333414",
+            "CategoryName": "Fresh Vegetables",
+            "Fulldescription": null,
+            "NoofReview": "0",
+            "BarCode": "",
+            "ProductSequence": 0,
+            "UOM": "Pieces"
+        }
+    ],
+    "ErrorCode": 0
+}
+</code></pre>
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td><code class="prettyprint">/Product/UpSale/{merchantId}/{productId}/{locationId}</code></td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>GEY</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>No</td>
+</tr>
+</tbody></table>
+
+<ul>
+<li><strong>Rate limiter</strong> controls the number of incoming and outgoing traffic of a network</li>
+<li><strong>Authentication</strong> verifies the identity of the current user or integration. See Introduction &gt; Authentication (Merchant Setup on Admin Portal) for more details</li>
+</ul>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">https://{host}/developerapi/Product/UpSale/{merchantId}/{productId}/{locationId}</code></p>
+
+<h3 id="request-path-parameters">Request Path Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>merchantId*</td>
+<td>string</td>
+<td>Unique GUID of the merchant</td>
+</tr>
+<tr>
+<td>productId*</td>
+<td>int</td>
+<td>Product id for which you want to fetch upscale products</td>
+</tr>
+<tr>
+<td>locationId*</td>
+<td>int</td>
+<td>Provide the specific location id</td>
+</tr>
+</tbody></table>
+
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
+
+<h2 id="validate-location">Validate Location</h2>
+
+<p>Validates inventory of a variant product for a specific location. </p>
+
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
+<pre class="highlight html"><code>http://www.martjack.com/developerapi/Product/ValidateLocation/f48fdd16-92db-4188-854d-1ecd9b62d066/14106036/10178766/500090/18340/1
+</code></pre>
+<blockquote>
+<p>Sample Response:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"messageCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1004"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td><code class="prettyprint">/Product/ValidateLocation/{merchantId}/{productId}/{variantProductId}/{pinCode}/{locationId}/{quantity}</code></td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>No</td>
+</tr>
+</tbody></table>
+
+<ul>
+<li><strong>Rate limiter</strong> controls the number of incoming and outgoing traffic of a network</li>
+<li><strong>Authentication</strong> verifies the identity of the current user or integration. See Introduction &gt; Authentication (Merchant Setup on Admin Portal) for more details</li>
+</ul>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">https://{host}/developerapi/Product/ValidateLocation/{merchantId}/{productId}/{variantProductId}/{pinCode}/{locationId}/{quantity}</code></p>
+
+<h3 id="request-path-parameters">Request Path Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>merchantId*</td>
+<td>string</td>
+<td>Unique GUID of the merchant</td>
+</tr>
+<tr>
+<td>productId*</td>
+<td>int</td>
+<td>Unique id of the parent product</td>
+</tr>
+<tr>
+<td>variantProductId*</td>
+<td>int</td>
+<td>Unique id of the variant product that you want to validate the stock available</td>
+</tr>
+<tr>
+<td>pinCode*</td>
+<td>int</td>
+<td>PIN code for which you want to validate the stock availability</td>
+</tr>
+<tr>
+<td>locationId*</td>
+<td>int</td>
+<td>Specify the location id associated to the specified PIN code</td>
+</tr>
+<tr>
+<td>quantity*</td>
+<td>int</td>
+<td>Quantity of items that you want to check the availability</td>
+</tr>
+</tbody></table>
+
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
+
+<h2 id="remove-offer-text">Remove Offer Text</h2>
+
+<p>Removes offer text for the merchant.</p>
+
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
+<pre class="highlight html"><code>https://www.martjack.com/developerapi/Product/RemoveOfferText/f48fdd16-92db-4188-854d-1ecd9b62d066
+
+</code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"messageCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1004"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td><code class="prettyprint">Product/RemoveOfferText/{merchantId}</code></td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>No</td>
+</tr>
+</tbody></table>
+
+<ul>
+<li><strong>Rate limiter</strong> controls the number of incoming and outgoing traffic of a network</li>
+<li><strong>Authentication</strong> verifies the identity of the current user or integration. See Introduction &gt; Authentication (Merchant Setup on Admin Portal) for more details</li>
+</ul>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">https://{host}/developerapi/Product/RemoveOfferText/{merchantId}</code></p>
+
+<h3 id="request-path-parameters">Request Path Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>merchantId*</td>
+<td>string</td>
+<td>Unique GUID of the merchant</td>
+</tr>
+</tbody></table>
+
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
+
           <h1 id="product-tags">Product Tags</h1>
 
 <p>Product tags are a way of organizing or relating products in Capillary Anywhere Commerce. ProductTags provide APIs to access and manage product tags of a merchant.</p>
@@ -35541,6 +35993,126 @@ OperatorId | string | Unique id of the store operator who want to update the sta
 
 <aside class="notice"> All parameters marked by * are mandatory.</aside>
 
+<h2 id="add-delivery-area">Add Delivery Area</h2>
+
+<p>Adds delivery areas to a city, state or country.</p>
+
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
+<pre class="highlight html"><code>https://www.martjack.com/developerapi/Location/AddDeliveryArea/f48fdd16-92db-4188-854d-1ecd9b62d066
+
+</code></pre>
+<blockquote>
+<p>Sample POST Request (RAW)</p>
+</blockquote>
+<pre class="highlight json"><code><span class="err">MerchantId=f</span><span class="mi">48</span><span class="err">fdd</span><span class="mi">16-92</span><span class="err">db</span><span class="mi">-4188-854</span><span class="err">d</span><span class="mi">-1</span><span class="err">ecd</span><span class="mi">9</span><span class="err">b</span><span class="mi">62</span><span class="err">d</span><span class="mi">066</span><span class="err">&amp;pincodes=</span><span class="mi">500090</span><span class="err">&amp;deliveryAreaName=hyderabad&amp;areaType=cn&amp;isArchive=</span><span class="kc">false</span><span class="err">&amp;deliveryRefCode=hyd&amp;areaTypeIDs=</span><span class="mi">36618</span><span class="w">
+
+
+</span></code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="w">
+</span><span class="p">{</span><span class="w">
+    </span><span class="nt">"messageCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1004"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+
+</span></code></pre>
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td><code class="prettyprint">/Location/AddDeliveryArea/{merchantId}</code></td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>POST</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>No</td>
+</tr>
+</tbody></table>
+
+<ul>
+<li><strong>Rate limiter</strong> controls the number of incoming and outgoing traffic of a network</li>
+<li><strong>Authentication</strong> verifies the identity of the current user or integration. See Introduction &gt; Authentication (Merchant Setup on Admin Portal) for more details</li>
+</ul>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">https://{host}/developerapi/Location/AddDeliveryArea/{merchantId}</code></p>
+
+<h3 id="request-body-parameters">Request Body Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>merchantId*</td>
+<td>string</td>
+<td>Unique GUID of the merchant</td>
+</tr>
+<tr>
+<td>pincodes</td>
+<td>string</td>
+<td>PIN codes that you want to associate to the delivery area. Specify each PIN code separating with comma</td>
+</tr>
+<tr>
+<td>deliveryAreaName</td>
+<td>string</td>
+<td>Name of the delivery area without space</td>
+</tr>
+<tr>
+<td>areaType</td>
+<td>enum</td>
+<td>Type of delivery area. Value: <code class="prettyprint">cn</code> for country, <code class="prettyprint">ct</code> for city, <code class="prettyprint">st</code> for state</td>
+</tr>
+<tr>
+<td>areaTypeIDs</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>isArchive</td>
+<td>boolean</td>
+<td>Specify <code class="prettyprint">false</code> to make the delivery area active</td>
+</tr>
+<tr>
+<td>deliveryAreaID</td>
+<td>int</td>
+<td>Unique id of the delivery area</td>
+</tr>
+</tbody></table>
+
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
+
 <h2 id="get-delivery-areas">Get Delivery Areas</h2>
 
 <blockquote>
@@ -36493,40 +37065,38 @@ OperatorId | string | Unique id of the store operator who want to update the sta
 <blockquote>
 <p>Sample POST Request (RAW)</p>
 </blockquote>
-
-<p>&hellip;json</p>
-
-<p>MerchantId=f48fdd16-92db-4188-854d-1ecd9b62d066&amp;countryid=IN&amp;stateid=HR&amp;cityid=58&amp;pincodes=500090&amp;deliveryareaid=1231</p>
-<pre class="highlight plaintext"><code>
-
-&gt; Sample Response
-
-```json
-{
-    "messageCode": "1004",
-    "Message": "Successful",
-    "DeliveryAreas": [
-        {
-            "Pincodes": [
-                "400062",
-                "400064",
-                "400068",
-                "400072",
-                "400092"
-            ],
-            "DeliveryAreaID": 3088,
-            "DeliveryAreaName": "Mumbai",
-            "AreaType": "State",
-            "MerchantID": "f48fdd16-92db-4188-854d-1ecd9b62d066",
-            "IsArchive": false,
-            "DeliveryRefCode": "mumbai",
-            "AreaTypeIDs": null
-        }
-]
-}
+<pre class="highlight json"><code><span class="w">
+</span><span class="err">MerchantId=f</span><span class="mi">48</span><span class="err">fdd</span><span class="mi">16-92</span><span class="err">db</span><span class="mi">-4188-854</span><span class="err">d</span><span class="mi">-1</span><span class="err">ecd</span><span class="mi">9</span><span class="err">b</span><span class="mi">62</span><span class="err">d</span><span class="mi">066</span><span class="err">&amp;countryid=IN&amp;stateid=HR&amp;cityid=</span><span class="mi">58</span><span class="err">&amp;pincodes=</span><span class="mi">500090</span><span class="err">&amp;deliveryareaid=</span><span class="mi">1231</span><span class="w">
 
 
-</code></pre>
+</span></code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"messageCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1004"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"DeliveryAreas"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"Pincodes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="s2">"400062"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"400064"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"400068"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"400072"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"400092"</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="nt">"DeliveryAreaID"</span><span class="p">:</span><span class="w"> </span><span class="mi">3088</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"DeliveryAreaName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mumbai"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"AreaType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"State"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"MerchantID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f48fdd16-92db-4188-854d-1ecd9b62d066"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"IsArchive"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"DeliveryRefCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mumbai"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"AreaTypeIDs"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
 <h3 id="resource-information">Resource Information</h3>
 
 <table><thead>
@@ -36608,6 +37178,136 @@ OperatorId | string | Unique id of the store operator who want to update the sta
 <td>deliveryareaid</td>
 <td>string</td>
 <td>Fetch a specific delivery area details by delivery area id</td>
+</tr>
+</tbody></table>
+
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
+
+<h2 id="get-location-log">Get Location Log</h2>
+
+<p>Retrieves logs of the merchant for a specific location.</p>
+
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
+<pre class="highlight html"><code>https://www.martjack.com/developerapi/Location/Log/f48fdd16-92db-4188-854d-1ecd9b62d066/1001/02-02-2018/01-01-2019
+
+</code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"messageCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1004"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"StoreLog"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"locationname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sample Mumbai store1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"locationcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1001"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"logtype"</span><span class="p">:</span><span class="w"> </span><span class="s2">"StoreTime"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"logdetails"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Home Delivery Timings"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"logdetailsvalue"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"logdatetime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11/20/2018 6:29:14 PM"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"user"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hypertown@cj_test.com"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"reasoncode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"weekdayid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"weekdayname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sunday"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"starttime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"17:00:00"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"endtime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"02:30:00"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"startleadtime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"30"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"endleadtime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"30"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"locationname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sample Mumbai store1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"locationcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1001"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"logtype"</span><span class="p">:</span><span class="w"> </span><span class="s2">"StoreTime"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"logdetails"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Home Delivery Timings"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"logdetailsvalue"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"logdatetime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11/20/2018 5:57:45 PM"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"user"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hypertown@cj_test.com"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"reasoncode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"weekdayid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"weekdayname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sunday"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"starttime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"17:00:00"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"endtime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"02:30:00"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"startleadtime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"30"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"endleadtime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"30"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+
+</span></code></pre>
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td><code class="prettyprint">/Location/Log/{merchantId}/{locationCode}/{fromDate}/{toDate}</code></td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>No</td>
+</tr>
+</tbody></table>
+
+<ul>
+<li><strong>Rate limiter</strong> controls the number of incoming and outgoing traffic of a network</li>
+<li><strong>Authentication</strong> verifies the identity of the current user or integration. See Introduction &gt; Authentication (Merchant Setup on Admin Portal) for more details</li>
+</ul>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">https://{host}/developerapi/Location/Log/{merchantId}/{locationCode}/{fromDate}/{toDate}</code></p>
+
+<h3 id="request-path-parameters">Request Path Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>merchantId*</td>
+<td>string</td>
+<td>Unique GUID of the merchant</td>
+</tr>
+<tr>
+<td>locationCode*</td>
+<td>string</td>
+<td>Location code for which you want to see the logistics</td>
+</tr>
+<tr>
+<td>fromDate*</td>
+<td>date</td>
+<td>Specify the duration for which you want to see the log in <code class="prettyprint">fromDate</code> and <code class="prettyprint">toDate</code>. Specify the date in <code class="prettyprint">MM-DD-YYYY</code> format</td>
+</tr>
+<tr>
+<td>toDate*</td>
+<td>date</td>
+<td>Specify the duration for which you want to see the log in <code class="prettyprint">fromDate</code> and <code class="prettyprint">toDate</code>. Specify the date in <code class="prettyprint">MM-DD-YYYY</code> format</td>
 </tr>
 </tbody></table>
 
