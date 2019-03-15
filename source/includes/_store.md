@@ -588,3 +588,721 @@ StateCode* | The state code for which you want to see the list of supported citi
 
 
 
+## Get Cities by State Code
+
+Retrieves all the available cities of a specific state based on the state code passed.
+
+
+> Sample Request
+
+```html
+https://www.martjack.com/developerapi/Store/Cities/f48fdd16-92db-4188-854d-1ecd9b62d066/CH1
+
+```
+
+> Sample Response
+
+```json
+{
+    "messageCode": "1004",
+    "Message": "Successful",
+    "City": [
+        {
+            "CityId": 83,
+            "CityName": "Chandigarh",
+            "DefautPinCode": "160001",
+            "StateCode": "CH1"
+        }
+    ],
+    "ErrorCode": 0
+}
+
+```
+
+
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `/Store/Cities/{merchantId}/{statecode}`
+Rate Limited? | No
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | GET
+Batch Support | No
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+### Request URL
+
+`https://{host}/developerapi/Store/Cities/{merchantId}/{statecode}`
+
+
+### Request Path Parameters
+
+Parameter | Type | Description
+-------- | ----- | -----------
+merchantId* | string | Unique GUID of the merchant
+statecode* | string | Specify the state code for which you want to fetch cities
+
+
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
+
+
+
+
+## Get Country Details
+
+Retrieves the details of a specific country of the merchant based on the country code passed.
+
+
+> Sample Request
+
+```html
+https://www.martjack.com/developerapi/Store/Countries/f48fdd16-92db-4188-854d-1ecd9b62d066/IN
+
+```
+
+> Sample Response
+
+```json
+{
+    "messageCode": "1004",
+    "Message": "Successful",
+    "Country": [
+        {
+            "CountryName": "India",
+            "CountryCode": "IN",
+            "PhoneCode": null
+        }
+    ],
+    "ErrorCode": 0
+}
+
+
+```
+
+
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `/Store/Countries/{merchantid}/{countrycode}`
+Rate Limited? | No
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | GET
+Batch Support | No
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+### Request URL
+
+`https://{host}/developerapi/Store/Countries/{merchantid}/{countrycode}`
+
+
+### Request Path Parameters
+
+Parameter | Type | Description
+-------- | ----- | -----------
+merchantId* | string | Unique GUID of the merchant
+countrycode* | string | Specify a valid country code of the merchant that you want to fetch
+
+
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
+
+
+
+
+## Get Store Information
+
+
+Retrieves the details of the store of the current merchant.
+
+> Sample Request
+
+```html
+https://www.martjack.com/developerapi/Store/Information/f48fdd16-92db-4188-854d-1ecd9b62d066
+
+```
+
+
+
+
+> Sample Response
+
+```json
+{
+   "messageCode":"1004",
+   "Message":"Successful",
+   "Store":{
+      "MerchantId":"f48fdd16-92db-4188-854d-1ecd9b62d066",
+      "ChildrenPlayArea":false,
+      "HomeDelivery":false,
+      "GiftPacking":false,
+      "ValetParking":false,
+      "OwnParking":false,
+      "ATM":false,
+      "DistanceAir":"",
+      "DistanceRly":"",
+      "DistanceBus":"",
+      "Landmark1":"",
+      "Landmark2":"",
+      "ContactPerson":"Vijay--",
+      "PhysicalStoreName":"Saamag Retail Pvt Ltd",
+      "PhysicalStoreAdd":"Hyderabad",
+      "StoreStreet":"GachiBowli",
+      "StoreCity":"195",
+      "StorePinCode":"500032",
+      "StoreState":"TG",
+      "StoreCountry":"IN",
+      "StPhoneNo":"09885296960",
+      "cellphone":"91-9885296960",
+      "StoreDescription":"<p class=\"MsoNormal\" style=\"line-height: 12pt;\"><span style=\"font-size: small;\"><span style=\"font-family: Arial;\"><span style=\"color: rgb(255, 0, 255);\">hyctest Store Hyderabad</span>, is among the leading ones in to the business of <span style=\"color: rgb(255, 0, 255);\">XXX </span>for the last few years. We<span style=\"color: black;\"> offer a broad and varied range of products and services to our customers.</span>All the products offered are according to International standards of quality, comfort and value. </span></span></p>  <p class=\"MsoNormal\" style=\"line-height: 12pt;\"><span style=\"font-size: small;\"><span style=\"font-family: Arial;\">Strict quality checks at every processing stage have enabled us to provide our customers with the best of our products at affordable prices.</span></span></p>",
+      "EmailId":"vijay.yandam@capillarytech.com",
+      "BusinessType":"BC00114",
+      "OtherCityName":"",
+      "City":{
+         "CityId":0,
+         "CityName":"Hyderabad"
+      },
+      "State":{
+         "StateName":"Telangana"
+      }
+   },
+   "ErrorCode":0
+}
+```
+
+
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `/Store/Information/{merchantId}`
+Rate Limited? | No
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | GET
+Batch Support | No
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+### Request URL
+
+`https://{host}/developerapi/Store/Information/{merchantId}`
+
+
+### Request Path Parameters
+
+Parameter | Type | Description
+-------- | ----- | -----------
+merchantId* | string | Unique GUID of the merchant
+
+
+
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
+
+### Response Parameters
+
+Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.
+
+Parameter | Type | Description
+-------- | ----- | -----------
+ChildrenPlayArea | boolean | If the store has children play area
+GiftPacking | boolean | Whether gift packing is available for items purchased at the store
+PhysicalStoreAdd | string | Address of the physical store
+
+
+
+## Get State Details
+
+Retrieves the details of a specific state based on the state code passed.
+
+> Sample Request
+
+```html
+https://www.martjack.com/developerapi/Store/State/{merchantId}/{stateCode}
+
+```
+
+
+> Sample Response
+
+```json
+{
+    "messageCode": "1004",
+    "Message": "Successful",
+    "State": [
+        {
+            "StateName": "Chandigarh",
+            "CountryCode": "IN",
+            "StateCode": "CH1",
+            "USPSCode": ""
+        }
+    ],
+    "ErrorCode": 0
+}
+
+```
+
+
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `/Store/State/{merchantId}/{stateCode}`
+Rate Limited? | No
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | GET
+Batch Support | No
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+### Request URL
+
+`https://{host}/developerapi/Store/State/{merchantId}/{stateCode}`
+
+
+### Request Path Parameters
+
+Parameter | Type | Description
+-------- | ----- | -----------
+merchantId* | string | Unique GUID of the merchant
+stateCode* | string | State code for which you want to fetch details
+
+
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
+
+
+
+## Get States of a Country
+
+Retrieves the details all available states in a country for the specific merchant.
+
+> Sample Request
+
+```html
+https://www.martjack.com/developerapi/Store/States/f48fdd16-92db-4188-854d-1ecd9b62d066/IN
+```
+
+
+> Sample Response
+
+```json
+{
+    "messageCode": "1004",
+    "Message": "Successful",
+    "State": [
+        {
+            "StateName": "Andhra Pradesh",
+            "CountryCode": "IN",
+            "StateCode": "AP",
+            "USPSCode": ""
+        },
+        {
+            "StateName": "Arunachal Pradesh",
+            "CountryCode": "IN",
+            "StateCode": "AR",
+            "USPSCode": ""
+        },
+        {
+            "StateName": "Daman And Diu",
+            "CountryCode": "IN",
+            "StateCode": "DD",
+            "USPSCode": ""
+        },
+        {
+            "StateName": "Goa",
+            "CountryCode": "IN",
+            "StateCode": "GA",
+            "USPSCode": ""
+        },
+        {
+            "StateName": "Gujarat",
+            "CountryCode": "IN",
+            "StateCode": "GJ",
+            "USPSCode": ""
+        },
+        
+        {
+            "StateName": "Jammu And Kashmir",
+            "CountryCode": "IN",
+            "StateCode": "JK",
+            "USPSCode": ""
+        },
+        {
+            "StateName": "Jharkhand",
+            "CountryCode": "IN",
+            "StateCode": "JH",
+            "USPSCode": ""
+        },
+        {
+            "StateName": "Karnataka",
+            "CountryCode": "IN",
+            "StateCode": "KA",
+            "USPSCode": ""
+        },
+        {
+            "StateName": "Kerala",
+            "CountryCode": "IN",
+            "StateCode": "KL",
+            "USPSCode": ""
+        },
+        {
+            "StateName": "Lakshadweep",
+            "CountryCode": "IN",
+            "StateCode": "LD",
+            "USPSCode": ""
+        },
+        {
+            "StateName": "Madhya Pradesh",
+            "CountryCode": "IN",
+            "StateCode": "MP",
+            "USPSCode": ""
+        },
+        {
+            "StateName": "Maharashtra",
+            "CountryCode": "IN",
+            "StateCode": "MH",
+            "USPSCode": ""
+        },
+        {
+            "StateName": "Manipur",
+            "CountryCode": "IN",
+            "StateCode": "MN",
+            "USPSCode": ""
+        },
+        {
+            "StateName": "Meghalaya",
+            "CountryCode": "IN",
+            "StateCode": "ML",
+            "USPSCode": ""
+        },
+        {
+            "StateName": "Mizoram",
+            "CountryCode": "IN",
+            "StateCode": "MZ",
+            "USPSCode": ""
+        },
+        {
+            "StateName": "Nagaland",
+            "CountryCode": "IN",
+            "StateCode": "NL",
+            "USPSCode": ""
+        },
+        {
+            "StateName": "Odisha",
+            "CountryCode": "IN",
+            "StateCode": "OR",
+            "USPSCode": ""
+        },
+        {
+            "StateName": "Orissa",
+            "CountryCode": "IN",
+            "StateCode": "OR400",
+            "USPSCode": ""
+        },
+        {
+            "StateName": "Tamil Nadu",
+            "CountryCode": "IN",
+            "StateCode": "TN",
+            "USPSCode": ""
+        },
+        {
+            "StateName": "Telangana",
+            "CountryCode": "IN",
+            "StateCode": "TG",
+            "USPSCode": ""
+        },
+        {
+            "StateName": "West Bengal",
+            "CountryCode": "IN",
+            "StateCode": "WB",
+            "USPSCode": ""
+        }
+    ],
+    "ErrorCode": 0
+}
+
+
+```
+
+
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `/Store/States/{merchantId}/{Countrycode}`
+Rate Limited? | No
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | GET
+Batch Support | No
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+### Request URL
+
+`https://{host}/developerapi/Store/States/{merchantId}/{Countrycode}`
+
+
+### Request Path Parameters
+
+Parameter | Type | Description
+-------- | ----- | -----------
+merchantId* | string | Unique GUID of the merchant
+Countrycode* | string | Country code for which you want to fetch available states
+
+
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
+
+
+
+
+
+
+
+
+
+
+
+## Get Channel Information
+
+Retrieves the details of a specific channel based on the channel id or channel code passed.  
+
+
+> Sample Request
+
+```html
+https://www.martjack.com/developerapi/Store/getchannelinfo/f48fdd16-92db-4188-854d-1ecd9b62d066/3404
+
+```
+
+> Sample Response
+
+```json
+
+{
+    "messageCode": "1004",
+    "Message": "Successful",
+    "ChannelDetails": [
+        {
+            "APPID": "0",
+            "AppName": null,
+            "ChannelID": "3404",
+            "ChannelName": "APIChannelRefCode",
+            "ChannelRefCode": "Auto227332",
+            "ChannelType": "Web",
+            "ChannelTypeID": "1",
+            "MerchantID": "f48fdd16-92db-4188-854d-1ecd9b62d066",
+            "UserID": "68bb81e1-e7be-4bbc-bffd-afeb9ad041c0"
+        }
+    ],
+    "ErrorCode": 0
+}
+
+```
+
+
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `/Store/getchannelinfo/{merchantid}/{channelid or channelcode}/{channelrefcode}`
+Rate Limited? | No
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | GET
+Batch Support | No
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+### Request URL
+
+`https://{host}/developerapi/Store/getchannelinfo/{merchantid}/{channelid}`
+
+OR
+
+`https://{host}/developerapi/Store/getchannelinfo/{merchantid}/{channelcode}`
+
+OR
+
+`https://{host}/developerapi/Store/getchannelinfo/{merchantid}/0/{channelrefcode}`
+
+
+### Request Path Parameters
+
+Parameter | Type | Description
+-------- | ----- | -----------
+merchantId* | string | Unique GUID of the merchant
+channelid** | int | Unique id of the channel that you want to fetch. Either pass channelid or channelcode but not both
+channelcode** | string | Unique channel code that you want to fetch. Either pass channelid or channelcode but not both
+channelrefcode** | string | Fetch details by channel reference code. Pass `channelid` as 0 if you use channelrefcode as mentioned in the Request URL 
+
+
+<aside class="notice"> All parameters marked by * are mandatory. Any one among the parameters marked by ** is mandatory. </aside>
+
+
+
+## Update Channel (Archive)
+
+Archives a specific channel of the merchant based on the channel reference code passed.
+
+
+
+
+
+
+
+> Sample Request
+
+```html
+https://www.martjack.com/developerapi/Store/UpdateChannel/f48fdd16-92db-4188-854d-1ecd9b62d066/Auto227332
+
+
+```
+
+
+
+
+> Sample Response
+
+```json
+{
+    "messageCode": "1004",
+    "Message": "Channel updated successfully",
+    "ErrorCode": 0
+}
+
+
+```
+
+
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `/Store/UpdateChannel/{merchantid}/{channelrefcode}`
+Rate Limited? | No
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | GET
+Batch Support | No
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+
+
+
+### Request URL
+
+`https://{host}/developerapi/Store/UpdateChannel/{merchantid}/{channelrefcode}`
+
+
+### Request Path Parameters
+
+Parameter | Type | Description
+-------- | ----- | -----------
+merchantId* | string | Unique GUID of the merchant
+channelrefcode* | string | Unique reference code of the channel that you want to archive
+
+
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
+
+
+
+
+
+## Get Vendor Details
+
+Retrieves the details of a specific vendor of the merchant based on the vendor id passed.
+
+> Sample Request
+
+```html
+https://www.martjack.com/developerapi/Store/GetVendorDetails/164b706c-a357-42d2-98ef-ec51e23e297b/ecbeec1b-8317-4e04-b9ef-42fb80fe4bf3
+
+```
+
+
+
+
+> Sample Response
+
+```json
+{
+    "messageCode": "1004",
+    "Message": "Successful",
+    "VendorDetails": [
+        {
+            "MerchantId": "164b706c-a357-42d2-98ef-ec51e23e297b",
+            "VendorId": "ecbeec1b-8317-4e04-b9ef-42fb80fe4bf3",
+            "VendorName": "MJ Enterprise PVt Ltd",
+            "ContactPerson": "Jim Martin",
+            "Address": "26-1, KC Road",
+            "ZipCode": "560028",
+            "Country": "IN",
+            "State": "",
+            "City": "195",
+            "value": "",
+            "Mobile": "91-7842700000",
+            "Fax": "",
+            "Email": "jim8@mjent.com",
+            "Active": true,
+            "SupplierEmailConfiguration": false,
+            "IsDropShipping": false,
+            "OrderReturn": false,
+            "Availability": true,
+            "VendorReferenceCode": "MJE234",
+            "RequestState": null,
+            "EnableEmailNotification": false
+        }
+    ],
+    "ErrorCode": 0
+}
+
+
+```
+
+
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `/Store/GetVendorDetails/{merchantId}/{vendorId}`
+Rate Limited? | No
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | GET
+Batch Support | No
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+### Request URL
+
+`https://{host}/developerapi/Store/GetVendorDetails/{merchantId}/{vendorId}`
+
+
+### Request Path Parameters
+
+Parameter | Type | Description
+-------- | ----- | -----------
+merchantId* | string | Unique GUID of the merchant
+vendorId* | string | Unique GUID of the vendor that you want to fetch
+
+
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
+
+
+
+

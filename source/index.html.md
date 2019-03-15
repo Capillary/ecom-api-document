@@ -15,6 +15,7 @@ includes:
   - customer
   - groups
   - product
+  - productTags
   - cart
   - pricelist
   - shoppingList

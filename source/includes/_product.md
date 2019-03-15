@@ -767,6 +767,112 @@ channelrefcode | string | Channel code to which the price list is associated
 
 
 
+## Get Product Price and Inventory (LocationStockPrice)
+
+Retrieves the details of inventory and price of a specific product across all locations or a particular location based on the input parameters passed.
+
+
+
+
+
+
+> Sample Request
+
+```html
+https://www.martjack.com/developerapi/Product/f48fdd16-92db-4188-854d-1ecd9b62d066/LocationStockPrice
+
+```
+
+
+
+
+> Sample POST Request (RAW)
+
+```json
+
+MerchantId=f48fdd16-92db-4188-854d-1ecd9b62d066&sku=&variantsku=&productid=14106036&locationid=17586
+
+
+```
+
+
+
+> Sample Response
+
+```json
+
+{
+    "messageCode": "1004",
+    "Message": "Successful",
+    "LocationStockPrices": [
+        {
+            "MerchantId": "f48fdd16-92db-4188-854d-1ecd9b62d066",
+            "PriceListId": 0,
+            "LocationId": 17586,
+            "UserGroupId": 0,
+            "ProductId": 14106036,
+            "VariantProductId": 10178766,
+            "Quantity": 0,
+            "MRP": 0,
+            "WebPrice": 0,
+            "Inventory": "100"
+        },
+        {
+            "MerchantId": "f48fdd16-92db-4188-854d-1ecd9b62d066",
+            "PriceListId": 2838,
+            "LocationId": 18340,
+            "UserGroupId": 8402,
+            "ProductId": 14106036,
+            "VariantProductId": 0,
+            "Quantity": 0,
+            "MRP": 0,
+            "WebPrice": 0,
+            "Inventory": "11"
+        }
+    ]
+
+```
+
+
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `/Product/{merchantId}/LocationStockPrice`
+Rate Limited? | No
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | POST
+Batch Support | No
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+### Request URL
+
+`https://{host}/developerapi/Product/{merchantId}/LocationStockPrice`
+
+
+### Request Path Parameters
+
+Parameter | Type | Description
+-------- | ----- | -----------
+merchantId* | string | Unique GUID of the merchant
+sku | string | Specify the SKU of product for which you want to see inventory and price details
+variantSKU | string | Specify the SKU of variant product for which you want to see inventory and price details
+productId | int | Specify the product id for which you want to see inventory and price details
+locationId | int | Retrieves the inventory and product of a specific location
+
+
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
+
+
+
+
+
+
+
+
 
 
 
@@ -1264,6 +1370,317 @@ UOM | string | Unit of measurement of the product. It could be the `pieces` for 
 
 
 
+## Get Products by Product Tag & Location
+
+
+Retrieves products with a specific product tag in a given location.
+
+
+
+> Sample Request
+
+```html
+https://www.martjack.com/developerapi/Product/993c939a-a2e8-4934-bbf5-390f37457a55/Automation9/24342
+
+```
+
+
+
+
+> Sample Response
+
+```json
+{
+   "messageCode":"1004",
+   "Message":"Successful",
+   "Products":[
+      {
+         "ProductId":13038134,
+         "ProductTitle":"TShirt Product 01",
+         "MRP":1500,
+         "WebPrice":1350,
+         "CostPrice":0,
+         "Rating":2,
+         "IsParentProduct":true,
+         "Availability":true,
+         "BrandId":"0",
+         "CatlogSequence":0,
+         "CatalogCode":"",
+         "SKU":"tshirt-001",
+         "Taxtotal":0,
+         "MarkupPrice":0,
+         "MarkupType":"",
+         "BulkQuantity":1,
+         "ProductWeight":0,
+         "ProductType":"P",
+         "SmallImageAltText":"t-shirt",
+         "IsShippingConfigured":false,
+         "IsTaxConfigured":false,
+         "StartDate":"/Date(-2209008600000+0530)/",
+         "EndDate":"/Date(-2209008600000+0530)/",
+         "SeoURL":"http://www.example.martjack.com/products/mens-t-shirts/nike/tshirt-product-01/pid-13038134.aspx",
+         "DeliveryTime":"",
+         "TokenPriceCheckout":false,
+         "IsReferPrice":false,
+         "ShortDescription":"",
+         "TokenPrice":0,
+         "SmallImage":"",
+         "Brandname":"NIKE",
+         "CategoryId":"CU00366336",
+         "CategoryName":"T-Shirts",
+         "Fulldescription":null,
+         "NoofReview":"12",
+         "BarCode":"",
+         "ProductSequence":1,
+         "UOM":"Pieces"
+      },
+      {
+         "ProductId":13038136,
+         "ProductTitle":"TShirt Product 02",
+         "MRP":1500,
+         "WebPrice":1350,
+         "CostPrice":0,
+         "Rating":0,
+         "IsParentProduct":true,
+         "Availability":true,
+         "BrandId":"0",
+         "CatlogSequence":0,
+         "CatalogCode":"",
+         "SKU":"tshirt-002",
+         "Taxtotal":0,
+         "MarkupPrice":0,
+         "MarkupType":"",
+         "BulkQuantity":1,
+         "ProductWeight":0,
+         "ProductType":"P",
+         "SmallImageAltText":"TShirt Product 02",
+         "IsShippingConfigured":false,
+         "IsTaxConfigured":false,
+         "StartDate":"/Date(-2209008600000+0530)/",
+         "EndDate":"/Date(-2209008600000+0530)/",
+         "SeoURL":"http://www.example.martjack.com/products/mens-t-shirts/nike/tshirt-product-02/pid-13038136.aspx",
+         "DeliveryTime":"",
+         "TokenPriceCheckout":false,
+         "IsReferPrice":false,
+         "ShortDescription":"",
+         "TokenPrice":0,
+         "SmallImage":"",
+         "Brandname":"NIKE",
+         "CategoryId":"CU00366336",
+         "CategoryName":"T-Shirts",
+         "Fulldescription":null,
+         "NoofReview":"0",
+         "BarCode":"",
+         "ProductSequence":0,
+         "UOM":"Pieces"
+      }
+   ],
+   "ErrorCode":0
+}
+
+```
+
+
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `/Product/{merchantId}/{productTag}/{locationId}`
+Rate Limited? | No
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | GET
+Batch Support | No
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+### Request URL
+
+`https://{host}/developerapi/Product/{merchantId}/{productTag}/{locationId}`
+
+
+### Request Path Parameters
+
+Parameter | Type | Description
+-------- | ----- | -----------
+merchantId* | string | Unique GUID of the merchant
+productTag* | string | Specify the name of product tag by which you want to fetch products
+locationId* | int | Location id for which you want to fetch products with specified tag
+
+
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
+
+
+
+
+## Get Multiple Parent Products
+
+
+Retrieves the details of parent products based on the specified variant product ids. You can pass multiple variant product IDs (batch).
+
+
+
+
+> Sample Request
+
+```html
+https://www.martjack.com/developerapi/Product/993c939a-a2e8-4934-bbf5-390f37457a55/GetMultipleParentproducts
+
+```
+
+> Sample POST Request (RAW)
+
+```json
+MerchantId=993c939a-a2e8-4934-bbf5-390f37457a55&varientProductIds=10603855,10604855
+
+```
+
+
+
+> Sample Response
+
+```json
+{
+   "messageCode":"1004",
+   "Message":"Successful",
+   "ProductVarient":[
+      {
+         "variantProductId":"10603855",
+         "productId":14577393,
+         "MRP":1000,
+         "WebPrice":900,
+         "SKU":"AutoVarSKU28625553183",
+         "Inventory":100,
+         "ReferenceProductVariantId":0,
+         "productType":"",
+         "merchantId":"993c939a-a2e8-4934-bbf5-390f37457a55",
+         "BulkQuantity":1,
+         "Availability":true,
+         "StartDate":"/Date(-2209008600000+0530)/",
+         "EndDate":"/Date(-2209008600000+0530)/",
+         "CostPrice":0,
+         "BarCode":"",
+         "CatalogCode":"",
+         "IsDropShipping":false,
+         "MarkupPrice":0,
+         "MarkupType":"",
+         "IsReferProductInfo":false,
+         "IsReferPrice":false,
+         "TokenPrice":0,
+         "Flag":null,
+         "ReserveQuantity":0,
+         "ReOrderStockLevel":0,
+         "StockAlertQuantity":0,
+         "PreOrderMessage":"",
+         "PreOrder":false,
+         "BackOrder":false,
+         "IsStockEnabled":false,
+         "WebPriceWithoutDiscount":0,
+         "ProductVariantValueViews":[
+            {
+               "valueId":18096205,
+               "variantProductId":10603855,
+               "variantPropertyId":14682,
+               "variantPropertyValueId":319514,
+               "IsDisplaySwatch":false,
+               "Rank":2,
+               "variantPropertyName":"Size",
+               "variantValue":"Small",
+               "flag":""
+            }
+         ]
+      },
+      {
+         "variantProductId":"10604855",
+         "productId":14577393,
+         "MRP":1000,
+         "WebPrice":900,
+         "SKU":"AutoVarSKU28625553183",
+         "Inventory":100,
+         "ReferenceProductVariantId":0,
+         "productType":"",
+         "merchantId":"993c939a-a2e8-4934-bbf5-390f37457a55",
+         "BulkQuantity":1,
+         "Availability":true,
+         "StartDate":"/Date(-2209008600000+0530)/",
+         "EndDate":"/Date(-2209008600000+0530)/",
+         "CostPrice":0,
+         "BarCode":"",
+         "CatalogCode":"",
+         "IsDropShipping":false,
+         "MarkupPrice":0,
+         "MarkupType":"",
+         "IsReferProductInfo":false,
+         "IsReferPrice":false,
+         "TokenPrice":0,
+         "Flag":null,
+         "ReserveQuantity":0,
+         "ReOrderStockLevel":0,
+         "StockAlertQuantity":0,
+         "PreOrderMessage":"",
+         "PreOrder":false,
+         "BackOrder":false,
+         "IsStockEnabled":false,
+         "WebPriceWithoutDiscount":0,
+         "ProductVariantValueViews":[
+            {
+               "valueId":18096205,
+               "variantProductId":10604855,
+               "variantPropertyId":14682,
+               "variantPropertyValueId":319514,
+               "IsDisplaySwatch":false,
+               "Rank":2,
+               "variantPropertyName":"Size",
+               "variantValue":"Small",
+               "flag":""
+            }
+         ]
+      }
+   ],
+   "ErrorCode":0
+}
+
+```
+
+
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `/Product/{merchantId}/GetMultipleParentproducts`
+Rate Limited? | No
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | POST
+Batch Support | Yes
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+### Request URL
+
+`https://{host}/developerapi/Product/{merchantId}/GetMultipleParentproducts`
+
+
+### Request Body Parameters
+
+Parameter | Type | Description
+-------- | ----- | -----------
+merchantId* | string | Unique GUID of the merchant
+variantProductId* | int | Specify the variant product ids for which you want to fetch parent products
+
+
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
+
+
+
+
+
+
+
+
+
 ## Get Product Variants
 
 > Sample Request
@@ -1542,6 +1959,692 @@ MarkupType |  |
 TokenPriceCheckout | float | Minimum amount required for the customer to reserve the item during checkout and purchase later on
 IsReferPrice | | 
 UOM | string | Unit of measurement of the product. It could be the `pieces` for items that are sold in numbers and the respective measure for other items such as kgs, and gms
+
+
+
+## Get Multiple Products Information
+
+Retrieves the details of multiple products based on the product ids passed.
+
+> Sample Request
+
+```html
+https://www.martjack.com/developerapi/Product/993c939a-a2e8-4934-bbf5-390f37457a55/GetMultipleProductInformation
+
+```
+
+> Sample POST Request (RAW)
+
+```json
+MerchantId=993c939a-a2e8-4934-bbf5-390f37457a55&productIds=14577401,14577451
+```
+
+
+
+> Sample Response
+
+```json
+{
+   "messageCode":"1004",
+   "Message":"Successful",
+   "Products":[
+      {
+         "ProductId":14577401,
+         "ProductTitle":"AutoTitle11316542375",
+         "MRP":1000,
+         "WebPrice":900,
+         "CostPrice":0,
+         "Rating":0,
+         "IsParentProduct":true,
+         "Availability":true,
+         "BrandId":"322101",
+         "CatlogSequence":0,
+         "CatalogCode":"",
+         "SKU":"AutoSKU77721210280",
+         "Taxtotal":0,
+         "MarkupPrice":0,
+         "MarkupType":"",
+         "BulkQuantity":1,
+         "ProductWeight":0,
+         "ProductType":"P",
+         "SmallImageAltText":"AutoTitle11316542375",
+         "IsShippingConfigured":false,
+         "IsTaxConfigured":false,
+         "StartDate":"/Date(-2209008600000+0530)/",
+         "EndDate":"/Date(-2209008600000+0530)/",
+         "SeoURL":"http://www.testorg2.martjack.com/products/automation-productaddupdate/automation/autotitle11316542375/pid-14577401.aspx",
+         "DeliveryTime":"",
+         "TokenPriceCheckout":false,
+         "IsReferPrice":false,
+         "ShortDescription":"",
+         "TokenPrice":0,
+         "SmallImage":"",
+         "Brandname":"Automation",
+         "CategoryId":"CU00379869",
+         "CategoryName":"productadd/update",
+         "Fulldescription":null,
+         "NoofReview":"0",
+         "BarCode":"",
+         "Inventory":"100",
+         "PreOrder":"0",
+         "BackOrder":"0",
+         "RefProductId":"0",
+         "ProductSequence":0,
+         "UOM":"Pieces"
+      },
+      {
+         "ProductId":14577451,
+         "ProductTitle":"AutoTitle64610622188",
+         "MRP":1000,
+         "WebPrice":900,
+         "CostPrice":0,
+         "Rating":0,
+         "IsParentProduct":false,
+         "Availability":false,
+         "BrandId":"322101",
+         "CatlogSequence":0,
+         "CatalogCode":"",
+         "SKU":"AutoSKU36398752078",
+         "Taxtotal":0,
+         "MarkupPrice":0,
+         "MarkupType":"",
+         "BulkQuantity":1,
+         "ProductWeight":0,
+         "ProductType":"P",
+         "SmallImageAltText":"AutoTitle64610622188",
+         "IsShippingConfigured":false,
+         "IsTaxConfigured":false,
+         "StartDate":"/Date(1549521000000+0530)/",
+         "EndDate":"/Date(1579737600000+0530)/",
+         "SeoURL":"http://www.testorg2.martjack.com/products/automation-productaddupdate/automation/autotitle64610622188/pid-14577451.aspx",
+         "DeliveryTime":"",
+         "TokenPriceCheckout":false,
+         "IsReferPrice":false,
+         "ShortDescription":"AutomationProduct",
+         "TokenPrice":0,
+         "SmallImage":"",
+         "Brandname":"Automation",
+         "CategoryId":"CU00379869",
+         "CategoryName":"productadd/update",
+         "Fulldescription":null,
+         "NoofReview":"0",
+         "BarCode":"87451721735",
+         "Inventory":"100",
+         "PreOrder":"1",
+         "BackOrder":"0",
+         "RefProductId":"0",
+         "ProductSequence":0,
+         "UOM":"Pieces"
+      }
+   ],
+   "ErrorCode":0
+}
+```
+
+
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `/Product/{merchantId}/GetMultipleProductInformation`
+Rate Limited? | No
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | POST
+Batch Support | Yes
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+### Request URL
+
+`https://{host}/developerapi/Product/{merchantId}/GetMultipleProductInformation`
+
+
+### Request Path Parameters
+
+Parameter | Type | Description
+-------- | ----- | -----------
+merchantId* | string | Unique GUID of the merchant
+
+
+
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
+
+### Response Parameters
+
+Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.
+
+Parameter | Type | Description
+--------- | ---- | -----------
+Rating | 
+IsParentProduct | boolean | Whether the product is parent product or not
+Availability | boolean | Whether the product is in stock or not
+BrandId | int | Unique id of the product brand
+CatlogSequence | int | Sequence of the product in the respective product category to appear on the storefront
+CatalogCode | string | Catalog code associated to the product
+StartDate | date | The duration for which the product is shown on the storefront (StartDate - EndDate)
+EndDate | date | The duration for which the product is shown on the storefront (StartDate - EndDate)
+SmallImageAltText | string | The mouse hover text for small image
+SeoURL | string | The redirect URL when searched on Google
+BackOrder | enum |  Can the product be ordered even when the product is out of stock
+NoofReview | int | Number of reviews available for the product
+TokenPriceCheckout | float | Minimum amount required for the customer to reserve the item during checkout and purchase later on
+UOM | string | Unit of measurement of the product. It could be the `pieces` for items that are sold in numbers and the respective measure for other items such as kgs, and gms
+
+
+
+
+## Get Products Tags by Product ID
+Retrieves all the product tags based on the product id passed.
+
+> Sample Request
+
+```html
+https://www.martjack.com/developerapi/Product/GetProductsTagsByProductId/20993c939a-a2e8-4934-bbf5-390f37457a55/13036942
+
+```
+
+> Sample Response
+
+```json
+{
+  "messageCode": "1004",
+  "Message": "Successful",
+  "ProductTags": [
+	{
+  	"Tag": "Best-Prices",
+  	"TagDescription": null,
+  	"CreateDate": "/Date(1527842767000+0530)/"
+	},
+	{
+  	"Tag": "FE",
+  	"TagDescription": null,
+  	"CreateDate": "/Date(1527842767000+0530)/"
+	},
+	{
+  	"Tag": "New Tag 01",
+  	"TagDescription": null,
+  	"CreateDate": "/Date(1525795514000+0530)/"
+	}
+  ],
+  "ErrorCode": 0
+}
+
+
+```
+
+
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `/Product/GetProductsTagsByProductId/{merchantid}/{productid}`
+Rate Limited? | No
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | GET
+Batch Support | No
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+### Request URL
+
+`https://{host}/developerapi/Product/GetProductsTagsByProductId/{merchantid}/{productid}`
+
+
+### Request Path Parameters
+
+Parameter | Type | Description
+-------- | ----- | -----------
+merchantId* | string | Unique GUID of the merchant
+productId* | int | Specify the product id for which you want to fetch product tags
+
+
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
+
+
+
+
+## Get Products by Category
+
+Retrieves product details based on the category id passed.
+
+
+> Sample Request
+
+```html
+https://www.martjack.com/developerapi/Product/Category/188a59ab-e1b0-4dae-be64-654f5c4dd531/CU00378213/ALL
+```
+
+
+
+
+> Sample Response
+
+```json
+{
+   "messageCode":"1004",
+   "Message":"Successful",
+   "Products":[
+      {
+         "ProductId":14498019,
+         "ProductTitle":"ALDA GRAPHITO NON STICK GRILL PAN  26 CM",
+         "MRP":1490,
+         "WebPrice":1341,
+         "CostPrice":0,
+         "Rating":0,
+         "IsParentProduct":false,
+         "Availability":true,
+         "BrandId":"318923",
+         "CatlogSequence":2,
+         "CatalogCode":"",
+         "SKU":"027617",
+         "Taxtotal":0,
+         "MarkupPrice":0,
+         "MarkupType":"",
+         "BulkQuantity":1,
+         "ProductWeight":0,
+         "ProductType":"P",
+         "SmallImageAltText":"ALDA GRAPHITO NON STICK GRILL PAN  26 CM",
+         "IsShippingConfigured":false,
+         "IsTaxConfigured":false,
+         "StartDate":"/Date(-2209008600000+0530)/",
+         "EndDate":"/Date(-2209008600000+0530)/",
+         "SeoURL":"https://www.onlydbest.in/alda-graphito-non-stick-grill-pan--26-cm/p/14498019",
+         "DeliveryTime":"",
+         "TokenPriceCheckout":false,
+         "IsReferPrice":false,
+         "ShortDescription":"ALDA GRAPHITO NON STICK GRILL PAN  26 CM",
+         "TokenPrice":0,
+         "SmallImage":"",
+         "Brandname":"ALDA GRAPHITO",
+         "CategoryId":"CU00378213",
+         "CategoryName":"Grill Pans",
+         "Fulldescription":null,
+         "NoofReview":"0",
+         "BarCode":"",
+         "ProductSequence":2,
+         "UOM":"Pieces"
+      },
+      {
+         "ProductId":14559259,
+         "ProductTitle":"Vinod Non Stick Double Griller Zpsgdw",
+         "MRP":2490,
+         "WebPrice":2241,
+         "CostPrice":0,
+         "Rating":0,
+         "IsParentProduct":false,
+         "Availability":true,
+         "BrandId":"318939",
+         "CatlogSequence":2,
+         "CatalogCode":"",
+         "SKU":"010788",
+         "Taxtotal":0,
+         "MarkupPrice":0,
+         "MarkupType":"",
+         "BulkQuantity":1,
+         "ProductWeight":0,
+         "ProductType":"P",
+         "SmallImageAltText":"Vinod Non Stick Double Griller Zpsgdw",
+         "IsShippingConfigured":false,
+         "IsTaxConfigured":false,
+         "StartDate":"/Date(-2209008600000+0530)/",
+         "EndDate":"/Date(-2209008600000+0530)/",
+         "SeoURL":"https://www.onlydbest.in/vinod-non-stick-double-griller-zpsgdw/p/14559259",
+         "DeliveryTime":"",
+         "TokenPriceCheckout":false,
+         "IsReferPrice":false,
+         "ShortDescription":"Vinod Non Stick Double Griller Zpsgdw",
+         "TokenPrice":0,
+         "SmallImage":"",
+         "Brandname":"VINOD",
+         "CategoryId":"CU00378213",
+         "CategoryName":"Grill Pans",
+         "Fulldescription":null,
+         "NoofReview":"0",
+         "BarCode":"",
+         "ProductSequence":2,
+         "UOM":"Pieces"
+      }
+   ],
+   "ErrorCode":0
+}
+
+```
+
+
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `/Product/Category/{merchantid}/{CatagoryId}/{availibility}`
+Rate Limited? | No
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | GET
+Batch Support | No
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+### Request URL
+
+`https://{host}/developerapi/Product/Category/{merchantid}/{CatagoryId}/{availibility}`
+
+
+### Request Path Parameters
+
+Parameter | Type | Description
+-------- | ----- | -----------
+merchantId* | string | Unique GUID of the merchant
+CatagoryId* | int | Unique category id by which you want to fetch products
+availibility* | enum | Specify `Active` to get only active products, `All` to get all products
+
+
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
+
+### Response Parameters
+
+Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.
+
+Parameter | Type | Description
+--------- | ---- | -----------
+CatlogSequence | int | Sequence of the product in the respective product category to appear on the storefront
+IsShippingConfigured | boolean | Whether the shipping is enabled for the item or not
+IsTaxConfigured | boolean | Whether tax is enabled for the item or not
+StartDate | date-time | The duration for which the product is shown on the storefront (StartDate - EndDate)
+EndDate | date-time | The duration for which the product is shown on the storefront (StartDate - EndDate)
+SeoURL | string | The SEO friendly URL of the product 
+TokenPriceCheckout | float | Minimum amount required for the customer to reserve the item during checkout and purchase later on
+IsReferPrice | boolean | 
+NoofReview | string | Number of reviews received for the product
+UOM | string | Unit of measurement of the product. It could be `pieces` for the items that are sold in numbers and the respective measure for other items such as kgs, and gms 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Get Product Information with Attributes
+Retrieves details of a specific product along with the respective product attributes based on the  product id passed.
+
+> Sample Request
+
+```html
+https://www.martjack.com/developerapi/Product/InformrationNAttr/993c939a-a2e8-4934-bbf5-390f37457a55/13036942
+
+```
+
+> Sample Response
+
+```json
+{
+   "Message":"Successful",
+   "messageCode":"1004",
+   "Products":[
+      {
+         "ProductId":"13036942",
+         "ProductTitle":"AutomationProduct_pdd",
+         "MRP":"9999",
+         "WebPrice":"9995",
+         "Rating":"0",
+         "IsParentProduct":"True",
+         "Availability":"True",
+         "BrandId":"Nik002",
+         "CatlogSequence":"0",
+         "CatalogCode":"",
+         "SKU":"AutoSKU085",
+         "BulkQuantity":"1",
+         "ProductWeight":"0",
+         "ProductType":"A",
+         "SmallImageAltText":"",
+         "StartDate":"1/1/1900",
+         "EndDate":"1/1/1900",
+         "DeliveryTime":"",
+         "IsTokenPriceCheckout":"False",
+         "ShortDescription":"",
+         "TokenPrice":"0",
+         "CategoryId":"CU00366336",
+         "Inventory":"1200",
+         "PreOrder":"1",
+         "BackOrder":"0",
+         "RefProductId":"0",
+         "Sellerid":"00000000-0000-0000-0000-000000000000",
+         "ShippingCodes":[
+
+         ],
+         "ReserveQuantity":"0",
+         "ProductVariantList":[
+
+         ],
+         "lstProductAttribute":[
+            {
+               "Attributeid":"CU00366336-002",
+               "Name":"ClothMaterial",
+               "Unit":"1",
+               "Iscompulsory":false,
+               "Ispredefined":false,
+               "Description":"",
+               "Attributegroup":"1",
+               "AttributeValue":"1",
+               "ObjAttributeValueEnt":[
+
+               ],
+               "IsDisplay":false,
+               "CategoryId":"CU00366336",
+               "Rank":0,
+               "PredefinedValueId":0,
+               "IsParentCategoryAttribute":false,
+               "AttributeValueId":"",
+               "DataType":"String",
+               "NoOfColumns":1,
+               "ReferenceCode":"cmat"
+            },
+            {
+               "Attributeid":"CU00366336-001",
+               "Name":"Fit",
+               "Unit":"1",
+               "Iscompulsory":false,
+               "Ispredefined":false,
+               "Description":"",
+               "Attributegroup":"2",
+               "AttributeValue":"1",
+               "ObjAttributeValueEnt":[
+
+               ],
+               "IsDisplay":false,
+               "CategoryId":"CU00366336",
+               "Rank":1,
+               "PredefinedValueId":0,
+               "IsParentCategoryAttribute":false,
+               "AttributeValueId":"",
+               "DataType":"String",
+               "NoOfColumns":0,
+               "ReferenceCode":"fit"
+            },
+            {
+               "Attributeid":"CU00366334-001",
+               "Name":"new",
+               "Unit":"1",
+               "Iscompulsory":false,
+               "Ispredefined":false,
+               "Description":"",
+               "Attributegroup":"new",
+               "AttributeValue":"1",
+               "ObjAttributeValueEnt":[
+
+               ],
+               "IsDisplay":false,
+               "CategoryId":"CU00366334",
+               "Rank":1,
+               "PredefinedValueId":0,
+               "IsParentCategoryAttribute":false,
+               "AttributeValueId":"",
+               "DataType":"String",
+               "NoOfColumns":0,
+               "ReferenceCode":"CU00366334_001"
+            }
+         ],
+         "IsLocationShip":"True",
+         "DeliveryOptions":{
+            "IsLocationShip":"True",
+            "IsOffline":"False",
+            "IsOnline":"False",
+            "IsShip":"True"
+         },
+         "BrandName":"NIKE",
+         "IsInStock":"True",
+         "IsQtyBasedPricing":"False",
+         "SoldOut":"False"
+      }
+   ]
+}
+
+```
+
+
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `/Product/InformationNAttr/{merchantid}/{productid}`
+Rate Limited? | No
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | GET
+Batch Support | No
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+### Request URL
+
+`https://{host}/developerapi/Product/InformationNAttr/{merchantid}/{productid}`
+
+
+### Request Path Parameters
+
+Parameter | Type | Description
+-------- | ----- | -----------
+merchantId* | string | Unique GUID of the merchant
+productid* | int | Unique id of the product that you want to fetch
+
+
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
+
+### Response Parameters
+
+Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.
+
+Parameter | Type | Description
+-------- | ----- | -----------
+CatlogSequence | int | Sequence of the product in the respective product category (to appear on the storefront)
+CatalogCode | string | Catalog code associated to the product
+BulkQuantity | int | Lot size or batch size of the product. Value will 0 if not applicable
+ProductType | enum | Type of the product. Values: `P` for a normal product, `A` for an add-on products, and `B` for a bundle product or deal product
+SmallImageAltText | string | Mouse hover text for small image
+IsTokenPriceCheckout | boolean | Whether the product is available for preorder - book the product with a minimum amount called token price and pay the rest when the product is in stock
+TokenPrice | float | Token price for preorder if `IsTokenPriceCheckout` is enabled
+CategoryId | string | Products are grouped into categories based on the type and each category will have a unique category id
+Inventory | int | The number of products available
+BackOrder | enum | Whether the order can be placed even when the product is out of stock
+Sellerid | string | Unique GUID of the product seller
+ReserveQuantity | int | Quantity of items reserved for special purposes. For example, merchant could reserve some products for the fulfillment for loyalty customers
+_ProductAttribute | obj | Details of each product attribute in prefex 1st, 2nd, 3rd and so on.
+
+
+
+## Get Attributes of Variant Products
+
+
+Retrieves all attributes of a variant product for a specific location.
+
+
+
+
+
+
+> Sample Request
+
+```html
+https://www.martjack.com/developerapi/Product/LocationAttribute/993c939a-a2e8-4934-bbf5-390f37457a55/formalshirt-001/formalshirt-var-001/Begur
+
+```
+
+
+
+
+> Sample Response
+
+```json
+{
+    "messageCode": "1004",
+    "Message": "Successful",
+    "LocationProductAttribute": [
+        {
+            "SKU": "formalshirt-001",
+            "VariantSKU": "formalshirt-var-001",
+            "LocationRefCode": "Begur",
+            "Attributeid": "CU00366338-003",
+            "AttributeValue": "Cotton_test"
+        }
+    ],
+    "ErrorCode": 0
+}
+
+
+```
+
+
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `/Product/LocationAttribute/{merchantId}/{sku}/{variantSku}/{locationRefCode}`
+Rate Limited? | No
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | GET
+Batch Support | No
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+### Request URL
+
+`https://{host}/developerapi/Product/LocationAttribute/{merchantId}/{sku}/{variantSku}/{locationRefCode}`
+
+
+### Request Path Parameters
+
+Parameter | Type | Description
+-------- | ----- | -----------
+merchantId* | string | Unique GUID of the merchant
+sku* | string | SKU of the product
+variantsku* | string | SKU of the variant product for which you want to fetch attributes
+locationrefcode* | string | Unique location reference code for which you want to see attributes
+
+
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
+
+
+
+
 
 
 
@@ -2262,7 +3365,7 @@ Lets you update tags of product either by location or without Location. An email
 > Sample Request
 
 ```html
-https://www.martjack.com/developerapi/product/UpdateProductTags
+https://www.martjack.com/developerapi/product/AddLocationTagtoProduct/0639f7a6-34cc-48b2-9fd9-a80e2ed8xxxx
 
 ```
 
@@ -2305,7 +3408,7 @@ MerchantId=0639f7a6-34cc-48b2-9fd9-a80e2ed8xxxx&InputFormat=application/json&Inp
 ### Resource Information
 | | |
 --------- | ----------- |
-URI | `/product/UpdateProductTags`
+URI | `/product/AddLocationTagtoProduct/{merchantId}`
 Rate Limited? | No
 Authentication | Yes
 Response Formats | JSON
@@ -2317,7 +3420,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/product/UpdateProductTags`
+`https://{host}/developerapi/product/AddLocationTagtoProduct/{merchantId}`
 
 
 ### Request Body Parameters
@@ -2333,151 +3436,8 @@ tag | string |
 <aside class="notice"> All parameters marked by * are mandatory. </aside>
 
 
-## Ger Products by Tag & Location
 
-Retrieves the products with a specific tag in a specific location.
-
-
-
-
-
-
-> Sample Request
-
-```html
-https://www.martjack.com/developerapi/Product/993c939a-a2e8-4934-bbf5-390f37457a55/Automation9/24342
-
-```
-
-
-
-
-> Sample Response
-
-```json
-{
-   "messageCode":"1004",
-   "Message":"Successful",
-   "Products":[
-      {
-         "ProductId":13038134,
-         "ProductTitle":"TShirt Product 01",
-         "MRP":1500,
-         "WebPrice":1350,
-         "CostPrice":0,
-         "Rating":2,
-         "IsParentProduct":true,
-         "Availability":true,
-         "BrandId":"0",
-         "CatlogSequence":0,
-         "CatalogCode":"",
-         "SKU":"tshirt-001",
-         "Taxtotal":0,
-         "MarkupPrice":0,
-         "MarkupType":"",
-         "BulkQuantity":1,
-         "ProductWeight":0,
-         "ProductType":"P",
-         "SmallImageAltText":"t-shirt",
-         "IsShippingConfigured":false,
-         "IsTaxConfigured":false,
-         "StartDate":"/Date(-2209008600000+0530)/",
-         "EndDate":"/Date(-2209008600000+0530)/",
-         "SeoURL":"http://www.testorg2.martjack.com/products/mens-t-shirts/nike/tshirt-product-01/pid-13038134.aspx",
-         "DeliveryTime":"",
-         "TokenPriceCheckout":false,
-         "IsReferPrice":false,
-         "ShortDescription":"",
-         "TokenPrice":0,
-         "SmallImage":"",
-         "Brandname":"NIKE",
-         "CategoryId":"CU00366336",
-         "CategoryName":"T-Shirts",
-         "Fulldescription":null,
-         "NoofReview":"12",
-         "BarCode":"",
-         "ProductSequence":1,
-         "UOM":"Pieces"
-      },
-      {
-         "ProductId":13038136,
-         "ProductTitle":"TShirt Product 02",
-         "MRP":1500,
-         "WebPrice":1350,
-         "CostPrice":0,
-         "Rating":0,
-         "IsParentProduct":true,
-         "Availability":true,
-         "BrandId":"0",
-         "CatlogSequence":0,
-         "CatalogCode":"",
-         "SKU":"tshirt-002",
-         "Taxtotal":0,
-         "MarkupPrice":0,
-         "MarkupType":"",
-         "BulkQuantity":1,
-         "ProductWeight":0,
-         "ProductType":"P",
-         "SmallImageAltText":"TShirt Product 02",
-         "IsShippingConfigured":false,
-         "IsTaxConfigured":false,
-         "StartDate":"/Date(-2209008600000+0530)/",
-         "EndDate":"/Date(-2209008600000+0530)/",
-         "SeoURL":"http://www.testorg2.martjack.com/products/mens-t-shirts/nike/tshirt-product-02/pid-13038136.aspx",
-         "DeliveryTime":"",
-         "TokenPriceCheckout":false,
-         "IsReferPrice":false,
-         "ShortDescription":"",
-         "TokenPrice":0,
-         "SmallImage":"",
-         "Brandname":"NIKE",
-         "CategoryId":"CU00366336",
-         "CategoryName":"T-Shirts",
-         "Fulldescription":null,
-         "NoofReview":"0",
-         "BarCode":"",
-         "ProductSequence":0,
-         "UOM":"Pieces"
-      }
-   ],
-   "ErrorCode":0
-}
-
-```
-
-
-
-### Resource Information
-| | |
---------- | ----------- |
-URI | `/Product/{merchantId}/{productTag}/{locationId}`
-Rate Limited? | No
-Authentication | Yes
-Response Formats | JSON
-HTTP Methods | GET
-Batch Support | No
-
-* **Rate limiter** controls the number of incoming and outgoing traffic of a network
-* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
-
-### Request URL
-
-`https://{host}/developerapi/Product/{merchantId}/{productTag}/{locationId}`
-
-
-### Request Path Parameters
-
-Parameter | Type | Description
--------- | ----- | -----------
-merchantId* | string | Unique GUID of the merchant
-productTag* | string | Specify the product tag by which you want to fetch products
-locationId* | int | Specify the location id for which you want to see the products with the specified product tag
-
-
-<aside class="notice"> All parameters marked by * are mandatory. </aside>
-
-
-## Get Product Attribute
+## Get Product Attributes
 
 Retrieves the list of category attributes associated to the product.
 
@@ -2586,6 +3546,1076 @@ productid* | int | Unique id of the product for which you want to fetch attribut
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Get Product Comments
+
+Retrieves a specific comment received for a product based on the post id passed.
+
+> Sample Request
+
+```html
+https://www.martjack.com/developerapi/Product/Comments/13038134/28958/993c939a-a2e8-4934-bbf5-390f37457a55
+```
+
+> Sample Response
+
+```json
+{
+  "messageCode": "1004",
+  "Message": "Successful",
+  "ProductComment": [
+	{
+  	"Id": "5b09ffb12ac24337b48e3e1e",
+  	"ParentId": "5b09ffb12ac24337b48e3e1e",
+  	"RootParentId": "5b09ffb12ac24337b48e3e1e",
+  	"Type": "C",
+  	"UserName": "Capillary ",
+  	"TargetName": "TShirt Product 01",
+  	"MerchantId": "993c939a-a2e8-4934-bbf5-390f37457a55",
+  	"Title": "Title12",
+  	"Description": "message18",
+  	"ModuleType": "C",
+  	"IsGoLive": false,
+  	"IsAbusive": false,
+  	"HelpfulCount": 0,
+  	"NotHelpfulCount": 0,
+  	"TotalCount": 0,
+  	"HelpfulControlId": "5b09ffb12ac24337b48e3e1e_yes",
+  	"NotHelpfulControlId": "5b09ffb12ac24337b48e3e1e_no",
+  	"AbusiveControlId": "5b09ffb12ac24337b48e3e1e_abuse",
+  	"ReplyControlId": "5b09ffb12ac24337b48e3e1e_reply",
+  	"CreatedDateTime": "27-May-2018",
+  	"UpdatedDateTime": "27-May-2018",
+  	"Margin": "margin-left: 0px;",
+  	"Level": 0,
+  	"Rating": 4,
+  	"RatingClass": "rating_result_verygood",
+  	"FacebookScript": "<div class='social_twitter'><fb:like href=\"http://www.testorg2.martjack.com/products/mens-t-shirts/nike/tshirt-product-01/pid-13038134.aspx#5b09ffb12ac24337b48e3e1e\" layout=\"button_count\" show_faces=\"false\" action=\"like\" width=\"100\" font=\"verdana\"></fb:like></div><div class='clear'></div>",
+  	"TwitterScript": "<div class='social_twitter'><a href=\"http://twitter.com/share\" class=\"twitter-share-button\" data-url=\"http://www.testorg2.martjack.com/products/mens-t-shirts/nike/tshirt-product-01/pid-13038134.aspx#5b09ffb12ac24337b48e3e1e\" data-via=\"\" data-related=\"anywhere:The Javascript API\" data-count=\"horizontal\">Tweet</a></div><div class='clear'></div>",
+  	"ShareScript": "<div class=\"addthis_toolbox addthis_default_style \"><a href=\"http://www.addthis.com/bookmark.php?v=250&amp;pubid=xa-4d8997d82887abcd\" class=\"addthis_button_compact\">Share</a></div>"
+	},
+	{
+  	"Id": "5b09faaf2ac24337b48e3e1d",
+  	"ParentId": "5b09faaf2ac24337b48e3e1d",
+  	"RootParentId": "5b09faaf2ac24337b48e3e1d",
+  	"Type": "C",
+  	"UserName": "Capillary ",
+  	"TargetName": "TShirt Product 01",
+  	"MerchantId": "993c939a-a2e8-4934-bbf5-390f37457a55",
+  	"Title": "Title18",
+  	"Description": "message71",
+  	"ModuleType": "C",
+  	"IsGoLive": true,
+  	"IsAbusive": false,
+  	"HelpfulCount": 0,
+  	"NotHelpfulCount": 0,
+  	"TotalCount": 0,
+  	"HelpfulControlId": "5b09faaf2ac24337b48e3e1d_yes",
+  	"NotHelpfulControlId": "5b09faaf2ac24337b48e3e1d_no",
+  	"AbusiveControlId": "5b09faaf2ac24337b48e3e1d_abuse",
+  	"ReplyControlId": "5b09faaf2ac24337b48e3e1d_reply",
+  	"CreatedDateTime": "27-May-2018",
+  	"UpdatedDateTime": "27-May-2018",
+  	"Margin": "margin-left: 0px;",
+  	"Level": 0,
+  	"Rating": 2,
+  	"RatingClass": "rating_result_average",
+  	"FacebookScript": "<div class='social_twitter'><fb:like href=\"http://www.testorg2.martjack.com/products/mens-t-shirts/nike/tshirt-product-01/pid-13038134.aspx#5b09faaf2ac24337b48e3e1d\" layout=\"button_count\" show_faces=\"false\" action=\"like\" width=\"100\" font=\"verdana\"></fb:like></div><div class='clear'></div>",
+  	"TwitterScript": "<div class='social_twitter'><a href=\"http://twitter.com/share\" class=\"twitter-share-button\" data-url=\"http://www.testorg2.martjack.com/products/mens-t-shirts/nike/tshirt-product-01/pid-13038134.aspx#5b09faaf2ac24337b48e3e1d\" data-via=\"\" data-related=\"anywhere:The Javascript API\" data-count=\"horizontal\">Tweet</a></div><div class='clear'></div>",
+  	"ShareScript": "<div class=\"addthis_toolbox addthis_default_style \"><a href=\"http://www.addthis.com/bookmark.php?v=250&amp;pubid=xa-4d8997d82887abcd\" class=\"addthis_button_compact\">Share</a></div>"
+	}
+  ],
+  "ErrorCode": 0
+}
+
+```
+
+
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `/Product/Comments/{productid}/{postid}/{merchantid}`
+Rate Limited? | No
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | GET
+Batch Support | No
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+### Request URL
+
+`https://{host}/developerapi/Product/Comments/{productid}/{postid}/{merchantid}`
+
+
+### Request Path Parameters
+
+Parameter | Type | Description
+-------- | ----- | -----------
+merchantId* | string | Unique GUID of the merchant
+productid* | int | Product id for which you want to see a specific comment
+postId* | string | Unique post id of the comment you want to fetch 
+
+
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
+
+### Response Parameters
+
+Parameter | Type | Description
+-------- | ----- | -----------
+Id | string | 
+ParentId | string | 
+RootParentId | string | 
+Type | enum | 
+UserName | string | 
+UserName | string | 
+Title | string | Comment title
+Description | string | Actual comment text
+ModuleType | 
+IsAbusive | 
+HelpfulCount | 
+NotHelpfulCount | int
+TotalCount | int | 
+HelpfulControlId | string | 
+NotHelpfulControlId | string | 
+AbusiveControlId | string | 
+ReplyControlId | 
+CreatedDateTime | date | Date when the comment was added
+UpdatedDateTime | date | Date when the comment was recently updated
+
+
+
+
+## Get Product Contents
+
+Retrieves additional product information such as images, variant property details, product file repository & groupId.
+
+
+
+
+
+
+> Sample Request
+
+```html
+https://www.martjack.com/developerapi/Product/Contents/f48fdd16-92db-4188-854d-1ecd9b62d066/14106036
+
+```
+
+
+
+
+> Sample Response
+
+```json
+
+{
+    "messageCode": "1004",
+    "Message": "Successful",
+    "ProductContent": [
+        {
+            "ProductId": 14106036,
+            "FileRepositoryGroupId": "51429671",
+            "VariantValueId": 0,
+            "VariantValueName": "",
+            "VariantPropertyId": 0,
+            "VariantPropertyName": "",
+            "LargeImage": "//images.sg.content-cdn.io/cdn//test-resources/f48fdd16-92db-4188-854d-1ecd9b62d066/Images/ProductImages/Source/;width=500",
+            "ThumbNail": "//images.sg.content-cdn.io/cdn//test-resources/f48fdd16-92db-4188-854d-1ecd9b62d066/Images/ProductImages/Source/;width=92",
+            "LargeIcon": "http://storage.sg.content-cdn.io/test-resources/f48fdd16-92db-4188-854d-1ecd9b62d066/Images/ProductImages/Swatch/Large_Icon/",
+            "ZoomType": "Zoom",
+            "ZoomPath": "//images.sg.content-cdn.io/cdn//test-resources/f48fdd16-92db-4188-854d-1ecd9b62d066/Images/ProductImages/Source/;width=100",
+            "ZoomContent": null,
+            "LargeImageSequence": 1,
+            "FileName": "",
+            "ProductFileRepositoryId": 0,
+            "FileType": "AdditionalImage",
+            "ContentType": "LargeImage",
+            "Sequence": 0,
+            "DeepZoomPath": ""
+        }
+    ],
+    "ErrorCode": 0
+}
+
+
+```
+
+
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `/Product/Contents/{merchantId}/{productId}`
+Rate Limited? | No
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | GET
+Batch Support | No
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+### Request URL
+
+`https://{host}/developerapi/Product/Contents/{merchantId}/{productId}`
+
+
+### Request Path Parameters
+
+Parameter | Type | Description
+-------- | ----- | -----------
+merchantId* | string | Unique GUID of the merchant
+productId* | int | Unique id of the product for which you want to see additional content details
+
+
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
+
+
+
+## Get Featured Products
+
+Retrieves featured/liked products of the merchant that promotes the brand and market value.
+
+
+
+> Sample Request
+
+```html
+https://www.martjack.com/developerapi/Product/Featured/f48fdd16-92db-4188-854d-1ecd9b62d066
+
+```
+
+
+
+> Sample Response
+
+```json
+{
+    "messageCode": "1004",
+    "Message": "Successful",
+    "Products": [
+        {
+            "ProductId": 11982546,
+            "ProductTitle": "Amul Kool Milkshake - Badam, 200ml Pack bottle",
+            "MRP": 15,
+            "WebPrice": 15,
+            "CostPrice": 0,
+            "Rating": 0,
+            "IsParentProduct": false,
+            "Availability": true,
+            "BrandId": "0",
+            "CatlogSequence": 0,
+            "CatalogCode": "",
+            "SKU": "100703792",
+            "Taxtotal": 0,
+            "MarkupPrice": 0,
+            "MarkupType": "",
+            "BulkQuantity": 1,
+            "ProductWeight": 0,
+            "ProductType": "P",
+            "SmallImageAltText": "Amul Kool Milkshake - Badam, 200ml Pack bottle",
+            "IsShippingConfigured": false,
+            "IsTaxConfigured": false,
+            "StartDate": "/Date(-2209008600000+0530)/",
+            "EndDate": "/Date(-2209008600000+0530)/",
+            "SeoURL": "http://www.hyctest.nightlysites.capillary.in/amul-kool-milkshake---badam-200ml-pack-bottle/p/11982546",
+            "DeliveryTime": "Delivered in 5 Working days",
+            "TokenPriceCheckout": false,
+            "IsReferPrice": false,
+            "ShortDescription": "",
+            "TokenPrice": 0,
+            "SmallImage": "",
+            "Brandname": "Amul",
+            "CategoryId": "CU00333530",
+            "CategoryName": "Flavoured Milk",
+            "Fulldescription": null,
+            "NoofReview": "0",
+            "BarCode": "",
+            "ProductSequence": 0,
+            "UOM": "Pieces"
+        }
+    ],
+    "ErrorCode": 0
+}
+
+
+```
+
+
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `Product/Featured/{merchantId}`
+Rate Limited? | No
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | GET
+Batch Support | No
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+### Request URL
+
+`https://{host}/developerapi/Product/Featured/{merchantId}`
+
+
+### Request Path Parameters
+
+Parameter | Type | Description
+-------- | ----- | -----------
+merchantId* | string | Unique GUID of the merchant
+
+
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
+
+
+
+## Get Products Tags (By ProductId)
+
+Retrieves all the associated product tags based on the product id passed.
+
+
+
+
+
+
+> Sample Request
+
+```html
+https://www.martjack.com/developerapi/Product/GetProductsTagsByProductId/f48fdd16-92db-4188-854d-1ecd9b62d066/11995006/18340
+
+```
+
+
+
+
+> Sample Response
+
+```json
+{
+    "messageCode": "1004",
+    "Message": "Successful",
+    "ProductTags": [
+        {
+            "Tag": "Eggtag",
+            "TagDescription": null,
+            "CreateDate": "/Date(1522158891000+0530)/"
+        },
+        {
+            "Tag": "13.3HF",
+            "TagDescription": null,
+            "CreateDate": "/Date(1543886875000+0530)/"
+        },
+        {
+            "Tag": "MixTag",
+            "TagDescription": null,
+            "CreateDate": "/Date(1544748971000+0530)/"
+        }
+    ],
+    "ErrorCode": 0
+}
+
+
+```
+
+
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `/Product/GetProductsTagsByProductId/{merchantid}/{productid}/{locationid}`
+Rate Limited? | No
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | POST
+Batch Support | No
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+### Request URL
+
+`https://{host}/developerapi/Product/GetProductsTagsByProductId/{merchantid}/{productid}/{locationid}`
+
+
+### Request Path Parameters
+
+Parameter | Type | Description
+-------- | ----- | -----------
+merchantId* | string | Unique GUID of the merchant
+productId* | int | Unique id of the product for which you want to fetch tags
+locationId | int | Location id of the product
+
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
+
+
+
+
+
+
+
+
+
+
+
+
+## Remove Product Tag
+
+Removes a specific product tag for a product of a specific location.
+
+
+
+
+
+
+> Sample Request
+
+```html
+https://www.martjack.com/developerapi/Product/RemoveLocationTagFromProduct/f48fdd16-92db-4188-854d-1ecd9b62d066
+
+```
+
+> Sample POST Request (RAW)
+
+```json
+
+merchantid=f48fdd16-92db-4188-854d-1ecd9b62d066&sku=100359979&producttag=MixTag&locationid=18340
+
+```
+
+
+
+> Sample Response
+
+```json
+{
+    "messageCode": "1004",
+    "Message": "Successful",
+    "ErrorCode": 0
+}
+
+
+```
+
+
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `/Product/RemoveLocationTagFromProduct/{MerchantId}`
+Rate Limited? | No
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | POST
+Batch Support | No
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+### Request URL
+
+`https://{host}/developerapi/Product/RemoveLocationTagFromProduct/{MerchantId}`
+
+
+### Request Body Parameters
+
+Parameter | Type | Description
+-------- | ----- | -----------
+merchantId* | string | Unique GUID of the merchant
+sku | string | SKU of the product for which you want to remove a product tag
+producttag | string | Name of the product tag that you want to remove
+locationid | int | Remove the product tag for a specific location. Specify the location id of the product
+
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
+
+
+
+
+## Update Product Stock (of Default Location)
+
+
+Updates inventory of a product for the default location.
+
+
+
+
+
+
+
+> Sample Request
+
+```html
+https://www.martjack.com/developerapi/product/updatestock
+
+```
+
+> Sample POST Request (RAW)
+
+```json
+merchantid={{MerchantId}}&sku=100556&Inventory=100
+
+
+```
+
+
+> Sample Response
+
+```json
+
+{
+    "messageCode": "1004",
+    "Message": "Successful",
+    "ErrorCode": 0
+}
+
+```
+
+
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `/product/updatestock`
+Rate Limited? | No
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | POST
+Batch Support | No
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+### Request URL
+
+`https://{host}/developerapi/product/updatestock`
+
+
+### Request Body Parameters
+
+Parameter | Type | Description
+-------- | ----- | -----------
+merchantId* | string | Unique GUID of the merchant
+sku* | string | SKU of the product for which you want to update inventory
+Inventory* | int | New stock count that you want to update with
+
+
+
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
+
+
+
+
+
+
+
+
+
+
+
+
+## Update Product Stock (by Location)
+
+Updates inventory of a product for a specific location.
+
+
+> Sample Request
+
+```html
+https://www.martjack.com/developerapi/Product/UpdateLocationProductStock
+
+```
+
+
+> Sample POST Request
+
+```json
+merchantid=f48fdd16-92db-4188-854d-1ecd9b62d066&sku=100359979&locationReferenceCode=Hyd001&Inventory=100
+```
+
+
+> Sample Response
+
+```json
+
+{
+    "messageCode": "1004",
+    "Message": "Successful",
+    "ErrorCode": 0
+}
+
+```
+
+
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `/Product/UpdateLocationProductStock`
+Rate Limited? | No
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | POST
+Batch Support | No
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+### Request URL
+
+`https://{host}/developerapi/Product/UpdateLocationProductStock`
+
+
+### Request Body Parameters
+
+Parameter | Type | Description
+-------- | ----- | -----------
+merchantId* | string | Unique GUID of the merchant
+sku* | string | Unique SKU of the product that you want to update
+locationReferenceCode* | string | Unique location reference code for which you want to update the product inventory
+Inventory* | int | New stock count available for sale or distribution
+
+
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
+
+
+## Get Similar Products
+
+Retrieves similar products based on the product id passed. Similar products are mapped in the CP and are used in cross selling.
+
+
+
+
+
+
+> Sample Request
+
+```html
+https://www.martjack.com/developerapi/Product/Similar/f48fdd16-92db-4188-854d-1ecd9b62d066/11997154/0
+
+```
+
+
+
+
+> Sample Response
+
+```json
+{
+    "messageCode": "1004",
+    "Message": "Successful",
+    "Products": [
+        {
+            "ProductId": 11991732,
+            "ProductTitle": "Sangam Eggs - Nutri, 6 Pieces Pack",
+            "MRP": 26,
+            "WebPrice": 26,
+            "CostPrice": 0,
+            "Rating": 0,
+            "IsParentProduct": false,
+            "Availability": true,
+            "BrandId": "284010",
+            "CatlogSequence": 0,
+            "CatalogCode": "",
+            "SKU": "100492832",
+            "Taxtotal": 0,
+            "MarkupPrice": 0,
+            "MarkupType": "",
+            "BulkQuantity": 1,
+            "ProductWeight": 0,
+            "ProductType": "P",
+            "SmallImageAltText": "Sangam Eggs - Nutri, 6 Pieces Pack",
+            "IsShippingConfigured": false,
+            "IsTaxConfigured": false,
+            "StartDate": "/Date(-2209008600000+0530)/",
+            "EndDate": "/Date(-2209008600000+0530)/",
+            "SeoURL": "http://www.example.nightlysites.capillary.in/sangam-eggs---nutri-6-pieces-pack/p/11991732",
+            "DeliveryTime": "Delivered in 5 Working days",
+            "TokenPriceCheckout": false,
+            "IsReferPrice": false,
+            "ShortDescription": "",
+            "TokenPrice": 0,
+            "SmallImage": "",
+            "Brandname": "Sangam",
+            "CategoryId": "CU00333436",
+            "CategoryName": "Regular Eggs",
+            "Fulldescription": null,
+            "NoofReview": "0",
+            "BarCode": "",
+            "ProductSequence": 0,
+            "UOM": "Pieces"
+        }
+    ],
+    "ErrorCode": 0
+}
+
+
+```
+
+
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `/Product/Similar/{merchantId}/{productId}/{LocationId}
+`
+Rate Limited? | No
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | GET
+Batch Support | No
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+### Request URL
+
+`https://{host}/developerapi/Product/Similar/{merchantId}/{productId}/{LocationId}`
+
+
+### Request Path Parameters
+
+Parameter | Type | Description
+-------- | ----- | -----------
+merchantId* | string | Unique GUID of the merchant
+productId* | int | Unique id of the product for which you want to fetch similar products
+LocationId* | int | Fetch similar products by location id of the product
+
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
+
+
+## Get Products (by Type & Page Number)
+
+Retrieves the details of products of a specific category by product type and page number.
+
+
+
+
+
+
+
+> Sample Request
+
+```html
+https://www.martjack.com/developerapi/Product/Category/f48fdd16-92db-4188-854d-1ecd9b62d066/CU00333414/P/1
+
+```
+
+
+
+
+> Sample Response
+
+```json
+{
+    "messageCode": "1004",
+    "Message": "Successful",
+    "Products": [
+        {
+            "ProductId": 11996474,
+            "ProductTitle": "Y Cook Sweet, Corn Kernels Boiled,African Peri, Peri Seasoning, 100g Pouch",
+            "MRP": 35,
+            "WebPrice": 35,
+            "CostPrice": 0,
+            "Rating": 0,
+            "IsParentProduct": false,
+            "Availability": true,
+            "BrandId": "298460",
+            "CatlogSequence": 0,
+            "CatalogCode": "",
+            "SKU": "100646952",
+            "Taxtotal": 0,
+            "MarkupPrice": 0,
+            "MarkupType": "",
+            "BulkQuantity": 1,
+            "ProductWeight": 0,
+            "ProductType": "P",
+            "SmallImageAltText": "Y Cook Sweet, Corn Kernels Boiled,African Peri, Peri Seasoning, 100g Pouch",
+            "IsShippingConfigured": false,
+            "IsTaxConfigured": false,
+            "StartDate": "/Date(-2209008600000+0530)/",
+            "EndDate": "/Date(-2209008600000+0530)/",
+            "SeoURL": "http://www.hyctest.nightlysites.capillary.in/y-cook-sweet-corn-kernels-boiledafrican-peri-peri-seasoning-100g-pouch/p/11996474",
+            "DeliveryTime": "Delivered in 5 Working days",
+            "TokenPriceCheckout": false,
+            "IsReferPrice": false,
+            "ShortDescription": "",
+            "TokenPrice": 0,
+            "SmallImage": "",
+            "Brandname": "Healthy No 1",
+            "CategoryId": "CU00333414",
+            "CategoryName": "Fresh Vegetables",
+            "Fulldescription": null,
+            "NoofReview": "0",
+            "BarCode": "",
+            "ProductSequence": 0,
+            "UOM": "Pieces"
+        },
+        {
+            "ProductId": 11997154,
+            "ProductTitle": "Y Cook Sweet Corn Boiled - Double, 2 Pieces Pouch",
+            "MRP": 68,
+            "WebPrice": 68,
+            "CostPrice": 0,
+            "Rating": 0,
+            "IsParentProduct": false,
+            "Availability": true,
+            "BrandId": "298460",
+            "CatlogSequence": 0,
+            "CatalogCode": "",
+            "SKU": "100646951",
+            "Taxtotal": 0,
+            "MarkupPrice": 0,
+            "MarkupType": "",
+            "BulkQuantity": 1,
+            "ProductWeight": 0,
+            "ProductType": "P",
+            "SmallImageAltText": "Y Cook Sweet Corn Boiled - Double, 2 Pieces Pouch",
+            "IsShippingConfigured": false,
+            "IsTaxConfigured": false,
+            "StartDate": "/Date(-2209008600000+0530)/",
+            "EndDate": "/Date(-2209008600000+0530)/",
+            "SeoURL": "http://www.hyctest.nightlysites.capillary.in/y-cook-sweet-corn-boiled---double-2-pieces-pouch/p/11997154",
+            "DeliveryTime": "Delivered in 5 Working days",
+            "TokenPriceCheckout": false,
+            "IsReferPrice": false,
+            "ShortDescription": "",
+            "TokenPrice": 0,
+            "SmallImage": "",
+            "Brandname": "Healthy No 1",
+            "CategoryId": "CU00333414",
+            "CategoryName": "Fresh Vegetables",
+            "Fulldescription": null,
+            "NoofReview": "0",
+            "BarCode": "",
+            "ProductSequence": 0,
+            "UOM": "Pieces"
+        }
+]
+}
+
+
+```
+
+
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `/Product/Category/{merchantId}/{categoryId}/{productType}/{pageNumber}`
+Rate Limited? | No
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | GET
+Batch Support | No
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+### Request URL
+
+`https://{host}/developerapi/Product/Category/{merchantId}/{categoryId}/{productType}/{pageNumber}`
+
+
+### Request Path Parameters
+
+Parameter | Type | Description
+-------- | ----- | -----------
+merchantId* | string | Unique GUID of the merchant
+categoryId* | string | Unique id of the category by which you want to fetch products
+productType | enum | Type of the product. Values: `P` for a normal product, `A` for an add-on products, and `B` for a bundle product, `D` for deal product 
+pageNumber | int | Get products of a specific page number based on the pagination set. Supported value: 1-100
+
+
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
+
+
+## Get Tier Price Details
+
+Retrieves tier pricing of a product associated to a user group for a specific location. Tier pricing refers to the variation of the product price based on the purchase quantity and user group.
+
+
+
+
+
+
+> Sample Request
+
+```html
+https://www.martjack.com/developerapi/Product/GetTierPriceDetailsbyproductId/993c939a-a2e8-4934-bbf5-390f37457a55/0639f7a6-34cc-48b2-9fd9-a80e2ed87458/13037156/24342
+
+```
+
+
+
+
+> Sample Response
+
+```json
+
+{
+    "messageCode": "1004",
+    "Message": "Successful",
+    "TierPrice": [
+        {
+            "MRP": 1500,
+            "Qty": 1,
+            "Webprice": 1100
+        },
+        {
+            "MRP": 1400,
+            "Qty": 3,
+            "Webprice": 1000
+        }
+    ],
+    "ErrorCode": 0
+}
+
+```
+
+
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `/Product/GetTierPriceDetailsbyproductId/{merchantId}/{userId}/{productId}/{locationId}`
+Rate Limited? | No
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | GET
+Batch Support | No
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+### Request URL
+
+`https://{host}/developerapi/Product/GetTierPriceDetailsbyproductId/{merchantId}/{userId}/{productId}/{locationId}`
+
+
+### Request Path Parameters
+
+Parameter | Type | Description
+-------- | ----- | -----------
+merchantId* | string | Unique GUID of the merchant
+userId* |  string | Unique GUID of the user to get tier price associated to the user group 
+productId* | int | Unique id of the product for which you want to see tier pricing details
+locationId* | int | Location id for which you want to see tier pricing
+
+
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
+
+
+
+
+
+
+## Check PIN Code Serviceability of a Product 
+
+
+
+Checks whether a product can be shipped to a specific PIN code.
+
+
+
+
+
+
+
+> Sample Request
+
+```html
+https://www.martjack.com/developerapi/Product/PincodeServiceability/f48fdd16-92db-4188-854d-1ecd9b62d066/11997156
+
+```
+
+> Sample POST Request (RAW)
+
+```json
+
+MerchantId=f48fdd16-92db-4188-854d-1ecd9b62d066&productid=11997156&pincode=500090&locationid=18340
+
+```
+
+
+> Sample Response
+
+```json
+{
+    "messageCode": "1027",
+    "Message": "Service is not available.",
+    "IsServiceable": "False",
+    "ServiceableForPostpaid": "False",
+    "ServiceableForPrepaid": "False",
+    "ErrorCode": 0
+}
+
+
+```
+
+
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `/Product/PincodeServiceability/{merchantId}/{productId}`
+Rate Limited? | No
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | POST
+Batch Support | No
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+### Request URL
+
+`https://{host}/developerapi/Product/PincodeServiceability/{merchantId}/{productId}`
+
+
+### Request Body Parameters
+
+Parameter | Type | Description
+-------- | ----- | -----------
+merchantId* | string | Unique GUID of the merchant
+productId* | int | Product id to check the serviceability
+pincode* | int | Checks the serviceability for the PIN code specified here
+locationid* | int | Specify the location id of the specified PIN code. A location will  have multiple PIN codes
+
+
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
 
 
 

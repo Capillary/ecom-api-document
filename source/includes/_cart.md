@@ -7790,8 +7790,7 @@ Longitude | float | Get common store in the specific latitude and longitude
 
 ## Get Saved Cart Items
 
-Retrieves the details of cart items saved by a specific user.
-
+Retrieves the details of cart items saved for a specific user. Cart abandoned items will be saved in the cart automatically.
 
 
 
@@ -7869,6 +7868,8 @@ ProductId | long | Unique id of the product in cart
 VariantProductId | long | Unique id of the variant product
 StockAvailability | boolean | Whether the product is in stock or not
 LastUpdated | date | UST Date when the cart is updated
+
+
 
 
 

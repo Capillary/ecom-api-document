@@ -435,6 +435,117 @@ IsOfflineDeals | boolean | Whether promotions are applied offline for the locati
 
 
 
+## Search Delivery Areas
+Fetches delivery areas of a specific city.
+
+> Sample Request
+
+```html
+https://www.martjack.com/developerapi/Location/7c778337-4652-4944-934f-09e0fe5606d3/SearchDeliveryAreas
+
+```
+
+> Sample POST Request (RAW)
+
+```json
+cityid=36618
+
+```
+
+
+> Sample Response
+
+```json
+{
+   "messageCode":"1004",
+   "Message":"Successful",
+   "DeliveryAreas":[
+      {
+         "DeliveryAreaID":431864,
+         "DeliveryAreaName":"UYGARKENT",
+         "AreaType":"CT",
+         "MerchantID":"7c778337-4652-4944-934f-09e0fe5606d3",
+         "IsArchive":false,
+         "DeliveryRefCode":"UYGARKENT",
+         "AreaTypeIDs":"36618,"
+      },
+      {
+         "DeliveryAreaID":431866,
+         "DeliveryAreaName":"TRİO PARK ÇORLU",
+         "AreaType":"CT",
+         "MerchantID":"7c778337-4652-4944-934f-09e0fe5606d3",
+         "IsArchive":false,
+         "DeliveryRefCode":"TRİO PARK ÇORLU",
+         "AreaTypeIDs":"36618,"
+      },
+      {
+         "DeliveryAreaID":431868,
+         "DeliveryAreaName":"TİCARET VE SANAYİ ODASI İ.Ö.O",
+         "AreaType":"CT",
+         "MerchantID":"7c778337-4652-4944-934f-09e0fe5606d3",
+         "IsArchive":false,
+         "DeliveryRefCode":"TİCARET VE SANAYİ ODASI İ.Ö.O",
+         "AreaTypeIDs":"36618,"
+      }
+   ],
+   "ErrorCode":0
+}
+
+```
+
+
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `/Location/{{merchantid}}/SearchDeliveryAreas`
+Rate Limited? | No
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | POST
+Batch Support | No
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+### Request URL
+
+`https://{host}/developerapi/Location/{{merchantid}}/SearchDeliveryAreas`
+
+
+### Request Body Parameters
+
+Parameter | Type | Description
+-------- | ----- | -----------
+merchantId* | string | Unique GUID of the merchant
+cityid* | int | Unique city id for which you want to fetch delivery locations 
+
+
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
+
+### Response Parameters
+
+Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.
+
+Parameter | Type | Description
+-------- | ----- | -----------
+DeliveryAreaID | int | Unique id of the delivery area
+DeliveryAreaName | string | Name of the respective delivery area
+AreaType | enum | CT for city and ST for state
+IsArchive | boolean | Whether the delivery area is active or archived
+AreaTypeIDs | string | 
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1632,6 +1743,95 @@ Parameter | Type | Description
 ETAType | enum | Specifies whether a fixed ETA or not. `0` for a fixed ETA and `1` for ETA between `StartTime` and `EndTime`
 ETAUnits | enum | The unit of measurement of time for the ETA for `StartTime` and `EndTime`. It could be `Min` (for minutes), `Hours`, or `Days` 
 
+
+
+## Get Delivery Area PINCodes & Area Details
+
+Retrieves the details of delivery areas along with PINCodes based on the input parameters.
+
+
+> Sample Request
+
+```html
+https://www.martjack.com/developerapi/Location/f48fdd16-92db-4188-854d-1ecd9b62d066/SearchDeliveryPincodes
+
+```
+
+> Sample POST Request (RAW)
+
+...json
+
+MerchantId=f48fdd16-92db-4188-854d-1ecd9b62d066&countryid=IN&stateid=HR&cityid=58&pincodes=500090&deliveryareaid=1231
+
+
+```
+
+
+> Sample Response
+
+```json
+{
+    "messageCode": "1004",
+    "Message": "Successful",
+    "DeliveryAreas": [
+        {
+            "Pincodes": [
+                "400062",
+                "400064",
+                "400068",
+                "400072",
+                "400092"
+            ],
+            "DeliveryAreaID": 3088,
+            "DeliveryAreaName": "Mumbai",
+            "AreaType": "State",
+            "MerchantID": "f48fdd16-92db-4188-854d-1ecd9b62d066",
+            "IsArchive": false,
+            "DeliveryRefCode": "mumbai",
+            "AreaTypeIDs": null
+        }
+]
+}
+
+
+```
+
+
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `/Location/{{MerchantId}}/SearchDeliveryPincodes`
+Rate Limited? | No
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | POST
+Batch Support | No
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+### Request URL
+
+`https://{host}/developerapi/Location/{{MerchantId}}/SearchDeliveryPincodes`
+
+
+### Request Body Parameters
+
+Parameter | Type | Description
+-------- | ----- | -----------
+merchantId* | string | Unique GUID of the merchant
+countryid | string | Alpha-2 code of the country for which you want to fetch delivery areas. Example: IN (for India), AU (for Australia), and BR (for Brazil)
+stateid | string | Fetch delivery areas by State code. For example, KA for Karnataka, AR for Arunachal Pradesh, TS for Telangana 
+cityid | int | Fetch delivery areas by city id. Pass the unique id of the city
+pincodes | string | Fetch delivery areas by area pincodes 
+deliveryareaid | string | Fetch a specific delivery area details by delivery area id
+
+
+
+
+
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
 
 
 

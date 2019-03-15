@@ -142,8 +142,8 @@ Following table contains descriptions of a few response parameters that require 
 Parameter | Type | Description
 -------- | ----- | ----------
 UserProfiles | array | Customer level custom field details
-UserInfoId | string | GUID generated for the customer internally. UserInfoId is used in APIs like customer update along with the UserId
-MarketingNotificationType | enum | Channel used for marketing communications. Value: SMS, Email
+UserInfoId | string | Internal GUID generated for the customer. UserInfoId is used along with the userId in APIs like customer update
+MarketingNotificationType | enum | Channel used for marketing communications. Value: `SMS`, `Email`
 
 
 
@@ -153,6 +153,355 @@ MarketingNotificationType | enum | Channel used for marketing communications. Va
 
 
 
+## Customer Login (with OTP)
+
+
+> Sample Request
+
+```html
+https://www.martjack.com/developerapi/Customer/81e77da2-723b-483d-8c0d-49f800c1exxx/LoginWithOTP/true?username=599999999&oTP=2222
+```
+
+> Sample POST Request
+
+```json
+InputFormat=application/json&InputData={
+"OTP": "2222", 
+"UserName": 599999999
+}
+```
+
+> Sample Response
+
+```json
+{  
+   "messageCode":"1004",
+   "Message":"Logged In successfully",
+   "Token":{  
+      "AccessToken":"i1z1ouqyb3roglpei1vmpowe",
+      "issued_at":"/Date(1533029929318+0530)/",
+      "UserId":"132d3c1d-7d71-4b87-9a69-a4d216d63xxx",
+      "MerchantId":"81e77da2-723b-483d-8c0d-49f800c1exxx"
+   },
+   "ErrorCode":0
+}
+```
+
+
+**For an existing customer**: Authorizes an existing user account through OTP. 
+
+**For a new customer**: Registers a new customer first and then authorizes the account through OTP   
+
+<aside class="notice">
+When a customer logs in, he receives a unique `UserId` which is required for accessing and managing customer details through APIs. 
+
+The customer has to be logged in to perform any customer related tasks such as fetching customer details, modifying customer details, updating profile attributes and so forth. 
+
+</aside>
+
+
+### Resource Information
+Parameter | Description
+--------- | -----------
+URI | `/Customer/{merchantId}/LoginWithOTP/true?username={username}&oTP={OTP}`
+Response Formats | JSON
+HTTP Methods | POST
+Batch Support | No
+Rate Limited? | No
+Authentication | Yes
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+
+### Request URL
+
+`https://{host}/developerapi/Customer/{merchantId}/LoginWithOTP/true?username={username}&oTP={OTP}`
+
+### Additional Headers Required
+
+Header | Description
+------ | -----------
+AccessToken | Access token of the current session (generate using GET AccessToken API)
+otptoken | OTP token of the issued OTP (Generated in the SendOTP API response)
+
+### Request Body Parameters
+Parameter | Type | Description
+--------- | ---- | -----------
+username* | string | Username of the customer account
+oTP* | int | Unique verification code received to the customer's registered mobile number or email id (through SendOTP API)
+
+<aside class=notice>All parameters marked by * are mandatory.</aside>
+
+### Response Parameters
+
+Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.
+
+
+Parameter | Type | Description
+--------- | ---- | -----------
+AccessToken | string | An object or string that identifies the current user. Access token is required to make customer related API calls such as validate token, update customer details, update profile attributes, and so on
+issued_at | date-time | The date and time when the access token was generated for the user
+
+
+
+
+
+
+## Customer Login (with Credentials)
+
+
+> Sample Request
+
+```html
+https://www.martjack.com/developerapi/Customer/12345678-1234-1234-1234-1234567890AB/login
+```
+
+> Sample POST Request
+
+```json
+InputFormat=application/json&InputData={  
+   "username":"tom.sawyer@capillarytech.com",
+   "password":"123456!"
+}
+```
+
+> Sample Response
+
+```json
+{  
+   "messageCode":"1004",
+   "Message":"Logged In successfully",
+   "Token":{  
+      "AccessToken":"i1z1ouqyb3roglpei1vmpowe",
+      "issued_at":"/Date(1533029929318+0530)/",
+      "UserId":"132d3c1d-7d71-4b87-9a69-a4d216d63xxx",
+      "MerchantId":"81e77da2-723b-483d-8c0d-49f800c1exxx"
+   },
+   "ErrorCode":0
+}
+```
+
+
+Authorizes login of a registered customer on the merchant's e-commerce store. When logged in successfully, the unique user id of the customer will be shown which is required to make customer related API calls. 
+
+<aside class="notice">The customer has to be logged in to access or update customer information such as fetch customer details, modify customer details or update profile attributes.</aside>
+
+### Resource Information
+Parameter | Description
+--------- | -----------
+URI | `/Customer/{merchantId}/login`
+Response Formats | JSON
+HTTP Methods | POST
+Batch Support | No
+Rate Limited? | No
+Authentication | Yes
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+### Request URL
+
+`https://{host}/developerapi/Customer/{merchantId}/login`
+
+### Request Body Parameters
+Parameter | Type | Description
+--------- | ---- | -----------
+username* | string | Username of the customer account
+password* | string | Password of the customer account
+
+<aside class=notice>All parameters marked by * are mandatory.</aside>
+
+
+### Response Parameters
+
+Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.
+
+Parameter | Type | Description
+--------- | ---- | -----------
+AccessToken | string | An object or string that identifies the current user. Access token is required to make customer related API calls such as validate token, update customer details, update profile attributes, and so on
+issued_at | date-time | The date and time when the access token was generated for the user
+
+
+
+
+## Customer Login (with Third Party Authentication)
+
+Authenticates customer login with a third-party provider such as Gmail, Facebook and so on.
+
+> Sample Request
+
+```html
+http://martjack.com/developerapi/Customer/9820eca5-d11f-4df1-9b20-983a45ea9631/LoginWithThirdPartyProvider
+```
+
+> Sample POST Request
+
+```json
+InputFormat=application/json&InputData={
+   "provider":"gmail",
+   "profileId":"example123",
+   "email":"tom.sawyer@capillarytech.com",
+   "MobileNo":"91-7411600000",
+   "FirstName":"Tom",
+   "LastName":"Sawyer",
+   "gender":"M",
+   "loginId":"tom.sawyer@capillarytech.com",
+   "subscribeToOffers":"true"
+}
+```
+
+> Sample Response
+
+```json
+{
+  "messageCode": "1004",
+  "Message": "Logged In successfully",
+  "Token": {
+    "AccessToken": "50p2yjcmiizlfyltl3vrltvj",
+    "issued_at": "/Date(1543483006985+0530)/",
+    "UserId": "5820c36d-7148-4154-afa7-32b0798f21f6",
+    "MerchantId": "9820eca5-d11f-4df1-9b20-983a45ea9631"
+  },
+  "ErrorCode": 0
+}
+```
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `/Customer/{merchantId}/LoginWithThirdPartyProvider`
+Response Formats | JSON
+HTTP Methods | POST
+Batch Support | No
+Rate Limited? | No
+Authentication | Yes
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+### Request URL
+
+`https://{host}/developerapi/Customer/{merchantId}/LoginWithThirdPartyProvider`
+
+### Request Body Parameters
+
+Parameter | Type | Description
+-------- | ----- | -----------
+merchantId* | string | Unique GUID of the merchant
+provider | string | Name of the third party login service provider
+profileId | string | Unique profile id of the service provider
+email | string | Email id of the user registered with the provider
+firstName | string | First name of the user
+lastName | string | Last name of the user	
+gender | string | Customer gender. Value: `M` for male and `F` for female
+loginId	| string | Login username (as per the third party)
+mobileNo | string | Registered mobile number of the user with the provider
+subscribeToOffers | enum | Specify `true` to subscribe the user to the merchant offers, specify `false` not to subscribe
+
+<aside class=notice>All parameters marked by * are mandatory.</aside>
+
+
+### Response Parameters
+
+Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.
+
+
+Parameter | Type | Description
+--------- | ---- | -----------
+AccessToken | string | An object or string that identifies the current user. Access token is required to make customer related API calls such as validate token, update customer details, update profile attributes, and so on
+issued_at | date-time | The date and time when the access token was generated for the user
+
+
+
+
+## Start Customer Session
+
+Starts a new customer session and generates access token which is required to make customer related API calls.
+
+> Sample Request
+
+```html
+http://martjack.com/developerapi/Customer/6c57599f-2c43-4c82-806a-e07c3410f5d3/StartCustomerSession
+```
+
+> Sample POST Request
+
+```json
+MerchantId=6c57599f-2c43-4c82-806a-e07c3410f5d3&InputFormat=application/json&InputData={  
+   "username":"tom.sawyer@example.com",
+   "operatorid":"00abbff7-50be-487e-a5f3-319eef982f2b",
+   "password":"ABG-70@cp",
+   "locationid":"17444"
+}
+```
+
+
+> Sample Response
+
+```json
+{  
+   "messageCode":"1004",
+   "Message":"Logged In successfully",
+   "Token":{  
+      "AccessToken":"i1z1ouqyb3roglpei1vmpowe",
+      "issued_at":"/Date(1533029929318+0530)/",
+      "UserId":"132d3c1d-7d71-4b87-9a69-a4d216d63xxx",
+      "MerchantId":"6c57599f-2c43-4c82-806a-e07c3410f5d3"
+   },
+   "ErrorCode":0
+}
+```
+
+
+
+### Resource Information
+
+| | |
+--------- | ----------- |
+URI | `/Customer/{MerchantId}/StartCustomerSession`
+Response Formats | JSON
+HTTP Methods | POST (No POST body is required)
+Batch Support | No
+Rate Limited? | No
+Authentication | Yes
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+
+### Request URL
+
+`https://{host}/developerapi/Customer/{merchantId}/StartCustomerSession`
+
+
+### Additional Header Required
+
+Header | Description
+------ | ------
+accesstoken* | Access token of the logged in user that you want to logout
+
+
+### Request Parameters
+Parameter | Type | Description
+--------- | ----- | ------
+merchantId* | string | The unique id (GUID) of the merchant
+username | string | Registered login username of the customer
+operatorid | string | Unique GUID of the back-end operator. The generated access token will be associated to both the user and operator
+password | string | Password of the operator account
+locationid | int | Location id associated to the user
+
+<aside class=notice>All parameters and headers marked by * are mandatory.</aside>
+
+
+### Response Parameters
+
+Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.
+
+Parameter |	Type | Description
+--------- | ----- | -----------
+AccessToken | string | An object or string that identifies the current user. Access token is required for making customer related API calls such as validate token, update customer details, update profile attributes, and so on
+issued_at | date-time | The date and time when the access token was generated for the user
 
 
 
@@ -178,7 +527,7 @@ https://www.martjack.com/developerapi/Customer/f48fdd16-92db-4188-854d-1ecd9b62x
 }
 ```
 
-Updates the password of the current customer account. 
+Lets you change password of the current customer account. 
 
 <aside class="notice"> No POST request payload is required for this API </aside>
 
@@ -216,7 +565,7 @@ newPassword* | string | New password that you want to have for the account
 
 ## Change Password (V2)
 
-Modifies the password of an existing customer account.
+Lets you change the password of an existing customer account.
 
 
 > Sample Request
@@ -251,7 +600,7 @@ InputFormat=application/json&InputData={
 ### Resource Information
 | | |
 --------- | ----------- |
-URI | `/Customer/v2/changePassword/{{merchantid}}/{[userid}}`
+URI | `/Customer/v2/changePassword/{merchantId}/{userId}`
 Response Formats | JSON
 HTTP Methods | POST
 Batch Support | No
@@ -278,12 +627,20 @@ APIversion*  | 1
 Parameter | Type | Description
 -------- | ----- | -----------
 merchantId* | string | Unique GUID of the merchant
-userId* | string | Unique GUID of the user 
+userId* | string | Unique GUID of the current user 
+
+
+### Request Body Parameters
+
+Parameter | Type | Description
+-------- | ----- | -----------
+OldPassword* | string | Current password of the customer account
+NewPassword* | string | New password of the customer account
 
 
 
 
-## Generate Reset ID (V2)
+## Generate Reset ID (V2 - ResetPassword)
 
 Generates unique reset id to the provided email id to reset password. 
 
@@ -355,15 +712,18 @@ AccessToken* | Access token of the logged in user
 Parameter | Type | Description
 -------- | ----- | -----------
 merchantId* | string | Unique GUID of the merchant
-UserName* | string | Unique login id of the user - email id
-Url | string | Reset password link sent to the email id. The URL you provide will be appended with the reset id
+UserName* | string | Unique login username of the customer. For example, email id
+Url | string | Reset password link sent to the email id. The URL you provide will be appended with the reset id (which is generated automatically)
 
-
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
 
 
 ## Validate Reset Request
 
-Validates the OTP sent to mobile number or reset id sent to email id to reset the password.
+Validates the mobile number or email id of the customer to process reset password request.
+
+* OTP is sent to the customer's registered mobile number in case of mobile number validation 
+* An URL with reset id is sent to the registered email id in case of email id validation
 
 
 > Sample Request
@@ -432,392 +792,8 @@ Parameter | Type | Description
 merchantId* | string | Unique GUID of the merchant
 UserName* | string | Username of the customer account - mobile number or email id
 Resettype* | enum | Specify `mobile` for mobile number validation, `email` for email id validation
-resetid | string | Unique reset id generated while reseting password through email id. Required when `Resettype` is email (generated through ResetPassword API when username is email id)
+resetid | string | Unique reset id generated when resetting the password through email id. Required when `Resettype` is email (generated through ResetPassword API  when username is email  id)
 OTP | int | Unique OTP sent to the mobile number. Required when `Resettype` is mobile (generated through ResetPassword API when username is mobile number)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## Customer Login (with OTP)
-
-
-> Sample Request
-
-```html
-https://www.martjack.com/developerapi/Customer/81e77da2-723b-483d-8c0d-49f800c1exxx/LoginWithOTP/true?username=599999999&oTP=2222
-```
-
-> Sample POST Request
-
-```json
-InputFormat=application/json&InputData={
-"OTP": "2222", 
-"UserName": 599999999
-}
-```
-
-> Sample Response
-
-```json
-{  
-   "messageCode":"1004",
-   "Message":"Logged In successfully",
-   "Token":{  
-      "AccessToken":"i1z1ouqyb3roglpei1vmpowe",
-      "issued_at":"/Date(1533029929318+0530)/",
-      "UserId":"132d3c1d-7d71-4b87-9a69-a4d216d63xxx",
-      "MerchantId":"81e77da2-723b-483d-8c0d-49f800c1exxx"
-   },
-   "ErrorCode":0
-}
-```
-
-
-Authorizes an user account through OTP and also registers a new customer.
-
-<aside class="notice">
-When a customer logs in, he receives a unique `UserId` which is required for using customer APIs. 
-
-The customer has to be logged in to his account to perform to perform any task tasks such as fetching customer details, modifying customer details or updating profile attributes. 
-
-</aside>
-
-
-### Resource Information
-Parameter | Description
---------- | -----------
-URI | `/Customer/{merchantId}/LoginWithOTP/true?username={username}&oTP={OTP}`
-Response Formats | JSON
-HTTP Methods | POST
-Batch Support | No
-Rate Limited? | No
-Authentication | Yes
-
-* **Rate limiter** controls the number of incoming and outgoing traffic of a network
-* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
-
-
-### Request URL
-
-`https://{host}/developerapi/Customer/{merchantId}/LoginWithOTP/true?username={username}&oTP={OTP}`
-
-### Additional Headers Required
-
-Header | Description
------- | -----------
-AccessToken | Access token of the current session (generate using GET AccessToken API)
-otptoken | OTP token of the issued OTP (Generated in the SendOTP API response)
-
-### Request Body Parameters
-Parameter | Type | Description
---------- | ---- | -----------
-username* | string | Username of the customer account
-oTP* | int | Unique verification code received to the customer's registered mobile number or email id (through SendOTP API)
-
-<aside class=notice>All parameters marked by * are mandatory.</aside>
-
-### Response Parameters
-
-Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.
-
-
-Parameter | Type | Description
---------- | ---- | -----------
-AccessToken | string | An object or string that identifies the current user. Access token is required for making customer related API calls such as validate token, update customer details, update profile attributes, and so on
-issued_at | date-time | The date and time when the access token was generated for the user
-
-
-
-
-
-
-## Customer Login (with Credentials)
-
-
-> Sample Request
-
-```html
-https://www.martjack.com/developerapi/Customer/12345678-1234-1234-1234-1234567890AB/login
-```
-
-> Sample POST Request
-
-```json
-InputFormat=application/json&InputData={  
-   "username":"tom.sawyer@capillarytech.com",
-   "password":"123456!"
-}
-```
-
-> Sample Response
-
-```json
-{  
-   "messageCode":"1004",
-   "Message":"Logged In successfully",
-   "Token":{  
-      "AccessToken":"i1z1ouqyb3roglpei1vmpowe",
-      "issued_at":"/Date(1533029929318+0530)/",
-      "UserId":"132d3c1d-7d71-4b87-9a69-a4d216d63xxx",
-      "MerchantId":"81e77da2-723b-483d-8c0d-49f800c1exxx"
-   },
-   "ErrorCode":0
-}
-```
-
-
-Authorizes login of a registered user on the merchant's e-commerce store. Once the customer logs in with the OTP, he receives a unique `UserId` which is required to make customer API calls. 
-
-<aside class="notice">The customer has to be logged in to his account to perform to perform any task tasks such as fetching customer details, modifying customer details or updating profile attributes. 
-
-.</aside>
-
-### Resource Information
-Parameter | Description
---------- | -----------
-URI | `/Customer/{merchantId}/login`
-Response Formats | JSON
-HTTP Methods | POST
-Batch Support | No
-Rate Limited? | No
-Authentication | Yes
-
-* **Rate limiter** controls the number of incoming and outgoing traffic of a network
-* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
-
-### Request URL
-
-`https://{host}/developerapi/Customer/{merchantId}/login`
-
-### Request Body Parameters
-Parameter | Type | Description
---------- | ---- | -----------
-username* | string | Username of the customer account
-password* | string | Password of the customer account
-
-<aside class=notice>All parameters marked by * are mandatory.</aside>
-
-
-### Response Parameters
-
-Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.
-
-Parameter | Type | Description
---------- | ---- | -----------
-AccessToken | string | An object or string that identifies the current user. Access token is required for making customer related API calls such as validate token, update customer details, update profile attributes, and so on
-issued_at | date-time | The date and time when the access token was generated for the user
-
-
-
-
-
-
-
-## Customer Login (with Third Party Authentication)
-
-Lets you login customers to the merchant store with a third party provider.
-
-> Sample Request
-
-```html
-http://martjack.com/developerapi/Customer/9820eca5-d11f-4df1-9b20-983a45ea9631/LoginWithThirdPartyProvider
-```
-
-> Sample POST Request
-
-```json
-InputFormat=application/json&InputData={
-   "provider":"gmail",
-   "profileId":"example123",
-   "email":"tom.sawyer@capillarytech.com",
-   "MobileNo":"91-7411600000",
-   "FirstName":"Tom",
-   "LastName":"Sawyer",
-   "gender":"M",
-   "loginId":"tom.sawyer@capillarytech.com",
-   "subscribeToOffers":"true"
-}
-```
-
-> Sample Response
-
-```json
-{
-  "messageCode": "1004",
-  "Message": "Logged In successfully",
-  "Token": {
-    "AccessToken": "50p2yjcmiizlfyltl3vrltvj",
-    "issued_at": "/Date(1543483006985+0530)/",
-    "UserId": "5820c36d-7148-4154-afa7-32b0798f21f6",
-    "MerchantId": "9820eca5-d11f-4df1-9b20-983a45ea9631"
-  },
-  "ErrorCode": 0
-}
-```
-
-### Resource Information
-| | |
---------- | ----------- |
-URI | `/Customer/{merchantId}/LoginWithThirdPartyProvider`
-Response Formats | JSON
-HTTP Methods | POST
-Batch Support | No
-Rate Limited? | No
-Authentication | Yes
-
-* **Rate limiter** controls the number of incoming and outgoing traffic of a network
-* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
-
-### Request URL
-
-`https://{host}/developerapi/Customer/{merchantId}/LoginWithThirdPartyProvider`
-
-### Request Body Parameters
-
-Parameter | Type | Description
--------- | ----- | -----------
-merchantId* | string | Unique GUID of the merchant
-provider | string | Name of the third party login service provider
-profileId | string | Unique profile id of the service provider
-email | string | Email id of the user registered with the provider
-firstName | string | First name of the user
-lastName | string | Last name of the user	
-gender | string | `M` for make and `F` for female
-loginId	| string | Log in id of the user
-mobileNo | string | Registered mobile number of the user with the provider
-subscribeToOffers | enum | Specify `true` to subscribe user to merchant offers, else specify `false`
-
-<aside class=notice>All parameters marked by * are mandatory.</aside>
-
-
-### Response Parameters
-
-Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.
-
-
-Parameter | Type | Description
---------- | ---- | -----------
-AccessToken | string | An object or string that identifies the current user. Access token is required for making customer related API calls such as validate token, update customer details, update profile attributes, and so on
-issued_at | date-time | The date and time when the access token was generated for the user
-
-
-
-
-
-
-
-
-
-
-
-## Start Customer Session
-
-Starts a new customer session and generates access token that can be used for making customer related API calls.
-
-> Sample Request
-
-```html
-http://martjack.com/developerapi/Customer/6c57599f-2c43-4c82-806a-e07c3410f5d3/StartCustomerSession
-```
-
-> Sample POST Request
-
-```json
-MerchantId=6c57599f-2c43-4c82-806a-e07c3410f5d3&InputFormat=application/json&InputData={  
-   "username":"tom.sawyer@example.com",
-   "operatorid":"00abbff7-50be-487e-a5f3-319eef982f2b",
-   "password":"ABG-704@cp",
-   "locationid":"17444"
-}
-```
-
-
-> Sample Response
-
-```json
-{  
-   "messageCode":"1004",
-   "Message":"Logged In successfully",
-   "Token":{  
-      "AccessToken":"i1z1ouqyb3roglpei1vmpowe",
-      "issued_at":"/Date(1533029929318+0530)/",
-      "UserId":"132d3c1d-7d71-4b87-9a69-a4d216d63xxx",
-      "MerchantId":"6c57599f-2c43-4c82-806a-e07c3410f5d3"
-   },
-   "ErrorCode":0
-}
-```
-
-
-
-### Resource Information
-
-| | |
---------- | ----------- |
-URI | `/Customer/{MerchantId}/StartCustomerSession`
-Response Formats | JSON
-HTTP Methods | POST (No POST body is required)
-Batch Support | No
-Rate Limited? | No
-Authentication | Yes
-
-* **Rate limiter** controls the number of incoming and outgoing traffic of a network
-* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
-
-
-### Request URL
-
-`https://{host}/developerapi/Customer/{merchantId}/StartCustomerSession`
-
-
-### Additional Header Required
-
-Header | Description
------- | ------
-accesstoken* | Access token of the logged in user that you want to logout
-
-
-### Request Parameters
-Parameter | Type | Description
---------- | ----- | ------
-merchantId* | string | The unique id (GUID) of the merchant from which you want to logout user
-username | string | Registered username of the customer
-operatorid | string | Unique GUID of the back-end operator. The generated access token will be associated to both the user and operator
-password | string | Password of the operator account
-locationid | int | Location id associated to the user
-
-<aside class=notice>All parameters and headers marked by * are mandatory.</aside>
-
-
-### Response Parameters
-
-Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.
-
-Parameter |	Type | Description
---------- | ----- | -----------
-AccessToken | string | An object or string that identifies the current user. Access token is required for making customer related API calls such as validate token, update customer details, update profile attributes, and so on
-issued_at | date-time | The date and time when the access token was generated for the user
-
-
-
-
 
 
 
@@ -842,7 +818,7 @@ https://www.martjack.com/DeveloperAPI/Customer/81e77da2-723b-483d-8c0d-49f800c1e
 }
 ```
 
-Logs out current user. No POST body is required for this API.
+Logs out the current user account. No POST body is required for this API.
 
 ### Resource Information
 
@@ -874,7 +850,7 @@ accesstoken* | Access token of the logged in user that you want to logout
 ### Request Parameters
 Parameter | Type | Description
 --------- | ----- | ------
-merchantId* | string | The unique id (GUID) of the merchant from which you want to logout user
+merchantId* | string | The unique id (GUID) of the current merchant
 
 
 <aside class=notice>All parameters and headers marked by * are mandatory.</aside>
@@ -1600,7 +1576,7 @@ userId* | string |  Registered identifier of the customer
 firstname* | string |  The first name of the customer
 lastname* | string |  The last name of the customer 
 address1*, address2	 | string |  Specify the customer’s shipping address related information
-state | string |  State’s postal abbreviation. Example: KA (for Karnataka), CA (for California), IN (for Indiana)
+state | string |  Postal abbreviation of the state. Example: KA (for Karnataka), CA (for California), IN (for Indiana)
 pin | string |  Specify the PIN of the shipping address
 countrycode | string |  alpha-2 code of the country. Example: IN (for India), AU (for Australia), and BR (for Brazil)
 citycode | string |  Unique code of the city (as saved in the system) such as 0562 (for Agra), and 250 (Victoria)
@@ -2159,7 +2135,7 @@ userId* | string | Unique GUID of the user whose shipping address needs to be fe
 
 ## Get Store Operators
 
-Retrieves the details of store operators based on the user role and location id passed.
+Retrieves the details of store operators by role based on the location id passed.
 
 
 
@@ -2229,6 +2205,94 @@ roleid* | string | Unique role id for which you want to fetch operators
 
 
 <aside class="notice"> All parameters marked by * are mandatory. </aside>
+
+
+
+## Agent Login
+
+Lets agents of the merchant login to the e-commerce site.
+
+
+
+
+
+
+> Sample Request
+
+```html
+https://www.martjack.com/developerapi/Customer/9820eca5-d11f-4df1-9b20-983a45ea9631/AgentLogin
+
+```
+
+> Sample POST Request (RAW)
+
+```json
+MerchantId=9820eca5-d11f-4df1-9b20-983a45ea9631&username=39249@capillary.com&password=sam123
+
+```
+
+
+> Sample Response
+
+```json
+{
+   "messageCode":"1004",
+   "Message":"Logged In successfully",
+   "AgentDetails":{
+      "AgentId":"389f81f2-3508-4391-bc7a-5e369a030398",
+      "FirstName":"Tim",
+      "LastName":"James",
+      "Email":"39249@capillary.com",
+      "LocationDetails":[
+         {
+            "LocationId":190,
+            "LocationCode":"4716",
+            "LocationName":"Bangalore"
+         }
+      ],
+      "RoleDetails":[
+         {
+            "RoleId":"b88fa8bb-b916-11e0-9bb5-001d7d24e785",
+            "RoleName":"Order Manager"
+         }
+      ]
+   },
+   "ErrorCode":0
+}
+
+```
+
+
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `/Customer/{merchantId}/AgentLogin`
+Rate Limited? | No
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | POST
+Batch Support | No
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+### Request URL
+
+`https://{host}/developerapi/Customer/{merchantId}/AgentLogin`
+
+
+### Request Body Parameters
+
+Parameter | Type | Description
+-------- | ----- | -----------
+merchantId* | string | Unique GUID of the merchant
+username* | string | Username of the agent's login account
+
+
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
+
+
 
 
 
