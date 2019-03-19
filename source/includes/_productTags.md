@@ -1,6 +1,6 @@
 # Product Tags
 
-Product tags are a way of organizing or relating products in Capillary Anywhere Commerce. ProductTags provide APIs to access and manage product tags of a merchant.
+Product tags are a way of organizing or relating products on the Capillary Anywhere Commerce platform. ProductTags provide APIs to access and manage product tags of a merchant.
 
 
 ## Get Product Tags

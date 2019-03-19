@@ -147,6 +147,103 @@ MarketingNotificationType | enum | Channel used for marketing communications. Va
 
 
 
+## Update Customer Details
+
+> Sample Request
+
+```html
+https://www.martjack.com/developerapi/Customer/7c778337-4652-4944-934f-09e0fe56xxxx/Update
+```
+
+> Sample POST Request
+
+```json
+InputFormat=application/json&InputData={  
+   "customer":{  
+      "UserInfoId":"021e57ca-f19a-42c4-8214-180ad7202044",
+      "UserId":"1142e724-0f59-4b43-ace6-f10e0e2fxxxx",
+      "merchantId":"7c778337-4652-4944-934f-09e0fe56xxxx",
+      "UserName":"tom.sawyer@capillarytech.com",
+      "FirstName":"Tom",
+      "LastName":"Sawyer",
+      "PostalAddress":"",
+      "AlternateEmail":"",
+      "City":"32",
+      "Pin":"560001",
+      "State":"KA",
+      "Country":"IN",
+      "PhoneNo":"",
+      "Street":"",
+      "MobileNo":"917400000000",
+      "BirthDate":"01/01/1993",
+      "Gender":"male",
+      "Occupation":"",
+      "Industry":"",
+      "OtherArea":"",
+      "CountryName":"",
+      "IsReceiveOffers":false
+   }
+}
+```
+
+> Sample Response
+
+```json
+{
+    "messageCode": "1004",
+    "Message": "Successful",
+    "ErrorCode": 0
+}
+```
+
+Updates the details of a registered customer except unique identifier.
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `Customer/{merchantId}/Update`
+Response Formats | JSON
+HTTP Methods | POST
+Batch Support | No
+Rate Limited? | No
+Authentication | Yes
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+### Request URL
+`https://{host}/developerapi/Customer/{merchantId}/Update`
+
+
+### Additional Header Required
+
+Header | Description
+------ | -----------
+accesstoken* |	Access token of the logged in user to validate the session
+
+
+### Request Body Parameters
+
+Parameter | Type | Description
+--------- | ---- | -----------
+UserId* | string | Unique id of the customer that is generated in the system.
+City | string | Unique code of the city (as saved in the system) Example: 0562 (for Agra), 250 (Victoria) 
+CityName | string | Full name of the city. Example: Bangalore, 
+State | string | State's postal abbreviation. Example: KA (for Karnataka), CA (for California), IN (for Indiana)
+StateName | string | Full name of the state such as Karnataka, California, and Indiana
+Country | string | alpha-2 code of the country such as IN (for India), AU (for Australia), BR (for Brazil)
+CountryName | string | Full name of the country such as India, Australia, and Brazil
+
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
+
+### Response Parameters
+
+Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.
+
+Parameter | Type | Description
+--------- | ---- | -----------
+IsReceiveOffers | boolean | Whether the user is subscribed to receive offers from the merchant 
+
 
 
 
@@ -501,7 +598,7 @@ Following table contains descriptions of a few response parameters that require 
 Parameter |	Type | Description
 --------- | ----- | -----------
 AccessToken | string | An object or string that identifies the current user. Access token is required for making customer related API calls such as validate token, update customer details, update profile attributes, and so on
-issued_at | date-time | The date and time when the access token was generated for the user
+issued_at | date-time |  Date and time of generation of the access token
 
 
 
@@ -927,7 +1024,7 @@ Following table contains descriptions of a few response parameters that require 
 Parameter | Type | Description
 --------- | ---- | -----------
 AccessToken | string | An object or string that identifies the current session
-issued_at | date-time | Date and time when the access token is generated
+issued_at | date-time |  Date and time of generation of the access token
 
 
 
@@ -1161,7 +1258,7 @@ InputFormat=application/json&InputData={
 }
 ```
 
-Retrieves customers based on the search keyword (containing the search keyword )
+Retrieves customers containing the specific search keyword in username, mobile number or email id.
 
 ### Resource Information
 | | |
@@ -1183,9 +1280,11 @@ Authentication | Yes
 
 Parameter | Type | Description
 -------- | ---- | -----------
-UserName* | string | Fetches all customers matching the specified keyword in the username
+UserName** | string | Fetches all customers matching the specified keyword in the username
+mobile** | string | Fetch customers whose registered mobile number containing a specific value. For example, you can get all customers whose mobile numbers  contain 9945
+email** | string | Search customers with a specific keyword in registered email ids. For example, you can get all customers whose email ids contain tom 
 
-<aside class="notice"> All parameters marked by * are mandatory. </aside>
+<aside class="notice"> ** Any one among the above parameters is mandatory. </aside>
 
 ### Response Parameters
 
@@ -1308,103 +1407,6 @@ MarketingNotificationType | enum | Channel used for marketing communications. Va
 
 
 
-## Update Customer Details
-
-> Sample Request
-
-```html
-https://www.martjack.com/developerapi/Customer/7c778337-4652-4944-934f-09e0fe56xxxx/Update
-```
-
-> Sample POST Request
-
-```json
-InputFormat=application/json&InputData={  
-   "customer":{  
-      "UserInfoId":"021e57ca-f19a-42c4-8214-180ad7202044",
-      "UserId":"1142e724-0f59-4b43-ace6-f10e0e2fxxxx",
-      "merchantId":"7c778337-4652-4944-934f-09e0fe56xxxx",
-      "UserName":"tom.sawyer@capillarytech.com",
-      "FirstName":"Tom",
-      "LastName":"Sawyer",
-      "PostalAddress":"",
-      "AlternateEmail":"",
-      "City":"32",
-      "Pin":"560001",
-      "State":"KA",
-      "Country":"IN",
-      "PhoneNo":"",
-      "Street":"",
-      "MobileNo":"917400000000",
-      "BirthDate":"01/01/1993",
-      "Gender":"male",
-      "Occupation":"",
-      "Industry":"",
-      "OtherArea":"",
-      "CountryName":"",
-      "IsReceiveOffers":false
-   }
-}
-```
-
-> Sample Response
-
-```json
-{
-    "messageCode": "1004",
-    "Message": "Successful",
-    "ErrorCode": 0
-}
-```
-
-Lets you update the details of a registered customer other than the customer’s unique identifier.
-
-### Resource Information
-| | |
---------- | ----------- |
-URI | `Customer/{merchantId}/Update`
-Response Formats | JSON
-HTTP Methods | POST
-Batch Support | No
-Rate Limited? | No
-Authentication | Yes
-
-* **Rate limiter** controls the number of incoming and outgoing traffic of a network
-* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
-
-### Request URL
-`https://{host}/developerapi/Customer/{merchantId}/Update`
-
-
-### Additional Header Required
-
-Header | Description
------ | ----------
-accesstoken* 	Access token of the logged in user to validate the session
-
-
-### Request Body Parameters
-
-Parameter | Type | Description
---------- | ---- | -----------
-UserId* | string | Unique id of the customer that is generated in the system.
-City | string | Unique code of the city (as saved in the system) Example: 0562 (for Agra), 250 (Victoria) 
-CityName | string | Full name of the city. Example: Bangalore, 
-State | string | State's postal abbreviation. Example: KA (for Karnataka), CA (for California), IN (for Indiana)
-StateName | string | Full name of the state such as Karnataka, California, and Indiana
-Country | string | alpha-2 code of the country such as IN (for India), AU (for Australia), BR (for Brazil)
-CountryName | string | Full name of the country such as India, Australia, and Brazil
-
-<aside class="notice"> All parameters marked by * are mandatory. </aside>
-
-### Response Parameters
-
-Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.
-
-Parameter | Type | Description
---------- | ---- | -----------
-IsReceiveOffers | boolean | Whether the user is subscribed to receive offers from the merchant 
-
 
 
 
@@ -1449,7 +1451,7 @@ InputFormat=application/json&InputData={
 }
 ```
 
-Captures or updates custom field details of a customer.
+Adds or updates customer level custom field details of a customer.
 
 ### Resource Information
 | | |
@@ -1478,7 +1480,7 @@ accesstoken* | Access token of the logged in user to validate the session
 Parameter | Type | Description
 --------- | ----- | ------
 ProfileAttributeId* | string | ID of the attribute that needs to be updated 
-ProfileAttributeValue | string | Customer's preferred attribute value 
+ProfileAttributeValue | string | Respective attribute value as preferred by the customer
 
 <aside class="notice"> All parameters marked by * are mandatory. </aside>
 
@@ -1548,7 +1550,7 @@ InputFormat=application/json&InputData={
 ```
 
 
-Lets you add a new shipping address to the customer's account or update existing shipping address. 
+Adds a new shipping address to a customer's account or update existing shipping address. 
 
 ### Resource Information
 | | |
@@ -1571,7 +1573,7 @@ Authentication | Yes
 ### Request Body Parameters
 Parameter | Type | Description
 --------- | ---- | -------
-ShippingAddressId* |  | Unique id of the order shipment that you want to update. Just pass `0` to create a new shipping address
+ShippingAddressId* | int | Unique id of the order shipment that you want to update. Just pass `0` to create a new shipping address
 userId* | string |  Registered identifier of the customer
 firstname* | string |  The first name of the customer
 lastname* | string |  The last name of the customer 
@@ -1694,7 +1696,8 @@ UserId* | string |  The unique user identifier of the customer whose details nee
 
 
 
-## Delete Customer's Shipping Address
+## Delete Shipping Address
+
 > Sample Request
 
 ```html
@@ -1710,7 +1713,7 @@ http://www.martjack.com/DeveloperAPI/Customer/DeleteShippingAddress/81e77da2-723
 }
 ```
 
-Deletes customer's shipping address for the current session that is logged in.
+Deletes shipping address of a customer for the current login session.
 
 ### Resource Information
 | | |
@@ -1733,7 +1736,7 @@ Authentication | Yes
 Parameter | Type | Description
 --------- | ---- | -----------
 MerchantId* | string |  The unique id (GUID) of the merchant in which you want the order is created
-UserId* | string |  The unique user identifier of the customer to which the order is associated
+UserId* | string |  The unique GUID of the customer whose shipping address needs to be deleted
 ShippingAddressId* | string |  Unique id of the order shipment that you want to delete
 
 <aside class="notice"> All parameters marked by * are mandatory. </aside>
@@ -1992,10 +1995,40 @@ Authentication | Yes
 
 
 
+## Request Parameter
+
+Parameter | Type | Description
+--------- | ---- | -----------
+merchantId* | string | Unique GUID of the merchant
+
+<aside class="notice"> Parameter marked by * is mandatory. </aside>
+
+
+## Response Parameters
+
+Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.
+
+Parameter | Type | Description
+--------- | ---- | -----------
+UserName* |	string | The unique identifier of the customer as configured for the merchant. It could be email, mobile, or any other identifier
+merchantId* | string | The unique id (GUID) of the merchant in which you want to register customer
+PostalAddress | string | Customer address
+City | int | Unique code of the city (as saved in the system) such as 0562 (for Agra), and 250 (Victoria)
+CityName | string | Full name of the city. Example: Bangalore, Delhi, Tokyo, Singapore and Paris
+State | string | State’s postal abbreviation. Example: KA (for Karnataka), CA (for California), IN (for Indiana)
+StateName | string | Full name of the state. Example: Karnataka, California, and Indiana
+Country | string | alpha-2 code of the country. Example: IN (for India), AU (for Australia), and BR (for Brazil)
+CountryName | string | Full name of the country. Example: India, Australia, and Brazil
+IsReceiveOffers | boolean | For merchant with CRM enabled whether the customer has subscribed his mobile number or email id to receive offers
+CommunicationType | enum | The preferred communication channel(s) of the customer. Possible Values: sms, email, push
+
+
+
+
 
 ## Get Customer Count
 
-Retrieves the number of registered customers of the merchant.
+Retrieves the count of registered customers of the merchant.
 
 > Sample Request
 
@@ -2048,6 +2081,16 @@ Authentication | Yes
 ### Request URL
 
 `http://{host}/developerapi/Customer/{merchantId}/Count`
+
+
+
+### Request Path Parameter
+
+Parameter | Type | Description
+--------- | ---- | -----------
+merchantId* | string | Unique GUID of the merchant
+
+<aside class="notice">Parameter marked by * is mandatory. </aside>
 
 
 
@@ -2127,7 +2170,7 @@ Batch Support | No
 Parameter | Type | Description
 -------- | ----- | -----------
 merchantId* | string | Unique GUID of the merchant
-userId* | string | Unique GUID of the user whose shipping address needs to be fetched
+userId* | string | Unique GUID of the user to fetch shipping address
 
 
 <aside class="notice"> All parameters marked by * are mandatory. </aside>
@@ -2135,9 +2178,7 @@ userId* | string | Unique GUID of the user whose shipping address needs to be fe
 
 ## Get Store Operators
 
-Retrieves the details of store operators by role based on the location id passed.
-
-
+Retrieves the details of store operators of a specific role in a particular location.
 
 
 

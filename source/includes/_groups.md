@@ -1,6 +1,6 @@
 # Customer Groups
 
-Customer groups let you classify customers into different segments based on a similar attribute or rule. You can define a specific discount or prices to customer groups.
+Customer grouping is a classification of customers into different segments based on a similar attribute or rule. You can provide discounts or special prices to customer groups.
 
 Customers can be added to a group manually or using rules. This resource contains APIs related to accessing group details and managing group members.
 
@@ -8,7 +8,7 @@ Customers can be added to a group manually or using rules. This resource contain
 ## Add User to a Customer Group
 
 
-Lets you add a user to a specific customer group.
+Adds a user to a specific customer group.
 
 
 
@@ -61,13 +61,13 @@ Batch Support | No
 Parameter | Type | Description
 -------- | ----- | -----------
 MerchantId* | string | Unique GUID of the merchantId
-userGroupId* | int | Unique id of the customer group in which you want to add customer
+userGroupId* | int | Unique id of the customer group to which you want to add a customer
 userId* | string | Unique GUID of the customer that you want to add
 
 <aside class="notice">All parameters marked by * are mandatory. </aside>
 
 
-## Get Details of a Customer Group
+## Get Group Details 
 
 Retrieves the details of a specific user group based on the user group id passed.
 
@@ -321,7 +321,7 @@ userGroupId* | int | Unique id of the user group
 
 ## Get Customer Groups by User ID
 
-Retrieves the list of all groups in which a specific user is available based on the user id passed.
+Retrieves the list of groups in which a specific user is available based on the user id passed.
 
 
 
@@ -395,7 +395,7 @@ userId* | string | Unique GUID of the user for which you want to fetch user grou
 
 
 
-## Get Customer Groups of a Merchant
+## Get All Groups of the Merchant
 
 Retrieves all the customer groups created for the merchant.
 
