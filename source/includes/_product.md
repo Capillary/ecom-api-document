@@ -1071,73 +1071,6 @@ locationId | int | Retrieves the inventory and product of a specific location
 
 
 
-## Get Product Reviews
-
-```html
-https://www.martjack.com/developerapi/Product/GetReviews/81e77da2-723b-483d-8c0d-49f800c1exxx/PZLG-WM
-```
-
-
-
-> Sample Response
-
-```json
-{
-	"messageCode": "1004",
-	"Message": "Successful",
-	"Reviews": [{
-			"UserId": "0639f7a6-34cc-48b2-9fd9-a80e2ed8xxxx",
-			"UserName": "Tom",
-			"ProductTitle": "Capillary Men's Slim Fit Striped Collar Shirt",
-			"ReviewTitle": "Special occasion wear",
-			"ReviewDescription": "Looks semi-formal as per my liking. The shirt is very comfortable and feels really nice for both as a casual wear or occasional wear.",
-			"CreatedDateTime": "10/9/2018 5:46:25 AM",
-			"Rating": 1,
-			"IsGoLive": "True"
-		},
-		{
-			"UserId": "0639f7a6-34cc-48b2-9fd9-a80e2ed8xxxx",
-			"UserName": "James",
-			"ProductTitle": "Capillary Men's Slim Fit Striped Collar Shirt",
-			"ReviewTitle": "Nice material and comfortable wear",
-			"ReviewDescription": "Beautiful color, and material. A very well made shirt",
-			"CreatedDateTime": "10/9/2018 12:44:00 AM",
-			"Rating": 1,
-			"IsGoLive": "False"
-		}
-	]
-}
-```
-
-Retrieves the user reviews of a specific product. 
-
-### Resource Information
-| | |
---------- | ----------- |
-URI | `Product/GetReviews/{MerchantId}/{Sku}`
-Rate Limited? | No
-Authentication | Yes
-Response Formats | JSON
-HTTP Methods | GET
-Batch Support | No
-
-* **Rate limiter** controls the number of incoming and outgoing traffic of a network
-* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
-
-### Request URL
-
-`https://{host}/developerapi/Product/GetReviews/{MerchantId}/{Sku}`
-
-
-### Request Body Parameters
-
-Parameter | Type | Description
---------- | --- | ----------- 
-MerchantId* | string | The unique GUID of the merchant
-Sku* | string | SKU of the product for which you want to fetch reviews
-
-<aside class="notice"> All parameters marked by * are mandatory.</aside>
-
 
 
 
@@ -3044,26 +2977,10 @@ isGoLive* | boolean | Specify `true` to show the review on the storefront, `fals
 
 
 
-
-
-
-
-
-## Search Products
-
-> Sample Request
+## Get Product Reviews
 
 ```html
-https://www.martjack.com/developerapi/Product/81e77da2-723b-483d-8c0d-49f800c1exxx/Search
-```
-
-> Sample POST Request
-
-```json
-InputFormat=application/json&InputData={
-  "merchantId": "9820eca5-d11f-4df1-9b20-983a45ea9631"
-}
-
+https://www.martjack.com/developerapi/Product/GetReviews/81e77da2-723b-483d-8c0d-49f800c1exxx/PZLG-WM
 ```
 
 
@@ -3072,37 +2989,42 @@ InputFormat=application/json&InputData={
 
 ```json
 {
-  "Message": "Successful",
-  "ProductIds": [
-    "11360864",
-    "11360866",
-    "11360868",
-    "11360870",
-    "11360872",
-    "11360896",
-    "11360898",
-    "11360900",
-    "11360902",
-    "11360904",
-    "11360906",
-    "11360908",
-    "11148708"
-  ],
-  "messageCode": "1004"
+	"messageCode": "1004",
+	"Message": "Successful",
+	"Reviews": [{
+			"UserId": "0639f7a6-34cc-48b2-9fd9-a80e2ed8xxxx",
+			"UserName": "Tom",
+			"ProductTitle": "Capillary Men's Slim Fit Striped Collar Shirt",
+			"ReviewTitle": "Special occasion wear",
+			"ReviewDescription": "Looks semi-formal as per my liking. The shirt is very comfortable and feels really nice for both as a casual wear or occasional wear.",
+			"CreatedDateTime": "10/9/2018 5:46:25 AM",
+			"Rating": 1,
+			"IsGoLive": "True"
+		},
+		{
+			"UserId": "0639f7a6-34cc-48b2-9fd9-a80e2ed8xxxx",
+			"UserName": "James",
+			"ProductTitle": "Capillary Men's Slim Fit Striped Collar Shirt",
+			"ReviewTitle": "Nice material and comfortable wear",
+			"ReviewDescription": "Beautiful color, and material. A very well made shirt",
+			"CreatedDateTime": "10/9/2018 12:44:00 AM",
+			"Rating": 1,
+			"IsGoLive": "False"
+		}
+	]
 }
-
 ```
 
-Retrieves product ids based on the input parameters
+Retrieves the user reviews of a specific product. 
 
 ### Resource Information
 | | |
 --------- | ----------- |
-URI | `/Product/{MerchantId}/Search`
+URI | `Product/GetReviews/{MerchantId}/{Sku}`
 Rate Limited? | No
 Authentication | Yes
 Response Formats | JSON
-HTTP Methods | POST
+HTTP Methods | GET
 Batch Support | No
 
 * **Rate limiter** controls the number of incoming and outgoing traffic of a network
@@ -3110,23 +3032,22 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Product/{MerchantId}/Search`
-
+`https://{host}/developerapi/Product/GetReviews/{MerchantId}/{Sku}`
 
 
 ### Request Body Parameters
 
 Parameter | Type | Description
--------- | ----- | -----------
-MerchantId | string | Unique GUID of the merchant
-keyword | string | Search product by meta tag keyword
-SKU | string  | Search product by SKU
-catalogcode | string | Fetch products of a specific catalog code
-category | string | Search by category 
-brand | string | Search product ids by brand
-productTag | string | Search product ids by associated product tags 
-pageNumber | int | Page number from which you want to fetch products on storefront
-pageSize | int | Number of results to be shown per page
+--------- | --- | ----------- 
+MerchantId* | string | The unique GUID of the merchant
+Sku* | string | SKU of the product for which you want to fetch reviews
+
+<aside class="notice"> All parameters marked by * are mandatory.</aside>
+
+
+
+
+
 
 
 
@@ -3719,6 +3640,92 @@ producttag | string | Name of the product tag that you want to remove
 locationid | int | Remove the product tag for a specific location. Specify the location id of the product
 
 <aside class="notice"> All parameters marked by * are mandatory. </aside>
+
+
+## Search Products
+
+> Sample Request
+
+```html
+https://www.martjack.com/developerapi/Product/81e77da2-723b-483d-8c0d-49f800c1exxx/Search
+```
+
+> Sample POST Request
+
+```json
+InputFormat=application/json&InputData={
+  "merchantId": "9820eca5-d11f-4df1-9b20-983a45ea9631"
+}
+
+```
+
+
+
+> Sample Response
+
+```json
+{
+  "Message": "Successful",
+  "ProductIds": [
+    "11360864",
+    "11360866",
+    "11360868",
+    "11360870",
+    "11360872",
+    "11360896",
+    "11360898",
+    "11360900",
+    "11360902",
+    "11360904",
+    "11360906",
+    "11360908",
+    "11148708"
+  ],
+  "messageCode": "1004"
+}
+
+```
+
+Retrieves product ids based on the input parameters
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `/Product/{MerchantId}/Search`
+Rate Limited? | No
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | POST
+Batch Support | No
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+### Request URL
+
+`https://{host}/developerapi/Product/{MerchantId}/Search`
+
+
+
+### Request Body Parameters
+
+Parameter | Type | Description
+-------- | ----- | -----------
+MerchantId | string | Unique GUID of the merchant
+keyword | string | Search product by meta tag keyword
+SKU | string  | Search product by SKU
+catalogcode | string | Fetch products of a specific catalog code
+category | string | Search by category 
+brand | string | Search product ids by brand
+productTag | string | Search product ids by associated product tags 
+pageNumber | int | Page number from which you want to fetch products on storefront
+pageSize | int | Number of results to be shown per page
+
+
+
+
+
+
 
 ## Get Product Tags (By ProductId)
 
