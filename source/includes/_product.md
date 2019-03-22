@@ -3488,9 +3488,9 @@ Task name | string | Name of the task based on the bulk action. Example, LctnWis
 
 
 
-## Update Product Tags
+## Add Product Tags
 
-Updates product tags of a specific product either for a location or without Location. An email will be sent to the registered email id of the merchant when the task is completed.
+Adds tags to a specific product for a particular location. An email will be sent to the registered email id of the merchant when the task is completed.
 
 
 
@@ -3565,7 +3565,7 @@ Parameter | Type | Description
 merchantId* | string | Unique GUID of the merchant
 sku* | string | SKU of the product for which you want to update tags
 locationrefcode | int | Unique reference code of the product location to update tags if the specific location 
-tag | string | 
+tag* | string | Tag that you want to add to the product. Tags are predefined for the merchant
 
 
 <aside class="notice"> All parameters marked by * are mandatory. </aside>
@@ -4041,7 +4041,7 @@ Parameter | Type | Description
 -------- | ----- | -----------
 merchantId* | string | Unique GUID of the merchant
 productid* | int | Product id for which you want to see a specific comment
-postId* | string | Unique post id of the comment you want to fetch 
+postId* | string | Specify the unique post id generated for the actual review (root comment) 
 
 
 <aside class="notice"> All parameters marked by * are mandatory. </aside>
@@ -4050,25 +4050,27 @@ postId* | string | Unique post id of the comment you want to fetch
 
 Parameter | Type | Description
 -------- | ----- | -----------
-Id | string | 
-ParentId | string | 
-RootParentId | string | 
-Type | enum | 
-UserName | string | 
-UserName | string | 
-Title | string | Comment title
+Id | string | Unique id of the comment
+ParentId | string | Unique id of the comment to which the current reply is posted. This will be same as the id if no parent comment exists 
+RootParentId | string | Unique id of the root of the comment (actual review).  This will be same as the id if no parent comment exists
+Type | enum | Type will be `C` for comment
+UserName | string | Username linked to the customer account who commented
+TargetName | string |  Product title to which the comment is posted
+Title | string | Title of the root comment
 Description | string | Actual comment text
-ModuleType | 
-IsAbusive | 
-HelpfulCount | 
-NotHelpfulCount | int
-TotalCount | int | 
-HelpfulControlId | string | 
-NotHelpfulControlId | string | 
-AbusiveControlId | string | 
-ReplyControlId | 
+ModuleType | enum | Module type will be `C` for comment
+IsAbusive | boolean | Whether the comment is abusive or not
+HelpfulCount | int | Number of likes (helpful) received to the comment 
+NotHelpfulCount | int | Number of dislikes received to the comment
+TotalCount | int | Total helpful and not helpful count
+HelpfulControlId | string | Unique id associated to the action `Helpful`
+NotHelpfulControlId | string | Unique id associated to the action `Not Helpful`
+AbusiveControlId | string | Unique id associated to the action `Report Abusive`
+ReplyControlId | string | Unique id associated to the action `Reply`
 CreatedDateTime | date | Date when the comment was added
 UpdatedDateTime | date | Date when the comment was recently updated
+Rating | int | Rating provided for the current review
+
 
 
 
@@ -4162,7 +4164,7 @@ productId* | int | Unique id of the product for which you want to see additional
 
 ## Get Featured Products
 
-Retrieves featured/liked products of the merchant. Featured products are a great way to promote products or brands on the ecommerce platform.
+Retrieves featured products of the merchant. Featured products are a great way to promote intended products or brands on the ecommerce platform.
 
 
 
@@ -4427,7 +4429,7 @@ Inventory* | int | New stock count available for sale or distribution
 
 ## Get Similar Products
 
-Retrieves similar products based on the product id passed. Similar products are mapped manually in the CP and are used for cross selling.
+Retrieves similar products based on the product id passed. Similar products are either mapped manually or automatically in the CP based on the criteria set. These are used for cross selling.
 
 
 
@@ -4886,7 +4888,7 @@ locationId* | int | Provide the specific location id
 
 ## Validate Location
 
-Validates the inventory of a variant product for a specific location. 
+Validates whether a specific inventory of a variant product is available in a specific location. 
 
 > Sample Request
 
@@ -4939,7 +4941,7 @@ quantity* | int | Quantity of items that you want to check the availability
 
 ## Remove Offer Text
 
-Removes offer text for the merchant.
+Removes all offer descriptions of the merchant.
 
 
 

@@ -111,7 +111,7 @@ URI | `/Carts/SaveCodOTP/{merchantId}/{smsCode}`
 Rate Limited? | No
 Authentication | Yes
 Response Formats | JSON
-HTTP Methods | POST
+HTTP Methods | GET
 Batch Support | No
 
 * **Rate limiter** controls the number of incoming and outgoing traffic of a network
@@ -483,7 +483,7 @@ Parameter | Type | Description
 --------- | ---- | -----------
 CartReferenceKey | string | Unique ID of each item in the cart
 IsFreeProduct | boolean | Whether the item is a free gift item
-Por | enum | The portion of the product for which the topping is applied. Value: W for whole, R for right, L for left (left, right usually applies for toppings)
+Por | enum | The portion of the product for which the topping is applied. Value: `W` for whole, `R` for right, `L` for left (left, right usually applies for toppings)
 CartPromotionRules | array | The rules that are applied to the cart items
 DemandedDeliveryDate | date | Date and time of delivery as requested by the customer
 RemainTotal | float | Deprecated
@@ -3840,7 +3840,7 @@ merchantId* | string | Unique GUID of the merchant
 
 
 
-## Update Cart Item Quantity
+## Update Quantity of Cart Item
 
 
 
@@ -4086,7 +4086,7 @@ https://www.martjack.com/developerapi/carts/UpdateCartProperties/81e77da2-723b-4
 > Sample POST Request
 
 ```json
-InputFormat=application/json&InputData={  
+InputFormat=application/json&InputData={
    "DeliverySlotID":415329,
    "DemandedDeliveryDate":"09-06-2018 15:15:00",
    "ShippingModeId":0,
@@ -4431,7 +4431,7 @@ Parameter | Type | Description
 --------- | ---- | -----------
 DeliverySlotID | | The unique id of the delivery slot (valid id)
 DemandedDeliveryDate | date-time | The customer's preferred delivery date in `MM-DD-YYYY HH:MM:SS` format
-ShippingModeId | -NA for now-
+ShippingModeId | int | -NA for now-
 locationID | int | The location id of the store 
 BillingAddress | json obj | Specify the billing address of the customer in the respective attributes
 ShippingAddress | json obj | Specify the preferred shipping address of the customer in the respective attributes
@@ -4463,7 +4463,7 @@ IsSelected | boolean | Whether the selected attribute value is applicable for th
 
 ## Get Cart Items
 
-Retrieves current cart items of a user.
+Retrieves cart items of the user based on the current session.
 
 
 
@@ -5285,6 +5285,339 @@ accesstoken* | Access token of the logged in user to validate the session
 
 
 
+## Get Cart Items (by AccessToken)
+
+Retrieves cart items of the user based on the current session.
+
+
+
+
+
+> Sample Request
+
+```html
+https://www.martjack.com/developerapi/Carts/cart/81e77da2-723b-483d-8c0d-49f800c1exxx/fj2vrg1g3bpppsypqn4ynxrt
+
+```
+
+
+
+
+> Sample Response
+
+```json
+{  
+   "messageCode":"1004",
+   "Message":"Successful",
+   "Carts":{  
+      "MerchantId":"4d00cd2b-28e8-4950-b8b9-2ecf50e44933",
+      "ProductCost":5.650000000000001,
+      "ShippingCost":0.5,
+      "VoucherDiscount":0,
+      "PromotionDiscount":0,
+      "TaxAmount":0,
+      "OrderTotal":6.15,
+      "VoucherCode":"",
+      "UserSelectedCurrency":"INR",
+      "Bill_FirstName":"Pallav",
+      "Bill_LastName":"Kumar",
+      "Bill_Address1":"",
+      "Bill_Address2":"",
+      "Bill_CountryCode":"",
+      "_Bill_StateCode":"",
+      "Bill_City":"Other",
+      "Bill_CityCode":"554",
+      "Bill_OtherCityName":"",
+      "Bill_Telephone":"",
+      "Bill_Mobile":"55555555",
+      "Bill_PostCode":"",
+      "Bill_Email":"tom.sawyer@example.com",
+      "Ship_FirstName":"Pallav",
+      "Ship_LastName":"Kumar",
+      "Ship_Address1":"",
+      "Ship_Address2":"",
+      "Ship_CountryCode":"KW",
+      "Ship_StateCode":"KW2",
+      "Ship_City":"846",
+      "Ship_CityCode":"846",
+      "Ship_OtherCityName":"",
+      "Ship_Telephone":"",
+      "Ship_Mobile":"55555555",
+      "Ship_PostCode":"",
+      "Ship_Email":"tom.sawyer@example.com",
+      "CartItems":[  
+               {  
+                  "ProductId":13047237,
+                  "VariantProductId":9757691,
+                  "MRP":0.5,
+                  "WebPrice":0.4,
+                  "Quantity":1,
+                  "description":"Beef",
+                  "SupplierId":"4d00cd2b-28e8-4950-b8b9-2ecf50e44933",
+                  "CartReferenceKey":"ca206f95-ec4b-4a07-8651-652b61838960",
+                  "TotalCap":0,
+                  "CatalogpromotionDiscount":0,
+                  "BundleCartReferenceKey":"13a4fab9-3bbc-484c-b081-b3ed72d83342",
+                  "ItemPromotionDiscountAmount":0,
+                  "IsPrimaryProduct":false,
+                  "IsPromotionProduct":false,
+                  "VariantsInfo":[  
+                     {  
+                        "PropertyName":"Strength",
+                        "Value":"Regular"
+                     },
+                     {  
+                        "PropertyName":"Size",
+                        "Value":"Medium"
+                     }
+                  ],
+                  "Por":"W",
+                  "IsDefaultBundleItem":true,
+                  "CartPromotionRules":[  
+
+                  ],
+                  "CategoryId":"CU00357497",
+                  "CategoryName":null,
+                  "BrandId":"BB1760",
+                  "BrandName":"Pizza Hut",
+                  "GroupId":13131
+               },
+               {  
+                  "ProductId":13047241,
+                  "VariantProductId":9757697,
+                  "MRP":0.5,
+                  "WebPrice":0,
+                  "Quantity":1,
+                  "description":"Chicken Pepperoni",
+                  "SupplierId":"4d00cd2b-28e8-4950-b8b9-2ecf50e44933",
+                  "CartReferenceKey":"10ec62e0-0938-4b4e-a066-254d9aa65818",
+                  "TotalCap":0,
+                  "CatalogpromotionDiscount":0,
+                  "BundleCartReferenceKey":"13a4fab9-3bbc-484c-b081-b3ed72d83342",
+                  "ItemPromotionDiscountAmount":0,
+                  "IsPrimaryProduct":false,
+                  "IsPromotionProduct":false,
+                  "VariantsInfo":[  
+                     {  
+                        "PropertyName":"Strength",
+                        "Value":"Regular"
+                     },
+                     {  
+                        "PropertyName":"Size",
+                        "Value":"Medium"
+                     }
+                  ],
+                  "Por":"W",
+                  "IsDefaultBundleItem":true,
+                  "CartPromotionRules":[  
+
+                  ],
+                  "CategoryId":"CU00357497",
+                  "CategoryName":null,
+                  "BrandId":"BB1760",
+                  "BrandName":"Pizza Hut",
+                  "GroupId":13131
+               },
+               {  
+                  "ProductId":13047257,
+                  "VariantProductId":9757699,
+                  "MRP":0.5,
+                  "WebPrice":0,
+                  "Quantity":1,
+                  "description":"Pizza Sauce",
+                  "SupplierId":"4d00cd2b-28e8-4950-b8b9-2ecf50e44933",
+                  "CartReferenceKey":"b3aa047a-091d-488f-b8a8-abde211ad008",
+                  "TotalCap":0,
+                  "CatalogpromotionDiscount":0,
+                  "BundleCartReferenceKey":"13a4fab9-3bbc-484c-b081-b3ed72d83342",
+                  "ItemPromotionDiscountAmount":0,
+                  "IsPrimaryProduct":false,
+                  "IsPromotionProduct":false,
+                  "VariantsInfo":[  
+                     {  
+                        "PropertyName":"Strength",
+                        "Value":"Regular"
+                     },
+                     {  
+                        "PropertyName":"Size",
+                        "Value":"Medium"
+                     }
+                  ],
+                  "Por":"W",
+                  "IsDefaultBundleItem":true,
+                  "CartPromotionRules":[  
+
+                  ],
+                  "CategoryId":"CU00357497",
+                  "CategoryName":null,
+                  "BrandId":"BB1760",
+                  "BrandName":"Pizza Hut",
+                  "GroupId":13133
+               },
+               {  
+                  "ProductId":13047257,
+                  "VariantProductId":9757699,
+                  "MRP":0.5,
+                  "WebPrice":0,
+                  "Quantity":1,
+                  "description":"Pizza Sauce",
+                  "SupplierId":"4d00cd2b-28e8-4950-b8b9-2ecf50e44933",
+                  "CartReferenceKey":"fe6c9b1b-55b4-4db0-aea7-fe5bd253865b",
+                  "TotalCap":0,
+                  "CatalogpromotionDiscount":0,
+                  "BundleCartReferenceKey":"e4d5eecd-62a1-40a6-bd00-7607f3d1107d",
+                  "ItemPromotionDiscountAmount":0,
+                  "IsPrimaryProduct":false,
+                  "IsPromotionProduct":false,
+                  "VariantsInfo":[  
+                     {  
+                        "PropertyName":"Strength",
+                        "Value":"Regular"
+                     },
+                     {  
+                        "PropertyName":"Size",
+                        "Value":"Medium"
+                     }
+                  ],
+                  "Por":"W",
+                  "IsDefaultBundleItem":true,
+                  "CartPromotionRules":[  
+
+                  ],
+                  "CategoryId":"CU00357497",
+                  "CategoryName":null,
+                  "BrandId":"BB1760",
+                  "BrandName":"Pizza Hut",
+                  "GroupId":13223
+               }
+            ],
+            "IsPrimaryProduct":false,
+            "ItemPromotionDiscountAmount":0,
+            "IsPromotionProduct":false,
+            "Por":"",
+            "IsDefaultBundleItem":false,
+            "ProductImage":"//images.sg.content-cdn.io/cdn//in-resources/4d00cd2b-28e8-4950-b8b9-2ecf50e44933/Images/ProductImages/Source/PWA-PHBOGOF-270718.jpg;width=100;height=100;scale=canvas;anchor=bottomcenter",
+            "CartPromotionRules":[  
+
+            ],
+            "CategoryId":"CU00357471",
+            "CategoryName":"Deals",
+            "BrandId":"BB1760",
+            "BrandName":"Pizza Hut",
+            "ParentCartItems":null
+         }
+      ],
+      "Suppliers":[  
+         {  
+            "SupplierId":"4d00cd2b-28e8-4950-b8b9-2ecf50e44933",
+            "SupplierName":"KuwaitTestStore",
+            "IsSelected":false,
+            "OrderStatus":null
+         }
+      ],
+      "ShippingOptions":[  
+         {  
+            "SupplierId":"4d00cd2b-28e8-4950-b8b9-2ecf50e44933",
+            "ShippingMode":"12141",
+            "ShippingModeId":12141,
+            "isselected":true
+         }
+      ],
+      "PaymentOptionsChannel":[  
+         {  
+            "MerchantId":"4d00cd2b-28e8-4950-b8b9-2ecf50e44933",
+            "PaymentType":"COD",
+            "Paymentoption":"COD",
+            "GatewayId":"0",
+            "GatewayTitle":"COD",
+            "PaidAmount":0,
+            "EnalbeOTP":false
+         },
+         {  
+            "MerchantId":"4d00cd2b-28e8-4950-b8b9-2ecf50e44933",
+            "PaymentType":"OnlineBankTrans",
+            "Paymentoption":"OnlineBankTransfer",
+            "GatewayId":"10961",
+            "GatewayTitle":"OnlineBankTrans",
+            "PaidAmount":0,
+            "EnalbeOTP":false
+         }
+      ],
+      "ErrorCollection":null,
+      "GiftMsg":"",
+      "DemandedDeliveryDate":"/Date(-2208988800000)/",
+      "RemainTotal":0,
+      "ShippingZoneType":null,
+      "DeliverySlotID":0,
+      "FailedProducts":null,
+      "PickupFirstName":"Tom",
+      "PickupLastName":"Sawyer",
+      "PickupEmail":"tom.sawyer@example.com",
+      "PickupMobile":"55555555",
+      "LocationId":"27299",
+      "TaxDetail":[  
+
+      ],
+      "ComboSuggestion":[  
+
+      ],
+      "ConvertedDeals":[  
+
+      ]
+   },
+   "FailedItems":[  
+
+   ],
+   "ErrorCode":0
+}
+
+```
+
+
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `/Carts/cart/{merchantId}/{accesstoken}`
+Rate Limited? | No
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | GET
+Batch Support | No
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+### Request URL
+
+`https://{host}/developerapi/Carts/cart/{merchantId}/{accesstoken}`
+
+
+
+### Additional Header Required
+
+Header | Description
+------ | ------
+accesstoken* | Access token of the logged in user to validate the session
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 ## Remove a Cart Item
@@ -5420,7 +5753,7 @@ merchantId* | string | Unique GUID of the merchant
 
 ## Clear Cart Items
 
-Removes entire cart details such as cart items, location, billing address and shipping address.
+Removes entire cart details including cart items, location, billing address and shipping address.
 
 
 
@@ -5485,7 +5818,7 @@ merchantId* | string | Unique GUID of the merchant
 
 ## Add Order Attributes
 
-Lets you add order attributes to the cart items that will be reflected once the order is placed. Order attributes are custom fields of an order.
+Adds order attributes to the cart items which will be reflected once the order is placed. Order attributes are custom fields of an order.
 
 
 
@@ -5873,7 +6206,7 @@ InputFormat=application/json&InputData={
 }
 ```
 
-Lets you update shipping and billing address of an order.
+Updates both shipping and billing address of an order.
 
 ### Resource Information
 Parameter | Description
@@ -5918,7 +6251,7 @@ BillAddress | string | Billing address - door number, building name, street, are
 BillAddress1 | string | Any missing information in BillAddress. For example, landmark
 BillTelephone | string | Land line number associated to the billing address (without STD code)
 BillTelephoneCode | string | STD code of the land line number
-BillMobileCode, ShipLastName,ShipTelephone..  | Similar to the billing address details, specify the shipping address in respective fields
+BillMobileCode, ShipLastName,ShipTelephone..  |  | Similar to the billing address details, specify the shipping address in respective fields
 SkipDeliveryAreaValidation | boolean | Specify `true` to validate the delivery location before updating the details. Specify `false` to ignore shipping area validation
 IsShippingAddressDifferent | boolean | Specify `true` if shipping address is different from billing address, else, specify `false`. If shipping address and billing address are same, you can just pass billing address details and make this attribute 'false'. 
 
@@ -6124,7 +6457,7 @@ https://www.martjack.com/developerapi/Carts/ApplyVoucher/f48fdd16-92db-4188-854d
 }
 ```
 
-Lets you redeem vouchers on the cart. It supports discount vouchers and rule based vouchers.
+Lets you apply a voucher on the cart items. You can use either a discount voucher or rule based vouchers.
 
 <aside class="notice"> Vouchers can be created on Anywhere Commerce's Control Panel. </aside>
 
@@ -6643,7 +6976,7 @@ https://www.martjack.com/developerapi/Carts/PaymentOptions/2c7f2299-9129-4131-83
 }
 ```
 
-Retrieves the payment options supported for the current cart of the user.
+Retrieves all the supported payment options of the current cart.
 
 
 ### Resource Information
@@ -6951,7 +7284,7 @@ Parameter | Type | Description
 -------- | ----- | -----------
 merchantId* | string | Unique GUID of the merchant
 shippingModeID* | int | Unique id of the new shipment mode
-ispickupshippingMode* | boolean | 
+ispickupshippingMode* | boolean | Specify `true` for in store pickup, else specify `false`
 
 <aside class="notice"> All parameters marked by * are mandatory. </aside>
 
@@ -6962,10 +7295,8 @@ Following table contains descriptions of a few response parameters that require 
 Parameter | Type | Description
 --------- | ---- | -----------
 IsFreeProduct | boolean | Whether the current item is a gift product that is given for free or along with other product
-PriceCapped | boolean | 
-TotalCap | | 
-CappedRefKey | | 
-CatalogpromotionDiscount | | 
+PriceCapped | boolean | -NA-
+CatalogpromotionDiscount | | Catalog promotion discount amount applied on the cart items 
 
 
 
@@ -7183,18 +7514,18 @@ Lets you set delivery slot for the current cart.
 
 | | |
 --------- | ----------- |
-URI | `/Carts/SetDeliverySlot/{{merchantId}}`
+URI | `/Carts/SetDeliverySlot/{merchantId}`
 Rate Limited? | No
 Authentication | Yes
 Response Formats | JSON
-HTTP Methods | GET
+HTTP Methods | POST
 Batch Support | No
 
 * **Rate limiter** controls the number of incoming and outgoing traffic of a network
 * **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
 
 ### Request URL
-`https://{host}/developerapi/Carts/SetDeliverySlot/{{merchantId}}`
+`https://{host}/developerapi/Carts/SetDeliverySlot/{merchantId}`
 
 ### Additional Header Required
 

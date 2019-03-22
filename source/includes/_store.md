@@ -558,7 +558,7 @@ https://www.martjack.com/developerapi/Store/Cities/81e77da2-723b-483d-8c0d-49f80
 ```
 
 
-Retrieves all the  supported cities of a specific state
+Retrieves all the  supported cities of a specific state for the merchant.
 
 ### Resource Information
 |  |  |

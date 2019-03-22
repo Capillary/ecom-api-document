@@ -61,7 +61,7 @@ Maps a store location to a delivery area
 ### Resource Information
 | | |
 --------- | ----------- |
-URI | `/Location/StoreDeliveryAreaMapping/{{MerchantId}}`
+URI | `/Location/StoreDeliveryAreaMapping/{MerchantId}`
 Rate Limited? | No
 Authentication | Yes
 Response Formats | JSON
@@ -73,13 +73,13 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Location/StoreDeliveryAreaMapping/{{MerchantId}}`
+`https://{host}/developerapi/Location/StoreDeliveryAreaMapping/{MerchantId}`
 
 ### Request Body Parameters
 Parameter | Datatype | Description
 --------- | -------- | ----------
 LocationRefCode | string | The location reference code that you want to map to a delivery area
-DeliveryType | string  | The type of delivery of the location.  Value: H (Home delivery), S (store pickup), N (for both pickup and delivery)
+DeliveryType | string  | The type of delivery of the location.  Value: `H` if the type is Home delivery, `S` for store pickup, `N` if the store supports both pickup and delivery
 AreaRefCode | string | Delivery area reference code that you want to assign
 Operation | string | Value: add, remove. Specify `add` delivery address to a location, 	`remove` to delete
 
@@ -153,7 +153,7 @@ Updates location of a specific store
 ### Resource Information
 | | |
 --------- | ----------- |
-URI | `/Location/UpdateLocation/{{MerchantId}}/{LocationrefCode}`
+URI | `/Location/UpdateLocation/{MerchantId}/{LocationrefCode}`
 Rate Limited? | No
 Authentication | Yes
 Response Formats | JSON
@@ -165,12 +165,12 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Location/UpdateLocation/{{MerchantId}}/{LocationrefCode}`
+`https://{host}/developerapi/Location/UpdateLocation/{MerchantId}/{LocationrefCode}`
 
 
-### Header Modification
+### Header Modification Required
 
-Pass `content-type` as `application/json-patch+json`
+Pass `content-type` as application/json-patch+json
 
 ### Request Body Parameters
 Parameter | Datatype | Description
@@ -220,7 +220,7 @@ InputFormat=application/json&MerchantId=f48fdd16-92db-4188-854d-1ecd9b62e234&ETA
 }
 ```
 
-Lets you update the operation timings of a store location.
+Updates the operation timings of a store location.
 
 
 ### Resource Information
@@ -235,6 +235,7 @@ Batch Support | Yes
 
 * **Rate limiter** controls the number of incoming and outgoing traffic of a network
 * **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
 
 ### Request URL
 `https://{host}/developerapi/Location/UpdateStoreTimings/{MerchantId}/{Locationrefcode}`
@@ -387,7 +388,7 @@ Retrieves locations of a specific delivery area.
 ### Resource Information
 | | |
 --------- | ----------- |
-URI | `/Location/{{MerchantId}}/Search`
+URI | `/Location/{MerchantId}/Search`
 Rate Limited? | No
 Authentication | Yes
 Response Formats | JSON
@@ -399,7 +400,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Location/{{MerchantId}}/Search`
+`https://{host}/developerapi/Location/{MerchantId}/Search`
 
 
 
@@ -417,7 +418,7 @@ Parameter | Type | Description
 zipcode*	| string | Area PIN code that you want to fetch. Example value: 110019
 deliveryarea* | string | Name of the delivery area. Example: Karnataka
 deliveryareaId*	| int | Unique id of the delivery area. Example: 234
-outputfield	| enum | Pass `additional` to include additional information, `deliveryarea` to include delivery areas in the response
+outputfield	| enum | Pass `additional` to include additional details in the response, `deliveryarea` to include delivery areas in the response
 
 <aside class="notice"> All parameters marked by * are mandatory.</aside>
 
@@ -498,7 +499,7 @@ cityid=36618
 ### Resource Information
 | | |
 --------- | ----------- |
-URI | `/Location/{{merchantid}}/SearchDeliveryAreas`
+URI | `/Location/{merchantid}/SearchDeliveryAreas`
 Rate Limited? | No
 Authentication | Yes
 Response Formats | JSON
@@ -510,7 +511,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Location/{{merchantid}}/SearchDeliveryAreas`
+`https://{host}/developerapi/Location/{merchantid}/SearchDeliveryAreas`
 
 
 ### Request Body Parameters
@@ -531,7 +532,7 @@ Parameter | Type | Description
 -------- | ----- | -----------
 DeliveryAreaID | int | Unique id of the delivery area
 DeliveryAreaName | string | Name of the respective delivery area
-AreaType | enum | CT for city and ST for state
+AreaType | enum | `cn` for delivery type country, `ct` for city, and `st` for state
 IsArchive | boolean | Whether the delivery area is active or archived
 AreaTypeIDs | string | 
 
@@ -951,7 +952,7 @@ Retrieves the details of a specific store location such as parent location, addr
 ### Resource Information
 | | |
 --------- | ----------- |
-URI | `/Location/Information/{{MerchantId}}/{{LocationId}}`
+URI | `/Location/Information/{MerchantId}/{{LocationId}}`
 Rate Limited? | No
 Authentication | Yes
 Response Formats | JSON
@@ -963,7 +964,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Location/Information/{{MerchantId}}/{{LocationId}}`
+`https://{host}/developerapi/Location/Information/{MerchantId}/{{LocationId}}`
 
 ### Request Parameters
 Parameter | Type | Description
@@ -1038,7 +1039,7 @@ https://www.martjack.com/developerapi/Location/f48fdd16-92db-4188-854d-1ecd9b62x
 ```
 
 
-Retrieves all the configured delivery cities of the merchant with details such as city id, city name, and delivery area id.
+Retrieves all the delivery cities configured for the merchant including the details such as city id, city name, and delivery area id.
 
 ### Resource Information
 | | |
@@ -1284,7 +1285,7 @@ Parameter | Type | Description
 --------- | ---- | -----------
 DistancefromInputLatLong | float | Distance of the location from latitude and longitude. Available only if latitude and longitude are set for the location
 IsParticipateInStock | boolean | Whether the location is participating in stock. The location appears on the storefront only if this is set to true
-AdditionalDetails | json obj | Custom field details
+AdditionalDetails | json obj | Details of custom fields configured for the location
 
 
 
@@ -1579,7 +1580,7 @@ Following table contains descriptions of a few response parameters that require 
 Parameter | Type | Description
 --------- | ---- | -----------
 DistancefromInputLatLong | float | Distance of the location from latitude and longitude. Available only if latitude and longitude are set for the location
-AdditionalDetails | json obj | Custom field details 
+AdditionalDetails | json obj | Details of custom fields configured for the location 
 IsParticipateInStock | boolean | Whether the location is participating in stock. The location appears on the storefront only if this is set to true
 IsOfflinneCheckoutEnabled | boolean | Whether offline ordering is available for the location
 IsDefaultLNG_LocationName | boolean | Whether the language is default language of the location or not
@@ -1719,15 +1720,15 @@ Batch Support | No
 Parameter | Type | Description
 --------- | ---- | -----------
 merchantId* | string | Unique GUID of the merchant
-OrderDeliveryType | enum | Type of order delivery. Supported values: ALL, H, T, P where `H` for HomeDelivery, `T` for TakeAway, `P` for store pickup, and `ALL` for all types
+OrderDeliveryType | enum | Type of order delivery. Supported values: `H` for Home Delivery, `T` for Takeaway, `P` for store pickup, and `ALL` if all types are supported
 
 ### Request Body Parameters
 Parameter | Type | Description
 --------- | ---- | -----------
 LocationCode* | string | Location code for which you want to update order ETA
-HomeDeliveryETA* | json obj | Updates ETA for home delivery orders
-TakeAwayETA | json obj | Updated ETA for take away orders
-PickupPointsETA | json obj | Updates ETA for store pick up orders
+HomeDeliveryETA* | obj | Updates ETA for home delivery orders
+TakeAwayETA | obj | Updated ETA for take away orders
+PickupPointsETA | obj | Updates ETA for store pick up orders
 StartTime* | string | Estimated minimum delivery time as per the selected ETA units
 EndTime* | string | Estimated maximum delivery time as per the selected ETA units
 ETAType* | enum | Specify `0` for a fixed ETA. For example 2 days from the ordered date. <br> Specify `1` for ETA within a specified period from the ordered date. For example, 5-7 days
@@ -1877,7 +1878,7 @@ MerchantId=f48fdd16-92db-4188-854d-1ecd9b62d066&countryid=IN&stateid=HR&cityid=5
 ### Resource Information
 | | |
 --------- | ----------- |
-URI | `/Location/{{MerchantId}}/SearchDeliveryPincodes`
+URI | `/Location/{MerchantId}/SearchDeliveryPincodes`
 Rate Limited? | No
 Authentication | Yes
 Response Formats | JSON
@@ -1889,7 +1890,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Location/{{MerchantId}}/SearchDeliveryPincodes`
+`https://{host}/developerapi/Location/{MerchantId}/SearchDeliveryPincodes`
 
 
 ### Request Body Parameters
@@ -1901,7 +1902,7 @@ countryid | string | Alpha-2 code of the country for which you want to fetch del
 stateid | string | Fetch delivery areas by State code. For example, KA for Karnataka, AR for Arunachal Pradesh, TS for Telangana 
 cityid | int | Fetch delivery areas by city id. Pass the unique id of the city
 pincodes | string | Fetch delivery areas by area pincodes 
-deliveryareaid | string | Fetch a specific delivery area details by delivery area id
+deliveryareaid | string | Specify the delivery area id to fetch the details of that specific delivery area
 
 
 

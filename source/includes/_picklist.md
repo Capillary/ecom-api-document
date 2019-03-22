@@ -7,7 +7,7 @@ Picklist is a document that contains the list of order items to be picked up fro
 
 ##  Confirm picklist
 
-Lets you update item picklist of an order.
+Lets you update picklist of an order item.
 
 
 > Sample Request
@@ -212,7 +212,7 @@ SubStatus | enum | Unique 2 character code of the picklist/picklist item sub-sta
 PicklistOperatorID | string | Unique id of the staff who confirms the picklist
 Comments | string | Any comments related to the picklist. You can pass this both at the request level and item level
 ConfirmPicking | enum | Specify `1` to confirm pick up, `0` if not confirmed. `0` will be considered as the default value if no value is passed
-OrderPickListDetailId | int | 
+OrderPickListDetailId | int | Unique internal reference if generated for each picklist item
 RetransactionID | int | Order id of the item
 PicklistID | int | Unique id of the picklist
 RedetailsID | int | Unique item id as in the REtransaction table 
@@ -220,7 +220,8 @@ PicklistOperatorID | string | Unique id of the operator
 PickListItemStatus | enum | The status of the current item. `F` for found, `N` for not found, `C` for cancel. If no value is passed, not found is considered as the default value
 Weight | int | Weight of the item 
 ActualPrice | float | Net price of the item. The item price can be changed if `isVariance` is set to true
-isVariance | boolean | Whether there is change in the price of the current item  during picklist creation. In case of any difference, the item price can be changed by passing the `ActualPrice` of the itemPickingPrice":60,
+isVariance | boolean | Whether there is change in the price of the current item  during picklist creation. In case of any difference, the item price can be changed by passing the `ActualPrice` of the item
+PickingPrice | int | Price of packing. For example, in restaurants additional charge will be levied on takeaway orders for packing
 PicklistCustomFields | obj | Picklist level custom field details - key and value pairs
 
 <aside class="notice">All parameters marked by * are mandatory.</aside>
@@ -468,7 +469,7 @@ pickListId* | int | Unique id of the picklist that you want to fetch
 
 ## Get PickLists of a Merchant
 
-Lets you fetch picklists of a specific merchant based on the input parameters. By default, it will fetch the details of the last one week.
+Lets you fetch picklists of the merchant based on the input parameters. By default, the picklists details of the last one week will be retrieved.
 
 > Sample Request
 
@@ -584,7 +585,7 @@ createdOn | date | Fetch picklists created on a specific date. Pass the date in 
 locationId | int | Fetch picklist of a specific location by location id
 searchFromDate | date | Get picklists created on and after a specific date. Pass the date in `MM/DD/YYYY` format
 searchSku | string | Fetch picklists consisting of a specific SKU.
-pageNumber | int | For results in multiple pages, specify the page number that you want to see
+pageNumber | int | For results in multiple pages, specify the page number that you want to fetch
 pageSize | int | Specify the number of results to be shown per page
 pickerId | string | Picker id assigned to the picklist
 picklistOperatorID | string | Fetch picklists  of a specific operator. Pass the unique GUID of the operator
@@ -1124,7 +1125,7 @@ URI | `/PickList/GetPickListItems/{MerchantId}/{pickListId}/{orderItemStatus}`
 Rate Limited? | No
 Authentication | Yes
 Response Formats | JSON
-HTTP Methods | POST
+HTTP Methods | GET
 Batch Support | No
 
 * **Rate limiter** controls the number of incoming and outgoing traffic of a network

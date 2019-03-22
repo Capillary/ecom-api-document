@@ -6687,106 +6687,6 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <aside class="notice"> All parameters marked by * are mandatory. </aside>
 
-<h2 id="get-product-reviews">Get Product Reviews</h2>
-<pre class="highlight html"><code>https://www.martjack.com/developerapi/Product/GetReviews/81e77da2-723b-483d-8c0d-49f800c1exxx/PZLG-WM
-</code></pre>
-<blockquote>
-<p>Sample Response</p>
-</blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-    </span><span class="nt">"messageCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1004"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"Reviews"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
-            </span><span class="nt">"UserId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0639f7a6-34cc-48b2-9fd9-a80e2ed8xxxx"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"UserName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tom"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"ProductTitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Capillary Men's Slim Fit Striped Collar Shirt"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"ReviewTitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Special occasion wear"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"ReviewDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Looks semi-formal as per my liking. The shirt is very comfortable and feels really nice for both as a casual wear or occasional wear."</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"CreatedDateTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10/9/2018 5:46:25 AM"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"Rating"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"IsGoLive"</span><span class="p">:</span><span class="w"> </span><span class="s2">"True"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"UserId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0639f7a6-34cc-48b2-9fd9-a80e2ed8xxxx"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"UserName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"James"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"ProductTitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Capillary Men's Slim Fit Striped Collar Shirt"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"ReviewTitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nice material and comfortable wear"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"ReviewDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Beautiful color, and material. A very well made shirt"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"CreatedDateTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10/9/2018 12:44:00 AM"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"Rating"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"IsGoLive"</span><span class="p">:</span><span class="w"> </span><span class="s2">"False"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-    </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>Retrieves the user reviews of a specific product. </p>
-
-<h3 id="resource-information">Resource Information</h3>
-
-<table><thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead><tbody>
-<tr>
-<td>URI</td>
-<td><code class="prettyprint">Product/GetReviews/{MerchantId}/{Sku}</code></td>
-</tr>
-<tr>
-<td>Rate Limited?</td>
-<td>No</td>
-</tr>
-<tr>
-<td>Authentication</td>
-<td>Yes</td>
-</tr>
-<tr>
-<td>Response Formats</td>
-<td>JSON</td>
-</tr>
-<tr>
-<td>HTTP Methods</td>
-<td>GET</td>
-</tr>
-<tr>
-<td>Batch Support</td>
-<td>No</td>
-</tr>
-</tbody></table>
-
-<ul>
-<li><strong>Rate limiter</strong> controls the number of incoming and outgoing traffic of a network</li>
-<li><strong>Authentication</strong> verifies the identity of the current user or integration. See Introduction &gt; Authentication (Merchant Setup on Admin Portal) for more details</li>
-</ul>
-
-<h3 id="request-url">Request URL</h3>
-
-<p><code class="prettyprint">https://{host}/developerapi/Product/GetReviews/{MerchantId}/{Sku}</code></p>
-
-<h3 id="request-body-parameters">Request Body Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>MerchantId*</td>
-<td>string</td>
-<td>The unique GUID of the merchant</td>
-</tr>
-<tr>
-<td>Sku*</td>
-<td>string</td>
-<td>SKU of the product for which you want to fetch reviews</td>
-</tr>
-</tbody></table>
-
-<aside class="notice"> All parameters marked by * are mandatory.</aside>
-
 <h2 id="get-product-information-by-location">Get Product Information (by Location)</h2>
 
 <blockquote>
@@ -9459,46 +9359,39 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <aside class="notice"> All parameters marked by * are mandatory.</aside>
 
-<h2 id="search-products">Search Products</h2>
-
-<blockquote>
-<p>Sample Request</p>
-</blockquote>
-<pre class="highlight html"><code>https://www.martjack.com/developerapi/Product/81e77da2-723b-483d-8c0d-49f800c1exxx/Search
+<h2 id="get-product-reviews">Get Product Reviews</h2>
+<pre class="highlight html"><code>https://www.martjack.com/developerapi/Product/GetReviews/81e77da2-723b-483d-8c0d-49f800c1exxx/PZLG-WM
 </code></pre>
-<blockquote>
-<p>Sample POST Request</p>
-</blockquote>
-<pre class="highlight json"><code><span class="err">InputFormat=application/json&amp;InputData=</span><span class="p">{</span><span class="w">
-  </span><span class="nt">"merchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9820eca5-d11f-4df1-9b20-983a45ea9631"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-
-</span></code></pre>
 <blockquote>
 <p>Sample Response</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"ProductIds"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="s2">"11360864"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"11360866"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"11360868"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"11360870"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"11360872"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"11360896"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"11360898"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"11360900"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"11360902"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"11360904"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"11360906"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"11360908"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"11148708"</span><span class="w">
-  </span><span class="p">],</span><span class="w">
-  </span><span class="nt">"messageCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1004"</span><span class="w">
+    </span><span class="nt">"messageCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1004"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Reviews"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+            </span><span class="nt">"UserId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0639f7a6-34cc-48b2-9fd9-a80e2ed8xxxx"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"UserName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tom"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ProductTitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Capillary Men's Slim Fit Striped Collar Shirt"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ReviewTitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Special occasion wear"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ReviewDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Looks semi-formal as per my liking. The shirt is very comfortable and feels really nice for both as a casual wear or occasional wear."</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"CreatedDateTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10/9/2018 5:46:25 AM"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Rating"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"IsGoLive"</span><span class="p">:</span><span class="w"> </span><span class="s2">"True"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"UserId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0639f7a6-34cc-48b2-9fd9-a80e2ed8xxxx"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"UserName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"James"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ProductTitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Capillary Men's Slim Fit Striped Collar Shirt"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ReviewTitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nice material and comfortable wear"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ReviewDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Beautiful color, and material. A very well made shirt"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"CreatedDateTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10/9/2018 12:44:00 AM"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Rating"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"IsGoLive"</span><span class="p">:</span><span class="w"> </span><span class="s2">"False"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-
 </span></code></pre>
-<p>Retrieves product ids based on the input parameters</p>
+<p>Retrieves the user reviews of a specific product. </p>
 
 <h3 id="resource-information">Resource Information</h3>
 
@@ -9510,7 +9403,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 </thead><tbody>
 <tr>
 <td>URI</td>
-<td><code class="prettyprint">/Product/{MerchantId}/Search</code></td>
+<td><code class="prettyprint">Product/GetReviews/{MerchantId}/{Sku}</code></td>
 </tr>
 <tr>
 <td>Rate Limited?</td>
@@ -9526,7 +9419,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 </tr>
 <tr>
 <td>HTTP Methods</td>
-<td>POST</td>
+<td>GET</td>
 </tr>
 <tr>
 <td>Batch Support</td>
@@ -9541,7 +9434,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Product/{MerchantId}/Search</code></p>
+<p><code class="prettyprint">https://{host}/developerapi/Product/GetReviews/{MerchantId}/{Sku}</code></p>
 
 <h3 id="request-body-parameters">Request Body Parameters</h3>
 
@@ -9553,51 +9446,18 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 </tr>
 </thead><tbody>
 <tr>
-<td>MerchantId</td>
+<td>MerchantId*</td>
 <td>string</td>
-<td>Unique GUID of the merchant</td>
+<td>The unique GUID of the merchant</td>
 </tr>
 <tr>
-<td>keyword</td>
+<td>Sku*</td>
 <td>string</td>
-<td>Search product by meta tag keyword</td>
-</tr>
-<tr>
-<td>SKU</td>
-<td>string</td>
-<td>Search product by SKU</td>
-</tr>
-<tr>
-<td>catalogcode</td>
-<td>string</td>
-<td>Fetch products of a specific catalog code</td>
-</tr>
-<tr>
-<td>category</td>
-<td>string</td>
-<td>Search by category</td>
-</tr>
-<tr>
-<td>brand</td>
-<td>string</td>
-<td>Search product ids by brand</td>
-</tr>
-<tr>
-<td>productTag</td>
-<td>string</td>
-<td>Search product ids by associated product tags</td>
-</tr>
-<tr>
-<td>pageNumber</td>
-<td>int</td>
-<td>Page number from which you want to fetch products on storefront</td>
-</tr>
-<tr>
-<td>pageSize</td>
-<td>int</td>
-<td>Number of results to be shown per page</td>
+<td>SKU of the product for which you want to fetch reviews</td>
 </tr>
 </tbody></table>
+
+<aside class="notice"> All parameters marked by * are mandatory.</aside>
 
 <h2 id="update-product-attribute">Update Product Attribute</h2>
 
@@ -10402,6 +10262,146 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 </tbody></table>
 
 <aside class="notice"> All parameters marked by * are mandatory. </aside>
+
+<h2 id="search-products">Search Products</h2>
+
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
+<pre class="highlight html"><code>https://www.martjack.com/developerapi/Product/81e77da2-723b-483d-8c0d-49f800c1exxx/Search
+</code></pre>
+<blockquote>
+<p>Sample POST Request</p>
+</blockquote>
+<pre class="highlight json"><code><span class="err">InputFormat=application/json&amp;InputData=</span><span class="p">{</span><span class="w">
+  </span><span class="nt">"merchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9820eca5-d11f-4df1-9b20-983a45ea9631"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ProductIds"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"11360864"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"11360866"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"11360868"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"11360870"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"11360872"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"11360896"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"11360898"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"11360900"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"11360902"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"11360904"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"11360906"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"11360908"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"11148708"</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"messageCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1004"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<p>Retrieves product ids based on the input parameters</p>
+
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td><code class="prettyprint">/Product/{MerchantId}/Search</code></td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>POST</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>No</td>
+</tr>
+</tbody></table>
+
+<ul>
+<li><strong>Rate limiter</strong> controls the number of incoming and outgoing traffic of a network</li>
+<li><strong>Authentication</strong> verifies the identity of the current user or integration. See Introduction &gt; Authentication (Merchant Setup on Admin Portal) for more details</li>
+</ul>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">https://{host}/developerapi/Product/{MerchantId}/Search</code></p>
+
+<h3 id="request-body-parameters">Request Body Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>MerchantId</td>
+<td>string</td>
+<td>Unique GUID of the merchant</td>
+</tr>
+<tr>
+<td>keyword</td>
+<td>string</td>
+<td>Search product by meta tag keyword</td>
+</tr>
+<tr>
+<td>SKU</td>
+<td>string</td>
+<td>Search product by SKU</td>
+</tr>
+<tr>
+<td>catalogcode</td>
+<td>string</td>
+<td>Fetch products of a specific catalog code</td>
+</tr>
+<tr>
+<td>category</td>
+<td>string</td>
+<td>Search by category</td>
+</tr>
+<tr>
+<td>brand</td>
+<td>string</td>
+<td>Search product ids by brand</td>
+</tr>
+<tr>
+<td>productTag</td>
+<td>string</td>
+<td>Search product ids by associated product tags</td>
+</tr>
+<tr>
+<td>pageNumber</td>
+<td>int</td>
+<td>Page number from which you want to fetch products on storefront</td>
+</tr>
+<tr>
+<td>pageSize</td>
+<td>int</td>
+<td>Number of results to be shown per page</td>
+</tr>
+</tbody></table>
 
 <h2 id="get-product-tags-by-productid">Get Product Tags (By ProductId)</h2>
 
