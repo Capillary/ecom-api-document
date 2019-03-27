@@ -23576,6 +23576,11 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <td>The reference number for order payment provided by the respective payment gateway</td>
 </tr>
 <tr>
+<td>CheckOutType</td>
+<td>string</td>
+<td>Type of check out. Values: Online Payment, Cash on Delivery, Bank Transfer, Cheque/DD, Gift Voucher, Net Banking, Payback Points, Wallet</td>
+</tr>
+<tr>
 <td>vouchercode</td>
 <td>string</td>
 <td>Coupon code applied for the transaction if any. This is just for viewing purpose and the API does not do any calculation based on the voucher code</td>
@@ -23964,6 +23969,11 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <td>paymentno</td>
 <td>string</td>
 <td>The reference number for order payment provided by the respective payment gateway</td>
+</tr>
+<tr>
+<td>CheckOutType</td>
+<td>string</td>
+<td>Type of check out. Values: Online Payment, Cash on Delivery, Bank Transfer, Cheque/DD, Gift Voucher, Net Banking, Payback Points, Wallet</td>
 </tr>
 <tr>
 <td>vouchercode</td>
@@ -25117,14 +25127,9 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 </tr>
 </thead><tbody>
 <tr>
-<td>Action</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
 <td>CheckOutType</td>
 <td>string</td>
-<td>Type of check out. For example, Online Payment, Cash on DeliveredDate</td>
+<td>Type of check out. Values: Online Payment, Cash on Delivery, Bank Transfer, Cheque/DD, Gift Voucher, Net Banking, Payback Points, Wallet</td>
 </tr>
 <tr>
 <td>DateFrom</td>
@@ -25138,8 +25143,8 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 </tr>
 <tr>
 <td>DateType</td>
-<td></td>
-<td></td>
+<td>enum</td>
+<td>Activity of the specified date range. Values: <code class="prettyprint">OD</code> for Order Date, <code class="prettyprint">SD</code> for Ship Date, <code class="prettyprint">RD</code> for Return Date, <code class="prettyprint">DD</code> for Delivered Date, <code class="prettyprint">DS</code> for Dispatch Date</td>
 </tr>
 <tr>
 <td>EmailID</td>
@@ -25169,12 +25174,12 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>OrderPriceFrom</td>
 <td>float</td>
-<td>Search orders by price range in OrderPriceFrom and OrderPriceTo</td>
+<td>Search orders by price range in <code class="prettyprint">OrderPriceFrom</code> and <code class="prettyprint">OrderPriceTo</code></td>
 </tr>
 <tr>
 <td>OrderPriceTo</td>
 <td>float</td>
-<td>Search orders by price range in OrderPriceFrom and OrderPriceTo</td>
+<td>Search orders by price range in <code class="prettyprint">OrderPriceFrom</code> and <code class="prettyprint">OrderPriceTo</code></td>
 </tr>
 <tr>
 <td>OrderStatus</td>
@@ -25209,7 +25214,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>RecordTo</td>
 <td>int</td>
-<td>From the fetch results, filter the record range that you want to see in RecordFrom and RecordTo. For example, out of 80 results you can prefer to see only first 30 records or between 30-70</td>
+<td>From the fetch results, filter the record range that you want to see in RecordFrom and RecordTo. For example, out of 80 results you can prefer to see first 30 records only or records between 30-70</td>
 </tr>
 </tbody></table>
 
@@ -29668,7 +29673,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <blockquote>
 <p>Sample POST Request (RAW)</p>
 </blockquote>
-<pre class="highlight json"><code><span class="err">MerchantId=</span><span class="p">{</span><span class="err">{MID</span><span class="p">}</span><span class="err">}&amp;ShipmentId=</span><span class="mi">5516733</span><span class="err">&amp;awbNumber=AWB</span><span class="mi">965979</span><span class="err">&amp;islabelReady=</span><span class="kc">true</span><span class="err">&amp;providerId=MPBS</span><span class="w">
+<pre class="highlight json"><code><span class="err">MerchantId=</span><span class="mi">9820</span><span class="err">eca</span><span class="mi">5</span><span class="err">-d</span><span class="mi">11</span><span class="err">f</span><span class="mi">-4</span><span class="err">df</span><span class="mi">1-9</span><span class="err">b</span><span class="mi">20-983</span><span class="err">a</span><span class="mi">45</span><span class="err">ea</span><span class="mi">9631</span><span class="err">&amp;ShipmentId=</span><span class="mi">5516733</span><span class="err">&amp;awbNumber=AWB</span><span class="mi">965979</span><span class="err">&amp;islabelReady=</span><span class="kc">true</span><span class="err">&amp;providerId=MPBS</span><span class="w">
 
 </span></code></pre>
 <blockquote>
@@ -30558,14 +30563,14 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <blockquote>
 <p>Sample Request</p>
 </blockquote>
-<pre class="highlight html"><code>https://www.martjack.com/developerapi/DeveloperAPI/Order/CreateReturnRequest/{{Mid}}
+<pre class="highlight html"><code>https://www.martjack.com/developerapi/DeveloperAPI/Order/CreateReturnRequest/fc93a3a8-f69b-444c-8b76-9848de9338d0
 
 </code></pre>
 <blockquote>
 <p>Sample POST Request</p>
 </blockquote>
 <pre class="highlight json"><code><span class="w">
-</span><span class="err">MerchantID=</span><span class="p">{</span><span class="err">{Mid</span><span class="p">}</span><span class="err">}&amp;InputFormat=application/json&amp;InputData=</span><span class="p">{</span><span class="w">
+</span><span class="err">MerchantID=fc</span><span class="mi">93</span><span class="err">a</span><span class="mi">3</span><span class="err">a</span><span class="mi">8</span><span class="err">-f</span><span class="mi">69</span><span class="err">b</span><span class="mi">-444</span><span class="err">c</span><span class="mi">-8</span><span class="err">b</span><span class="mi">76-9848</span><span class="err">de</span><span class="mi">9338</span><span class="err">d</span><span class="mi">0</span><span class="err">&amp;InputFormat=application/json&amp;InputData=</span><span class="p">{</span><span class="w">
   </span><span class="nt">"ReturnRequest"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e04386d8-7ca8-4fa3-b8b8-6c606844d257"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"OrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6102899"</span><span class="p">,</span><span class="w">
@@ -30580,7 +30585,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
     </span><span class="nt">"AccountNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
     </span><span class="nt">"AccountName"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
     </span><span class="nt">"BranchName"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"FirstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Animesh"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"FirstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tom"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"Address1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A-501, symphony towers, new link road"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"CountryCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IN"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"CountryName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"India"</span><span class="p">,</span><span class="w">
@@ -30590,7 +30595,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
     </span><span class="nt">"CityName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bhubaneshwar"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"OtherCity"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
     </span><span class="nt">"PostCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"751018"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"Email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"animesh.srivastava@capillarytech.com"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tom.sawyer@capillarytech.com"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"TelephoneCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"Telephone"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
     </span><span class="nt">"MobileCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"91"</span><span class="p">,</span><span class="w">
@@ -30606,7 +30611,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
     </span><span class="p">},</span><span class="w">
     </span><span class="nt">"ReturnRequestDetails"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nt">"Sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"101432375"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"Reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Partial Delivered"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OT"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"SuggestedReturnAction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RF"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"ReturnQty"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"IsReceived"</span><span class="p">:</span><span class="w"> </span><span class="s2">"False"</span><span class="p">,</span><span class="w">
@@ -30617,7 +30622,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
     </span><span class="p">},</span><span class="w">
     </span><span class="err">{</span><span class="w">
       </span><span class="nt">"Sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"201001-1000"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"Reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Partial Delivered"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BAQ"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"SuggestedReturnAction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RF"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"ReturnQty"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"IsReceived"</span><span class="p">:</span><span class="w"> </span><span class="s2">"False"</span><span class="p">,</span><span class="w">
@@ -30684,7 +30689,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/DeveloperAPI/Order/CreateReturnRequest/{merchantId}</code>`</p>
+<p><code class="prettyprint">https://{host}/developerapi/DeveloperAPI/Order/CreateReturnRequest/{merchantId}</code></p>
 
 <h3 id="request-body-parameters">Request Body Parameters</h3>
 
@@ -30708,22 +30713,22 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>Comments</td>
 <td>string</td>
-<td>Reason for the return</td>
+<td>Reason for return</td>
 </tr>
 <tr>
 <td>Source</td>
 <td>enum</td>
-<td>Source from which  the order is placed.</td>
+<td>Source from which the return request is made. Values: 1, 2, 3, 4, 5. Example, 1 stands for storefront</td>
 </tr>
 <tr>
 <td>Status</td>
 <td>enum</td>
-<td></td>
+<td>Current status of the return request. Values: <code class="prettyprint">I</code> for initiated, <code class="prettyprint">C</code> for closed</td>
 </tr>
 <tr>
 <td>RequestType</td>
 <td>enum</td>
-<td></td>
+<td>Type of the return request. <code class="prettyprint">R</code> for return to origin (RTO) <code class="prettyprint">C</code> for customer return and <code class="prettyprint">CU</code> for Return created due to item cancellation</td>
 </tr>
 <tr>
 <td>RefundStatus</td>
@@ -30732,133 +30737,128 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 </tr>
 <tr>
 <td>PaymentMode</td>
-<td></td>
-<td></td>
+<td>string</td>
+<td>Mode of refund. Values: NEFT Cheque/DD, Credit Card, eVoucher</td>
 </tr>
 <tr>
 <td>BankName</td>
 <td>string</td>
-<td>Name of the bank</td>
+<td>Bank name to which the refund will be made(for NEFT payment)</td>
 </tr>
 <tr>
 <td>IFSCCOde</td>
-<td></td>
-<td></td>
+<td>string</td>
+<td>IFSC code of the specified bank (for NEFT payment)</td>
 </tr>
 <tr>
 <td>AccountNumber</td>
-<td></td>
-<td></td>
+<td>string</td>
+<td>Account number to which the return amount needs to be refunded (for NEFT payment)</td>
 </tr>
 <tr>
 <td>AccountName</td>
-<td></td>
-<td></td>
+<td>string</td>
+<td>Name of the customer account as per the specified bank (for NEFT payment)</td>
 </tr>
 <tr>
 <td>BranchName</td>
-<td></td>
-<td></td>
+<td>string</td>
+<td>Branch name of the specified account (for NEFT payment)</td>
 </tr>
 <tr>
 <td>FirstName</td>
-<td></td>
-<td></td>
+<td>string</td>
+<td>First name of the customer returning the item(s)</td>
 </tr>
 <tr>
 <td>Address1</td>
-<td></td>
-<td></td>
+<td>string</td>
+<td>Complete shipping address of the customer</td>
 </tr>
 <tr>
 <td>CountryCode</td>
-<td></td>
-<td></td>
+<td>string</td>
+<td>alpha-2 code of the location country associated shipment address. Example: IN (for India), AU (for Australia), and BR (for Brazil)</td>
 </tr>
 <tr>
 <td>CountryName</td>
-<td></td>
-<td></td>
+<td>string</td>
+<td>Name of the country as per the shipment address</td>
 </tr>
 <tr>
 <td>StateCode</td>
-<td></td>
-<td></td>
+<td>string</td>
+<td>State code of the shipment location</td>
 </tr>
 <tr>
 <td>StateName</td>
-<td></td>
-<td></td>
+<td>string</td>
+<td>Name of the state as per the shipping address</td>
 </tr>
 <tr>
 <td>CityCode</td>
-<td></td>
-<td></td>
+<td>string</td>
+<td>Unique city code of the product shipment location</td>
 </tr>
 <tr>
 <td>CityName</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>OtherCity</td>
-<td></td>
-<td></td>
+<td>string</td>
+<td>City name of the product shipment location</td>
 </tr>
 <tr>
 <td>PostCode</td>
-<td></td>
-<td></td>
+<td>string</td>
+<td>ZIP Code of the delivery location</td>
 </tr>
 <tr>
 <td>Email</td>
-<td></td>
-<td></td>
+<td>string</td>
+<td>Registered email id of the customer</td>
 </tr>
 <tr>
 <td>TelephoneCode</td>
-<td></td>
-<td></td>
+<td>string</td>
+<td>Land line number area code</td>
 </tr>
 <tr>
 <td>Telephone</td>
-<td></td>
-<td></td>
+<td>string</td>
+<td>Land line number of the customer excluding the country code</td>
 </tr>
 <tr>
 <td>MobileCode</td>
-<td></td>
-<td></td>
+<td>string</td>
+<td>Country code for the mobile number</td>
 </tr>
 <tr>
-<td>Mobile&quot;: &ldquo;9005657048</td>
-<td></td>
-<td></td>
+<td>Mobile</td>
+<td>string</td>
+<td>Mobile number of the customer excluding country code</td>
 </tr>
 <tr>
 <td>RefundAmount</td>
-<td></td>
-<td></td>
+<td>float</td>
+<td>Total amount to be refunded to the customer (once the item return is initiated)</td>
 </tr>
 <tr>
 <td>RefundedAmount</td>
-<td></td>
-<td></td>
+<td>float</td>
+<td>Actual amount refunded to the customer</td>
 </tr>
 <tr>
 <td>ConfirmedRefundAmount</td>
-<td></td>
-<td></td>
+<td>float</td>
+<td>Refund amount confirmed by the staff (at the warehouse)</td>
 </tr>
 <tr>
 <td>IsSelfShip</td>
-<td></td>
-<td></td>
+<td>boolean</td>
+<td>If the order shipment is handled by marketplace such as Amazon or Flipkart specify <code class="prettyprint">False</code> and if the shipment is handled by the merchant itself, set the value to <code class="prettyprint">True</code></td>
 </tr>
 <tr>
 <td>ShipmentId</td>
 <td>int</td>
-<td></td>
+<td>Unique id of the return shipment</td>
 </tr>
 <tr>
 <td>ReturnRequestShipmentDetails</td>
@@ -30867,63 +30867,53 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 </tr>
 <tr>
 <td>CourierName</td>
-<td></td>
-<td></td>
+<td>string</td>
+<td>Name of the courier service chosen for return shipment</td>
 </tr>
 <tr>
 <td>AirWayBillNo</td>
-<td></td>
-<td></td>
+<td>string</td>
+<td>Airway bill number of the return shipment</td>
 </tr>
 <tr>
 <td>ReturnRequestDetails</td>
-<td></td>
-<td></td>
+<td>obj</td>
+<td>Details of return shipment</td>
 </tr>
 <tr>
 <td>Sku</td>
-<td></td>
-<td></td>
+<td>string</td>
+<td>Unique SKU of each return item</td>
 </tr>
 <tr>
 <td>Reason</td>
-<td></td>
-<td></td>
+<td>string</td>
+<td>Return reason code. WID - Wrong item delivered <br> BAQ - Bad Quality <br> DLP - Did not like the product <br> DPR - Defective/Damage product received <br> RD - Received Damaged DP - Defective Product<br> II - Incorrect Item received<br> UW  Unwanted Gift<br> US - Unsuitable<br> UP - Unlike Photo, TS - Too Small<br> OT - Other<br> FD - Fraud<br> IE - Incorrect Size<br> PDR - Product is damaged<br> WPD - Product is not as per website description<br> CR - Customer Remorse<br> PWF - Product is not properly functioning</td>
 </tr>
 <tr>
 <td>SuggestedReturnAction</td>
-<td></td>
-<td></td>
+<td>string</td>
+<td>Reason for item return</td>
 </tr>
 <tr>
-<td>ReturnQty</td>
-<td></td>
-<td></td>
+<td>ReturnQty*</td>
+<td>int</td>
+<td>Return quantity of the current item initiated by the customer</td>
 </tr>
 <tr>
-<td>IsReceived</td>
-<td></td>
-<td></td>
+<td>IsReceived*</td>
+<td>boolean</td>
+<td>Whether the current item is received or not</td>
 </tr>
 <tr>
-<td>ReceivedQty</td>
-<td></td>
-<td></td>
+<td>ReceivedQty**</td>
+<td>int</td>
+<td>Quantity of the current item received at the warehouse</td>
 </tr>
 <tr>
-<td>CreatedDate</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>RefundAmount</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>ConfirmedRefundAmount</td>
-<td></td>
-<td></td>
+<td>CreatedDate*</td>
+<td>date</td>
+<td>Date when the return request is created in <code class="prettyprint">MM-DD-YYYY</code> format</td>
 </tr>
 </tbody></table>
 
@@ -31069,11 +31059,11 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>paymentMode</td>
 <td>string</td>
-<td>Mode of payment. Values:</td>
+<td>Mode of payment for the return. Values: NEFT Cheque/DD, Credit Card, eVoucher</td>
 </tr>
 </tbody></table>
 
-<aside class="notice">Any one among the above parameters is mandatory. Param with * is mandatory.</aside>
+<aside class="notice"> MerchantId and any one among the other parameters are mandatory.</aside>
 
 <h2 id="get-return-request-details-by-requestid">Get Return Request Details (by RequestId)</h2>
 
@@ -31277,7 +31267,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>BillOfSupplyCreditNoteNumber</td>
 <td>string</td>
-<td>Credit Note will be generated for any customer returned item received at the merchant warehouse.  Non-taxable items will have &quot;Bill of supply Credit note number&rdquo;</td>
+<td>Credit Note will be generated for any customer returned item received at the merchant warehouse.  Non-taxable items will have &ldquo;Bill of supply Credit note number&rdquo;</td>
 </tr>
 <tr>
 <td>TaxableCreditNoteNumber</td>
@@ -32316,6 +32306,225 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <td>Weight of the current item if <code class="prettyprint">UOM</code> is kgs or gms</td>
 </tr>
 </tbody></table>
+
+<h2 id="lead-search">Lead Search</h2>
+
+<p>Searches leads based on input parameters.</p>
+
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
+<pre class="highlight html"><code>https://www.martjack.com/developerapi/Order/LeadSearch/fc93a3a8-f69b-444c-8b76-9848de9338d0
+
+</code></pre>
+<blockquote>
+<p>Sample POST Request</p>
+</blockquote>
+<pre class="highlight json"><code><span class="err">MerchantId=fc</span><span class="mi">93</span><span class="err">a</span><span class="mi">3</span><span class="err">a</span><span class="mi">8</span><span class="err">-f</span><span class="mi">69</span><span class="err">b</span><span class="mi">-444</span><span class="err">c</span><span class="mi">-8</span><span class="err">b</span><span class="mi">76-9848</span><span class="err">de</span><span class="mi">9338</span><span class="err">d</span><span class="mi">0</span><span class="err">&amp;InputFormat=application/json&amp;InputData=</span><span class="p">{</span><span class="w"> 
+    </span><span class="nt">"fromDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"03-15-2019"</span><span class="p">,</span><span class="w"> 
+    </span><span class="nt">"toDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"03-28-2019"</span><span class="p">,</span><span class="w"> 
+    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"P"</span><span class="p">,</span><span class="w"> 
+    </span><span class="nt">"leadId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"userName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jane.doe@gmail.com"</span><span class="p">,</span><span class="w"> 
+    </span><span class="nt">"mobileNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9999991234"</span><span class="p">,</span><span class="w"> 
+    </span><span class="nt">"sKU"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456"</span><span class="p">,</span><span class="w"> 
+    </span><span class="nt">"firstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jane"</span><span class="p">,</span><span class="w">     
+    </span><span class="nt">"lastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"done"</span><span class="p">,</span><span class="w"> 
+    </span><span class="nt">"locationIds"</span><span class="p">:</span><span class="w"> </span><span class="s2">"371,372"</span><span class="p">,</span><span class="w"> 
+    </span><span class="nt">"callForActionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">     
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="nt">"messageCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1004"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"Leads"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"LeadId"</span><span class="p">:</span><span class="w"> </span><span class="mi">771559</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"UserId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00000000-0000-0000-0000-000000000000"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"TotalAmount"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"P"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"LeadDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-03-27T12:21:45"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"FirstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tom Sawyer"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tom.sawyer@example.com"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"MobileNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Address"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"State"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Country"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ZipCode"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"TAXTotal"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"CustomDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"First Name:Tom,Last Name:Sawyer,Email Address:skanda676@gmail.com,Country Code:,Mobile Number:551133160,Date of Birth:08/29/1989,Nationality:India,Anniversary:02/10/2019,Gender:Male,Emirate:Dubai,Occupation:Private_Corporate,Status:Married,Children:No,Address:3904| Capillary technologies| One Lake Plaza\r\nJLT Cluster T\r\nJumeirah Lake towers,Please select your offer preference/s:Select All,Skin Care,Hair Care,Personal Care,Baby and Mother,Nutrition,Medical Equipments,Rehab,First Aid and SupportPO Box:,"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"CheckOutId"</span><span class="p">:</span><span class="w"> </span><span class="mi">7134</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"UpLoadedFiles"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"LeadLines"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"LeadLineId"</span><span class="p">:</span><span class="w"> </span><span class="mi">754073</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"LeadId"</span><span class="p">:</span><span class="w"> </span><span class="mi">771559</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"ProductId"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"VariantProductId"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"IsParentProduct"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"Quantity"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"ProductPrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"_locationid"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"LeadId"</span><span class="p">:</span><span class="w"> </span><span class="mi">771421</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"UserId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00000000-0000-0000-0000-000000000000"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"TotalAmount"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"P"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"LeadDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-03-27T08:40:47"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"FirstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"James Diyas"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"james.diyas@example.com"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"MobileNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Address"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"State"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Country"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ZipCode"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"TAXTotal"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"CustomDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"First Name:James,Last Name:Diyas,Email Address:noelinedias@gmail.com,Country Code:,Mobile Number:504929486,Date of Birth:26/12/1960,Nationality:Sri Lanka,Anniversary:28/05/1988,Gender:Female,Emirate:Abu_Dhabi,Occupation:Private_Corporate,Status:Married,Children:Yes,Address:Hamdan street Abu dhabi,Please select your offer preference/s:NutritionPO Box:3658,"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"CheckOutId"</span><span class="p">:</span><span class="w"> </span><span class="mi">7134</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"UpLoadedFiles"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"LeadLines"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"LeadLineId"</span><span class="p">:</span><span class="w"> </span><span class="mi">753935</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"LeadId"</span><span class="p">:</span><span class="w"> </span><span class="mi">771421</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"ProductId"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"VariantProductId"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"IsParentProduct"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"Quantity"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"ProductPrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"_locationid"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td><code class="prettyprint">/Order/LeadSearch/{merchantId}</code></td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>POST</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>No</td>
+</tr>
+</tbody></table>
+
+<ul>
+<li><strong>Rate limiter</strong> controls the number of incoming and outgoing traffic of a network</li>
+<li><strong>Authentication</strong> verifies the identity of the current user or integration. See Introduction &gt; Authentication (Merchant Setup on Admin Portal) for more details</li>
+</ul>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">https://{host}/developerapi/Order/LeadSearch/{merchantId}</code></p>
+
+<h3 id="request-body-parameters">Request Body Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>merchantId*</td>
+<td>string</td>
+<td>Unique GUID of the merchant</td>
+</tr>
+<tr>
+<td>fromDate</td>
+<td>date</td>
+<td>Search leads created in a specific duration. Specify the date-range in <code class="prettyprint">fromDate</code> and <code class="prettyprint">toDate</code></td>
+</tr>
+<tr>
+<td>toDate</td>
+<td>date</td>
+<td>Search leads created in a specific duration. Specify the date-range in <code class="prettyprint">fromDate</code> and <code class="prettyprint">toDate</code></td>
+</tr>
+<tr>
+<td>status</td>
+<td>enum</td>
+<td>Search by current lead status. Values: <code class="prettyprint">P</code> - Uninitiated, <code class="prettyprint">I</code> - Initiated, <code class="prettyprint">R</code> - Rejected, <code class="prettyprint">C</code> - Converted</td>
+</tr>
+<tr>
+<td>leadId</td>
+<td>int</td>
+<td>Specify unique id of the lead that you want to fetch</td>
+</tr>
+<tr>
+<td>userName</td>
+<td>string</td>
+<td>Search leads by a customer&rsquo;s username (email id)</td>
+</tr>
+<tr>
+<td>mobileNumber</td>
+<td>string</td>
+<td>Search leads by a customer&rsquo;s mobile number</td>
+</tr>
+<tr>
+<td>SKU</td>
+<td>string</td>
+<td>Specify the SKU of the product for which you want to see generated leads</td>
+</tr>
+<tr>
+<td>firstName</td>
+<td>string</td>
+<td>Search leads by customer&rsquo;s first name</td>
+</tr>
+<tr>
+<td>lastName</td>
+<td>string</td>
+<td>Search leads by customer&rsquo;s last name</td>
+</tr>
+<tr>
+<td>locationIds</td>
+<td>string</td>
+<td>Fetch leads of your preferred locations. You can pass multiple location ids separating each by a comma (,)</td>
+</tr>
+<tr>
+<td>callForActionId</td>
+<td>string</td>
+<td>Unique id associated to the call for action for leads. For example, Call for actions could be Get-a-Call, Reserve Product &amp; Visit Store, Proforma Invoice, Get-a-Call</td>
+</tr>
+</tbody></table>
+
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
 
           <h1 id="picklist">Picklist</h1>
 
