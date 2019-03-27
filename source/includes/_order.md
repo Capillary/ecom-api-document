@@ -5042,6 +5042,195 @@ referenceNumber* | string | Preferred reference number for the  order
 
 
 
+## Create Return Request
+
+Lets you create a new return request.
+
+
+
+
+
+
+
+> Sample Request
+
+```html
+https://www.martjack.com/developerapi/DeveloperAPI/Order/CreateReturnRequest/{{Mid}}
+
+```
+
+
+> Sample POST Request
+
+```json
+
+MerchantID={{Mid}}&InputFormat=application/json&InputData={
+  "ReturnRequest": {
+    "MerchantId": "e04386d8-7ca8-4fa3-b8b8-6c606844d257",
+    "OrderId": "6102899",
+    "Comments": "Return Order",
+    "Source": "2",
+    "Status": "I",
+    "RequestType": "CU",
+    "RefundStatus": "A",
+    "PaymentMode": "",
+    "BankName": "",
+    "IFSCCOde": "",
+    "AccountNumber": "",
+    "AccountName": "",
+    "BranchName": "",
+    "FirstName": "Animesh",
+    "Address1": "A-501, symphony towers, new link road",
+    "CountryCode": "IN",
+    "CountryName": "India",
+    "StateCode": "OR",
+    "StateName": "Odisha",
+    "CityCode": "60",
+    "CityName": "Bhubaneshwar",
+    "OtherCity": "",
+    "PostCode": "751018",
+    "Email": "animesh.srivastava@capillarytech.com",
+    "TelephoneCode": "1",
+    "Telephone": "",
+    "MobileCode": "91",
+    "Mobile": "9005657048",
+    "RefundAmount": "0",
+    "RefundedAmount": "0",
+    "ConfirmedRefundAmount": "0",
+    "IsSelfShip": "",
+    "ShipmentId": "4437188",
+    "ReturnRequestShipmentDetails": {
+      "CourierName": "Test",
+      "AirWayBillNo": "123456"
+    },
+    "ReturnRequestDetails": {
+      "Sku": "101432375",
+      "Reason": "Partial Delivered",
+      "SuggestedReturnAction": "RF",
+      "ReturnQty": "1",
+      "IsReceived": "False",
+      "ReceivedQty": "0",
+      "CreatedDate": "11-21-2017",
+      "RefundAmount": "0",
+      "ConfirmedRefundAmount": "0"
+    },
+    {
+      "Sku": "201001-1000",
+      "Reason": "Partial Delivered",
+      "SuggestedReturnAction": "RF",
+      "ReturnQty": "1",
+      "IsReceived": "False",
+      "ReceivedQty": "0",
+      "CreatedDate": "11-21-2017",
+      "RefundAmount": "0",
+      "ConfirmedRefundAmount": "0"
+    }
+  }
+}
+```
+
+
+
+> Sample Response
+
+```json
+{
+  "messageCode": "1004",
+  "Message": "Successful",
+  "ReturnRequestDetail": {
+    "ReturnRequestId": 22931,
+    "CustomMessage": "Return Request has been generated for the order : 5257435Return Request ID :22931"
+  }
+}
+
+
+```
+
+
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `/DeveloperAPI/Order/CreateReturnRequest/{merchantId}`
+Rate Limited? | No
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | POST
+Batch Support | No
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+### Request URL
+
+`https://{host}/developerapi/DeveloperAPI/Order/CreateReturnRequest/{merchantId}``
+
+
+### Request Body Parameters
+
+Parameter | Type | Description
+-------- | ----- | -----------
+merchantId* | string | Unique GUID of the merchant
+OrderId* | int | Unique order id for which you want to create return request
+Comments | string | Reason for the return
+Source | enum | Source from which  the order is placed. 
+Status | enum | 
+RequestType | enum | 
+RefundStatus | enum | Current status of the refund, `I` for refund initiated, `A` for refund approved
+PaymentMode | 
+BankName | string | Name of the bank
+IFSCCOde |  | 
+AccountNumber | |
+AccountName |  | 
+BranchName |  | 
+FirstName |  | 
+Address1 |  | 
+CountryCode |  | 
+CountryName |  | 
+StateCode |  | 
+StateName |  | 
+CityCode |  | 
+CityName |  | 
+OtherCity |  | 
+PostCode |  | 
+Email |  | 
+TelephoneCode |  | 
+Telephone  |  | 
+MobileCode |  | 
+Mobile": "9005657048 |  | 
+RefundAmount |  | 
+RefundedAmount |  | 
+ConfirmedRefundAmount |  | 
+IsSelfShip |  | 
+ShipmentId | int | 
+ReturnRequestShipmentDetails | obj | Details of each return item
+CourierName |  | 
+AirWayBillNo |  | 
+ReturnRequestDetails |  | 
+Sku |  | 
+Reason |  | 
+SuggestedReturnAction |  | 
+ReturnQty |  | 
+IsReceived |  | 
+ReceivedQty |  | 
+CreatedDate |  | 
+RefundAmount |  | 
+ConfirmedRefundAmount |  | 
+
+
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## Search Return Requests
 
@@ -5990,10 +6179,9 @@ OrderLineId | int | Unique id of the order line item
 HSNCode | string | The HSN code is the 'Harmonized System Nomenclature code number' that is required for GST. The 'HSN code' is shown at item level
 TaxCategory | string | Category of the current tax. For example: STT, VAT, GST, and CST
 IsTaxRatePercentage | enum | True for percentage based tax rates and false for flat rate tax
-TaxCode | string | Unique tax code associated to the product 
+TaxCode | string | Unique tax code that you want to associate to the product.  Tax code should be configured in CP first to associate to products.
 UOM | string | Unit of measurement of the current item
 BuyingWeight | float | Weight of the current item if `UOM` is kgs or gms
-
 
 
 

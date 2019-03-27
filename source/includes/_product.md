@@ -268,7 +268,7 @@ DeliveryOptionOnline | enum | Specify `Y` for online delivery products such as s
 DeliveryOptionInStorePickup | enum | Specify `Y` if store pick up is supported for the product, else specify `N`
 LocationBased | enum | Specify `Y` if the product inventory needs to be considered as per the shipping location or store, else specify `N`
 ShippingCode | enum | The code of the the type of shipping charges. Most commonly used: flat, india, international, surfaceways, airways
-TaxCode | string | The tax code applicable for the product. Tax code have configured in the CP first. You can associate the relevant value here
+TaxCode | string | The tax code applicable for the product. Tax code have configured in the CP first. You can associate the relevant value here. For example, CSST, IGST, SGST, USST, SGI18
 DeliveryTime  | string | The estimated delivery time to be shown on the product page. Example: This product will be delivered in 7 days from the date of order
 CatalogSequence | int | Sequence of the product to show up on the storefront
 ProductWeight | float | Weight of the product
