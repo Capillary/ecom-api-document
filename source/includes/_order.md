@@ -211,6 +211,7 @@ items* | obj |  Specify the details of each line-item in `item` attribute
 Payments* | obj |  Specify the payment details and `orderrefno` of the order in `payment`. The orderrefno value at payment level should be same as that of the order level
 paymentstatus | enum | The payment status of the current order. Value: Authorized, Pending
 paymentno | string | The reference number for order payment provided by the respective payment gateway
+CheckOutType | string | Type of check out. Values: Online Payment, Cash on Delivery, Bank Transfer, Cheque/DD, Gift Voucher, Net Banking, Payback Points, Wallet
 vouchercode | string | Coupon code applied for the transaction if any. This is just for viewing purpose and the API does not do any calculation based on the voucher code
 customfield |  | Pass this only if you have preconfigured custom fields at the order level
 itemcustomfield | string | Pass line-item level custom fields. You do not need to have preconfigured custom fields at the order item level
@@ -458,6 +459,7 @@ bundleitems | obj | Details of bundle items
 Payments* | obj | Specify the payment details and `orderrefno` of the order in `payment`. The orderrefno value at payment level should be same as that of the order level
 paymentstatus | enum | The payment status of the current order. Value: Authorized, Pending
 paymentno | string | The reference number for order payment provided by the respective payment gateway
+CheckOutType | string | Type of check out. Values: Online Payment, Cash on Delivery, Bank Transfer, Cheque/DD, Gift Voucher, Net Banking, Payback Points, Wallet
 vouchercode | string | Coupon code applied for the transaction if any. This is just for viewing purpose and the API does not do any calculation based on the voucher code
 customfield | json obj | Pass this only if you have preconfigured custom fields at the order level
 itemcustomfield | json obj | Pass line-item level custom fields. You do not need to have preconfigured custom fields at the order item level
@@ -1287,25 +1289,24 @@ Batch Support | No
 ### Request Body Parameters
 Parameter | Type | Description
 --------- | ---- | -----------
-Action | | 
-CheckOutType | string | Type of check out. For example, Online Payment, Cash on DeliveredDate 
+CheckOutType | string | Type of check out. Values: Online Payment, Cash on Delivery, Bank Transfer, Cheque/DD, Gift Voucher, Net Banking, Payback Points, Wallet
 DateFrom | date | Search by order created duration in DateFrom - DateTo in `MM\/DD\/YYYY` format
 DateTo | date | Search by order created duration in DateFrom - DateTo in `MM\/DD\/YYYY` format
-DateType | | 
+DateType | enum | Activity of the specified date range. Values: `OD` for Order Date, `SD` for Ship Date, `RD` for Return Date, `DD` for Delivered Date, `DS` for Dispatch Date
 EmailID | string | Search orders of a specific customer by customer email id
 FristName | string | Search orders by customers' first name
 LastName | string | Search orders by customers' last name
 MobileNo | string | Search orders of a specific customer by mobile number
 OrderNo | int | Fetch details of a specific order by order number
-OrderPriceFrom | float | Search orders by price range in OrderPriceFrom and OrderPriceTo
-OrderPriceTo | float | Search orders by price range in OrderPriceFrom and OrderPriceTo
+OrderPriceFrom | float | Search orders by price range in `OrderPriceFrom` and `OrderPriceTo`
+OrderPriceTo | float | Search orders by price range in `OrderPriceFrom` and `OrderPriceTo`
 OrderStatus | string | Search order by order status `P` for Pending, `A` for Authorized
 ProductSku | string | Search orders of a specific item. Pass the item SKU
 store | string | Search orders of a specific store by store code. Specify `all` to fetch orders of all stores
 ShippingCostFrom | float | Search orders by shipping cost range between ShippingCostFrom and ShippingCostTo
 ShippingCostTo | float | Search orders by shipping cost range between ShippingCostFrom and ShippingCostTo
 RecordFrom | int | From the fetch results, filter the record range that you want to see in RecordFrom and RecordTo. For example, out of 80 results you can prefer to see only records after 30 or between 30-60
-RecordTo | int | From the fetch results, filter the record range that you want to see in RecordFrom and RecordTo. For example, out of 80 results you can prefer to see only first 30 records or between 30-70
+RecordTo | int | From the fetch results, filter the record range that you want to see in RecordFrom and RecordTo. For example, out of 80 results you can prefer to see first 30 records only or records between 30-70
  
 
  
@@ -4512,7 +4513,7 @@ https://www.martjack.com/developerapi/Order/UpdateShipmentCourierDetails/9820eca
 
 
 ```json
-MerchantId={{MID}}&ShipmentId=5516733&awbNumber=AWB965979&islabelReady=true&providerId=MPBS
+MerchantId=9820eca5-d11f-4df1-9b20-983a45ea9631&ShipmentId=5516733&awbNumber=AWB965979&islabelReady=true&providerId=MPBS
 
 ```
 
@@ -5055,7 +5056,7 @@ Lets you create a new return request.
 > Sample Request
 
 ```html
-https://www.martjack.com/developerapi/DeveloperAPI/Order/CreateReturnRequest/{{Mid}}
+https://www.martjack.com/developerapi/DeveloperAPI/Order/CreateReturnRequest/fc93a3a8-f69b-444c-8b76-9848de9338d0
 
 ```
 
@@ -5064,7 +5065,7 @@ https://www.martjack.com/developerapi/DeveloperAPI/Order/CreateReturnRequest/{{M
 
 ```json
 
-MerchantID={{Mid}}&InputFormat=application/json&InputData={
+MerchantID=fc93a3a8-f69b-444c-8b76-9848de9338d0&InputFormat=application/json&InputData={
   "ReturnRequest": {
     "MerchantId": "e04386d8-7ca8-4fa3-b8b8-6c606844d257",
     "OrderId": "6102899",
@@ -5079,7 +5080,7 @@ MerchantID={{Mid}}&InputFormat=application/json&InputData={
     "AccountNumber": "",
     "AccountName": "",
     "BranchName": "",
-    "FirstName": "Animesh",
+    "FirstName": "Tom",
     "Address1": "A-501, symphony towers, new link road",
     "CountryCode": "IN",
     "CountryName": "India",
@@ -5089,7 +5090,7 @@ MerchantID={{Mid}}&InputFormat=application/json&InputData={
     "CityName": "Bhubaneshwar",
     "OtherCity": "",
     "PostCode": "751018",
-    "Email": "animesh.srivastava@capillarytech.com",
+    "Email": "tom.sawyer@capillarytech.com",
     "TelephoneCode": "1",
     "Telephone": "",
     "MobileCode": "91",
@@ -5105,7 +5106,7 @@ MerchantID={{Mid}}&InputFormat=application/json&InputData={
     },
     "ReturnRequestDetails": {
       "Sku": "101432375",
-      "Reason": "Partial Delivered",
+      "Reason": "OT",
       "SuggestedReturnAction": "RF",
       "ReturnQty": "1",
       "IsReceived": "False",
@@ -5116,7 +5117,7 @@ MerchantID={{Mid}}&InputFormat=application/json&InputData={
     },
     {
       "Sku": "201001-1000",
-      "Reason": "Partial Delivered",
+      "Reason": "BAQ",
       "SuggestedReturnAction": "RF",
       "ReturnQty": "1",
       "IsReceived": "False",
@@ -5163,7 +5164,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/DeveloperAPI/Order/CreateReturnRequest/{merchantId}``
+`https://{host}/developerapi/DeveloperAPI/Order/CreateReturnRequest/{merchantId}`
 
 
 ### Request Body Parameters
@@ -5172,59 +5173,50 @@ Parameter | Type | Description
 -------- | ----- | -----------
 merchantId* | string | Unique GUID of the merchant
 OrderId* | int | Unique order id for which you want to create return request
-Comments | string | Reason for the return
-Source | enum | Source from which  the order is placed. 
-Status | enum | 
-RequestType | enum | 
+Comments | string | Reason for return
+Source | enum | Source from which the return request is made. Values: 1, 2, 3, 4, 5. Example, 1 stands for storefront
+Status | enum | Current status of the return request. Values: `I` for initiated, `C` for closed
+RequestType | enum | Type of the return request. `R` for return to origin (RTO) `C` for customer return and `CU` for Return created due to item cancellation
 RefundStatus | enum | Current status of the refund, `I` for refund initiated, `A` for refund approved
-PaymentMode | 
-BankName | string | Name of the bank
-IFSCCOde |  | 
-AccountNumber | |
-AccountName |  | 
-BranchName |  | 
-FirstName |  | 
-Address1 |  | 
-CountryCode |  | 
-CountryName |  | 
-StateCode |  | 
-StateName |  | 
-CityCode |  | 
-CityName |  | 
-OtherCity |  | 
-PostCode |  | 
-Email |  | 
-TelephoneCode |  | 
-Telephone  |  | 
-MobileCode |  | 
-Mobile": "9005657048 |  | 
-RefundAmount |  | 
-RefundedAmount |  | 
-ConfirmedRefundAmount |  | 
-IsSelfShip |  | 
-ShipmentId | int | 
+PaymentMode | string | Mode of refund. Values: NEFT Cheque/DD, Credit Card, eVoucher
+BankName | string | Bank name to which the refund will be made(for NEFT payment)
+IFSCCOde | string | IFSC code of the specified bank (for NEFT payment)
+AccountNumber | string | Account number to which the return amount needs to be refunded (for NEFT payment)
+AccountName | string | Name of the customer account as per the specified bank (for NEFT payment)
+BranchName | string | Branch name of the specified account (for NEFT payment)
+FirstName | string | First name of the customer returning the item(s)
+Address1 | string | Complete shipping address of the customer
+CountryCode | string | alpha-2 code of the location country associated shipment address. Example: IN (for India), AU (for Australia), and BR (for Brazil)
+CountryName | string | Name of the country as per the shipment address
+StateCode | string | State code of the shipment location
+StateName | string | Name of the state as per the shipping address
+CityCode | string | Unique city code of the product shipment location
+CityName | string | City name of the product shipment location
+PostCode | string | ZIP Code of the delivery location
+Email | string | Registered email id of the customer
+TelephoneCode | string | Land line number area code
+Telephone  | string | Land line number of the customer excluding the country code
+MobileCode | string | Country code for the mobile number
+Mobile | string | Mobile number of the customer excluding country code
+RefundAmount | float | Total amount to be refunded to the customer (once the item return is initiated)
+RefundedAmount | float | Actual amount refunded to the customer
+ConfirmedRefundAmount | float | Refund amount confirmed by the staff (at the warehouse)
+IsSelfShip | boolean | If the order shipment is handled by marketplace such as Amazon or Flipkart specify `False` and if the shipment is handled by the merchant itself, set the value to `True`
+ShipmentId | int | Unique id of the return shipment
 ReturnRequestShipmentDetails | obj | Details of each return item
-CourierName |  | 
-AirWayBillNo |  | 
-ReturnRequestDetails |  | 
-Sku |  | 
-Reason |  | 
-SuggestedReturnAction |  | 
-ReturnQty |  | 
-IsReceived |  | 
-ReceivedQty |  | 
-CreatedDate |  | 
-RefundAmount |  | 
-ConfirmedRefundAmount |  | 
+CourierName | string | Name of the courier service chosen for return shipment
+AirWayBillNo | string | Airway bill number of the return shipment
+ReturnRequestDetails | obj | Details of return shipment
+Sku | string | Unique SKU of each return item
+Reason | string | Return reason code. WID - Wrong item delivered <br> BAQ - Bad Quality <br> DLP - Did not like the product <br> DPR - Defective/Damage product received <br> RD - Received Damaged DP - Defective Product<br> II - Incorrect Item received<br> UW	Unwanted Gift<br> US - Unsuitable<br> UP - Unlike Photo, TS - Too Small<br> OT - Other<br> FD - Fraud<br> IE - Incorrect Size<br> PDR - Product is damaged<br> WPD - Product is not as per website description<br> CR - Customer Remorse<br> PWF - Product is not properly functioning
+SuggestedReturnAction | string | Reason for item return
+ReturnQty* | int | Return quantity of the current item initiated by the customer
+IsReceived* | boolean | Whether the current item is received or not
+ReceivedQty** | int | Quantity of the current item received at the warehouse
+CreatedDate* | date | Date when the return request is created in `MM-DD-YYYY` format
 
 
 <aside class="notice"> All parameters marked by * are mandatory. </aside>
-
-
-
-
-
-
 
 
 
@@ -5323,9 +5315,9 @@ toDate | date | Duration for which you want to fetch return orders (fromDate - t
 refundStatus | string | Status of the refund. Value: `I` for refund initiated, `C` for refund complete
 status | string | Status of the return. Value: `RC` for Refund completed, `I` for initiated, `R` received, `P` for picked up, `S` pending pickup, `C` closed
 orderId | int | Unique id of the order
-paymentMode | string | Mode of payment. Values: 
+paymentMode | string | Mode of payment for the return. Values: NEFT Cheque/DD, Credit Card, eVoucher
 
-<aside class="notice">Any one among the above parameters is mandatory. Param with * is mandatory.</aside>
+<aside class="notice"> MerchantId and any one among the other parameters are mandatory.</aside>
 
 
 
@@ -6182,6 +6174,163 @@ IsTaxRatePercentage | enum | True for percentage based tax rates and false for f
 TaxCode | string | Unique tax code that you want to associate to the product.  Tax code should be configured in CP first to associate to products.
 UOM | string | Unit of measurement of the current item
 BuyingWeight | float | Weight of the current item if `UOM` is kgs or gms
+
+
+
+
+## Lead Search
+
+
+Searches leads based on input parameters.
+
+
+
+
+
+> Sample Request
+
+```html
+https://www.martjack.com/developerapi/Order/LeadSearch/fc93a3a8-f69b-444c-8b76-9848de9338d0
+
+```
+
+> Sample POST Request
+
+
+```json
+MerchantId=fc93a3a8-f69b-444c-8b76-9848de9338d0&InputFormat=application/json&InputData={ 
+    "fromDate": "03-15-2019", 
+    "toDate": "03-28-2019", 
+    "status": "P", 
+    "leadId": "12345",
+    "userName": "jane.doe@gmail.com", 
+    "mobileNumber": "9999991234", 
+    "sKU": "123456", 
+    "firstName": "jane",     
+    "lastName": "done", 
+    "locationIds": "371,372", 
+    "callForActionId": ""     
+}
+
+```
+
+
+
+> Sample Response
+
+```json
+
+{
+  "messageCode": "1004",
+  "Message": "Successful",
+  "Leads": [
+    {
+      "LeadId": 771559,
+      "UserId": "00000000-0000-0000-0000-000000000000",
+      "TotalAmount": 0.0,
+      "Status": "P",
+      "LeadDate": "2019-03-27T12:21:45",
+      "FirstName": "Tom Sawyer",
+      "Email": "tom.sawyer@example.com",
+      "MobileNumber": "",
+      "Address": null,
+      "City": "",
+      "State": null,
+      "Country": null,
+      "ZipCode": null,
+      "TAXTotal": 0.0,
+      "CustomDescription": "First Name:Tom,Last Name:Sawyer,Email Address:skanda676@gmail.com,Country Code:,Mobile Number:551133160,Date of Birth:08/29/1989,Nationality:India,Anniversary:02/10/2019,Gender:Male,Emirate:Dubai,Occupation:Private_Corporate,Status:Married,Children:No,Address:3904| Capillary technologies| One Lake Plaza\r\nJLT Cluster T\r\nJumeirah Lake towers,Please select your offer preference/s:Select All,Skin Care,Hair Care,Personal Care,Baby and Mother,Nutrition,Medical Equipments,Rehab,First Aid and SupportPO Box:,",
+      "CheckOutId": 7134,
+      "UpLoadedFiles": "",
+      "LeadLines": [
+        {
+          "LeadLineId": 754073,
+          "LeadId": 771559,
+          "ProductId": 0,
+          "VariantProductId": 0,
+          "IsParentProduct": false,
+          "Description": "",
+          "Quantity": 0.0,
+          "ProductPrice": 0.0,
+          "_locationid": 0
+        }
+      ]
+    },
+    {
+      "LeadId": 771421,
+      "UserId": "00000000-0000-0000-0000-000000000000",
+      "TotalAmount": 0.0,
+      "Status": "P",
+      "LeadDate": "2019-03-27T08:40:47",
+      "FirstName": "James Diyas",
+      "Email": "james.diyas@example.com",
+      "MobileNumber": "",
+      "Address": null,
+      "City": "",
+      "State": null,
+      "Country": null,
+      "ZipCode": null,
+      "TAXTotal": 0.0,
+      "CustomDescription": "First Name:James,Last Name:Diyas,Email Address:noelinedias@gmail.com,Country Code:,Mobile Number:504929486,Date of Birth:26/12/1960,Nationality:Sri Lanka,Anniversary:28/05/1988,Gender:Female,Emirate:Abu_Dhabi,Occupation:Private_Corporate,Status:Married,Children:Yes,Address:Hamdan street Abu dhabi,Please select your offer preference/s:NutritionPO Box:3658,",
+      "CheckOutId": 7134,
+      "UpLoadedFiles": "",
+      "LeadLines": [
+        {
+          "LeadLineId": 753935,
+          "LeadId": 771421,
+          "ProductId": 0,
+          "VariantProductId": 0,
+          "IsParentProduct": false,
+          "Description": "",
+          "Quantity": 0.0,
+          "ProductPrice": 0.0,
+          "_locationid": 0
+        }
+      ]
+    }
+  ]
+}
+```
+
+
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `/Order/LeadSearch/{merchantId}`
+Rate Limited? | No
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | POST
+Batch Support | No
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+### Request URL
+
+`https://{host}/developerapi/Order/LeadSearch/{merchantId}`
+
+
+### Request Body Parameters
+
+Parameter | Type | Description
+-------- | ----- | -----------
+merchantId* | string | Unique GUID of the merchant
+fromDate | date | Search leads created in a specific duration. Specify the date-range in `fromDate` and `toDate`
+toDate | date | Search leads created in a specific duration. Specify the date-range in `fromDate` and `toDate`
+status | enum | Search by current lead status. Values: `P` - Uninitiated, `I` - Initiated, `R` - Rejected, `C` - Converted 
+leadId | int | Specify unique id of the lead that you want to fetch
+userName | string | Search leads by a customer's username (email id)
+mobileNumber | string | Search leads by a customer's mobile number
+SKU | string | Specify the SKU of the product for which you want to see generated leads
+firstName | string | Search leads by customer's first name
+lastName | string | Search leads by customer's last name
+locationIds | string | Fetch leads of your preferred locations. You can pass multiple location ids separating each by a comma (,)
+callForActionId | string | Unique id associated to the call for action for leads. For example, Call for actions could be Get-a-Call, Reserve Product & Visit Store, Proforma Invoice, Get-a-Call
+
+
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
 
 
 

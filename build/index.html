@@ -5126,7 +5126,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>TaxCode</td>
 <td>string</td>
-<td>The tax code applicable for the product. Tax code have configured in the CP first. You can associate the relevant value here</td>
+<td>The tax code applicable for the product. Tax code have configured in the CP first. You can associate the relevant value here. For example, CSST, IGST, SGST, USST, SGI18</td>
 </tr>
 <tr>
 <td>DeliveryTime</td>
@@ -30551,6 +30551,384 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <aside class="notice">All parameters marked by * are mandatory. </aside>
 
+<h2 id="create-return-request">Create Return Request</h2>
+
+<p>Lets you create a new return request.</p>
+
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
+<pre class="highlight html"><code>https://www.martjack.com/developerapi/DeveloperAPI/Order/CreateReturnRequest/{{Mid}}
+
+</code></pre>
+<blockquote>
+<p>Sample POST Request</p>
+</blockquote>
+<pre class="highlight json"><code><span class="w">
+</span><span class="err">MerchantID=</span><span class="p">{</span><span class="err">{Mid</span><span class="p">}</span><span class="err">}&amp;InputFormat=application/json&amp;InputData=</span><span class="p">{</span><span class="w">
+  </span><span class="nt">"ReturnRequest"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e04386d8-7ca8-4fa3-b8b8-6c606844d257"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"OrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6102899"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Comments"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Return Order"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"I"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"RequestType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CU"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"RefundStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"PaymentMode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"BankName"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"IFSCCOde"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"AccountNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"AccountName"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"BranchName"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"FirstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Animesh"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Address1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A-501, symphony towers, new link road"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"CountryCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IN"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"CountryName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"India"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"StateCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OR"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"StateName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Odisha"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"CityCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"60"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"CityName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bhubaneshwar"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"OtherCity"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"PostCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"751018"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"animesh.srivastava@capillarytech.com"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"TelephoneCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Telephone"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"MobileCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"91"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9005657048"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"RefundAmount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"RefundedAmount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ConfirmedRefundAmount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"IsSelfShip"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ShipmentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4437188"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ReturnRequestShipmentDetails"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"CourierName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"AirWayBillNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"ReturnRequestDetails"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"Sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"101432375"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Partial Delivered"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"SuggestedReturnAction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RF"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ReturnQty"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"IsReceived"</span><span class="p">:</span><span class="w"> </span><span class="s2">"False"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ReceivedQty"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"CreatedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11-21-2017"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"RefundAmount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ConfirmedRefundAmount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="err">{</span><span class="w">
+      </span><span class="nt">"Sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"201001-1000"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Partial Delivered"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"SuggestedReturnAction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RF"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ReturnQty"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"IsReceived"</span><span class="p">:</span><span class="w"> </span><span class="s2">"False"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ReceivedQty"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"CreatedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11-21-2017"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"RefundAmount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ConfirmedRefundAmount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="err">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"messageCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1004"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ReturnRequestDetail"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"ReturnRequestId"</span><span class="p">:</span><span class="w"> </span><span class="mi">22931</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"CustomMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Return Request has been generated for the order : 5257435Return Request ID :22931"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+
+</span></code></pre>
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td><code class="prettyprint">/DeveloperAPI/Order/CreateReturnRequest/{merchantId}</code></td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>POST</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>No</td>
+</tr>
+</tbody></table>
+
+<ul>
+<li><strong>Rate limiter</strong> controls the number of incoming and outgoing traffic of a network</li>
+<li><strong>Authentication</strong> verifies the identity of the current user or integration. See Introduction &gt; Authentication (Merchant Setup on Admin Portal) for more details</li>
+</ul>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">https://{host}/developerapi/DeveloperAPI/Order/CreateReturnRequest/{merchantId}</code>`</p>
+
+<h3 id="request-body-parameters">Request Body Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>merchantId*</td>
+<td>string</td>
+<td>Unique GUID of the merchant</td>
+</tr>
+<tr>
+<td>OrderId*</td>
+<td>int</td>
+<td>Unique order id for which you want to create return request</td>
+</tr>
+<tr>
+<td>Comments</td>
+<td>string</td>
+<td>Reason for the return</td>
+</tr>
+<tr>
+<td>Source</td>
+<td>enum</td>
+<td>Source from which  the order is placed.</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>enum</td>
+<td></td>
+</tr>
+<tr>
+<td>RequestType</td>
+<td>enum</td>
+<td></td>
+</tr>
+<tr>
+<td>RefundStatus</td>
+<td>enum</td>
+<td>Current status of the refund, <code class="prettyprint">I</code> for refund initiated, <code class="prettyprint">A</code> for refund approved</td>
+</tr>
+<tr>
+<td>PaymentMode</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>BankName</td>
+<td>string</td>
+<td>Name of the bank</td>
+</tr>
+<tr>
+<td>IFSCCOde</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>AccountNumber</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>AccountName</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>BranchName</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>FirstName</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Address1</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>CountryCode</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>CountryName</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>StateCode</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>StateName</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>CityCode</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>CityName</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>OtherCity</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>PostCode</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Email</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>TelephoneCode</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Telephone</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>MobileCode</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Mobile&quot;: &ldquo;9005657048</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>RefundAmount</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>RefundedAmount</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>ConfirmedRefundAmount</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>IsSelfShip</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>ShipmentId</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td>ReturnRequestShipmentDetails</td>
+<td>obj</td>
+<td>Details of each return item</td>
+</tr>
+<tr>
+<td>CourierName</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>AirWayBillNo</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>ReturnRequestDetails</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Sku</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Reason</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>SuggestedReturnAction</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>ReturnQty</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>IsReceived</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>ReceivedQty</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>CreatedDate</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>RefundAmount</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>ConfirmedRefundAmount</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
+
 <h2 id="search-return-requests">Search Return Requests</h2>
 
 <p>Returns the history of return orders of the merchant.</p>
@@ -30899,7 +31277,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>BillOfSupplyCreditNoteNumber</td>
 <td>string</td>
-<td>Credit Note will be generated for any customer returned item received at the merchant warehouse.  Non-taxable items will have &ldquo;Bill of supply Credit note number&rdquo;</td>
+<td>Credit Note will be generated for any customer returned item received at the merchant warehouse.  Non-taxable items will have &quot;Bill of supply Credit note number&rdquo;</td>
 </tr>
 <tr>
 <td>TaxableCreditNoteNumber</td>
@@ -31925,7 +32303,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>TaxCode</td>
 <td>string</td>
-<td>Unique tax code associated to the product</td>
+<td>Unique tax code that you want to associate to the product.  Tax code should be configured in CP first to associate to products.</td>
 </tr>
 <tr>
 <td>UOM</td>
@@ -38396,5 +38774,15 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
           </div>
       </div>
     </div>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-136354191-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-136354191-1');
+</script>
+
   </body>
 </html>
