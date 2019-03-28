@@ -81,7 +81,7 @@ Parameter | Datatype | Description
 LocationRefCode | string | The location reference code that you want to map to a delivery area
 DeliveryType | string  | The type of delivery of the location.  Value: `H` if the type is Home delivery, `S` for store pickup, `N` if the store supports both pickup and delivery
 AreaRefCode | string | Delivery area reference code that you want to assign
-Operation | string | Value: add, remove. Specify `add` delivery address to a location, 	`remove` to delete
+Operation | string | Specify `add` to add delivery area to a location, 	`remove` to delete the delivery area from a location
 
 
 
@@ -177,7 +177,7 @@ Parameter | Datatype | Description
 --------- | -------- | ----------
 op* | string | Specify `replace` to update the existing information
 path | string | Path of the key
-value | string | New value of the specified path
+value | string | New value of the current path
 
 
 
@@ -251,8 +251,8 @@ Locationrefcode* | string | The reference code of the location for which you wan
 Parameter | Type | Description
 -------- | ----- | -----------
 DelveryMode | enum | Specify the mode of delivery for the location. `S` for store pick up and `H` for home delivery, `L` for store 
-OpenLeadTime | int | The maximum delay time (in minutes) for the on time (store open time)
-CloseLeadTime | int | The maximum delay time (in minutes) for the off time (store close time)
+OpenLeadTime | int | The maximum possible delay (in minutes) in the store open time (on-time)
+CloseLeadTime | int | The maximum possible delay (in minutes) in the store close time (off-time)
 WeekDayId | int | Specify for which day of the week the current timing is configured. Supported values: 0, 1, 2, 3, 4, 5, 6. Where `0` for Sunday and `6` for Saturday (Multiple values not supported)
 OnTime | time | Store open time in `HH:MM:SS` format
 OffTime | time | Store close time in `HH:MM:SS` format 
@@ -429,7 +429,7 @@ Following table contains descriptions of a few response parameters that require 
 
 Parameter | Type | Description
 --------- | ---- | -----------
-DistancefromInputLatLong | float | Distance of the location from latitude and longitude. Available only if latitude and longitude are set for the location
+DistancefromInputLatLong | float | Distance of the location from the latitude and longitude. Available only if latitude and longitude are set for the location
 IsParticipateInStock | boolean | Whether the location is participating in stock. The location appears on the storefront only if this is set to true
 IsOfflinneCheckoutEnabled | boolean | Whether offline ordering is available for the location
 IsOfflineDeals | boolean | Whether promotions are applied offline for the location
@@ -983,7 +983,7 @@ Parameter | Type | Description
 --------- | ---- | -----------
 DistancefromInputLatLong | float | Distance of the location from latitude and longitude. Available only if latitude and longitude are set for the location
 IsParticipateInStock | boolean | Whether the location is participating in stock. The location appears on the storefront only if this is set to true 
-IsOfflinneCheckoutEnabled | boolean | Whether offline ordering is available for the location
+IsOfflinneCheckoutEnabled | boolean | Whether offline ordering is available for the location. For example, orders placed through phone calls are offline orders.
 IsDefaultLNG_LocationName | boolean | Whether the language is the default language of the current location or not
 IsReversePickupEnabled | boolean | Whether reverse pickup is applicable for the product in case of returns
 

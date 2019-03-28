@@ -5045,7 +5045,7 @@ referenceNumber* | string | Preferred reference number for the  order
 
 ## Create Return Request
 
-Lets you create a new return request.
+Lets you create a new return request. A request made by customer to return partial or complete items of an order that is delivered.
 
 
 
@@ -5208,7 +5208,7 @@ CourierName | string | Name of the courier service chosen for return shipment
 AirWayBillNo | string | Airway bill number of the return shipment
 ReturnRequestDetails | obj | Details of return shipment
 Sku | string | Unique SKU of each return item
-Reason | string | Return reason code. WID - Wrong item delivered <br> BAQ - Bad Quality <br> DLP - Did not like the product <br> DPR - Defective/Damage product received <br> RD - Received Damaged DP - Defective Product<br> II - Incorrect Item received<br> UW	Unwanted Gift<br> US - Unsuitable<br> UP - Unlike Photo, TS - Too Small<br> OT - Other<br> FD - Fraud<br> IE - Incorrect Size<br> PDR - Product is damaged<br> WPD - Product is not as per website description<br> CR - Customer Remorse<br> PWF - Product is not properly functioning
+Reason | string | Return reason code. Values:<br> WID - Wrong item delivered <br> BAQ - Bad Quality <br> DLP - Did not like the product <br> DPR - Defective/Damage product received <br> RD - Received Damaged DP - Defective Product<br> II - Incorrect Item received<br> UW	Unwanted Gift<br> US - Unsuitable<br> UP - Unlike Photo, TS - Too Small<br> OT - Other<br> FD - Fraud<br> IE - Incorrect Size<br> PDR - Product is damaged<br> WPD - Product is not as per website description<br> CR - Customer Remorse<br> PWF - Product is not properly functioning
 SuggestedReturnAction | string | Reason for item return
 ReturnQty* | int | Return quantity of the current item initiated by the customer
 IsReceived* | boolean | Whether the current item is received or not

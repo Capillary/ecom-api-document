@@ -80,7 +80,7 @@ Parameter | Datatype | Description
 --------- | -------- | ----------
 sku* | string | SKU of the product for which you want to update stock and price
 variantsku* | string | The variant SKU to update variant product
-stock | int | Number of available items of the current SKU. Specify `NA` if product is not associated with the location, `0` for out of stock
+stock | int | Number of available items of the current SKU. Specify `NA` if product needs to be dissociated with the location, `0` for out of stock
 locationrefcode* | string | Location reference code of the location for which product stock/price update is made (physical store or warehouse)
 Quantity  | int | The quantity of the item for which you want to update the price
 MRP  | float | Retail price of the item
@@ -247,15 +247,15 @@ VariantProperty | string | The property of the variant product such as size, col
 VariantValue | string | The value of the specified variantProperty. *Required for a Variant Product
 BrandID* | string | Brand id associated to the product
 ProductTitle* | string | Title of the product to appear on the product's page of the storefront
-ProductType* | string | Type of the product. Values: `P` for a normal product, `A` for an add-on products, and `B` for a bundle product or deal product
+ProductType* | string | Type of the product. Values: `P` for a normal product, `A` for an add-on product, and `B` for a bundle product or deal product
 CategoryRefCode | string | Reference code of the product category
 Inventory | int | New stock count of the current product
 MRP | float  | Retail price of the product
 Webprice | float | Selling price of the product to show up on the storefront. Cannot be more than MRP
-Availability | string | Specify Y` if the product is in stock, `N` if unavailable
+Availability | string | Specify `Y` if the product is in stock, `N` if unavailable
 BarCode | string | Bar code of the product
-SmallImage | string | Source image of the product's small image (100*100) shown in the product showcase. Required if the Custom Type of image is not defined and Extended Properties section of that Product Showcase is not configured accordingly. Supported formats: .png, jpg,jpeg, .svc, and .gif
-LargeImage | string | Source image of the product's large image (300*300) shown on the product details page of the storefront. Supported formats: .png, jpg,jpeg, .svc, and .gif
+SmallImage | string | Name (with extension) of the product's small image (100*100) shown in the product showcase. This param is required if the Custom Type of the image is not defined and the Extended Properties section of that product showcase is not configured accordingly. Supported formats: .png, jpg,jpeg, .svc, and .gif
+LargeImage | string | Name (with extension) of the product's large image (300*300) shown on the product details page of the storefront. Supported formats: .png, jpg,jpeg, .svc, and .gif
 ShortDescription | string | Brief description of the product within 500 characters. This will appear on the product details page
 ProductDescription | string | Detailed description of the product which will appear in the Description tab of the product page. Supports up to 50000 characters
 PaymentOptionOnline | enum | Specify `Y` if the product can be purchased online through options such as Credit Card,Debit Card, and Net Banking, `N` if not supported
@@ -271,22 +271,22 @@ ShippingCode | enum | The code of the the type of shipping charges. Most commonl
 TaxCode | string | The tax code applicable for the product. Tax code have configured in the CP first. You can associate the relevant value here. For example, CSST, IGST, SGST, USST, SGI18
 DeliveryTime  | string | The estimated delivery time to be shown on the product page. Example: This product will be delivered in 7 days from the date of order
 CatalogSequence | int | Sequence of the product to show up on the storefront
-ProductWeight | float | Weight of the product
+ProductWeight | float | Weight of the product as per the UOM mentioned
 BankProductId | string | System generated id for the product source
 OfferProductDescription | string | .xml file name related to the product offer. Use for sale items
 OfferProductImage | string | Preferred image of the offer product (supported formats: .png, jpg,jpeg, .svc, and .gif)
 PageTitle | string | Title of the product you prefer to appear in the search results for SEO
 Keywords | string | Preferred meta tag search keyword for the product
-KeywordDescription | | Description of the specified search keyword
+KeywordDescription | string | Description of the specified search keyword
 SEOURL | string | The redirect URL when searched on Google
 SmallImageAltText | string | The mouse hover text for small image
 LargeImageAltText | string | The mouse hover text for large image 
-StartDate | date | From when the product has to be displayed on the storefront in `DD/MM/YY` format
-EndDate | date | Until when you want to show the product on the storefront in `DD/MM/YY` format
-StartTime | time | The time (on the StartDate) from when you want to show the product on the storefront. Format: `HH:MM:SS`
-EndTime | time | The time (on the EndDate) from when you want to stop showing the product on the storefront on the specified end date. Format: `HH:MM:SS`
-PeriodicityType | enum | Use this to set the time frame when you want to show the product on the storefront. Values: Monthly, Weekly, oneTime  
-PeriodicityRange | string | The days when you want to show the product based on the PeriodicityType. For example: for `Monthly`, you can set 1-30 to show on all days of a month, in weekly you can have 1, 3, 5, to display of Sun, Tue, and Thu respectively.  No value is required for `oneTime`. To pass multiple days, use comma separated values. For example, 1,2,5,10. You can either pass as 1-5, or 1, 2, 3, 4, 5 and so on. Not required for onetime
+StartDate | date | The date when you want to begin showing the product on the storefront in `DD/MM/YY` format
+EndDate | date | The date when you want to end showing the product on the storefront in `DD/MM/YY` format
+StartTime | time | The time (on the specified StartDate) from when you want to show the product on the storefront. Format: `HH:MM:SS`
+EndTime | time | The time (on the specified EndDate) when you want to stop showing the product on the storefront on the specified end date. Format: `HH:MM:SS`
+PeriodicityType | enum | The recurring interval when you want to show the product on the storefront. Values: Monthly, Weekly, oneTime  
+PeriodicityRange | string | The days of the recurring interval (PeriodicityType) that you want to show the product. For example: in `Monthly` recurring interval, if you set `PeriodicityRange` 1-30, you will see products on all 30 days of a month. Similarly, in a weekly `PeriodicityType`, if you set 1, 3, 5 in PeriodicityRange, you will see the product on Sun, Tue, and Thu respectively.  No value is required for `oneTime`. To pass multiple days, use comma separated values. For example, 1,2,5,10. You can either pass as 1-5, or 1, 2, 3, 4, 5 and so on. Not required for onetime
 ShowExpired | enum | Y, N. To show if the product has to be displayed irrespective of the periodicityRange
 UOM | enum | Unit of measurement of the product. Values: ltrs, kgs, gms, pieces
 LBH | string | Dimensions of the product (Length*Breadth*Height) or the product volume
@@ -540,7 +540,7 @@ Lets you update variant product details.
 ### Resource Information
 | | |
 --------- | ----------- |
-URI | `Product/UpdateProductInfo`
+URI | `/Product/UpdateProductInfo`
 Rate Limited? | No
 Authentication | Yes
 Response Formats | JSON
@@ -564,15 +564,15 @@ VariantProperty* | string | The property of the variant product such as size, co
 VariantValue* | string | The value of the specified property. *Required for Variant Product
 BrandID* | string | Unique id of the brand associated to the product
 ProductTitle* | string | Title of the product to appear on the product's page
-ProductType* | string | Type of the product. Values: `P` for a normal product, `A` for an add-on products, and `B` for a bundle product or deal product
+ProductType* | string | Type of the product. Values: `P` for a normal product, `A` for an add-on product, and `B` for a bundle product or deal product
 CategoryRefCode | string | Reference code of the product category
-Inventory | int |  The number of available products of the current SKU (quantity)
+Inventory | int |  The number of available stock of the current SKU (quantity)
 MRP | float  | Retail price of the product
 Webprice | float | Selling price of the product on the storefront. Cannot be more than MRP
 Availability | string | Specify `Y` if the product is in stock, `N` if unavailable
 BarCode | string | Bar code of the product
-SmallImage | string | Source image of the product's small image (100*100) shown in the product showcase. Required if the Custom Type of image is not defined and Extended Properties section of that Product Showcase is not configured accordingly. Supported formats: .png, jpg,jpeg, .svc, and .gif
-LargeImage | string | Source image of the product's large image (300*300) shown on the product details page of the storefront. Supported formats: .png, jpg,jpeg, .svc, and .gif
+SmallImage | string | Name (with extension) of the product's small image (100*100) shown in the product showcase. This param is required if the Custom Type of the image is not defined and the Extended Properties section of that product showcase is not configured accordingly. Supported formats: .png, jpg,jpeg, .svc, and .gif
+LargeImage | string | Name (with extension) of the product's large image (300*300) shown on the product details page of the storefront. Supported formats: .png, jpg,jpeg, .svc, and .gif
 ShortDescription | string | Brief description of the product within 500 characters. This will appear on the product details page
 ProductDescription | string | Detailed description of the product which will appear in the Description tab of the product page. Supports up to 50000 characters
 PaymentOptionOnline | enum | Specify `Y` if the product can be purchased online through options such as Credit Card,Debit Card, and Net Banking, `N` if not supported
@@ -598,12 +598,12 @@ KeywordDescription | | Description of the specified search keyword
 SEOURL | string | The redirect URL when searched on Google
 SmallImageAltText | string | The mouse hover text for small image
 LargeImageAltText | string | The mouse hover text for large image 
-StartDate | date | From when the product has to be displayed on the storefront in `DD/MM/YY` format
-EndDate | date | Until when you want to show the product on the storefront in `DD/MM/YY` format
-StartTime | time | The time (on the StartDate) from when you want to show the product on the storefront. Format: `HH:MM:SS`
-EndTime | time | The time (on the EndDate) from when you want to stop showing the product on the storefront on the specified end date. Format: `HH:MM:SS`
-PeriodicityType | enum | Use this to set the time frame when you want to show the product on the storefront. Values: Monthly, Weekly, oneTime  
-PeriodicityRange | string | The days when you want to show the product based on the PeriodicityType. For example: for `Monthly`, you can set 1-30 to show on all days of a month, in weekly you can have 1, 3, 5, to display of Sun, Tue, and Thu respectively.  No value is required for `oneTime`. To pass multiple days, use comma separated values. For example, 1,2,5,10. You can either pass as 1-5, or 1, 2, 3, 4, 5 and so on. Not required for onetime
+StartDate | date | The date when you want to begin showing the product on the storefront in `DD/MM/YY` format
+EndDate | date | The date when you want to end showing the product on the storefront in `DD/MM/YY` format
+StartTime | time | The time (on the specified StartDate) from when you want to show the product on the storefront. Format: `HH:MM:SS`
+EndTime | time | The time (on the specified EndDate) when you want to stop showing the product on the storefront on the specified end date. Format: `HH:MM:SS`
+PeriodicityType | enum | The recurring interval when you want to show the product on the storefront. Values: Monthly, Weekly, oneTime  
+PeriodicityRange | string | The days of the recurring interval (PeriodicityType) that you want to show the product. For example: in `Monthly` recurring interval, if you set `PeriodicityRange` 1-30, you will see products on all 30 days of a month. Similarly, in a weekly `PeriodicityType`, if you set 1, 3, 5 in PeriodicityRange, you will see the product on Sun, Tue, and Thu respectively.  No value is required for `oneTime`. To pass multiple days, use comma separated values. For example, 1,2,5,10. You can either pass as 1-5, or 1, 2, 3, 4, 5 and so on. Not required for onetime
 ShowExpired | enum | Y, N. To show if the product has to be displayed irrespective of the periodicityRange
 UOM | enum | Unit of measurement of the product. Values: ltrs, kgs, gms, pieces
 LBH | string | Dimensions of the product (Length*Breadth*Height) or the product volume
@@ -811,7 +811,7 @@ smallimage | string | The small image that appears on the product quick view - s
 thumbnail | string | Thumbnails of the product images that appears on the product view page (supported formats: .png, jpg,jpeg,.svc, and .gif)
 alttext | string | The alternative text or mouse hover text for the image
 viewport | enum | The view angle of the current image. Values: Front, Back, Left, Right, Bottom
-swatchimages  | obj | Represents the property values of the variant product - illustration of accurate representation of color, pattern or texture
+swatchimages  | obj | A swatch image is used to provide an accurate representation of color, and also illustrate a pattern or texture of a product. A swatch is a small image that represents the accurate color or pattern of each variant
 variantproperty | enum | Property name of the current variant. Property names as defined for the merchant
 variantvalue | enum | Property value of the current variant. Supported value as defined for the property for the merchant
 filename | string | File name of the swatch image with extension (supported formats: .png, jpg,jpeg,.svc, and .gif)
@@ -913,7 +913,7 @@ Retrieves the price of a specific item
 ### Resource Information
 | | |
 --------- | ----------- |
-URI | `Product/Price/{MerchantId}`
+URI | `/Product/Price/{MerchantId}`
 Rate Limited? | No
 Authentication | Yes
 Response Formats | JSON
@@ -941,9 +941,9 @@ Parameter | Type | Description
 --------- | -------- | -----------
 sku* | string | SKU of the item
 variantsku | string | SKU of the variant product (required for variant product)
-usergroupid | int | Specify the user group id to associate the price list to a specific group
-locationrefcode  |  string | Location/store code associated to the price list
-channelrefcode | string  | Channel code to which the price list is associated
+usergroupid | int | Specify the user group id associated to the price list
+locationrefcode  | string | Location/store code associated to the price list
+channelrefcode | string  | Channel reference code to which the price list is associated
 
 <aside class="notice"> All parameters marked by * are mandatory.</aside>
 
@@ -955,7 +955,7 @@ Following table contains descriptions of a few response parameters that require 
 Parameter | Type | Description
 --------- | ---- | -----------
 usergroupname | string | Name of the user group. It can be related to promotions, subscription events, etc.
-tokenprice | float | Minimum amount required for the customer to reserve the item and purchase later on
+tokenprice | float | Minimum amount required for the customer for prebooking the item
 channelrefcode | string | Channel code to which the price list is associated
 
 
@@ -1055,7 +1055,7 @@ merchantId* | string | Unique GUID of the merchant
 sku | string | SKU of product for which you want to see inventory and price details
 variantSKU | string | SKU of variant product for which you want to see inventory and price details
 productId | int | Specify the product id for which you want to see inventory and price details
-locationId | int | Retrieves the inventory and product of a specific location
+locationId | int | Retrieves the inventory and product details of a specific location
 
 
 <aside class="notice"> All parameters marked by * are mandatory. </aside>
@@ -1081,6 +1081,8 @@ locationId | int | Retrieves the inventory and product of a specific location
 
 
 ## Get Product Information (by Location)
+
+Retrieves the details of a product for a specific location.
 
 > Sample Request
 
@@ -1184,15 +1186,15 @@ Following table contains descriptions of a few response parameters that require 
 Parameter | Type | Description
 --------- | ---- | -----------
 CatlogSequence | int | Sequence of the product in the respective product category to appear on the storefront
-MarkupPrice | double | 
-MarkupType | string | 
+MarkupPrice | float | -NA-
+MarkupType | string | -NA-
 IsShippingConfigured | boolean | Whether the shipping is enabled for the item or not
 IsTaxConfigured | boolean | Whether tax is enabled for the item or not
 StartDate | date-time | The duration for which the product is shown on the storefront (StartDate - EndDate)
 EndDate | date-time | The duration for which the product is shown on the storefront (StartDate - EndDate)
 SeoURL | string | The SEO friendly URL of the product 
 TokenPriceCheckout | float | Minimum amount required for the customer to reserve the item during checkout and purchase later on
-IsReferPrice | boolean | 
+IsReferPrice | boolean | -NA-
 NoofReview | string | Number of reviews received for the product
 UOM | string | Unit of measurement of the product. It could be `pieces` for the items that are sold in numbers and the respective measure for other items such as kgs, and gms 
 
@@ -1376,12 +1378,12 @@ Parameter | Type | Description
 CatlogSequence | int | Sequence of the product in the respective product category (to appear on the storefront)
 CatalogCode | string | Catalog code associated to the product
 BulkQuantity | int | Lot size or batch size of the product. Value will 0 if not applicable
-ProductType | enum | Type of the product. Values: `P` for a normal product, `A` for an add-on products, and `B` for a bundle product or deal product
+ProductType | enum | Type of the product. Values: `P` for a normal product, `A` for an add-on product, and `B` for a bundle product, `D` for deal product
 SmallImageAltText | string | Mouse hover text for small image
-IsTokenPriceCheckout | boolean | Whether the product is available for preorder - book the product with a minimum amount called token price and pay the rest when the product is in stock
+IsTokenPriceCheckout | boolean | For out of stock products, you can sell them as pre-orders allowing customers to book an item with a minimum price (token price) and pay rest when the product is in stock. This parameter states whether the product supports pre-order booking with token price or not.
 TokenPrice | float | Token price for preorder if `IsTokenPriceCheckout` is enabled
 CategoryId | string | Products are grouped into categories based on the type and each category will have a unique category id
-Inventory | int | The number of products available
+Inventory | int | The number of products (stock) available 
 BackOrder | enum | Whether the order can be placed even when the product is out of stock
 Sellerid | string | Unique GUID of the product seller
 ReserveQuantity | int | Quantity of items reserved for special purposes. For example, merchant could reserve some products for the fulfillment for loyalty customers
@@ -1493,7 +1495,7 @@ Following table contains descriptions of a few response parameters that require 
 Parameter | Type | Description
 --------- | ---- | -----------
 CatlogSequence | int | Sequence of the product in the respective product category to appear on the storefront
-BulkQuantity | int | Lot size or batch size of the product. Value will `0` if not applicable 
+BulkQuantity | int | Lot size or batch size of the product. Value will be `0` if not applicable 
 NoofReview | string | Number of reviews received for the product
 UOM | string | Unit of measurement of the product. The value will be `pieces` for items that are sold as pieces and the respective measure for other items sold on weight basis -`kgs` for kilograms, and `gms` for grams
 
@@ -1781,7 +1783,7 @@ Parameter | Type | Description
 -------- | ----- | -----------
 merchantId* | string | Unique GUID of the merchant
 categoryId* | string | Unique id of the category by which you want to fetch products
-productType | enum | Type of the product. Values: `P` for a normal product, `A` for an add-on products, and `B` for a bundle product, `D` for deal product 
+productType | enum | Type of the product. Values: `P` for a normal product, `A` for an add-on product, and `B` for a bundle product, `D` for deal product 
 pageNumber | int | Get products of a specific page number based on the pagination set. Supported value: 1-100
 
 
@@ -1963,13 +1965,13 @@ Parameter | Type | Description
 VariantProperty | string | Unique id associated to the variant property such as size, color, and weight
 VariantPropertyName | string | Name of the variant property
 VariantValue | string | Value of that specific variant property
-ProductTitle | string | Title gicen to the product to appear on the product's page in storefront
-ProductType | string | Type of the product. Values: `P` for a normal product, `A` for an add-on products, and `B` for a bundle product or deal product
+ProductTitle | string | Title of the product that appears on the product's page on the storefront
+ProductType | string | Type of the product. Values: `P` for a normal product, `A` for an add-on product, and `B` for a bundle product, `D` for deal product
 BarCode | string | Bar code of the product
 CatalogCode | string | Catalog code associated to the product
 IsDropShipping | boolean | 
 ReserveQuantity | int | Quantity of items reserved for special purposes. For example, merchant could reserve some products for the fulfillment of loyalty customers
-ReOrderStockLevel | int | 
+ReOrderStockLevel | int | Minimum stock (quantity of the product) level when you want to allow reorder
 StockAlertQuantity | int | Sends an alert to the POCs when the quantity of the product is less than this value
 PreOrderMessage | string | 
 PreOrder | boolean | Whether prebooking is available for the product
@@ -2155,13 +2157,9 @@ Parameter | Type | Description
 ReferenceProductVariantId | int | Reference id of the product variant
 StartDate | date-time | The duration (between `StartDate` and `EndDate`) for which the product is shown on the storefront 
 EndDate | date-time | The duration (between `StartDate` and `EndDate`) for which the product is shown on the storefront
-IsDropShipping | boolean | 
-MarkupPrice | float | 
-MarkupType | float | 
-IsReferProductInfo | boolean | 
-IsReferPrice | float | 
+IsReferPrice | float | -NA-
 ReserveQuantity | int | Quantity of items the merchant needs to reserve for special purposes. For example, merchant could reserve some products to fulfill for loyalty customers
-ReOrderStockLevel | int | Quantity of items to be reordered
+ReOrderStockLevel | int | Minimum stock (quantity of the product) when you want to allow reorder
 IsDisplaySwatch | boolean | Whether the illustration of accurate representation of color, pattern or texture of the product is shown on the storefront
 
 
@@ -2471,7 +2469,7 @@ Following table contains descriptions of a few response parameters that require 
 Parameter | Type | Description
 --------- | ---- | -----------
 TokenPriceCheckout | float | Prebooking price for the product, i.e., Minimum amount required for the customer to reserve the item during checkout and purchase later on
-IsReferPrice | boolean | 
+IsReferPrice | boolean | -NA-
 UOM | string | Unit of measurement of the product. Value will be `pieces` for items that are sold in numbers and `kgs` or `gms` for items sold in kilograms or grams respectively
 
 
@@ -2714,7 +2712,7 @@ Batch Support | No
 Parameter | Type | Description
 -------- | ----- | -----------
 merchantId* | string | Unique GUID of the merchant
-productId* | int | Specify the product id to fetch associated product tags
+productId* | int | Specify the product id to fetch the product tags associated to it
 
 
 <aside class="notice"> All parameters marked by * are mandatory. </aside>
@@ -2873,7 +2871,7 @@ StartDate | date-time | The duration for which the product is shown on the store
 EndDate | date-time | The duration for which the product is shown on the storefront (StartDate - EndDate)
 SeoURL | string | The SEO friendly URL of the product 
 TokenPriceCheckout | float | Minimum amount required for the customer to reserve the item during checkout and purchase later on
-IsReferPrice | boolean | 
+IsReferPrice | boolean | -NA-
 NoofReview | string | Number of reviews received for the product
 UOM | string | Unit of measurement of the product. It could be `pieces` for the items that are sold in numbers and the respective measure for other items such as kgs, and gms 
 
@@ -2912,7 +2910,7 @@ UOM | string | Unit of measurement of the product. It could be `pieces` for the 
 https://www.martjack.com/developerapi/Product/AddReview/81e77da2-723b-483d-8c0d-49f800c1exxx/0639f7a6-34cc-48b2-9fd9-a80e2ed8xxxx/PZLG-WM
 ```
 
-> Sample Request
+> Sample POST Request
 
 ```json
 {
@@ -2954,7 +2952,7 @@ Batch Support | No
 
 
 
-### Request Query Parameters
+### Request Path Parameters
 
 Parameter | Type | Description
 -------- | ----- | -----------
@@ -3273,6 +3271,16 @@ isdefault | boolean | Specify `true` to get the details of only bundle default i
 
 
 
+### Response Parameters
+
+Parameter | Type | Description
+--------- | ---- | -----------
+ProductTitle | string | Product title as appears on the product page of the storefront
+ProductType | enum |  Type of the product. Values: `P` for a normal product, `A` for an add-on product, and `B` for a bundle product, `D` for deal product
+MRP | float | Retail price of the product
+WebPrice | float | Selling price of the product
+
+
 
 
 
@@ -3574,7 +3582,7 @@ tag* | string | Tag that you want to add to the product. Tags are predefined for
 
 ## Remove Product Tag
 
-Removes a specific product tag for a product of a specific location.
+Removes a tag of a product for a specific location.
 
 
 
@@ -3637,7 +3645,7 @@ Parameter | Type | Description
 merchantId* | string | Unique GUID of the merchant
 sku | string | SKU of the product for which you want to remove a product tag
 producttag | string | Name of the product tag that you want to remove
-locationid | int | Remove the product tag for a specific location. Specify the location id of the product
+locationid | int | Location id for which you want to remove the product tag
 
 <aside class="notice"> All parameters marked by * are mandatory. </aside>
 
@@ -3717,7 +3725,7 @@ SKU | string  | Search product by SKU
 catalogcode | string | Fetch products of a specific catalog code
 category | string | Search by category 
 brand | string | Search product ids by brand
-productTag | string | Search product ids by associated product tags 
+productTag | string | Search product ids by an associated product tag 
 pageNumber | int | Page number from which you want to fetch products on storefront
 pageSize | int | Number of results to be shown per page
 
@@ -4057,7 +4065,7 @@ Type | enum | Type will be `C` for comment
 UserName | string | Username linked to the customer account who commented
 TargetName | string |  Product title to which the comment is posted
 Title | string | Title of the root comment
-Description | string | Actual comment text
+Description | string | Actual content of the comment
 ModuleType | enum | Module type will be `C` for comment
 IsAbusive | boolean | Whether the comment is abusive or not
 HelpfulCount | int | Number of likes (helpful) received to the comment 
