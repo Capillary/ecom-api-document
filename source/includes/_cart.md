@@ -6847,7 +6847,7 @@ hasvouchers | boolean | Specify `true` to get only the list of promotions having
 fromdate | date | Get promotions available for a specific duration. Pass the duration in MM/DD/YY format `fromdate` and `todate` respectively
 todate | date | Get promotions available for a specific duration. Pass the duration in `fromdate` and `todate`
 activestatus | boolean | Specify `true` to fetch the list of only active promotions, `false` to fetch both active and inactive coupons
-channeltype |  | 
+channeltype | string | The channel from which the order is placed. Channel types are predefined in promotions in CP. Example values: Amazon, Myntra, Web
 externalcouponmapped | boolean | Specify `true` to fetch the list of only promotions that are mapped to external coupons. For example, CRM coupons
 userid | string | The unique identifier of the customer to fetch the list of promotions of a specific customer
 
