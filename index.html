@@ -4774,7 +4774,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>stock</td>
 <td>int</td>
-<td>Number of available items of the current SKU. Specify <code class="prettyprint">NA</code> if product is not associated with the location, <code class="prettyprint">0</code> for out of stock</td>
+<td>Number of available items of the current SKU. Specify <code class="prettyprint">NA</code> if product needs to be dissociated with the location, <code class="prettyprint">0</code> for out of stock</td>
 </tr>
 <tr>
 <td>locationrefcode*</td>
@@ -5021,7 +5021,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>ProductType*</td>
 <td>string</td>
-<td>Type of the product. Values: <code class="prettyprint">P</code> for a normal product, <code class="prettyprint">A</code> for an add-on products, and <code class="prettyprint">B</code> for a bundle product or deal product</td>
+<td>Type of the product. Values: <code class="prettyprint">P</code> for a normal product, <code class="prettyprint">A</code> for an add-on product, and <code class="prettyprint">B</code> for a bundle product or deal product</td>
 </tr>
 <tr>
 <td>CategoryRefCode</td>
@@ -5046,7 +5046,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>Availability</td>
 <td>string</td>
-<td>Specify Y<code class="prettyprint">if the product is in stock,</code>N` if unavailable</td>
+<td>Specify <code class="prettyprint">Y</code> if the product is in stock, <code class="prettyprint">N</code> if unavailable</td>
 </tr>
 <tr>
 <td>BarCode</td>
@@ -5056,12 +5056,12 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>SmallImage</td>
 <td>string</td>
-<td>Source image of the product&rsquo;s small image (100*100) shown in the product showcase. Required if the Custom Type of image is not defined and Extended Properties section of that Product Showcase is not configured accordingly. Supported formats: .png, jpg,jpeg, .svc, and .gif</td>
+<td>Name (with extension) of the product&rsquo;s small image (100*100) shown in the product showcase. This param is required if the Custom Type of the image is not defined and the Extended Properties section of that product showcase is not configured accordingly. Supported formats: .png, jpg,jpeg, .svc, and .gif</td>
 </tr>
 <tr>
 <td>LargeImage</td>
 <td>string</td>
-<td>Source image of the product&rsquo;s large image (300*300) shown on the product details page of the storefront. Supported formats: .png, jpg,jpeg, .svc, and .gif</td>
+<td>Name (with extension) of the product&rsquo;s large image (300*300) shown on the product details page of the storefront. Supported formats: .png, jpg,jpeg, .svc, and .gif</td>
 </tr>
 <tr>
 <td>ShortDescription</td>
@@ -5141,7 +5141,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>ProductWeight</td>
 <td>float</td>
-<td>Weight of the product</td>
+<td>Weight of the product as per the UOM mentioned</td>
 </tr>
 <tr>
 <td>BankProductId</td>
@@ -5170,7 +5170,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 </tr>
 <tr>
 <td>KeywordDescription</td>
-<td></td>
+<td>string</td>
 <td>Description of the specified search keyword</td>
 </tr>
 <tr>
@@ -5191,32 +5191,32 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>StartDate</td>
 <td>date</td>
-<td>From when the product has to be displayed on the storefront in <code class="prettyprint">DD/MM/YY</code> format</td>
+<td>The date when you want to begin showing the product on the storefront in <code class="prettyprint">DD/MM/YY</code> format</td>
 </tr>
 <tr>
 <td>EndDate</td>
 <td>date</td>
-<td>Until when you want to show the product on the storefront in <code class="prettyprint">DD/MM/YY</code> format</td>
+<td>The date when you want to end showing the product on the storefront in <code class="prettyprint">DD/MM/YY</code> format</td>
 </tr>
 <tr>
 <td>StartTime</td>
 <td>time</td>
-<td>The time (on the StartDate) from when you want to show the product on the storefront. Format: <code class="prettyprint">HH:MM:SS</code></td>
+<td>The time (on the specified StartDate) from when you want to show the product on the storefront. Format: <code class="prettyprint">HH:MM:SS</code></td>
 </tr>
 <tr>
 <td>EndTime</td>
 <td>time</td>
-<td>The time (on the EndDate) from when you want to stop showing the product on the storefront on the specified end date. Format: <code class="prettyprint">HH:MM:SS</code></td>
+<td>The time (on the specified EndDate) when you want to stop showing the product on the storefront on the specified end date. Format: <code class="prettyprint">HH:MM:SS</code></td>
 </tr>
 <tr>
 <td>PeriodicityType</td>
 <td>enum</td>
-<td>Use this to set the time frame when you want to show the product on the storefront. Values: Monthly, Weekly, oneTime</td>
+<td>The recurring interval when you want to show the product on the storefront. Values: Monthly, Weekly, oneTime</td>
 </tr>
 <tr>
 <td>PeriodicityRange</td>
 <td>string</td>
-<td>The days when you want to show the product based on the PeriodicityType. For example: for <code class="prettyprint">Monthly</code>, you can set 1-30 to show on all days of a month, in weekly you can have 1, 3, 5, to display of Sun, Tue, and Thu respectively.  No value is required for <code class="prettyprint">oneTime</code>. To pass multiple days, use comma separated values. For example, 1,2,5,10. You can either pass as 1-5, or 1, 2, 3, 4, 5 and so on. Not required for onetime</td>
+<td>The days of the recurring interval (PeriodicityType) that you want to show the product. For example: in <code class="prettyprint">Monthly</code> recurring interval, if you set <code class="prettyprint">PeriodicityRange</code> 1-30, you will see products on all 30 days of a month. Similarly, in a weekly <code class="prettyprint">PeriodicityType</code>, if you set 1, 3, 5 in PeriodicityRange, you will see the product on Sun, Tue, and Thu respectively.  No value is required for <code class="prettyprint">oneTime</code>. To pass multiple days, use comma separated values. For example, 1,2,5,10. You can either pass as 1-5, or 1, 2, 3, 4, 5 and so on. Not required for onetime</td>
 </tr>
 <tr>
 <td>ShowExpired</td>
@@ -5599,7 +5599,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 </thead><tbody>
 <tr>
 <td>URI</td>
-<td><code class="prettyprint">Product/UpdateProductInfo</code></td>
+<td><code class="prettyprint">/Product/UpdateProductInfo</code></td>
 </tr>
 <tr>
 <td>Rate Limited?</td>
@@ -5679,7 +5679,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>ProductType*</td>
 <td>string</td>
-<td>Type of the product. Values: <code class="prettyprint">P</code> for a normal product, <code class="prettyprint">A</code> for an add-on products, and <code class="prettyprint">B</code> for a bundle product or deal product</td>
+<td>Type of the product. Values: <code class="prettyprint">P</code> for a normal product, <code class="prettyprint">A</code> for an add-on product, and <code class="prettyprint">B</code> for a bundle product or deal product</td>
 </tr>
 <tr>
 <td>CategoryRefCode</td>
@@ -5689,7 +5689,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>Inventory</td>
 <td>int</td>
-<td>The number of available products of the current SKU (quantity)</td>
+<td>The number of available stock of the current SKU (quantity)</td>
 </tr>
 <tr>
 <td>MRP</td>
@@ -5714,12 +5714,12 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>SmallImage</td>
 <td>string</td>
-<td>Source image of the product&rsquo;s small image (100*100) shown in the product showcase. Required if the Custom Type of image is not defined and Extended Properties section of that Product Showcase is not configured accordingly. Supported formats: .png, jpg,jpeg, .svc, and .gif</td>
+<td>Name (with extension) of the product&rsquo;s small image (100*100) shown in the product showcase. This param is required if the Custom Type of the image is not defined and the Extended Properties section of that product showcase is not configured accordingly. Supported formats: .png, jpg,jpeg, .svc, and .gif</td>
 </tr>
 <tr>
 <td>LargeImage</td>
 <td>string</td>
-<td>Source image of the product&rsquo;s large image (300*300) shown on the product details page of the storefront. Supported formats: .png, jpg,jpeg, .svc, and .gif</td>
+<td>Name (with extension) of the product&rsquo;s large image (300*300) shown on the product details page of the storefront. Supported formats: .png, jpg,jpeg, .svc, and .gif</td>
 </tr>
 <tr>
 <td>ShortDescription</td>
@@ -5849,32 +5849,32 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>StartDate</td>
 <td>date</td>
-<td>From when the product has to be displayed on the storefront in <code class="prettyprint">DD/MM/YY</code> format</td>
+<td>The date when you want to begin showing the product on the storefront in <code class="prettyprint">DD/MM/YY</code> format</td>
 </tr>
 <tr>
 <td>EndDate</td>
 <td>date</td>
-<td>Until when you want to show the product on the storefront in <code class="prettyprint">DD/MM/YY</code> format</td>
+<td>The date when you want to end showing the product on the storefront in <code class="prettyprint">DD/MM/YY</code> format</td>
 </tr>
 <tr>
 <td>StartTime</td>
 <td>time</td>
-<td>The time (on the StartDate) from when you want to show the product on the storefront. Format: <code class="prettyprint">HH:MM:SS</code></td>
+<td>The time (on the specified StartDate) from when you want to show the product on the storefront. Format: <code class="prettyprint">HH:MM:SS</code></td>
 </tr>
 <tr>
 <td>EndTime</td>
 <td>time</td>
-<td>The time (on the EndDate) from when you want to stop showing the product on the storefront on the specified end date. Format: <code class="prettyprint">HH:MM:SS</code></td>
+<td>The time (on the specified EndDate) when you want to stop showing the product on the storefront on the specified end date. Format: <code class="prettyprint">HH:MM:SS</code></td>
 </tr>
 <tr>
 <td>PeriodicityType</td>
 <td>enum</td>
-<td>Use this to set the time frame when you want to show the product on the storefront. Values: Monthly, Weekly, oneTime</td>
+<td>The recurring interval when you want to show the product on the storefront. Values: Monthly, Weekly, oneTime</td>
 </tr>
 <tr>
 <td>PeriodicityRange</td>
 <td>string</td>
-<td>The days when you want to show the product based on the PeriodicityType. For example: for <code class="prettyprint">Monthly</code>, you can set 1-30 to show on all days of a month, in weekly you can have 1, 3, 5, to display of Sun, Tue, and Thu respectively.  No value is required for <code class="prettyprint">oneTime</code>. To pass multiple days, use comma separated values. For example, 1,2,5,10. You can either pass as 1-5, or 1, 2, 3, 4, 5 and so on. Not required for onetime</td>
+<td>The days of the recurring interval (PeriodicityType) that you want to show the product. For example: in <code class="prettyprint">Monthly</code> recurring interval, if you set <code class="prettyprint">PeriodicityRange</code> 1-30, you will see products on all 30 days of a month. Similarly, in a weekly <code class="prettyprint">PeriodicityType</code>, if you set 1, 3, 5 in PeriodicityRange, you will see the product on Sun, Tue, and Thu respectively.  No value is required for <code class="prettyprint">oneTime</code>. To pass multiple days, use comma separated values. For example, 1,2,5,10. You can either pass as 1-5, or 1, 2, 3, 4, 5 and so on. Not required for onetime</td>
 </tr>
 <tr>
 <td>ShowExpired</td>
@@ -6282,7 +6282,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>swatchimages</td>
 <td>obj</td>
-<td>Represents the property values of the variant product - illustration of accurate representation of color, pattern or texture</td>
+<td>A swatch image is used to provide an accurate representation of color, and also illustrate a pattern or texture of a product. A swatch is a small image that represents the accurate color or pattern of each variant</td>
 </tr>
 <tr>
 <td>variantproperty</td>
@@ -6440,7 +6440,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 </thead><tbody>
 <tr>
 <td>URI</td>
-<td><code class="prettyprint">Product/Price/{MerchantId}</code></td>
+<td><code class="prettyprint">/Product/Price/{MerchantId}</code></td>
 </tr>
 <tr>
 <td>Rate Limited?</td>
@@ -6509,7 +6509,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>usergroupid</td>
 <td>int</td>
-<td>Specify the user group id to associate the price list to a specific group</td>
+<td>Specify the user group id associated to the price list</td>
 </tr>
 <tr>
 <td>locationrefcode</td>
@@ -6519,7 +6519,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>channelrefcode</td>
 <td>string</td>
-<td>Channel code to which the price list is associated</td>
+<td>Channel reference code to which the price list is associated</td>
 </tr>
 </tbody></table>
 
@@ -6544,7 +6544,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>tokenprice</td>
 <td>float</td>
-<td>Minimum amount required for the customer to reserve the item and purchase later on</td>
+<td>Minimum amount required for the customer for prebooking the item</td>
 </tr>
 <tr>
 <td>channelrefcode</td>
@@ -6681,13 +6681,15 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>locationId</td>
 <td>int</td>
-<td>Retrieves the inventory and product of a specific location</td>
+<td>Retrieves the inventory and product details of a specific location</td>
 </tr>
 </tbody></table>
 
 <aside class="notice"> All parameters marked by * are mandatory. </aside>
 
 <h2 id="get-product-information-by-location">Get Product Information (by Location)</h2>
+
+<p>Retrieves the details of a product for a specific location.</p>
 
 <blockquote>
 <p>Sample Request</p>
@@ -6843,13 +6845,13 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 </tr>
 <tr>
 <td>MarkupPrice</td>
-<td>double</td>
-<td></td>
+<td>float</td>
+<td>-NA-</td>
 </tr>
 <tr>
 <td>MarkupType</td>
 <td>string</td>
-<td></td>
+<td>-NA-</td>
 </tr>
 <tr>
 <td>IsShippingConfigured</td>
@@ -6884,7 +6886,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>IsReferPrice</td>
 <td>boolean</td>
-<td></td>
+<td>-NA-</td>
 </tr>
 <tr>
 <td>NoofReview</td>
@@ -7129,7 +7131,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>ProductType</td>
 <td>enum</td>
-<td>Type of the product. Values: <code class="prettyprint">P</code> for a normal product, <code class="prettyprint">A</code> for an add-on products, and <code class="prettyprint">B</code> for a bundle product or deal product</td>
+<td>Type of the product. Values: <code class="prettyprint">P</code> for a normal product, <code class="prettyprint">A</code> for an add-on product, and <code class="prettyprint">B</code> for a bundle product, <code class="prettyprint">D</code> for deal product</td>
 </tr>
 <tr>
 <td>SmallImageAltText</td>
@@ -7139,7 +7141,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>IsTokenPriceCheckout</td>
 <td>boolean</td>
-<td>Whether the product is available for preorder - book the product with a minimum amount called token price and pay the rest when the product is in stock</td>
+<td>For out of stock products, you can sell them as pre-orders allowing customers to book an item with a minimum price (token price) and pay rest when the product is in stock. This parameter states whether the product supports pre-order booking with token price or not.</td>
 </tr>
 <tr>
 <td>TokenPrice</td>
@@ -7154,7 +7156,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>Inventory</td>
 <td>int</td>
-<td>The number of products available</td>
+<td>The number of products (stock) available</td>
 </tr>
 <tr>
 <td>BackOrder</td>
@@ -7324,7 +7326,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>BulkQuantity</td>
 <td>int</td>
-<td>Lot size or batch size of the product. Value will <code class="prettyprint">0</code> if not applicable</td>
+<td>Lot size or batch size of the product. Value will be <code class="prettyprint">0</code> if not applicable</td>
 </tr>
 <tr>
 <td>NoofReview</td>
@@ -7678,7 +7680,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>productType</td>
 <td>enum</td>
-<td>Type of the product. Values: <code class="prettyprint">P</code> for a normal product, <code class="prettyprint">A</code> for an add-on products, and <code class="prettyprint">B</code> for a bundle product, <code class="prettyprint">D</code> for deal product</td>
+<td>Type of the product. Values: <code class="prettyprint">P</code> for a normal product, <code class="prettyprint">A</code> for an add-on product, and <code class="prettyprint">B</code> for a bundle product, <code class="prettyprint">D</code> for deal product</td>
 </tr>
 <tr>
 <td>pageNumber</td>
@@ -7904,12 +7906,12 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>ProductTitle</td>
 <td>string</td>
-<td>Title gicen to the product to appear on the product&rsquo;s page in storefront</td>
+<td>Title of the product that appears on the product&rsquo;s page on the storefront</td>
 </tr>
 <tr>
 <td>ProductType</td>
 <td>string</td>
-<td>Type of the product. Values: <code class="prettyprint">P</code> for a normal product, <code class="prettyprint">A</code> for an add-on products, and <code class="prettyprint">B</code> for a bundle product or deal product</td>
+<td>Type of the product. Values: <code class="prettyprint">P</code> for a normal product, <code class="prettyprint">A</code> for an add-on product, and <code class="prettyprint">B</code> for a bundle product, <code class="prettyprint">D</code> for deal product</td>
 </tr>
 <tr>
 <td>BarCode</td>
@@ -7934,7 +7936,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>ReOrderStockLevel</td>
 <td>int</td>
-<td></td>
+<td>Minimum stock (quantity of the product) level when you want to allow reorder</td>
 </tr>
 <tr>
 <td>StockAlertQuantity</td>
@@ -8188,29 +8190,9 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <td>The duration (between <code class="prettyprint">StartDate</code> and <code class="prettyprint">EndDate</code>) for which the product is shown on the storefront</td>
 </tr>
 <tr>
-<td>IsDropShipping</td>
-<td>boolean</td>
-<td></td>
-</tr>
-<tr>
-<td>MarkupPrice</td>
-<td>float</td>
-<td></td>
-</tr>
-<tr>
-<td>MarkupType</td>
-<td>float</td>
-<td></td>
-</tr>
-<tr>
-<td>IsReferProductInfo</td>
-<td>boolean</td>
-<td></td>
-</tr>
-<tr>
 <td>IsReferPrice</td>
 <td>float</td>
-<td></td>
+<td>-NA-</td>
 </tr>
 <tr>
 <td>ReserveQuantity</td>
@@ -8220,7 +8202,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>ReOrderStockLevel</td>
 <td>int</td>
-<td>Quantity of items to be reordered</td>
+<td>Minimum stock (quantity of the product) when you want to allow reorder</td>
 </tr>
 <tr>
 <td>IsDisplaySwatch</td>
@@ -8631,7 +8613,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>IsReferPrice</td>
 <td>boolean</td>
-<td></td>
+<td>-NA-</td>
 </tr>
 <tr>
 <td>UOM</td>
@@ -8996,7 +8978,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>productId*</td>
 <td>int</td>
-<td>Specify the product id to fetch associated product tags</td>
+<td>Specify the product id to fetch the product tags associated to it</td>
 </tr>
 </tbody></table>
 
@@ -9223,7 +9205,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>IsReferPrice</td>
 <td>boolean</td>
-<td></td>
+<td>-NA-</td>
 </tr>
 <tr>
 <td>NoofReview</td>
@@ -9241,7 +9223,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <pre class="highlight html"><code>https://www.martjack.com/developerapi/Product/AddReview/81e77da2-723b-483d-8c0d-49f800c1exxx/0639f7a6-34cc-48b2-9fd9-a80e2ed8xxxx/PZLG-WM
 </code></pre>
 <blockquote>
-<p>Sample Request</p>
+<p>Sample POST Request</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
     </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Title31"</span><span class="p">,</span><span class="w">
@@ -9303,7 +9285,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <p><code class="prettyprint">https://{host}/developerapi/Product/AddReview/{MerchantId}/{UserId}/{SKU}</code></p>
 
-<h3 id="request-query-parameters">Request Query Parameters</h3>
+<h3 id="request-path-parameters">Request Path Parameters</h3>
 
 <table><thead>
 <tr>
@@ -9763,6 +9745,37 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <aside class="notice">All parameters marked by * are mandatory. </aside>
 
+<h3 id="response-parameters">Response Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ProductTitle</td>
+<td>string</td>
+<td>Product title as appears on the product page of the storefront</td>
+</tr>
+<tr>
+<td>ProductType</td>
+<td>enum</td>
+<td>Type of the product. Values: <code class="prettyprint">P</code> for a normal product, <code class="prettyprint">A</code> for an add-on product, and <code class="prettyprint">B</code> for a bundle product, <code class="prettyprint">D</code> for deal product</td>
+</tr>
+<tr>
+<td>MRP</td>
+<td>float</td>
+<td>Retail price of the product</td>
+</tr>
+<tr>
+<td>WebPrice</td>
+<td>float</td>
+<td>Selling price of the product</td>
+</tr>
+</tbody></table>
+
 <h2 id="get-msmq-task-details">Get MSMQ Task Details</h2>
 
 <p>Retrieves the details of the specific bulk task. Bulk tools could be bulk product upload, bundle upload, product images upload, pricelist upload, stock-price upload and so on. </p>
@@ -10161,7 +10174,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <h2 id="remove-product-tag">Remove Product Tag</h2>
 
-<p>Removes a specific product tag for a product of a specific location.</p>
+<p>Removes a tag of a product for a specific location.</p>
 
 <blockquote>
 <p>Sample Request</p>
@@ -10257,7 +10270,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>locationid</td>
 <td>int</td>
-<td>Remove the product tag for a specific location. Specify the location id of the product</td>
+<td>Location id for which you want to remove the product tag</td>
 </tr>
 </tbody></table>
 
@@ -10389,7 +10402,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>productTag</td>
 <td>string</td>
-<td>Search product ids by associated product tags</td>
+<td>Search product ids by an associated product tag</td>
 </tr>
 <tr>
 <td>pageNumber</td>
@@ -10843,7 +10856,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>Description</td>
 <td>string</td>
-<td>Actual comment text</td>
+<td>Actual content of the comment</td>
 </tr>
 <tr>
 <td>ModuleType</td>
@@ -30558,7 +30571,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <h2 id="create-return-request">Create Return Request</h2>
 
-<p>Lets you create a new return request.</p>
+<p>Lets you create a new return request. A request made by customer to return partial or complete items of an order that is delivered.</p>
 
 <blockquote>
 <p>Sample Request</p>
@@ -30888,7 +30901,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>Reason</td>
 <td>string</td>
-<td>Return reason code. WID - Wrong item delivered <br> BAQ - Bad Quality <br> DLP - Did not like the product <br> DPR - Defective/Damage product received <br> RD - Received Damaged DP - Defective Product<br> II - Incorrect Item received<br> UW  Unwanted Gift<br> US - Unsuitable<br> UP - Unlike Photo, TS - Too Small<br> OT - Other<br> FD - Fraud<br> IE - Incorrect Size<br> PDR - Product is damaged<br> WPD - Product is not as per website description<br> CR - Customer Remorse<br> PWF - Product is not properly functioning</td>
+<td>Return reason code. Values:<br> WID - Wrong item delivered <br> BAQ - Bad Quality <br> DLP - Did not like the product <br> DPR - Defective/Damage product received <br> RD - Received Damaged DP - Defective Product<br> II - Incorrect Item received<br> UW  Unwanted Gift<br> US - Unsuitable<br> UP - Unlike Photo, TS - Too Small<br> OT - Other<br> FD - Fraud<br> IE - Incorrect Size<br> PDR - Product is damaged<br> WPD - Product is not as per website description<br> CR - Customer Remorse<br> PWF - Product is not properly functioning</td>
 </tr>
 <tr>
 <td>SuggestedReturnAction</td>
@@ -35832,7 +35845,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>Operation</td>
 <td>string</td>
-<td>Value: add, remove. Specify <code class="prettyprint">add</code> delivery address to a location,  <code class="prettyprint">remove</code> to delete</td>
+<td>Specify <code class="prettyprint">add</code> to add delivery area to a location,  <code class="prettyprint">remove</code> to delete the delivery area from a location</td>
 </tr>
 </tbody></table>
 
@@ -35961,7 +35974,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>value</td>
 <td>string</td>
-<td>New value of the specified path</td>
+<td>New value of the current path</td>
 </tr>
 </tbody></table>
 
@@ -36079,12 +36092,12 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>OpenLeadTime</td>
 <td>int</td>
-<td>The maximum delay time (in minutes) for the on time (store open time)</td>
+<td>The maximum possible delay (in minutes) in the store open time (on-time)</td>
 </tr>
 <tr>
 <td>CloseLeadTime</td>
 <td>int</td>
-<td>The maximum delay time (in minutes) for the off time (store close time)</td>
+<td>The maximum possible delay (in minutes) in the store close time (off-time)</td>
 </tr>
 <tr>
 <td>WeekDayId</td>
@@ -36329,7 +36342,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>DistancefromInputLatLong</td>
 <td>float</td>
-<td>Distance of the location from latitude and longitude. Available only if latitude and longitude are set for the location</td>
+<td>Distance of the location from the latitude and longitude. Available only if latitude and longitude are set for the location</td>
 </tr>
 <tr>
 <td>IsParticipateInStock</td>
@@ -36991,7 +37004,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>IsOfflinneCheckoutEnabled</td>
 <td>boolean</td>
-<td>Whether offline ordering is available for the location</td>
+<td>Whether offline ordering is available for the location. For example, orders placed through phone calls are offline orders.</td>
 </tr>
 <tr>
 <td>IsDefaultLNG_LocationName</td>
