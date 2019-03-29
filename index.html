@@ -23501,7 +23501,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>userid</td>
 <td>string</td>
-<td>Registered identifier of the customer. Required when <code class="prettyprint">customertype=&quot;Registered User&quot;</code></td>
+<td>Registered identifier of the customer used for login. Required when <code class="prettyprint">customertype=&quot;Registered User&quot;</code></td>
 </tr>
 <tr>
 <td>ordervalue</td>
@@ -23511,7 +23511,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>orderstatus</td>
 <td>enum</td>
-<td>Status of the order. Value: Pending, Authorized</td>
+<td>Status of the order. Values: <code class="prettyprint">Pending</code>, <code class="prettyprint">Authorized</code></td>
 </tr>
 <tr>
 <td>orderconfirmationmail</td>
@@ -23521,27 +23521,27 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>paymentlinkstatus</td>
 <td>enum</td>
-<td>Status of the payment. Predefined enum values. Values: Pending (Bank transfer, Cheque,), Authorized (COD, Prepaid)</td>
+<td>Status of the payment. Predefined enum values: Pending (Bank transfer, Cheque,), Authorized (COD, Prepaid)</td>
 </tr>
 <tr>
 <td>calculateshippingtax</td>
 <td>enum</td>
-<td>Specify `<code class="prettyprint">NO</code> if the order value includes tax and service charges. Else, specify <code class="prettyprint">YES</code> to add charges separately</td>
+<td>Specify `<code class="prettyprint">NO</code> if the order value includes tax and service charges, specify <code class="prettyprint">YES</code> to add charges separately</td>
 </tr>
 <tr>
 <td>shipfirstname, shiplastname, shipaddress1 &hellip;</td>
-<td>string</td>
-<td>Specify the customer&rsquo;s shipping address related information in these fields</td>
+<td>obj</td>
+<td>Specify the shipping address and name of the customer in the respective fields</td>
 </tr>
 <tr>
 <td>billfirstname, billlastname, billaddress1 &hellip;</td>
-<td>string</td>
-<td>Specify the customer&rsquo;s billing address related information in these fields</td>
+<td>obj</td>
+<td>Specify the billing address and name of customer in the respective fields</td>
 </tr>
 <tr>
 <td>giftmsg</td>
 <td>string</td>
-<td>For gift orders, specify the customer&rsquo;s personalized message that needs to sent to the recipient</td>
+<td>Specify the customer&rsquo;s preferred personalized message for the recipient (for gift orders)</td>
 </tr>
 <tr>
 <td>locationcode</td>
@@ -23551,12 +23551,12 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>isselfship</td>
 <td>boolean</td>
-<td>If the order shipment is handled by marketplace such as Amazon or Flipkart specify <code class="prettyprint">False</code> and if the shipment is handled by the merchant itself, set the value to <code class="prettyprint">True</code></td>
+<td>If the order shipment is handled by marketplace such as Amazon or Flipkart specify <code class="prettyprint">False</code>, if the shipment is handled by the merchant itself, set the value to <code class="prettyprint">True</code></td>
 </tr>
 <tr>
 <td>channelrefcode</td>
 <td>string</td>
-<td>Channel from which the order has come from (specific to Sellerworx). A channel is an instance of marketplace. A seller can have multiple channels.</td>
+<td>Reference code of the channel from which the order has come from (specific to Sellerworx). A channel is an instance of marketplace. A seller can have multiple channels</td>
 </tr>
 <tr>
 <td>channelorderid</td>
@@ -23576,17 +23576,17 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>Payments*</td>
 <td>obj</td>
-<td>Specify the payment details and <code class="prettyprint">orderrefno</code> of the order in <code class="prettyprint">payment</code>. The orderrefno value at payment level should be same as that of the order level</td>
+<td>Specify the payment details and <code class="prettyprint">orderrefno</code> of the order in <code class="prettyprint">payment</code>. The value of <code class="prettyprint">orderrefno</code> at payment level and order level should be same</td>
 </tr>
 <tr>
 <td>paymentstatus</td>
 <td>enum</td>
-<td>The payment status of the current order. Value: Authorized, Pending</td>
+<td>The payment status of the current order. Value: <code class="prettyprint">Authorized</code>, <code class="prettyprint">Pending</code></td>
 </tr>
 <tr>
 <td>paymentno</td>
 <td>string</td>
-<td>The reference number for order payment provided by the respective payment gateway</td>
+<td>The reference number generated for order payment. This is provided by the respective payment gateway</td>
 </tr>
 <tr>
 <td>CheckOutType</td>
@@ -23596,7 +23596,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>vouchercode</td>
 <td>string</td>
-<td>Coupon code applied for the transaction if any. This is just for viewing purpose and the API does not do any calculation based on the voucher code</td>
+<td>Coupon code applied for the transaction, if any. This is just for viewing purpose and the API does not do any calculation based on the voucher code</td>
 </tr>
 <tr>
 <td>customfield</td>
@@ -23606,7 +23606,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>itemcustomfield</td>
 <td>string</td>
-<td>Pass line-item level custom fields. You do not need to have preconfigured custom fields at the order item level</td>
+<td>Pass line-item level custom field details if available</td>
 </tr>
 <tr>
 <td>deliveryslotcode</td>
@@ -23616,7 +23616,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>shippingmode</td>
 <td>string</td>
-<td>Pass the shipping mode that you want to associate with the order. Note that the API does not validate/calculate on the provided shipping mode</td>
+<td>Pass the shipping mode that you want to associate with the order. Note that the API does not validate the provided shipping mode</td>
 </tr>
 <tr>
 <td>shippingamount</td>
@@ -23626,12 +23626,12 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>shippingdiscount</td>
 <td>int</td>
-<td>Pass the discount amount on the shipping charge (Order item level discount)</td>
+<td>Pass the discount amount availed on the shipping charge (Order item level discount)</td>
 </tr>
 <tr>
 <td>linediscount</td>
 <td>int</td>
-<td>Pass the line item level discount of the order</td>
+<td>Pass the line item level discount availed for the order</td>
 </tr>
 <tr>
 <td>latitude</td>
@@ -30571,7 +30571,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <h2 id="create-return-request">Create Return Request</h2>
 
-<p>Lets you create a new return request. A request made by customer to return partial or complete items of an order that is delivered.</p>
+<p>Lets you create a new return request - A request made by customer to return partial or complete items of an order that is delivered.</p>
 
 <blockquote>
 <p>Sample Request</p>
