@@ -31651,7 +31651,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>OrderID*</td>
 <td>int</td>
-<td>Unique id of the order for which you want to update item price</td>
+<td>Unique id of the order for which you want to update an item price</td>
 </tr>
 <tr>
 <td>OrderItemID</td>
@@ -31671,7 +31671,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>ConsiderCurrentPriceandMRP</td>
 <td>boolean</td>
-<td>Specify <code class="prettyprint">False</code> to use the new prices specified, <code class="prettyprint">True</code> to consider the prices of the as per the CP</td>
+<td>Specify <code class="prettyprint">False</code> to use the new prices specified, <code class="prettyprint">True</code> to consider the prices as per the CP</td>
 </tr>
 <tr>
 <td>ReasonForPriceOverride</td>
@@ -31684,7 +31684,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <h2 id="get-document">Get Document</h2>
 
-<p>Generates either dispatch  or invoice document.</p>
+<p>Generates either a dispatch or invoice document.</p>
 
 <blockquote>
 <p>Sample Request</p>
@@ -31761,12 +31761,12 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>objectType*</td>
 <td>enum</td>
-<td>Specify <code class="prettyprint">Invoice</code> to generate invoice invoice, <code class="prettyprint">Shipment</code> to get the dispatch document of the  order</td>
+<td>Specify <code class="prettyprint">Invoice</code> to generate invoice of the order, <code class="prettyprint">Shipment</code> to get the dispatch document of the order</td>
 </tr>
 <tr>
 <td>objectValue*</td>
 <td>string</td>
-<td>Specify invoice id or shipment id based on the <code class="prettyprint">objectType</code></td>
+<td>Specify invoice id or shipment id that you want to fetch based on the <code class="prettyprint">objectType</code> passed</td>
 </tr>
 </tbody></table>
 
@@ -32020,7 +32020,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>tripId</td>
 <td>string</td>
-<td>Unique id of the shipment trip. A trip is a shipment containing multiple orders assigned to a delivery associate to deliver to the customer. Each trip will have a unique trip id</td>
+<td>Unique id of the shipment trip. A trip is a shipment containing multiple orders assigned to a delivery associate which need to be delivered to end customers. Each trip will have a unique trip id</td>
 </tr>
 </tbody></table>
 
@@ -32028,7 +32028,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <h2 id="get-manifest-details">Get Manifest Details</h2>
 
-<p>Retrieves details of a specific shipping manifest.</p>
+<p>Retrieves the details of a specific shipping manifest.</p>
 
 <blockquote>
 <p>Sample Request</p>
@@ -32121,7 +32121,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <h2 id="get-advance-tax-voucher">Get Advance Tax Voucher</h2>
 
-<p>Retrieves Advance tax voucher (ATV) details of a specific order.</p>
+<p>Retrieves Advance Tax Voucher (ATV) details of a specific order.</p>
 
 <blockquote>
 <p>Sample Request</p>
@@ -32258,7 +32258,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>orderId*</td>
 <td>int</td>
-<td>Unique id of the order for which you want to fetch tax details</td>
+<td>Unique id of the order for which you want to fetch advanced tax details</td>
 </tr>
 </tbody></table>
 
@@ -32308,7 +32308,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>TaxCode</td>
 <td>string</td>
-<td>Unique tax code that you want to associate to the product.  Tax code should be configured in CP first to associate to products.</td>
+<td>Unique tax code that you want to associate to the product.  Tax code should be configured in the CP first to associate to products.</td>
 </tr>
 <tr>
 <td>UOM</td>
@@ -32324,7 +32324,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <h2 id="lead-search">Lead Search</h2>
 
-<p>Searches leads based on input parameters.</p>
+<p>Searches leads based on the input parameters.</p>
 
 <blockquote>
 <p>Sample Request</p>
@@ -32485,12 +32485,12 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>fromDate</td>
 <td>date</td>
-<td>Search leads created in a specific duration. Specify the date-range in <code class="prettyprint">fromDate</code> and <code class="prettyprint">toDate</code></td>
+<td>Search leads created in a specific duration. Specify the date-range in <code class="prettyprint">fromDate</code> and <code class="prettyprint">toDate</code> (in <code class="prettyprint">MM-DD-YYYY</code> format)</td>
 </tr>
 <tr>
 <td>toDate</td>
 <td>date</td>
-<td>Search leads created in a specific duration. Specify the date-range in <code class="prettyprint">fromDate</code> and <code class="prettyprint">toDate</code></td>
+<td>Search leads created in a specific duration. Specify the date-range in <code class="prettyprint">fromDate</code> and <code class="prettyprint">toDate</code> (in <code class="prettyprint">MM-DD-YYYY</code> format)</td>
 </tr>
 <tr>
 <td>status</td>
@@ -32535,7 +32535,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>callForActionId</td>
 <td>string</td>
-<td>Unique id associated to the call for action for leads. For example, Call for actions could be Get-a-Call, Reserve Product &amp; Visit Store, Proforma Invoice, Get-a-Call</td>
+<td>Unique id associated to the call-for-action for leads. For example, Call for actions could be Get-a-Call, Reserve Product &amp; Visit Store, Proforma Invoice, and Get-a-Call</td>
 </tr>
 </tbody></table>
 
