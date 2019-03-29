@@ -190,36 +190,36 @@ Batch Support | Yes
 Parameter |  Type | Description
 --------- | ------ | --------
 orderrefno* | string | Reference number of the order
-orderdate* | date |  Ordered date in `dd/mm/yy` format
-deliveredon | date  |  Specify the estimated delivery of the item if applicable for the merchant in `dd/mm/yy` format
+orderdate* | date |  Ordered date in `dd/mm/yyyy` format
+deliveredon | date  |  Specify the estimated delivery of the item if applicable for the merchant in `dd/mm/yyyy` format
 customertype | enum |  Type of the user as per the Martjack system. Supported Values: Guest User (for all marketplace), Registered User (If registered on Martjack platform)
-userid | string |  Registered identifier of the customer. Required when `customertype="Registered User"`
+userid | string |  Registered identifier of the customer used for login. Required when `customertype="Registered User"`
 ordervalue | float |  Net order amount
-orderstatus |  enum |  Status of the order. Value: Pending, Authorized
+orderstatus |  enum |  Status of the order. Values: `Pending`, `Authorized`
 orderconfirmationmail | enum  |  Specify `Yes` to send an order confirmation email to the customer, else set `No`
-paymentlinkstatus | enum |  Status of the payment. Predefined enum values. Values: Pending (Bank transfer, Cheque,), Authorized (COD, Prepaid)
-calculateshippingtax | enum |  Specify ``NO` if the order value includes tax and service charges. Else, specify `YES` to add charges separately
-shipfirstname, shiplastname, shipaddress1 ... | string |  Specify the customer's shipping address related information in these fields
-billfirstname, billlastname, billaddress1 ... | string |  Specify the customer's billing address related information in these fields
-giftmsg | string  |  For gift orders, specify the customer's personalized message that needs to sent to the recipient
+paymentlinkstatus | enum |  Status of the payment. Predefined enum values: Pending (Bank transfer, Cheque,), Authorized (COD, Prepaid)
+calculateshippingtax | enum |  Specify ``NO` if the order value includes tax and service charges, specify `YES` to add charges separately
+shipfirstname, shiplastname, shipaddress1 ... | obj |  Specify the shipping address and name of the customer in the respective fields
+billfirstname, billlastname, billaddress1 ... | obj |  Specify the billing address and name of customer in the respective fields
+giftmsg | string  |  Specify the customer's preferred personalized message for the recipient (for gift orders)
 locationcode | string |  Reference code of the  order fulfillment location
-isselfship | boolean |  If the order shipment is handled by marketplace such as Amazon or Flipkart specify `False` and if the shipment is handled by the merchant itself, set the value to `True`
-channelrefcode | string |  Channel from which the order has come from (specific to Sellerworx). A channel is an instance of marketplace. A seller can have multiple channels.
+isselfship | boolean |  If the order shipment is handled by marketplace such as Amazon or Flipkart specify `False`, if the shipment is handled by the merchant itself, set the value to `True`
+channelrefcode | string |  Reference code of the channel from which the order has come from (specific to Sellerworx). A channel is an instance of marketplace. A seller can have multiple channels
 channelorderid | string |  Order id as maintained by that specific channel  (specific to Sellerworx)
 sellerwroxorderid | string |  Order id generated at Sellerworx. Maps Channel order id to Sellerworx order id
 items* | obj |  Specify the details of each line-item in `item` attribute
-Payments* | obj |  Specify the payment details and `orderrefno` of the order in `payment`. The orderrefno value at payment level should be same as that of the order level
-paymentstatus | enum | The payment status of the current order. Value: Authorized, Pending
-paymentno | string | The reference number for order payment provided by the respective payment gateway
+Payments* | obj |  Specify the payment details and `orderrefno` of the order in `payment`. The value of `orderrefno` at payment level and order level should be same
+paymentstatus | enum | The payment status of the current order. Value: `Authorized`, `Pending`
+paymentno | string | The reference number generated for order payment. This is provided by the respective payment gateway
 CheckOutType | string | Type of check out. Values: Online Payment, Cash on Delivery, Bank Transfer, Cheque/DD, Gift Voucher, Net Banking, Payback Points, Wallet
-vouchercode | string | Coupon code applied for the transaction if any. This is just for viewing purpose and the API does not do any calculation based on the voucher code
+vouchercode | string | Coupon code applied for the transaction, if any. This is just for viewing purpose and the API does not do any calculation based on the voucher code
 customfield |  | Pass this only if you have preconfigured custom fields at the order level
-itemcustomfield | string | Pass line-item level custom fields. You do not need to have preconfigured custom fields at the order item level
+itemcustomfield | string | Pass line-item level custom field details if available
 deliveryslotcode | string | Pass the delivery slot code if you want to associate a delivery slot with the order 
-shippingmode | string |  Pass the shipping mode that you want to associate with the order. Note that the API does not validate/calculate on the provided shipping mode
+shippingmode | string |  Pass the shipping mode that you want to associate with the order. Note that the API does not validate the provided shipping mode
 shippingamount | float | Pass the shipping charge for the specific item (Order item level)
-shippingdiscount | int | Pass the discount amount on the shipping charge (Order item level discount)
-linediscount | int |  Pass the line item level discount of the order
+shippingdiscount | int | Pass the discount amount availed on the shipping charge (Order item level discount)
+linediscount | int |  Pass the line item level discount availed for the order
 latitude | float | Latitudinal distance of the store
 longitude | float | Longitudinal distance of the store
 
@@ -437,39 +437,39 @@ Batch Support | Yes
 Parameter |  Type | Description
 --------- | ------ | --------
 orderrefno* | string | Reference number of the order
-orderdate* | date | Ordered date in `dd/mm/yy` format
-deliveredon | date  | Specify the estimated delivery of the item if applicable for the merchant in `dd/mm/yy` format
+orderdate* | date | Ordered date in `dd/mm/yyyy` format
+deliveredon | date  | Specify the estimated delivery of the item if applicable for the merchant in `dd/mm/yyyy` format
 customertype | enum | Type of the user as per the Martjack system. Supported Values: Guest User (for all marketplace), Registered User (If registered on Martjack platform)
-userid | string | Registered identifier of the customer. Required when `customertype="Registered User"`
+userid | string | Registered identifier of the customer used for login. Required when `customertype:"Registered User"`
 ordervalue | float | Net order amount
 orderstatus |  enum | Status of the order. Value: `Pending`, `Authorized`
 orderconfirmationmail | enum  | Specify `Yes` to send an order confirmation email to the customer, else set `No`
-paymentlinkstatus | enum | Status of the payment. Predefined enum values. Values: Pending (Bank transfer, Cheque,), Authorized (COD, Prepaid)
-calculateshippingtax | enum | Specify ``NO` if the order value includes tax and service charges. Else, specify `YES` to add charges separately
-shipfirstname, shiplastname, shipaddress1 ... | string |  Specify the customer's shipping address related information in these fields
-billfirstname, billlastname, billaddress1 ... | string |  Specify the customer's billing address related information in these fields
-giftmsg | string  | In case of gift orders, specify the customer's personalized message that needs to sent to the recipient
-locationcode | string | Reference code of the  order fulfillment location
-isselfship | boolean | If the order shipment is handled by marketplace such as Amazon or Flipkart specify `False` and if the shipment is handled by the merchant itself, set the value to `True`
-channelrefcode | string | Channel from which the order has come from (specific to Sellerworx). A channel is an instance of marketplace. A seller can have multiple channels
+paymentlinkstatus | enum | Status of the payment. Predefined enum values: Values: Pending (Bank transfer, Cheque,), Authorized (COD, Prepaid)
+calculateshippingtax | enum | Specify ``NO` if the order value includes tax and service charges. specify `YES` to add charges separately
+shipfirstname, shiplastname, shipaddress1 ... | - |  Specify the customer's shipping address related information in the respective fields
+billfirstname, billlastname, billaddress1 ... | - |  Specify the customer's billing address related information in the respective fields
+giftmsg | string  | Specify the customer’s preferred personalized message for the recipient (for gift orders)
+locationcode | string | Reference code of the order fulfillment location
+isselfship | boolean | If the order shipment is handled by marketplace such as Amazon or Flipkart specify `False`, if the shipment is handled by the merchant itself, set the value to `True`
+channelrefcode | string | Channel from which the order is received (specific to Sellerworx). A channel is an instance of marketplace. A seller can have multiple channels
 channelorderid | string | Order id as maintained by that specific channel  (specific to Sellerworx)
 sellerwroxorderid | string | Order id generated at Sellerworx. Maps Channel order id to Sellerworx order id
 items* | obj | Specify the details of each line-item in `item` attribute
 bundleitems | obj | Details of bundle items
-Payments* | obj | Specify the payment details and `orderrefno` of the order in `payment`. The orderrefno value at payment level should be same as that of the order level
-paymentstatus | enum | The payment status of the current order. Value: Authorized, Pending
+Payments* | obj | Specify the payment details and `orderrefno` of the order in the `payment` object. The value of `orderrefno` at payment level should be same as that of the order level
+paymentstatus | enum | The payment status of the current order. Value: `Authorized`, `Pending`
 paymentno | string | The reference number for order payment provided by the respective payment gateway
 CheckOutType | string | Type of check out. Values: Online Payment, Cash on Delivery, Bank Transfer, Cheque/DD, Gift Voucher, Net Banking, Payback Points, Wallet
 vouchercode | string | Coupon code applied for the transaction if any. This is just for viewing purpose and the API does not do any calculation based on the voucher code
 customfield | json obj | Pass this only if you have preconfigured custom fields at the order level
-itemcustomfield | json obj | Pass line-item level custom fields. You do not need to have preconfigured custom fields at the order item level
+itemcustomfield | json obj | Pass line-item level custom field details if available
 deliveryslotcode | string | Pass the delivery slot code if you want to associate a delivery slot with the order 
 latitude | float | Latitudinal distance of the store
 longitude | float | Longitudinal distance of the store
-shippingmode | string | Pass the shipping mode that you want to associate with the order. Note that the API does not validate/calculate on the provided shipping mode
+shippingmode | string | Pass the shipping mode that you want to associate with the order. Note that the API does not validate the provided shipping mode
 shippingamount | float | Pass the shipping charge for the specific item (Order item level)
-shippingdiscount | int | Pass the discount amount on the shipping charge (Order item level discount)
-linediscount | int | Pass the line item level discount of the order
+shippingdiscount | int | Pass the discount amount availed for the order in shipping charge (Order item level discount)
+linediscount | int | Pass the line item level discount availed
 catalogcode | enum | Type of the product category, Value: `D` for deal, `B` for bundle 
 unitprice | float | Price of a single item
 bundleparentproduct | string | SKU of the parent bundle product
@@ -552,7 +552,7 @@ PaymentOption* | string | The name of the payment gateway. Pass only the support
 paymentType* | string | The payment type used for the order - OBT (Online bank transfer),  TPG (Third party gateway), Credit, GV (Gift voucher) and so on
 gatewayId* | string | Gateway id through which the payment is made
 channelType | string | The channel from which the order is placed. For example: amazon, myntra 
-skipDeliveryAreaValidation | boolean | Specify `true` to validate delivery location before order creation, `false` to ignore validating
+skipDeliveryAreaValidation | boolean | Specify `true` to validate delivery location before creating the order, `false` to ignore validation
 
 
 ### Sample Validation Messages
@@ -862,7 +862,7 @@ ValidationResponse | json obj | Response object received from the payment gatewa
 
 ## Authorize Order
 
-Authorizes an order from the payment pending status.
+Authorizes a pending order (an order with pending payment status).
 
 
 
@@ -1006,7 +1006,7 @@ MerchantID=81e77da2-723b-483d-8c0d-49f800c1exxx&InputFormat=application/json&Inp
 }
 ```
 
-Process Pending Transactions, i.e., if an order is placed (other than COD ), just an order instance is created and will be in `Pending` state by default. You need to process the order by validating the payment details against the transaction. 
+Processes pending transactions. When an order other than COD is placed, just an order instance is created and will be in `Pending` status by default. An order is processed only when the payment details are validated against the transaction. This is not applicable for COD orders.
 
 ### Resource Information
 
@@ -1035,7 +1035,7 @@ ID | int |  The transaction id of the order
 PaymentType* | string |  The payment type used for the order. Only  values predefined for the merchant in the back-end are supported. OBT (Online bank transfer), TPG (Third party gateway), Credit, GV (Gift voucher) and so on
 Provider* | string |  The provider of the payment gateway service
 GatewayID* | string |  The respective payment gateway id
-CPUserID | string |  The unique CP user id generated by the system 
+CPUserID | string |  Unique CP user id generated by the system 
 PaymentDetails* | json obj |  Pass the payment details 
 GVCode | string |  The gift voucher code used for the transaction (if any)
 RespCode | string |  The unique response code generated at the payment gateway for the transaction (to our system)
@@ -1118,7 +1118,7 @@ Batch Support | No
 
 Parameter | Type | Description
 -------- | ----- | -----------
-orderId* | int | Unique id of the order for which you want to update a transaction
+orderId* | int | Unique id of the order for which you want to update transaction details
 paymentStatus | enum | New status of the current transaction. Values: `P` for pending, `A` for authorized, `F` for failed
 respCode | string | Unique code generated for the transaction from the payment gateway 
 txnID* | long | Unique id of the specific transaction that you want to update
@@ -1126,7 +1126,7 @@ respMsg | string | Response message received for the transaction from the paymen
 gVcode | string | Coupon code used for the order (to update gift voucher transaction )
 pointsBurned | int | Number of points burned for the transaction (to update points based transaction)
 bankEMICharges | string | Monthly EMI charges for the transaction (for transaction through card EMI)
-pGReferenceId | string | Unique id generated by the payment gateway for the transaction
+pGReferenceId | string | Unique id generated for the transaction by the payment gateway
 
 <aside class="notice">All parameters marked by * are mandatory. You also need to pass the dependent parameters based on the transaction type.</aside>
 
@@ -1145,7 +1145,7 @@ pGReferenceId | string | Unique id generated by the payment gateway for the tran
 
 ## Search Orders
 
-Retrieves orders matching the input specified.
+Retrieves orders matching the specified inputs.
 
 > Sample Request
  
@@ -1290,23 +1290,23 @@ Batch Support | No
 Parameter | Type | Description
 --------- | ---- | -----------
 CheckOutType | string | Type of check out. Values: Online Payment, Cash on Delivery, Bank Transfer, Cheque/DD, Gift Voucher, Net Banking, Payback Points, Wallet
-DateFrom | date | Search by order created duration in DateFrom - DateTo in `MM\/DD\/YYYY` format
-DateTo | date | Search by order created duration in DateFrom - DateTo in `MM\/DD\/YYYY` format
+DateFrom | date | Search orders of a specific duration between `DateFrom` and `DateTo`. The duration is considered on the basis of specified `DateType'. Pass the date in `MM\/DD\/YYYY` format
+DateTo | date | Search orders of a specific duration between `DateFrom` and `DateTo`. The duration is considered on the basis of specified `DateType'. Pass the date in `MM\/DD\/YYYY` format
 DateType | enum | Activity of the specified date range. Values: `OD` for Order Date, `SD` for Ship Date, `RD` for Return Date, `DD` for Delivered Date, `DS` for Dispatch Date
-EmailID | string | Search orders of a specific customer by customer email id
-FristName | string | Search orders by customers' first name
-LastName | string | Search orders by customers' last name
+EmailID | string | Specify registered email id of a customers to fetch all orders of that customer
+FristName | string | Search orders by customers' first name. For example, if you specify `Tom`, it will fetch the list of all orders of customers whose first name is Tom
+LastName | string | Search orders by customers' last name. For example, if you specify `Sawyer`, it will fetch the list of all orders of customers whose last name is Sawyer
 MobileNo | string | Search orders of a specific customer by mobile number
 OrderNo | int | Fetch details of a specific order by order number
-OrderPriceFrom | float | Search orders by price range in `OrderPriceFrom` and `OrderPriceTo`
-OrderPriceTo | float | Search orders by price range in `OrderPriceFrom` and `OrderPriceTo`
+OrderPriceFrom | float | Search orders in a specific price range. Specify the price range in `OrderPriceFrom` and `OrderPriceTo`
+OrderPriceTo | float |  Search orders in a specific price range. Specify the price range in `OrderPriceFrom` and `OrderPriceTo`
 OrderStatus | string | Search order by order status `P` for Pending, `A` for Authorized
-ProductSku | string | Search orders of a specific item. Pass the item SKU
-store | string | Search orders of a specific store by store code. Specify `all` to fetch orders of all stores
-ShippingCostFrom | float | Search orders by shipping cost range between ShippingCostFrom and ShippingCostTo
-ShippingCostTo | float | Search orders by shipping cost range between ShippingCostFrom and ShippingCostTo
-RecordFrom | int | From the fetch results, filter the record range that you want to see in RecordFrom and RecordTo. For example, out of 80 results you can prefer to see only records after 30 or between 30-60
-RecordTo | int | From the fetch results, filter the record range that you want to see in RecordFrom and RecordTo. For example, out of 80 results you can prefer to see first 30 records only or records between 30-70
+ProductSku | string | Search orders containing a specific item. Pass the item SKU
+store | string | Search orders of a store. Specify the store code to fetch orders of that specific store, specify `all` to fetch orders of all stores
+ShippingCostFrom | float | Search orders by shipping cost. Specify the shipping cost range in `ShippingCostFrom` and `ShippingCostTo`
+ShippingCostTo | float | Search orders by shipping cost. Specify the shipping cost range in `ShippingCostFrom` and `ShippingCostTo`
+RecordFrom | int | Filter the results by record range. Specify the range in `RecordFrom` and `RecordTo`. For example, out of 80 results you can prefer to see only records after 30 or between 30-60
+RecordTo | int | Filter the results by record range. Specify the range in `RecordFrom` and `RecordTo`. For example, out of 80 results you can prefer to see only records after 30 or between 30-60 prefer to see first 30 records only or records between 30-70
  
 
  
@@ -1729,7 +1729,7 @@ MerchantID=81e77da2-723b-483d-8c0d-49f800c1exxx&InputFormat=application/json&Inp
 }
 ```
 
-Adds existing order items of the respective customer to the cart.
+Adds an existing order items of a customer to the cart.
 
 
 ### Resource Information
@@ -1759,8 +1759,8 @@ merchantId* | string | Unique merchant id (GUID) in which the order is placed
 ### Request Body Parameters
 Parameter | Type | Description
 --------- | ----- | ------
-OrderId* | int |  Existing Order id of the customer that you want to order again
-UserId* | string  | The unique identifier of the customer associated to the order
+OrderId* | int | Existing Order id of the customer that you want to order again
+UserId* | string  | Unique GUID of the customer associated to the order
 
 ### Response Parameters
 
@@ -1824,6 +1824,7 @@ MerchantID=81e77da2-723b-483d-8c0d-49f800c1exxx&InputFormat=application/json&Inp
          "ConversionFactor":"1",
          "DeliveryOption":"ship",
          "IsGift":false,
+         "IsGift":false,
          "LeadTime":"",
          "MerchantId":"2c58c9c6-c9c9-49cf-b424-7acbc4e1xxx",
          "OrderDate":"02-02-2018 16:08:45",
@@ -1882,7 +1883,7 @@ MerchantID=81e77da2-723b-483d-8c0d-49f800c1exxx&InputFormat=application/json&Inp
 }
 ```
 
-Retrieves the history of orders of a merchant or customer based on the input parameters.
+Retrieves order history of a merchant or customer based on the input parameters.
 
 ### Resource Information
 
@@ -1906,19 +1907,19 @@ Batch Support | No
 ### Request Body Parameters
 Parameter | Type | Description
 --------- | ----- | ------
-UserId | string |  The unique user identifier of the customer whose details need to be retrieved
-FromDate | date-time | Specify the duration for which you want to fetch the order history (mm-dd-yyyy hh:mm:ss format) in FromDate and ToDate
-ToDate | date-time | Specify the duration for which you want to fetch the order history (mm-dd-yyyy hh:mm:ss format) in FromDate and ToDate
+UserId | string |  The unique GUID of the customer whose details need to be retrieved
+FromDate | date-time | Specify the duration for which you want to fetch the order history in `FromDate` and `ToDate`. Supported date format `mm-dd-yyyy hh:mm:ss`
+ToDate | date-time | Specify the duration (in `FromDate` and `ToDate`) for which you want to fetch the order history. Supported date format: `mm-dd-yyyy hh:mm:ss` 
 Status | enum | Filter the search results by order status. Values: `P` for Pending, `F` for Cancel, `A` for Approved)
-ShipDateFrom | date-time | Filter the search results by shipped date range - from (ShipDateFrom) and to (ShipDateTo) in  (mm-dd-yyyy hh:mm:ss format). If ShipDateFrom is specified, then you also need to specify ShipDateTo
-ShipDateTo | date-time | Filter the search results by shipped date range - from (ShipDateFrom) and to (ShipDateTo) in  (mm-dd-yyyy hh:mm:ss format). If ShipDateFrom is specified, then you also need to specify ShipDateTo
-Sku | string | Filter the search results by SKU id based on the ids matching the specified value. For example, if you specify 100,  you will get the list of orders with item SKU ids starting with 100. You can also fetch a specific ordered item by passing the exact SKU id
-OrderId | int | Filter the search results by order id or order number. For example, if you specify 5550,  you will get the list of all orders with order ids starting with 5500. You can also fetch a specific order by passing the exact order id.
+ShipDateFrom | date-time | Search orders shipped in a specific duration. Specify the shipped duration in  `ShipDateFrom` and `ShipDateTo` in `mm-dd-yyyy hh:mm:ss`. If ShipDateFrom is specified, then you also need to specify ShipDateTo
+ShipDateTo | date-time | FilSearch orders shipped in a specific duration. Specify the shipped duration in  `ShipDateFrom` and `ShipDateTo` in `mm-dd-yyyy hh:mm:ss`. If ShipDateFrom is specified, then you also need to specify ShipDateTo
+Sku | string | Fetch orders containing a specific product (SKU). You can also fetch with partial SKU to get the list of orders having SKUs that start with the keyword specified
+OrderId | int | Retrieves the details of a orders with order id starting starting with the specified keyword. For example, if you specify 5550,  you will get the list of all orders with order ids starting with 5500. You can also fetch a specific order by passing the complete order id.
 FromOrder | string | The orderId sequence from which you want to fetch orders.  For example, if you pass 34000, you will get all orders with orderId greater than or equal to 34000
 store | string | Fetch orders based on the user role. Values: mystore, all, GUID and so on. For example, you can pass the GUID of a supplier to get all orders of the supplier 
-WithRewards | boolean | Retrieve the list of orders with loyalty rewards. Send  ‘True’ if you required reward/loyalty details. By default value will be ‘False’
-LocationId | string | Order fulfillment location
-OperatorId | string | The logged in user id of Anywhere Commerce's Control Panel.
+WithRewards | boolean | Fetch orders with loyalty rewards. Specify  ‘True’ if you require reward/loyalty details. The default value will be ‘False’
+LocationId | string | Order fulfillment location id
+OperatorId | string | The logged in user id (of Anywhere Commerce's Control Panel).
 
 <aside class="notice"> Any one among the above parameters is mandatory.</aside>
 
@@ -1929,8 +1930,7 @@ Following table contains descriptions of a few response parameters that require 
 
 Parameter | Type | Description
 -------- | ----- | -----------
-LeadTime | int | Booking is allowed up to x minutes prior to the starting time of the booking slot (where x is the LeadTime in minutes) 
-
+LeadTime | int | Minimum time period (in minutes) prior to the booking slot when the user is allowed for booking the slot. For example, if 60 minutes and booking slot is from 1 pm to 3 pm, user cannot book this slot anytime after 12 pm
 
 
 
@@ -2126,7 +2126,7 @@ Batch Support | No
 ### Request Path Parameters
 Parameter | Type | Description
 --------- | ----- | ------
-merchantid* | string  | The unique id (GUID) of the merchant in which the invoice is available
+merchantid* | string  | The unique id (GUID) of the merchant associated to the order invoice
 InvoiceNumber* | string |  The invoice number that you want to fetch
 LocationRefCode* | string |  The location code of the order fulfillment store
 
@@ -2139,9 +2139,9 @@ Following table contains descriptions of a few response parameters that require 
 
 Parameter | Type | Description
 -------- | ----- | -----------
-LeadTime | int | Booking is allowed up to x minutes prior to the starting time of the booking slot (where x is the LeadTime in minutes)
-ConversionFactor | float | The currency conversion ratio for merchants with multiple currencies
-StockAction | string | Whether the item participates in reduction of stock or not. Value: UpdateStock,Do Not UpdateStock, None 
+LeadTime | int | Minimum time period (in minutes) prior to the booking slot when the user is allowed for booking the slot. For example, if 60 minutes and booking slot is 1 pm to 3 pm, user cannot book this slot anytime after 12 pm
+ConversionFactor | float | The currency conversion ratio. Applicable for merchants with multiple currencies
+StockAction | string | Whether the item participates in reduction of stock or not. Value: `UpdateStock`,`Do Not UpdateStock`, `None` 
 IsBackOrder | enum | Can the item be ordered even when out of stock. Value: `true`, or `false`
 
 
@@ -2244,15 +2244,15 @@ MerchantId* | string |  The unique id (GUID) of the merchant in which the order 
 OrderId* | int |  The order id of the current shipment item 
 AWBNumber* | string |  The air way bill number generated for the shipment
 CourierName* | string |  The courier service used for shipment
-ShipDate* | date |  The date on which the order is shipped in `dd/mm/yy` format
-ShipmentType* | enum |  The type of shipment. Value: `Normal` for shipments from warehouse to customer, `Reverse` for shipments customer to warehouse 
+ShipDate* | date |  The date on which the order is shipped in `yyyy/mm/dd` format
+ShipmentType* | enum |  The type of shipment. Value: `Normal` for shipments from warehouse to customer, `Reverse` for return shipments, i.e., customer to warehouse
 LocationRefCode* | string |  Location reference code of the order fulfillment store
 lineitems* | obj |  The details of each line item. Specify `OrderLineId` and `Quantity`
-ShipmentTrip | obj |  Provide more details details of the shipping using the parameters specified below. You can use this if applicable for the current merchant
+ShipmentTrip | obj |  Provide more details of the shipment in the parameters specified below. Use this only if applicable for the current merchant
 RiderID | int |  Specify the rider id as available in the merchant system
 RiderCode | string |  Specify the rider code as available in the merchant system
-TripRefNo | string |  Specify the trp reference number as per the merchant system
-VehicleNumber | string |  Specify the vehicle number delivery vehicle
+TripRefNo | string |  Specify the trip reference number as per the merchant system
+VehicleNumber | string |  Specify the vehicle number of the delivery vehicle
 Attributes | obj |  Specify any additional information such as delivery guy's mobile number
  
 <aside class="notice"> All parameters marked by * are mandatory. </aside>
@@ -2342,7 +2342,7 @@ token_secret | Unique authentication key generated for the request
 ### Request Parameters
 Parameter | Type | Description
 --------- | ---- | -------
-MerchantId* |  string | The unique id (GUID) of the merchant from which you want to fetch order details
+MerchantId* | string | The unique id (GUID) of the merchant from which you want to fetch order details
 OrderId* |  int | The order id that you want to fetch
 
 <aside class="notice"> All parameters marked by * are mandatory. </aside>
@@ -2356,7 +2356,7 @@ Following table contains descriptions of a few response parameters that require 
 Parameter | Type | Description
 -------- | ----- | -----------
 VariantMasterProductId | int | Master product id of the variant product
-VariantProductId | int | ID of the variant product
+VariantProductId | int | Unique id of the variant product
 
 
 ## Get Order Information (V2)
@@ -2838,11 +2838,11 @@ orderReferenceNo* | string | Reference number of the order that you want to fetc
 Parameter | Type | Description
 -------- | ----- | -----------
 TotalPromotionDiscount | float | Total promotional discount received for the product
-ReturnReason | string | Reason for returning the item. Applicable for return items 
-IsBackOrder | boolean | Can the item be ordered even when out of stock
-ShippingVoucherDiscount | float | Discount on shipping through voucher
-SubStatus | enum | Sub status of the as configured in the CP. For example, RJ for rejected. You can find the order sub-statuses configured on the CP Settings > Application settings > Order settings > Order Substatus
-IsFreebie | enum | Whether the item is a free gift item. Value `0` for no, `1` for yes
+ReturnReason | string | Reason for returning the item. Applicable for return items. Values:<br> WID - Wrong item delivered <br> BAQ - Bad Quality <br> DLP - Did not like the product <br> DPR - Defective/Damage product received <br> RD - Received Damaged DP - Defective Product<br> II - Incorrect Item received<br> UW	Unwanted Gift<br> US - Unsuitable<br> UP - Unlike Photo, TS - Too Small<br> OT - Other<br> FD - Fraud<br> IE - Incorrect Size<br> PDR - Product is damaged<br> WPD - Product is not as per website description<br> CR - Customer Remorse<br> PWF - Product is not properly functioning
+IsBackOrder | boolean | Whether the item can be ordered even when it is out of stock
+ShippingVoucherDiscount | float | Discount amount, though voucher, availed on the shipment
+SubStatus | enum | Sub status of the order as configured in the CP. For example, RJ for rejected. You can find the order sub-statuses configured on the CP Settings > Application settings > Order settings > Order Substatus
+IsFreebie | enum | Whether the item is a free gift item or not. Value `0` for no, `1` for yes
 FreebieParent | string | Unique id of the freebie parent product 
 
 
@@ -2850,7 +2850,7 @@ FreebieParent | string | Unique id of the freebie parent product
 
 ## Get Order Lineitem Details
 
-Retrieves the details of a specific order line item.
+Retrieves the details line items of a specific order.
 
 
 
@@ -2952,7 +2952,7 @@ orderLineId* | int | Unique id of the order line item
 Parameter | Type | Description
 -------- | ----- | -----------
 TotalPromotionDiscount | float | Total promotional discount received for the item
-ReturnReason | string | Reason for returning the item. Applicable for return items 
+ReturnReason | string | Reason for returning the item. Applicable for return items. Values:<br> WID - Wrong item delivered <br> BAQ - Bad Quality <br> DLP - Did not like the product <br> DPR - Defective/Damage product received <br> RD - Received Damaged DP - Defective Product<br> II - Incorrect Item received<br> UW	Unwanted Gift<br> US - Unsuitable<br> UP - Unlike Photo, TS - Too Small<br> OT - Other<br> FD - Fraud<br> IE - Incorrect Size<br> PDR - Product is damaged<br> WPD - Product is not as per website description<br> CR - Customer Remorse<br> PWF - Product is not properly functioning
 IsBackOrder | boolean | Can the item be ordered even when out of stock
 ShippingVoucherDiscount | float | Discount on shipping through voucher
 VendorId | string | Unique GUID of the supplier of the item
@@ -3019,6 +3019,7 @@ Batch Support | No
 * **Rate limiter** controls the number of incoming and outgoing traffic of a network
 * **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
 
+
 ### Request URL
 
 `https://{host}/developerapi/Order/GetOrderStatus/{MerchantId}/{orderId}`
@@ -3040,8 +3041,8 @@ Following table contains descriptions of a few response parameters that require 
 
 Parameter | Type | Description
 --------- | ---- | -----------
-status | enum | Current status of an order `P` for pending, `C` for canceled, `F` failed, `A` for authorized,  `S` for shipped, `D` for delivered
-SubStatus | enum | Sub status of the as configured in the CP. For example, RJ for rejected. You can find the order sub-statuses configured on the CP Settings > Application settings > Order settings > Order Substatus
+status | enum | Current status of an order. Values: `P` for pending, `C` for canceled, `F` failed, `A` for authorized,  `S` for shipped, `D` for delivered
+SubStatus | enum | Sub status of the order as configured in the CP. For example, RJ for rejected. You can find all available sub-statuses in CP Settings > Application settings > Order settings > Order Substatus
 
 
 
@@ -3080,7 +3081,7 @@ MerchantID=f48fdd16-92db-4188-854d-1ecd9b62d066&InputFormat=application/json&Inp
 }
 ```
 
-Cancels a specific order of a customer placed on a merchant store. However, an order can be canceled only if
+Cancels a specific order of a customer placed on a merchant store. An order can be canceled only if
  
 * The logged in user has sufficient permission to cancel the order
 * The order is either in Authorized (A) or Pending (P) Status
@@ -3109,20 +3110,21 @@ Batch Support | No
 
 Parameter | Type | Description
 --------- | ---- | -----------
-Merchant Id* | string  | The unique id (GUID) of the merchant in which the order is placed
-OrderId* | int  | Provide the order id that you want to cancel
-Date* | date  | The date on which the order is created in mm/dd/yy format
-Comment |  string | Specify the customer's reason for the order cancellation
+Merchant Id* | string  | The unique id (GUID) of the merchant associated to the order
+OrderId* | int | Provide the order id that you want to cancel
+Date* | date-time | Date and time when the order is created in `MM/DD/YYYY HH:MM:SS AM/PM` format
+Comment | string | Specify the customer's reason for the order cancellation
 DisplayCommentToUser | boolean  | Value: True/False. Specify whether to make the custom comment visible (True) or invisible (False) to the end-customer 
 PGResponse |  string | The response received from the payment gateway
 OperatorID | string  | Current user id - It could be store, admin, manager
-CancelReason* | string  | Value: Auto populated reason
+CancelReason* | string  | Specify the predefined reason code for the order cancellation. Values: <br>`NDA`: Order not in delivery Area<br> `ICI`: Incorrect Contact information<br> `ODM`: Order less than order delivery minimum value<br> OND: Order not delivered<br> `SLA`: SLA expired in Acknowledgment<br> `SLN`: SLA expired in New Order<br> `QMA`: Order Expired due to Quantity Mismatch from Aggregator<br> `RDA`: Retailer did Not allocate items to aggregator<br> `CPR`: Cancellation as per customer request<br> `INA`: Item Not available/Unsellelable<br> `OPM`: Order placed by mistake<br> `DTM`: Order delivery Is taking too much time<br> `OEQ`: By mistake ordered extra quantity<br> `BFS`: Bought it from somewhere else<br> `CSA`: I want to change my shipping address<br> `CMP`: I want to change my mode of payment<br> `CHA`: Product cost Is high compared to another website<br> `SCH`: Shipping charges are too high<br> `PNR`: Payment not received
 
 <aside class="notice"> All parameters marked by * are mandatory. </aside>
 
 
  
 ## Cancel Order Lineitem
+
 > Sample Request
 
 ```html
@@ -3161,7 +3163,7 @@ MerchantID=98d18d82-ba59-4957-9c92-3f89207a3xxx&InputFormat=application/json&Inp
 ```
 
  
- Lets you cancel specific items of an order (partial cancellation). However, you can cancel an order item only if
+ Lets you cancel specific items of an order (partial cancellation). You can cancel an order item only if
  
 * The logged in user has sufficient permission to cancel
 * The order is either in Authorized (A) or Pending (P) Status
@@ -3187,14 +3189,14 @@ Batch Support | No
 ### Request Body Parameters
 Parameter | Type | Description
 --------- | ---- | -------
-Merchant Id* | string  | The unique id (GUID) of the merchant in which the order is placed
+Merchant Id* | string | The unique id (GUID) of the merchant in which the order is placed
 OrderId* | int | Provide the order id that you want to cancel
-Date* | date | The date on which the order is created in mm/dd/yy format
+Date* | date | Date and time when the order is created in `MM/DD/YYYY HH:MM:SS AM/PM` format
 Comment | string | Specify the customer's reason for the order cancellation
-DisplayCommentToUser | boolean |  Value: True/False. Specify whether to make the custom comment visible (True) or invisible (False) to the end-customer 
+DisplayCommentToUser | boolean |  Value: True/False. Specify whether to make the comment visible (True) or hidden (False) to the end-customer 
 PGResponse | string | The response received from the payment gateway for that specific order
-OperatorID | string | Current user id - It could be store's, admin's, or manager's
-CancelReason* | string | Specify the reason for order cancellation. In UI, these are auto-populated in the UI.
+OperatorID | string | Current CP user id
+CancelReason* | string | Specify the predefined reason code for the order cancellation. Values: <br>`NDA`: Order not in delivery Area<br> `ICI`: Incorrect Contact information<br> `ODM`: Order less than order delivery minimum value<br> OND: Order not delivered<br> `SLA`: SLA expired in Acknowledgment<br> `SLN`: SLA expired in New Order<br> `QMA`: Order Expired due to Quantity Mismatch from Aggregator<br> `RDA`: Retailer did Not allocate items to aggregator<br> `CPR`: Cancellation as per customer request<br> `INA`: Item Not available/Unsellelable<br> `OPM`: Order placed by mistake<br> `DTM`: Order delivery Is taking too much time<br> `OEQ`: By mistake ordered extra quantity<br> `BFS`: Bought it from somewhere else<br> `CSA`: I want to change my shipping address<br> `CMP`: I want to change my mode of payment<br> `CHA`: Product cost Is high compared to another website<br> `SCH`: Shipping charges are too high<br> `PNR`: Payment not received
 TobeCancelledOrderItems | obj | Specify the items that you want to cancel in `OrderItemID` and `CancelQuantity`
 
 <aside class="notice"> All parameters marked by * are mandatory. </aside>
@@ -3203,7 +3205,7 @@ TobeCancelledOrderItems | obj | Specify the items that you want to cancel in `Or
 
 ## Add Order Lineitem
 
-Lets you add an item to existing order.
+Lets you add an item to an existing order.
 
 > Sample Request
 
@@ -3265,10 +3267,10 @@ Batch Support | No
 
 Parameter | Type | Description
 -------- | ----- | -----------
-OrderID* | int | Unique id of the order for which you want to add items
+OrderID* | int | Unique id of the order to which you want to add items
 SKU* | string | SKU of the product that you want to add/update
 VarientSKU | string | Variant SKU of the item that you want to add. Required to add variant product
-Quantity* | int | Quantity of the item that you want to add (adds to the order list. Not overrides
+Quantity* | int | Quantity of the current item (SKU/variantSKU) that you want to add. The value you mention herein will add to the existing quantity but not overrides the existing quantity
 LocationCode* | int | Location code of the item
 DeliveryMode* | enum | Mode of delivery of the current item. Values: `H` for home delivery, `S` for store pick-up
 ItemAction* | enum | Specify `1` to add items to the existing list. Only one value is supported currently
@@ -3347,8 +3349,8 @@ Batch Support | No
 
 Parameter | Type | Description
 -------- | ----- | -------
-OrderId* |  int | Order ID of the return items
-ReturnRequestId | int |  Return Request ID of the return. Leave this blank if you want to just modify the return details
+OrderId* | int | Order ID of the return items
+ReturnRequestId | int |  Return Request ID. Leave this blank if you want to just modify the return details
 Substatus |  string | Sub-status code of the return request (Preconfigured values only). Leave this blank if you want to just modify the return details
 SubstatusChangeComments | string  | Specify the reason for return sub-status change. You can enter up to 50 characters
 
@@ -3361,7 +3363,7 @@ SubstatusChangeComments | string  | Specify the reason for return sub-status cha
 
 ## Update Return Request Status
 
-Lets you update status of a return request.
+Lets you update the status of a return request.
 
 
 
@@ -3427,13 +3429,10 @@ Parameter | Type | Description
 merchantId* | string | Unique GUID of the merchant
 ReturnRequestID* | int | Unique id of the return request that you want to update
 Status* | enum | New status of the return request. Values: Refund Completed - `RC`, Initiated - `I`, Received - `R`, Picked - `P`, Pending Pickup - `S`, Closed - `C`
-OperatorId | string | Unique id of the store operator who want to update the status
+OperatorId | string | Unique id of the store operator that is updating the status
 
 
 <aside class="notice"> All parameters marked by * are mandatory. </aside>
-
-
-
 
 
 
@@ -3535,7 +3534,7 @@ Batch Support | No
 Parameter | Type | Description
 -------- | ----- | -----------
 OrderID* | int | The order id for which you want to create shipment packages
-ShipmentType* | string  | Type of shipment. Value: `Normal` for shipments from warehouse to customer, `Reverse` for shipments customer to warehouse
+ShipmentType* | string  | Type of shipment. Value: `Normal` for shipments from warehouse to customer, `Reverse` for shipments customer to warehouse (return pickup)
 AirwayBillNo* | string | Airway bill number provided by the courier service
 CourierName* | string | Name of the courier service used for shipment
 ShipmentPickupDate* | date-time | Pickup date of the shipment in `YYYY\/MM\/DD` format
@@ -3633,8 +3632,10 @@ OrderId* | int | Order id for which you want to update sub-status
 Parameter | Type | Description
 -------- | ----- | -----------
 OperatorId | string | Unique id of the staff updating the order substatus.
-OrderLineId* | int | Line item id of for which you want to update status
-SubStatus* | enum | New status of the order or order line item as configured in the CP. Either pass it at the order level or line-item. For example, `RJ` for rejected. You can find the configured sub-statuses in the CP Settings > Application settings > Order settings > Order Substatus
+OrderLineId* | int | Line item id of the order for which you want to update status
+SubStatus* | enum | New status of the order or order line item as configured in the CP. These can be predefined or user defined. You can either pass it at the order level or line-item. For example, `EX` for Order Expired, `SE` for Successful to ERP/POS, `RJ` for	Order Rejected, `FE` for Failed to ERP/POS, `IP` for In Progress. <br>	
+You can find the predefined and user defined sub-statuses in the CP Settings > Application settings > Order settings > Order Substatus
+
 
 
 ## Update Shipment Trip Details
@@ -3719,13 +3720,13 @@ Batch Support | No
 Parameter | Type | Description
 -------- | ----- | -----------
 ShipmentId* | int | Unique id of the shipment that you want to update
-RiderId** | int | Unique id of the rider who delivers the shipment. Rider ID has to be preconfigured against the merchant. Either RiderId or RiderCode is mandatory
-RiderCode** | string | Unique code of the rider who delivers the shipment. Rider Code has to be preconfigured against the merchant. Either RiderId or RiderCode is mandatory
+RiderId** | int | Unique id of the rider who delivers the shipment. Rider ID has to be preconfigured for the merchant. Either RiderId or RiderCode is mandatory
+RiderCode** | string | Unique code of the rider who delivers the shipment. Rider Code has to be preconfigured for the merchant. Either RiderId or RiderCode is mandatory
 VehicleNumber | string | Vehicle number of the delivery vehicle
 TripRefNo | string | Unique trip reference number
 Comments | string | Specify any comments that need to be specified for the shipment
-OperatorID | string | Unique CP GUID who updates the shipment trip details
-ShipmentTripAttributes | obj | Provide additional details of the shipment in each obj Name-Value (key-value pairs). You can pass your preferred combination of attribute name and value that are applicable for the shipment
+OperatorID | string | Unique CP user GUID who updates the shipment trip details
+ShipmentTripAttributes | obj | Provide additional details of the shipment in each obj Name-Value (key-value) pairs. You can pass your preferred combination of attribute name and value as applicable
 
 
 
@@ -3734,8 +3735,6 @@ ShipmentTripAttributes | obj | Provide additional details of the shipment in eac
 * ** You need to provide either rider id or rider code
 * You need to pass other parameters that are applicable to the shipment type 
 </aside>
-
-
 
 
 
@@ -3800,7 +3799,7 @@ Parameter | Type | Description
 -------- | ----- | -----------
 ShipmentId* | string  | Unique id of the shipment that you want to update
 Shippingstatus* | enum | New status of the current shipment. Values: `I` - RTO initiated, `O` - RTO Received, `L` - RTO Lost, `X` - Others, `S` - Shipment created, `R` - Dispatched, `T` - In transit, `U` - Out for delivery, `D` - Delivered, `C` - RTO Closed, `F` - Cancelled, `E` - RTO Refunded/Replacement closed, `W` - Waiting for Collection (in-store), `G` - At Gate
-ShippingMessage | string | Message that you want to leave  for the shipment
+ShippingMessage | string | Message that you want to provide for the shipment
 
 
  
@@ -3843,7 +3842,7 @@ https://www.martjack.com/developerapi/Order/ShipmentPackages/f48fdd16-92db-4188-
 
 ```
 
-Retrieves shipment packages of the merchant.
+Retrieves all shipment packages of the merchant.
 
 ### Resource Information
 | | |
@@ -4117,7 +4116,7 @@ Batch Support | No
 ### Request Body Parameters
 Parameter | Type | Description
 -------- | ---- | ----------
-orderfieldchangehistory | boolean | Specify `true` to retrieve the history of change in order or order item attributes. For example, order fulfillment location, order item fulfillment location and so on
+orderfieldchangehistory | boolean | Specify `true` to retrieve the history of change in order or order item attributes. Default value is `false`
 activityhistory | boolean | Specify `true` to retrieve activity log of an order such as order authorized, order shipped, and payment authorized
 orderids* | int | Specify the order id(s) that you want to fetch. You can specify multiple order ids separating each by a comma
 
@@ -4131,7 +4130,7 @@ Following table contains descriptions of a few response parameters that require 
 Parameter | Type | Description
 --------- | ---- | ----------
 ConversationLogId | int | Unique id of the activity for internal reference
-RETransactionId | int | Unique Order id associated
+RETransactionId | int | Unique Order id for which you want to get activity history
 LogAction | enum | Action associated to the log. For example, P (payment), and S (shipment)
 ConversationType | - | -Deprecated-
 
@@ -4288,10 +4287,10 @@ Following table contains descriptions of a few response parameters that require 
 
 Parameter | Type | Description
 --------- | ---- | -----------
-ShipmentType | enum | Type of shipment. Value: `Normal` for shipments from warehouse to customer, `Reverse` for shipments customer to warehouse
+ShipmentType | enum | Type of shipment. Value: `Normal` for shipments from warehouse to customer, `Reverse` for shipments from customer to warehouse
 ReceivedBy | string | Customer who received the shipment
 ServiceProvider | string | Name of the logistic provider
-CollectableAmount | int | Amount to the collected from the receiver (used for COD orders)
+CollectableAmount | int | Amount to be collected from the receiver (used for COD orders)
 
 
 
@@ -4402,8 +4401,8 @@ Following table contains descriptions of a few response parameters that require 
 Parameter | Type | Description
 --------- | ---- | -----------
 UseMailBoxAddress | boolean | Whether the user's mail address of the location is used or not 
-VerificationMethod | string | Verification type for item delivery or return pick-up. Currently we support `OTP`
-VerificationValue | string | Value of the specified VerificationMethod
+VerificationMethod | string | Verification type used for item delivery or return pick-up. Currently we support `OTP`
+VerificationValue | string | Value of the specified `VerificationMethod`
 
 
 
@@ -4458,7 +4457,7 @@ MerchantId=81e77da2-723b-483d-8c0d-49f800c1exxx&InputFormat=application/json&Inp
 
 
 
-Retrieves shipment ids and order ids the merchant based on the input parameters.
+Retrieves shipment ids and order ids of the merchant based on the input parameters.
 
 
 ### Resource Information
@@ -4485,9 +4484,9 @@ Batch Support | No
 
 Parameter | Type | Description
 -------- | ----- | -----------
-CreatedDateFrom | date | Get shipments created in a specific duration between `CreatedDateFrom` and `CreatedDateTo`
-CreatedDateTo | date | Get shipments created in a specific duration between `CreatedDateFrom` and `CreatedDateTo`
-ShippingStatus | enum | Get shipments by shipment status. You can pass multiple values separated by comma. Values: `I` - RTO initiated, `O`	- RTO Received, `L`	- RTO Lost, `X`	- Others, `S` - Shipment created, `R`	- Dispatched, `T`	- In transit, `U`	- Out for delivery, `D` - Delivered, `C`	- RTO Closed, `F`	- Canceled, `E`	- RTO Refunded/Replacement closed, `W`	- Waiting for Collection  (in-store), `G`	- At Gate
+CreatedDateFrom | date | Get shipments created in a specific duration. Specify the duration in `CreatedDateFrom` and `CreatedDateTo`
+CreatedDateTo | date | Get shipments created in a specific duration. Specify the preferred duration in `CreatedDateFrom` and `CreatedDateTo`
+ShippingStatus | enum | Get shipments of a specific shipment status(s). You can pass multiple values separated by comma. Values: `I` - RTO initiated, `O`	- RTO Received, `L`	- RTO Lost, `X`	- Others, `S` - Shipment created, `R`	- Dispatched, `T`	- In transit, `U`	- Out for delivery, `D` - Delivered, `C`	- RTO Closed, `F`	- Canceled, `E`	- RTO Refunded/Replacement closed, `W`	- Waiting for Collection  (in-store), `G`	- At Gate
 
 
 
@@ -4559,7 +4558,7 @@ merchantId* | string | Unique GUID of the merchant
 shipmentId | long | New shipment id that you want to update with
 aWBNumber | string | New AWB number that you want to update with
 islabelReady | enum | Specify `true` if the shipment label is ready, else specify `false`. You will get an option to download the shipment label as PDF if available
-userId | string | CP logged in user id
+userId | string | Logged in user id of the CP who is updating shipment details
 providerId | int | Unique id of the shipment provider
 dispatchLabelContentType | | 
 
@@ -4692,18 +4691,18 @@ SourceLocationId | int | Unique location id of the product
 SourceCityName | string | City name of the product location
 SourceCityCode | string | Unique city code of the product location
 SourceCountryName | string | Country name of the product location
-SourceCountryCode | string | alpha-2 code of the product location country . Example: IN (for India), AU (for Australia), and BR (for Brazil)
+SourceCountryCode | string | Alpha-2 code of the country of the product location . Example: IN (for India), AU (for Australia), and BR (for Brazil)
 SourceStateName | string | State name of the product location
 SourceStateCode | string | State code of the product location
 ShipCityName | string | City name of the product delivery location
 ShipCityCode | string | Unique city code of the product delivery location
 ShipCountryName | string | Country name of the product delivery location
-ShipCountryCode | string | alpha-2 code of the country of the product delivery location. Example: IN (for India), AU (for Australia), and BR (for Brazil)
+ShipCountryCode | string | Alpha-2 code of the country of the product delivery location. Example: IN (for India), AU (for Australia), and BR (for Brazil)
 ShipStateName | string | State name of the product delivery location
 ShipStateCode | string | State code of the product delivery location
 SKU* | string | SKU of the product for which you want to calculate tax (Required for variant product)
 VarientSKU | string | SKU of the variant product for which you want to calculate tax
-Quantity* | int | Number of the item for which you want to calculate tax
+Quantity* | int | Number of items for which you want to calculate tax
 DeliveryMode* | enum | Mode of delivery of the current item. Values: `H` for home delivery, `S` for store pick-up
 UnitPrice* | float | Price of a single item
 
@@ -4717,7 +4716,7 @@ BundleItem | json obj | Applicable for bundle products
 TaxCategory | string | Category of tax
 TaxCodeId | int | Unique id of the tax code
 IsTaxOnShipping | boolean | Whether tax is applied on shipping charges
-IsPercentage | boolean | If true, tax rate is calculated on the percentage of the price and false flat amount tax 
+IsPercentage | boolean | If true, tax rate is calculated on the percentage of the price and `false` for flat amount tax 
 
 
 
@@ -4725,7 +4724,7 @@ IsPercentage | boolean | If true, tax rate is calculated on the percentage of th
 
 ## Calculate Tax (Bundle Product)
 
-Calculates tax amount for a product on the basis of source and destination location.
+Calculates tax (amount) for a product on the basis of source and destination location.
 
 > Sample Request
 
@@ -4872,29 +4871,31 @@ SourceLocationId | int | Unique location id of the product
 SourceCityName | string | City name of the product location
 SourceCityCode | string | Unique city code of the product location
 SourceCountryName | string | Country name of the product location
-SourceCountryCode | string | alpha-2 code of the product location country . Example: IN (for India), AU (for Australia), and BR (for Brazil)
+SourceCountryCode | string | Alpha-2 code of the country of the product location. Example: IN (for India), AU (for Australia), and BR (for Brazil)
 SourceStateName | string | State name of the product location
 SourceStateCode | string | State code of the product location
 ShipCityName | string | City name of the product delivery location
 ShipCityCode | string | Unique city code of the product delivery location
 ShipCountryName | string | Country name of the product delivery location
-ShipCountryCode | string | alpha-2 code of the country of the product delivery location. Example: IN (for India), AU (for Australia), and BR (for Brazil)
+ShipCountryCode | string | Alpha-2 code of the country of the product delivery location. Example: IN (for India), AU (for Australia), and BR (for Brazil)
 ShipStateName | string | State name of the product delivery location
 ShipStateCode | string | State code of the product delivery location
 BundleItem | obj | Details of the bundle product
 SKU* | string | SKU of the product for which you want to calculate tax (Required for variant product)
 VarientSKU | string | SKU of the variant product for which you want to calculate tax
-Quantity* | int | Number of the item for which you want to calculate tax
+Quantity* | int | Number of the items for which you want to calculate tax
 DeliveryMode* | enum | Mode of delivery of the current item. Values: `H` for home delivery, `S` for store pick-up
 UnitPrice* | float | Price of a single item
 
 <aside class="notice"> All parameters marked by * are mandatory. </aside>
 
-### Sample Response Parameters
+### Response Parameters
+
+Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.
+
 
 Parameter | Type | Description
 -------- | ----- | -----------
-BundleItem |  | Applicable for bundle products
 TaxCategory | string | Category of tax
 TaxCodeId | int | Unique id of the tax code
 IsTaxOnShipping | boolean | Whether tax is applied on shipping charges
@@ -4904,7 +4905,7 @@ IsPercentage | boolean | If true, tax rate is calculated on the percentage of th
 
 ## Balance Enquiry
 
-Retrieves the wallet balance of a customer of a specific service. For example, loyalty card, RazorPay and so on.
+Retrieves the wallet balance of a customer of a specific service. For example, balance of loyalty card, RazorPay and so on.
 
 > Sample Request
 
@@ -4981,6 +4982,7 @@ userId* | string | Unique GUID of the user for which you want to fetch the walle
 
 
 
+
 ## Update Order Reference
 
 Updates external reference number of an order.
@@ -4991,6 +4993,7 @@ Updates external reference number of an order.
 https://www.martjack.com/developerapi/Order/UpdateOrderReference/81e77da2-723b-483d-8c0d-49f800c1xxxx
 
 ```
+
 
 > Sample POST Request
 
@@ -5037,7 +5040,7 @@ Parameter | Type | Description
 --------- | ---- | -----------
 merchantId* | string | Unique GUID of the merchant
 orderID* | string | Order id for which you want to update reference number
-referenceNumber* | string | Preferred reference number for the  order
+referenceNumber* | string | Preferred reference number for the order
 
 <aside class="notice">All parameters marked by * are mandatory. </aside>
 
@@ -5045,7 +5048,7 @@ referenceNumber* | string | Preferred reference number for the  order
 
 ## Create Return Request
 
-Lets you create a new return request. A request made by customer to return partial or complete items of an order that is delivered.
+Lets you create a new return request - A request made by a customer to return partial or complete items of an order that are delivered.
 
 
 
@@ -5173,26 +5176,26 @@ Parameter | Type | Description
 -------- | ----- | -----------
 merchantId* | string | Unique GUID of the merchant
 OrderId* | int | Unique order id for which you want to create return request
-Comments | string | Reason for return
+Comments | string | Any comment related to the return request
 Source | enum | Source from which the return request is made. Values: 1, 2, 3, 4, 5. Example, 1 stands for storefront
 Status | enum | Current status of the return request. Values: `I` for initiated, `C` for closed
 RequestType | enum | Type of the return request. `R` for return to origin (RTO) `C` for customer return and `CU` for Return created due to item cancellation
 RefundStatus | enum | Current status of the refund, `I` for refund initiated, `A` for refund approved
 PaymentMode | string | Mode of refund. Values: NEFT Cheque/DD, Credit Card, eVoucher
-BankName | string | Bank name to which the refund will be made(for NEFT payment)
-IFSCCOde | string | IFSC code of the specified bank (for NEFT payment)
-AccountNumber | string | Account number to which the return amount needs to be refunded (for NEFT payment)
-AccountName | string | Name of the customer account as per the specified bank (for NEFT payment)
-BranchName | string | Branch name of the specified account (for NEFT payment)
-FirstName | string | First name of the customer returning the item(s)
+BankName | string | Bank name to which the refund will be made(for refund through NEFT payment)
+IFSCCOde | string | IFSC code of the specified bank (for refund through NEFT payment)
+AccountNumber | string | Account number to which the return amount needs to be refunded (for refund through NEFT payment)
+AccountName | string | Name of the customer account as per the specified bank (for refund through NEFT payment)
+BranchName | string | Branch name of the specified account (for refund through NEFT payment)
+FirstName | string | First name of the customer associated to the order
 Address1 | string | Complete shipping address of the customer
-CountryCode | string | alpha-2 code of the location country associated shipment address. Example: IN (for India), AU (for Australia), and BR (for Brazil)
-CountryName | string | Name of the country as per the shipment address
+CountryCode | string | Alpha-2 code of the country of the shipment address. Example: IN (for India), AU (for Australia), and BR (for Brazil)
+CountryName | string | Name of the country of the shipment address
 StateCode | string | State code of the shipment location
 StateName | string | Name of the state as per the shipping address
 CityCode | string | Unique city code of the product shipment location
 CityName | string | City name of the product shipment location
-PostCode | string | ZIP Code of the delivery location
+PostCode | string | ZIP Code of the shipment location
 Email | string | Registered email id of the customer
 TelephoneCode | string | Land line number area code
 Telephone  | string | Land line number of the customer excluding the country code
@@ -5201,7 +5204,7 @@ Mobile | string | Mobile number of the customer excluding country code
 RefundAmount | float | Total amount to be refunded to the customer (once the item return is initiated)
 RefundedAmount | float | Actual amount refunded to the customer
 ConfirmedRefundAmount | float | Refund amount confirmed by the staff (at the warehouse)
-IsSelfShip | boolean | If the order shipment is handled by marketplace such as Amazon or Flipkart specify `False` and if the shipment is handled by the merchant itself, set the value to `True`
+IsSelfShip | boolean | If the order shipment is handled by marketplace such as Amazon or Flipkart specify `False`, if the shipment is handled by the merchant itself, specify `True`
 ShipmentId | int | Unique id of the return shipment
 ReturnRequestShipmentDetails | obj | Details of each return item
 CourierName | string | Name of the courier service chosen for return shipment
@@ -5211,7 +5214,7 @@ Sku | string | Unique SKU of each return item
 Reason | string | Return reason code. Values:<br> WID - Wrong item delivered <br> BAQ - Bad Quality <br> DLP - Did not like the product <br> DPR - Defective/Damage product received <br> RD - Received Damaged DP - Defective Product<br> II - Incorrect Item received<br> UW	Unwanted Gift<br> US - Unsuitable<br> UP - Unlike Photo, TS - Too Small<br> OT - Other<br> FD - Fraud<br> IE - Incorrect Size<br> PDR - Product is damaged<br> WPD - Product is not as per website description<br> CR - Customer Remorse<br> PWF - Product is not properly functioning
 SuggestedReturnAction | string | Reason for item return
 ReturnQty* | int | Return quantity of the current item initiated by the customer
-IsReceived* | boolean | Whether the current item is received or not
+IsReceived* | boolean | Whether the current item is received at the warehouse or not
 ReceivedQty** | int | Quantity of the current item received at the warehouse
 CreatedDate* | date | Date when the return request is created in `MM-DD-YYYY` format
 
@@ -5226,7 +5229,7 @@ CreatedDate* | date | Date when the return request is created in `MM-DD-YYYY` fo
 
 ## Search Return Requests
 
-Returns the history of return orders of the merchant.
+Returns the order ids that are returned based on the input parameters.
 
 > Sample Request
 
@@ -5315,7 +5318,7 @@ toDate | date | Duration for which you want to fetch return orders (fromDate - t
 refundStatus | string | Status of the refund. Value: `I` for refund initiated, `C` for refund complete
 status | string | Status of the return. Value: `RC` for Refund completed, `I` for initiated, `R` received, `P` for picked up, `S` pending pickup, `C` closed
 orderId | int | Unique id of the order
-paymentMode | string | Mode of payment for the return. Values: NEFT Cheque/DD, Credit Card, eVoucher
+paymentMode | string | Fetch return orders by mode of payment(refund). Values: NEFT Cheque/DD, Credit Card, eVoucher
 
 <aside class="notice"> MerchantId and any one among the other parameters are mandatory.</aside>
 
@@ -5483,10 +5486,12 @@ returnRequestId* | int | Unique id of the return request that you want to fetch
 
 ### Response Parameters
 
+Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.
+
 Parameter | Type | Description
 --------- | ---- | -----------
-BillOfSupplyCreditNoteNumber | string | Credit Note will be generated for any customer returned item received at the merchant warehouse.  Non-taxable items will have "Bill of supply Credit note number" 
-TaxableCreditNoteNumber | string | Credit Note will be generated for any customer returned item received to merchant warehouse. Taxable Items will have this "Taxable credit note number"
+BillOfSupplyCreditNoteNumber | string | Credit note is generated for a customer returned item received at the merchant warehouse.  Non-taxable items will have "Bill of supply Credit note number" 
+TaxableCreditNoteNumber | string | Credit note is generated for any customer returned item received to merchant warehouse. Taxable Items will have this "Taxable credit note number"
 Source | int | values from 1-5. Source from which the return request is made. Example, `1` stands for storefront
 RequestStatus | enum | Current status of the return request. Values: `I` for initiated, `C` for closed
 RequestType | enum | Type of the return request. `R` for return to origin (RTO) `C` for customer return and `CU` for Return created due to item cancellation
@@ -5647,14 +5652,14 @@ OrderId* | int | Unique order id for which you want to fetch return request deta
 
 Parameter | Type | Description
 --------- | ---- | -----------
-BillOfSupplyCreditNoteNumber | string | Credit Note will be generated for any customer returned item received at the merchant warehouse.  Non-taxable items will have "Bill of supply Credit note number" 
-TaxableCreditNoteNumber | string | Credit Note will be generated for any customer returned item received to merchant warehouse. Taxable Items will have this "Taxable credit note number"
-Source | int | values from 1-5. Source from which the return request is made. Example, `1` stands for storefront
+BillOfSupplyCreditNoteNumber | string | Credit note is generated for a customer returned item that is received at the merchant warehouse.  Non-taxable items will have "Bill of supply Credit note number" 
+TaxableCreditNoteNumber | string | Credit note is generated for a customer returned item that is received at the merchant warehouse. Taxable Items will have  "Taxable credit note number"
+Source | int | Source from which the return request is made. values from 1-5. Example, `1` stands for storefront
 RequestStatus | enum | Current status of the return request. Values: `I` for initiated, `C` for closed
-RequestType | enum | Type of the return request. `R` for return to origin (RTO) `C` for customer return and `CU` for Return created due to item cancellation
+RequestType | enum | Type of the return request. Values: `R` for return to origin (RTO) `C` for customer return and `CU` for Return created due to item cancellation
 RefundStatus | enum | Current status of the refund. Values: `I` for initiated, `C` for closed
 IncludeShippingCost | enum | `Yes` if the shipping cost is included in the return item, `No` if shipping cost is not included 
-IsSelfShip | enum | ‘Yes` if the user will ship the return package to the merchant, `No`, if the merchant has to pickup the package from the user
+IsSelfShip | enum | ‘Yes` if the user will ship the return package to the merchant, `No` if the merchant has to pickup the package from the user
 SubStatus | string | The sub-status code of the return request
 
 
