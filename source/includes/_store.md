@@ -284,7 +284,7 @@ https://www.martjack.com/developerapi/Store/Countries/81e77da2-723b-483d-8c0d-49
 }
 ```
 
-Retrieves all the countries (with country code and phone code) supported for a specific merchant.
+Retrieves all the countries (with country code and phone code) supported for the merchant.
 
 ### Resource Information
 |  |  |
@@ -581,8 +581,8 @@ Batch Support | No
 ### Request Parameter
 Attribute | Description
 --------- | -----------
-merchantId* | The unique id (GUID) of the merchant for which you want to see supported cities
-StateCode* | The state code for which you want to see the list of supported cities
+merchantId* | The unique id (GUID) of the merchant for which you want to see the supported cities
+StateCode* | The state code for which you want to see the supported cities list
 
 <aside class="notice"> All parameters marked by * are mandatory.</aside>
 
@@ -812,7 +812,7 @@ Following table contains descriptions of a few response parameters that require 
 
 Parameter | Type | Description
 -------- | ----- | -----------
-ChildrenPlayArea | boolean | If the store has children play area
+ChildrenPlayArea | boolean | Whether the store has children play area or not
 GiftPacking | boolean | Whether gift packing is available for items purchased at the store
 PhysicalStoreAdd | string | Address of the physical store
 
@@ -1143,9 +1143,9 @@ OR
 Parameter | Type | Description
 -------- | ----- | -----------
 merchantId* | string | Unique GUID of the merchant
-channelid** | int | Unique id of the channel that you want to fetch. Either pass channelid or channelcode but not both
-channelcode** | string | Unique channel code that you want to fetch. Either pass channelid or channelcode but not both
-channelrefcode** | string | Fetch details by channel reference code. Pass `channelid` as 0 if you use channelrefcode as mentioned in the Request URL 
+channelid** | int | Specify the unique id of the channel that you want to fetch. Either pass channelid or channelcode but not both
+channelcode** | string | Specify the unique channel code that you want to fetch. Either pass channelid or channelcode but not both
+channelrefcode** | string | Specify the unique reference code of the channel that you want to fetch. Pass `channelid` as 0 if you use channelrefcode as mentioned in the Request URL 
 
 
 <aside class="notice"> All parameters marked by * are mandatory. Any one among the parameters marked by ** is mandatory. </aside>

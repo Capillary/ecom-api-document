@@ -84,7 +84,7 @@ PickListId* | int | Unique id of the picklist
 UserId* | string | Unique GUID of the user associated to the order item
 Weight | int | Weight of the item 
 ActualPrice | float | Net price of the item. The item price can be changed if `isVariance` is set to true
-isVariance | boolean | Whether there is change in the price of the current item  during picklist creation. In case of any difference, the item price can be changed by passing the `ActualPrice` of the item
+isVariance | boolean | Whether there is change in the price of the current item while creating picklist. If there is a difference, the item price can be changed by passing the `ActualPrice` of the item
 
 <aside class="notice">All parameters marked by * are mandatory.</aside>
 
@@ -208,20 +208,20 @@ Parameter | Type | Description
 -------- | ----- | -----------
 MerchantID | string | Unique GUID of the merchant
 PickListId* | int | Unique id of the picklist
-SubStatus | enum | Unique 2 character code of the picklist/picklist item sub-status. Values are as per configured in the CP
-PicklistOperatorID | string | Unique id of the staff who confirms the picklist
-Comments | string | Any comments related to the picklist. You can pass this both at the request level and item level
-ConfirmPicking | enum | Specify `1` to confirm pick up, `0` if not confirmed. `0` will be considered as the default value if no value is passed
-OrderPickListDetailId | int | Unique internal reference if generated for each picklist item
-RetransactionID | int | Order id of the item
+SubStatus | enum | Unique 2 character code of the sub-status of the picklist or picklist item. Values are as per configured in the CP for that merchant
+PicklistOperatorID | string | Unique id of the staff that confirms the picklist
+Comments | string | Any comments related to the picklist at the request level/item level
+ConfirmPicking | enum | Specify `1` to confirm pick up, `0` if not confirmed. The default value is '0'
+OrderPickListDetailId | int | Unique internal reference id generated for each picklist item
+RetransactionID | int | Order id of the item for which you want to update picklist
 PicklistID | int | Unique id of the picklist
 RedetailsID | int | Unique item id as in the REtransaction table 
 PicklistOperatorID | string | Unique id of the operator
-PickListItemStatus | enum | The status of the current item. `F` for found, `N` for not found, `C` for cancel. If no value is passed, not found is considered as the default value
-Weight | int | Weight of the item 
+PickListItemStatus | enum | The status of the current item. Values: `F` for found, `N` for not found, `C` for cancel. If no value is passed, not found is considered as the default value
+Weight | int | Weight of the item if applicable
 ActualPrice | float | Net price of the item. The item price can be changed if `isVariance` is set to true
-isVariance | boolean | Whether there is change in the price of the current item  during picklist creation. In case of any difference, the item price can be changed by passing the `ActualPrice` of the item
-PickingPrice | int | Price of packing. For example, in restaurants additional charge will be levied on takeaway orders for packing
+isVariance | boolean | Whether there is change in the price of the current item when picklist is created. If there is a price difference, the item price can be changed by passing the `ActualPrice` of the item
+PickingPrice | int | Additional price charged for packing (if applicable). For example, in restaurants additional charge will be levied on takeaway orders for packing
 PicklistCustomFields | obj | Picklist level custom field details - key and value pairs
 
 <aside class="notice">All parameters marked by * are mandatory.</aside>
@@ -232,7 +232,7 @@ PicklistCustomFields | obj | Picklist level custom field details - key and value
 
 ## Get Picklist Summary
 
-Retrieves the details of a specific  specific  picklist.
+Retrieves the details of a specific  picklist.
 
 
 > Sample Request
@@ -461,7 +461,7 @@ Batch Support | No
 Parameter | Type | Description
 -------- | ----- | -----------
 MerchantId* | string | Unique GUID of the merchant
-pickListId* | int | Unique id of the picklist that you want to fetch
+pickListId* | int | Unique id of the picklist to fetch the summary
 
 
 
@@ -469,7 +469,7 @@ pickListId* | int | Unique id of the picklist that you want to fetch
 
 ## Get PickLists of a Merchant
 
-Lets you fetch picklists of the merchant based on the input parameters. By default, the picklists details of the last one week will be retrieved.
+Lets you fetch picklists of the merchant based on the input parameters. By default, the details of the picklists of the last one week will be retrieved.
 
 > Sample Request
 
@@ -579,22 +579,18 @@ Batch Support | No
 Parameter | Type | Description
 -------- | ----- | -----------
 MerchantId | string | Unique GUID of the merchant
-status | string | Fetch picklists by status. Values: Created, In Picking (in progress), Completed/Picked (picked up)
+status | string | Fetch picklists by status. Values: `Created`, `In Picking` (in progress), `Completed` or `Picked` (picked up)
 picklistCode | string | Unique code of the picklist to fetch details by picklist code
 createdOn | date | Fetch picklists created on a specific date. Pass the date in `MM/DD/YYYY` format
-locationId | int | Fetch picklist of a specific location by location id
+locationId | int | Fetch picklists of a specific location by location id
 searchFromDate | date | Get picklists created on and after a specific date. Pass the date in `MM/DD/YYYY` format
-searchSku | string | Fetch picklists consisting of a specific SKU.
-pageNumber | int | For results in multiple pages, specify the page number that you want to fetch
+searchSku | string | Fetch picklists consisting a specific SKU.
+pageNumber | int | If results are too long and displayed in multiple pages, specify the page number to see the picklist of that particular page
 pageSize | int | Specify the number of results to be shown per page
 pickerId | string | Picker id assigned to the picklist
 picklistOperatorID | string | Fetch picklists  of a specific operator. Pass the unique GUID of the operator
 subStatusCode | enum | Unique 2 character code of the picklist item sub-status. Values are as per configured in the CP
-channelId | string | Channel id of the marketplace
-
-
-
-
+channelId | string | Channel id of the marketplace to get the picklists of that specific channel
 
 
 
@@ -897,23 +893,23 @@ Batch Support | No
 Parameter | Type | Description
 -------- | ----- | -----------
 MerchantId | string | Unique GUID of the merchant
-status | string | Fetch picklists by status. Values: Created, In Picking (in progress), Completed/Picked (picked up)
-picklistCode | string | Unique code of the picklist to fetch details by picklist code
+status | string | Fetch picklists by status. Values: `Created`, `In Picking` (in progress), `Completed` or `Picked` (picked up)
+picklistCode | string | Specify the unique picklist code to fetch
 createdOn | date | Fetch picklists created on a specific date. Pass the date in `MM/DD/YYYY` format
-locationId | int | Fetch picklist of a specific location by location id
+locationId | int | Fetch picklist of a specific location. Pass the location id
 searchFromDate | date | Get picklists created on and after a specific date. Pass the date in `MM/DD/YYYY` format
-searchSku | string | Fetch picklists consisting of a specific SKU.
-pageNumber | int | For results in multiple pages, specify the page number that you want to see
+searchSku | string | Fetch picklists containing a specific SKU
+pageNumber | int | If the results are too long and appear in multiple pages, you can specify a page number to see the results on that particular page
 pageSize | int | Specify the number of results to be shown per page
 pickerId | string | Picker id assigned to the picklist
 picklistOperatorID | string | Fetch picklists  of a specific operator. Pass the unique GUID of the operator
 subStatusCode | enum | Unique 2 character code of the picklist item sub-status. Values are as per configured in the CP
-channelId | string | Channel id of the marketplace
+channelId | string | Channel id of the marketplace to get picklists of that specific channel
+
+
 
 
 ## Get PickList Items
-
-
 
 
 
@@ -1141,8 +1137,8 @@ Batch Support | No
 Parameter | Type | Description
 -------- | ----- | -----------
 MerchantId* | string | Unique GUID of the merchant
-pickListId* | int | Unique id of the picklist for which you want to fetch items
-orderItemStatus* | string | Get the order items by item status. Values: `P` for Pending, `F` for Found, `N` for Not Found,  `R` for Removed, `C` for  Canceled
+pickListId* | int | Unique id of the picklist to see the picklist items
+orderItemStatus* | string | Get picklist items by item status. Values: `P` for Pending, `F` for Found, `N` for Not Found,  `R` for Removed, `C` for  Canceled
 
 
 
@@ -1152,7 +1148,7 @@ orderItemStatus* | string | Get the order items by item status. Values: `P` for 
 
 Retrieves the list of alternative products of a specific picklist item by product id.
 
-Substitutes are the product alternatives used in case of unavailability or insufficient quantity of actual product during pickup. 
+Substitutes are the product alternatives used during pickup in case of unavailability or insufficient quantity of actual product. 
 
 
 

@@ -23486,12 +23486,12 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>orderdate*</td>
 <td>date</td>
-<td>Ordered date in <code class="prettyprint">dd/mm/yy</code> format</td>
+<td>Ordered date in <code class="prettyprint">dd/mm/yyyy</code> format</td>
 </tr>
 <tr>
 <td>deliveredon</td>
 <td>date</td>
-<td>Specify the estimated delivery of the item if applicable for the merchant in <code class="prettyprint">dd/mm/yy</code> format</td>
+<td>Specify the estimated delivery of the item if applicable for the merchant in <code class="prettyprint">dd/mm/yyyy</code> format</td>
 </tr>
 <tr>
 <td>customertype</td>
@@ -23876,12 +23876,12 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>orderdate*</td>
 <td>date</td>
-<td>Ordered date in <code class="prettyprint">dd/mm/yy</code> format</td>
+<td>Ordered date in <code class="prettyprint">dd/mm/yyyy</code> format</td>
 </tr>
 <tr>
 <td>deliveredon</td>
 <td>date</td>
-<td>Specify the estimated delivery of the item if applicable for the merchant in <code class="prettyprint">dd/mm/yy</code> format</td>
+<td>Specify the estimated delivery of the item if applicable for the merchant in <code class="prettyprint">dd/mm/yyyy</code> format</td>
 </tr>
 <tr>
 <td>customertype</td>
@@ -23891,7 +23891,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>userid</td>
 <td>string</td>
-<td>Registered identifier of the customer. Required when <code class="prettyprint">customertype=&quot;Registered User&quot;</code></td>
+<td>Registered identifier of the customer used for login. Required when <code class="prettyprint">customertype:&quot;Registered User&quot;</code></td>
 </tr>
 <tr>
 <td>ordervalue</td>
@@ -23911,42 +23911,42 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>paymentlinkstatus</td>
 <td>enum</td>
-<td>Status of the payment. Predefined enum values. Values: Pending (Bank transfer, Cheque,), Authorized (COD, Prepaid)</td>
+<td>Status of the payment. Predefined enum values: Values: Pending (Bank transfer, Cheque,), Authorized (COD, Prepaid)</td>
 </tr>
 <tr>
 <td>calculateshippingtax</td>
 <td>enum</td>
-<td>Specify `<code class="prettyprint">NO</code> if the order value includes tax and service charges. Else, specify <code class="prettyprint">YES</code> to add charges separately</td>
+<td>Specify `<code class="prettyprint">NO</code> if the order value includes tax and service charges. specify <code class="prettyprint">YES</code> to add charges separately</td>
 </tr>
 <tr>
 <td>shipfirstname, shiplastname, shipaddress1 &hellip;</td>
-<td>string</td>
-<td>Specify the customer&rsquo;s shipping address related information in these fields</td>
+<td>-</td>
+<td>Specify the customer&rsquo;s shipping address related information in the respective fields</td>
 </tr>
 <tr>
 <td>billfirstname, billlastname, billaddress1 &hellip;</td>
-<td>string</td>
-<td>Specify the customer&rsquo;s billing address related information in these fields</td>
+<td>-</td>
+<td>Specify the customer&rsquo;s billing address related information in the respective fields</td>
 </tr>
 <tr>
 <td>giftmsg</td>
 <td>string</td>
-<td>In case of gift orders, specify the customer&rsquo;s personalized message that needs to sent to the recipient</td>
+<td>Specify the customer’s preferred personalized message for the recipient (for gift orders)</td>
 </tr>
 <tr>
 <td>locationcode</td>
 <td>string</td>
-<td>Reference code of the  order fulfillment location</td>
+<td>Reference code of the order fulfillment location</td>
 </tr>
 <tr>
 <td>isselfship</td>
 <td>boolean</td>
-<td>If the order shipment is handled by marketplace such as Amazon or Flipkart specify <code class="prettyprint">False</code> and if the shipment is handled by the merchant itself, set the value to <code class="prettyprint">True</code></td>
+<td>If the order shipment is handled by marketplace such as Amazon or Flipkart specify <code class="prettyprint">False</code>, if the shipment is handled by the merchant itself, set the value to <code class="prettyprint">True</code></td>
 </tr>
 <tr>
 <td>channelrefcode</td>
 <td>string</td>
-<td>Channel from which the order has come from (specific to Sellerworx). A channel is an instance of marketplace. A seller can have multiple channels</td>
+<td>Channel from which the order is received (specific to Sellerworx). A channel is an instance of marketplace. A seller can have multiple channels</td>
 </tr>
 <tr>
 <td>channelorderid</td>
@@ -23971,12 +23971,12 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>Payments*</td>
 <td>obj</td>
-<td>Specify the payment details and <code class="prettyprint">orderrefno</code> of the order in <code class="prettyprint">payment</code>. The orderrefno value at payment level should be same as that of the order level</td>
+<td>Specify the payment details and <code class="prettyprint">orderrefno</code> of the order in the <code class="prettyprint">payment</code> object. The value of <code class="prettyprint">orderrefno</code> at payment level should be same as that of the order level</td>
 </tr>
 <tr>
 <td>paymentstatus</td>
 <td>enum</td>
-<td>The payment status of the current order. Value: Authorized, Pending</td>
+<td>The payment status of the current order. Value: <code class="prettyprint">Authorized</code>, <code class="prettyprint">Pending</code></td>
 </tr>
 <tr>
 <td>paymentno</td>
@@ -24001,7 +24001,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>itemcustomfield</td>
 <td>json obj</td>
-<td>Pass line-item level custom fields. You do not need to have preconfigured custom fields at the order item level</td>
+<td>Pass line-item level custom field details if available</td>
 </tr>
 <tr>
 <td>deliveryslotcode</td>
@@ -24021,7 +24021,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>shippingmode</td>
 <td>string</td>
-<td>Pass the shipping mode that you want to associate with the order. Note that the API does not validate/calculate on the provided shipping mode</td>
+<td>Pass the shipping mode that you want to associate with the order. Note that the API does not validate the provided shipping mode</td>
 </tr>
 <tr>
 <td>shippingamount</td>
@@ -24031,12 +24031,12 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>shippingdiscount</td>
 <td>int</td>
-<td>Pass the discount amount on the shipping charge (Order item level discount)</td>
+<td>Pass the discount amount availed for the order in shipping charge (Order item level discount)</td>
 </tr>
 <tr>
 <td>linediscount</td>
 <td>int</td>
-<td>Pass the line item level discount of the order</td>
+<td>Pass the line item level discount availed</td>
 </tr>
 <tr>
 <td>catalogcode</td>
@@ -24199,7 +24199,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>skipDeliveryAreaValidation</td>
 <td>boolean</td>
-<td>Specify <code class="prettyprint">true</code> to validate delivery location before order creation, <code class="prettyprint">false</code> to ignore validating</td>
+<td>Specify <code class="prettyprint">true</code> to validate delivery location before creating the order, <code class="prettyprint">false</code> to ignore validation</td>
 </tr>
 </tbody></table>
 
@@ -24534,7 +24534,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <h2 id="authorize-order">Authorize Order</h2>
 
-<p>Authorizes an order from the payment pending status.</p>
+<p>Authorizes a pending order (an order with pending payment status).</p>
 
 <blockquote>
 <p>Sample Request</p>
@@ -24709,7 +24709,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
    </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="mi">0</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Process Pending Transactions, i.e., if an order is placed (other than COD ), just an order instance is created and will be in <code class="prettyprint">Pending</code> state by default. You need to process the order by validating the payment details against the transaction. </p>
+<p>Processes pending transactions. When an order other than COD is placed, just an order instance is created and will be in <code class="prettyprint">Pending</code> status by default. An order is processed only when the payment details are validated against the transaction. This is not applicable for COD orders.</p>
 
 <h3 id="resource-information">Resource Information</h3>
 
@@ -24791,7 +24791,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>CPUserID</td>
 <td>string</td>
-<td>The unique CP user id generated by the system</td>
+<td>Unique CP user id generated by the system</td>
 </tr>
 <tr>
 <td>PaymentDetails*</td>
@@ -24919,7 +24919,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>orderId*</td>
 <td>int</td>
-<td>Unique id of the order for which you want to update a transaction</td>
+<td>Unique id of the order for which you want to update transaction details</td>
 </tr>
 <tr>
 <td>paymentStatus</td>
@@ -24959,7 +24959,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>pGReferenceId</td>
 <td>string</td>
-<td>Unique id generated by the payment gateway for the transaction</td>
+<td>Unique id generated for the transaction by the payment gateway</td>
 </tr>
 </tbody></table>
 
@@ -24967,7 +24967,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <h2 id="search-orders">Search Orders</h2>
 
-<p>Retrieves orders matching the input specified.</p>
+<p>Retrieves orders matching the specified inputs.</p>
 
 <blockquote>
 <p>Sample Request</p>
@@ -25147,12 +25147,12 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>DateFrom</td>
 <td>date</td>
-<td>Search by order created duration in DateFrom - DateTo in <code class="prettyprint">MM\/DD\/YYYY</code> format</td>
+<td>Search orders of a specific duration between <code class="prettyprint">DateFrom</code> and <code class="prettyprint">DateTo</code>. The duration is considered on the basis of specified <code class="prettyprint">DateType&#39;. Pass the date in</code>MM\/DD\/YYYY` format</td>
 </tr>
 <tr>
 <td>DateTo</td>
 <td>date</td>
-<td>Search by order created duration in DateFrom - DateTo in <code class="prettyprint">MM\/DD\/YYYY</code> format</td>
+<td>Search orders of a specific duration between <code class="prettyprint">DateFrom</code> and <code class="prettyprint">DateTo</code>. The duration is considered on the basis of specified <code class="prettyprint">DateType&#39;. Pass the date in</code>MM\/DD\/YYYY` format</td>
 </tr>
 <tr>
 <td>DateType</td>
@@ -25162,17 +25162,17 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>EmailID</td>
 <td>string</td>
-<td>Search orders of a specific customer by customer email id</td>
+<td>Specify registered email id of a customers to fetch all orders of that customer</td>
 </tr>
 <tr>
 <td>FristName</td>
 <td>string</td>
-<td>Search orders by customers&rsquo; first name</td>
+<td>Search orders by customers&rsquo; first name. For example, if you specify <code class="prettyprint">Tom</code>, it will fetch the list of all orders of customers whose first name is Tom</td>
 </tr>
 <tr>
 <td>LastName</td>
 <td>string</td>
-<td>Search orders by customers&rsquo; last name</td>
+<td>Search orders by customers&rsquo; last name. For example, if you specify <code class="prettyprint">Sawyer</code>, it will fetch the list of all orders of customers whose last name is Sawyer</td>
 </tr>
 <tr>
 <td>MobileNo</td>
@@ -25187,12 +25187,12 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>OrderPriceFrom</td>
 <td>float</td>
-<td>Search orders by price range in <code class="prettyprint">OrderPriceFrom</code> and <code class="prettyprint">OrderPriceTo</code></td>
+<td>Search orders in a specific price range. Specify the price range in <code class="prettyprint">OrderPriceFrom</code> and <code class="prettyprint">OrderPriceTo</code></td>
 </tr>
 <tr>
 <td>OrderPriceTo</td>
 <td>float</td>
-<td>Search orders by price range in <code class="prettyprint">OrderPriceFrom</code> and <code class="prettyprint">OrderPriceTo</code></td>
+<td>Search orders in a specific price range. Specify the price range in <code class="prettyprint">OrderPriceFrom</code> and <code class="prettyprint">OrderPriceTo</code></td>
 </tr>
 <tr>
 <td>OrderStatus</td>
@@ -25202,32 +25202,32 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>ProductSku</td>
 <td>string</td>
-<td>Search orders of a specific item. Pass the item SKU</td>
+<td>Search orders containing a specific item. Pass the item SKU</td>
 </tr>
 <tr>
 <td>store</td>
 <td>string</td>
-<td>Search orders of a specific store by store code. Specify <code class="prettyprint">all</code> to fetch orders of all stores</td>
+<td>Search orders of a store. Specify the store code to fetch orders of that specific store, specify <code class="prettyprint">all</code> to fetch orders of all stores</td>
 </tr>
 <tr>
 <td>ShippingCostFrom</td>
 <td>float</td>
-<td>Search orders by shipping cost range between ShippingCostFrom and ShippingCostTo</td>
+<td>Search orders by shipping cost. Specify the shipping cost range in <code class="prettyprint">ShippingCostFrom</code> and <code class="prettyprint">ShippingCostTo</code></td>
 </tr>
 <tr>
 <td>ShippingCostTo</td>
 <td>float</td>
-<td>Search orders by shipping cost range between ShippingCostFrom and ShippingCostTo</td>
+<td>Search orders by shipping cost. Specify the shipping cost range in <code class="prettyprint">ShippingCostFrom</code> and <code class="prettyprint">ShippingCostTo</code></td>
 </tr>
 <tr>
 <td>RecordFrom</td>
 <td>int</td>
-<td>From the fetch results, filter the record range that you want to see in RecordFrom and RecordTo. For example, out of 80 results you can prefer to see only records after 30 or between 30-60</td>
+<td>Filter the results by record range. Specify the range in <code class="prettyprint">RecordFrom</code> and <code class="prettyprint">RecordTo</code>. For example, out of 80 results you can prefer to see only records after 30 or between 30-60</td>
 </tr>
 <tr>
 <td>RecordTo</td>
 <td>int</td>
-<td>From the fetch results, filter the record range that you want to see in RecordFrom and RecordTo. For example, out of 80 results you can prefer to see first 30 records only or records between 30-70</td>
+<td>Filter the results by record range. Specify the range in <code class="prettyprint">RecordFrom</code> and <code class="prettyprint">RecordTo</code>. For example, out of 80 results you can prefer to see only records after 30 or between 30-60 prefer to see first 30 records only or records between 30-70</td>
 </tr>
 </tbody></table>
 
@@ -25691,7 +25691,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Adds existing order items of the respective customer to the cart.</p>
+<p>Adds an existing order items of a customer to the cart.</p>
 
 <h3 id="resource-information">Resource Information</h3>
 
@@ -25769,7 +25769,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>UserId*</td>
 <td>string</td>
-<td>The unique identifier of the customer associated to the order</td>
+<td>Unique GUID of the customer associated to the order</td>
 </tr>
 </tbody></table>
 
@@ -25854,6 +25854,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
          </span><span class="nt">"ConversionFactor"</span><span class="p">:</span><span class="s2">"1"</span><span class="p">,</span><span class="w">
          </span><span class="nt">"DeliveryOption"</span><span class="p">:</span><span class="s2">"ship"</span><span class="p">,</span><span class="w">
          </span><span class="nt">"IsGift"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"IsGift"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
          </span><span class="nt">"LeadTime"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
          </span><span class="nt">"MerchantId"</span><span class="p">:</span><span class="s2">"2c58c9c6-c9c9-49cf-b424-7acbc4e1xxx"</span><span class="p">,</span><span class="w">
          </span><span class="nt">"OrderDate"</span><span class="p">:</span><span class="s2">"02-02-2018 16:08:45"</span><span class="p">,</span><span class="w">
@@ -25911,7 +25912,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
    </span><span class="nt">"messageCode"</span><span class="p">:</span><span class="s2">"1004"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Retrieves the history of orders of a merchant or customer based on the input parameters.</p>
+<p>Retrieves order history of a merchant or customer based on the input parameters.</p>
 
 <h3 id="resource-information">Resource Information</h3>
 
@@ -25968,17 +25969,17 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>UserId</td>
 <td>string</td>
-<td>The unique user identifier of the customer whose details need to be retrieved</td>
+<td>The unique GUID of the customer whose details need to be retrieved</td>
 </tr>
 <tr>
 <td>FromDate</td>
 <td>date-time</td>
-<td>Specify the duration for which you want to fetch the order history (mm-dd-yyyy hh:mm:ss format) in FromDate and ToDate</td>
+<td>Specify the duration for which you want to fetch the order history in <code class="prettyprint">FromDate</code> and <code class="prettyprint">ToDate</code>. Supported date format <code class="prettyprint">mm-dd-yyyy hh:mm:ss</code></td>
 </tr>
 <tr>
 <td>ToDate</td>
 <td>date-time</td>
-<td>Specify the duration for which you want to fetch the order history (mm-dd-yyyy hh:mm:ss format) in FromDate and ToDate</td>
+<td>Specify the duration (in <code class="prettyprint">FromDate</code> and <code class="prettyprint">ToDate</code>) for which you want to fetch the order history. Supported date format: <code class="prettyprint">mm-dd-yyyy hh:mm:ss</code></td>
 </tr>
 <tr>
 <td>Status</td>
@@ -25988,22 +25989,22 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>ShipDateFrom</td>
 <td>date-time</td>
-<td>Filter the search results by shipped date range - from (ShipDateFrom) and to (ShipDateTo) in  (mm-dd-yyyy hh:mm:ss format). If ShipDateFrom is specified, then you also need to specify ShipDateTo</td>
+<td>Search orders shipped in a specific duration. Specify the shipped duration in  <code class="prettyprint">ShipDateFrom</code> and <code class="prettyprint">ShipDateTo</code> in <code class="prettyprint">mm-dd-yyyy hh:mm:ss</code>. If ShipDateFrom is specified, then you also need to specify ShipDateTo</td>
 </tr>
 <tr>
 <td>ShipDateTo</td>
 <td>date-time</td>
-<td>Filter the search results by shipped date range - from (ShipDateFrom) and to (ShipDateTo) in  (mm-dd-yyyy hh:mm:ss format). If ShipDateFrom is specified, then you also need to specify ShipDateTo</td>
+<td>FilSearch orders shipped in a specific duration. Specify the shipped duration in  <code class="prettyprint">ShipDateFrom</code> and <code class="prettyprint">ShipDateTo</code> in <code class="prettyprint">mm-dd-yyyy hh:mm:ss</code>. If ShipDateFrom is specified, then you also need to specify ShipDateTo</td>
 </tr>
 <tr>
 <td>Sku</td>
 <td>string</td>
-<td>Filter the search results by SKU id based on the ids matching the specified value. For example, if you specify 100,  you will get the list of orders with item SKU ids starting with 100. You can also fetch a specific ordered item by passing the exact SKU id</td>
+<td>Fetch orders containing a specific product (SKU). You can also fetch with partial SKU to get the list of orders having SKUs that start with the keyword specified</td>
 </tr>
 <tr>
 <td>OrderId</td>
 <td>int</td>
-<td>Filter the search results by order id or order number. For example, if you specify 5550,  you will get the list of all orders with order ids starting with 5500. You can also fetch a specific order by passing the exact order id.</td>
+<td>Retrieves the details of a orders with order id starting starting with the specified keyword. For example, if you specify 5550,  you will get the list of all orders with order ids starting with 5500. You can also fetch a specific order by passing the complete order id.</td>
 </tr>
 <tr>
 <td>FromOrder</td>
@@ -26018,17 +26019,17 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>WithRewards</td>
 <td>boolean</td>
-<td>Retrieve the list of orders with loyalty rewards. Send  ‘True’ if you required reward/loyalty details. By default value will be ‘False’</td>
+<td>Fetch orders with loyalty rewards. Specify  ‘True’ if you require reward/loyalty details. The default value will be ‘False’</td>
 </tr>
 <tr>
 <td>LocationId</td>
 <td>string</td>
-<td>Order fulfillment location</td>
+<td>Order fulfillment location id</td>
 </tr>
 <tr>
 <td>OperatorId</td>
 <td>string</td>
-<td>The logged in user id of Anywhere Commerce&rsquo;s Control Panel.</td>
+<td>The logged in user id (of Anywhere Commerce&rsquo;s Control Panel).</td>
 </tr>
 </tbody></table>
 
@@ -26048,7 +26049,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>LeadTime</td>
 <td>int</td>
-<td>Booking is allowed up to x minutes prior to the starting time of the booking slot (where x is the LeadTime in minutes)</td>
+<td>Minimum time period (in minutes) prior to the booking slot when the user is allowed for booking the slot. For example, if 60 minutes and booking slot is from 1 pm to 3 pm, user cannot book this slot anytime after 12 pm</td>
 </tr>
 </tbody></table>
 
@@ -26274,7 +26275,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>merchantid*</td>
 <td>string</td>
-<td>The unique id (GUID) of the merchant in which the invoice is available</td>
+<td>The unique id (GUID) of the merchant associated to the order invoice</td>
 </tr>
 <tr>
 <td>InvoiceNumber*</td>
@@ -26304,17 +26305,17 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>LeadTime</td>
 <td>int</td>
-<td>Booking is allowed up to x minutes prior to the starting time of the booking slot (where x is the LeadTime in minutes)</td>
+<td>Minimum time period (in minutes) prior to the booking slot when the user is allowed for booking the slot. For example, if 60 minutes and booking slot is 1 pm to 3 pm, user cannot book this slot anytime after 12 pm</td>
 </tr>
 <tr>
 <td>ConversionFactor</td>
 <td>float</td>
-<td>The currency conversion ratio for merchants with multiple currencies</td>
+<td>The currency conversion ratio. Applicable for merchants with multiple currencies</td>
 </tr>
 <tr>
 <td>StockAction</td>
 <td>string</td>
-<td>Whether the item participates in reduction of stock or not. Value: UpdateStock,Do Not UpdateStock, None</td>
+<td>Whether the item participates in reduction of stock or not. Value: <code class="prettyprint">UpdateStock</code>,<code class="prettyprint">Do Not UpdateStock</code>, <code class="prettyprint">None</code></td>
 </tr>
 <tr>
 <td>IsBackOrder</td>
@@ -26464,12 +26465,12 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>ShipDate*</td>
 <td>date</td>
-<td>The date on which the order is shipped in <code class="prettyprint">dd/mm/yy</code> format</td>
+<td>The date on which the order is shipped in <code class="prettyprint">yyyy/mm/dd</code> format</td>
 </tr>
 <tr>
 <td>ShipmentType*</td>
 <td>enum</td>
-<td>The type of shipment. Value: <code class="prettyprint">Normal</code> for shipments from warehouse to customer, <code class="prettyprint">Reverse</code> for shipments customer to warehouse</td>
+<td>The type of shipment. Value: <code class="prettyprint">Normal</code> for shipments from warehouse to customer, <code class="prettyprint">Reverse</code> for return shipments, i.e., customer to warehouse</td>
 </tr>
 <tr>
 <td>LocationRefCode*</td>
@@ -26484,7 +26485,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>ShipmentTrip</td>
 <td>obj</td>
-<td>Provide more details details of the shipping using the parameters specified below. You can use this if applicable for the current merchant</td>
+<td>Provide more details of the shipment in the parameters specified below. Use this only if applicable for the current merchant</td>
 </tr>
 <tr>
 <td>RiderID</td>
@@ -26499,12 +26500,12 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>TripRefNo</td>
 <td>string</td>
-<td>Specify the trp reference number as per the merchant system</td>
+<td>Specify the trip reference number as per the merchant system</td>
 </tr>
 <tr>
 <td>VehicleNumber</td>
 <td>string</td>
-<td>Specify the vehicle number delivery vehicle</td>
+<td>Specify the vehicle number of the delivery vehicle</td>
 </tr>
 <tr>
 <td>Attributes</td>
@@ -26656,7 +26657,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>VariantProductId</td>
 <td>int</td>
-<td>ID of the variant product</td>
+<td>Unique id of the variant product</td>
 </tr>
 </tbody></table>
 
@@ -27226,27 +27227,27 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>ReturnReason</td>
 <td>string</td>
-<td>Reason for returning the item. Applicable for return items</td>
+<td>Reason for returning the item. Applicable for return items. Values:<br> WID - Wrong item delivered <br> BAQ - Bad Quality <br> DLP - Did not like the product <br> DPR - Defective/Damage product received <br> RD - Received Damaged DP - Defective Product<br> II - Incorrect Item received<br> UW    Unwanted Gift<br> US - Unsuitable<br> UP - Unlike Photo, TS - Too Small<br> OT - Other<br> FD - Fraud<br> IE - Incorrect Size<br> PDR - Product is damaged<br> WPD - Product is not as per website description<br> CR - Customer Remorse<br> PWF - Product is not properly functioning</td>
 </tr>
 <tr>
 <td>IsBackOrder</td>
 <td>boolean</td>
-<td>Can the item be ordered even when out of stock</td>
+<td>Whether the item can be ordered even when it is out of stock</td>
 </tr>
 <tr>
 <td>ShippingVoucherDiscount</td>
 <td>float</td>
-<td>Discount on shipping through voucher</td>
+<td>Discount amount, though voucher, availed on the shipment</td>
 </tr>
 <tr>
 <td>SubStatus</td>
 <td>enum</td>
-<td>Sub status of the as configured in the CP. For example, RJ for rejected. You can find the order sub-statuses configured on the CP Settings &gt; Application settings &gt; Order settings &gt; Order Substatus</td>
+<td>Sub status of the order as configured in the CP. For example, RJ for rejected. You can find the order sub-statuses configured on the CP Settings &gt; Application settings &gt; Order settings &gt; Order Substatus</td>
 </tr>
 <tr>
 <td>IsFreebie</td>
 <td>enum</td>
-<td>Whether the item is a free gift item. Value <code class="prettyprint">0</code> for no, <code class="prettyprint">1</code> for yes</td>
+<td>Whether the item is a free gift item or not. Value <code class="prettyprint">0</code> for no, <code class="prettyprint">1</code> for yes</td>
 </tr>
 <tr>
 <td>FreebieParent</td>
@@ -27257,7 +27258,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <h2 id="get-order-lineitem-details">Get Order Lineitem Details</h2>
 
-<p>Retrieves the details of a specific order line item.</p>
+<p>Retrieves the details line items of a specific order.</p>
 
 <blockquote>
 <p>Sample Request</p>
@@ -27395,7 +27396,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>ReturnReason</td>
 <td>string</td>
-<td>Reason for returning the item. Applicable for return items</td>
+<td>Reason for returning the item. Applicable for return items. Values:<br> WID - Wrong item delivered <br> BAQ - Bad Quality <br> DLP - Did not like the product <br> DPR - Defective/Damage product received <br> RD - Received Damaged DP - Defective Product<br> II - Incorrect Item received<br> UW    Unwanted Gift<br> US - Unsuitable<br> UP - Unlike Photo, TS - Too Small<br> OT - Other<br> FD - Fraud<br> IE - Incorrect Size<br> PDR - Product is damaged<br> WPD - Product is not as per website description<br> CR - Customer Remorse<br> PWF - Product is not properly functioning</td>
 </tr>
 <tr>
 <td>IsBackOrder</td>
@@ -27539,12 +27540,12 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>status</td>
 <td>enum</td>
-<td>Current status of an order <code class="prettyprint">P</code> for pending, <code class="prettyprint">C</code> for canceled, <code class="prettyprint">F</code> failed, <code class="prettyprint">A</code> for authorized,  <code class="prettyprint">S</code> for shipped, <code class="prettyprint">D</code> for delivered</td>
+<td>Current status of an order. Values: <code class="prettyprint">P</code> for pending, <code class="prettyprint">C</code> for canceled, <code class="prettyprint">F</code> failed, <code class="prettyprint">A</code> for authorized,  <code class="prettyprint">S</code> for shipped, <code class="prettyprint">D</code> for delivered</td>
 </tr>
 <tr>
 <td>SubStatus</td>
 <td>enum</td>
-<td>Sub status of the as configured in the CP. For example, RJ for rejected. You can find the order sub-statuses configured on the CP Settings &gt; Application settings &gt; Order settings &gt; Order Substatus</td>
+<td>Sub status of the order as configured in the CP. For example, RJ for rejected. You can find all available sub-statuses in CP Settings &gt; Application settings &gt; Order settings &gt; Order Substatus</td>
 </tr>
 </tbody></table>
 
@@ -27578,7 +27579,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
   </span><span class="nt">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cancelled successfully"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Cancels a specific order of a customer placed on a merchant store. However, an order can be canceled only if</p>
+<p>Cancels a specific order of a customer placed on a merchant store. An order can be canceled only if</p>
 
 <ul>
 <li>The logged in user has sufficient permission to cancel the order</li>
@@ -27641,7 +27642,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>Merchant Id*</td>
 <td>string</td>
-<td>The unique id (GUID) of the merchant in which the order is placed</td>
+<td>The unique id (GUID) of the merchant associated to the order</td>
 </tr>
 <tr>
 <td>OrderId*</td>
@@ -27650,8 +27651,8 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 </tr>
 <tr>
 <td>Date*</td>
-<td>date</td>
-<td>The date on which the order is created in mm/dd/yy format</td>
+<td>date-time</td>
+<td>Date and time when the order is created in <code class="prettyprint">MM/DD/YYYY HH:MM:SS AM/PM</code> format</td>
 </tr>
 <tr>
 <td>Comment</td>
@@ -27676,7 +27677,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>CancelReason*</td>
 <td>string</td>
-<td>Value: Auto populated reason</td>
+<td>Specify the predefined reason code for the order cancellation. Values: <br><code class="prettyprint">NDA</code>: Order not in delivery Area<br> <code class="prettyprint">ICI</code>: Incorrect Contact information<br> <code class="prettyprint">ODM</code>: Order less than order delivery minimum value<br> OND: Order not delivered<br> <code class="prettyprint">SLA</code>: SLA expired in Acknowledgment<br> <code class="prettyprint">SLN</code>: SLA expired in New Order<br> <code class="prettyprint">QMA</code>: Order Expired due to Quantity Mismatch from Aggregator<br> <code class="prettyprint">RDA</code>: Retailer did Not allocate items to aggregator<br> <code class="prettyprint">CPR</code>: Cancellation as per customer request<br> <code class="prettyprint">INA</code>: Item Not available/Unsellelable<br> <code class="prettyprint">OPM</code>: Order placed by mistake<br> <code class="prettyprint">DTM</code>: Order delivery Is taking too much time<br> <code class="prettyprint">OEQ</code>: By mistake ordered extra quantity<br> <code class="prettyprint">BFS</code>: Bought it from somewhere else<br> <code class="prettyprint">CSA</code>: I want to change my shipping address<br> <code class="prettyprint">CMP</code>: I want to change my mode of payment<br> <code class="prettyprint">CHA</code>: Product cost Is high compared to another website<br> <code class="prettyprint">SCH</code>: Shipping charges are too high<br> <code class="prettyprint">PNR</code>: Payment not received</td>
 </tr>
 </tbody></table>
 
@@ -27718,7 +27719,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
   </span><span class="nt">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cancelled successfully"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Lets you cancel specific items of an order (partial cancellation). However, you can cancel an order item only if</p>
+<p>Lets you cancel specific items of an order (partial cancellation). You can cancel an order item only if</p>
 
 <ul>
 <li>The logged in user has sufficient permission to cancel</li>
@@ -27791,7 +27792,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>Date*</td>
 <td>date</td>
-<td>The date on which the order is created in mm/dd/yy format</td>
+<td>Date and time when the order is created in <code class="prettyprint">MM/DD/YYYY HH:MM:SS AM/PM</code> format</td>
 </tr>
 <tr>
 <td>Comment</td>
@@ -27801,7 +27802,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>DisplayCommentToUser</td>
 <td>boolean</td>
-<td>Value: True/False. Specify whether to make the custom comment visible (True) or invisible (False) to the end-customer</td>
+<td>Value: True/False. Specify whether to make the comment visible (True) or hidden (False) to the end-customer</td>
 </tr>
 <tr>
 <td>PGResponse</td>
@@ -27811,12 +27812,12 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>OperatorID</td>
 <td>string</td>
-<td>Current user id - It could be store&rsquo;s, admin&rsquo;s, or manager&rsquo;s</td>
+<td>Current CP user id</td>
 </tr>
 <tr>
 <td>CancelReason*</td>
 <td>string</td>
-<td>Specify the reason for order cancellation. In UI, these are auto-populated in the UI.</td>
+<td>Specify the predefined reason code for the order cancellation. Values: <br><code class="prettyprint">NDA</code>: Order not in delivery Area<br> <code class="prettyprint">ICI</code>: Incorrect Contact information<br> <code class="prettyprint">ODM</code>: Order less than order delivery minimum value<br> OND: Order not delivered<br> <code class="prettyprint">SLA</code>: SLA expired in Acknowledgment<br> <code class="prettyprint">SLN</code>: SLA expired in New Order<br> <code class="prettyprint">QMA</code>: Order Expired due to Quantity Mismatch from Aggregator<br> <code class="prettyprint">RDA</code>: Retailer did Not allocate items to aggregator<br> <code class="prettyprint">CPR</code>: Cancellation as per customer request<br> <code class="prettyprint">INA</code>: Item Not available/Unsellelable<br> <code class="prettyprint">OPM</code>: Order placed by mistake<br> <code class="prettyprint">DTM</code>: Order delivery Is taking too much time<br> <code class="prettyprint">OEQ</code>: By mistake ordered extra quantity<br> <code class="prettyprint">BFS</code>: Bought it from somewhere else<br> <code class="prettyprint">CSA</code>: I want to change my shipping address<br> <code class="prettyprint">CMP</code>: I want to change my mode of payment<br> <code class="prettyprint">CHA</code>: Product cost Is high compared to another website<br> <code class="prettyprint">SCH</code>: Shipping charges are too high<br> <code class="prettyprint">PNR</code>: Payment not received</td>
 </tr>
 <tr>
 <td>TobeCancelledOrderItems</td>
@@ -27829,7 +27830,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <h2 id="add-order-lineitem">Add Order Lineitem</h2>
 
-<p>Lets you add an item to existing order.</p>
+<p>Lets you add an item to an existing order.</p>
 
 <blockquote>
 <p>Sample Request</p>
@@ -27918,7 +27919,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>OrderID*</td>
 <td>int</td>
-<td>Unique id of the order for which you want to add items</td>
+<td>Unique id of the order to which you want to add items</td>
 </tr>
 <tr>
 <td>SKU*</td>
@@ -27933,7 +27934,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>Quantity*</td>
 <td>int</td>
-<td>Quantity of the item that you want to add (adds to the order list. Not overrides</td>
+<td>Quantity of the current item (SKU/variantSKU) that you want to add. The value you mention herein will add to the existing quantity but not overrides the existing quantity</td>
 </tr>
 <tr>
 <td>LocationCode*</td>
@@ -28053,7 +28054,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>ReturnRequestId</td>
 <td>int</td>
-<td>Return Request ID of the return. Leave this blank if you want to just modify the return details</td>
+<td>Return Request ID. Leave this blank if you want to just modify the return details</td>
 </tr>
 <tr>
 <td>Substatus</td>
@@ -28071,7 +28072,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <h2 id="update-return-request-status">Update Return Request Status</h2>
 
-<p>Lets you update status of a return request.</p>
+<p>Lets you update the status of a return request.</p>
 
 <blockquote>
 <p>Sample Request</p>
@@ -28171,7 +28172,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>OperatorId</td>
 <td>string</td>
-<td>Unique id of the store operator who want to update the status</td>
+<td>Unique id of the store operator that is updating the status</td>
 </tr>
 </tbody></table>
 
@@ -28302,7 +28303,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>ShipmentType*</td>
 <td>string</td>
-<td>Type of shipment. Value: <code class="prettyprint">Normal</code> for shipments from warehouse to customer, <code class="prettyprint">Reverse</code> for shipments customer to warehouse</td>
+<td>Type of shipment. Value: <code class="prettyprint">Normal</code> for shipments from warehouse to customer, <code class="prettyprint">Reverse</code> for shipments customer to warehouse (return pickup)</td>
 </tr>
 <tr>
 <td>AirwayBillNo*</td>
@@ -28476,14 +28477,16 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>OrderLineId*</td>
 <td>int</td>
-<td>Line item id of for which you want to update status</td>
+<td>Line item id of the order for which you want to update status</td>
 </tr>
 <tr>
 <td>SubStatus*</td>
 <td>enum</td>
-<td>New status of the order or order line item as configured in the CP. Either pass it at the order level or line-item. For example, <code class="prettyprint">RJ</code> for rejected. You can find the configured sub-statuses in the CP Settings &gt; Application settings &gt; Order settings &gt; Order Substatus</td>
+<td>New status of the order or order line item as configured in the CP. These can be predefined or user defined. You can either pass it at the order level or line-item. For example, <code class="prettyprint">EX</code> for Order Expired, <code class="prettyprint">SE</code> for Successful to ERP/POS, <code class="prettyprint">RJ</code> for  Order Rejected, <code class="prettyprint">FE</code> for Failed to ERP/POS, <code class="prettyprint">IP</code> for In Progress. <br></td>
 </tr>
 </tbody></table>
+
+<p>You can find the predefined and user defined sub-statuses in the CP Settings &gt; Application settings &gt; Order settings &gt; Order Substatus</p>
 
 <h2 id="update-shipment-trip-details">Update Shipment Trip Details</h2>
 
@@ -28593,12 +28596,12 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>RiderId**</td>
 <td>int</td>
-<td>Unique id of the rider who delivers the shipment. Rider ID has to be preconfigured against the merchant. Either RiderId or RiderCode is mandatory</td>
+<td>Unique id of the rider who delivers the shipment. Rider ID has to be preconfigured for the merchant. Either RiderId or RiderCode is mandatory</td>
 </tr>
 <tr>
 <td>RiderCode**</td>
 <td>string</td>
-<td>Unique code of the rider who delivers the shipment. Rider Code has to be preconfigured against the merchant. Either RiderId or RiderCode is mandatory</td>
+<td>Unique code of the rider who delivers the shipment. Rider Code has to be preconfigured for the merchant. Either RiderId or RiderCode is mandatory</td>
 </tr>
 <tr>
 <td>VehicleNumber</td>
@@ -28618,12 +28621,12 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>OperatorID</td>
 <td>string</td>
-<td>Unique CP GUID who updates the shipment trip details</td>
+<td>Unique CP user GUID who updates the shipment trip details</td>
 </tr>
 <tr>
 <td>ShipmentTripAttributes</td>
 <td>obj</td>
-<td>Provide additional details of the shipment in each obj Name-Value (key-value pairs). You can pass your preferred combination of attribute name and value that are applicable for the shipment</td>
+<td>Provide additional details of the shipment in each obj Name-Value (key-value) pairs. You can pass your preferred combination of attribute name and value as applicable</td>
 </tr>
 </tbody></table>
 
@@ -28727,7 +28730,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>ShippingMessage</td>
 <td>string</td>
-<td>Message that you want to leave  for the shipment</td>
+<td>Message that you want to provide for the shipment</td>
 </tr>
 </tbody></table>
 
@@ -28766,7 +28769,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 </span><span class="p">}</span><span class="w">
 
 </span></code></pre>
-<p>Retrieves shipment packages of the merchant.</p>
+<p>Retrieves all shipment packages of the merchant.</p>
 
 <h3 id="resource-information">Resource Information</h3>
 
@@ -29154,7 +29157,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>orderfieldchangehistory</td>
 <td>boolean</td>
-<td>Specify <code class="prettyprint">true</code> to retrieve the history of change in order or order item attributes. For example, order fulfillment location, order item fulfillment location and so on</td>
+<td>Specify <code class="prettyprint">true</code> to retrieve the history of change in order or order item attributes. Default value is <code class="prettyprint">false</code></td>
 </tr>
 <tr>
 <td>activityhistory</td>
@@ -29189,7 +29192,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>RETransactionId</td>
 <td>int</td>
-<td>Unique Order id associated</td>
+<td>Unique Order id for which you want to get activity history</td>
 </tr>
 <tr>
 <td>LogAction</td>
@@ -29385,7 +29388,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>ShipmentType</td>
 <td>enum</td>
-<td>Type of shipment. Value: <code class="prettyprint">Normal</code> for shipments from warehouse to customer, <code class="prettyprint">Reverse</code> for shipments customer to warehouse</td>
+<td>Type of shipment. Value: <code class="prettyprint">Normal</code> for shipments from warehouse to customer, <code class="prettyprint">Reverse</code> for shipments from customer to warehouse</td>
 </tr>
 <tr>
 <td>ReceivedBy</td>
@@ -29400,7 +29403,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>CollectableAmount</td>
 <td>int</td>
-<td>Amount to the collected from the receiver (used for COD orders)</td>
+<td>Amount to be collected from the receiver (used for COD orders)</td>
 </tr>
 </tbody></table>
 
@@ -29549,12 +29552,12 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>VerificationMethod</td>
 <td>string</td>
-<td>Verification type for item delivery or return pick-up. Currently we support <code class="prettyprint">OTP</code></td>
+<td>Verification type used for item delivery or return pick-up. Currently we support <code class="prettyprint">OTP</code></td>
 </tr>
 <tr>
 <td>VerificationValue</td>
 <td>string</td>
-<td>Value of the specified VerificationMethod</td>
+<td>Value of the specified <code class="prettyprint">VerificationMethod</code></td>
 </tr>
 </tbody></table>
 
@@ -29602,7 +29605,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 </span><span class="p">}</span><span class="w">
 
 </span></code></pre>
-<p>Retrieves shipment ids and order ids the merchant based on the input parameters.</p>
+<p>Retrieves shipment ids and order ids of the merchant based on the input parameters.</p>
 
 <h3 id="resource-information">Resource Information</h3>
 
@@ -29659,17 +29662,17 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>CreatedDateFrom</td>
 <td>date</td>
-<td>Get shipments created in a specific duration between <code class="prettyprint">CreatedDateFrom</code> and <code class="prettyprint">CreatedDateTo</code></td>
+<td>Get shipments created in a specific duration. Specify the duration in <code class="prettyprint">CreatedDateFrom</code> and <code class="prettyprint">CreatedDateTo</code></td>
 </tr>
 <tr>
 <td>CreatedDateTo</td>
 <td>date</td>
-<td>Get shipments created in a specific duration between <code class="prettyprint">CreatedDateFrom</code> and <code class="prettyprint">CreatedDateTo</code></td>
+<td>Get shipments created in a specific duration. Specify the preferred duration in <code class="prettyprint">CreatedDateFrom</code> and <code class="prettyprint">CreatedDateTo</code></td>
 </tr>
 <tr>
 <td>ShippingStatus</td>
 <td>enum</td>
-<td>Get shipments by shipment status. You can pass multiple values separated by comma. Values: <code class="prettyprint">I</code> - RTO initiated, <code class="prettyprint">O</code> - RTO Received, <code class="prettyprint">L</code> - RTO Lost, <code class="prettyprint">X</code> - Others, <code class="prettyprint">S</code> - Shipment created, <code class="prettyprint">R</code>   - Dispatched, <code class="prettyprint">T</code>   - In transit, <code class="prettyprint">U</code>   - Out for delivery, <code class="prettyprint">D</code> - Delivered, <code class="prettyprint">C</code>    - RTO Closed, <code class="prettyprint">F</code>   - Canceled, <code class="prettyprint">E</code> - RTO Refunded/Replacement closed, <code class="prettyprint">W</code>  - Waiting for Collection  (in-store), <code class="prettyprint">G</code>   - At Gate</td>
+<td>Get shipments of a specific shipment status(s). You can pass multiple values separated by comma. Values: <code class="prettyprint">I</code> - RTO initiated, <code class="prettyprint">O</code>   - RTO Received, <code class="prettyprint">L</code> - RTO Lost, <code class="prettyprint">X</code> - Others, <code class="prettyprint">S</code> - Shipment created, <code class="prettyprint">R</code>   - Dispatched, <code class="prettyprint">T</code>   - In transit, <code class="prettyprint">U</code>   - Out for delivery, <code class="prettyprint">D</code> - Delivered, <code class="prettyprint">C</code>    - RTO Closed, <code class="prettyprint">F</code>   - Canceled, <code class="prettyprint">E</code> - RTO Refunded/Replacement closed, <code class="prettyprint">W</code>  - Waiting for Collection  (in-store), <code class="prettyprint">G</code>   - At Gate</td>
 </tr>
 </tbody></table>
 
@@ -29774,7 +29777,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>userId</td>
 <td>string</td>
-<td>CP logged in user id</td>
+<td>Logged in user id of the CP who is updating shipment details</td>
 </tr>
 <tr>
 <td>providerId</td>
@@ -29952,7 +29955,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>SourceCountryCode</td>
 <td>string</td>
-<td>alpha-2 code of the product location country . Example: IN (for India), AU (for Australia), and BR (for Brazil)</td>
+<td>Alpha-2 code of the country of the product location . Example: IN (for India), AU (for Australia), and BR (for Brazil)</td>
 </tr>
 <tr>
 <td>SourceStateName</td>
@@ -29982,7 +29985,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>ShipCountryCode</td>
 <td>string</td>
-<td>alpha-2 code of the country of the product delivery location. Example: IN (for India), AU (for Australia), and BR (for Brazil)</td>
+<td>Alpha-2 code of the country of the product delivery location. Example: IN (for India), AU (for Australia), and BR (for Brazil)</td>
 </tr>
 <tr>
 <td>ShipStateName</td>
@@ -30007,7 +30010,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>Quantity*</td>
 <td>int</td>
-<td>Number of the item for which you want to calculate tax</td>
+<td>Number of items for which you want to calculate tax</td>
 </tr>
 <tr>
 <td>DeliveryMode*</td>
@@ -30055,13 +30058,13 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>IsPercentage</td>
 <td>boolean</td>
-<td>If true, tax rate is calculated on the percentage of the price and false flat amount tax</td>
+<td>If true, tax rate is calculated on the percentage of the price and <code class="prettyprint">false</code> for flat amount tax</td>
 </tr>
 </tbody></table>
 
 <h2 id="calculate-tax-bundle-product">Calculate Tax (Bundle Product)</h2>
 
-<p>Calculates tax amount for a product on the basis of source and destination location.</p>
+<p>Calculates tax (amount) for a product on the basis of source and destination location.</p>
 
 <blockquote>
 <p>Sample Request</p>
@@ -30257,7 +30260,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>SourceCountryCode</td>
 <td>string</td>
-<td>alpha-2 code of the product location country . Example: IN (for India), AU (for Australia), and BR (for Brazil)</td>
+<td>Alpha-2 code of the country of the product location. Example: IN (for India), AU (for Australia), and BR (for Brazil)</td>
 </tr>
 <tr>
 <td>SourceStateName</td>
@@ -30287,7 +30290,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>ShipCountryCode</td>
 <td>string</td>
-<td>alpha-2 code of the country of the product delivery location. Example: IN (for India), AU (for Australia), and BR (for Brazil)</td>
+<td>Alpha-2 code of the country of the product delivery location. Example: IN (for India), AU (for Australia), and BR (for Brazil)</td>
 </tr>
 <tr>
 <td>ShipStateName</td>
@@ -30317,7 +30320,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>Quantity*</td>
 <td>int</td>
-<td>Number of the item for which you want to calculate tax</td>
+<td>Number of the items for which you want to calculate tax</td>
 </tr>
 <tr>
 <td>DeliveryMode*</td>
@@ -30333,7 +30336,9 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <aside class="notice"> All parameters marked by * are mandatory. </aside>
 
-<h3 id="sample-response-parameters">Sample Response Parameters</h3>
+<h3 id="response-parameters">Response Parameters</h3>
+
+<p>Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.</p>
 
 <table><thead>
 <tr>
@@ -30342,11 +30347,6 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>BundleItem</td>
-<td></td>
-<td>Applicable for bundle products</td>
-</tr>
 <tr>
 <td>TaxCategory</td>
 <td>string</td>
@@ -30371,7 +30371,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <h2 id="balance-enquiry">Balance Enquiry</h2>
 
-<p>Retrieves the wallet balance of a customer of a specific service. For example, loyalty card, RazorPay and so on.</p>
+<p>Retrieves the wallet balance of a customer of a specific service. For example, balance of loyalty card, RazorPay and so on.</p>
 
 <blockquote>
 <p>Sample Request</p>
@@ -30563,7 +30563,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>referenceNumber*</td>
 <td>string</td>
-<td>Preferred reference number for the  order</td>
+<td>Preferred reference number for the order</td>
 </tr>
 </tbody></table>
 
@@ -30571,7 +30571,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <h2 id="create-return-request">Create Return Request</h2>
 
-<p>Lets you create a new return request - A request made by customer to return partial or complete items of an order that is delivered.</p>
+<p>Lets you create a new return request - A request made by a customer to return partial or complete items of an order that are delivered.</p>
 
 <blockquote>
 <p>Sample Request</p>
@@ -30726,7 +30726,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>Comments</td>
 <td>string</td>
-<td>Reason for return</td>
+<td>Any comment related to the return request</td>
 </tr>
 <tr>
 <td>Source</td>
@@ -30756,32 +30756,32 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>BankName</td>
 <td>string</td>
-<td>Bank name to which the refund will be made(for NEFT payment)</td>
+<td>Bank name to which the refund will be made(for refund through NEFT payment)</td>
 </tr>
 <tr>
 <td>IFSCCOde</td>
 <td>string</td>
-<td>IFSC code of the specified bank (for NEFT payment)</td>
+<td>IFSC code of the specified bank (for refund through NEFT payment)</td>
 </tr>
 <tr>
 <td>AccountNumber</td>
 <td>string</td>
-<td>Account number to which the return amount needs to be refunded (for NEFT payment)</td>
+<td>Account number to which the return amount needs to be refunded (for refund through NEFT payment)</td>
 </tr>
 <tr>
 <td>AccountName</td>
 <td>string</td>
-<td>Name of the customer account as per the specified bank (for NEFT payment)</td>
+<td>Name of the customer account as per the specified bank (for refund through NEFT payment)</td>
 </tr>
 <tr>
 <td>BranchName</td>
 <td>string</td>
-<td>Branch name of the specified account (for NEFT payment)</td>
+<td>Branch name of the specified account (for refund through NEFT payment)</td>
 </tr>
 <tr>
 <td>FirstName</td>
 <td>string</td>
-<td>First name of the customer returning the item(s)</td>
+<td>First name of the customer associated to the order</td>
 </tr>
 <tr>
 <td>Address1</td>
@@ -30791,12 +30791,12 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>CountryCode</td>
 <td>string</td>
-<td>alpha-2 code of the location country associated shipment address. Example: IN (for India), AU (for Australia), and BR (for Brazil)</td>
+<td>Alpha-2 code of the country of the shipment address. Example: IN (for India), AU (for Australia), and BR (for Brazil)</td>
 </tr>
 <tr>
 <td>CountryName</td>
 <td>string</td>
-<td>Name of the country as per the shipment address</td>
+<td>Name of the country of the shipment address</td>
 </tr>
 <tr>
 <td>StateCode</td>
@@ -30821,7 +30821,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>PostCode</td>
 <td>string</td>
-<td>ZIP Code of the delivery location</td>
+<td>ZIP Code of the shipment location</td>
 </tr>
 <tr>
 <td>Email</td>
@@ -30866,7 +30866,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>IsSelfShip</td>
 <td>boolean</td>
-<td>If the order shipment is handled by marketplace such as Amazon or Flipkart specify <code class="prettyprint">False</code> and if the shipment is handled by the merchant itself, set the value to <code class="prettyprint">True</code></td>
+<td>If the order shipment is handled by marketplace such as Amazon or Flipkart specify <code class="prettyprint">False</code>, if the shipment is handled by the merchant itself, specify <code class="prettyprint">True</code></td>
 </tr>
 <tr>
 <td>ShipmentId</td>
@@ -30916,7 +30916,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>IsReceived*</td>
 <td>boolean</td>
-<td>Whether the current item is received or not</td>
+<td>Whether the current item is received at the warehouse or not</td>
 </tr>
 <tr>
 <td>ReceivedQty**</td>
@@ -30934,7 +30934,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <h2 id="search-return-requests">Search Return Requests</h2>
 
-<p>Returns the history of return orders of the merchant.</p>
+<p>Returns the order ids that are returned based on the input parameters.</p>
 
 <blockquote>
 <p>Sample Request</p>
@@ -31072,7 +31072,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>paymentMode</td>
 <td>string</td>
-<td>Mode of payment for the return. Values: NEFT Cheque/DD, Credit Card, eVoucher</td>
+<td>Fetch return orders by mode of payment(refund). Values: NEFT Cheque/DD, Credit Card, eVoucher</td>
 </tr>
 </tbody></table>
 
@@ -31270,6 +31270,8 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <h3 id="response-parameters">Response Parameters</h3>
 
+<p>Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.</p>
+
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -31280,12 +31282,12 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>BillOfSupplyCreditNoteNumber</td>
 <td>string</td>
-<td>Credit Note will be generated for any customer returned item received at the merchant warehouse.  Non-taxable items will have &ldquo;Bill of supply Credit note number&rdquo;</td>
+<td>Credit note is generated for a customer returned item received at the merchant warehouse.  Non-taxable items will have &ldquo;Bill of supply Credit note number&rdquo;</td>
 </tr>
 <tr>
 <td>TaxableCreditNoteNumber</td>
 <td>string</td>
-<td>Credit Note will be generated for any customer returned item received to merchant warehouse. Taxable Items will have this &ldquo;Taxable credit note number&rdquo;</td>
+<td>Credit note is generated for any customer returned item received to merchant warehouse. Taxable Items will have this &ldquo;Taxable credit note number&rdquo;</td>
 </tr>
 <tr>
 <td>Source</td>
@@ -31513,17 +31515,17 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>BillOfSupplyCreditNoteNumber</td>
 <td>string</td>
-<td>Credit Note will be generated for any customer returned item received at the merchant warehouse.  Non-taxable items will have &ldquo;Bill of supply Credit note number&rdquo;</td>
+<td>Credit note is generated for a customer returned item that is received at the merchant warehouse.  Non-taxable items will have &ldquo;Bill of supply Credit note number&rdquo;</td>
 </tr>
 <tr>
 <td>TaxableCreditNoteNumber</td>
 <td>string</td>
-<td>Credit Note will be generated for any customer returned item received to merchant warehouse. Taxable Items will have this &ldquo;Taxable credit note number&rdquo;</td>
+<td>Credit note is generated for a customer returned item that is received at the merchant warehouse. Taxable Items will have  &ldquo;Taxable credit note number&rdquo;</td>
 </tr>
 <tr>
 <td>Source</td>
 <td>int</td>
-<td>values from 1-5. Source from which the return request is made. Example, <code class="prettyprint">1</code> stands for storefront</td>
+<td>Source from which the return request is made. values from 1-5. Example, <code class="prettyprint">1</code> stands for storefront</td>
 </tr>
 <tr>
 <td>RequestStatus</td>
@@ -31533,7 +31535,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>RequestType</td>
 <td>enum</td>
-<td>Type of the return request. <code class="prettyprint">R</code> for return to origin (RTO) <code class="prettyprint">C</code> for customer return and <code class="prettyprint">CU</code> for Return created due to item cancellation</td>
+<td>Type of the return request. Values: <code class="prettyprint">R</code> for return to origin (RTO) <code class="prettyprint">C</code> for customer return and <code class="prettyprint">CU</code> for Return created due to item cancellation</td>
 </tr>
 <tr>
 <td>RefundStatus</td>
@@ -31548,7 +31550,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>IsSelfShip</td>
 <td>enum</td>
-<td>‘Yes<code class="prettyprint">if the user will ship the return package to the merchant,</code>No`, if the merchant has to pickup the package from the user</td>
+<td>‘Yes<code class="prettyprint">if the user will ship the return package to the merchant,</code>No` if the merchant has to pickup the package from the user</td>
 </tr>
 <tr>
 <td>SubStatus</td>
@@ -31649,7 +31651,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>OrderID*</td>
 <td>int</td>
-<td>Unique id of the order for which you want to update item price</td>
+<td>Unique id of the order for which you want to update an item price</td>
 </tr>
 <tr>
 <td>OrderItemID</td>
@@ -31669,7 +31671,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>ConsiderCurrentPriceandMRP</td>
 <td>boolean</td>
-<td>Specify <code class="prettyprint">False</code> to use the new prices specified, <code class="prettyprint">True</code> to consider the prices of the as per the CP</td>
+<td>Specify <code class="prettyprint">False</code> to use the new prices specified, <code class="prettyprint">True</code> to consider the prices as per the CP</td>
 </tr>
 <tr>
 <td>ReasonForPriceOverride</td>
@@ -31682,7 +31684,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <h2 id="get-document">Get Document</h2>
 
-<p>Generates either dispatch  or invoice document.</p>
+<p>Generates either a dispatch or invoice document.</p>
 
 <blockquote>
 <p>Sample Request</p>
@@ -31759,12 +31761,12 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>objectType*</td>
 <td>enum</td>
-<td>Specify <code class="prettyprint">Invoice</code> to generate invoice invoice, <code class="prettyprint">Shipment</code> to get the dispatch document of the  order</td>
+<td>Specify <code class="prettyprint">Invoice</code> to generate invoice of the order, <code class="prettyprint">Shipment</code> to get the dispatch document of the order</td>
 </tr>
 <tr>
 <td>objectValue*</td>
 <td>string</td>
-<td>Specify invoice id or shipment id based on the <code class="prettyprint">objectType</code></td>
+<td>Specify invoice id or shipment id that you want to fetch based on the <code class="prettyprint">objectType</code> passed</td>
 </tr>
 </tbody></table>
 
@@ -32018,7 +32020,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>tripId</td>
 <td>string</td>
-<td>Unique id of the shipment trip. A trip is a shipment containing multiple orders assigned to a delivery associate to deliver to the customer. Each trip will have a unique trip id</td>
+<td>Unique id of the shipment trip. A trip is a shipment containing multiple orders assigned to a delivery associate which need to be delivered to end customers. Each trip will have a unique trip id</td>
 </tr>
 </tbody></table>
 
@@ -32026,7 +32028,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <h2 id="get-manifest-details">Get Manifest Details</h2>
 
-<p>Retrieves details of a specific shipping manifest.</p>
+<p>Retrieves the details of a specific shipping manifest.</p>
 
 <blockquote>
 <p>Sample Request</p>
@@ -32119,7 +32121,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <h2 id="get-advance-tax-voucher">Get Advance Tax Voucher</h2>
 
-<p>Retrieves Advance tax voucher (ATV) details of a specific order.</p>
+<p>Retrieves Advance Tax Voucher (ATV) details of a specific order.</p>
 
 <blockquote>
 <p>Sample Request</p>
@@ -32256,7 +32258,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>orderId*</td>
 <td>int</td>
-<td>Unique id of the order for which you want to fetch tax details</td>
+<td>Unique id of the order for which you want to fetch advanced tax details</td>
 </tr>
 </tbody></table>
 
@@ -32306,7 +32308,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>TaxCode</td>
 <td>string</td>
-<td>Unique tax code that you want to associate to the product.  Tax code should be configured in CP first to associate to products.</td>
+<td>Unique tax code that you want to associate to the product.  Tax code should be configured in the CP first to associate to products.</td>
 </tr>
 <tr>
 <td>UOM</td>
@@ -32322,7 +32324,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <h2 id="lead-search">Lead Search</h2>
 
-<p>Searches leads based on input parameters.</p>
+<p>Searches leads based on the input parameters.</p>
 
 <blockquote>
 <p>Sample Request</p>
@@ -32483,12 +32485,12 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>fromDate</td>
 <td>date</td>
-<td>Search leads created in a specific duration. Specify the date-range in <code class="prettyprint">fromDate</code> and <code class="prettyprint">toDate</code></td>
+<td>Search leads created in a specific duration. Specify the date-range in <code class="prettyprint">fromDate</code> and <code class="prettyprint">toDate</code> (in <code class="prettyprint">MM-DD-YYYY</code> format)</td>
 </tr>
 <tr>
 <td>toDate</td>
 <td>date</td>
-<td>Search leads created in a specific duration. Specify the date-range in <code class="prettyprint">fromDate</code> and <code class="prettyprint">toDate</code></td>
+<td>Search leads created in a specific duration. Specify the date-range in <code class="prettyprint">fromDate</code> and <code class="prettyprint">toDate</code> (in <code class="prettyprint">MM-DD-YYYY</code> format)</td>
 </tr>
 <tr>
 <td>status</td>
@@ -32533,7 +32535,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>callForActionId</td>
 <td>string</td>
-<td>Unique id associated to the call for action for leads. For example, Call for actions could be Get-a-Call, Reserve Product &amp; Visit Store, Proforma Invoice, Get-a-Call</td>
+<td>Unique id associated to the call-for-action for leads. For example, Call for actions could be Get-a-Call, Reserve Product &amp; Visit Store, Proforma Invoice, and Get-a-Call</td>
 </tr>
 </tbody></table>
 

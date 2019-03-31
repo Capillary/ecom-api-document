@@ -118,17 +118,17 @@ Authentication | Yes
 
 Parameter | Type | Description
 --------- | ---- | -----------
-UserName* | string | The unique identifier of the customer as configured for the merchant. It could be email, mobile, or any other identifier
+UserName* | string | The username of the customer's account on the merchant's Anywhere Commerce platform. It could be email, mobile, or any other identifier
 merchantId* | string | The unique id (GUID) of the merchant in which you want to register customer
 Password* | string |  Password of the customer account. Password policy is as configured for the merchant on the Merchant Panel
 CommunicationType |enum | The preferred communication channel(s) of the customer. Possible Values: SMS, EMAIL
-City | int | Unique code of the city (as saved in the system) such as 0562 (for Agra), and 250 (Victoria)
+City | int | Unique code of the city (as saved in the system) of the customer's billing address. Example, 0562 (for Agra), and 250 (Victoria)
 CityName | string | Full name of the city. Example: Bangalore, Delhi, Tokyo, Singapore and Paris
 State | string | State's postal abbreviation. Example: KA (for Karnataka), CA (for California), IN (for Indiana)
 StateName | string | Full name of the state. Example: Karnataka, California, and Indiana
-Country | string | alpha-2 code of the country. Example: IN (for India), AU (for Australia), and BR (for Brazil)
+Country | string | Alpha-2 code of the country as per the customer's billing address. Example: IN (for India), AU (for Australia), and BR (for Brazil)
 CountryName | string | Full name of the country. Example: India, Australia, and Brazil
-IsReceiveOffers | boolean | For merchant with CRM enabled, Subscribe (`true`) or unsubscribe (`false`) customer's mobile number/email id in CRM
+IsReceiveOffers | boolean | Used by merchants with CRM enabled. Specify `true` subscribe customer's mobile number/email id in CRM to receive offers, else speify `false`
 
 <aside class=notice>All parameters marked by * are mandatory.</aside>
 
@@ -226,13 +226,13 @@ accesstoken* |	Access token of the logged in user to validate the session
 
 Parameter | Type | Description
 --------- | ---- | -----------
-UserId* | string | Unique id of the customer that is generated in the system.
-City | string | Unique code of the city (as saved in the system) Example: 0562 (for Agra), 250 (Victoria) 
+UserId* | string | Unique GUID of the customer that you want to update details
+City | string | Unique code of the customer's billing city (as saved in the system) Example: 0562 (for Agra), 250 (Victoria) 
 CityName | string | Full name of the city. Example: Bangalore, 
 State | string | State's postal abbreviation. Example: KA (for Karnataka), CA (for California), IN (for Indiana)
 StateName | string | Full name of the state such as Karnataka, California, and Indiana
-Country | string | alpha-2 code of the country such as IN (for India), AU (for Australia), BR (for Brazil)
-CountryName | string | Full name of the country such as India, Australia, and Brazil
+Country | string | Alpha-2 code of the country of the customer. Example, IN (for India), AU (for Australia), BR (for Brazil)
+CountryName | string | Full name of the country. Example, India, Australia, and Brazil
 
 <aside class="notice"> All parameters marked by * are mandatory. </aside>
 
@@ -242,7 +242,7 @@ Following table contains descriptions of a few response parameters that require 
 
 Parameter | Type | Description
 --------- | ---- | -----------
-IsReceiveOffers | boolean | Whether the user is subscribed to receive offers from the merchant 
+IsReceiveOffers | boolean | Whether the user is subscribed to receive offers from the merchant or not
 
 
 
@@ -285,14 +285,12 @@ InputFormat=application/json&InputData={
 ```
 
 
-**For an existing customer**: Authorizes an existing user account through OTP. 
-
-**For a new customer**: Registers a new customer first and then authorizes the account through OTP   
+Authorizes an existing user account through OTP for an existing customer; registers a new customer first and then authorizes the account through OTP for a new customer.  
 
 <aside class="notice">
-When a customer logs in, he receives a unique `UserId` which is required for accessing and managing customer details through APIs. 
+A unique userId generated for a customer `UserId` is required for making customer API calls. 
 
-The customer has to be logged in to perform any customer related tasks such as fetching customer details, modifying customer details, updating profile attributes and so forth. 
+Also, a customer should have logged in to perform any customer related tasks such as fetching customer details, modifying customer details, updating profile attributes and so forth. 
 
 </aside>
 
@@ -380,7 +378,7 @@ InputFormat=application/json&InputData={
 ```
 
 
-Authorizes login of a registered customer on the merchant's e-commerce store. When logged in successfully, the unique user id of the customer will be shown which is required to make customer related API calls. 
+Authorizes login of a registered customer on the merchant's Anywhere Commerce store based on the username and password passed. A unique user id is shown for the logged in user in response which is required to make customer related API calls. 
 
 <aside class="notice">The customer has to be logged in to access or update customer information such as fetch customer details, modify customer details or update profile attributes.</aside>
 
@@ -424,7 +422,7 @@ issued_at | date-time | The date and time when the access token was generated fo
 
 ## Customer Login (with Third Party Authentication)
 
-Authenticates customer login with a third-party provider such as Gmail, Facebook and so on.
+Authenticates customer login with a third-party provider such as Gmail, and Facebook.
 
 > Sample Request
 
@@ -486,14 +484,14 @@ Authentication | Yes
 Parameter | Type | Description
 -------- | ----- | -----------
 merchantId* | string | Unique GUID of the merchant
-provider | string | Name of the third party login service provider
+provider | string | Name of the third party service provider through which the customer wants to login
 profileId | string | Unique profile id of the service provider
-email | string | Email id of the user registered with the provider
+email | string | Email id of the user registered with the third-party provider
 firstName | string | First name of the user
-lastName | string | Last name of the user	
+lastName | string | Last name of the user
 gender | string | Customer gender. Value: `M` for male and `F` for female
 loginId	| string | Login username (as per the third party)
-mobileNo | string | Registered mobile number of the user with the provider
+mobileNo | string | Registered mobile number of the user that is registered with the provider
 subscribeToOffers | enum | Specify `true` to subscribe the user to the merchant offers, specify `false` not to subscribe
 
 <aside class=notice>All parameters marked by * are mandatory.</aside>
@@ -558,7 +556,7 @@ MerchantId=6c57599f-2c43-4c82-806a-e07c3410f5d3&InputFormat=application/json&Inp
 --------- | ----------- |
 URI | `/Customer/{MerchantId}/StartCustomerSession`
 Response Formats | JSON
-HTTP Methods | POST (No POST body is required)
+HTTP Methods | POST
 Batch Support | No
 Rate Limited? | No
 Authentication | Yes
@@ -582,9 +580,9 @@ accesstoken* | Access token of the logged in user that you want to logout
 ### Request Parameters
 Parameter | Type | Description
 --------- | ----- | ------
-merchantId* | string | The unique id (GUID) of the merchant
+merchantId* | string | Unique id (GUID) of the merchant
 username | string | Registered login username of the customer
-operatorid | string | Unique GUID of the back-end operator. The generated access token will be associated to both the user and operator
+operatorid | string | Unique GUID of the back-end operator or current CP user id. The generated access token will be associated to both the user and operator
 password | string | Password of the operator account
 locationid | int | Location id associated to the user
 
@@ -632,9 +630,9 @@ Lets you change password of the current customer account.
 ### Resource Information
 | | |
 --------- | ----------- |
-URI | `/Customer/{merchantId}/{UserId}/ChangePassword?password={new password}`
+URI | `/Customer/{merchantId}/{UserId}/ChangePassword?password={newPassword}`
 Response Formats | JSON
-HTTP Methods | POST
+HTTP Methods | POST (No POST body required)
 Batch Support | No
 Rate Limited? | No
 Authentication | Yes
@@ -645,15 +643,15 @@ Authentication | Yes
 
 
 ### Request URL
-`https://{host}/developerapi/Customer/{merchantId}/{UserId}/ChangePassword?password={new password}`
+`https://{host}/developerapi/Customer/{merchantId}/{UserId}/ChangePassword?password={newPassword}`
 
 ### Request Path Parameters
 
 Parameter | Type | Description
 -------- | ---- | -----------
 merchantId* | string | Unique GUID of the merchant associated to the user account
-UserId* | string | Unique GUID of the user for which password needs to be changed
-newPassword* | string | New password that you want to have for the account
+UserId* | string | Unique GUID of the user to change the password
+newPassword* | string | New password that you prefer
 
 <aside class=notice>All parameters marked by * are mandatory.</aside>
 
@@ -715,7 +713,7 @@ Authentication | Yes
 
 Header | Description
 ------ | -----------
-AccessToken* | Access token of the logged in user that you want to logout
+AccessToken* | Access token of the logged in user whose password needs to be changed
 APIversion*  | 1
 
 
@@ -810,7 +808,7 @@ Parameter | Type | Description
 -------- | ----- | -----------
 merchantId* | string | Unique GUID of the merchant
 UserName* | string | Unique login username of the customer. For example, email id
-Url | string | Reset password link sent to the email id. The URL you provide will be appended with the reset id (which is generated automatically)
+Url | string | Link to reset password that you want to send to the customer's email id. Reset id generated automatically and is appended to the URL you specify
 
 <aside class="notice"> All parameters marked by * are mandatory. </aside>
 
@@ -831,7 +829,7 @@ https://www.martjack.com/DeveloperAPI/Customer/81e77da2-723b-483d-8c0d-49f800c1e
 
 
 
-> Sample POST Request (mobile number validation)
+> Sample POST Request (for mobile number validation)
 
 ```json
 InputFormat=application/json&InputData={
@@ -890,7 +888,7 @@ merchantId* | string | Unique GUID of the merchant
 UserName* | string | Username of the customer account - mobile number or email id
 Resettype* | enum | Specify `mobile` for mobile number validation, `email` for email id validation
 resetid | string | Unique reset id generated when resetting the password through email id. Required when `Resettype` is email (generated through ResetPassword API  when username is email  id)
-OTP | int | Unique OTP sent to the mobile number. Required when `Resettype` is mobile (generated through ResetPassword API when username is mobile number)
+OTP | int | OTP sent to the customer's mobile number when `Resettype` is mobile (generated through ResetPassword API when username is mobile number)
 
 
 
@@ -947,7 +945,7 @@ accesstoken* | Access token of the logged in user that you want to logout
 ### Request Parameters
 Parameter | Type | Description
 --------- | ----- | ------
-merchantId* | string | The unique id (GUID) of the current merchant
+merchantId* | string | Unique GUID of the merchant
 
 
 <aside class=notice>All parameters and headers marked by * are mandatory.</aside>
@@ -989,7 +987,7 @@ merchantId* | string | The unique id (GUID) of the current merchant
 ```
 
 
-Creates a dummy access token for a user who did not log in to the merchant store. No POST body is required for this API.
+Creates a dummy access token for the current user who did not logged in to the merchant Anywhere Commerce store. No POST body is required for this API.
 
 ### Resource Information
 
@@ -1012,7 +1010,7 @@ Authentication | Yes
 ### Request Parameters
 Parameter | Type | Description
 --------- | ---- | -------
-merchantId* | string | The unique id (GUID) of the merchant
+merchantId* | string | The unique GUID of the merchant
 
 <aside class="notice"> All parameters marked by * are mandatory</aside>
 
@@ -1072,10 +1070,12 @@ Authentication | Yes
 ### Request Parameters
 Parameter | Type | Description
 --------- | ----- | ------
-merchantId* | string | The unique id (GUID) of the merchant in which you want to validate access token
-accesstoken* | string | The access token generated for a user session (use `/Customer/GetAccessToken/` to get access token of a user session)
+merchantId* | string | The unique GUID of the merchant where to validate access token
+accesstoken* | string | The access token generated for the current user session (use `/Customer/GetAccessToken/` to get access token of a user session)
 
 <aside class="notice"> All parameters marked by * are mandatory. </aside>
+
+
 
 
 ## Activate User Account
@@ -1191,7 +1191,7 @@ UserId* | string | Unique GUID of the user that you want to deactivate
 
 
 
-## Fetch Customers (Search)
+## Search Customers
 
 
 > Sample Request
@@ -1224,8 +1224,8 @@ InputFormat=application/json&InputData={
             "UserId": "07e8f0eb-8c5d-4ad7-ab6e-ca7a72687d63",
             "MerchantId": "f48fdd16-92db-4188-854d-1ecd9b62xxxx",
             "UserName": "tom.sawyer@example.com",
-            "FirstName": "Pallav",
-            "LastName": "Kumar",
+            "FirstName": "Tom",
+            "LastName": "Sawyer",
             "PostalAddress": "silkboard",
             "AlternateEmail": "",
             "City": "32",
@@ -1258,7 +1258,7 @@ InputFormat=application/json&InputData={
 }
 ```
 
-Retrieves customers containing the specific search keyword in username, mobile number or email id.
+Retrieves customers matching the specified search keyword in either username, mobile number or email id.
 
 ### Resource Information
 | | |
@@ -1280,9 +1280,9 @@ Authentication | Yes
 
 Parameter | Type | Description
 -------- | ---- | -----------
-UserName** | string | Fetches all customers matching the specified keyword in the username
-mobile** | string | Fetch customers whose registered mobile number containing a specific value. For example, you can get all customers whose mobile numbers  contain 9945
-email** | string | Search customers with a specific keyword in registered email ids. For example, you can get all customers whose email ids contain tom 
+UserName** | string | Fetches all customers matching the specified keyword in the username. For example, if you specify `tom`, you will get all customers whose username start with tom
+mobile** | string | Fetch customers whose registered mobile number contains the specified keyword. For example, you can get all customers whose mobile numbers  contain 9945
+email** | string | Search customers whose registered email id contains a specified keyword. For example, you can get all customers whose email ids contain john 
 
 <aside class="notice"> ** Any one among the above parameters is mandatory. </aside>
 
@@ -1364,7 +1364,7 @@ https://www.martjack.com/developerapi/Customer/81e77da2-723b-483d-8c0d-49f800c1x
 
 ```
 
-Retrieves the details of a specific customer by user id.
+Retrieves the details of a specific customer based on the user id passed.
 
 ### Resource Information
 | | |
@@ -1385,8 +1385,8 @@ Authentication | Yes
 ### Request Parameters
 Parameter | Type | Description
 --------- | ----- | ------
-merchantId* | string | The unique id (GUID) of the merchant account from which you want to fetch customer details
-UserId* | string | The unique user identifier of the customer whose details need to be retrieved
+merchantId* | string | The unique GUID of the merchant associated to the customer account
+UserId* | string | The unique GUID of the customer to fetch details
 
 <aside class="notice"> All parameters marked by * are mandatory. </aside>
 
@@ -1399,350 +1399,7 @@ Parameter | Type | Description
 UserProfiles | array | Customer level custom field details
 UserInfoId | string | GUID generated for the customer internally. UserInfoId is used in APIs like customer update along with the UserId
 CommunicationType | string | The preferred communication channel(s) of the customer. Possible Values: SMS, EMAIL
-MarketingNotificationType | enum | Channel used for marketing communications. Value: SMS, Email
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## Update Profile Attributes (Custom Fields)
-
-> Sample Request
-
-```html
-https://www.martjack.com/developerapi/Customer/7c778337-4652-4944-934f-09e0fe56xxxx/UpdateUserProfile
-```
-
-> Sample POST Request
-
-```json
-InputFormat=application/json&InputData={  
-   "UserProfile":{  
-      "UserId":"3562a74e-1292-4d47-ba17-bc0a06af3xxx",
-      "ProfileAttributes":{  
-         "ProfileAttribute":{  
-            "ProfileAttributeId":"1058",
-            "ProfileAttributeValue":"Football"
-         }
-      }
-   }
-}
-```
-
-> Sample Response
-
-```json
-{
-    "messageCode": "1004",
-    "Message": "Updated Successfully",
-    "ErrorCode": 0
-}
-```
-
-Adds or updates customer level custom field details of a customer.
-
-### Resource Information
-| | |
---------- | ----------- |
-URI | `/Customer/{merchantId}/UpdateUserProfile`
-Response Formats | JSON
-HTTP Methods | POST
-Batch Support | No
-Rate Limited? | No
-Authentication | Yes
-
-* **Rate limiter** controls the number of incoming and outgoing traffic of a network
-* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
-
-### Additional Header Required
-
-Header | Description
------ | ----------
-accesstoken* | Access token of the logged in user to validate the session
-
-
-### Request URL
-`https://{host}/developerapi/Customer/{merchantId}/UpdateUserProfile`
-
-### Request Body Parameters
-Parameter | Type | Description
---------- | ----- | ------
-ProfileAttributeId* | string | ID of the attribute that needs to be updated 
-ProfileAttributeValue | string | Respective attribute value as preferred by the customer
-
-<aside class="notice"> All parameters marked by * are mandatory. </aside>
-
-
-
-
-
-
-
-## Add/Update Shipping Address
-> Sample Request
-
-```html
-https://www.martjack.com/DeveloperAPI/Customer/AddShippingAddress/81e77da2-723b-483d-8c0d-49f800c1exxx
-```
-
-> Sample POST Request
-
-```json
-InputFormat=application/json&InputData={  
-   "shippingaddress":{  
-      "shippingaddressid":"0",
-      "userId":"4cded968-8ee1-4591-a50b-41649387bxxx",
-      "firstname":"Tom",
-      "lastname":"Sawyer",
-      "address1":"H.no.6-51, plot.31, ECIL",
-      "address2":"",
-      "state":"KA",
-      "pin":"560068",
-      "countrycode":"IN",
-      "citycode":"32",
-      "phoneno":"",
-      "mobileno":"91-7411000000",
-      "email":"tom.sawyer@example.com",
-      "AddressType":"Home Address"
-   }
-}
-
-```
-
-> Sample Response
-
-```json
-{
-    "messageCode": "1004",
-    "Message": "Successful",
-    "ShippingAddresses": [
-        {
-            "shippingaddressid": 1714453,
-            "userId": "00000000-0000-0000-0000-000000000000",
-            "firstname": null,
-            "lastname": null,
-            "address1": null,
-            "address2": null,
-            "state": null,
-            "pin": null,
-            "countrycode": null,
-            "citycode": null,
-            "phoneno": null,
-            "mobileno": null,
-            "email": null,
-            "othercity": null
-        }
-    ],
-    "ErrorCode": 0
-}
-```
-
-
-Adds a new shipping address to a customer's account or update existing shipping address. 
-
-### Resource Information
-| | |
---------- | ----------- |
-URI | `/Customer/AddShippingAddress/{merchantId}`
-Response Formats | JSON
-HTTP Methods | POST
-Batch Support | No
-Rate Limited? | No
-Authentication | Yes
-
-* **Rate limiter** controls the number of incoming and outgoing traffic of a network
-* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
-
-
-### Request URL
-
-`https://{host}/developerapi/Customer/AddShippingAddress/{merchantId}`
-
-### Request Body Parameters
-Parameter | Type | Description
---------- | ---- | -------
-ShippingAddressId* | int | Unique id of the order shipment that you want to update. Just pass `0` to create a new shipping address
-userId* | string |  Registered identifier of the customer
-firstname* | string |  The first name of the customer
-lastname* | string |  The last name of the customer 
-address1*, address2	 | string |  Specify the customer’s shipping address related information
-state | string |  Postal abbreviation of the state. Example: KA (for Karnataka), CA (for California), IN (for Indiana)
-pin | string |  Specify the PIN of the shipping address
-countrycode | string |  alpha-2 code of the country. Example: IN (for India), AU (for Australia), and BR (for Brazil)
-citycode | string |  Unique code of the city (as saved in the system) such as 0562 (for Agra), and 250 (Victoria)
-phoneno | string |  The landline number of the recipient
-mobileno | string |  The mobile number of recipient 
-email | string |  The email id of the recipient 
-addressType | string | Type of address. For example Home, Office
-
-<aside class="notice"> All parameters marked by * are mandatory. </aside>
-
-
-
-
-
-
-
-
-
-## Get Customer's Shipping Address
-
-
-> Sample Request
-
-```html
-
-http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-483d-8c0d-49f800c1xxxx/4cded968-8ee1-4591-a50b-41649387bxxx
-
-```
-
-
-> Sample Response
-
-```json
-
-{
-   "messageCode":"1004",
-   "Message":"Successful",
-   "ShippingAddresses":[
-      {
-         "shippingaddressid":1711980,
-         "userId":"4cded968-8ee1-4591-a50b-41649387bxxx",
-         "firstname":"Tom",
-         "lastname":"Sawyer",
-         "address1":"H.no.6-51, plot.31, ECIL",
-         "address2":"",
-         "state":"KA",
-         "pin":"560068",
-         "countrycode":"IN",
-         "citycode":"32",
-         "phoneno":"91-",
-         "mobileno":"91-7411000000",
-         "email":"tom.sawyer@example.com",
-         "othercity":"Bangalore",
-         "CityName":"Bangalore",
-         "StateName":"Karnataka",
-         "CountryName":"India",
-         "AddressType":"1"
-      },
-      {
-         "shippingaddressid":1714178,
-         "userId":"4cded968-8ee1-4591-a50b-41649387bxxx",
-         "firstname":"Tom",
-         "lastname":"Sawyer",
-         "address1":"Door: 12, 4th Floor, #12",
-         "address2":"3rd cross, Roopena agrahara",
-         "state":"KA",
-         "pin":"560068",
-         "countrycode":"IN",
-         "citycode":"32",
-         "phoneno":"91-",
-         "mobileno":"91-7411000000",
-         "email":"tom.sawyer@example.com",
-         "othercity":"Bangalore",
-         "CityName":"Bangalore",
-         "StateName":"Karnataka",
-         "CountryName":"India",
-         "AddressType":"1"
-      }
-   ],
-   "ErrorCode":0
-}
-```
-
-Retrieves the shipping address of a specific customer.
-
-### Resource Information
-| | |
---------- | ----------- |
-URI | `/Customer/GetShippingAddress/{merchantId}/{UserId}`
-Response Formats | JSON
-HTTP Methods | GET
-Batch Support | No
-Rate Limited? | No
-Authentication | Yes
-
-* **Rate limiter** controls the number of incoming and outgoing traffic of a network
-* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
-
-### Additional Header Required
-Header Name | Value
------------ | ------
-apiversion | 4
-
-### Request URL
-`https://{host}/developerapi/Customer/GetShippingAddress/{merchantId}{UserId}`
-
-
-### Request Path Parameters
-Parameter | Type | Description
---------- | ---- | -------
-merchantId* | string |  The unique id (GUID) of the merchant from which you want to fetch the customer's shipping address
-UserId* | string |  The unique user identifier of the customer whose details need to be retrieved
-
-
-
-
-
-## Delete Shipping Address
-
-> Sample Request
-
-```html
-http://www.martjack.com/DeveloperAPI/Customer/DeleteShippingAddress/81e77da2-723b-483d-8c0d-49f800c1exxx/4cded968-8ee1-4591-a50b-41649387bxxx/1711980
-```
-
-> Sample Response
-
-```json
-{  
-   "Message":"Success",
-   "messageCode":"1004"
-}
-```
-
-Deletes shipping address of a customer for the current login session.
-
-### Resource Information
-| | |
---------- | ----------- |
-URI | `Customer/DeleteShippingAddress/{MerchantId}/{UserId}/{ShippingAddressId}`
-Response Formats | JSON
-HTTP Methods | GET
-Batch Support | No
-Rate Limited? | No
-Authentication | Yes
-
-* **Rate limiter** controls the number of incoming and outgoing traffic of a network
-* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
-
-### Request URL
-
-`http://{host}/developerapi/Customer/DeleteShippingAddress/{MerchantId}/{UserId}/{ShippingAddressId}`
-
-### Request Parameters
-Parameter | Type | Description
---------- | ---- | -----------
-MerchantId* | string |  The unique id (GUID) of the merchant in which you want the order is created
-UserId* | string |  The unique GUID of the customer whose shipping address needs to be deleted
-ShippingAddressId* | string |  Unique id of the order shipment that you want to delete
-
-<aside class="notice"> All parameters marked by * are mandatory. </aside>
-
-
-
+MarketingNotificationType | enum | Channel(s) used for marketing communications. Value: SMS, Email
 
 
 
@@ -1995,7 +1652,7 @@ Authentication | Yes
 
 
 
-## Request Parameter
+### Request Parameter
 
 Parameter | Type | Description
 --------- | ---- | -----------
@@ -2004,22 +1661,21 @@ merchantId* | string | Unique GUID of the merchant
 <aside class="notice"> Parameter marked by * is mandatory. </aside>
 
 
-## Response Parameters
+### Response Parameters
 
 Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.
 
 Parameter | Type | Description
 --------- | ---- | -----------
-UserName* |	string | The unique identifier of the customer as configured for the merchant. It could be email, mobile, or any other identifier
-merchantId* | string | The unique id (GUID) of the merchant in which you want to register customer
+UserName* |	string | The login username of the customer. It could be email, mobile, or any other identifier
 PostalAddress | string | Customer address
-City | int | Unique code of the city (as saved in the system) such as 0562 (for Agra), and 250 (Victoria)
+City | int | Unique code of the city (as saved in the system) associated to the address. Example, 0562 (for Agra), and 250 (Victoria)
 CityName | string | Full name of the city. Example: Bangalore, Delhi, Tokyo, Singapore and Paris
-State | string | State’s postal abbreviation. Example: KA (for Karnataka), CA (for California), IN (for Indiana)
+State | string | Postal abbreviation of the state associated to the address. Example: KA (for Karnataka), CA (for California), IN (for Indiana)
 StateName | string | Full name of the state. Example: Karnataka, California, and Indiana
-Country | string | alpha-2 code of the country. Example: IN (for India), AU (for Australia), and BR (for Brazil)
+Country | string | Alpha-2 code of the country associated to the address. Example: IN (for India), AU (for Australia), and BR (for Brazil)
 CountryName | string | Full name of the country. Example: India, Australia, and Brazil
-IsReceiveOffers | boolean | For merchant with CRM enabled whether the customer has subscribed his mobile number or email id to receive offers
+IsReceiveOffers | boolean | Applicable for merchants where CRM is enabled. States whether the customer has subscribed his mobile number or email id to receive offers
 CommunicationType | enum | The preferred communication channel(s) of the customer. Possible Values: sms, email, push
 
 
@@ -2028,7 +1684,7 @@ CommunicationType | enum | The preferred communication channel(s) of the custome
 
 ## Get Customer Count
 
-Retrieves the count of registered customers of the merchant.
+Retrieves the count of all registered customers of the merchant.
 
 > Sample Request
 
@@ -2096,89 +1752,342 @@ merchantId* | string | Unique GUID of the merchant
 
 
 
-## Get Customer Shipping Address
-
-Retrieves shipping address of a specific customer.
 
 
 
 
-
+## Update Profile Attributes (Custom Fields)
 
 > Sample Request
 
 ```html
-https://www.martjack.com/developerapi/Customer/GetShippingAddress/9820eca5-d11f-4df1-9b20-983a45ea9631/0025fc54-a2d2-4ba8-800f-3c0ac91d9385
-
+https://www.martjack.com/developerapi/Customer/7c778337-4652-4944-934f-09e0fe56xxxx/UpdateUserProfile
 ```
 
+> Sample POST Request
 
-
+```json
+InputFormat=application/json&InputData={  
+   "UserProfile":{  
+      "UserId":"3562a74e-1292-4d47-ba17-bc0a06af3xxx",
+      "ProfileAttributes":{  
+         "ProfileAttribute":{  
+            "ProfileAttributeId":"1058",
+            "ProfileAttributeValue":"Football"
+         }
+      }
+   }
+}
+```
 
 > Sample Response
 
 ```json
 {
-  "messageCode": "1004",
-  "Message": "Successful",
-  "ShippingAddresses": [
-    {
-      "shippingaddressid": 580439,
-      "userId": "0025fc54-a2d2-4ba8-800f-3c0ac91d9385",
-      "firstname": "Tom",
-      "lastname": "Sawyer",
-      "address1": "26/1, MG Road, DST Plazza",
-      "address2": "Opp Hanuman Statue",
-      "state": "DL",
-      "pin": "110096",
-      "countrycode": "IN",
-      "citycode": "113",
-      "phoneno": "-",
-      "mobileno": "91-9871000000",
-      "email": "tom.sawyer@example.com",
-      "othercity": "Delhi",
-      "AddressType": "0"
-    }
-  ],
-  "ErrorCode": 0
+    "messageCode": "1004",
+    "Message": "Updated Successfully",
+    "ErrorCode": 0
 }
-
 ```
 
-
+Adds new custom field details or updates existing custom field details of a customer. These are customer level custom fields and are configured as per the merchant's requirement. You need to know the configured fields and its datatypes before adding/updating.
 
 ### Resource Information
 | | |
 --------- | ----------- |
-URI | `/Customer/GetShippingAddress/{merchantId}/{userId}`
+URI | `/Customer/{merchantId}/UpdateUserProfile`
+Response Formats | JSON
+HTTP Methods | POST
+Batch Support | No
 Rate Limited? | No
 Authentication | Yes
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+### Additional Header Required
+
+Header | Description
+----- | ----------
+accesstoken* | Access token of the logged in user to validate the session
+
+
+### Request URL
+`https://{host}/developerapi/Customer/{merchantId}/UpdateUserProfile`
+
+### Request Body Parameters
+Parameter | Type | Description
+--------- | ----- | ------
+ProfileAttributeId* | string | ID of the attribute that you want to add or update 
+ProfileAttributeValue | string | Respective attribute value preferred by the customer
+
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
+
+
+
+
+
+
+
+## Add/Update Shipping Address
+> Sample Request
+
+```html
+https://www.martjack.com/DeveloperAPI/Customer/AddShippingAddress/81e77da2-723b-483d-8c0d-49f800c1exxx
+```
+
+> Sample POST Request
+
+```json
+InputFormat=application/json&InputData={  
+   "shippingaddress":{  
+      "shippingaddressid":"0",
+      "userId":"4cded968-8ee1-4591-a50b-41649387bxxx",
+      "firstname":"Tom",
+      "lastname":"Sawyer",
+      "address1":"H.no.6-51, plot.31, ECIL",
+      "address2":"",
+      "state":"KA",
+      "pin":"560068",
+      "countrycode":"IN",
+      "citycode":"32",
+      "phoneno":"",
+      "mobileno":"91-7411000000",
+      "email":"tom.sawyer@example.com",
+      "AddressType":"Home Address"
+   }
+}
+
+```
+
+> Sample Response
+
+```json
+{
+    "messageCode": "1004",
+    "Message": "Successful",
+    "ShippingAddresses": [
+        {
+            "shippingaddressid": 1714453,
+            "userId": "00000000-0000-0000-0000-000000000000",
+            "firstname": null,
+            "lastname": null,
+            "address1": null,
+            "address2": null,
+            "state": null,
+            "pin": null,
+            "countrycode": null,
+            "citycode": null,
+            "phoneno": null,
+            "mobileno": null,
+            "email": null,
+            "othercity": null
+        }
+    ],
+    "ErrorCode": 0
+}
+```
+
+
+Adds a new shipping address to a customer's account or updates an existing shipping address. 
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `/Customer/AddShippingAddress/{merchantId}`
+Response Formats | JSON
+HTTP Methods | POST
+Batch Support | No
+Rate Limited? | No
+Authentication | Yes
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+
+### Request URL
+
+`https://{host}/developerapi/Customer/AddShippingAddress/{merchantId}`
+
+### Request Body Parameters
+Parameter | Type | Description
+--------- | ---- | -------
+ShippingAddressId* | int | Unique id of the order shipment that you want to update. Pass `0` to create a new shipping address
+userId* | string | Unique GUID of the customer to add or update shipping address
+firstname* | string |  The first name of the customer
+lastname* | string |  The last name of the customer 
+address1*, address2	 | string |  Specify the customer’s shipping address related information
+state | string |  Postal abbreviation of the state of the current shipping address. Example: KA (for Karnataka), CA (for California), IN (for Indiana)
+pin | string |  Specify the PIN of the current shipping address
+countrycode | string |  Alpha-2 code of the country of the current shipping address. Example: IN (for India), AU (for Australia), and BR (for Brazil)
+citycode | string |  Unique code of the city (as saved in the system) such as 0562 (for Agra), and 250 (Victoria)
+phoneno | string |  The landline number of the customer associated to the shipping address
+mobileno | string |  The mobile number of the customer associated to the shipping address
+email | string |  The email id of the customer associated to the shipping address
+addressType | string | Type of address. For example Home, Office
+
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
+
+
+
+
+
+
+
+
+
+## Get Customer's Shipping Address
+
+
+> Sample Request
+
+```html
+
+http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-483d-8c0d-49f800c1xxxx/4cded968-8ee1-4591-a50b-41649387bxxx
+
+```
+
+
+> Sample Response
+
+```json
+
+{
+   "messageCode":"1004",
+   "Message":"Successful",
+   "ShippingAddresses":[
+      {
+         "shippingaddressid":1711980,
+         "userId":"4cded968-8ee1-4591-a50b-41649387bxxx",
+         "firstname":"Tom",
+         "lastname":"Sawyer",
+         "address1":"H.no.6-51, plot.31, ECIL",
+         "address2":"",
+         "state":"KA",
+         "pin":"560068",
+         "countrycode":"IN",
+         "citycode":"32",
+         "phoneno":"91-",
+         "mobileno":"91-7411000000",
+         "email":"tom.sawyer@example.com",
+         "othercity":"Bangalore",
+         "CityName":"Bangalore",
+         "StateName":"Karnataka",
+         "CountryName":"India",
+         "AddressType":"1"
+      },
+      {
+         "shippingaddressid":1714178,
+         "userId":"4cded968-8ee1-4591-a50b-41649387bxxx",
+         "firstname":"Tom",
+         "lastname":"Sawyer",
+         "address1":"Door: 12, 4th Floor, #12",
+         "address2":"3rd cross, Roopena agrahara",
+         "state":"KA",
+         "pin":"560068",
+         "countrycode":"IN",
+         "citycode":"32",
+         "phoneno":"91-",
+         "mobileno":"91-7411000000",
+         "email":"tom.sawyer@example.com",
+         "othercity":"Bangalore",
+         "CityName":"Bangalore",
+         "StateName":"Karnataka",
+         "CountryName":"India",
+         "AddressType":"1"
+      }
+   ],
+   "ErrorCode":0
+}
+```
+
+Retrieves all shipping addresses of a specific customer.
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `/Customer/GetShippingAddress/{merchantId}/{UserId}`
 Response Formats | JSON
 HTTP Methods | GET
 Batch Support | No
+Rate Limited? | No
+Authentication | Yes
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+### Additional Header Required
+Header Name | Value
+----------- | ------
+apiversion | 4
+
+### Request URL
+`https://{host}/developerapi/Customer/GetShippingAddress/{merchantId}{UserId}`
+
+
+### Request Path Parameters
+Parameter | Type | Description
+--------- | ---- | -------
+merchantId* | string |  The unique GUID of the merchant associated to the customer
+UserId* | string |  The unique GUID of the user to fetch all shipping addresses
+
+
+
+
+
+## Delete Shipping Address
+
+> Sample Request
+
+```html
+http://www.martjack.com/DeveloperAPI/Customer/DeleteShippingAddress/81e77da2-723b-483d-8c0d-49f800c1exxx/4cded968-8ee1-4591-a50b-41649387bxxx/1711980
+```
+
+> Sample Response
+
+```json
+{  
+   "Message":"Success",
+   "messageCode":"1004"
+}
+```
+
+Deletes a specific shipping address of a customer for the current login session.
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `Customer/DeleteShippingAddress/{MerchantId}/{UserId}/{ShippingAddressId}`
+Response Formats | JSON
+HTTP Methods | GET
+Batch Support | No
+Rate Limited? | No
+Authentication | Yes
 
 * **Rate limiter** controls the number of incoming and outgoing traffic of a network
 * **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
 
 ### Request URL
 
-`https://{host}/developerapi/Customer/GetShippingAddress/{merchantId}/{userId}`
+`http://{host}/developerapi/Customer/DeleteShippingAddress/{MerchantId}/{UserId}/{ShippingAddressId}`
 
-
-### Request Path Parameters
-
+### Request Parameters
 Parameter | Type | Description
--------- | ----- | -----------
-merchantId* | string | Unique GUID of the merchant
-userId* | string | Unique GUID of the user to fetch shipping address
-
+--------- | ---- | -----------
+MerchantId* | string |  The unique GUID of the merchant associated to the customer account
+UserId* | string |  The unique GUID of the customer whose shipping address needs to be deleted
+ShippingAddressId* | string |  Unique id of the shipping address that you want to delete
 
 <aside class="notice"> All parameters marked by * are mandatory. </aside>
 
 
+
+
+
+
 ## Get Store Operators
 
-Retrieves the details of store operators of a specific role in a particular location.
+Retrieves the details of store operators of a specific role in a particular location or all locations.
 
 
 
@@ -2241,8 +2150,8 @@ Batch Support | No
 Parameter | Type | Description
 -------- | ----- | -----------
 merchantId* | string | Unique GUID of the merchant
-locationId* | int | Filter results by location id. If you want to fetch from all the locations, pass '0'
-roleid* | string | Unique role id for which you want to fetch operators 
+locationId* | int | Pass the location id to get operators of that specific  location. If you want to fetch from all the locations, pass '0'
+roleid* | string | Pass the unique role id to get operators of that specific role
 
 
 <aside class="notice"> All parameters marked by * are mandatory. </aside>
@@ -2251,10 +2160,7 @@ roleid* | string | Unique role id for which you want to fetch operators
 
 ## Agent Login
 
-Lets agents of the merchant login to the e-commerce site.
-
-
-
+Lets agents of the merchant login to the merchant's Anywhere Commerce site.
 
 
 
@@ -2327,7 +2233,7 @@ Batch Support | No
 
 Parameter | Type | Description
 -------- | ----- | -----------
-merchantId* | string | Unique GUID of the merchant
+merchantId* | string | Unique GUID of the merchant associated to the agent account
 username* | string | Username of the agent's login account
 
 

@@ -5731,11 +5731,11 @@ Batch Support | No
 
 Parameter | Type | Description
 -------- | ----- | -----------
-OrderID* | int | Unique id of the order for which you want to update item price
+OrderID* | int | Unique id of the order for which you want to update an item price
 OrderItemID | int | Unique id of the order item that you want to update
 Price | float | New price of the order item
 MRP | float | New maximum retail price of the order item
-ConsiderCurrentPriceandMRP | boolean | Specify `False` to use the new prices specified, `True` to consider the prices of the as per the CP
+ConsiderCurrentPriceandMRP | boolean | Specify `False` to use the new prices specified, `True` to consider the prices as per the CP
 ReasonForPriceOverride | string | Specify the reason for updating the order item price
 
 <aside class="notice">All parameters marked by * and other parameters that are required to update order item price are mandatory. </aside> 
@@ -5743,7 +5743,7 @@ ReasonForPriceOverride | string | Specify the reason for updating the order item
 
 
 ## Get Document
-Generates either dispatch  or invoice document.
+Generates either a dispatch or invoice document.
 
 > Sample Request
 
@@ -5785,8 +5785,8 @@ Parameter | Type | Description
 -------- | ----- | -----------
 MerchantId* | string | Unique GUID of the merchant
 orderId* | int | Order id for which you want to generate the required document
-objectType* | enum | Specify `Invoice` to generate invoice invoice, `Shipment` to get the dispatch document of the  order
-objectValue* | string | Specify invoice id or shipment id based on the `objectType`
+objectType* | enum | Specify `Invoice` to generate invoice of the order, `Shipment` to get the dispatch document of the order
+objectValue* | string | Specify invoice id or shipment id that you want to fetch based on the `objectType` passed
 
 <aside class="notice">All parameters marked by * are mandatory.</aside>
 
@@ -5795,10 +5795,6 @@ objectValue* | string | Specify invoice id or shipment id based on the `objectTy
 ## Add Manifest
 
 Adds shipping manifest details for multiple shipments.
-
-
-
-
 
 
 
@@ -5966,7 +5962,7 @@ Parameter | Type | Description
 -------- | ----- | -----------
 ManifestId* | int | Unique id of the manifest that you want to update
 status | enum | New status of the manifest. Values: `Created`, `Closed`
-tripId | string | Unique id of the shipment trip. A trip is a shipment containing multiple orders assigned to a delivery associate to deliver to the customer. Each trip will have a unique trip id
+tripId | string | Unique id of the shipment trip. A trip is a shipment containing multiple orders assigned to a delivery associate which need to be delivered to end customers. Each trip will have a unique trip id
 
 
 
@@ -5976,14 +5972,9 @@ tripId | string | Unique id of the shipment trip. A trip is a shipment containin
 
 
 
-
-
-
-
-
 ## Get Manifest Details
 
-Retrieves details of a specific shipping manifest.
+Retrieves the details of a specific shipping manifest.
 
 > Sample Request
 
@@ -6047,7 +6038,7 @@ ManifestId* | int | Unique id of the shipping manifest for which you want to fet
 
 ## Get Advance Tax Voucher
 
-Retrieves Advance tax voucher (ATV) details of a specific order.
+Retrieves Advance Tax Voucher (ATV) details of a specific order.
 
 
 
@@ -6159,7 +6150,7 @@ Batch Support | No
 Parameter | Type | Description
 -------- | ----- | -----------
 merchantId* | string | Unique GUID of the merchant
-orderId* | int | Unique id of the order for which you want to fetch tax details
+orderId* | int | Unique id of the order for which you want to fetch advanced tax details
 
 <aside class="notice"> All parameters marked by * are mandatory. </aside>
 
@@ -6176,7 +6167,7 @@ OrderLineId | int | Unique id of the order line item
 HSNCode | string | The HSN code is the 'Harmonized System Nomenclature code number' that is required for GST. The 'HSN code' is shown at item level
 TaxCategory | string | Category of the current tax. For example: STT, VAT, GST, and CST
 IsTaxRatePercentage | enum | True for percentage based tax rates and false for flat rate tax
-TaxCode | string | Unique tax code that you want to associate to the product.  Tax code should be configured in CP first to associate to products.
+TaxCode | string | Unique tax code that you want to associate to the product.  Tax code should be configured in the CP first to associate to products.
 UOM | string | Unit of measurement of the current item
 BuyingWeight | float | Weight of the current item if `UOM` is kgs or gms
 
@@ -6186,7 +6177,7 @@ BuyingWeight | float | Weight of the current item if `UOM` is kgs or gms
 ## Lead Search
 
 
-Searches leads based on input parameters.
+Searches leads based on the input parameters.
 
 
 
@@ -6322,8 +6313,8 @@ Batch Support | No
 Parameter | Type | Description
 -------- | ----- | -----------
 merchantId* | string | Unique GUID of the merchant
-fromDate | date | Search leads created in a specific duration. Specify the date-range in `fromDate` and `toDate`
-toDate | date | Search leads created in a specific duration. Specify the date-range in `fromDate` and `toDate`
+fromDate | date | Search leads created in a specific duration. Specify the date-range in `fromDate` and `toDate` (in `MM-DD-YYYY` format)
+toDate | date | Search leads created in a specific duration. Specify the date-range in `fromDate` and `toDate` (in `MM-DD-YYYY` format)
 status | enum | Search by current lead status. Values: `P` - Uninitiated, `I` - Initiated, `R` - Rejected, `C` - Converted 
 leadId | int | Specify unique id of the lead that you want to fetch
 userName | string | Search leads by a customer's username (email id)
@@ -6332,7 +6323,7 @@ SKU | string | Specify the SKU of the product for which you want to see generate
 firstName | string | Search leads by customer's first name
 lastName | string | Search leads by customer's last name
 locationIds | string | Fetch leads of your preferred locations. You can pass multiple location ids separating each by a comma (,)
-callForActionId | string | Unique id associated to the call for action for leads. For example, Call for actions could be Get-a-Call, Reserve Product & Visit Store, Proforma Invoice, Get-a-Call
+callForActionId | string | Unique id associated to the call-for-action for leads. For example, Call for actions could be Get-a-Call, Reserve Product & Visit Store, Proforma Invoice, and Get-a-Call
 
 
 <aside class="notice"> All parameters marked by * are mandatory. </aside>

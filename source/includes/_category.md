@@ -63,7 +63,7 @@ Batch Support | No
 Parameter | Type | Description
 -------- | ----- | -----------
 MerchantId* | string | Unique GUID of the merchant
-CategoryId* | string | Unique id of the category for which you want to fetch details
+CategoryId* | string | Unique id of the category to fetch details
 
 <aside class="notice">All parameters marked by * are mandatory. </aside>
 
