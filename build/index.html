@@ -506,7 +506,7 @@ oauth_consumer_key=QFTSEOUC
 <tr>
 <td>UserName*</td>
 <td>string</td>
-<td>The unique identifier of the customer as configured for the merchant. It could be email, mobile, or any other identifier</td>
+<td>The username of the customer&rsquo;s account on the merchant&rsquo;s Anywhere Commerce platform. It could be email, mobile, or any other identifier</td>
 </tr>
 <tr>
 <td>merchantId*</td>
@@ -526,7 +526,7 @@ oauth_consumer_key=QFTSEOUC
 <tr>
 <td>City</td>
 <td>int</td>
-<td>Unique code of the city (as saved in the system) such as 0562 (for Agra), and 250 (Victoria)</td>
+<td>Unique code of the city (as saved in the system) of the customer&rsquo;s billing address. Example, 0562 (for Agra), and 250 (Victoria)</td>
 </tr>
 <tr>
 <td>CityName</td>
@@ -546,7 +546,7 @@ oauth_consumer_key=QFTSEOUC
 <tr>
 <td>Country</td>
 <td>string</td>
-<td>alpha-2 code of the country. Example: IN (for India), AU (for Australia), and BR (for Brazil)</td>
+<td>Alpha-2 code of the country as per the customer&rsquo;s billing address. Example: IN (for India), AU (for Australia), and BR (for Brazil)</td>
 </tr>
 <tr>
 <td>CountryName</td>
@@ -556,7 +556,7 @@ oauth_consumer_key=QFTSEOUC
 <tr>
 <td>IsReceiveOffers</td>
 <td>boolean</td>
-<td>For merchant with CRM enabled, Subscribe (<code class="prettyprint">true</code>) or unsubscribe (<code class="prettyprint">false</code>) customer&rsquo;s mobile number/email id in CRM</td>
+<td>Used by merchants with CRM enabled. Specify <code class="prettyprint">true</code> subscribe customer&rsquo;s mobile number/email id in CRM to receive offers, else speify <code class="prettyprint">false</code></td>
 </tr>
 </tbody></table>
 
@@ -707,12 +707,12 @@ oauth_consumer_key=QFTSEOUC
 <tr>
 <td>UserId*</td>
 <td>string</td>
-<td>Unique id of the customer that is generated in the system.</td>
+<td>Unique GUID of the customer that you want to update details</td>
 </tr>
 <tr>
 <td>City</td>
 <td>string</td>
-<td>Unique code of the city (as saved in the system) Example: 0562 (for Agra), 250 (Victoria)</td>
+<td>Unique code of the customer&rsquo;s billing city (as saved in the system) Example: 0562 (for Agra), 250 (Victoria)</td>
 </tr>
 <tr>
 <td>CityName</td>
@@ -732,12 +732,12 @@ oauth_consumer_key=QFTSEOUC
 <tr>
 <td>Country</td>
 <td>string</td>
-<td>alpha-2 code of the country such as IN (for India), AU (for Australia), BR (for Brazil)</td>
+<td>Alpha-2 code of the country of the customer. Example, IN (for India), AU (for Australia), BR (for Brazil)</td>
 </tr>
 <tr>
 <td>CountryName</td>
 <td>string</td>
-<td>Full name of the country such as India, Australia, and Brazil</td>
+<td>Full name of the country. Example, India, Australia, and Brazil</td>
 </tr>
 </tbody></table>
 
@@ -757,7 +757,7 @@ oauth_consumer_key=QFTSEOUC
 <tr>
 <td>IsReceiveOffers</td>
 <td>boolean</td>
-<td>Whether the user is subscribed to receive offers from the merchant</td>
+<td>Whether the user is subscribed to receive offers from the merchant or not</td>
 </tr>
 </tbody></table>
 
@@ -791,14 +791,12 @@ oauth_consumer_key=QFTSEOUC
    </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="mi">0</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>For an existing customer</strong>: Authorizes an existing user account through OTP. </p>
-
-<p><strong>For a new customer</strong>: Registers a new customer first and then authorizes the account through OTP   </p>
+<p>Authorizes an existing user account through OTP for an existing customer; registers a new customer first and then authorizes the account through OTP for a new customer.  </p>
 
 <aside class="notice">
-When a customer logs in, he receives a unique `UserId` which is required for accessing and managing customer details through APIs. 
+A unique userId generated for a customer `UserId` is required for making customer API calls. 
 
-The customer has to be logged in to perform any customer related tasks such as fetching customer details, modifying customer details, updating profile attributes and so forth. 
+Also, a customer should have logged in to perform any customer related tasks such as fetching customer details, modifying customer details, updating profile attributes and so forth. 
 
 </aside>
 
@@ -939,7 +937,7 @@ The customer has to be logged in to perform any customer related tasks such as f
    </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="mi">0</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Authorizes login of a registered customer on the merchant&rsquo;s e-commerce store. When logged in successfully, the unique user id of the customer will be shown which is required to make customer related API calls. </p>
+<p>Authorizes login of a registered customer on the merchant&rsquo;s Anywhere Commerce store based on the username and password passed. A unique user id is shown for the logged in user in response which is required to make customer related API calls. </p>
 
 <aside class="notice">The customer has to be logged in to access or update customer information such as fetch customer details, modify customer details or update profile attributes.</aside>
 
@@ -1034,7 +1032,7 @@ The customer has to be logged in to perform any customer related tasks such as f
 
 <h2 id="customer-login-with-third-party-authentication">Customer Login (with Third Party Authentication)</h2>
 
-<p>Authenticates customer login with a third-party provider such as Gmail, Facebook and so on.</p>
+<p>Authenticates customer login with a third-party provider such as Gmail, and Facebook.</p>
 
 <blockquote>
 <p>Sample Request</p>
@@ -1131,7 +1129,7 @@ The customer has to be logged in to perform any customer related tasks such as f
 <tr>
 <td>provider</td>
 <td>string</td>
-<td>Name of the third party login service provider</td>
+<td>Name of the third party service provider through which the customer wants to login</td>
 </tr>
 <tr>
 <td>profileId</td>
@@ -1141,7 +1139,7 @@ The customer has to be logged in to perform any customer related tasks such as f
 <tr>
 <td>email</td>
 <td>string</td>
-<td>Email id of the user registered with the provider</td>
+<td>Email id of the user registered with the third-party provider</td>
 </tr>
 <tr>
 <td>firstName</td>
@@ -1166,7 +1164,7 @@ The customer has to be logged in to perform any customer related tasks such as f
 <tr>
 <td>mobileNo</td>
 <td>string</td>
-<td>Registered mobile number of the user with the provider</td>
+<td>Registered mobile number of the user that is registered with the provider</td>
 </tr>
 <tr>
 <td>subscribeToOffers</td>
@@ -1252,7 +1250,7 @@ The customer has to be logged in to perform any customer related tasks such as f
 </tr>
 <tr>
 <td>HTTP Methods</td>
-<td>POST (No POST body is required)</td>
+<td>POST</td>
 </tr>
 <tr>
 <td>Batch Support</td>
@@ -1303,7 +1301,7 @@ The customer has to be logged in to perform any customer related tasks such as f
 <tr>
 <td>merchantId*</td>
 <td>string</td>
-<td>The unique id (GUID) of the merchant</td>
+<td>Unique id (GUID) of the merchant</td>
 </tr>
 <tr>
 <td>username</td>
@@ -1313,7 +1311,7 @@ The customer has to be logged in to perform any customer related tasks such as f
 <tr>
 <td>operatorid</td>
 <td>string</td>
-<td>Unique GUID of the back-end operator. The generated access token will be associated to both the user and operator</td>
+<td>Unique GUID of the back-end operator or current CP user id. The generated access token will be associated to both the user and operator</td>
 </tr>
 <tr>
 <td>password</td>
@@ -1382,7 +1380,7 @@ The customer has to be logged in to perform any customer related tasks such as f
 </thead><tbody>
 <tr>
 <td>URI</td>
-<td><code class="prettyprint">/Customer/{merchantId}/{UserId}/ChangePassword?password={new password}</code></td>
+<td><code class="prettyprint">/Customer/{merchantId}/{UserId}/ChangePassword?password={newPassword}</code></td>
 </tr>
 <tr>
 <td>Response Formats</td>
@@ -1390,7 +1388,7 @@ The customer has to be logged in to perform any customer related tasks such as f
 </tr>
 <tr>
 <td>HTTP Methods</td>
-<td>POST</td>
+<td>POST (No POST body required)</td>
 </tr>
 <tr>
 <td>Batch Support</td>
@@ -1413,7 +1411,7 @@ The customer has to be logged in to perform any customer related tasks such as f
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Customer/{merchantId}/{UserId}/ChangePassword?password={new password}</code></p>
+<p><code class="prettyprint">https://{host}/developerapi/Customer/{merchantId}/{UserId}/ChangePassword?password={newPassword}</code></p>
 
 <h3 id="request-path-parameters">Request Path Parameters</h3>
 
@@ -1432,12 +1430,12 @@ The customer has to be logged in to perform any customer related tasks such as f
 <tr>
 <td>UserId*</td>
 <td>string</td>
-<td>Unique GUID of the user for which password needs to be changed</td>
+<td>Unique GUID of the user to change the password</td>
 </tr>
 <tr>
 <td>newPassword*</td>
 <td>string</td>
-<td>New password that you want to have for the account</td>
+<td>New password that you prefer</td>
 </tr>
 </tbody></table>
 
@@ -1524,7 +1522,7 @@ The customer has to be logged in to perform any customer related tasks such as f
 </thead><tbody>
 <tr>
 <td>AccessToken*</td>
-<td>Access token of the logged in user that you want to logout</td>
+<td>Access token of the logged in user whose password needs to be changed</td>
 </tr>
 <tr>
 <td>APIversion*</td>
@@ -1682,7 +1680,7 @@ The customer has to be logged in to perform any customer related tasks such as f
 <tr>
 <td>Url</td>
 <td>string</td>
-<td>Reset password link sent to the email id. The URL you provide will be appended with the reset id (which is generated automatically)</td>
+<td>Link to reset password that you want to send to the customer&rsquo;s email id. Reset id generated automatically and is appended to the URL you specify</td>
 </tr>
 </tbody></table>
 
@@ -1703,7 +1701,7 @@ The customer has to be logged in to perform any customer related tasks such as f
 <pre class="highlight html"><code>https://www.martjack.com/DeveloperAPI/Customer/81e77da2-723b-483d-8c0d-49f800c1exxx/ValidateResetRequest
 </code></pre>
 <blockquote>
-<p>Sample POST Request (mobile number validation)</p>
+<p>Sample POST Request (for mobile number validation)</p>
 </blockquote>
 <pre class="highlight json"><code><span class="err">InputFormat=application/json&amp;InputData=</span><span class="p">{</span><span class="w">
   </span><span class="nt">"ResetPasswordDetails"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -1814,7 +1812,7 @@ The customer has to be logged in to perform any customer related tasks such as f
 <tr>
 <td>OTP</td>
 <td>int</td>
-<td>Unique OTP sent to the mobile number. Required when <code class="prettyprint">Resettype</code> is mobile (generated through ResetPassword API when username is mobile number)</td>
+<td>OTP sent to the customer&rsquo;s mobile number when <code class="prettyprint">Resettype</code> is mobile (generated through ResetPassword API when username is mobile number)</td>
 </tr>
 </tbody></table>
 
@@ -1906,7 +1904,7 @@ The customer has to be logged in to perform any customer related tasks such as f
 <tr>
 <td>merchantId*</td>
 <td>string</td>
-<td>The unique id (GUID) of the current merchant</td>
+<td>Unique GUID of the merchant</td>
 </tr>
 </tbody></table>
 
@@ -1934,7 +1932,7 @@ The customer has to be logged in to perform any customer related tasks such as f
   </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Creates a dummy access token for a user who did not log in to the merchant store. No POST body is required for this API.</p>
+<p>Creates a dummy access token for the current user who did not logged in to the merchant Anywhere Commerce store. No POST body is required for this API.</p>
 
 <h3 id="resource-information">Resource Information</h3>
 
@@ -1991,7 +1989,7 @@ The customer has to be logged in to perform any customer related tasks such as f
 <tr>
 <td>merchantId*</td>
 <td>string</td>
-<td>The unique id (GUID) of the merchant</td>
+<td>The unique GUID of the merchant</td>
 </tr>
 </tbody></table>
 
@@ -2094,12 +2092,12 @@ The customer has to be logged in to perform any customer related tasks such as f
 <tr>
 <td>merchantId*</td>
 <td>string</td>
-<td>The unique id (GUID) of the merchant in which you want to validate access token</td>
+<td>The unique GUID of the merchant where to validate access token</td>
 </tr>
 <tr>
 <td>accesstoken*</td>
 <td>string</td>
-<td>The access token generated for a user session (use <code class="prettyprint">/Customer/GetAccessToken/</code> to get access token of a user session)</td>
+<td>The access token generated for the current user session (use <code class="prettyprint">/Customer/GetAccessToken/</code> to get access token of a user session)</td>
 </tr>
 </tbody></table>
 
@@ -2273,7 +2271,7 @@ The customer has to be logged in to perform any customer related tasks such as f
 </tr>
 </tbody></table>
 
-<h2 id="fetch-customers-search">Fetch Customers (Search)</h2>
+<h2 id="search-customers">Search Customers</h2>
 
 <blockquote>
 <p>Sample Request</p>
@@ -2302,8 +2300,8 @@ The customer has to be logged in to perform any customer related tasks such as f
             </span><span class="nt">"UserId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07e8f0eb-8c5d-4ad7-ab6e-ca7a72687d63"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f48fdd16-92db-4188-854d-1ecd9b62xxxx"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"UserName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tom.sawyer@example.com"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"FirstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pallav"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"LastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kumar"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"FirstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tom"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"LastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sawyer"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"PostalAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"silkboard"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"AlternateEmail"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
             </span><span class="nt">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"32"</span><span class="p">,</span><span class="w">
@@ -2335,7 +2333,7 @@ The customer has to be logged in to perform any customer related tasks such as f
     </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Retrieves customers containing the specific search keyword in username, mobile number or email id.</p>
+<p>Retrieves customers matching the specified search keyword in either username, mobile number or email id.</p>
 
 <h3 id="resource-information">Resource Information</h3>
 
@@ -2392,17 +2390,17 @@ The customer has to be logged in to perform any customer related tasks such as f
 <tr>
 <td>UserName**</td>
 <td>string</td>
-<td>Fetches all customers matching the specified keyword in the username</td>
+<td>Fetches all customers matching the specified keyword in the username. For example, if you specify <code class="prettyprint">tom</code>, you will get all customers whose username start with tom</td>
 </tr>
 <tr>
 <td>mobile**</td>
 <td>string</td>
-<td>Fetch customers whose registered mobile number containing a specific value. For example, you can get all customers whose mobile numbers  contain 9945</td>
+<td>Fetch customers whose registered mobile number contains the specified keyword. For example, you can get all customers whose mobile numbers  contain 9945</td>
 </tr>
 <tr>
 <td>email**</td>
 <td>string</td>
-<td>Search customers with a specific keyword in registered email ids. For example, you can get all customers whose email ids contain tom</td>
+<td>Search customers whose registered email id contains a specified keyword. For example, you can get all customers whose email ids contain john</td>
 </tr>
 </tbody></table>
 
@@ -2501,7 +2499,7 @@ The customer has to be logged in to perform any customer related tasks such as f
 </span><span class="p">}</span><span class="w">
 
 </span></code></pre>
-<p>Retrieves the details of a specific customer by user id.</p>
+<p>Retrieves the details of a specific customer based on the user id passed.</p>
 
 <h3 id="resource-information">Resource Information</h3>
 
@@ -2558,12 +2556,12 @@ The customer has to be logged in to perform any customer related tasks such as f
 <tr>
 <td>merchantId*</td>
 <td>string</td>
-<td>The unique id (GUID) of the merchant account from which you want to fetch customer details</td>
+<td>The unique GUID of the merchant associated to the customer account</td>
 </tr>
 <tr>
 <td>UserId*</td>
 <td>string</td>
-<td>The unique user identifier of the customer whose details need to be retrieved</td>
+<td>The unique GUID of the customer to fetch details</td>
 </tr>
 </tbody></table>
 
@@ -2598,531 +2596,9 @@ The customer has to be logged in to perform any customer related tasks such as f
 <tr>
 <td>MarketingNotificationType</td>
 <td>enum</td>
-<td>Channel used for marketing communications. Value: SMS, Email</td>
+<td>Channel(s) used for marketing communications. Value: SMS, Email</td>
 </tr>
 </tbody></table>
-
-<h2 id="update-profile-attributes-custom-fields">Update Profile Attributes (Custom Fields)</h2>
-
-<blockquote>
-<p>Sample Request</p>
-</blockquote>
-<pre class="highlight html"><code>https://www.martjack.com/developerapi/Customer/7c778337-4652-4944-934f-09e0fe56xxxx/UpdateUserProfile
-</code></pre>
-<blockquote>
-<p>Sample POST Request</p>
-</blockquote>
-<pre class="highlight json"><code><span class="err">InputFormat=application/json&amp;InputData=</span><span class="p">{</span><span class="w">  
-   </span><span class="nt">"UserProfile"</span><span class="p">:{</span><span class="w">  
-      </span><span class="nt">"UserId"</span><span class="p">:</span><span class="s2">"3562a74e-1292-4d47-ba17-bc0a06af3xxx"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"ProfileAttributes"</span><span class="p">:{</span><span class="w">  
-         </span><span class="nt">"ProfileAttribute"</span><span class="p">:{</span><span class="w">  
-            </span><span class="nt">"ProfileAttributeId"</span><span class="p">:</span><span class="s2">"1058"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"ProfileAttributeValue"</span><span class="p">:</span><span class="s2">"Football"</span><span class="w">
-         </span><span class="p">}</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-   </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<blockquote>
-<p>Sample Response</p>
-</blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-    </span><span class="nt">"messageCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1004"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Updated Successfully"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>Adds or updates customer level custom field details of a customer.</p>
-
-<h3 id="resource-information">Resource Information</h3>
-
-<table><thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead><tbody>
-<tr>
-<td>URI</td>
-<td><code class="prettyprint">/Customer/{merchantId}/UpdateUserProfile</code></td>
-</tr>
-<tr>
-<td>Response Formats</td>
-<td>JSON</td>
-</tr>
-<tr>
-<td>HTTP Methods</td>
-<td>POST</td>
-</tr>
-<tr>
-<td>Batch Support</td>
-<td>No</td>
-</tr>
-<tr>
-<td>Rate Limited?</td>
-<td>No</td>
-</tr>
-<tr>
-<td>Authentication</td>
-<td>Yes</td>
-</tr>
-</tbody></table>
-
-<ul>
-<li><strong>Rate limiter</strong> controls the number of incoming and outgoing traffic of a network</li>
-<li><strong>Authentication</strong> verifies the identity of the current user or integration. See Introduction &gt; Authentication (Merchant Setup on Admin Portal) for more details</li>
-</ul>
-
-<h3 id="additional-header-required">Additional Header Required</h3>
-
-<table><thead>
-<tr>
-<th>Header</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>accesstoken*</td>
-<td>Access token of the logged in user to validate the session</td>
-</tr>
-</tbody></table>
-
-<h3 id="request-url">Request URL</h3>
-
-<p><code class="prettyprint">https://{host}/developerapi/Customer/{merchantId}/UpdateUserProfile</code></p>
-
-<h3 id="request-body-parameters">Request Body Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>ProfileAttributeId*</td>
-<td>string</td>
-<td>ID of the attribute that needs to be updated</td>
-</tr>
-<tr>
-<td>ProfileAttributeValue</td>
-<td>string</td>
-<td>Respective attribute value as preferred by the customer</td>
-</tr>
-</tbody></table>
-
-<aside class="notice"> All parameters marked by * are mandatory. </aside>
-
-<h2 id="add-update-shipping-address">Add/Update Shipping Address</h2>
-
-<blockquote>
-<p>Sample Request</p>
-</blockquote>
-<pre class="highlight html"><code>https://www.martjack.com/DeveloperAPI/Customer/AddShippingAddress/81e77da2-723b-483d-8c0d-49f800c1exxx
-</code></pre>
-<blockquote>
-<p>Sample POST Request</p>
-</blockquote>
-<pre class="highlight json"><code><span class="err">InputFormat=application/json&amp;InputData=</span><span class="p">{</span><span class="w">  
-   </span><span class="nt">"shippingaddress"</span><span class="p">:{</span><span class="w">  
-      </span><span class="nt">"shippingaddressid"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"userId"</span><span class="p">:</span><span class="s2">"4cded968-8ee1-4591-a50b-41649387bxxx"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"firstname"</span><span class="p">:</span><span class="s2">"Tom"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"lastname"</span><span class="p">:</span><span class="s2">"Sawyer"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"address1"</span><span class="p">:</span><span class="s2">"H.no.6-51, plot.31, ECIL"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"address2"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"state"</span><span class="p">:</span><span class="s2">"KA"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"pin"</span><span class="p">:</span><span class="s2">"560068"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"countrycode"</span><span class="p">:</span><span class="s2">"IN"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"citycode"</span><span class="p">:</span><span class="s2">"32"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"phoneno"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"mobileno"</span><span class="p">:</span><span class="s2">"91-7411000000"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"email"</span><span class="p">:</span><span class="s2">"tom.sawyer@example.com"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"AddressType"</span><span class="p">:</span><span class="s2">"Home Address"</span><span class="w">
-   </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-
-</span></code></pre>
-<blockquote>
-<p>Sample Response</p>
-</blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-    </span><span class="nt">"messageCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1004"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"ShippingAddresses"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"shippingaddressid"</span><span class="p">:</span><span class="w"> </span><span class="mi">1714453</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"userId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00000000-0000-0000-0000-000000000000"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"firstname"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"lastname"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"address1"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"address2"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"state"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"pin"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"countrycode"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"citycode"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"phoneno"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"mobileno"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"othercity"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-    </span><span class="p">],</span><span class="w">
-    </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>Adds a new shipping address to a customer&rsquo;s account or update existing shipping address. </p>
-
-<h3 id="resource-information">Resource Information</h3>
-
-<table><thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead><tbody>
-<tr>
-<td>URI</td>
-<td><code class="prettyprint">/Customer/AddShippingAddress/{merchantId}</code></td>
-</tr>
-<tr>
-<td>Response Formats</td>
-<td>JSON</td>
-</tr>
-<tr>
-<td>HTTP Methods</td>
-<td>POST</td>
-</tr>
-<tr>
-<td>Batch Support</td>
-<td>No</td>
-</tr>
-<tr>
-<td>Rate Limited?</td>
-<td>No</td>
-</tr>
-<tr>
-<td>Authentication</td>
-<td>Yes</td>
-</tr>
-</tbody></table>
-
-<ul>
-<li><strong>Rate limiter</strong> controls the number of incoming and outgoing traffic of a network</li>
-<li><strong>Authentication</strong> verifies the identity of the current user or integration. See Introduction &gt; Authentication (Merchant Setup on Admin Portal) for more details</li>
-</ul>
-
-<h3 id="request-url">Request URL</h3>
-
-<p><code class="prettyprint">https://{host}/developerapi/Customer/AddShippingAddress/{merchantId}</code></p>
-
-<h3 id="request-body-parameters">Request Body Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>ShippingAddressId*</td>
-<td>int</td>
-<td>Unique id of the order shipment that you want to update. Just pass <code class="prettyprint">0</code> to create a new shipping address</td>
-</tr>
-<tr>
-<td>userId*</td>
-<td>string</td>
-<td>Registered identifier of the customer</td>
-</tr>
-<tr>
-<td>firstname*</td>
-<td>string</td>
-<td>The first name of the customer</td>
-</tr>
-<tr>
-<td>lastname*</td>
-<td>string</td>
-<td>The last name of the customer</td>
-</tr>
-<tr>
-<td>address1*, address2</td>
-<td>string</td>
-<td>Specify the customer’s shipping address related information</td>
-</tr>
-<tr>
-<td>state</td>
-<td>string</td>
-<td>Postal abbreviation of the state. Example: KA (for Karnataka), CA (for California), IN (for Indiana)</td>
-</tr>
-<tr>
-<td>pin</td>
-<td>string</td>
-<td>Specify the PIN of the shipping address</td>
-</tr>
-<tr>
-<td>countrycode</td>
-<td>string</td>
-<td>alpha-2 code of the country. Example: IN (for India), AU (for Australia), and BR (for Brazil)</td>
-</tr>
-<tr>
-<td>citycode</td>
-<td>string</td>
-<td>Unique code of the city (as saved in the system) such as 0562 (for Agra), and 250 (Victoria)</td>
-</tr>
-<tr>
-<td>phoneno</td>
-<td>string</td>
-<td>The landline number of the recipient</td>
-</tr>
-<tr>
-<td>mobileno</td>
-<td>string</td>
-<td>The mobile number of recipient</td>
-</tr>
-<tr>
-<td>email</td>
-<td>string</td>
-<td>The email id of the recipient</td>
-</tr>
-<tr>
-<td>addressType</td>
-<td>string</td>
-<td>Type of address. For example Home, Office</td>
-</tr>
-</tbody></table>
-
-<aside class="notice"> All parameters marked by * are mandatory. </aside>
-
-<h2 id="get-customer-39-s-shipping-address">Get Customer&rsquo;s Shipping Address</h2>
-
-<blockquote>
-<p>Sample Request</p>
-</blockquote>
-<pre class="highlight html"><code>
-http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-483d-8c0d-49f800c1xxxx/4cded968-8ee1-4591-a50b-41649387bxxx
-
-</code></pre>
-<blockquote>
-<p>Sample Response</p>
-</blockquote>
-<pre class="highlight json"><code><span class="w">
-</span><span class="p">{</span><span class="w">
-   </span><span class="nt">"messageCode"</span><span class="p">:</span><span class="s2">"1004"</span><span class="p">,</span><span class="w">
-   </span><span class="nt">"Message"</span><span class="p">:</span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
-   </span><span class="nt">"ShippingAddresses"</span><span class="p">:[</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-         </span><span class="nt">"shippingaddressid"</span><span class="p">:</span><span class="mi">1711980</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"userId"</span><span class="p">:</span><span class="s2">"4cded968-8ee1-4591-a50b-41649387bxxx"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"firstname"</span><span class="p">:</span><span class="s2">"Tom"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"lastname"</span><span class="p">:</span><span class="s2">"Sawyer"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"address1"</span><span class="p">:</span><span class="s2">"H.no.6-51, plot.31, ECIL"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"address2"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"state"</span><span class="p">:</span><span class="s2">"KA"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"pin"</span><span class="p">:</span><span class="s2">"560068"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"countrycode"</span><span class="p">:</span><span class="s2">"IN"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"citycode"</span><span class="p">:</span><span class="s2">"32"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"phoneno"</span><span class="p">:</span><span class="s2">"91-"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"mobileno"</span><span class="p">:</span><span class="s2">"91-7411000000"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"email"</span><span class="p">:</span><span class="s2">"tom.sawyer@example.com"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"othercity"</span><span class="p">:</span><span class="s2">"Bangalore"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"CityName"</span><span class="p">:</span><span class="s2">"Bangalore"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"StateName"</span><span class="p">:</span><span class="s2">"Karnataka"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"CountryName"</span><span class="p">:</span><span class="s2">"India"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"AddressType"</span><span class="p">:</span><span class="s2">"1"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-         </span><span class="nt">"shippingaddressid"</span><span class="p">:</span><span class="mi">1714178</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"userId"</span><span class="p">:</span><span class="s2">"4cded968-8ee1-4591-a50b-41649387bxxx"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"firstname"</span><span class="p">:</span><span class="s2">"Tom"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"lastname"</span><span class="p">:</span><span class="s2">"Sawyer"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"address1"</span><span class="p">:</span><span class="s2">"Door: 12, 4th Floor, #12"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"address2"</span><span class="p">:</span><span class="s2">"3rd cross, Roopena agrahara"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"state"</span><span class="p">:</span><span class="s2">"KA"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"pin"</span><span class="p">:</span><span class="s2">"560068"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"countrycode"</span><span class="p">:</span><span class="s2">"IN"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"citycode"</span><span class="p">:</span><span class="s2">"32"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"phoneno"</span><span class="p">:</span><span class="s2">"91-"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"mobileno"</span><span class="p">:</span><span class="s2">"91-7411000000"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"email"</span><span class="p">:</span><span class="s2">"tom.sawyer@example.com"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"othercity"</span><span class="p">:</span><span class="s2">"Bangalore"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"CityName"</span><span class="p">:</span><span class="s2">"Bangalore"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"StateName"</span><span class="p">:</span><span class="s2">"Karnataka"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"CountryName"</span><span class="p">:</span><span class="s2">"India"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"AddressType"</span><span class="p">:</span><span class="s2">"1"</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-   </span><span class="p">],</span><span class="w">
-   </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="mi">0</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>Retrieves the shipping address of a specific customer.</p>
-
-<h3 id="resource-information">Resource Information</h3>
-
-<table><thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead><tbody>
-<tr>
-<td>URI</td>
-<td><code class="prettyprint">/Customer/GetShippingAddress/{merchantId}/{UserId}</code></td>
-</tr>
-<tr>
-<td>Response Formats</td>
-<td>JSON</td>
-</tr>
-<tr>
-<td>HTTP Methods</td>
-<td>GET</td>
-</tr>
-<tr>
-<td>Batch Support</td>
-<td>No</td>
-</tr>
-<tr>
-<td>Rate Limited?</td>
-<td>No</td>
-</tr>
-<tr>
-<td>Authentication</td>
-<td>Yes</td>
-</tr>
-</tbody></table>
-
-<ul>
-<li><strong>Rate limiter</strong> controls the number of incoming and outgoing traffic of a network</li>
-<li><strong>Authentication</strong> verifies the identity of the current user or integration. See Introduction &gt; Authentication (Merchant Setup on Admin Portal) for more details</li>
-</ul>
-
-<h3 id="additional-header-required">Additional Header Required</h3>
-
-<table><thead>
-<tr>
-<th>Header Name</th>
-<th>Value</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>apiversion</td>
-<td>4</td>
-</tr>
-</tbody></table>
-
-<h3 id="request-url">Request URL</h3>
-
-<p><code class="prettyprint">https://{host}/developerapi/Customer/GetShippingAddress/{merchantId}{UserId}</code></p>
-
-<h3 id="request-path-parameters">Request Path Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>merchantId*</td>
-<td>string</td>
-<td>The unique id (GUID) of the merchant from which you want to fetch the customer&rsquo;s shipping address</td>
-</tr>
-<tr>
-<td>UserId*</td>
-<td>string</td>
-<td>The unique user identifier of the customer whose details need to be retrieved</td>
-</tr>
-</tbody></table>
-
-<h2 id="delete-shipping-address">Delete Shipping Address</h2>
-
-<blockquote>
-<p>Sample Request</p>
-</blockquote>
-<pre class="highlight html"><code>http://www.martjack.com/DeveloperAPI/Customer/DeleteShippingAddress/81e77da2-723b-483d-8c0d-49f800c1exxx/4cded968-8ee1-4591-a50b-41649387bxxx/1711980
-</code></pre>
-<blockquote>
-<p>Sample Response</p>
-</blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">  
-   </span><span class="nt">"Message"</span><span class="p">:</span><span class="s2">"Success"</span><span class="p">,</span><span class="w">
-   </span><span class="nt">"messageCode"</span><span class="p">:</span><span class="s2">"1004"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>Deletes shipping address of a customer for the current login session.</p>
-
-<h3 id="resource-information">Resource Information</h3>
-
-<table><thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead><tbody>
-<tr>
-<td>URI</td>
-<td><code class="prettyprint">Customer/DeleteShippingAddress/{MerchantId}/{UserId}/{ShippingAddressId}</code></td>
-</tr>
-<tr>
-<td>Response Formats</td>
-<td>JSON</td>
-</tr>
-<tr>
-<td>HTTP Methods</td>
-<td>GET</td>
-</tr>
-<tr>
-<td>Batch Support</td>
-<td>No</td>
-</tr>
-<tr>
-<td>Rate Limited?</td>
-<td>No</td>
-</tr>
-<tr>
-<td>Authentication</td>
-<td>Yes</td>
-</tr>
-</tbody></table>
-
-<ul>
-<li><strong>Rate limiter</strong> controls the number of incoming and outgoing traffic of a network</li>
-<li><strong>Authentication</strong> verifies the identity of the current user or integration. See Introduction &gt; Authentication (Merchant Setup on Admin Portal) for more details</li>
-</ul>
-
-<h3 id="request-url">Request URL</h3>
-
-<p><code class="prettyprint">http://{host}/developerapi/Customer/DeleteShippingAddress/{MerchantId}/{UserId}/{ShippingAddressId}</code></p>
-
-<h3 id="request-parameters">Request Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>MerchantId*</td>
-<td>string</td>
-<td>The unique id (GUID) of the merchant in which you want the order is created</td>
-</tr>
-<tr>
-<td>UserId*</td>
-<td>string</td>
-<td>The unique GUID of the customer whose shipping address needs to be deleted</td>
-</tr>
-<tr>
-<td>ShippingAddressId*</td>
-<td>string</td>
-<td>Unique id of the order shipment that you want to delete</td>
-</tr>
-</tbody></table>
-
-<aside class="notice"> All parameters marked by * are mandatory. </aside>
 
 <h2 id="get-all-customers">Get All Customers</h2>
 
@@ -3392,7 +2868,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <p><code class="prettyprint">http://{host}/developerapi/Customer/{merchantId}/All</code></p>
 
-<h2 id="request-parameter">Request Parameter</h2>
+<h3 id="request-parameter">Request Parameter</h3>
 
 <table><thead>
 <tr>
@@ -3410,7 +2886,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <aside class="notice"> Parameter marked by * is mandatory. </aside>
 
-<h2 id="response-parameters">Response Parameters</h2>
+<h3 id="response-parameters">Response Parameters</h3>
 
 <p>Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.</p>
 
@@ -3424,12 +2900,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>UserName*</td>
 <td>string</td>
-<td>The unique identifier of the customer as configured for the merchant. It could be email, mobile, or any other identifier</td>
-</tr>
-<tr>
-<td>merchantId*</td>
-<td>string</td>
-<td>The unique id (GUID) of the merchant in which you want to register customer</td>
+<td>The login username of the customer. It could be email, mobile, or any other identifier</td>
 </tr>
 <tr>
 <td>PostalAddress</td>
@@ -3439,7 +2910,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>City</td>
 <td>int</td>
-<td>Unique code of the city (as saved in the system) such as 0562 (for Agra), and 250 (Victoria)</td>
+<td>Unique code of the city (as saved in the system) associated to the address. Example, 0562 (for Agra), and 250 (Victoria)</td>
 </tr>
 <tr>
 <td>CityName</td>
@@ -3449,7 +2920,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>State</td>
 <td>string</td>
-<td>State’s postal abbreviation. Example: KA (for Karnataka), CA (for California), IN (for Indiana)</td>
+<td>Postal abbreviation of the state associated to the address. Example: KA (for Karnataka), CA (for California), IN (for Indiana)</td>
 </tr>
 <tr>
 <td>StateName</td>
@@ -3459,7 +2930,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>Country</td>
 <td>string</td>
-<td>alpha-2 code of the country. Example: IN (for India), AU (for Australia), and BR (for Brazil)</td>
+<td>Alpha-2 code of the country associated to the address. Example: IN (for India), AU (for Australia), and BR (for Brazil)</td>
 </tr>
 <tr>
 <td>CountryName</td>
@@ -3469,7 +2940,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>IsReceiveOffers</td>
 <td>boolean</td>
-<td>For merchant with CRM enabled whether the customer has subscribed his mobile number or email id to receive offers</td>
+<td>Applicable for merchants where CRM is enabled. States whether the customer has subscribed his mobile number or email id to receive offers</td>
 </tr>
 <tr>
 <td>CommunicationType</td>
@@ -3480,7 +2951,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <h2 id="get-customer-count">Get Customer Count</h2>
 
-<p>Retrieves the count of registered customers of the merchant.</p>
+<p>Retrieves the count of all registered customers of the merchant.</p>
 
 <blockquote>
 <p>Sample Request</p>
@@ -3600,45 +3071,39 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <aside class="notice">Parameter marked by * is mandatory. </aside>
 
-<h2 id="get-customer-shipping-address">Get Customer Shipping Address</h2>
-
-<p>Retrieves shipping address of a specific customer.</p>
+<h2 id="update-profile-attributes-custom-fields">Update Profile Attributes (Custom Fields)</h2>
 
 <blockquote>
 <p>Sample Request</p>
 </blockquote>
-<pre class="highlight html"><code>https://www.martjack.com/developerapi/Customer/GetShippingAddress/9820eca5-d11f-4df1-9b20-983a45ea9631/0025fc54-a2d2-4ba8-800f-3c0ac91d9385
-
+<pre class="highlight html"><code>https://www.martjack.com/developerapi/Customer/7c778337-4652-4944-934f-09e0fe56xxxx/UpdateUserProfile
 </code></pre>
+<blockquote>
+<p>Sample POST Request</p>
+</blockquote>
+<pre class="highlight json"><code><span class="err">InputFormat=application/json&amp;InputData=</span><span class="p">{</span><span class="w">  
+   </span><span class="nt">"UserProfile"</span><span class="p">:{</span><span class="w">  
+      </span><span class="nt">"UserId"</span><span class="p">:</span><span class="s2">"3562a74e-1292-4d47-ba17-bc0a06af3xxx"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ProfileAttributes"</span><span class="p">:{</span><span class="w">  
+         </span><span class="nt">"ProfileAttribute"</span><span class="p">:{</span><span class="w">  
+            </span><span class="nt">"ProfileAttributeId"</span><span class="p">:</span><span class="s2">"1058"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ProfileAttributeValue"</span><span class="p">:</span><span class="s2">"Football"</span><span class="w">
+         </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 <blockquote>
 <p>Sample Response</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"messageCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1004"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"ShippingAddresses"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"shippingaddressid"</span><span class="p">:</span><span class="w"> </span><span class="mi">580439</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"userId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0025fc54-a2d2-4ba8-800f-3c0ac91d9385"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"firstname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tom"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"lastname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sawyer"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"address1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"26/1, MG Road, DST Plazza"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"address2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Opp Hanuman Statue"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DL"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"pin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"110096"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"countrycode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IN"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"citycode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"113"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"phoneno"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"mobileno"</span><span class="p">:</span><span class="w"> </span><span class="s2">"91-9871000000"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tom.sawyer@example.com"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"othercity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Delhi"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"AddressType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">],</span><span class="w">
-  </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+    </span><span class="nt">"messageCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1004"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Updated Successfully"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
 </span><span class="p">}</span><span class="w">
-
 </span></code></pre>
+<p>Adds new custom field details or updates existing custom field details of a customer. These are customer level custom fields and are configured as per the merchant&rsquo;s requirement. You need to know the configured fields and its datatypes before adding/updating.</p>
+
 <h3 id="resource-information">Resource Information</h3>
 
 <table><thead>
@@ -3649,7 +3114,19 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 </thead><tbody>
 <tr>
 <td>URI</td>
-<td><code class="prettyprint">/Customer/GetShippingAddress/{merchantId}/{userId}</code></td>
+<td><code class="prettyprint">/Customer/{merchantId}/UpdateUserProfile</code></td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>POST</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>No</td>
 </tr>
 <tr>
 <td>Rate Limited?</td>
@@ -3658,6 +3135,309 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>Authentication</td>
 <td>Yes</td>
+</tr>
+</tbody></table>
+
+<ul>
+<li><strong>Rate limiter</strong> controls the number of incoming and outgoing traffic of a network</li>
+<li><strong>Authentication</strong> verifies the identity of the current user or integration. See Introduction &gt; Authentication (Merchant Setup on Admin Portal) for more details</li>
+</ul>
+
+<h3 id="additional-header-required">Additional Header Required</h3>
+
+<table><thead>
+<tr>
+<th>Header</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>accesstoken*</td>
+<td>Access token of the logged in user to validate the session</td>
+</tr>
+</tbody></table>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">https://{host}/developerapi/Customer/{merchantId}/UpdateUserProfile</code></p>
+
+<h3 id="request-body-parameters">Request Body Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ProfileAttributeId*</td>
+<td>string</td>
+<td>ID of the attribute that you want to add or update</td>
+</tr>
+<tr>
+<td>ProfileAttributeValue</td>
+<td>string</td>
+<td>Respective attribute value preferred by the customer</td>
+</tr>
+</tbody></table>
+
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
+
+<h2 id="add-update-shipping-address">Add/Update Shipping Address</h2>
+
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
+<pre class="highlight html"><code>https://www.martjack.com/DeveloperAPI/Customer/AddShippingAddress/81e77da2-723b-483d-8c0d-49f800c1exxx
+</code></pre>
+<blockquote>
+<p>Sample POST Request</p>
+</blockquote>
+<pre class="highlight json"><code><span class="err">InputFormat=application/json&amp;InputData=</span><span class="p">{</span><span class="w">  
+   </span><span class="nt">"shippingaddress"</span><span class="p">:{</span><span class="w">  
+      </span><span class="nt">"shippingaddressid"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"userId"</span><span class="p">:</span><span class="s2">"4cded968-8ee1-4591-a50b-41649387bxxx"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"firstname"</span><span class="p">:</span><span class="s2">"Tom"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"lastname"</span><span class="p">:</span><span class="s2">"Sawyer"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"address1"</span><span class="p">:</span><span class="s2">"H.no.6-51, plot.31, ECIL"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"address2"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"state"</span><span class="p">:</span><span class="s2">"KA"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"pin"</span><span class="p">:</span><span class="s2">"560068"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"countrycode"</span><span class="p">:</span><span class="s2">"IN"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"citycode"</span><span class="p">:</span><span class="s2">"32"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"phoneno"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"mobileno"</span><span class="p">:</span><span class="s2">"91-7411000000"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"email"</span><span class="p">:</span><span class="s2">"tom.sawyer@example.com"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"AddressType"</span><span class="p">:</span><span class="s2">"Home Address"</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"messageCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1004"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ShippingAddresses"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"shippingaddressid"</span><span class="p">:</span><span class="w"> </span><span class="mi">1714453</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"userId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00000000-0000-0000-0000-000000000000"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"firstname"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"lastname"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"address1"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"address2"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"state"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"pin"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"countrycode"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"citycode"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"phoneno"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"mobileno"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"othercity"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Adds a new shipping address to a customer&rsquo;s account or updates an existing shipping address. </p>
+
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td><code class="prettyprint">/Customer/AddShippingAddress/{merchantId}</code></td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>POST</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+</tbody></table>
+
+<ul>
+<li><strong>Rate limiter</strong> controls the number of incoming and outgoing traffic of a network</li>
+<li><strong>Authentication</strong> verifies the identity of the current user or integration. See Introduction &gt; Authentication (Merchant Setup on Admin Portal) for more details</li>
+</ul>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">https://{host}/developerapi/Customer/AddShippingAddress/{merchantId}</code></p>
+
+<h3 id="request-body-parameters">Request Body Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ShippingAddressId*</td>
+<td>int</td>
+<td>Unique id of the order shipment that you want to update. Pass <code class="prettyprint">0</code> to create a new shipping address</td>
+</tr>
+<tr>
+<td>userId*</td>
+<td>string</td>
+<td>Unique GUID of the customer to add or update shipping address</td>
+</tr>
+<tr>
+<td>firstname*</td>
+<td>string</td>
+<td>The first name of the customer</td>
+</tr>
+<tr>
+<td>lastname*</td>
+<td>string</td>
+<td>The last name of the customer</td>
+</tr>
+<tr>
+<td>address1*, address2</td>
+<td>string</td>
+<td>Specify the customer’s shipping address related information</td>
+</tr>
+<tr>
+<td>state</td>
+<td>string</td>
+<td>Postal abbreviation of the state of the current shipping address. Example: KA (for Karnataka), CA (for California), IN (for Indiana)</td>
+</tr>
+<tr>
+<td>pin</td>
+<td>string</td>
+<td>Specify the PIN of the current shipping address</td>
+</tr>
+<tr>
+<td>countrycode</td>
+<td>string</td>
+<td>Alpha-2 code of the country of the current shipping address. Example: IN (for India), AU (for Australia), and BR (for Brazil)</td>
+</tr>
+<tr>
+<td>citycode</td>
+<td>string</td>
+<td>Unique code of the city (as saved in the system) such as 0562 (for Agra), and 250 (Victoria)</td>
+</tr>
+<tr>
+<td>phoneno</td>
+<td>string</td>
+<td>The landline number of the customer associated to the shipping address</td>
+</tr>
+<tr>
+<td>mobileno</td>
+<td>string</td>
+<td>The mobile number of the customer associated to the shipping address</td>
+</tr>
+<tr>
+<td>email</td>
+<td>string</td>
+<td>The email id of the customer associated to the shipping address</td>
+</tr>
+<tr>
+<td>addressType</td>
+<td>string</td>
+<td>Type of address. For example Home, Office</td>
+</tr>
+</tbody></table>
+
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
+
+<h2 id="get-customer-39-s-shipping-address">Get Customer&rsquo;s Shipping Address</h2>
+
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
+<pre class="highlight html"><code>
+http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-483d-8c0d-49f800c1xxxx/4cded968-8ee1-4591-a50b-41649387bxxx
+
+</code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="w">
+</span><span class="p">{</span><span class="w">
+   </span><span class="nt">"messageCode"</span><span class="p">:</span><span class="s2">"1004"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"Message"</span><span class="p">:</span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"ShippingAddresses"</span><span class="p">:[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+         </span><span class="nt">"shippingaddressid"</span><span class="p">:</span><span class="mi">1711980</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"userId"</span><span class="p">:</span><span class="s2">"4cded968-8ee1-4591-a50b-41649387bxxx"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"firstname"</span><span class="p">:</span><span class="s2">"Tom"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"lastname"</span><span class="p">:</span><span class="s2">"Sawyer"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"address1"</span><span class="p">:</span><span class="s2">"H.no.6-51, plot.31, ECIL"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"address2"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"state"</span><span class="p">:</span><span class="s2">"KA"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"pin"</span><span class="p">:</span><span class="s2">"560068"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"countrycode"</span><span class="p">:</span><span class="s2">"IN"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"citycode"</span><span class="p">:</span><span class="s2">"32"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"phoneno"</span><span class="p">:</span><span class="s2">"91-"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"mobileno"</span><span class="p">:</span><span class="s2">"91-7411000000"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"email"</span><span class="p">:</span><span class="s2">"tom.sawyer@example.com"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"othercity"</span><span class="p">:</span><span class="s2">"Bangalore"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"CityName"</span><span class="p">:</span><span class="s2">"Bangalore"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"StateName"</span><span class="p">:</span><span class="s2">"Karnataka"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"CountryName"</span><span class="p">:</span><span class="s2">"India"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"AddressType"</span><span class="p">:</span><span class="s2">"1"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+         </span><span class="nt">"shippingaddressid"</span><span class="p">:</span><span class="mi">1714178</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"userId"</span><span class="p">:</span><span class="s2">"4cded968-8ee1-4591-a50b-41649387bxxx"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"firstname"</span><span class="p">:</span><span class="s2">"Tom"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"lastname"</span><span class="p">:</span><span class="s2">"Sawyer"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"address1"</span><span class="p">:</span><span class="s2">"Door: 12, 4th Floor, #12"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"address2"</span><span class="p">:</span><span class="s2">"3rd cross, Roopena agrahara"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"state"</span><span class="p">:</span><span class="s2">"KA"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"pin"</span><span class="p">:</span><span class="s2">"560068"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"countrycode"</span><span class="p">:</span><span class="s2">"IN"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"citycode"</span><span class="p">:</span><span class="s2">"32"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"phoneno"</span><span class="p">:</span><span class="s2">"91-"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"mobileno"</span><span class="p">:</span><span class="s2">"91-7411000000"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"email"</span><span class="p">:</span><span class="s2">"tom.sawyer@example.com"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"othercity"</span><span class="p">:</span><span class="s2">"Bangalore"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"CityName"</span><span class="p">:</span><span class="s2">"Bangalore"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"StateName"</span><span class="p">:</span><span class="s2">"Karnataka"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"CountryName"</span><span class="p">:</span><span class="s2">"India"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"AddressType"</span><span class="p">:</span><span class="s2">"1"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+   </span><span class="p">],</span><span class="w">
+   </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="mi">0</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Retrieves all shipping addresses of a specific customer.</p>
+
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td><code class="prettyprint">/Customer/GetShippingAddress/{merchantId}/{UserId}</code></td>
 </tr>
 <tr>
 <td>Response Formats</td>
@@ -3671,6 +3451,14 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <td>Batch Support</td>
 <td>No</td>
 </tr>
+<tr>
+<td>Rate Limited?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
 </tbody></table>
 
 <ul>
@@ -3678,9 +3466,23 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <li><strong>Authentication</strong> verifies the identity of the current user or integration. See Introduction &gt; Authentication (Merchant Setup on Admin Portal) for more details</li>
 </ul>
 
+<h3 id="additional-header-required">Additional Header Required</h3>
+
+<table><thead>
+<tr>
+<th>Header Name</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>apiversion</td>
+<td>4</td>
+</tr>
+</tbody></table>
+
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Customer/GetShippingAddress/{merchantId}/{userId}</code></p>
+<p><code class="prettyprint">https://{host}/developerapi/Customer/GetShippingAddress/{merchantId}{UserId}</code></p>
 
 <h3 id="request-path-parameters">Request Path Parameters</h3>
 
@@ -3694,12 +3496,98 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>merchantId*</td>
 <td>string</td>
-<td>Unique GUID of the merchant</td>
+<td>The unique GUID of the merchant associated to the customer</td>
 </tr>
 <tr>
-<td>userId*</td>
+<td>UserId*</td>
 <td>string</td>
-<td>Unique GUID of the user to fetch shipping address</td>
+<td>The unique GUID of the user to fetch all shipping addresses</td>
+</tr>
+</tbody></table>
+
+<h2 id="delete-shipping-address">Delete Shipping Address</h2>
+
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
+<pre class="highlight html"><code>http://www.martjack.com/DeveloperAPI/Customer/DeleteShippingAddress/81e77da2-723b-483d-8c0d-49f800c1exxx/4cded968-8ee1-4591-a50b-41649387bxxx/1711980
+</code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">  
+   </span><span class="nt">"Message"</span><span class="p">:</span><span class="s2">"Success"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"messageCode"</span><span class="p">:</span><span class="s2">"1004"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Deletes a specific shipping address of a customer for the current login session.</p>
+
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td><code class="prettyprint">Customer/DeleteShippingAddress/{MerchantId}/{UserId}/{ShippingAddressId}</code></td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+</tbody></table>
+
+<ul>
+<li><strong>Rate limiter</strong> controls the number of incoming and outgoing traffic of a network</li>
+<li><strong>Authentication</strong> verifies the identity of the current user or integration. See Introduction &gt; Authentication (Merchant Setup on Admin Portal) for more details</li>
+</ul>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">http://{host}/developerapi/Customer/DeleteShippingAddress/{MerchantId}/{UserId}/{ShippingAddressId}</code></p>
+
+<h3 id="request-parameters">Request Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>MerchantId*</td>
+<td>string</td>
+<td>The unique GUID of the merchant associated to the customer account</td>
+</tr>
+<tr>
+<td>UserId*</td>
+<td>string</td>
+<td>The unique GUID of the customer whose shipping address needs to be deleted</td>
+</tr>
+<tr>
+<td>ShippingAddressId*</td>
+<td>string</td>
+<td>Unique id of the shipping address that you want to delete</td>
 </tr>
 </tbody></table>
 
@@ -3707,7 +3595,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <h2 id="get-store-operators">Get Store Operators</h2>
 
-<p>Retrieves the details of store operators of a specific role in a particular location.</p>
+<p>Retrieves the details of store operators of a specific role in a particular location or all locations.</p>
 
 <blockquote>
 <p>Sample Request</p>
@@ -3796,12 +3684,12 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>locationId*</td>
 <td>int</td>
-<td>Filter results by location id. If you want to fetch from all the locations, pass &lsquo;0&rsquo;</td>
+<td>Pass the location id to get operators of that specific  location. If you want to fetch from all the locations, pass &lsquo;0&rsquo;</td>
 </tr>
 <tr>
 <td>roleid*</td>
 <td>string</td>
-<td>Unique role id for which you want to fetch operators</td>
+<td>Pass the unique role id to get operators of that specific role</td>
 </tr>
 </tbody></table>
 
@@ -3809,7 +3697,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <h2 id="agent-login">Agent Login</h2>
 
-<p>Lets agents of the merchant login to the e-commerce site.</p>
+<p>Lets agents of the merchant login to the merchant&rsquo;s Anywhere Commerce site.</p>
 
 <blockquote>
 <p>Sample Request</p>
@@ -3907,7 +3795,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>merchantId*</td>
 <td>string</td>
-<td>Unique GUID of the merchant</td>
+<td>Unique GUID of the merchant associated to the agent account</td>
 </tr>
 <tr>
 <td>username*</td>
@@ -32671,7 +32559,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>isVariance</td>
 <td>boolean</td>
-<td>Whether there is change in the price of the current item  during picklist creation. In case of any difference, the item price can be changed by passing the <code class="prettyprint">ActualPrice</code> of the item</td>
+<td>Whether there is change in the price of the current item while creating picklist. If there is a difference, the item price can be changed by passing the <code class="prettyprint">ActualPrice</code> of the item</td>
 </tr>
 </tbody></table>
 
@@ -32831,32 +32719,32 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>SubStatus</td>
 <td>enum</td>
-<td>Unique 2 character code of the picklist/picklist item sub-status. Values are as per configured in the CP</td>
+<td>Unique 2 character code of the sub-status of the picklist or picklist item. Values are as per configured in the CP for that merchant</td>
 </tr>
 <tr>
 <td>PicklistOperatorID</td>
 <td>string</td>
-<td>Unique id of the staff who confirms the picklist</td>
+<td>Unique id of the staff that confirms the picklist</td>
 </tr>
 <tr>
 <td>Comments</td>
 <td>string</td>
-<td>Any comments related to the picklist. You can pass this both at the request level and item level</td>
+<td>Any comments related to the picklist at the request level/item level</td>
 </tr>
 <tr>
 <td>ConfirmPicking</td>
 <td>enum</td>
-<td>Specify <code class="prettyprint">1</code> to confirm pick up, <code class="prettyprint">0</code> if not confirmed. <code class="prettyprint">0</code> will be considered as the default value if no value is passed</td>
+<td>Specify <code class="prettyprint">1</code> to confirm pick up, <code class="prettyprint">0</code> if not confirmed. The default value is &lsquo;0&rsquo;</td>
 </tr>
 <tr>
 <td>OrderPickListDetailId</td>
 <td>int</td>
-<td>Unique internal reference if generated for each picklist item</td>
+<td>Unique internal reference id generated for each picklist item</td>
 </tr>
 <tr>
 <td>RetransactionID</td>
 <td>int</td>
-<td>Order id of the item</td>
+<td>Order id of the item for which you want to update picklist</td>
 </tr>
 <tr>
 <td>PicklistID</td>
@@ -32876,12 +32764,12 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>PickListItemStatus</td>
 <td>enum</td>
-<td>The status of the current item. <code class="prettyprint">F</code> for found, <code class="prettyprint">N</code> for not found, <code class="prettyprint">C</code> for cancel. If no value is passed, not found is considered as the default value</td>
+<td>The status of the current item. Values: <code class="prettyprint">F</code> for found, <code class="prettyprint">N</code> for not found, <code class="prettyprint">C</code> for cancel. If no value is passed, not found is considered as the default value</td>
 </tr>
 <tr>
 <td>Weight</td>
 <td>int</td>
-<td>Weight of the item</td>
+<td>Weight of the item if applicable</td>
 </tr>
 <tr>
 <td>ActualPrice</td>
@@ -32891,12 +32779,12 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>isVariance</td>
 <td>boolean</td>
-<td>Whether there is change in the price of the current item  during picklist creation. In case of any difference, the item price can be changed by passing the <code class="prettyprint">ActualPrice</code> of the item</td>
+<td>Whether there is change in the price of the current item when picklist is created. If there is a price difference, the item price can be changed by passing the <code class="prettyprint">ActualPrice</code> of the item</td>
 </tr>
 <tr>
 <td>PickingPrice</td>
 <td>int</td>
-<td>Price of packing. For example, in restaurants additional charge will be levied on takeaway orders for packing</td>
+<td>Additional price charged for packing (if applicable). For example, in restaurants additional charge will be levied on takeaway orders for packing</td>
 </tr>
 <tr>
 <td>PicklistCustomFields</td>
@@ -32909,7 +32797,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <h2 id="get-picklist-summary">Get Picklist Summary</h2>
 
-<p>Retrieves the details of a specific  specific  picklist.</p>
+<p>Retrieves the details of a specific  picklist.</p>
 
 <blockquote>
 <p>Sample Request</p>
@@ -33168,13 +33056,13 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>pickListId*</td>
 <td>int</td>
-<td>Unique id of the picklist that you want to fetch</td>
+<td>Unique id of the picklist to fetch the summary</td>
 </tr>
 </tbody></table>
 
 <h2 id="get-picklists-of-a-merchant">Get PickLists of a Merchant</h2>
 
-<p>Lets you fetch picklists of the merchant based on the input parameters. By default, the picklists details of the last one week will be retrieved.</p>
+<p>Lets you fetch picklists of the merchant based on the input parameters. By default, the details of the picklists of the last one week will be retrieved.</p>
 
 <blockquote>
 <p>Sample Request</p>
@@ -33315,7 +33203,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>status</td>
 <td>string</td>
-<td>Fetch picklists by status. Values: Created, In Picking (in progress), Completed/Picked (picked up)</td>
+<td>Fetch picklists by status. Values: <code class="prettyprint">Created</code>, <code class="prettyprint">In Picking</code> (in progress), <code class="prettyprint">Completed</code> or <code class="prettyprint">Picked</code> (picked up)</td>
 </tr>
 <tr>
 <td>picklistCode</td>
@@ -33330,7 +33218,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>locationId</td>
 <td>int</td>
-<td>Fetch picklist of a specific location by location id</td>
+<td>Fetch picklists of a specific location by location id</td>
 </tr>
 <tr>
 <td>searchFromDate</td>
@@ -33340,12 +33228,12 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>searchSku</td>
 <td>string</td>
-<td>Fetch picklists consisting of a specific SKU.</td>
+<td>Fetch picklists consisting a specific SKU.</td>
 </tr>
 <tr>
 <td>pageNumber</td>
 <td>int</td>
-<td>For results in multiple pages, specify the page number that you want to fetch</td>
+<td>If results are too long and displayed in multiple pages, specify the page number to see the picklist of that particular page</td>
 </tr>
 <tr>
 <td>pageSize</td>
@@ -33370,7 +33258,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>channelId</td>
 <td>string</td>
-<td>Channel id of the marketplace</td>
+<td>Channel id of the marketplace to get the picklists of that specific channel</td>
 </tr>
 </tbody></table>
 
@@ -33696,12 +33584,12 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>status</td>
 <td>string</td>
-<td>Fetch picklists by status. Values: Created, In Picking (in progress), Completed/Picked (picked up)</td>
+<td>Fetch picklists by status. Values: <code class="prettyprint">Created</code>, <code class="prettyprint">In Picking</code> (in progress), <code class="prettyprint">Completed</code> or <code class="prettyprint">Picked</code> (picked up)</td>
 </tr>
 <tr>
 <td>picklistCode</td>
 <td>string</td>
-<td>Unique code of the picklist to fetch details by picklist code</td>
+<td>Specify the unique picklist code to fetch</td>
 </tr>
 <tr>
 <td>createdOn</td>
@@ -33711,7 +33599,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>locationId</td>
 <td>int</td>
-<td>Fetch picklist of a specific location by location id</td>
+<td>Fetch picklist of a specific location. Pass the location id</td>
 </tr>
 <tr>
 <td>searchFromDate</td>
@@ -33721,12 +33609,12 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>searchSku</td>
 <td>string</td>
-<td>Fetch picklists consisting of a specific SKU.</td>
+<td>Fetch picklists containing a specific SKU</td>
 </tr>
 <tr>
 <td>pageNumber</td>
 <td>int</td>
-<td>For results in multiple pages, specify the page number that you want to see</td>
+<td>If the results are too long and appear in multiple pages, you can specify a page number to see the results on that particular page</td>
 </tr>
 <tr>
 <td>pageSize</td>
@@ -33751,7 +33639,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>channelId</td>
 <td>string</td>
-<td>Channel id of the marketplace</td>
+<td>Channel id of the marketplace to get picklists of that specific channel</td>
 </tr>
 </tbody></table>
 
@@ -34010,12 +33898,12 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>pickListId*</td>
 <td>int</td>
-<td>Unique id of the picklist for which you want to fetch items</td>
+<td>Unique id of the picklist to see the picklist items</td>
 </tr>
 <tr>
 <td>orderItemStatus*</td>
 <td>string</td>
-<td>Get the order items by item status. Values: <code class="prettyprint">P</code> for Pending, <code class="prettyprint">F</code> for Found, <code class="prettyprint">N</code> for Not Found,  <code class="prettyprint">R</code> for Removed, <code class="prettyprint">C</code> for  Canceled</td>
+<td>Get picklist items by item status. Values: <code class="prettyprint">P</code> for Pending, <code class="prettyprint">F</code> for Found, <code class="prettyprint">N</code> for Not Found,  <code class="prettyprint">R</code> for Removed, <code class="prettyprint">C</code> for  Canceled</td>
 </tr>
 </tbody></table>
 
@@ -34023,7 +33911,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <p>Retrieves the list of alternative products of a specific picklist item by product id.</p>
 
-<p>Substitutes are the product alternatives used in case of unavailability or insufficient quantity of actual product during pickup. </p>
+<p>Substitutes are the product alternatives used during pickup in case of unavailability or insufficient quantity of actual product. </p>
 
 <blockquote>
 <p>Sample Request</p>
@@ -34407,7 +34295,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
    </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="mi">0</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Retrieves all the countries (with country code and phone code) supported for a specific merchant.</p>
+<p>Retrieves all the countries (with country code and phone code) supported for the merchant.</p>
 
 <h3 id="resource-information">Resource Information</h3>
 
@@ -34756,11 +34644,11 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 </thead><tbody>
 <tr>
 <td>merchantId*</td>
-<td>The unique id (GUID) of the merchant for which you want to see supported cities</td>
+<td>The unique id (GUID) of the merchant for which you want to see the supported cities</td>
 </tr>
 <tr>
 <td>StateCode*</td>
-<td>The state code for which you want to see the list of supported cities</td>
+<td>The state code for which you want to see the supported cities list</td>
 </tr>
 </tbody></table>
 
@@ -35083,7 +34971,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>ChildrenPlayArea</td>
 <td>boolean</td>
-<td>If the store has children play area</td>
+<td>Whether the store has children play area or not</td>
 </tr>
 <tr>
 <td>GiftPacking</td>
@@ -35508,17 +35396,17 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>channelid**</td>
 <td>int</td>
-<td>Unique id of the channel that you want to fetch. Either pass channelid or channelcode but not both</td>
+<td>Specify the unique id of the channel that you want to fetch. Either pass channelid or channelcode but not both</td>
 </tr>
 <tr>
 <td>channelcode**</td>
 <td>string</td>
-<td>Unique channel code that you want to fetch. Either pass channelid or channelcode but not both</td>
+<td>Specify the unique channel code that you want to fetch. Either pass channelid or channelcode but not both</td>
 </tr>
 <tr>
 <td>channelrefcode**</td>
 <td>string</td>
-<td>Fetch details by channel reference code. Pass <code class="prettyprint">channelid</code> as 0 if you use channelrefcode as mentioned in the Request URL</td>
+<td>Specify the unique reference code of the channel that you want to fetch. Pass <code class="prettyprint">channelid</code> as 0 if you use channelrefcode as mentioned in the Request URL</td>
 </tr>
 </tbody></table>
 
@@ -38605,7 +38493,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>CategoryId*</td>
 <td>string</td>
-<td>Unique id of the category for which you want to fetch details</td>
+<td>Unique id of the category to fetch details</td>
 </tr>
 </tbody></table>
 

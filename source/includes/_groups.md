@@ -152,7 +152,7 @@ userGroupId* | int | Unique id of the customer group that you want to fetch
 
 ## Get Users of a Group
 
-Retrieves the details all members of a specific group based on the group id passed.
+Retrieves the details of all members of a specific group based on the group id passed.
 
 
 
@@ -387,7 +387,7 @@ Batch Support | No
 Parameter | Type | Description
 -------- | ----- | -----------
 MerchantId* | string | Unique GUID of the merchantId
-userId* | string | Unique GUID of the user for which you want to fetch user groups
+userId* | string | Unique GUID of the user by which you want to fetch user groups
 
 <aside class="notice">All parameters marked by * are mandatory.</aside>
 
@@ -397,7 +397,7 @@ userId* | string | Unique GUID of the user for which you want to fetch user grou
 
 ## Get All Groups of the Merchant
 
-Retrieves all the customer groups created for the merchant.
+Retrieves all customer groups of the merchant.
 
 
 
@@ -504,9 +504,9 @@ merchantId* | string | Unique GUID of the merchant
 Parameter | Type | Description
 -------- | ----- | -----------
 CreatedDate | date | Date when the group is created 
-IsActive | enum | States whether the group is true or false
+IsActive | enum | States whether the group is in active state (true) or inactive state (false)
 MessageDate | date | -NA-
-UpdatedDate | date | Date when the group is updated - user added or removed
+UpdatedDate | date | Date when the group is updated, i.e., either an user added or removed
 MemberCount | int | Total members in the group
 
 
@@ -514,9 +514,7 @@ MemberCount | int | Total members in the group
 
 ## Remove User
 
-Removes a specific member from the group.
-
-
+Removes a specific user from a group.
 
 
 
