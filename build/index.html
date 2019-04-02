@@ -4002,7 +4002,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <h2 id="get-users-of-a-group">Get Users of a Group</h2>
 
-<p>Retrieves the details all members of a specific group based on the group id passed.</p>
+<p>Retrieves the details of all members of a specific group based on the group id passed.</p>
 
 <blockquote>
 <p>Sample Request</p>
@@ -4286,7 +4286,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>userId*</td>
 <td>string</td>
-<td>Unique GUID of the user for which you want to fetch user groups</td>
+<td>Unique GUID of the user by which you want to fetch user groups</td>
 </tr>
 </tbody></table>
 
@@ -4294,7 +4294,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <h2 id="get-all-groups-of-the-merchant">Get All Groups of the Merchant</h2>
 
-<p>Retrieves all the customer groups created for the merchant.</p>
+<p>Retrieves all customer groups of the merchant.</p>
 
 <blockquote>
 <p>Sample Request</p>
@@ -4434,7 +4434,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>IsActive</td>
 <td>enum</td>
-<td>States whether the group is true or false</td>
+<td>States whether the group is in active state (true) or inactive state (false)</td>
 </tr>
 <tr>
 <td>MessageDate</td>
@@ -4444,7 +4444,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>UpdatedDate</td>
 <td>date</td>
-<td>Date when the group is updated - user added or removed</td>
+<td>Date when the group is updated, i.e., either an user added or removed</td>
 </tr>
 <tr>
 <td>MemberCount</td>
@@ -4455,7 +4455,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <h2 id="remove-user">Remove User</h2>
 
-<p>Removes a specific member from the group.</p>
+<p>Removes a specific user from a group.</p>
 
 <blockquote>
 <p>Sample Request</p>
@@ -12394,28 +12394,6 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <p><code class="prettyprint">https://{host}/developerapi/carts/V2/SendOTP/{MerchantId}</code></p>
 
-<h3 id="request-parameters">Request Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>UserName*</td>
-<td>Username of the customer&rsquo;s account (mobile number or email id)</td>
-</tr>
-<tr>
-<td>merchantId*</td>
-<td>The unique id (GUID) of the merchant in which the customer has registered</td>
-</tr>
-<tr>
-<td>MobileNo*</td>
-<td>The registered mobile number to which the OTP has to be sent</td>
-</tr>
-</tbody></table>
-
 <h3 id="additional-header">Additional Header</h3>
 
 <table><thead>
@@ -12430,108 +12408,27 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 </tr>
 </tbody></table>
 
-<h3 id="request-body-parameters">Request Body Parameters</h3>
+<h3 id="request-parameters">Request Parameters</h3>
 
 <table><thead>
 <tr>
 <th>Parameter</th>
-<th>Type</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>UserName*</td>
-<td>string</td>
-<td>Registered username of the customer</td>
+<td>Username of the customer&rsquo;s account (mobile number or email id)</td>
 </tr>
 <tr>
 <td>merchantId*</td>
-<td>string</td>
-<td>Unique GUID of the merchant</td>
+<td>The unique id (GUID) of the merchant associated to the customer account</td>
 </tr>
 <tr>
 <td>MobileNo*</td>
-<td>string</td>
-<td>Registered mobile number of the user</td>
+<td>The registered mobile number to which the OTP has to be sent</td>
 </tr>
 </tbody></table>
-
-<h2 id="save-cod-otp">Save COD OTP</h2>
-
-<blockquote>
-<p>Sample Request</p>
-</blockquote>
-<pre class="highlight json"><code><span class="err">https://www.martjack.com/developerapi/Carts/SaveCodOTP/</span><span class="mi">993</span><span class="err">c</span><span class="mi">939</span><span class="err">a-a</span><span class="mi">2</span><span class="err">e</span><span class="mi">8-4934</span><span class="err">-bbf</span><span class="mi">5-390</span><span class="err">f</span><span class="mi">37457</span><span class="err">a</span><span class="mi">55</span><span class="err">/</span><span class="mi">8765</span><span class="w">
-</span></code></pre>
-<blockquote>
-<p>Sample Response</p>
-</blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-   </span><span class="nt">"messageCode"</span><span class="p">:</span><span class="s2">"1016"</span><span class="p">,</span><span class="w">
-   </span><span class="nt">"Message"</span><span class="p">:</span><span class="s2">"Invalid Input"</span><span class="p">,</span><span class="w">
-   </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="mi">440</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<h3 id="resource-information">Resource Information</h3>
-
-<table><thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead><tbody>
-<tr>
-<td>URI</td>
-<td><code class="prettyprint">/Carts/SaveCodOTP/{merchantId}/{smsCode}</code></td>
-</tr>
-<tr>
-<td>Rate Limited?</td>
-<td>No</td>
-</tr>
-<tr>
-<td>Authentication</td>
-<td>Yes</td>
-</tr>
-<tr>
-<td>Response Formats</td>
-<td>JSON</td>
-</tr>
-<tr>
-<td>HTTP Methods</td>
-<td>GET</td>
-</tr>
-<tr>
-<td>Batch Support</td>
-<td>No</td>
-</tr>
-</tbody></table>
-
-<ul>
-<li><strong>Rate limiter</strong> controls the number of incoming and outgoing traffic of a network</li>
-<li><strong>Authentication</strong> verifies the identity of the current user or integration. See Introduction &gt; Authentication (Merchant Setup on Admin Portal) for more details</li>
-</ul>
-
-<h3 id="request-url">Request URL</h3>
-
-<p><code class="prettyprint">https://{host}/developerapi/Carts/SaveCodOTP/{merchantId}/{smsCode}</code></p>
-
-<h3 id="request-path-parameters">Request Path Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>merchantId*</td>
-<td>string</td>
-<td>Unique GUID of the merchant</td>
-</tr>
-</tbody></table>
-
-<aside class="notice"> All parameters marked by * are mandatory. </aside>
 
 <h2 id="validate-otp">Validate OTP</h2>
 
@@ -12552,7 +12449,11 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <blockquote>
 <p>Sample Response</p>
 </blockquote>
-<pre class="highlight json"><code><span class="w">
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+</span><span class="nt">"messageCode"</span><span class="p">:</span><span class="s2">"1004"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"Message"</span><span class="p">:</span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="mi">0</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>Validates OTP sent to a customer&rsquo;s registered mobile number.</p>
 
@@ -12566,7 +12467,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 </thead><tbody>
 <tr>
 <td>URI</td>
-<td><code class="prettyprint">carts/V2/ValidateOTP/{{merchantId}}</code></td>
+<td><code class="prettyprint">carts/V2/ValidateOTP/{merchantId}</code></td>
 </tr>
 <tr>
 <td>Rate Limited?</td>
@@ -12597,7 +12498,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/carts/V2/ValidateOTP/{{merchantId}}</code></p>
+<p><code class="prettyprint">https://{host}/developerapi/carts/V2/ValidateOTP/{merchantId}</code></p>
 
 <h3 id="request-parameters">Request Parameters</h3>
 
@@ -12608,16 +12509,16 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 </tr>
 </thead><tbody>
 <tr>
-<td>OTP*</td>
-<td>The verification code received by the customer on his/her mobile number</td>
+<td>mobile*</td>
+<td>The registered mobile number of the customer to which the OTP has sent</td>
 </tr>
 <tr>
-<td>mobile*</td>
-<td>The registered mobile number to which the OTP has to be sent</td>
+<td>OTP*</td>
+<td>The verification code or OTP received to the mobile number</td>
 </tr>
 </tbody></table>
 
-<h2 id="add-items-to-cart-normal-variant-default-bundle">Add Items to Cart (Normal/Variant/Default Bundle)</h2>
+<h2 id="add-items-to-cart-normal-variant">Add Items to Cart (Normal/Variant)</h2>
 
 <blockquote>
 <p>Sample Request</p>
@@ -12860,7 +12761,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
     </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Add items normal, variant, and/or  product and non-customized default bundle product</p>
+<p>Lets you add items of normal and variant products to cart.</p>
 
 <h3 id="resource-information">Resource Information</h3>
 
@@ -12915,19 +12816,19 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 </tr>
 </thead><tbody>
 <tr>
-<td>DelveryMode</td>
+<td>DelveryMode*</td>
 <td>enum</td>
-<td>Values: <code class="prettyprint">H</code> for home delivery and <code class="prettyprint">S</code> for store pickup</td>
+<td>Preferred delivery mode. Values: <code class="prettyprint">H</code> for home delivery and <code class="prettyprint">S</code> for store pickup</td>
 </tr>
 <tr>
-<td>Status</td>
+<td>Status*</td>
 <td>enum</td>
-<td>Status of the cart item. Specify <code class="prettyprint">A</code> to add item to cart, <code class="prettyprint">D</code> to delete item from cart</td>
+<td>Status of the cart item. Specify <code class="prettyprint">A</code> to add an item to the cart, <code class="prettyprint">D</code> to delete an item from cart</td>
 </tr>
 <tr>
 <td>VariantProductID</td>
 <td>int</td>
-<td>Unique id of the variant product</td>
+<td>Unique id of the variant product to add</td>
 </tr>
 <tr>
 <td>LocationId</td>
@@ -12937,17 +12838,17 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>CartReferenceKey</td>
 <td>string</td>
-<td>Unique id of the line item added to cart. It is used in updating item quantity in cart</td>
+<td>Unique reference code of a line item added to the cart. It is used in updating item quantity in cart</td>
 </tr>
 <tr>
-<td>ProductID</td>
+<td>ProductID*</td>
 <td>int</td>
 <td>Unique id of the product generated by the system</td>
 </tr>
 <tr>
-<td>Quantity</td>
+<td>Quantity*</td>
 <td>string</td>
-<td>Quantity of the items that you want to add or update in cart</td>
+<td>Quantity of the items that you want to add the cart</td>
 </tr>
 </tbody></table>
 
@@ -12967,12 +12868,12 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>CartReferenceKey</td>
 <td>string</td>
-<td>Unique ID of each item in the cart</td>
+<td>Unique GUID of the item in the cart</td>
 </tr>
 <tr>
 <td>IsFreeProduct</td>
 <td>boolean</td>
-<td>Whether the item is a free gift item</td>
+<td>Whether the item is a free or gift product</td>
 </tr>
 <tr>
 <td>Por</td>
@@ -12992,7 +12893,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>RemainTotal</td>
 <td>float</td>
-<td>Deprecated</td>
+<td>-Deprecated-</td>
 </tr>
 <tr>
 <td>ShippingZoneType</td>
@@ -13002,7 +12903,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>ComboSuggestion</td>
 <td>array</td>
-<td>Suggestions related the deal items based on the items in the cart</td>
+<td>Suggestions related to deal products based on the cart items</td>
 </tr>
 <tr>
 <td>ConvertedDeals</td>
@@ -13909,7 +13810,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
    </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="mi">0</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Lets you add normal product items, variant product details, and non-customized default bundle products to cart.</p>
+<p>Provides a payload to add non-customized default bundle products to cart.</p>
 
 <h3 id="resource-information">Resource Information</h3>
 
@@ -13980,7 +13881,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>ShipCity</td>
 <td>string</td>
-<td>Unique code of the shipping city (as saved in the system) to which the item has to be shipped. Example: 0562 (for Agra), and 250 (Victoria)</td>
+<td>Unique code of the shipping city (as saved in the system). Example: 0562 (for Agra), and 250 (Victoria)</td>
 </tr>
 <tr>
 <td>ShipCountry</td>
@@ -13999,7 +13900,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 </tr>
 <tr>
 <td>Item</td>
-<td>json obj</td>
+<td>obj</td>
 <td>Details of the product with the attributes mentioned below</td>
 </tr>
 <tr>
@@ -14025,7 +13926,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>LocationId</td>
 <td>int</td>
-<td>Unique if of the order fulfillment location</td>
+<td>Unique id of the order fulfillment location</td>
 </tr>
 <tr>
 <td>Portion</td>
@@ -14039,13 +13940,13 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 </tr>
 <tr>
 <td>ChildItem</td>
-<td>json obj</td>
+<td>obj</td>
 <td>Similar to the parent product details, specify the details of child items that you want add to cart</td>
 </tr>
 <tr>
 <td>GroupID</td>
 <td>string</td>
-<td>The group id of the specific item. Applicable in case of a bundle or deal products</td>
+<td>The group id of the specific item. Applicable for bundle or deal products</td>
 </tr>
 </tbody></table>
 
@@ -14065,7 +13966,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>CartReferenceKey</td>
 <td>string</td>
-<td>Unique ID of each item in the cart</td>
+<td>Unique reference key of the specific item in the cart</td>
 </tr>
 <tr>
 <td>IsFreeProduct</td>
@@ -14085,7 +13986,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>DemandedDeliveryDate</td>
 <td>date</td>
-<td>Date and time of delivery as requested by the customer</td>
+<td>Customer preferred date and time of delivery</td>
 </tr>
 <tr>
 <td>RemainTotal</td>
@@ -14100,7 +14001,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>ComboSuggestion</td>
 <td>array</td>
-<td>Suggestions related the deal items based on the items in the cart</td>
+<td>Suggestions related the deal items based on the cart items</td>
 </tr>
 <tr>
 <td>ConvertedDeals</td>
@@ -15172,7 +15073,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
    </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="mi">0</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Lets you add customized deal items to the cart.</p>
+<p>Lets you add customized deal products to the cart.</p>
 
 <h3 id="resource-information">Resource Information</h3>
 
@@ -15243,12 +15144,12 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>ShipCity</td>
 <td>string</td>
-<td>Unique id associated to the shipping city in the Capillary system</td>
+<td>Unique code of the shipping city (as saved in the system) to which the item has to be shipped. Example: 0562 (for Agra), and 250 (Victoria)</td>
 </tr>
 <tr>
 <td>ShipCountry</td>
 <td>string</td>
-<td>Alpha-2 code of the country with respect to shipping address. Example: IN (for India), AU (for Australia), and BR (for Brazil)</td>
+<td>Alpha-2 code of the country of the shipping address. Example: IN (for India), AU (for Australia), and BR (for Brazil)</td>
 </tr>
 <tr>
 <td>ShipState</td>
@@ -15303,7 +15204,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>ChildItem</td>
 <td>json obj</td>
-<td>All add&ndash;ons are child in a bundle. For example, crust, sauce, and toppings</td>
+<td>All add-ons are child items of a bundle. For example, crust, sauce, and toppings</td>
 </tr>
 <tr>
 <td>GroupID</td>
@@ -15328,7 +15229,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>CartReferenceKey</td>
 <td>string</td>
-<td>Unique ID of each item in the cart</td>
+<td>Unique reference key of the specific cart item</td>
 </tr>
 <tr>
 <td>IsFreeProduct</td>
@@ -15347,8 +15248,8 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 </tr>
 <tr>
 <td>DemandedDeliveryDate</td>
-<td>date</td>
-<td>Date and time of delivery as requested by the customer</td>
+<td>date-time</td>
+<td>Customer preferred delivery time</td>
 </tr>
 <tr>
 <td>RemainTotal</td>
@@ -15358,12 +15259,12 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>ShippingZoneType</td>
 <td>string</td>
-<td>Dictionary containing merchant id mapping to the payment type. It is being used in validations</td>
+<td>Dictionary containing merchant id mapping to the payment type. It is used in validations</td>
 </tr>
 <tr>
 <td>ComboSuggestion</td>
 <td>array</td>
-<td>Suggestions related the deal items based on the items in the cart</td>
+<td>Suggestions related to deal items based on the items in the cart</td>
 </tr>
 <tr>
 <td>ConvertedDeals</td>
@@ -15978,7 +15879,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
    </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="mi">0</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Lets you add customized bundle items to cart.</p>
+<p>Lets you add customized bundle items to the cart.</p>
 
 <h3 id="resource-information">Resource Information</h3>
 
@@ -16049,12 +15950,12 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>ShipCity</td>
 <td>string</td>
-<td>Unique id associated to the shipping city in the Capillary system</td>
+<td>Unique code of the shipping city (as saved in the system) to which the item has to be shipped. Example: 0562 (for Agra), and 250 (Victoria)</td>
 </tr>
 <tr>
 <td>ShipCountry</td>
 <td>string</td>
-<td>Alpha-2 code of the country with respect to the shipping address. Example: IN (for India), AU (for Australia), and BR (for Brazil)</td>
+<td>Alpha-2 code of the country of the shipping address. Example: IN (for India), AU (for Australia), and BR (for Brazil)</td>
 </tr>
 <tr>
 <td>ShipState</td>
@@ -16064,12 +15965,12 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>DelveryMode</td>
 <td>string</td>
-<td>Mode of delivery</td>
+<td>Mode of delivery. Value: <code class="prettyprint">S</code> for store pick up, <code class="prettyprint">H</code> for home delivery</td>
 </tr>
 <tr>
 <td>Item</td>
-<td>json obj</td>
-<td>Item details</td>
+<td>obj</td>
+<td>Details of each cart item</td>
 </tr>
 <tr>
 <td>ProductID</td>
@@ -16094,7 +15995,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>LocationId</td>
 <td>int</td>
-<td>Unique id of the location</td>
+<td>Unique id of the fulfillment location</td>
 </tr>
 <tr>
 <td>Portion</td>
@@ -16113,13 +16014,8 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 </tr>
 <tr>
 <td>ChildItem</td>
-<td>json obj</td>
-<td>Details of the child item (bundle products)</td>
-</tr>
-<tr>
-<td>Quantity</td>
-<td>int</td>
-<td>Quantity of the current item</td>
+<td>obj</td>
+<td>Details of each child item. Applicable for bundle products</td>
 </tr>
 <tr>
 <td>Portion</td>
@@ -16129,7 +16025,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>GroupID</td>
 <td>int</td>
-<td>Group id of the specific item. Applicable in case of a bundle or deal products</td>
+<td>Group id associated to the specific item. Applicable in case of a bundle or deal products</td>
 </tr>
 </tbody></table>
 
@@ -16146,11 +16042,6 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>CartReferenceKey</td>
-<td>string</td>
-<td>Unique ID of each item in the cart</td>
-</tr>
 <tr>
 <td>IsFreeProduct</td>
 <td>boolean</td>
@@ -16169,12 +16060,12 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>DemandedDeliveryDate</td>
 <td>date</td>
-<td>Date and time of delivery as requested by the customer</td>
+<td>Customer preferred date and time of delivery</td>
 </tr>
 <tr>
 <td>RemainTotal</td>
 <td>float</td>
-<td>Deprecated</td>
+<td>-Deprecated-</td>
 </tr>
 <tr>
 <td>ShippingZoneType</td>
@@ -16184,7 +16075,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>ComboSuggestion</td>
 <td>array</td>
-<td>Suggestions related the deal items based on the items in the cart</td>
+<td>Suggestions related to the deal items based on the cart items</td>
 </tr>
 <tr>
 <td>ConvertedDeals</td>
@@ -16421,6 +16312,8 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
    </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="mi">0</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
+<p>Adds products of a specific location to the cart.</p>
+
 <h3 id="resource-information">Resource Information</h3>
 
 <table><thead>
@@ -16874,15 +16767,65 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 </tr>
 </thead><tbody>
 <tr>
-<td>merchantId*</td>
+<td>CartID*</td>
 <td>string</td>
-<td>Unique GUID of the merchant</td>
+<td>Unique id of the current cart</td>
+</tr>
+<tr>
+<td>DeliveryMode</td>
+<td>enum</td>
+<td>Mode of delivery. Value: <code class="prettyprint">H</code> for home delivery, <code class="prettyprint">S</code> for takeaway</td>
+</tr>
+<tr>
+<td>ProductID</td>
+<td>int</td>
+<td>Unique id of the parent product that you want to add to cart</td>
+</tr>
+<tr>
+<td>VariantProductID</td>
+<td>int</td>
+<td>Unique id of the variant product that you want to add to cart</td>
+</tr>
+<tr>
+<td>Quantity</td>
+<td>int</td>
+<td>Number of the current item you want to add</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>enum</td>
+<td>Status of the cart item. Specify <code class="prettyprint">A</code> to add item to cart, <code class="prettyprint">D</code> to delete item from cart</td>
+</tr>
+<tr>
+<td>LocationId</td>
+<td>int</td>
+<td>Unique id of the order fulfillment location</td>
+</tr>
+<tr>
+<td>Portion</td>
+<td>enum</td>
+<td>The portion for which the child product is applied. Value: <code class="prettyprint">W</code> for whole, <code class="prettyprint">R</code> for right, <code class="prettyprint">L</code> for left (left, right usually applies for toppings)</td>
+</tr>
+<tr>
+<td>CartReferenceKey</td>
+<td>string</td>
+<td>Unique reference id of the specific cart item</td>
+</tr>
+<tr>
+<td>ChildItem</td>
+<td>obj</td>
+<td>Similar to the parent product details, specify the details of child items that you want add to cart</td>
+</tr>
+<tr>
+<td>GroupID</td>
+<td>string</td>
+<td>The group id of the specific item. Applicable for bundle or deal products</td>
 </tr>
 </tbody></table>
 
 <aside class="notice"> All parameters marked by * are mandatory. </aside>
 
-<h2 id="update-quantity-of-cart-item">Update Quantity of Cart Item</h2>
+<h2 id="update-quantity-of-a-cart-item">Update Quantity of a Cart Item</h2>
 
 <blockquote>
 <p>Sample Request</p>
@@ -17057,7 +17000,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
    </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="mi">0</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Updates the quantity of an existing cart item.</p>
+<p>Updates the quantity of a specific item in the cart.</p>
 
 <h3 id="resource-information">Resource Information</h3>
 
@@ -17138,7 +17081,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>new quantity*</td>
 <td>string</td>
-<td>The new quantity of the current cart item</td>
+<td>The new quantity of the current cart item. This will override the existing value</td>
 </tr>
 </tbody></table>
 
@@ -17489,7 +17432,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
    </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="mi">0</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Updates existing checkout details such as Add delivery slot, add shipping address, add order attributes, and location id. However, country, state, and city code has to be  as per the values specified by the customer before adding items to the cart.</p>
+<p>Updates existing checkout details such as Add delivery slot, add shipping address, add order attributes, and location id. However, country, state, and city code has to be as per the values specified by the customer before adding items to the cart.</p>
 
 <h3 id="resource-information">Resource Information</h3>
 
@@ -17559,8 +17502,8 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 </thead><tbody>
 <tr>
 <td>DeliverySlotID</td>
-<td></td>
-<td>The unique id of the delivery slot (valid id)</td>
+<td>string</td>
+<td>The unique id of the delivery slot. Specify a valid id</td>
 </tr>
 <tr>
 <td>DemandedDeliveryDate</td>
@@ -17575,21 +17518,21 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>locationID</td>
 <td>int</td>
-<td>The location id of the store</td>
+<td>The location id of the fulfillment store</td>
 </tr>
 <tr>
 <td>BillingAddress</td>
-<td>json obj</td>
+<td>obj</td>
 <td>Specify the billing address of the customer in the respective attributes</td>
 </tr>
 <tr>
 <td>ShippingAddress</td>
-<td>json obj</td>
+<td>obj</td>
 <td>Specify the preferred shipping address of the customer in the respective attributes</td>
 </tr>
 <tr>
 <td>OrderAttributes</td>
-<td>json obj</td>
+<td>obj</td>
 <td>Provide the details of order attributes that you want to add/update in the parameters explained below</td>
 </tr>
 <tr>
@@ -17615,7 +17558,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>IsPredefined</td>
 <td>boolean</td>
-<td>Specify <code class="prettyprint">true</code> if the order attribute are predefined in the Control Panel, specify <code class="prettyprint">false</code> for free-flow values</td>
+<td>Specify <code class="prettyprint">true</code> if the order attribute is predefined in the Control Panel, specify <code class="prettyprint">false</code> if free-flow values</td>
 </tr>
 <tr>
 <td>IsMandatory</td>
@@ -17630,12 +17573,12 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>lstOMSEntityFieldValues</td>
 <td>string</td>
-<td>For predefined order attribute values (<code class="prettyprint">IsPredefined</code> is true) provide the attribute values as per options configured on Control Panel</td>
+<td>For predefined order attribute values (<code class="prettyprint">IsPredefined</code> is true) provide values of the attribute as per options configured on Control Panel</td>
 </tr>
 <tr>
 <td>EntityFieldValueID</td>
 <td>string</td>
-<td>Specify the unique id the order attribute value for predefined attribute name and values (<code class="prettyprint">IsPredefined</code> is true)</td>
+<td>Specify the unique id the order attribute value. Applicable for predefined only attribute names and values (<code class="prettyprint">IsPredefined</code> is true)</td>
 </tr>
 <tr>
 <td>EntityFieldID</td>
@@ -17695,8 +17638,8 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
       </span><span class="nt">"Bill_Mobile"</span><span class="p">:</span><span class="s2">"55555555"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"Bill_PostCode"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
       </span><span class="nt">"Bill_Email"</span><span class="p">:</span><span class="s2">"tom.sawyer@example.com"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"Ship_FirstName"</span><span class="p">:</span><span class="s2">"Pallav"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"Ship_LastName"</span><span class="p">:</span><span class="s2">"Kumar"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Ship_FirstName"</span><span class="p">:</span><span class="s2">"Tom"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Ship_LastName"</span><span class="p">:</span><span class="s2">"Sawyer"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"Ship_Address1"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
       </span><span class="nt">"Ship_Address2"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
       </span><span class="nt">"Ship_CountryCode"</span><span class="p">:</span><span class="s2">"KW"</span><span class="p">,</span><span class="w">
@@ -18834,7 +18777,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <h2 id="remove-a-cart-item">Remove a Cart Item</h2>
 
-<p>Removes an item from the current cart.</p>
+<p>Removes an item of a specific quantity from the current cart.</p>
 
 <blockquote>
 <p>Sample Request</p>
@@ -18931,7 +18874,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>quantity*</td>
 <td>int</td>
-<td>Quantity of the item that you want to remove</td>
+<td>Quantity of the items that you want to remove</td>
 </tr>
 </tbody></table>
 
@@ -18954,7 +18897,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
     </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Removes all the current cart items. This does not remove shipping address, billing address or location information.</p>
+<p>Removes all items of the current cart. This does not remove shipping address, billing address or location information.</p>
 
 <h3 id="resource-information">Resource Information</h3>
 
@@ -19033,7 +18976,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <h2 id="clear-cart-items">Clear Cart Items</h2>
 
-<p>Removes entire cart details including cart items, location, billing address and shipping address.</p>
+<p>Removes entire cart details which include cart items, location, billing address and shipping address.</p>
 
 <blockquote>
 <p>Sample Request</p>
@@ -19240,7 +19183,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 </tr>
 </tbody></table>
 
-<h3 id="request-path-parameters">Request Path Parameters</h3>
+<h3 id="request-body-parameters">Request Body Parameters</h3>
 
 <table><thead>
 <tr>
@@ -19250,9 +19193,34 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 </tr>
 </thead><tbody>
 <tr>
-<td>merchantId*</td>
+<td>EntityFieldID*</td>
+<td>int</td>
+<td>Unique id of the order attribute</td>
+</tr>
+<tr>
+<td>EntityFieldName</td>
 <td>string</td>
-<td>Unique GUID of the merchant</td>
+<td>Name of the attribute</td>
+</tr>
+<tr>
+<td>Type</td>
+<td>enum</td>
+<td>Specify the type of the field area. <code class="prettyprint">1</code> for single select drop-down box, <code class="prettyprint">2</code> for radio button, <code class="prettyprint">3</code> for check-box type</td>
+</tr>
+<tr>
+<td>IsPredefined</td>
+<td>boolean</td>
+<td>Whether the current attribute is predefined (true) or user defined (false)</td>
+</tr>
+<tr>
+<td>IsMandatory</td>
+<td>boolean</td>
+<td>Whether the current attribute is mandatory (true) or optional (false)</td>
+</tr>
+<tr>
+<td>SelectedValue</td>
+<td>string</td>
+<td>Value selected for the specified attribute</td>
 </tr>
 </tbody></table>
 
@@ -19263,7 +19231,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <blockquote>
 <p>Sample Request</p>
 </blockquote>
-<pre class="highlight html"><code>https://www.martjack.com/developerapi/carts/UpdateCartProperties/81e77da2-723b-483d-8c0d-49f800c1exxx
+<pre class="highlight html"><code>https://www.martjack.com/developerapi/carts/UpdateAddress/81e77da2-723b-483d-8c0d-49f800c1exxx
 </code></pre>
 <blockquote>
 <p>Sample POST Request</p>
@@ -19511,7 +19479,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
     </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Updates both shipping and billing address of an order.</p>
+<p>Updates shipping address and billing address of an order.</p>
 
 <h3 id="resource-information">Resource Information</h3>
 
@@ -19523,7 +19491,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 </thead><tbody>
 <tr>
 <td>URI</td>
-<td><code class="prettyprint">/carts/UpdateAddress</code></td>
+<td><code class="prettyprint">/carts/UpdateAddress/{merchantId}</code></td>
 </tr>
 <tr>
 <td>Rate Limited?</td>
@@ -19554,7 +19522,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/carts/UpdateAddress/{{merchantId}}</code></p>
+<p><code class="prettyprint">https://{host}/developerapi/carts/UpdateAddress/{merchantId}</code></p>
 
 <h3 id="additional-header-required">Additional Header Required</h3>
 
@@ -19582,27 +19550,27 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>locationID*</td>
 <td>int</td>
-<td>The location id of the store</td>
+<td>The location id of the order fulfillment store</td>
 </tr>
 <tr>
 <td>BillingAddress</td>
-<td>json obj</td>
+<td>obj</td>
 <td>Specify the billing address of the customer in the respective attributes</td>
 </tr>
 <tr>
 <td>ShippingAddress</td>
-<td>json obj</td>
+<td>obj</td>
 <td>Specify the preferred shipping address of the customer in the respective attributes</td>
 </tr>
 <tr>
 <td>BillMobile</td>
 <td>string</td>
-<td>Mobile number associated to billing address</td>
+<td>Mobile number of the customer as per the billing address</td>
 </tr>
 <tr>
 <td>BillCountry</td>
 <td>string</td>
-<td>Full name of the country associated to the  billing address</td>
+<td>Full name of the country associated to the billing address</td>
 </tr>
 <tr>
 <td>BillZip</td>
@@ -19617,12 +19585,12 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>BillCountryCode</td>
 <td>string</td>
-<td>Alpha-2 code of the country with respect to billing address. Example: IN (for India), AU (for Australia), and BR (for Brazil)</td>
+<td>Alpha-2 code of the country with respect to the billing address. Example: IN (for India), AU (for Australia), and BR (for Brazil)</td>
 </tr>
 <tr>
 <td>BillLastName</td>
 <td>string</td>
-<td>Customer&rsquo;s last name associated to the billing address</td>
+<td>Last name of the customer as per the billing address</td>
 </tr>
 <tr>
 <td>BillState</td>
@@ -19632,12 +19600,12 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>BillAddress</td>
 <td>string</td>
-<td>Billing address - door number, building name, street, area and so on</td>
+<td>Specify door number, building name, street, area and and other details of the billing address</td>
 </tr>
 <tr>
 <td>BillAddress1</td>
 <td>string</td>
-<td>Any missing information in BillAddress. For example, landmark</td>
+<td>Specify any missing information in the <code class="prettyprint">BillAddress</code>. For example, landmark</td>
 </tr>
 <tr>
 <td>BillTelephone</td>
@@ -19651,7 +19619,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 </tr>
 <tr>
 <td>BillMobileCode, ShipLastName,ShipTelephone..</td>
-<td></td>
+<td>obj</td>
 <td>Similar to the billing address details, specify the shipping address in respective fields</td>
 </tr>
 <tr>
@@ -19662,7 +19630,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>IsShippingAddressDifferent</td>
 <td>boolean</td>
-<td>Specify <code class="prettyprint">true</code> if shipping address is different from billing address, else, specify <code class="prettyprint">false</code>. If shipping address and billing address are same, you can just pass billing address details and make this attribute &#39;false&rsquo;.</td>
+<td>Specify <code class="prettyprint">true</code> if shipping address is different from the billing address, specify <code class="prettyprint">false</code> if shipping and billing addresses are same. You can just pass billing address details and make this attribute &#39;false&rsquo; to automatically consider  billing address as shipping address</td>
 </tr>
 </tbody></table>
 
@@ -19687,17 +19655,17 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>PriceCapped</td>
 <td>float</td>
-<td>Deprecated</td>
+<td>-Deprecated-</td>
 </tr>
 <tr>
 <td>TotalCap</td>
 <td>float</td>
-<td>Deprecated</td>
+<td>-Deprecated-</td>
 </tr>
 <tr>
 <td>CappedRefKey</td>
 <td>string</td>
-<td>Deprecated</td>
+<td>-Deprecated-</td>
 </tr>
 <tr>
 <td>SupplierId</td>
@@ -19712,7 +19680,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>GroupId</td>
 <td>int</td>
-<td>Unique group id associated to the product. Applicable in case of a bundle or deal products</td>
+<td>Unique group id associated to the product. Applicable for bundle or deal products</td>
 </tr>
 </tbody></table>
 
@@ -19891,9 +19859,9 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
    </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="mi">0</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Lets you apply a voucher on the cart items. You can use either a discount voucher or rule based vouchers.</p>
+<p>Lets you redeem a voucher on the cart items. You can use either a discount voucher or rule based voucher.</p>
 
-<aside class="notice"> Vouchers can be created on Anywhere Commerce&rsquo;s Control Panel. </aside>
+<aside class="notice"> Vouchers are created on the Anywhere Commerce&rsquo;s Control Panel. </aside>
 
 <h3 id="resource-information">Resource Information</h3>
 
@@ -19969,7 +19937,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>voucherCode*</td>
 <td>string</td>
-<td>The voucher code that has to be removed from the cart</td>
+<td>The voucher code that you want to apply</td>
 </tr>
 </tbody></table>
 
@@ -20019,7 +19987,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>GroupId</td>
 <td>int</td>
-<td>Determines the bundle group id of the nested cart item</td>
+<td>Determines the bundle group id of the nested cart item. Applicable for bundle products</td>
 </tr>
 <tr>
 <td>ComboSuggestion</td>
@@ -20279,7 +20247,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>voucherCode*</td>
 <td>string</td>
-<td>The voucher code that has to be removed from the cart</td>
+<td>The applied voucher code that you want to remove from the cart</td>
 </tr>
 </tbody></table>
 
@@ -20299,12 +20267,12 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>ComboSuggestion</td>
 <td>array</td>
-<td>Suggestions related the deal items based on the items in the cart</td>
+<td>Suggestions related deal items based on the items in the cart</td>
 </tr>
 <tr>
 <td>ConvertedDeals</td>
 <td>array</td>
-<td>The cart items that are converted to deal items</td>
+<td>The cart items that are converted to deal items automatically based on the items in the cart</td>
 </tr>
 <tr>
 <td>Por</td>
@@ -20314,7 +20282,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>IsDefaultBundleItem</td>
 <td>boolean</td>
-<td>Whether the current item is in the default bundle item or customized bundle item</td>
+<td>Whether the current item is in the default bundle item (true) or customized bundle item (false)</td>
 </tr>
 </tbody></table>
 
@@ -20454,12 +20422,12 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>locationcode</td>
 <td>string</td>
-<td>The location code of the store to fetch the offers associated to the specific store</td>
+<td>The location code of the store to fetch offers associated to the specific store</td>
 </tr>
 <tr>
 <td>deliverymode</td>
 <td>enum</td>
-<td>Filter results (promotions) by delivery mode. Values: <code class="prettyprint">ship</code> for promotions on online orders, <code class="prettyprint">pickup</code> for promotions on store pickup orders</td>
+<td>Filter results (promotions) by delivery mode. Values: <code class="prettyprint">ship</code> to get promotions applicable only to online orders, <code class="prettyprint">pickup</code> to get promotions on store pickup orders</td>
 </tr>
 <tr>
 <td>promotiontype</td>
@@ -20469,22 +20437,22 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>hasvouchers</td>
 <td>boolean</td>
-<td>Specify <code class="prettyprint">true</code> to get only the list of promotions having coupon codes, <code class="prettyprint">false</code> to get only promotions without coupon codes. You can leave it blank to see both kind of promotions</td>
+<td>Specify <code class="prettyprint">true</code> to get the list of promotions that have coupon codes, <code class="prettyprint">false</code> to get promotions that do not have any coupon codes. You can leave it blank to see both kind of promotions</td>
 </tr>
 <tr>
 <td>fromdate</td>
 <td>date</td>
-<td>Get promotions available for a specific duration. Pass the duration in MM/DD/YY format <code class="prettyprint">fromdate</code> and <code class="prettyprint">todate</code> respectively</td>
+<td>Get promotions available for a specific duration. Pass the duration in MM/DD/YY format in <code class="prettyprint">fromdate</code> and <code class="prettyprint">todate</code> respectively</td>
 </tr>
 <tr>
 <td>todate</td>
 <td>date</td>
-<td>Get promotions available for a specific duration. Pass the duration in <code class="prettyprint">fromdate</code> and <code class="prettyprint">todate</code></td>
+<td>Get promotions available for a specific duration. Pass the duration in MM/DD/YY format between <code class="prettyprint">fromdate</code> and <code class="prettyprint">todate</code></td>
 </tr>
 <tr>
 <td>activestatus</td>
 <td>boolean</td>
-<td>Specify <code class="prettyprint">true</code> to fetch the list of only active promotions, <code class="prettyprint">false</code> to fetch both active and inactive coupons</td>
+<td>Specify <code class="prettyprint">true</code> to fetch the list of active promotions only, <code class="prettyprint">false</code> to fetch both active and inactive coupons</td>
 </tr>
 <tr>
 <td>channeltype</td>
@@ -20494,12 +20462,12 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>externalcouponmapped</td>
 <td>boolean</td>
-<td>Specify <code class="prettyprint">true</code> to fetch the list of only promotions that are mapped to external coupons. For example, CRM coupons</td>
+<td>Specify <code class="prettyprint">true</code> to fetch promotions that are mapped to external coupons. For example, CRM coupons</td>
 </tr>
 <tr>
 <td>userid</td>
 <td>string</td>
-<td>The unique identifier of the customer to fetch the list of promotions of a specific customer</td>
+<td>The unique GUID of the customer to fetch the list of promotions available for that specific customer</td>
 </tr>
 </tbody></table>
 
@@ -20519,22 +20487,22 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>starttime</td>
 <td>date-time</td>
-<td>Start date of the current promotion</td>
+<td>Start date and time of the current promotion</td>
 </tr>
 <tr>
 <td>endtime</td>
 <td>date-time</td>
-<td>End date of the current promotion</td>
+<td>End date and time of the current promotion</td>
 </tr>
 <tr>
 <td>repetitive</td>
 <td>boolean</td>
-<td>Whether the promotion rules are repeated for each items or it has to be only once</td>
+<td>Whether the promotion rules are repeated for each item or not</td>
 </tr>
 <tr>
 <td>allowfurtherpromotions</td>
 <td>boolean</td>
-<td>If further &#39;Cart Promotions&rsquo; is applied on the cart item (even after applying a promotion)</td>
+<td>Whether further &#39;Cart Promotions&rsquo; is allowed to the cart item (even after applying a promotion)</td>
 </tr>
 </tbody></table>
 
@@ -20712,7 +20680,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>EnalbeOTP</td>
 <td>boolean</td>
-<td></td>
+<td>Whether OTP based authentication is required for that particular payment option</td>
 </tr>
 </tbody></table>
 
@@ -20947,7 +20915,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
    </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="mi">0</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Updates shipping mode of the cart of the current customer.</p>
+<p>Updates shipping mode of the cart for the current customer.</p>
 
 <h3 id="resource-information">Resource Information</h3>
 
@@ -21057,7 +21025,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 </tr>
 <tr>
 <td>CatalogpromotionDiscount</td>
-<td></td>
+<td>float</td>
 <td>Catalog promotion discount amount applied on the cart items</td>
 </tr>
 </tbody></table>
@@ -21332,7 +21300,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>DeliverySlotId*</td>
 <td>int</td>
-<td>Unique id of the delivery slot to which the customer wants the current cart items delivered</td>
+<td>Unique id of the delivery slot to which you want to set the delivery slot</td>
 </tr>
 <tr>
 <td>DeliveryDate*</td>
@@ -21367,7 +21335,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>ComboSuggestion</td>
 <td>array</td>
-<td>Suggestions related the deal items based on the items in the cart</td>
+<td>Deal item suggestions based on the cart items</td>
 </tr>
 <tr>
 <td>ConvertedDeals</td>
@@ -21610,7 +21578,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
    </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="mi">0</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Retrieves all the available delivery slots of the cart items</p>
+<p>Retrieves all the available delivery slots of the current cart items</p>
 
 <h3 id="resource-information">Resource Information</h3>
 
@@ -21622,7 +21590,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 </thead><tbody>
 <tr>
 <td>URI</td>
-<td><code class="prettyprint">/Carts/DeliverySlots/{{merchantId}}</code></td>
+<td><code class="prettyprint">/Carts/DeliverySlots/{merchantId}</code></td>
 </tr>
 <tr>
 <td>Rate Limited?</td>
@@ -21653,7 +21621,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Carts/DeliverySlots/{{merchantId}}</code></p>
+<p><code class="prettyprint">https://{host}/developerapi/Carts/DeliverySlots/{merchantId}</code></p>
 
 <h3 id="additional-header-required">Additional Header Required</h3>
 
@@ -21802,7 +21770,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <h2 id="get-common-stores-for-cart-items">Get Common Stores for Cart Items</h2>
 
-<p>Retrieves the details of stores which stocks a specific cart item based on the product id or product sku passed. You can also search by available product quantity.</p>
+<p>Retrieves the details of stores in which the stock of a specific cart item is available. You can also search by he available stock quantity.</p>
 
 <blockquote>
 <p>Sample Request</p>
@@ -22029,12 +21997,12 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>ProductId**</td>
 <td>int</td>
-<td>Unique id of the product for which you want to fetch available stores</td>
+<td>Unique id of the product to get the stores stocking that specific product</td>
 </tr>
 <tr>
 <td>ProductSKU**</td>
 <td>string</td>
-<td>Unique SKU of the product for which you want to fetch available stores</td>
+<td>Unique SKU of the product to get the stores stocking that specific product</td>
 </tr>
 <tr>
 <td>VariantProductSKU</td>
@@ -22044,17 +22012,17 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>Quantity</td>
 <td>int</td>
-<td>Check by available quantity.</td>
+<td>To get stores stocking a specific quantity of the product, specify the stock quantity</td>
 </tr>
 <tr>
 <td>Latitude</td>
 <td>float</td>
-<td>Get common store in the specific latitude and longitude</td>
+<td>Get common stores in the specific latitude and longitude</td>
 </tr>
 <tr>
 <td>Longitude</td>
 <td>float</td>
-<td>Get common store in the specific latitude and longitude</td>
+<td>Get common stores in the specific latitude and longitude</td>
 </tr>
 </tbody></table>
 
@@ -22150,7 +22118,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>user*</td>
 <td>string</td>
-<td>Unique GUID of the user for which you want to fetch saved cart items</td>
+<td>Unique GUID of the user to fetch saved cart items</td>
 </tr>
 </tbody></table>
 
@@ -22188,7 +22156,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>LastUpdated</td>
 <td>date</td>
-<td>UST Date when the cart is updated</td>
+<td>Date (in UST) when the cart is recently updated</td>
 </tr>
 </tbody></table>
 

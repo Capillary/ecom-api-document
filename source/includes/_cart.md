@@ -74,11 +74,6 @@ MobileNo* | The registered mobile number to which the OTP has to be sent
 
 
 
-
-
-
-
-
 ## Validate OTP
 > Sample Request
 
@@ -99,7 +94,11 @@ InputFormat=application/json&InputData={
 > Sample Response
 
 ```json
-
+{
+"messageCode":"1004",
+"Message":"Successful",
+"ErrorCode":0
+}
 ```
 
 Validates OTP sent to a customer's registered mobile number.
@@ -5841,7 +5840,7 @@ Parameter | Type | Description
 -------- | ----- | -----------
 EntityFieldID* | int | Unique id of the order attribute
 EntityFieldName | string | Name of the attribute
-Type | enum | 
+Type | enum | Specify the type of the field area. `1` for single select drop-down box, `2` for radio button, `3` for check-box type
 IsPredefined | boolean | Whether the current attribute is predefined (true) or user defined (false)
 IsMandatory | boolean | Whether the current attribute is mandatory (true) or optional (false)
 SelectedValue | string | Value selected for the specified attribute
