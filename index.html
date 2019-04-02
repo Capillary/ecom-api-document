@@ -12449,7 +12449,11 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <blockquote>
 <p>Sample Response</p>
 </blockquote>
-<pre class="highlight json"><code><span class="w">
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+</span><span class="nt">"messageCode"</span><span class="p">:</span><span class="s2">"1004"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"Message"</span><span class="p">:</span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="mi">0</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>Validates OTP sent to a customer&rsquo;s registered mobile number.</p>
 
@@ -19201,7 +19205,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <tr>
 <td>Type</td>
 <td>enum</td>
-<td></td>
+<td>Specify the type of the field area. <code class="prettyprint">1</code> for single select drop-down box, <code class="prettyprint">2</code> for radio button, <code class="prettyprint">3</code> for check-box type</td>
 </tr>
 <tr>
 <td>IsPredefined</td>
