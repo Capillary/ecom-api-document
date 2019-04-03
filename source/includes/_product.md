@@ -4306,7 +4306,7 @@ https://www.martjack.com/developerapi/product/updatestock
 > Sample POST Request (RAW)
 
 ```json
-merchantid={{MerchantId}}&sku=100556&Inventory=100
+merchantid=f48fdd16-92db-4188-854d-1ecd9b62d066&sku=100556&Inventory=100
 
 
 ```
