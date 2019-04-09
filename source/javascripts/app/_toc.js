@@ -55,3 +55,8 @@
   });
 })(window);
 
+$(document).ready(function () {
+   $('.tocify-subheader li.tocify-item a').each(function () {
+       $(this).attr('title', $(this).text());
+   });
+});
