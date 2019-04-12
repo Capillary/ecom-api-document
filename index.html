@@ -242,7 +242,7 @@ To obtain access, you first need to add the app in the control panel and generat
 </tr>
 <tr>
 <td>Host</td>
-<td>The server to which the API calls are made. This should be the URL of the respective cluster from where the calls are made. <br> - <strong>India</strong>: <code class="prettyprint">sg.ecom.capillary.in</code> <br> - <strong>YUM</strong>: <code class="prettyprint">eu.ecom.capillary.in</code> <br> - <strong>AM</strong>: <code class="prettyprint">www1.martjack.com</code> <br> - <strong>PH India</strong>: <code class="prettyprint">mb.ecom.capillary.in</code>  <br> - <strong>Walmart</strong>: <code class="prettyprint">www8.martjack.com</code> <br> - <strong>LuLu</strong>: <code class="prettyprint">www3.martjack.com</code> <br> - <strong>Staging</strong>: <code class="prettyprint">staging.ecom.capillary.in</code> <br> - <strong>Nightly</strong>: <code class="prettyprint">nightly.ecom.capillary.in</code></td>
+<td>The server to which the API calls are made. This should be the URL of the respective cluster from where the calls are made. <br> - <strong>India</strong>: <code class="prettyprint">sg.ecom.capillary.in</code> <br> - <strong>YUM</strong>: <code class="prettyprint">eu.ecom.capillary.in</code> <br> - <strong>PH India</strong>: <code class="prettyprint">mb.ecom.capillary.in</code>  <br> - <strong>Walmart</strong>: <code class="prettyprint">wm.ecom.capillary.in</code> <br> - <strong>Staging</strong>: <code class="prettyprint">staging.ecom.capillary.in</code> <br> - <strong>Nightly</strong>: <code class="prettyprint">nightly.ecom.capillary.in</code></td>
 </tr>
 <tr>
 <td>Resource</td>
@@ -250,7 +250,7 @@ To obtain access, you first need to add the app in the control panel and generat
 </tr>
 <tr>
 <td>HTTP Methods</td>
-<td>GET, POST</td>
+<td>GET, POST, PATCH</td>
 </tr>
 <tr>
 <td>Response Format</td>
@@ -359,6 +359,125 @@ oauth_consumer_key=QFTSEOUC
 &amp;oauth_timestamp=1548658766
 &amp;oauth_version=1.0
 &amp;oauth_signature=AeBXqh%2BfPmuVmUdksCAJ%2FyxNv3c%3D</p>
+
+<h2 id="oauth-sdks">OAuth SDKs</h2>
+
+<p>Alternatively, you can also use SDKs for oAuth generation.</p>
+
+<h3 id="php-sdk">PHP SDK</h3>
+
+<p><strong>Installation</strong></p>
+
+<p>Install pecl OAuth packages as mentioned below:</p>
+
+<p><code class="prettyprint">yum install pecl</code></p>
+
+<p><code class="prettyprint">sudo apt-get install php7.2-dev</code></p>
+
+<p><code class="prettyprint">pecl install oAuth</code></p>
+
+<p><strong>Usage</strong></p>
+
+<p>Go to examples and run</p>
+
+<p><code class="prettyprint">php7.2 ./request_signing.php</code></p>
+
+<h3 id="java-sdk">Java SDK</h3>
+
+<p><strong>oauth1-signature-builder</strong>:</p>
+
+<p>Java 8 minimal library to create tailor-made OAuth-1.0a signatures (weights 24.5 KB).</p>
+
+<p><strong>Compatibility</strong>: Java 7 or above</p>
+
+<p><strong>Usage</strong></p>
+
+<p>Run the java code in a compatible platform.</p>
+
+<p>`public static void main(String[] args) {</p>
+
+<p>OAuthConfig oauthConfig = new OAuthConfigBuilder(&ldquo;myApiKey&rdquo;, &ldquo;myApiSecret&rdquo;)
+                .setTokenKeys(&ldquo;myAccessKey&rdquo;, &ldquo;myAccessSecret&rdquo;)
+                .build();</p>
+
+<p>OAuthSignature signature = oauthConfig.buildSignature(HttpMethod.GET, &ldquo;http://serviceUrl&rdquo;)
+                .addQueryParam(&ldquo;aParam&rdquo;, &ldquo;aValue&rdquo;)
+                .addFormUrlEncodedParam(&ldquo;myParam&rdquo;, &ldquo;anotherValue&rdquo;)
+                .create();</p>
+
+<p>System.out.println(signature.getAsHeader());
+}
+`</p>
+
+<p><strong>This code will generate the value for a ready-to-be-used &ldquo;Authorization&rdquo; Header</strong>:</p>
+
+<p><code class="prettyprint">Authorization: OAuth oauth_nonce=&quot;1906386233&quot;, oauth_signature=&quot;sQYmuXQV2ROJS3ukvpeaNNl2Jp8=&quot;, oauth_token=&quot;myAccessKey&quot;, oauth_consumer_key=&quot;myApiKey&quot;, oauth_version=&quot;1.0&quot;, oauth_signature_method=&quot;HMAC-SHA1&quot;, oauth_timestamp=&quot;1461291933&quot;</code></p>
+
+<h3 id="javascript-sdk">Javascript SDK</h3>
+
+<p>The following process guides you in generating OAuth 1.0a signature for node and the browser</p>
+
+<p><strong>Installation</strong></p>
+
+<p>Install with npm:</p>
+
+<p><code class="prettyprint">npm install oauth-signature</code></p>
+
+<p><strong>Usage</strong></p>
+
+<p>To generate the OAuth signature call the following method:</p>
+
+<p><code class="prettyprint">
+oauthSignature.generate(httpMethod, url, parameters, consumerSecret, tokenSecret, options)</code></p>
+
+<aside class="notice">Both  tokenSecret` and `options` are optional</aside>
+
+<p>The default options parameter is as follows</p>
+
+<p><code class="prettyprint">var options = {
+    encodeSignature: true // will encode the signature following the RFC 3986 Spec by default
+}</code></p>
+
+<p>Example</p>
+
+<p>The following is an example on how to generate the signature for the reference sample</p>
+
+<p><code class="prettyprint">var httpMethod = &#39;GET&#39;,
+    url = &#39;http://photos.example.net/photos&#39;,
+    parameters = {
+        oauth_consumer_key : &#39;dpf43f3p2l4k3l03&#39;,
+        oauth_token : &#39;nnch734d00sl2jdk&#39;,
+        oauth_nonce : &#39;kllo9940pd9333jh&#39;,
+        oauth_timestamp : &#39;1191242096&#39;,
+        oauth_signature_method : &#39;HMAC-SHA1&#39;,
+        oauth_version : &#39;1.0&#39;,
+        file : &#39;vacation.jpg&#39;,
+        size : &#39;original&#39;
+    },
+    consumerSecret = &#39;kd94hf93k423kf44&#39;,
+    tokenSecret = &#39;pfkkdhi9sl3r4s00&#39;,
+    // generates a RFC 3986 encoded, BASE64 encoded HMAC-SHA1 hash
+    encodedSignature = oauthSignature.generate(httpMethod, url, parameters, consumerSecret, tokenSecret),
+    // generates a BASE64 encode HMAC-SHA1 hash
+    signature = oauthSignature.generate(httpMethod, url, parameters, consumerSecret, tokenSecret,
+        { encodeSignature: false});
+</code></p>
+
+<p>The <code class="prettyprint">encodedSignature</code> variable will contain the RFC 3986 encoded, BASE64 encoded HMAC-SHA1 hash, ready to be used as a query parameter in a request: <code class="prettyprint">tR3%2BTy81lMeYAr%2FFid0kMTYa%2FWM%3D</code>.</p>
+
+<p>The <code class="prettyprint">signature</code> variable will contain the BASE64 HMAC-SHA1 hash, without encoding: <code class="prettyprint">tR3+Ty81lMeYAr/Fid0kMTYa/WM=</code>.</p>
+
+<h3 id="php-sdk">PHP SDK</h3>
+
+<p>OAuth Generator is a .NET project written in C#.</p>
+
+<p><strong>Requirements</strong></p>
+
+<p>Visual Studio should be installed and .NET packages installed.</p>
+
+<p><strong>Usage</strong></p>
+
+<p>Open OAuth.sln using Visual Studio and run directly to get a console window. The user will be prompted to enter the consumer key and consumer secret. The option for entering other values will be provided.</p>
 
           <h1 id="customer">Customer</h1>
 
@@ -2946,6 +3065,138 @@ Also, a customer should have logged in to perform any customer related tasks suc
 <td>CommunicationType</td>
 <td>enum</td>
 <td>The preferred communication channel(s) of the customer. Possible Values: sms, email, push</td>
+</tr>
+</tbody></table>
+
+<h2 id="get-saved-cart-items">Get Saved Cart Items</h2>
+
+<p>Retrieves the details of cart items saved for a specific user. Cart abandoned items will be saved in the cart automatically.</p>
+
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
+<pre class="highlight html"><code>https://www.martjack.com/developerapi/Customer/SavedCart/9820eca5-d11f-4df1-9b20-983a45ea9631/0025fc54-a2d2-4ba8-800f-3c0ac91d9385
+
+</code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"messageCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1004"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"SavedCartItems"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"CartItemId"</span><span class="p">:</span><span class="w"> </span><span class="mi">13222238</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ProductId"</span><span class="p">:</span><span class="w"> </span><span class="mi">11000246</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"VariantProductId"</span><span class="p">:</span><span class="w"> </span><span class="mi">6752012</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9820eca5-d11f-4df1-9b20-983a45ea9631"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"StockAvailability"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"LastUpdated"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/Date(1474022999000+0530)/"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td><code class="prettyprint">/Customer/SavedCart/{merchantId}/{UserId}</code></td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>No</td>
+</tr>
+</tbody></table>
+
+<ul>
+<li><strong>Rate limiter</strong> controls the number of incoming and outgoing traffic of a network</li>
+<li><strong>Authentication</strong> verifies the identity of the current user or integration. See Introduction &gt; Authentication (Merchant Setup on Admin Portal) for more details</li>
+</ul>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">https://{host}/developerapi/Customer/SavedCart/{merchantId}/{UserId}</code></p>
+
+<h3 id="request-path-parameters">Request Path Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>merchantId*</td>
+<td>string</td>
+<td>Unique GUID of the merchant</td>
+</tr>
+<tr>
+<td>user*</td>
+<td>string</td>
+<td>Unique GUID of the user to fetch saved cart items</td>
+</tr>
+</tbody></table>
+
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
+
+<h3 id="response-parameters">Response Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>CartItemId</td>
+<td>int</td>
+<td>Unique cart id</td>
+</tr>
+<tr>
+<td>ProductId</td>
+<td>long</td>
+<td>Unique id of the product in cart</td>
+</tr>
+<tr>
+<td>VariantProductId</td>
+<td>long</td>
+<td>Unique id of the variant product</td>
+</tr>
+<tr>
+<td>StockAvailability</td>
+<td>boolean</td>
+<td>Whether the product is in stock or not</td>
+</tr>
+<tr>
+<td>LastUpdated</td>
+<td>date</td>
+<td>Date (in UST) when the cart is recently updated</td>
 </tr>
 </tbody></table>
 
@@ -17475,7 +17726,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/carts/UpdateCartProperties/{{merchantId}}</code></p>
+<p><code class="prettyprint">https://{host}/developerapi/carts/UpdateCartProperties/{merchantId}</code></p>
 
 <h3 id="additional-header-required">Additional Header Required</h3>
 
@@ -17501,12 +17752,12 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 </tr>
 </thead><tbody>
 <tr>
-<td>DeliverySlotID</td>
+<td>DeliverySlotID*</td>
 <td>string</td>
 <td>The unique id of the delivery slot. Specify a valid id</td>
 </tr>
 <tr>
-<td>DemandedDeliveryDate</td>
+<td>DemandedDeliveryDate*</td>
 <td>date-time</td>
 <td>The customer&rsquo;s preferred delivery date in <code class="prettyprint">MM-DD-YYYY HH:MM:SS</code> format</td>
 </tr>
