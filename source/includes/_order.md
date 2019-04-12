@@ -2951,7 +2951,7 @@ https://www.martjack.com/developerapi/Order/Cancel
 
 > Sample POST Request
 
-`
+```json
 MerchantID=f48fdd16-92db-4188-854d-1ecd9b62d066&InputFormat=application/json&InputData={
    "merchantId":"f48fdd16-92db-4188-854d-1ecd9b62d066",
    "OrderId":"6261090",
@@ -2963,7 +2963,7 @@ MerchantID=f48fdd16-92db-4188-854d-1ecd9b62d066&InputFormat=application/json&Inp
    "CancelReason":"NDA"
 }
 
-`
+```
 
 > Sample Response
 
