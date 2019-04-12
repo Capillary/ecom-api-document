@@ -225,7 +225,8 @@ oauth_consumer_key=QFTSEOUC
 
 ## OAuth SDKs
 
-Alternatively, you can also use SDKs for oAuth generation.
+Alternatively, you can also use SDKs for authentication. Here you can see SDKd and the installation process for different environments.
+
 
 ### PHP SDK
 
@@ -260,15 +261,17 @@ Go to examples and run
 
 Java 8 minimal library to create tailor-made OAuth-1.0a signatures (weights 24.5 KB).
 
-**Compatibility**: Java 7 or above
+**Compatibility**: 
+
+Java 7 or above
 
 
 **Usage**
 
 Run the java code in a compatible platform.
 
-```java
 
+`
 public static void main(String[] args) 
 {
 
@@ -283,7 +286,7 @@ public static void main(String[] args)
 
 		System.out.println(signature.getAsHeader());
 }
-```
+`
 
 **This code will generate the value for a ready-to-be-used "Authorization" Header**:
 	
