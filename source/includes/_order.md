@@ -2148,114 +2148,7 @@ IsBackOrder | enum | Can the item be ordered even when out of stock. Value: `tru
 
 
 
-## Ship Order
 
-> Sample Request
-
-```html
-http://www.martjack.com/DeveloperAPI/Order/Ship
-```
-
-> Sample POST Request
-
-
-```json
-MerchantID=fccabc5b-aa81-4346-b536-0fd6bc94c837&InputFormat=application/json&InputData={  
-   "shipment":{  
-      "OrderId":"7503709",
-      "LocationRefCode":"",
-      "ShipDate":"2019/11/01",
-      "ShipmentType":"normal",
-      "CourierName":"test",
-      "AWBNumber":"12345",
-      "lineitems":[  
-         {  
-            "OrderLineId":"26147149",
-            "Weight":"3",
-            "Quantity":"1"
-         }
-      ],
-      "ShipmentTrip":{  
-         "RiderID":2,
-         "RiderCode":"",
-         "TripRefNo":"WRWGG123456",
-         "VehicleNumber":"1234",
-         "Comments":"Sample comment",
-         "Attributes":[  
-            {  
-               "Name":"Mobile",
-               "Value":"9090000000"
-            }
-         ]
-      },
-      "MerchantId":"fccabc5b-aa81-4346-b536-0fd6bc94c837"
-   }
-}
-```
-
-> Sample Response
-
-```json
-{
-    "messageCode": "1004",
-    "Message": "Successful",
-    "Shipments": [
-        {
-            "LocationId": 0,
-            "ShipmentType": null,
-            "ReceivedBy": null,
-            "DeliveredDate": null,
-            "ShipmentId": 5516207,
-            "OrderId": 0,
-            "ServiceProvider": null,
-            "DocketNumber": null,
-            "ShippingDate": null
-        }
-    ],
-    "ErrorCode": 0
-}
-```
-
-Lets you create shipping details of a specific order (that is ready to ship).
-
-
-### Resource Information
-
-| | |
---------- | ----------- |
-URI | `/Order/Ship`
-Rate Limited? | No
-Authentication | Yes
-Response Formats | JSON
-HTTP Methods | POST
-Batch Support | No
-
-* **Rate limiter** controls the number of incoming and outgoing traffic of a network
-* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
-
-### Request URL
-
-`https://{host}/developerapi/Order/Ship`
-
-### Request Body Parameters
-Parameter | Type |  Description
---------- | ---- | -------
-MerchantId* | string |  The unique id (GUID) of the merchant in which the order is registered or placed
-OrderId* | int |  The order id of the current shipment item 
-AWBNumber* | string |  The air way bill number generated for the shipment
-CourierName* | string |  The courier service used for shipment
-ShipDate* | date |  The date on which the order is shipped in `yyyy/mm/dd` format
-ShipmentType* | enum |  The type of shipment. Value: `Normal` for shipments from warehouse to customer, `Reverse` for return shipments, i.e., customer to warehouse
-LocationRefCode* | string |  Location reference code of the order fulfillment store
-lineitems* | obj |  The details of each line item. Specify `OrderLineId` and `Quantity`
-ShipmentTrip | obj |  Provide more details of the shipment in the parameters specified below. Use this only if applicable for the current merchant
-RiderID | int |  Specify the rider id as available in the merchant system
-RiderCode | string |  Specify the rider code as available in the merchant system
-TripRefNo | string |  Specify the trip reference number as per the merchant system
-VehicleNumber | string |  Specify the vehicle number of the delivery vehicle
-Attributes | obj |  Specify any additional information such as delivery guy's mobile number
- 
-<aside class="notice"> All parameters marked by * are mandatory. </aside>
 
 
 
@@ -3058,7 +2951,7 @@ https://www.martjack.com/developerapi/Order/Cancel
 
 > Sample POST Request
 
-```json
+`
 MerchantID=f48fdd16-92db-4188-854d-1ecd9b62d066&InputFormat=application/json&InputData={
    "merchantId":"f48fdd16-92db-4188-854d-1ecd9b62d066",
    "OrderId":"6261090",
@@ -3070,7 +2963,7 @@ MerchantID=f48fdd16-92db-4188-854d-1ecd9b62d066&InputFormat=application/json&Inp
    "CancelReason":"NDA"
 }
 
-```
+`
 
 > Sample Response
 
@@ -3081,11 +2974,12 @@ MerchantID=f48fdd16-92db-4188-854d-1ecd9b62d066&InputFormat=application/json&Inp
 }
 ```
 
-Cancels a specific order of a customer placed on a merchant store. An order can be canceled only if
+Cancels a specific order of a customer placed on a merchant store. An order can be canceled only if the logged in user has sufficient permission to cancel the order and the order is not shipped at the time of cancellation.
+
+However, you can cancel the order if
  
-* The logged in user has sufficient permission to cancel the order
-* The order is either in Authorized (A) or Pending (P) Status
-* The order is not shipped
+* it is either in Authorized (A) or Pending (P) Status
+* the picklist is either created or completed
 
 
 ### Resource Information
@@ -3432,6 +3326,122 @@ Status* | enum | New status of the return request. Values: Refund Completed - `R
 OperatorId | string | Unique id of the store operator that is updating the status
 
 
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
+
+
+
+
+
+
+
+
+## Ship Order (Create Shipment)
+
+> Sample Request
+
+```html
+http://www.martjack.com/DeveloperAPI/Order/Ship
+```
+
+> Sample POST Request
+
+
+```json
+MerchantID=fccabc5b-aa81-4346-b536-0fd6bc94c837&InputFormat=application/json&InputData={  
+   "shipment":{  
+      "OrderId":"7503709",
+      "LocationRefCode":"",
+      "ShipDate":"2019/11/01",
+      "ShipmentType":"normal",
+      "CourierName":"test",
+      "AWBNumber":"12345",
+      "lineitems":[  
+         {  
+            "OrderLineId":"26147149",
+            "Weight":"3",
+            "Quantity":"1"
+         }
+      ],
+      "ShipmentTrip":{  
+         "RiderID":2,
+         "RiderCode":"",
+         "TripRefNo":"WRWGG123456",
+         "VehicleNumber":"1234",
+         "Comments":"Sample comment",
+         "Attributes":[  
+            {  
+               "Name":"Mobile",
+               "Value":"9090000000"
+            }
+         ]
+      },
+      "MerchantId":"fccabc5b-aa81-4346-b536-0fd6bc94c837"
+   }
+}
+```
+
+> Sample Response
+
+```json
+{
+    "messageCode": "1004",
+    "Message": "Successful",
+    "Shipments": [
+        {
+            "LocationId": 0,
+            "ShipmentType": null,
+            "ReceivedBy": null,
+            "DeliveredDate": null,
+            "ShipmentId": 5516207,
+            "OrderId": 0,
+            "ServiceProvider": null,
+            "DocketNumber": null,
+            "ShippingDate": null
+        }
+    ],
+    "ErrorCode": 0
+}
+```
+
+Lets you add shipment details for a specific order.
+
+
+### Resource Information
+
+| | |
+--------- | ----------- |
+URI | `/Order/Ship`
+Rate Limited? | No
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | POST
+Batch Support | No
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+### Request URL
+
+`https://{host}/developerapi/Order/Ship`
+
+### Request Body Parameters
+Parameter | Type |  Description
+--------- | ---- | -------
+MerchantId* | string |  The unique id (GUID) of the merchant in which the order is registered or placed
+OrderId* | int |  The order id of the current shipment item 
+AWBNumber* | string |  The air way bill number generated for the shipment
+CourierName* | string |  The courier service used for shipment
+ShipDate* | date |  The date on which the order is shipped in `yyyy/mm/dd` format
+ShipmentType* | enum |  The type of shipment. Value: `Normal` for shipments from warehouse to customer, `Reverse` for return shipments, i.e., customer to warehouse
+LocationRefCode* | string |  Location reference code of the order fulfillment store
+lineitems* | obj |  The details of each line item. Specify `OrderLineId` and `Quantity`
+ShipmentTrip | obj |  Provide more details of the shipment in the parameters specified below. Use this only if applicable for the current merchant
+RiderID | int |  Specify the rider id as available in the merchant system
+RiderCode | string |  Specify the rider code as available in the merchant system
+TripRefNo | string |  Specify the trip reference number as per the merchant system
+VehicleNumber | string |  Specify the vehicle number of the delivery vehicle
+Attributes | obj |  Specify any additional information such as delivery guy's mobile number
+ 
 <aside class="notice"> All parameters marked by * are mandatory. </aside>
 
 

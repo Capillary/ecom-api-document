@@ -310,17 +310,20 @@ To generate the OAuth signature call the following method:
 <aside class="notice">Both 	tokenSecret` and `options` are optional</aside>
 
 
-The default options parameter is as follows
+The default options parameter is as follows. The following code will encode the signature following the RFC 3986 Spec by default
 
-```var options = {
-	encodeSignature: true // will encode the signature following the RFC 3986 Spec by default
-}```
+`var options = {
+	encodeSignature: true
+}`
+
 
 Example
 
 The following is an example on how to generate the signature for the reference sample
 
-`var httpMethod = 'GET',
+```javascript
+
+var httpMethod = 'GET',
 	url = 'http://photos.example.net/photos',
 	parameters = {
 		oauth_consumer_key : 'dpf43f3p2l4k3l03',
@@ -339,7 +342,7 @@ The following is an example on how to generate the signature for the reference s
 	// generates a BASE64 encode HMAC-SHA1 hash
 	signature = oauthSignature.generate(httpMethod, url, parameters, consumerSecret, tokenSecret,
 		{ encodeSignature: false});
-`
+```
 
 The `encodedSignature` variable will contain the RFC 3986 encoded, BASE64 encoded HMAC-SHA1 hash, ready to be used as a query parameter in a request: `tR3%2BTy81lMeYAr%2FFid0kMTYa%2FWM%3D`.
 
