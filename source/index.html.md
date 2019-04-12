@@ -322,9 +322,9 @@ The default options parameter is as follows. The following code will encode the 
 
 Example
 
-The following is an example on how to generate the signature for the reference sample
+The example on the right shows how to generate the signature for the reference sample
 
-```javascript
+`
 
 var httpMethod = 'GET',
 	url = 'http://photos.example.net/photos',
@@ -345,7 +345,7 @@ var httpMethod = 'GET',
 	// generates a BASE64 encode HMAC-SHA1 hash
 	signature = oauthSignature.generate(httpMethod, url, parameters, consumerSecret, tokenSecret,
 		{ encodeSignature: false});
-```
+`
 
 The `encodedSignature` variable will contain the RFC 3986 encoded, BASE64 encoded HMAC-SHA1 hash, ready to be used as a query parameter in a request: `tR3%2BTy81lMeYAr%2FFid0kMTYa%2FWM%3D`.
 
