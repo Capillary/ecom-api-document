@@ -393,22 +393,22 @@ oauth_consumer_key=QFTSEOUC
 <p><strong>Usage</strong></p>
 
 <p>Run the java code in a compatible platform.</p>
+<pre class="highlight java"><code>
+<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> 
+<span class="o">{</span>
 
-<p>`public static void main(String[] args) {</p>
+        <span class="n">OAuthConfig</span> <span class="n">oauthConfig</span> <span class="o">=</span> <span class="k">new</span> <span class="n">OAuthConfigBuilder</span><span class="o">(</span><span class="s">"myApiKey"</span><span class="o">,</span> <span class="s">"myApiSecret"</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">setTokenKeys</span><span class="o">(</span><span class="s">"myAccessKey"</span><span class="o">,</span> <span class="s">"myAccessSecret"</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">build</span><span class="o">();</span>
 
-<p>OAuthConfig oauthConfig = new OAuthConfigBuilder(&ldquo;myApiKey&rdquo;, &ldquo;myApiSecret&rdquo;)
-                .setTokenKeys(&ldquo;myAccessKey&rdquo;, &ldquo;myAccessSecret&rdquo;)
-                .build();</p>
+        <span class="n">OAuthSignature</span> <span class="n">signature</span> <span class="o">=</span> <span class="n">oauthConfig</span><span class="o">.</span><span class="na">buildSignature</span><span class="o">(</span><span class="n">HttpMethod</span><span class="o">.</span><span class="na">GET</span><span class="o">,</span> <span class="s">"http://serviceUrl"</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">addQueryParam</span><span class="o">(</span><span class="s">"aParam"</span><span class="o">,</span> <span class="s">"aValue"</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">addFormUrlEncodedParam</span><span class="o">(</span><span class="s">"myParam"</span><span class="o">,</span> <span class="s">"anotherValue"</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">create</span><span class="o">();</span>
 
-<p>OAuthSignature signature = oauthConfig.buildSignature(HttpMethod.GET, &ldquo;http://serviceUrl&rdquo;)
-                .addQueryParam(&ldquo;aParam&rdquo;, &ldquo;aValue&rdquo;)
-                .addFormUrlEncodedParam(&ldquo;myParam&rdquo;, &ldquo;anotherValue&rdquo;)
-                .create();</p>
-
-<p>System.out.println(signature.getAsHeader());
-}
-`</p>
-
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">signature</span><span class="o">.</span><span class="na">getAsHeader</span><span class="o">());</span>
+<span class="o">}</span>
+</code></pre>
 <p><strong>This code will generate the value for a ready-to-be-used &ldquo;Authorization&rdquo; Header</strong>:</p>
 
 <p><code class="prettyprint">Authorization: OAuth oauth_nonce=&quot;1906386233&quot;, oauth_signature=&quot;sQYmuXQV2ROJS3ukvpeaNNl2Jp8=&quot;, oauth_token=&quot;myAccessKey&quot;, oauth_consumer_key=&quot;myApiKey&quot;, oauth_version=&quot;1.0&quot;, oauth_signature_method=&quot;HMAC-SHA1&quot;, oauth_timestamp=&quot;1461291933&quot;</code></p>
@@ -427,8 +427,7 @@ oauth_consumer_key=QFTSEOUC
 
 <p>To generate the OAuth signature call the following method:</p>
 
-<p><code class="prettyprint">
-oauthSignature.generate(httpMethod, url, parameters, consumerSecret, tokenSecret, options)</code></p>
+<p><code class="prettyprint">oauthSignature.generate(httpMethod, url, parameters, consumerSecret, tokenSecret, options)</code></p>
 
 <aside class="notice">Both  tokenSecret` and `options` are optional</aside>
 
@@ -467,7 +466,7 @@ oauthSignature.generate(httpMethod, url, parameters, consumerSecret, tokenSecret
 
 <p>The <code class="prettyprint">signature</code> variable will contain the BASE64 HMAC-SHA1 hash, without encoding: <code class="prettyprint">tR3+Ty81lMeYAr/Fid0kMTYa/WM=</code>.</p>
 
-<h3 id="php-sdk">PHP SDK</h3>
+<h3 id="net-sdk">.NET SDK</h3>
 
 <p>OAuth Generator is a .NET project written in C#.</p>
 
