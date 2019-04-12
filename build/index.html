@@ -362,7 +362,7 @@ oauth_consumer_key=QFTSEOUC
 
 <h2 id="oauth-sdks">OAuth SDKs</h2>
 
-<p>Alternatively, you can also use SDKs for oAuth generation.</p>
+<p>Alternatively, you can also use SDKs for authentication. Here you can see SDKd and the installation process for different environments.</p>
 
 <h3 id="php-sdk">PHP SDK</h3>
 
@@ -388,27 +388,31 @@ oauth_consumer_key=QFTSEOUC
 
 <p>Java 8 minimal library to create tailor-made OAuth-1.0a signatures (weights 24.5 KB).</p>
 
-<p><strong>Compatibility</strong>: Java 7 or above</p>
+<p><strong>Compatibility</strong>: </p>
+
+<p>Java 7 or above</p>
 
 <p><strong>Usage</strong></p>
 
 <p>Run the java code in a compatible platform.</p>
-<pre class="highlight java"><code>
-<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> 
-<span class="o">{</span>
 
-        <span class="n">OAuthConfig</span> <span class="n">oauthConfig</span> <span class="o">=</span> <span class="k">new</span> <span class="n">OAuthConfigBuilder</span><span class="o">(</span><span class="s">"myApiKey"</span><span class="o">,</span> <span class="s">"myApiSecret"</span><span class="o">)</span>
-                <span class="o">.</span><span class="na">setTokenKeys</span><span class="o">(</span><span class="s">"myAccessKey"</span><span class="o">,</span> <span class="s">"myAccessSecret"</span><span class="o">)</span>
-                <span class="o">.</span><span class="na">build</span><span class="o">();</span>
+<p>`
+public static void main(String[] args) 
+{</p>
 
-        <span class="n">OAuthSignature</span> <span class="n">signature</span> <span class="o">=</span> <span class="n">oauthConfig</span><span class="o">.</span><span class="na">buildSignature</span><span class="o">(</span><span class="n">HttpMethod</span><span class="o">.</span><span class="na">GET</span><span class="o">,</span> <span class="s">"http://serviceUrl"</span><span class="o">)</span>
-                <span class="o">.</span><span class="na">addQueryParam</span><span class="o">(</span><span class="s">"aParam"</span><span class="o">,</span> <span class="s">"aValue"</span><span class="o">)</span>
-                <span class="o">.</span><span class="na">addFormUrlEncodedParam</span><span class="o">(</span><span class="s">"myParam"</span><span class="o">,</span> <span class="s">"anotherValue"</span><span class="o">)</span>
-                <span class="o">.</span><span class="na">create</span><span class="o">();</span>
+<p>OAuthConfig oauthConfig = new OAuthConfigBuilder(&ldquo;myApiKey&rdquo;, &ldquo;myApiSecret&rdquo;)
+                .setTokenKeys(&ldquo;myAccessKey&rdquo;, &ldquo;myAccessSecret&rdquo;)
+                .build();</p>
 
-        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">signature</span><span class="o">.</span><span class="na">getAsHeader</span><span class="o">());</span>
-<span class="o">}</span>
-</code></pre>
+<p>OAuthSignature signature = oauthConfig.buildSignature(HttpMethod.GET, &ldquo;http://serviceUrl&rdquo;)
+                .addQueryParam(&ldquo;aParam&rdquo;, &ldquo;aValue&rdquo;)
+                .addFormUrlEncodedParam(&ldquo;myParam&rdquo;, &ldquo;anotherValue&rdquo;)
+                .create();</p>
+
+<p>System.out.println(signature.getAsHeader());
+}
+`</p>
+
 <p><strong>This code will generate the value for a ready-to-be-used &ldquo;Authorization&rdquo; Header</strong>:</p>
 
 <p><code class="prettyprint">Authorization: OAuth oauth_nonce=&quot;1906386233&quot;, oauth_signature=&quot;sQYmuXQV2ROJS3ukvpeaNNl2Jp8=&quot;, oauth_token=&quot;myAccessKey&quot;, oauth_consumer_key=&quot;myApiKey&quot;, oauth_version=&quot;1.0&quot;, oauth_signature_method=&quot;HMAC-SHA1&quot;, oauth_timestamp=&quot;1461291933&quot;</code></p>
@@ -439,28 +443,31 @@ oauth_consumer_key=QFTSEOUC
 
 <p>Example</p>
 
-<p>The following is an example on how to generate the signature for the reference sample</p>
-<pre class="highlight javascript"><code>
-<span class="kd">var</span> <span class="nx">httpMethod</span> <span class="o">=</span> <span class="s1">'GET'</span><span class="p">,</span>
-    <span class="nx">url</span> <span class="o">=</span> <span class="s1">'http://photos.example.net/photos'</span><span class="p">,</span>
-    <span class="nx">parameters</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="na">oauth_consumer_key</span> <span class="p">:</span> <span class="s1">'dpf43f3p2l4k3l03'</span><span class="p">,</span>
-        <span class="na">oauth_token</span> <span class="p">:</span> <span class="s1">'nnch734d00sl2jdk'</span><span class="p">,</span>
-        <span class="na">oauth_nonce</span> <span class="p">:</span> <span class="s1">'kllo9940pd9333jh'</span><span class="p">,</span>
-        <span class="na">oauth_timestamp</span> <span class="p">:</span> <span class="s1">'1191242096'</span><span class="p">,</span>
-        <span class="na">oauth_signature_method</span> <span class="p">:</span> <span class="s1">'HMAC-SHA1'</span><span class="p">,</span>
-        <span class="na">oauth_version</span> <span class="p">:</span> <span class="s1">'1.0'</span><span class="p">,</span>
-        <span class="na">file</span> <span class="p">:</span> <span class="s1">'vacation.jpg'</span><span class="p">,</span>
-        <span class="na">size</span> <span class="p">:</span> <span class="s1">'original'</span>
-    <span class="p">},</span>
-    <span class="nx">consumerSecret</span> <span class="o">=</span> <span class="s1">'kd94hf93k423kf44'</span><span class="p">,</span>
-    <span class="nx">tokenSecret</span> <span class="o">=</span> <span class="s1">'pfkkdhi9sl3r4s00'</span><span class="p">,</span>
-    <span class="c1">// generates a RFC 3986 encoded, BASE64 encoded HMAC-SHA1 hash</span>
-    <span class="nx">encodedSignature</span> <span class="o">=</span> <span class="nx">oauthSignature</span><span class="p">.</span><span class="nx">generate</span><span class="p">(</span><span class="nx">httpMethod</span><span class="p">,</span> <span class="nx">url</span><span class="p">,</span> <span class="nx">parameters</span><span class="p">,</span> <span class="nx">consumerSecret</span><span class="p">,</span> <span class="nx">tokenSecret</span><span class="p">),</span>
-    <span class="c1">// generates a BASE64 encode HMAC-SHA1 hash</span>
-    <span class="nx">signature</span> <span class="o">=</span> <span class="nx">oauthSignature</span><span class="p">.</span><span class="nx">generate</span><span class="p">(</span><span class="nx">httpMethod</span><span class="p">,</span> <span class="nx">url</span><span class="p">,</span> <span class="nx">parameters</span><span class="p">,</span> <span class="nx">consumerSecret</span><span class="p">,</span> <span class="nx">tokenSecret</span><span class="p">,</span>
-        <span class="p">{</span> <span class="na">encodeSignature</span><span class="p">:</span> <span class="kc">false</span><span class="p">});</span>
-</code></pre>
+<p>The example on the right shows how to generate the signature for the reference sample</p>
+
+<p>`</p>
+
+<p>var httpMethod = &#39;GET&rsquo;,
+    url = &#39;http://photos.example.net/photos&rsquo;,
+    parameters = {
+        oauth_consumer_key : &#39;dpf43f3p2l4k3l03&rsquo;,
+        oauth_token : &#39;nnch734d00sl2jdk&rsquo;,
+        oauth_nonce : &#39;kllo9940pd9333jh&rsquo;,
+        oauth_timestamp : &#39;1191242096&rsquo;,
+        oauth_signature_method : &#39;HMAC-SHA1&rsquo;,
+        oauth_version : &#39;1.0&rsquo;,
+        file : &#39;vacation.jpg&rsquo;,
+        size : &#39;original&rsquo;
+    },
+    consumerSecret = &#39;kd94hf93k423kf44&rsquo;,
+    tokenSecret = &#39;pfkkdhi9sl3r4s00&rsquo;,
+    // generates a RFC 3986 encoded, BASE64 encoded HMAC-SHA1 hash
+    encodedSignature = oauthSignature.generate(httpMethod, url, parameters, consumerSecret, tokenSecret),
+    // generates a BASE64 encode HMAC-SHA1 hash
+    signature = oauthSignature.generate(httpMethod, url, parameters, consumerSecret, tokenSecret,
+        { encodeSignature: false});
+`</p>
+
 <p>The <code class="prettyprint">encodedSignature</code> variable will contain the RFC 3986 encoded, BASE64 encoded HMAC-SHA1 hash, ready to be used as a query parameter in a request: <code class="prettyprint">tR3%2BTy81lMeYAr%2FFid0kMTYa%2FWM%3D</code>.</p>
 
 <p>The <code class="prettyprint">signature</code> variable will contain the BASE64 HMAC-SHA1 hash, without encoding: <code class="prettyprint">tR3+Ty81lMeYAr/Fid0kMTYa/WM=</code>.</p>

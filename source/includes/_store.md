@@ -301,7 +301,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Store/Countries/{MerchantId}`
+`{host}/developerapi/Store/Countries/{MerchantId}`
 
 
 ### Request Parameter
@@ -575,7 +575,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Store/Cities/{MerchantId}/{StateCode}`
+`{host}/developerapi/Store/Cities/{MerchantId}/{StateCode}`
 
 
 ### Request Parameter
@@ -636,7 +636,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Store/Cities/{merchantId}/{statecode}`
+`{host}/developerapi/Store/Cities/{merchantId}/{statecode}`
 
 
 ### Request Path Parameters
@@ -700,7 +700,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Store/Countries/{merchantid}/{countrycode}`
+`{host}/developerapi/Store/Countries/{merchantid}/{countrycode}`
 
 
 ### Request Path Parameters
@@ -793,7 +793,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Store/Information/{merchantId}`
+`{host}/developerapi/Store/Information/{merchantId}`
 
 
 ### Request Path Parameters
@@ -866,7 +866,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Store/State/{merchantId}/{stateCode}`
+`{host}/developerapi/Store/State/{merchantId}/{stateCode}`
 
 
 ### Request Path Parameters
@@ -1050,7 +1050,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Store/States/{merchantId}/{Countrycode}`
+`{host}/developerapi/Store/States/{merchantId}/{Countrycode}`
 
 
 ### Request Path Parameters
@@ -1127,15 +1127,15 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Store/getchannelinfo/{merchantid}/{channelid}`
+`{host}/developerapi/Store/getchannelinfo/{merchantid}/{channelid}`
 
 OR
 
-`https://{host}/developerapi/Store/getchannelinfo/{merchantid}/{channelcode}`
+`{host}/developerapi/Store/getchannelinfo/{merchantid}/{channelcode}`
 
 OR
 
-`https://{host}/developerapi/Store/getchannelinfo/{merchantid}/0/{channelrefcode}`
+`{host}/developerapi/Store/getchannelinfo/{merchantid}/0/{channelrefcode}`
 
 
 ### Request Path Parameters
@@ -1205,7 +1205,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Store/UpdateChannel/{merchantid}/{channelrefcode}`
+`{host}/developerapi/Store/UpdateChannel/{merchantid}/{channelrefcode}`
 
 
 ### Request Path Parameters
@@ -1290,7 +1290,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Store/GetVendorDetails/{merchantId}/{vendorId}`
+`{host}/developerapi/Store/GetVendorDetails/{merchantId}/{vendorId}`
 
 
 ### Request Path Parameters

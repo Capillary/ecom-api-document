@@ -112,7 +112,7 @@ Authentication | Yes
 
 
 ### Request URL
-`https://{host}/developerapi/Customer/{merchantId}/Create`
+`{host}/developerapi/Customer/{merchantId}/Create`
 
 ### Request Body Parameters
 
@@ -212,7 +212,7 @@ Authentication | Yes
 * **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
 
 ### Request URL
-`https://{host}/developerapi/Customer/{merchantId}/Update`
+`{host}/developerapi/Customer/{merchantId}/Update`
 
 
 ### Additional Header Required
@@ -311,7 +311,7 @@ Authentication | Yes
 
 ### Request URL
 
-`https://{host}/developerapi/Customer/{merchantId}/LoginWithOTP/true?username={username}&oTP={OTP}`
+`{host}/developerapi/Customer/{merchantId}/LoginWithOTP/true?username={username}&oTP={OTP}`
 
 ### Additional Headers Required
 
@@ -397,7 +397,7 @@ Authentication | Yes
 
 ### Request URL
 
-`https://{host}/developerapi/Customer/{merchantId}/login`
+`{host}/developerapi/Customer/{merchantId}/login`
 
 ### Request Body Parameters
 Parameter | Type | Description
@@ -477,7 +477,7 @@ Authentication | Yes
 
 ### Request URL
 
-`https://{host}/developerapi/Customer/{merchantId}/LoginWithThirdPartyProvider`
+`{host}/developerapi/Customer/{merchantId}/LoginWithThirdPartyProvider`
 
 ### Request Body Parameters
 
@@ -567,7 +567,7 @@ Authentication | Yes
 
 ### Request URL
 
-`https://{host}/developerapi/Customer/{merchantId}/StartCustomerSession`
+`{host}/developerapi/Customer/{merchantId}/StartCustomerSession`
 
 
 ### Additional Header Required
@@ -643,7 +643,7 @@ Authentication | Yes
 
 
 ### Request URL
-`https://{host}/developerapi/Customer/{merchantId}/{UserId}/ChangePassword?password={newPassword}`
+`{host}/developerapi/Customer/{merchantId}/{UserId}/ChangePassword?password={newPassword}`
 
 ### Request Path Parameters
 
@@ -707,7 +707,7 @@ Authentication | Yes
 
 ### Request URL
 
-`https://{host}/developerapi/Customer/v2/changePassword/{{merchantid}}/{[userid}}`
+`{host}/developerapi/Customer/v2/changePassword/{{merchantid}}/{[userid}}`
 
 ### Additional Header Required
 
@@ -793,7 +793,7 @@ Authentication | Yes
 
 ### Request URL
 
-`https://{host}/developerapi/Customer/{MerchantId}/v2/resetPassword`
+`{host}/developerapi/Customer/{MerchantId}/v2/resetPassword`
 
 ### Additional Header Required
 
@@ -871,7 +871,7 @@ Authentication | Yes
 
 ### Request URL
 
-`https://{host}/developerapi/Customer/{MerchantId}/ValidateResetRequest`
+`{host}/developerapi/Customer/{MerchantId}/ValidateResetRequest`
 
 ### Additional Header Required
 
@@ -932,7 +932,7 @@ Authentication | Yes
 
 ### Request URL
 
-`https://{host}/developerapi/Customer/{merchantId}/Logout`
+`{host}/developerapi/Customer/{merchantId}/Logout`
 
 
 ### Additional Header Required
@@ -1005,7 +1005,7 @@ Authentication | Yes
 
 ### Request URL
 
-`https://{host}/developerapi/Customer/GetAccessToken/{MerchantId}`
+`{host}/developerapi/Customer/GetAccessToken/{MerchantId}`
 
 ### Request Parameters
 Parameter | Type | Description
@@ -1065,7 +1065,7 @@ Authentication | Yes
 
 ### Request URL
 
-`https://{host}/developerapi/Customer/{merchantId}/{accesstoken}/ValidateToken`
+`{host}/developerapi/Customer/{merchantId}/{accesstoken}/ValidateToken`
 
 ### Request Parameters
 Parameter | Type | Description
@@ -1119,7 +1119,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Customer/Activation/{MerchantId}/{UserId}`
+`{host}/developerapi/Customer/Activation/{MerchantId}/{UserId}`
 
 
 ### Request Body Parameters
@@ -1177,7 +1177,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Customer/DeActivation/{MerchantId}/{UserId}`
+`{host}/developerapi/Customer/DeActivation/{MerchantId}/{UserId}`
 
 
 ### Request Body Parameters
@@ -1274,7 +1274,7 @@ Authentication | Yes
 * **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
 
 ### Request URL
-`https://{host}/developerapi/Customer/{merchantId}/Search`
+`{host}/developerapi/Customer/{merchantId}/Search`
 
 ### Request Body Parameters
 
@@ -1380,7 +1380,7 @@ Authentication | Yes
 * **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
 
 ### Request URL
-`https://{host}/developerapi/Customer/{merchantId}/{UserId}`
+`{host}/developerapi/Customer/{merchantId}/{UserId}`
 
 ### Request Parameters
 Parameter | Type | Description
@@ -1648,7 +1648,7 @@ Authentication | Yes
 
 ### Request URL
 
-`http://{host}/developerapi/Customer/{merchantId}/All`
+`{host}/developerapi/Customer/{merchantId}/All`
 
 
 
@@ -1736,7 +1736,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Customer/SavedCart/{merchantId}/{UserId}`
+`{host}/developerapi/Customer/SavedCart/{merchantId}/{UserId}`
 
 
 ### Request Path Parameters
@@ -1803,7 +1803,7 @@ Authentication | Yes
 
 ### Request URL
 
-`http://{host}/developerapi/Customer/{merchantId}/Count`
+`{host}/developerapi/Customer/{merchantId}/Count`
 
 
 
@@ -1822,7 +1822,7 @@ Authentication | Yes
 
 ### Request URL
 
-`http://{host}/developerapi/Customer/{merchantId}/Count`
+`{host}/developerapi/Customer/{merchantId}/Count`
 
 
 
@@ -1899,7 +1899,7 @@ accesstoken* | Access token of the logged in user to validate the session
 
 
 ### Request URL
-`https://{host}/developerapi/Customer/{merchantId}/UpdateUserProfile`
+`{host}/developerapi/Customer/{merchantId}/UpdateUserProfile`
 
 ### Request Body Parameters
 Parameter | Type | Description
@@ -1993,7 +1993,7 @@ Authentication | Yes
 
 ### Request URL
 
-`https://{host}/developerapi/Customer/AddShippingAddress/{merchantId}`
+`{host}/developerapi/Customer/AddShippingAddress/{merchantId}`
 
 ### Request Body Parameters
 Parameter | Type | Description
@@ -2108,7 +2108,7 @@ Header Name | Value
 apiversion | 4
 
 ### Request URL
-`https://{host}/developerapi/Customer/GetShippingAddress/{merchantId}{UserId}`
+`{host}/developerapi/Customer/GetShippingAddress/{merchantId}{UserId}`
 
 
 ### Request Path Parameters
@@ -2155,7 +2155,7 @@ Authentication | Yes
 
 ### Request URL
 
-`http://{host}/developerapi/Customer/DeleteShippingAddress/{MerchantId}/{UserId}/{ShippingAddressId}`
+`{host}/developerapi/Customer/DeleteShippingAddress/{MerchantId}/{UserId}/{ShippingAddressId}`
 
 ### Request Parameters
 Parameter | Type | Description
@@ -2228,7 +2228,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Customer/GetStoreOperators/{merchantId}/{locationId}/{roleid}`
+`{host}/developerapi/Customer/GetStoreOperators/{merchantId}/{locationId}/{roleid}`
 
 
 ### Request Path Parameters
@@ -2312,7 +2312,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Customer/{merchantId}/AgentLogin`
+`{host}/developerapi/Customer/{merchantId}/AgentLogin`
 
 
 ### Request Body Parameters

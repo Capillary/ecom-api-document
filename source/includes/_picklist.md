@@ -5,7 +5,7 @@ Picklist is a document that contains the list of order items to be picked up fro
 
 
 
-##  Confirm picklist
+##  Confirm Picklist
 
 Lets you update picklist of an order item.
 
@@ -71,7 +71,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/PickList/ConfirmPicklistItems/{MerchantId}`
+`{host}/developerapi/PickList/ConfirmPicklistItems/{MerchantId}`
 
 
 ### Request Body Parameters
@@ -79,12 +79,12 @@ Batch Support | No
 Parameter | Type | Description
 -------- | ----- | -----------
 picklistOrderDetailId* | int | Unique picklist id of the item
-PickListItemStatus | enum | The status of the current item. `F` for found, `N` for not found, `C` for cancel. If no value is passed, not found is considered as the default value
+PickListItemStatus* | enum | The status of the current item. `F` for found, `N` for not found, `C` for cancel. If no value is passed, not found is considered as the default value
 PickListId* | int | Unique id of the picklist
 UserId* | string | Unique GUID of the user associated to the order item
 Weight | int | Weight of the item 
 ActualPrice | float | Net price of the item. The item price can be changed if `isVariance` is set to true
-isVariance | boolean | Whether there is change in the price of the current item while creating picklist. If there is a difference, the item price can be changed by passing the `ActualPrice` of the item
+isVariance* | boolean | Whether there is change in the price of the current item while creating picklist. If there is a difference, the item price can be changed by passing the `ActualPrice` of the item
 
 <aside class="notice">All parameters marked by * are mandatory.</aside>
 
@@ -199,29 +199,29 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/PickList/ProcessPicklist/{MerchantId}`
+`{host}/developerapi/PickList/ProcessPicklist/{MerchantId}`
 
 
 ### Request Body Parameters
 
 Parameter | Type | Description
 -------- | ----- | -----------
-MerchantID | string | Unique GUID of the merchant
+MerchantID* | string | Unique GUID of the merchant
 PickListId* | int | Unique id of the picklist
-SubStatus | enum | Unique 2 character code of the sub-status of the picklist or picklist item. Values are as per configured in the CP for that merchant
-PicklistOperatorID | string | Unique id of the staff that confirms the picklist
+SubStatus* | enum | Unique 2 character code of the sub-status of the picklist or picklist item. Values are as per configured in the CP for that merchant
+PicklistOperatorID* | string | Unique id of the staff that confirms the picklist
 Comments | string | Any comments related to the picklist at the request level/item level
-ConfirmPicking | enum | Specify `1` to confirm pick up, `0` if not confirmed. The default value is '0'
-OrderPickListDetailId | int | Unique internal reference id generated for each picklist item
-RetransactionID | int | Order id of the item for which you want to update picklist
-PicklistID | int | Unique id of the picklist
-RedetailsID | int | Unique item id as in the REtransaction table 
+ConfirmPicking* | enum | Specify `1` to confirm pick up, `0` if not confirmed. The default value is '0'
+OrderPickListDetailId* | int | Unique internal reference id generated for each picklist item
+RetransactionID* | int | Order id of the item for which you want to update picklist
+PicklistID* | int | Unique id of the picklist
+RedetailsID* | int | Unique item id as in the REtransaction table 
 PicklistOperatorID | string | Unique id of the operator
 PickListItemStatus | enum | The status of the current item. Values: `F` for found, `N` for not found, `C` for cancel. If no value is passed, not found is considered as the default value
 Weight | int | Weight of the item if applicable
 ActualPrice | float | Net price of the item. The item price can be changed if `isVariance` is set to true
-isVariance | boolean | Whether there is change in the price of the current item when picklist is created. If there is a price difference, the item price can be changed by passing the `ActualPrice` of the item
-PickingPrice | int | Additional price charged for packing (if applicable). For example, in restaurants additional charge will be levied on takeaway orders for packing
+isVariance* | boolean | Whether there is change in the price of the current item when picklist is created. If there is a price difference, the item price can be changed by passing the `ActualPrice` of the item
+PickingPrice* | int | Additional price charged for packing (if applicable). For example, in restaurants additional charge will be levied on takeaway orders for packing
 PicklistCustomFields | obj | Picklist level custom field details - key and value pairs
 
 <aside class="notice">All parameters marked by * are mandatory.</aside>
@@ -445,7 +445,7 @@ URI | `/PickList/GetPickListSummary/{MerchantId}/{pickListId}`
 Rate Limited? | No
 Authentication | Yes
 Response Formats | JSON
-HTTP Methods | POST
+HTTP Methods | GET
 Batch Support | No
 
 * **Rate limiter** controls the number of incoming and outgoing traffic of a network
@@ -453,7 +453,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/PickList/GetPickListSummary/{MerchantId}/{pickListId}`
+`{host}/developerapi/PickList/GetPickListSummary/{MerchantId}/{pickListId}`
 
 
 ### Request Body Parameters
@@ -571,14 +571,14 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/PickList/GetPickLists/{MerchantId}`
+`{host}/developerapi/PickList/GetPickLists/{MerchantId}`
 
 
 ### Request Body Parameters
 
 Parameter | Type | Description
 -------- | ----- | -----------
-MerchantId | string | Unique GUID of the merchant
+MerchantId* | string | Unique GUID of the merchant
 status | string | Fetch picklists by status. Values: `Created`, `In Picking` (in progress), `Completed` or `Picked` (picked up)
 picklistCode | string | Unique code of the picklist to fetch details by picklist code
 createdOn | date | Fetch picklists created on a specific date. Pass the date in `MM/DD/YYYY` format
@@ -885,7 +885,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/PickList/GetPickListswithOrdersInfo/{MerchantId}`
+`{host}/developerapi/PickList/GetPickListswithOrdersInfo/{MerchantId}`
 
 
 ### Request Body Parameters
@@ -911,6 +911,7 @@ channelId | string | Channel id of the marketplace to get picklists of that spec
 
 ## Get PickList Items
 
+Retrieves items of a specific picklist by item status.
 
 
 
@@ -1129,7 +1130,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/PickList/GetPickListItems/{MerchantId}/{pickListId}/{orderItemStatus}`
+`{host}/developerapi/PickList/GetPickListItems/{MerchantId}/{pickListId}/{orderItemStatus}`
 
 
 ### Request Path Parameters
@@ -1209,7 +1210,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/PickList/GetItemsubstitutes/{merchantId}/{productId}`
+`{host}/developerapi/PickList/GetItemsubstitutes/{merchantId}/{productId}`
 
 
 ### Request Path Parameters

@@ -73,7 +73,7 @@ Batch Support | Yes
 
 ### Request URL
 
-`https://{host}/developerapi/product/UpdateLocationWiseStock`
+`{host}/developerapi/product/UpdateLocationWiseStock`
 
 ### Request Body Parameters
 Parameter | Datatype | Description
@@ -235,7 +235,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Product/UpdateProductInfo`
+`{host}/developerapi/Product/UpdateProductInfo`
 
 ### Request Body Parameters
 Parameter | Type | Description 
@@ -552,7 +552,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Product/UpdateProductInfo`
+`{host}/developerapi/Product/UpdateProductInfo`
 
 ### Request Body Parameters
 Parameter | Type | Description 
@@ -786,7 +786,7 @@ Batch Support | Yes
 * **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
 
 ### Request URL
-`https://{host}/developerapi/Product/AttachImages/{MerchantId}`
+`{host}/developerapi/Product/AttachImages/{MerchantId}`
 
 
 ### Additional Header Required
@@ -925,7 +925,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Product/Price/{MerchantId}`
+`{host}/developerapi/Product/Price/{MerchantId}`
 
 
 ### Additional Header Required
@@ -1044,7 +1044,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Product/{merchantId}/LocationStockPrice`
+`{host}/developerapi/Product/{merchantId}/LocationStockPrice`
 
 
 ### Request Path Parameters
@@ -1165,7 +1165,7 @@ Authentication | Yes
 * **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
 
 ### Request URL
-`https://{host}/developerapi/Product/Information/{merchantId}/{productId}/{locationId}`
+`{host}/developerapi/Product/Information/{merchantId}/{productId}/{locationId}`
 
 
 ### Request Path Parameters
@@ -1356,7 +1356,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Product/InformationNAttr/{merchantid}/{productid}`
+`{host}/developerapi/Product/InformationNAttr/{merchantid}/{productid}`
 
 
 ### Request Path Parameters
@@ -1476,7 +1476,7 @@ Authentication | Yes
 * **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
 
 ### Request URL
-`https://{host}/developerapi/Product/SKU/{merchantId}/{sku}`
+`{host}/developerapi/Product/SKU/{merchantId}/{sku}`
 
 
 ### Request Path Parameters
@@ -1629,7 +1629,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Product/{merchantId}/{productTag}/{locationId}`
+`{host}/developerapi/Product/{merchantId}/{productTag}/{locationId}`
 
 
 ### Request Path Parameters
@@ -1774,7 +1774,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Product/Category/{merchantId}/{categoryId}/{productType}/{pageNumber}`
+`{host}/developerapi/Product/Category/{merchantId}/{categoryId}/{productType}/{pageNumber}`
 
 
 ### Request Path Parameters
@@ -1941,7 +1941,7 @@ Batch Support | Yes
 
 ### Request URL
 
-`https://{host}/developerapi/Product/{merchantId}/GetMultipleParentproducts`
+`{host}/developerapi/Product/{merchantId}/GetMultipleParentproducts`
 
 
 ### Request Body Parameters
@@ -2135,7 +2135,7 @@ Authentication | Yes
 * **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
 
 ### Request URL
-`https://{host}/developerapi/Product/Varients/{merchantId}/{ParentProductId}/{availability}`
+`{host}/developerapi/Product/Varients/{merchantId}/{ParentProductId}/{availability}`
 
 
 ### Request Path Parameters
@@ -2265,7 +2265,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Product/ProductVarient/{MerchantId}/{variantProductId}`
+`{host}/developerapi/Product/ProductVarient/{MerchantId}/{variantProductId}`
 
 
 ### Request Path Parameters
@@ -2350,7 +2350,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Product/LocationAttribute/{merchantId}/{sku}/{variantSku}/{locationRefCode}`
+`{host}/developerapi/Product/LocationAttribute/{merchantId}/{sku}/{variantSku}/{locationRefCode}`
 
 
 ### Request Path Parameters
@@ -2448,7 +2448,7 @@ Authentication | Yes
 * **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
 
 ### Request URL
-`https://{host}/developerapi/Product/{merchantId}/{productTag}/{locationId}`
+`{host}/developerapi/Product/{merchantId}/{productTag}/{locationId}`
 
 
 ### Request Path Parameters
@@ -2610,7 +2610,7 @@ Batch Support | Yes
 
 ### Request URL
 
-`https://{host}/developerapi/Product/{merchantId}/GetMultipleProductInformation`
+`{host}/developerapi/Product/{merchantId}/GetMultipleProductInformation`
 
 
 ### Request Path Parameters
@@ -2704,7 +2704,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Product/GetProductsTagsByProductId/{merchantid}/{productid}`
+`{host}/developerapi/Product/GetProductsTagsByProductId/{merchantid}/{productid}`
 
 
 ### Request Path Parameters
@@ -2844,7 +2844,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Product/Category/{merchantid}/{CatagoryId}/{availibility}`
+`{host}/developerapi/Product/Category/{merchantid}/{CatagoryId}/{availibility}`
 
 
 ### Request Path Parameters
@@ -2948,7 +2948,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Product/AddReview/{MerchantId}/{UserId}/{SKU}`
+`{host}/developerapi/Product/AddReview/{MerchantId}/{UserId}/{SKU}`
 
 
 
@@ -3030,7 +3030,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Product/GetReviews/{MerchantId}/{Sku}`
+`{host}/developerapi/Product/GetReviews/{MerchantId}/{Sku}`
 
 
 ### Request Body Parameters
@@ -3106,7 +3106,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Product/UpdateProductAttribute/{MerchantId}`
+`{host}/developerapi/Product/UpdateProductAttribute/{MerchantId}`
 
 
 ### Request Body Parameters
@@ -3256,7 +3256,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Product/GetBundleItemsbyBundleProductId/{Merchantid}/{Productid}/{isdefault}`
+`{host}/developerapi/Product/GetBundleItemsbyBundleProductId/{Merchantid}/{Productid}/{isdefault}`
 
 
 ### Request Path Parameters
@@ -3363,7 +3363,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Product/MSMQTaskDetails/{merchantid}/{taskid}`
+`{host}/developerapi/Product/MSMQTaskDetails/{merchantid}/{taskid}`
 
 
 ### Request Path Parameters
@@ -3466,7 +3466,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Product/MSMQErrorDetails/{merchantid}/{taskid}`
+`{host}/developerapi/Product/MSMQErrorDetails/{merchantid}/{taskid}`
 
 
 ### Request Path Parameters
@@ -3563,7 +3563,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/product/AddLocationTagtoProduct/{merchantId}`
+`{host}/developerapi/product/AddLocationTagtoProduct/{merchantId}`
 
 
 ### Request Body Parameters
@@ -3635,7 +3635,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Product/RemoveLocationTagFromProduct/{MerchantId}`
+`{host}/developerapi/Product/RemoveLocationTagFromProduct/{MerchantId}`
 
 
 ### Request Body Parameters
@@ -3711,7 +3711,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Product/{MerchantId}/Search`
+`{host}/developerapi/Product/{MerchantId}/Search`
 
 
 
@@ -3800,7 +3800,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Product/GetProductsTagsByProductId/{merchantid}/{productid}/{locationid}`
+`{host}/developerapi/Product/GetProductsTagsByProductId/{merchantid}/{productid}/{locationid}`
 
 
 ### Request Path Parameters
@@ -3909,7 +3909,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Product/Attribute/{merchantid}/{productid}`
+`{host}/developerapi/Product/Attribute/{merchantid}/{productid}`
 
 
 ### Request Path Parameters
@@ -4040,7 +4040,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Product/Comments/{productid}/{postid}/{merchantid}`
+`{host}/developerapi/Product/Comments/{productid}/{postid}/{merchantid}`
 
 
 ### Request Path Parameters
@@ -4155,7 +4155,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Product/Contents/{merchantId}/{productId}`
+`{host}/developerapi/Product/Contents/{merchantId}/{productId}`
 
 
 ### Request Path Parameters
@@ -4256,7 +4256,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Product/Featured/{merchantId}`
+`{host}/developerapi/Product/Featured/{merchantId}`
 
 
 ### Request Path Parameters
@@ -4341,7 +4341,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/product/updatestock`
+`{host}/developerapi/product/updatestock`
 
 
 ### Request Body Parameters
@@ -4416,7 +4416,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Product/UpdateLocationProductStock`
+`{host}/developerapi/Product/UpdateLocationProductStock`
 
 
 ### Request Body Parameters
@@ -4525,7 +4525,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Product/Similar/{merchantId}/{productId}/{LocationId}`
+`{host}/developerapi/Product/Similar/{merchantId}/{productId}/{LocationId}`
 
 
 ### Request Path Parameters
@@ -4602,7 +4602,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Product/GetTierPriceDetailsbyproductId/{merchantId}/{userId}/{productId}/{locationId}`
+`{host}/developerapi/Product/GetTierPriceDetailsbyproductId/{merchantId}/{userId}/{productId}/{locationId}`
 
 
 ### Request Path Parameters
@@ -4682,7 +4682,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Product/PincodeServiceability/{merchantId}/{productId}`
+`{host}/developerapi/Product/PincodeServiceability/{merchantId}/{productId}`
 
 
 ### Request Body Parameters
@@ -4744,7 +4744,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/ProductAutoComplete/{merchantId}/{keyword}/{limit}/{locationId}`
+`{host}/developerapi/ProductAutoComplete/{merchantId}/{keyword}/{limit}/{locationId}`
 
 
 ### Request Path Parameters
@@ -4880,7 +4880,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Product/UpSale/{merchantId}/{productId}/{locationId}`
+`{host}/developerapi/Product/UpSale/{merchantId}/{productId}/{locationId}`
 
 
 ### Request Path Parameters
@@ -4929,7 +4929,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Product/ValidateLocation/{merchantId}/{productId}/{variantProductId}/{pinCode}/{locationId}/{quantity}`
+`{host}/developerapi/Product/ValidateLocation/{merchantId}/{productId}/{variantProductId}/{pinCode}/{locationId}/{quantity}`
 
 
 ### Request Path Parameters
@@ -4993,7 +4993,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Product/RemoveOfferText/{merchantId}`
+`{host}/developerapi/Product/RemoveOfferText/{merchantId}`
 
 
 ### Request Path Parameters

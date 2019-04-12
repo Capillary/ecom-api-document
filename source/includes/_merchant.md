@@ -38,7 +38,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Merchant/GetSignedUrl/{MerchantId}`
+`{host}/developerapi/Merchant/GetSignedUrl/{MerchantId}`
 
 
 

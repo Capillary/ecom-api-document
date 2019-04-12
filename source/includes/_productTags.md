@@ -61,7 +61,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/ProductTags/{MerchantId}`
+`{host}/developerapi/ProductTags/{MerchantId}`
 
 
 ### Request Path Parameters
@@ -130,7 +130,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/ProductTags/{MerchantId}/{ProductTag}`
+`{host}/developerapi/ProductTags/{MerchantId}/{ProductTag}`
 
 
 ### Request Path Parameters
@@ -194,7 +194,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/ProductTags/{MerchantId}/count`
+`{host}/developerapi/ProductTags/{MerchantId}/count`
 
 
 ### Request Path Parameters

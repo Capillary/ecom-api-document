@@ -55,7 +55,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Category/Information/{MerchantId}/{CategoryId}`
+`{host}/developerapi/Category/Information/{MerchantId}/{CategoryId}`
 
 
 ### Request Body Parameters
@@ -139,7 +139,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Category/{MerchantId}/{cateogryId}/variantproperties`
+`{host}/developerapi/Category/{MerchantId}/{cateogryId}/variantproperties`
 
 
 ### Request Path Parameters

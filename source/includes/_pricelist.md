@@ -65,7 +65,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Product/Pricelist/{MerchantId}/{PricelistRefCode}/upload`
+`{host}/developerapi/Product/Pricelist/{MerchantId}/{PricelistRefCode}/upload`
 
 
 ### Request Body Parameters
@@ -133,7 +133,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Product/Pricelist/Details/Delete/{MerchantId}/{PricelistRefCode}`
+`{host}/developerapi/Product/Pricelist/Details/Delete/{MerchantId}/{PricelistRefCode}`
 
 
 ### Request Path Parameters
@@ -292,7 +292,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Pricelist/{merchantId}`
+`{host}/developerapi/Pricelist/{merchantId}`
 
 
 ### Request Path Parameters

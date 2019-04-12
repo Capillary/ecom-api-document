@@ -73,7 +73,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Location/StoreDeliveryAreaMapping/{MerchantId}`
+`{host}/developerapi/Location/StoreDeliveryAreaMapping/{MerchantId}`
 
 ### Request Body Parameters
 Parameter | Datatype | Description
@@ -165,7 +165,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Location/UpdateLocation/{MerchantId}/{LocationrefCode}`
+`{host}/developerapi/Location/UpdateLocation/{MerchantId}/{LocationrefCode}`
 
 
 ### Header Modification Required
@@ -238,7 +238,7 @@ Batch Support | Yes
 
 
 ### Request URL
-`https://{host}/developerapi/Location/UpdateStoreTimings/{MerchantId}/{Locationrefcode}`
+`{host}/developerapi/Location/UpdateStoreTimings/{MerchantId}/{Locationrefcode}`
 
 ### Request Path Parameters
 Parameter | Type | Description
@@ -400,7 +400,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Location/{MerchantId}/Search`
+`{host}/developerapi/Location/{MerchantId}/Search`
 
 
 
@@ -511,7 +511,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Location/{merchantid}/SearchDeliveryAreas`
+`{host}/developerapi/Location/{merchantid}/SearchDeliveryAreas`
 
 
 ### Request Body Parameters
@@ -964,7 +964,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Location/Information/{MerchantId}/{{LocationId}}`
+`{host}/developerapi/Location/Information/{MerchantId}/{{LocationId}}`
 
 ### Request Parameters
 Parameter | Type | Description
@@ -1056,7 +1056,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Location/{MerchantId}/GetCities`
+`{host}/developerapi/Location/{MerchantId}/GetCities`
 
 ### Request Path Parameters
 Parameter | Type | Description
@@ -1121,7 +1121,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Location/AddDeliveryArea/{merchantId}`
+`{host}/developerapi/Location/AddDeliveryArea/{merchantId}`
 
 
 ### Request Body Parameters
@@ -1266,7 +1266,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Location/DeliveryAreas/{merchantId}/{locationId}`
+`{host}/developerapi/Location/DeliveryAreas/{merchantId}/{locationId}`
 
 ### Request Path Parameters
 Parameter | Type | Description
@@ -1561,7 +1561,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Location/Information/{merchantId}/{locationId}`
+`{host}/developerapi/Location/Information/{merchantId}/{locationId}`
 
 
 ### Request Path Parameters
@@ -1634,7 +1634,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Location/ReasonCodes/{merchantId}`
+`{host}/developerapi/Location/ReasonCodes/{merchantId}`
 
 ### Request Parameters
 Parameter | Type | Description
@@ -1714,7 +1714,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Location/UpdateLocationETA/{merchantId}/{OrderDeliveryType}`
+`{host}/developerapi/Location/UpdateLocationETA/{merchantId}/{OrderDeliveryType}`
 
 ### Request Query Parameters
 Parameter | Type | Description
@@ -1799,7 +1799,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Location/Information/{merchantId}/{LocationCode}/{OrderDeliveryType}`
+`{host}/developerapi/Location/Information/{merchantId}/{LocationCode}/{OrderDeliveryType}`
 
 ### Request Query Parameters
 
@@ -1890,7 +1890,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Location/{MerchantId}/SearchDeliveryPincodes`
+`{host}/developerapi/Location/{MerchantId}/SearchDeliveryPincodes`
 
 
 ### Request Body Parameters
@@ -1992,7 +1992,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Location/Log/{merchantId}/{locationCode}/{fromDate}/{toDate}`
+`{host}/developerapi/Location/Log/{merchantId}/{locationCode}/{fromDate}/{toDate}`
 
 
 ### Request Path Parameters

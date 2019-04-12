@@ -51,7 +51,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/ShoppingList/add/{MerchantId}`
+`{host}/developerapi/ShoppingList/add/{MerchantId}`
 
 ### Request Parameters
 Parameter | Type | Description
@@ -133,7 +133,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/ShoppingList/{MerchantId}/{UserId}/{shoppinglistId}/{GetDefaultWishlist}`
+`{host}/developerapi/ShoppingList/{MerchantId}/{UserId}/{shoppinglistId}/{GetDefaultWishlist}`
 
 
 ### Request Parameters
@@ -220,7 +220,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/ShoppingList/items/add/{MerchantId}`
+`{host}/developerapi/ShoppingList/items/add/{MerchantId}`
 
 ### Request Body Parameters
 
@@ -287,7 +287,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/ShoppingList/Items/{merchantId}/{shoppingListId}/{userId}`
+`{host}/developerapi/ShoppingList/Items/{merchantId}/{shoppingListId}/{userId}`
 
 
 ### Request Parameters

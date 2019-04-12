@@ -97,12 +97,13 @@ languagecode | The language of the application chosen by the end user in case on
 
 Entry | Description
 ----- | -----------
-URL | https://<host>/developerapi/{resource}/. We recommend using secure HTTPS requests instead of http for all your calls
-Host | The server to which the API calls are made. This should be the URL of the respective cluster from where the calls are made. <br> - **India**: `sg.ecom.capillary.in` <br> - **YUM**: `eu.ecom.capillary.in` <br> - **PH India**: `mb.ecom.capillary.in`  <br> - **Walmart**: `wm.ecom.capillary.in` <br> - **Staging**: `staging.ecom.capillary.in` <br> - **Nightly**: `nightly.ecom.capillary.in`
+URL | {host}/developerapi/{resource}/. We recommend using secure HTTPS requests instead of http for all your calls
+Host | The server to which the API calls are made. This should be the URL of the respective cluster from where the calls are made. <br> - **India**: `https://sg.ecom.capillary.in` <br> - **YUM**: `https://eu.ecom.capillary.in` <br> - **PH India**: `https://mb.ecom.capillary.in`  <br> - **Walmart**: `wm.ecom.capillary.in` <br> - **Staging**: `http://staging.ecom.capillary.in` <br> - **Nightly**: `http://nightly.ecom.capillary.in`
 Resource | Resource for which you want to perform an action. **Supported resources**: Banners, Brand, Carts, Category, Customer, CustomerGroups,GiftVoucher, Location, MailList, Merchant, Navigation, Order, PickList, Post, Pricelist, Product, ProductTags, ShoppingList, Store, and Voucher
 HTTP Methods | GET, POST, PATCH
 Response Format | JSON
 
+<aside class="notice"> To ensure privacy and security while using Anywhere Commerce APIs, we will eventually stop supporting insecure HTTP requests and recommend to use the secure HTTPS version. </aside>
 
 ### How to pass POST body?
 You always need to pass the POST body in the format specified below:
@@ -112,7 +113,7 @@ InputData={
 <JSON PAYLOAD>
 }&InputFormat=application/json`
 
-FOr example:
+For example:
 
 InputData={
 "customer":{

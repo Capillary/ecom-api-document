@@ -138,7 +138,7 @@ MerchantID=81e77da2-723b-483d-8c0d-49f800c1exxx&InputFormat=application/json&Inp
                      "checkouttype":"Online Payment",
                      "paymentno":"",
                      "amount":9495,
-                     "transaciondate":"07\/26\/2018",
+                     "transaciondate":"07/26/2018",
                      "paymentstatus":"Authorized"
                   }
                ]
@@ -174,6 +174,7 @@ This API lets you create batch orders. You can also capture vertical specific pr
 | | |
 --------- | ----------- |
 URI | `Order/BulkOrderCreation`
+Response Formats | JSON
 Rate Limited? | No
 Authentication | Yes
 HTTP Method | POST
@@ -184,25 +185,26 @@ Batch Support | Yes
 
 ### Request URL
 
-`https://{host}/developerapi/Order/BulkOrderCreation`
+`{host}/developerapi/Order/BulkOrderCreation`
 
 ### Request Body Parameters
 Parameter |  Type | Description
 --------- | ------ | --------
 orderrefno* | string | Reference number of the order
-orderdate* | date |  Ordered date in `dd/mm/yyyy` format
-deliveredon | date  |  Specify the estimated delivery of the item if applicable for the merchant in `dd/mm/yyyy` format
+orderdate* | date |  Ordered date in `mm/dd/yyyy` or `yyyy/mm/dd` format
+deliveredon | date  |  Specify the estimated delivery of the item if applicable for the merchant in `mm/dd/yyyy` or `yyyy/mm/dd` or 
 customertype | enum |  Type of the user as per the Martjack system. Supported Values: Guest User (for all marketplace), Registered User (If registered on Martjack platform)
 userid | string |  Registered identifier of the customer used for login. Required when `customertype="Registered User"`
 ordervalue | float |  Net order amount
 orderstatus |  enum |  Status of the order. Values: `Pending`, `Authorized`
 orderconfirmationmail | enum  |  Specify `Yes` to send an order confirmation email to the customer, else set `No`
-paymentlinkstatus | enum |  Status of the payment. Predefined enum values: Pending (Bank transfer, Cheque,), Authorized (COD, Prepaid)
-calculateshippingtax | enum |  Specify ``NO` if the order value includes tax and service charges, specify `YES` to add charges separately
+paymentlinkstatus | enum | Whether payment link needs to sent to customer (Yes) or not (No). Use only if the Order status is Pending. A link for making the payment will be sent to the customer with all the available payment options
+Storelocationcode | string | Source location of the order from where the order was initiated
+calculateshippingtax | enum |  Whether tax or shipping charges should be calculated based on CP Configuration. If `Yes` it will be calculated based on the CP Configuration rules. Specify `No` to consider input values from the payload
 shipfirstname, shiplastname, shipaddress1 ... | obj |  Specify the shipping address and name of the customer in the respective fields
 billfirstname, billlastname, billaddress1 ... | obj |  Specify the billing address and name of customer in the respective fields
 giftmsg | string  |  Specify the customer's preferred personalized message for the recipient (for gift orders)
-locationcode | string |  Reference code of the  order fulfillment location
+locationcode | string |  Location code of the order fulfillment location (Generally used for Location specific merchants)
 isselfship | boolean |  If the order shipment is handled by marketplace such as Amazon or Flipkart specify `False`, if the shipment is handled by the merchant itself, set the value to `True`
 channelrefcode | string |  Reference code of the channel from which the order has come from (specific to Sellerworx). A channel is an instance of marketplace. A seller can have multiple channels
 channelorderid | string |  Order id as maintained by that specific channel  (specific to Sellerworx)
@@ -422,6 +424,8 @@ This API lets you create batch orders for deal and bundle products.
 | | |
 --------- | ----------- |
 URI | `Order/BulkOrderCreation`
+Response Formats | JSON
+Rate Limited? | No
 Authentication | Yes
 HTTP Method | POST
 Batch Support | Yes
@@ -431,25 +435,26 @@ Batch Support | Yes
 
 ### Request URL
 
-`https://{host}/developerapi/Order/BulkOrderCreation`
+`{host}/developerapi/Order/BulkOrderCreation`
 
 ### Request Body Parameters
 Parameter |  Type | Description
 --------- | ------ | --------
 orderrefno* | string | Reference number of the order
-orderdate* | date | Ordered date in `dd/mm/yyyy` format
-deliveredon | date  | Specify the estimated delivery of the item if applicable for the merchant in `dd/mm/yyyy` format
+orderdate* | date | Ordered date in `mm/dd/yyyy` or `yyyy/mm/dd` format
+deliveredon | date  | Specify the estimated delivery of the item if applicable for the merchant in `mm/dd/yyyy` or `yyyy/mm/dd` format
 customertype | enum | Type of the user as per the Martjack system. Supported Values: Guest User (for all marketplace), Registered User (If registered on Martjack platform)
 userid | string | Registered identifier of the customer used for login. Required when `customertype:"Registered User"`
 ordervalue | float | Net order amount
 orderstatus |  enum | Status of the order. Value: `Pending`, `Authorized`
 orderconfirmationmail | enum  | Specify `Yes` to send an order confirmation email to the customer, else set `No`
-paymentlinkstatus | enum | Status of the payment. Predefined enum values: Values: Pending (Bank transfer, Cheque,), Authorized (COD, Prepaid)
-calculateshippingtax | enum | Specify ``NO` if the order value includes tax and service charges. specify `YES` to add charges separately
+paymentlinkstatus | enum | Whether payment link needs to sent to customer (Yes) or not (No). Use only if the Order status is Pending. A link for making the payment will be sent to the customer with all the available payment options
+calculateshippingtax | enum | Whether tax or shipping charges should be calculated based on CP Configuration. If `Yes` it will be calculated based on the CP Configuration rules. Specify `No` to consider input values from the payload
 shipfirstname, shiplastname, shipaddress1 ... | - |  Specify the customer's shipping address related information in the respective fields
 billfirstname, billlastname, billaddress1 ... | - |  Specify the customer's billing address related information in the respective fields
 giftmsg | string  | Specify the customer’s preferred personalized message for the recipient (for gift orders)
-locationcode | string | Reference code of the order fulfillment location
+storelocationcode | string | Source location of the order from where the order was initiated
+locationcode | string | Location code of the order fulfillment location (Generally used for Location specific merchants)
 isselfship | boolean | If the order shipment is handled by marketplace such as Amazon or Flipkart specify `False`, if the shipment is handled by the merchant itself, set the value to `True`
 channelrefcode | string | Channel from which the order is received (specific to Sellerworx). A channel is an instance of marketplace. A seller can have multiple channels
 channelorderid | string | Order id as maintained by that specific channel  (specific to Sellerworx)
@@ -489,7 +494,7 @@ deliverymode | enum | Mode of delivery of the item. Values: `H` for home deliver
 > Sample Request
 
 ```html
-http://{{url}}/developerapi/Order/PlaceOrder/81e77da2-723b-483d-8c0d-49f800c1exxx
+http://www.martjack.com/developerapi/Order/PlaceOrder/81e77da2-723b-483d-8c0d-49f800c1exxx
 ```
 
 > Sample POST Request
@@ -536,7 +541,7 @@ Batch Support | No
 * **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
 
 ### Request URL
-`http://{host}/developerapi/Order/PlaceOrder/{{MerchantId}}`
+`{host}/developerapi/Order/PlaceOrder/{MerchantId}`
 
 ### Additional Header
 Header | Description
@@ -551,7 +556,6 @@ merchantId* | string | The unique id (GUID) of the merchant in which you want to
 PaymentOption* | string | The name of the payment gateway. Pass only the supported modes configured in the back-end. For example, RazorPay, EBS, OnlineBankTransfer, COD, CreditCard, ChequeDD, Wallet, and eGiftVoucher
 paymentType* | string | The payment type used for the order - OBT (Online bank transfer),  TPG (Third party gateway), Credit, GV (Gift voucher) and so on
 gatewayId* | string | Gateway id through which the payment is made
-channelType | string | The channel from which the order is placed. For example: amazon, myntra 
 skipDeliveryAreaValidation | boolean | Specify `true` to validate delivery location before creating the order, `false` to ignore validation
 
 
@@ -862,7 +866,7 @@ ValidationResponse | json obj | Response object received from the payment gatewa
 
 ## Authorize Order
 
-Authorizes a pending order (an order with pending payment status).
+Authorizes a pending order (an order with pending payment status) or failed order.
 
 
 
@@ -878,8 +882,19 @@ https://www.martjack.com/developerapi/order/Authorize
 > Sample POST Request (RAW)
 
 ```json
-OrderID=7507817&merchantId=f48fdd16-92db-4188-854d-1ecd9b62d066&PaymentType=Credit&bankInstrumentNumber=12444&bankName=KOTAK&pGResponse=ewe23232323232
-
+MerchantID=fd986588-63df-4d76-9ddd-5d8b984518a5&InputFormat=application/json&InputData={
+"AuthorizeOrder":
+ {
+ "merchantId": "fd986588-63df-4d76-9ddd-5d8b984518a5",
+ "OrderId": "7557689",
+ "Date": "03/12/2019",
+ "Comment":"TestComment",
+ "PaymentType": "Credit",
+ "BankInstrumentNumber": "12444",
+ "BankName": "KOTAK",
+ "PGResponse": "ewe23232323232"
+ }
+}
 ```
 
 
@@ -913,7 +928,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/order/Authorize`
+`{host}/developerapi/order/Authorize`
 
 
 ### Request Body Parameters
@@ -922,6 +937,8 @@ Parameter | Type | Description
 -------- | ----- | -----------
 merchantId* | string | Unique GUID of the merchant
 OrderID* | int | Unique id of the order that you want to authorize 
+Date | date | Date of authorization 
+Comment | string | Specify if you want to provide any comment related to the order authentication
 PaymentType* | string | The type of payment for the order. Only values predefined for the merchant in the back-end are supported. Example: OBT (Online bank transfer), TPG (Third party gateway), Credit, GV (Gift voucher) and so on
 bankInstrumentNumber | string | Instrument number generated for payment clearance
 bankName | string | Name of the bank
@@ -1025,7 +1042,7 @@ Batch Support | No
 
 ### Request URL
 
-`http://{host}/developerapi/Order/ProcessTransaction/{MerchantId}`
+`{host}/developerapi/Order/ProcessTransaction/{MerchantId}`
 
 ### Request Body Parameters
 Parameter | Type | Description
@@ -1111,7 +1128,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi//Order/UpdateTransaction/{merchantId}`
+`{host}/developerapi/Order/UpdateTransaction/{merchantId}`
 
 
 ### Request Body Parameters
@@ -1160,8 +1177,8 @@ MerchantId=1b3420ce-002f-4f66-bbda-cd0828aa2af8&InputFormat=application/json&Inp
   "OrderSearch": {
     "Action": "",
     "CheckOutType": "Online Payment",
-    "DateFrom": "09\/15\/2017",
-    "DateTo": "09\/16\/2017",
+    "DateFrom": "09/15/2017",
+    "DateTo": "09/16/2017",
     "DateType": "",
     "EmailID": "",
     "FristName": "",
@@ -1284,14 +1301,14 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/order/Search/{merchantId}`
+`{host}/developerapi/order/Search/{merchantId}`
 
 ### Request Body Parameters
 Parameter | Type | Description
 --------- | ---- | -----------
 CheckOutType | string | Type of check out. Values: Online Payment, Cash on Delivery, Bank Transfer, Cheque/DD, Gift Voucher, Net Banking, Payback Points, Wallet
-DateFrom | date | Search orders of a specific duration between `DateFrom` and `DateTo`. The duration is considered on the basis of specified `DateType'. Pass the date in `MM\/DD\/YYYY` format
-DateTo | date | Search orders of a specific duration between `DateFrom` and `DateTo`. The duration is considered on the basis of specified `DateType'. Pass the date in `MM\/DD\/YYYY` format
+DateFrom | date | Search orders of a specific duration between `DateFrom` and `DateTo`. The duration is considered on the basis of specified `DateType'. Pass the date in `MM/DD/YYYY` format
+DateTo | date | Search orders of a specific duration between `DateFrom` and `DateTo`. The duration is considered on the basis of specified `DateType'. Pass the date in `MM/DD/YYYY` format
 DateType | enum | Activity of the specified date range. Values: `OD` for Order Date, `SD` for Ship Date, `RD` for Return Date, `DD` for Delivered Date, `DS` for Dispatch Date
 EmailID | string | Specify registered email id of a customers to fetch all orders of that customer
 FristName | string | Search orders by customers' first name. For example, if you specify `Tom`, it will fetch the list of all orders of customers whose first name is Tom
@@ -1364,7 +1381,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/order/SaveMerchantTransaction/{merchantId}`
+`{host}/developerapi/order/SaveMerchantTransaction/{merchantId}`
 
 ### Request Body Parameters
 Parameter | Type | Description
@@ -1748,7 +1765,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Order/ReOrder/{merchantId}`
+`{host}/developerapi/Order/ReOrder/{merchantId}`
 
 ### Request Path Parameters
 
@@ -1760,6 +1777,7 @@ merchantId* | string | Unique merchant id (GUID) in which the order is placed
 Parameter | Type | Description
 --------- | ----- | ------
 OrderId* | int | Existing Order id of the customer that you want to order again
+orderItemId | int | Specify the order item id to reorder a specific item; `0` to consider the entire order items
 UserId* | string  | Unique GUID of the customer associated to the order
 
 ### Response Parameters
@@ -1784,12 +1802,12 @@ IsFreeProduct | enum | Whether the current item is a free gift item. Value: Yes,
 
 
 
-## Fetch Order History
+## Get Order History
 
 > Sample Request
 
 ```html
-http://{www.martjack.com/developerapi/Order/History/81e77da2-723b-483d-8c0d-49f800c1exxx
+http://www.martjack.com/developerapi/Order/History/81e77da2-723b-483d-8c0d-49f800c1exxx
 ```
 
 > Sample POST Request
@@ -1839,7 +1857,7 @@ MerchantID=81e77da2-723b-483d-8c0d-49f800c1exxx&InputFormat=application/json&Inp
                "CurrencyCode":"INR",
                "GV":"",
                "OrderId":567282,
-               "PaymentDate":"1\/1\/1900",
+               "PaymentDate":"1/1/1900",
                "PaymentDetailsId":539740,
                "PaymentOption":"OnlineBankTransfer",
                "PaymentResponse":"{\"TransactionType\":\"TPG\",\"Mode\":\"TPG\",\"Card\":\"xxxxxxxxxxxx\",\"ResponseMessage\":\"{\\\"MID\\\":\\\"CPWHOL99145646120719\\\",\\\"ORDERID\\\":\\\"6979181\\\",\\\"TXNAMOUNT\\\":\\\"7801.00\\\",\\\"CURRENCY\\\":\\\"INR\\\",\\\"TXNID\\\":\\\"70001001203\\\",\\\"BANKTXNID\\\":\\\"1233957\\\",\\\"STATUS\\\":\\\"TXN_SUCCESS\\\",\\\"RESPCODE\\\":\\\"01\\\",\\\"RESPMSG\\\":\\\"Txn Successful.\\\",\\\"TXNDATE\\\":\\\"2018-07-26 18:49:23.0\\\",\\\"GATEWAYNAME\\\":\\\"WALLET\\\",\\\"BANKNAME\\\":\\\"\\\",\\\"PAYMENTMODE\\\":\\\"PPI\\\",\\\"CHECKSUMHASH\\\":\\\"qLXOxRBDS5SHAjZu1xLcQovmM4OLv7kYa93lZO76XqgXR8mHfK7KsxNIEYQA2KgU8B6eXf2ZzWf95k6DoKY34ZQa7S/TvP5gasePQDjS+fA=\\\",\\\"orderID\\\":\\\"6979181\\\"}\"}",
@@ -1902,7 +1920,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host url}/developerapi/Order/History/{MerchantId}`
+`{host}/developerapi/Order/History/{MerchantId}`
 
 ### Request Body Parameters
 Parameter | Type | Description
@@ -1940,165 +1958,109 @@ LeadTime | int | Minimum time period (in minutes) prior to the booking slot when
 > Sample Request
 
 ```html
-https://www.martjack.com/developerapi/Order/Invoice/6c57599f-2c43-4c82-806a-e07c3410fxxx/invoice_hyc-2017-2018-00000127/1435
+https://www.martjack.com/developerapi/Order/Invoice/f48fdd16-92db-4188-854d-1ecd9b62d067/invoice_hyc-00000576/18340
 ```
 
 > Sample Response
 
 ```json
-{  
-   "messageCode":"1004",
-   "Message":"Successful",
-   "Orders":[  
-      {  
-         "OrderId":5648247,
-         "Status":"S",
-         "sku":null,
-         "shipdate":null,
-         "MerchantId":"6c57599f-2c43-4c82-806a-e07c3410f5d3",
-         "UserId":"f72da7b6-9566-4c99-b0e6-aa882e7acc43",
-         "TotalAmount":451,
-         "AmountPayable":451,
-         "OrderDate":"15/02/2018",
-         "BillFirstname":"Tom Sawyer",
-         "BillLastname":"N",
-         "BillCountry":"India",
-         "BillingState":"Karnataka",
-         "BillCity":"32",
-         "BillEmail":"tom.sawyer@example.com",
-         "BillZIP":"560068",
-         "BillPhone":"NA",
-         "BillMobile":"9098000000",
-         "BillAddress1":"#304-39,Brigade Enclave,Hosakerehalli,Banglore",
-         "ShipFirstname":"Tom Sawyer",
-         "ShipLastname":" - ",
-         "ShipCountry":"India",
-         "ShipState":"Karnataka",
-         "ShipCity":"32",
-         "ShipEmail":"tom.sawyer@example.com",
-         "ShipZip":"560047",
-         "ShipPhone":"9098000000",
-         "ShipMobile":"9098000000",
-         "ShipAddress1":"A5-415, Malaprabha Block&#10;National Games Village, Koramangala",
-         "ShipOtherCity":null,
-         "DeliveryOption":"ship",
-         "TAXTotal":40.90,
-         "VoucherCode":"",
-         "LeadTime":"",
-         "BillAddress2":"",
-         "ShipAddress2":"",
-         "IsGift":false,
-         "SupplierID":"00000000-0000-0000-0000-000000000000",
-         "ConversionFactor":"1",
-         "cpuserid":"00000000-0000-0000-0000-000000000000",
-         "OrderLineId":[  
-            {  
-               "OrderLineId":21411124,
-               "OrderId":5648247,
-               "ProductId":11139502,
-               "VariantProductId":7086906,
-               "IsParentProduct":true,
-               "Description":"",
-               "Quantity":1,
-               "ShippingCost":1,
-               "ProductPrice":459.09,
-               "TotalPromotionDiscount":50,
-               "ReturnReason":"",
-               "ReturnAction":"",
-               "StockAction":"",
-               "ReturnQty":0,
-               "IsBackOrder":false,
-               "TotalVoucherDiscount":0,
-               "TotalTaxAmount":40.9091,
-               "ShippingVoucherDiscount":0,
-               "CustomFields":"",
-               "VariantMasterProductId":0,
-               "LocationCode":"OCDEL",
-               "ShippingStatus":"S",
-               "DeliveryMode":"",
-               "VendorId":"00000000-0000-0000-0000-000000000000",
-               "ItemStatus":"S",
-               "SKU":"INDIGOF11515WHT",
-               "VariantSku":"8907319010800",
-               "ProductTitle":"White Cotton Skirt",
-               "BundleProductId":"0",
-               "ParentReDetailsId":"0",
-               "ImageUrl":"http://images-cdn-stage.azurewebsites.net/azure/stage-resources/6c57599f-2c43-4c82-806a-e07c3410f5d3/Images/ProductImages/Source/INDIGOF11515WHT1-optimized.jpg;width=300",
-               "IsPrimaryProduct":"false",
-               "Portion":"",
-               "MRP":"0",
-               "TaxAmount":"40.90",
-               "TaxDetails":[  
-                  {  
-                     "TaxCategory":"IGST",
-                     "TaxRate":"10",
-                     "TaxAmount":40.9091,
-                     "IsTaxRatePercentage":true,
-                     "TaxCode":null
-                  }
-               ],
-               "IsTaxable":"True",
-               "HSNCode":"",
-               "UOM":"Pieces",
-               "ActualWeight":"0.000"
-            }
-         ],
-         "PaymentDetails":[  
-            {  
-               "PointsBurned":"0",
-               "AgentId":"",
-               "GV":"",
-               "Channel":"",
-               "CurrencyCode":"INR",
-               "PaymentResponse":"",
-               "PaymentStatus":"A",
-               "Amount":"130",
-               "PaymentDate":"8/6/2017",
-               "PaymentType":"",
-               "OrderId":5648247,
-               "PaymentDetailsId":5743268,
-               "checkOutGroup":"",
-               "PaymentOption":"",
-               "clientIP":"",
-               "ResponseCode":"N",
-               "ClientUserAgent":"GuzzleHttp/6.2.0 curl/7.35.0 PHP/5.5.9-1ubuntu4.19"
-            }
-         ],
-         "Rewards":null,
-         "ShippingDiscount":0,
-         "VoucherDiscount":0,
-         "PromotionDiscount":50,
-         "OriginalOrderId":"5648247",
-         "ReturnOrderId":"0",
-         "ReferenceNo":"443",
-         "DemandedDeliveryDate":"",
-         "deliveryslots":{  
-            "StartTime":"",
-            "EndTime":""
-         },
-         "GiftMessage":"",
-         "LanguageCode":"",
-         "ShipStateCode":"KA",
-         "ShipCountryCode":"IN",
-         "BillStateCode":"KA",
-         "BillCountryCode":"IN",
-         "RefundAmount":"0",
-         "Promotions":null,
-         "TaxDetails":[  
-            {  
-               "TaxCategory":"IGST",
-               "TaxRate":"10",
-               "TaxAmount":40.9091,
-               "IsTaxRatePercentage":true,
-               "TaxCode":null
-            }
-         ],
-         "MerchantGSTIN":"07650296886",
-         "CustomerGSTIN":"",
-         "TaxableInvoiceNumber":"tax/2017-2018/0048",
-         "BillofSupplyInvoiceNumber":""
-      }
-   ]
+
+{
+    "messageCode": "1004",
+    "Message": "Successful",
+    "InvoiceOrders": [
+        {
+            "OrderId": 7520003,
+            "InvoiceDate": "27-Mar-2019",
+            "ShipmentID": 5516645,
+            "InvoiceNumber": "invoice_hyc-00000576",
+            "MerchantId": "f48fdd16-92db-4188-854d-1ecd9b62d067",
+            "UserId": "00000000-0000-0000-0000-000000000000",
+            "OrderTotalAmount": 549,
+            "InvoiceAmount": 549,
+            "OrderDate": "27-Mar-2019",
+            "OrderRefNumber": "3550",
+            "BillFirstname": "Sana",
+            "BillLastname": "Ta Minh",
+            "BillCountry": "India",
+            "BillingState": "Karnataka",
+            "BillCity": "Bengaluru",
+            "BillEmail": "sahana.garje@capillarytech.com",
+            "BillZIP": "560078",
+            "BillPhone": "",
+            "BillMobile": "7411982768",
+            "BillAddress1": "Yen Lac",
+            "BillAddress2": "",
+            "BillCityCode": "19761",
+            "BillStateCode": "KA",
+            "BillCountryCode": "IN",
+            "ShipFirstname": "Sana",
+            "ShipLastname": "Ta Minh",
+            "ShipCountry": "India",
+            "ShipState": "Karnataka",
+            "ShipCity": "Bengaluru",
+            "ShipEmail": "sahana.garje@capillarytech.com",
+            "ShipZip": "560078",
+            "ShipPhone": "7411982768",
+            "ShipMobile": "7411982768",
+            "ShipAddress1": "Yen Lac",
+            "ShipAddress2": "Yen Lac",
+            "ShipOtherCity": "",
+            "ShipCityCode": "19761",
+            "ShipStateCode": "KA",
+            "ShipCountryCode": "IN",
+            "ShipLat": 0,
+            "ShipLong": 0,
+            "LocationCode": "1001",
+            "TaxTotal": 0,
+            "ShippingCost": 0,
+            "IsGift": false,
+            "Rewards": null,
+            "PromotionDiscount": 0,
+            "DemandedDeliveryDate": "01-Jan-1900",
+            "MerchantGSTIN": "",
+            "TaxableInvoiceNumber": null,
+            "BillofSupplyInvoiceNumber": "invoicebill_hyc-002194",
+            "deliveryslot": {
+                "StartTime": "12: 00 AM",
+                "EndTime": "12:00 AM",
+                "DeliverySlotId": null
+            },
+            "InvoiceLineItem": [
+                {
+                    "ShipmentItemId": 22091385,
+                    "OrderLineId": 26178585,
+                    "OrderId": 7520003,
+                    "ProductId": 11995626,
+                    "VariantProductId": 0,
+                    "Quantity": 1,
+                    "ShippingCost": 0,
+                    "ProductPrice": 549,
+                    "PromotionDiscount": 0,
+                    "TaxAmount": "0",
+                    "DeliveryMode": "H",
+                    "VendorId": "00000000-0000-0000-0000-000000000000",
+                    "SKU": "100011145",
+                    "VariantSku": null,
+                    "ProductTitle": "Nestle Milkmaid - 400g Tin",
+                    "HSNCode": "04029920",
+                    "MRP": "115.000",
+                    "CatalogDiscount": 0,
+                    "UOM": "Pieces",
+                    "AverageWeight": "0",
+                    "IsTaxable": "False",
+                    "TaxDetails": [],
+                    "BatchNo": null,
+                    "PickingPrice": 0,
+                    "PickListCustomFields": [],
+                    "TotalTaxOnDeliveryCharge": 0,
+                    "ShipmentCustomFields": null
+                }
+            ],
+            "ShippingStatus": "R"
+        }
+    ],
+    "ErrorCode": 0
 }
 ```
 
@@ -2121,7 +2083,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/order/invoice/{merchantid}/{InvoiceNumber}/{LocationRefCode}`
+`{host}/developerapi/order/invoice/{merchantid}/{InvoiceNumber}/{LocationRefCode}`
 
 ### Request Path Parameters
 Parameter | Type | Description
@@ -2221,16 +2183,12 @@ Batch Support | No
 * **Rate limiter** controls the number of incoming and outgoing traffic of a network
 * **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
 
-### Additional Header Required
-Header Name | Value
------------ | ------
-token_secret | Unique authentication key generated for the request
 
 
 
 ### Request URL
 
-`https://{host}/developerapi/Order/Details/{MerchantId}/{OrderId}`
+`{host}/developerapi/Order/Details/{MerchantId}/{OrderId}`
 
 ### Request Parameters
 Parameter | Type | Description
@@ -2498,7 +2456,7 @@ Batch Support | Yes
 * **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
 
 ### Request URL
-`http://{host}/developerapi/order/V2/{MerchantId}/{orderID}`
+`{host}/developerapi/order/V2/{MerchantId}/{orderID}`
 
 ### Request Path Parameters
 Parameter | Type | Description
@@ -2711,7 +2669,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Order/DetailsByRefCode/{merchantId}/{orderReferenceNo}`
+`{host}/developerapi/Order/DetailsByRefCode/{merchantId}/{orderReferenceNo}`
 
 
 ### Request Path Parameters
@@ -2825,7 +2783,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Order/LineItem/{merchantId}/{orderLineId}`
+`{host}/developerapi/Order/LineItem/{merchantId}/{orderLineId}`
 
 
 ### Request Path Parameters
@@ -2915,7 +2873,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Order/GetOrderStatus/{MerchantId}/{orderId}`
+`{host}/developerapi/Order/GetOrderStatus/{MerchantId}/{orderId}`
 
 
 ### Request Path Parameters
@@ -2979,7 +2937,7 @@ Cancels a specific order of a customer placed on a merchant store. An order can 
 However, you can cancel the order if
  
 * it is either in Authorized (A) or Pending (P) Status
-* the picklist is either created or completed
+* the picklist is either created or completed for any of the order items
 
 
 ### Resource Information
@@ -2998,7 +2956,7 @@ Batch Support | No
 
 ### Request URL
 
-`http://{host}/developerapi/Order/Cancel`
+`{host}/developerapi/Order/Cancel`
 
 ### Request Body Parameters
 
@@ -3078,7 +3036,7 @@ Batch Support | No
 
 ### Request URL
 
-`http://{host}/developerapi/Order/CancelItem`
+`{host}/developerapi/Order/CancelItem`
 
 ### Request Body Parameters
 Parameter | Type | Description
@@ -3154,7 +3112,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Order/AddOrderLineItem/{MerchantId}`
+`{host}/developerapi/Order/AddOrderLineItem/{MerchantId}`
 
 
 ### Request Body Parameters
@@ -3217,10 +3175,10 @@ InputFormat=application/json&merchantId=f48fdd16-92db-4188-854d-1ecd9b62xxxx&Inp
 }
 ```
 
-Lets you process order returns and change the sub-status of the return order requests.
+Lets you process return requests and change the sub-status of the return requests.
 
 
-For a return order a brand could configure multiple sub-statuses according to its work-flow.
+For return requests, a brand could configure multiple sub-statuses according to its work-flow.
 
 ### Resource Information
 | | |
@@ -3237,7 +3195,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Order/ProcessReturn/{MerchantId}`
+`{host}/developerapi/Order/ProcessReturn/{MerchantId}`
 
 ### Request Body Parameters
 
@@ -3313,7 +3271,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Order/UpdateReturnRequestStatus/{merchantId}`
+`{host}/developerapi/Order/UpdateReturnRequestStatus/{merchantId}`
 
 
 ### Request Body Parameters
@@ -3351,7 +3309,8 @@ MerchantID=fccabc5b-aa81-4346-b536-0fd6bc94c837&InputFormat=application/json&Inp
    "shipment":{  
       "OrderId":"7503709",
       "LocationRefCode":"",
-      "ShipDate":"2019/11/01",
+      "LogisticsType": "ConfiguredProvider",
+	  "ShipDate":"2019/11/01",
       "ShipmentType":"normal",
       "CourierName":"test",
       "AWBNumber":"12345",
@@ -3422,7 +3381,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Order/Ship`
+`{host}/developerapi/Order/Ship`
 
 ### Request Body Parameters
 Parameter | Type |  Description
@@ -3431,6 +3390,7 @@ MerchantId* | string |  The unique id (GUID) of the merchant in which the order 
 OrderId* | int |  The order id of the current shipment item 
 AWBNumber* | string |  The air way bill number generated for the shipment
 CourierName* | string |  The courier service used for shipment
+LogisticsType | enum | Specify `ConfiguredProvider` if the logistic provider is configured for the merchant; else leave it blank. You need to pass the AWBNumber and CourierName if LogisticType is blank. If `ConfiguredProvider`, AWB number will be considered or assigned as per configured
 ShipDate* | date |  The date on which the order is shipped in `yyyy/mm/dd` format
 ShipmentType* | enum |  The type of shipment. Value: `Normal` for shipments from warehouse to customer, `Reverse` for return shipments, i.e., customer to warehouse
 LocationRefCode* | string |  Location reference code of the order fulfillment store
@@ -3470,7 +3430,7 @@ InputFormat=application/json&merchantId=f48fdd16-92db-4188-854d-1ecd9b62xxxx&Inp
 	"ShipmentType": "Normal",
 	"AirwayBillNo": "123456",
 	"CourierName": "Custom",
-	"ShipmentPickupDate": "2018\/10\/30",
+	"ShipmentPickupDate": "2018/10/30",
 	"LocationCode": "1001",
 	"ShipmentPackageInputs": [
   	{
@@ -3536,7 +3496,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Order/CreateShipmentPackages/{MerchantId}`
+`{host}/developerapi/Order/CreateShipmentPackages/{MerchantId}`
 
 
 ### Request Body Parameters
@@ -3547,8 +3507,8 @@ OrderID* | int | The order id for which you want to create shipment packages
 ShipmentType* | string  | Type of shipment. Value: `Normal` for shipments from warehouse to customer, `Reverse` for shipments customer to warehouse (return pickup)
 AirwayBillNo* | string | Airway bill number provided by the courier service
 CourierName* | string | Name of the courier service used for shipment
-ShipmentPickupDate* | date-time | Pickup date of the shipment in `YYYY\/MM\/DD` format
-LocationCode* | string | Reference code of the order fulfillment location
+ShipmentPickupDate* | date-time | Pickup date of the shipment in `YYYY/MM/DD` format
+LocationCode* | string | Location code of the order fulfillment location (Generally used for Location specific merchants)
 PackageCode | string | Unique code generated for the package
 PackingSupplyRefCode | string | Unique reference code generated for the package while creating
 PackageID | int | Unique id of the package 
@@ -3625,7 +3585,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Order/ChangeSubStatus/{MerchantId}/{OrderId}`
+`{host}/developerapi/Order/ChangeSubStatus/{MerchantId}/{OrderId}`
 
 
 ### Request Path Parameters
@@ -3722,7 +3682,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Order/UpdateShipmentTripDetails/{MerchantId}`
+`{host}/developerapi/Order/UpdateShipmentTripDetails/{MerchantId}`
 
 
 ### Request Body Parameters
@@ -3800,7 +3760,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Order/UpdateShipmentStatus/{merchantId}`
+`{host}/developerapi/Order/UpdateShipmentStatus/{merchantId}`
 
 
 ### Request Body Parameters
@@ -3869,7 +3829,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Order/ShipmentPackages/{merchantId}`
+`{host}/developerapi/Order/ShipmentPackages/{merchantId}`
 
 
 ### Response Parameters
@@ -3944,7 +3904,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Order/ShipmentDetails/{merchantId}/{shipmentId}`
+`{host}/developerapi/Order/ShipmentDetails/{merchantId}/{shipmentId}`
 
 ### Request Path Parameters
 
@@ -4119,7 +4079,7 @@ Batch Support | No
 * **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
 
 ### Request URL
-`https://{host}/developerapi/Order/GetOrderActivityHistory/{MerchantId}`
+`{host}/developerapi/Order/GetOrderActivityHistory/{MerchantId}`
 
 
 
@@ -4276,7 +4236,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Order/{merchantId}/{orderId}/Shipments`
+`{host}/developerapi/Order/{merchantId}/{orderId}/Shipments`
 
 
 ### Request Path Parameters
@@ -4392,7 +4352,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Order/getshipments/{merchantId}/{orderID}`
+`{host}/developerapi/Order/getshipments/{merchantId}/{orderID}`
 
 
 ### Request Path Parameters
@@ -4487,7 +4447,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Order/GetShipmentHistory/{merchantId}`
+`{host}/developerapi/Order/GetShipmentHistory/{merchantId}`
 
 
 ### Request Body Parameters
@@ -4557,7 +4517,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Order/UpdateShipmentCourierDetails/{merchantId}`
+`{host}/developerapi/Order/UpdateShipmentCourierDetails/{merchantId}`
 
 
 ### Request Body Parameters
@@ -4688,7 +4648,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Order/CalculateTax/{merchantId}`
+`{host}/developerapi/Order/CalculateTax/{merchantId}`
 
 
 ### Request Body Parameters
@@ -4696,7 +4656,7 @@ Batch Support | No
 Parameter | Type | Description
 -------- | ----- | -----------
 MerchantID* | string | Unique GUID of the merchant
-SourceLocationCode | int | Location code of the product
+SourceLocationCode | int | Location code of the order fulfillment location (Generally used for Location specific merchants)
 SourceLocationId | int | Unique location id of the product
 SourceCityName | string | City name of the product location
 SourceCityCode | string | Unique city code of the product location
@@ -4868,7 +4828,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Order/CalculateTax/{merchantId}`
+`{host}/developerapi/Order/CalculateTax/{merchantId}`
 
 
 ### Request Body Parameters
@@ -4972,7 +4932,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Order/BalanceEnquiry/{merchantId}`
+`{host}/developerapi/Order/BalanceEnquiry/{merchantId}`
 
 
 
@@ -5042,7 +5002,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Order/UpdateOrderReference/{merchantId}`
+`{host}/developerapi/Order/UpdateOrderReference/{merchantId}`
 
 ### Request Body Parameters
 
@@ -5177,7 +5137,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/DeveloperAPI/Order/CreateReturnRequest/{merchantId}`
+`{host}/developerapi/DeveloperAPI/Order/CreateReturnRequest/{merchantId}`
 
 
 ### Request Body Parameters
@@ -5316,7 +5276,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Order/GetReturnRequestHistory/{merchantId}`
+`{host}/developerapi/Order/GetReturnRequestHistory/{merchantId}`
 
 ### Request Body Parameters
 
@@ -5482,7 +5442,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Order/GetReturnRequest/{merchantId}/{returnRequestId}`
+`{host}/developerapi/Order/GetReturnRequest/{merchantId}/{returnRequestId}`
 
 ### Request Path Parameters
 
@@ -5644,7 +5604,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Order/GetReturnRequestByOrderID/{MerchantId}/{OrderId}`
+`{host}/developerapi/Order/GetReturnRequestByOrderID/{MerchantId}/{OrderId}`
 
 
 ### Request Path Parameters
@@ -5734,7 +5694,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Order/EditOrderLineItem/{MerchantId}`
+`{host}/developerapi/Order/EditOrderLineItem/{MerchantId}`
 
 
 ### Request Body Parameters
@@ -5786,7 +5746,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Order/GetDocument/{MerchantId}/{OrderId}/{objectType}/{objectValue}`
+`{host}/developerapi/Order/GetDocument/{MerchantId}/{OrderId}/{objectType}/{objectValue}`
 
 
 ### Request Path Parameters
@@ -5889,7 +5849,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Order/AddManifest/{merchantId}`
+`{host}/developerapi/Order/AddManifest/{merchantId}`
 
 
 ### Request Body Parameters
@@ -5963,7 +5923,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Order/UpdateManifest/{merchantId}`
+`{host}/developerapi/Order/UpdateManifest/{merchantId}`
 
 
 ### Request Body Parameters
@@ -6028,7 +5988,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Order/GetManifest/{MerchantId}/{ManifestId}`
+`{host}/developerapi/Order/GetManifest/{MerchantId}/{ManifestId}`
 
 
 ### Request Path Parameters
@@ -6152,7 +6112,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Order/TaxVoucher/{merchantId}/{orderId}`
+`{host}/developerapi/Order/TaxVoucher/{merchantId}/{orderId}`
 
 
 ### Request Path Parameters
@@ -6172,7 +6132,7 @@ Following table contains descriptions of a few response parameters that require 
 Parameter | Type | Description
 -------- | ----- | -----------
 TaxVoucherNumber | string | Advance tax voucher number (as generated through the Document Series in Advanced Settings)
-LocationCode | int | Location code of the delivery location
+LocationCode | int | Location code of the order fulfillment location (Generally used for Location specific merchants)
 OrderLineId | int | Unique id of the order line item
 HSNCode | string | The HSN code is the 'Harmonized System Nomenclature code number' that is required for GST. The 'HSN code' is shown at item level
 TaxCategory | string | Category of the current tax. For example: STT, VAT, GST, and CST
@@ -6315,7 +6275,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Order/LeadSearch/{merchantId}`
+`{host}/developerapi/Order/LeadSearch/{merchantId}`
 
 
 ### Request Body Parameters

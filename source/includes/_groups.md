@@ -53,7 +53,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/CustomerGroups/Consumer/{merchantId}/{userGroupId}/{userId}/Add`
+`{host}/developerapi/CustomerGroups/Consumer/{merchantId}/{userGroupId}/{userId}/Add`
 
 
 ### Request Path Parameters
@@ -127,7 +127,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/CustomerGroups/{merchantId}/{userGroupId}`
+`{host}/developerapi/CustomerGroups/{merchantId}/{userGroupId}`
 
 
 ### Request Path Parameters
@@ -304,7 +304,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/CustomerGroups/Consumer/{merchantId}/{userGroupId}`
+`{host}/developerapi/CustomerGroups/Consumer/{merchantId}/{userGroupId}`
 
 
 ### Request Path Parameters
@@ -379,7 +379,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/CustomerGroups/Group/{merchantId}/{userId}`
+`{host}/developerapi/CustomerGroups/Group/{merchantId}/{userId}`
 
 
 ### Request Path Parameters
@@ -488,7 +488,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/CustomerGroups/{merchantId}`
+`{host}/developerapi/CustomerGroups/{merchantId}`
 
 
 ### Request Path Parameters
@@ -557,7 +557,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/CustomerGroups/Consumer/{merchantId}/{userGroupId}/{userId}/Remove`
+`{host}/developerapi/CustomerGroups/Consumer/{merchantId}/{userGroupId}/{userId}/Remove`
 
 
 ### Request Path Parameters

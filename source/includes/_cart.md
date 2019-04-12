@@ -53,7 +53,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/carts/V2/SendOTP/{MerchantId}`
+`{host}/developerapi/carts/V2/SendOTP/{MerchantId}`
 
 
 
@@ -118,7 +118,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/carts/V2/ValidateOTP/{merchantId}`
+`{host}/developerapi/carts/V2/ValidateOTP/{merchantId}`
 
 ### Request Parameters
 Parameter | Description
@@ -392,7 +392,7 @@ Batch Support | No
 * **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
 
 ### Request URL
-`https://{host}/developerapi/carts/AddCartItems/{merchantId}`
+`{host}/developerapi/carts/AddCartItems/{merchantId}`
 
 
 
@@ -1314,7 +1314,7 @@ Header | Description
 accesstoken* | Access token of the logged in user to validate the session
 
 ### Request URL
-`https://{host}/developerapi/carts/AddCartItems/{merchantId}`
+`{host}/developerapi/carts/AddCartItems/{merchantId}`
 
 
 ### Request Body Parameters
@@ -2420,7 +2420,7 @@ accesstoken* | Access token of the logged in user to validate the session
 
 
 ### Request URL
-`https://{host}/developerapi/carts/AddCartItems/{merchantId}`
+`{host}/developerapi/carts/AddCartItems/{merchantId}`
 
 ### Request Body Parameters
 
@@ -3097,7 +3097,7 @@ accesstoken* | Access token of the logged in user to validate the session
 
 
 ### Request URL
-`https://{host}/developerapi/carts/AddCartItems/{merchantId}`
+`{host}/developerapi/carts/AddCartItems/{merchantId}`
 
 ### Request Body Parameters
 
@@ -3388,7 +3388,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Carts/LocationCart/{merchantId}/{productId}/{varProductId}/{quantity}/{locationId}/{currency}`
+`{host}/developerapi/Carts/LocationCart/{merchantId}/{productId}/{varProductId}/{quantity}/{locationId}/{currency}`
 
 
 ### Request Path Parameters
@@ -3735,7 +3735,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/carts/edit/{merchantId}`
+`{host}/developerapi/carts/edit/{merchantId}`
 
 
 ### Additional Header Required
@@ -3968,7 +3968,7 @@ Batch Support | No
 * **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
 
 ### Request URL
-`https://{host}/developerapi/Carts/Update/{merchantId}/{cartReferenceKey}/{new quantity}`
+`{host}/developerapi/Carts/Update/{merchantId}/{cartReferenceKey}/{new quantity}`
 
 ### Additional Header Required
 
@@ -4343,7 +4343,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/carts/UpdateCartProperties/{merchantId}`
+`{host}/developerapi/carts/UpdateCartProperties/{merchantId}`
 
 ### Additional Header Required
 
@@ -5196,7 +5196,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Carts/cart/{merchantId}`
+`{host}/developerapi/Carts/cart/{merchantId}`
 
 
 
@@ -5516,7 +5516,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Carts/cart/{merchantId}/{accesstoken}`
+`{host}/developerapi/Carts/cart/{merchantId}/{accesstoken}`
 
 
 
@@ -5592,7 +5592,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Carts/Remove/{MerchantId}/{cartReferneKey}/{quantity}`
+`{host}/developerapi/Carts/Remove/{MerchantId}/{cartReferneKey}/{quantity}`
 
 ### Additional Header Required
 
@@ -5654,7 +5654,7 @@ Batch Support | No
 * **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
 
 ### Request URL
-`https://{host}/developerapi/Carts/RemoveAll/{merchantId}`
+`{host}/developerapi/Carts/RemoveAll/{merchantId}`
 
 ### Additional Header Required
 
@@ -5724,7 +5724,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Carts/clear/{MerchantId}`
+`{host}/developerapi/Carts/clear/{MerchantId}`
 
 ### Additional Header Required
 
@@ -5825,7 +5825,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/carts/AddOrderAttributes/{merchantId}`
+`{host}/developerapi/carts/AddOrderAttributes/{merchantId}`
 
 ### Additional Header Required
 
@@ -6153,7 +6153,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/carts/UpdateAddress/{merchantId}`
+`{host}/developerapi/carts/UpdateAddress/{merchantId}`
 
 
 ### Additional Header Required
@@ -6405,7 +6405,7 @@ Batch Support | No
 * **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
 
 ### Request URL
-`https://{host}/developerapi/Carts/ApplyVoucher/{merchantId}/{voucherCode}`
+`{host}/developerapi/Carts/ApplyVoucher/{merchantId}/{voucherCode}`
 
 ### Additional Header Required
 
@@ -6638,7 +6638,7 @@ Batch Support | No
 * **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
 
 ### Request URL
-`https://{host}/developerapi/Carts/RemoveVoucher/{merchantId}/{voucherCode}`
+`{host}/developerapi/Carts/RemoveVoucher/{merchantId}/{voucherCode}`
 
 ### Additional Header Required
 
@@ -6759,7 +6759,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/carts/GetAllPromotions/{merchantId}`
+`{host}/developerapi/carts/GetAllPromotions/{merchantId}`
 
 ### Additional Header Required
 
@@ -6925,7 +6925,7 @@ Batch Support | No
 * **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
 
 ### Request URL
-`https://{host}/developerapi/Carts/PaymentOptions/{merchantId}`
+`{host}/developerapi/Carts/PaymentOptions/{merchantId}`
 
 ### Additional Header Required
 
@@ -7200,7 +7200,7 @@ Batch Support | No
 * **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
 
 ### Request URL
-`https://{host}/developerapi/Carts/ShippingMode/{merchantId}/{shippingModeID}/Change/{ispickupshippingMode}`
+`{host}/developerapi/Carts/ShippingMode/{merchantId}/{shippingModeID}/Change/{ispickupshippingMode}`
 
 ### Additional Header Required
 
@@ -7456,7 +7456,7 @@ Batch Support | No
 * **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
 
 ### Request URL
-`https://{host}/developerapi/Carts/SetDeliverySlot/{merchantId}`
+`{host}/developerapi/Carts/SetDeliverySlot/{merchantId}`
 
 ### Additional Header Required
 
@@ -7743,7 +7743,7 @@ Batch Support | No
 
 
 ### Request URL
-`https://{host}/developerapi/Carts/DeliverySlots/{merchantId}`
+`{host}/developerapi/Carts/DeliverySlots/{merchantId}`
 
 ### Additional Header Required
 
@@ -7818,7 +7818,7 @@ Authentication | Yes
 
 ### Request URL
 
-`http://{host}/developerapi/Carts/TargetBlocks/{merchantId}`
+`{host}/developerapi/Carts/TargetBlocks/{merchantId}`
 
 ### Additional Header Required
 
@@ -8027,7 +8027,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/Carts/GetCommonStoresforCartItems/{merchantId}`
+`{host}/developerapi/Carts/GetCommonStoresforCartItems/{merchantId}`
 
 
 ### Request Body Parameters
@@ -8044,93 +8044,6 @@ Longitude | float | Get common stores in the specific latitude and longitude
 
 
 <aside class="notice"> **Pass any one parameter - either ProductId or ProductSKU. </aside>
-
-
-
-## Get Saved Cart Items
-
-Retrieves the details of cart items saved for a specific user. Cart abandoned items will be saved in the cart automatically.
-
-
-
-
-
-> Sample Request
-
-```html
-https://www.martjack.com/developerapi/Customer/SavedCart/9820eca5-d11f-4df1-9b20-983a45ea9631/0025fc54-a2d2-4ba8-800f-3c0ac91d9385
-
-```
-
-
-
-
-> Sample Response
-
-```json
-{
-  "messageCode": "1004",
-  "Message": "Successful",
-  "SavedCartItems": [
-    {
-      "CartItemId": 13222238,
-      "ProductId": 11000246,
-      "VariantProductId": 6752012,
-      "MerchantId": "9820eca5-d11f-4df1-9b20-983a45ea9631",
-      "StockAvailability": true,
-      "LastUpdated": "/Date(1474022999000+0530)/"
-    }
-  ],
-  "ErrorCode": 0
-}
-
-```
-
-
-
-### Resource Information
-| | |
---------- | ----------- |
-URI | `/Customer/SavedCart/{merchantId}/{UserId}`
-Rate Limited? | No
-Authentication | Yes
-Response Formats | JSON
-HTTP Methods | GET
-Batch Support | No
-
-* **Rate limiter** controls the number of incoming and outgoing traffic of a network
-* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
-
-### Request URL
-
-`https://{host}/developerapi/Customer/SavedCart/{merchantId}/{UserId}`
-
-
-### Request Path Parameters
-
-Parameter | Type | Description
--------- | ----- | -----------
-merchantId* | string | Unique GUID of the merchant
-user* | string | Unique GUID of the user to fetch saved cart items
-
-
-<aside class="notice"> All parameters marked by * are mandatory. </aside>
-
-
-
-### Response Parameters
-
-Parameter | Type | Description
---------- | ---- | -----------
-CartItemId | int | Unique cart id
-ProductId | long | Unique id of the product in cart
-VariantProductId | long | Unique id of the variant product
-StockAvailability | boolean | Whether the product is in stock or not
-LastUpdated | date | Date (in UST) when the cart is recently updated
-
-
-
-
 
 
 
