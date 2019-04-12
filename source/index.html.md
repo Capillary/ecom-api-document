@@ -98,9 +98,9 @@ languagecode | The language of the application chosen by the end user in case on
 Entry | Description
 ----- | -----------
 URL | https://<host>/developerapi/{resource}/. We recommend using secure HTTPS requests instead of http for all your calls
-Host | The server to which the API calls are made. This should be the URL of the respective cluster from where the calls are made. <br> - **India**: `sg.ecom.capillary.in` <br> - **YUM**: `eu.ecom.capillary.in` <br> - **AM**: `www1.martjack.com` <br> - **PH India**: `mb.ecom.capillary.in`  <br> - **Walmart**: `www8.martjack.com` <br> - **LuLu**: `www3.martjack.com` <br> - **Staging**: `staging.ecom.capillary.in` <br> - **Nightly**: `nightly.ecom.capillary.in`
+Host | The server to which the API calls are made. This should be the URL of the respective cluster from where the calls are made. <br> - **India**: `sg.ecom.capillary.in` <br> - **YUM**: `eu.ecom.capillary.in` <br> - **PH India**: `mb.ecom.capillary.in`  <br> - **Walmart**: `wm.ecom.capillary.in` <br> - **Staging**: `staging.ecom.capillary.in` <br> - **Nightly**: `nightly.ecom.capillary.in`
 Resource | Resource for which you want to perform an action. **Supported resources**: Banners, Brand, Carts, Category, Customer, CustomerGroups,GiftVoucher, Location, MailList, Merchant, Navigation, Order, PickList, Post, Pricelist, Product, ProductTags, ShoppingList, Store, and Voucher
-HTTP Methods | GET, POST
+HTTP Methods | GET, POST, PATCH
 Response Format | JSON
 
 
@@ -223,6 +223,133 @@ oauth_consumer_key=QFTSEOUC
 
 
 
+## OAuth SDKs
+
+Alternatively, you can also use SDKs for oAuth generation.
+
+### PHP SDK
+
+**Installation**
+
+Install pecl OAuth packages as mentioned below:
+
+`yum install pecl`
+
+`sudo apt-get install php7.2-dev`
+
+`pecl install oAuth`
+
+
+**Usage**
+
+Go to examples and run
+
+`php7.2 ./request_signing.php`
+
+
+
+
+### Java SDK
+
+**oauth1-signature-builder**:
+
+Java 8 minimal library to create tailor-made OAuth-1.0a signatures (weights 24.5 KB).
+
+**Compatibility**: Java 7 or above
+
+
+**Usage**
+
+Run the java code in a compatible platform.
+
+`public static void main(String[] args) {
+
+		OAuthConfig oauthConfig = new OAuthConfigBuilder("myApiKey", "myApiSecret")
+				.setTokenKeys("myAccessKey", "myAccessSecret")
+				.build();
+
+		OAuthSignature signature = oauthConfig.buildSignature(HttpMethod.GET, "http://serviceUrl")
+				.addQueryParam("aParam", "aValue")
+				.addFormUrlEncodedParam("myParam", "anotherValue")
+				.create();
+
+		System.out.println(signature.getAsHeader());
+}
+`
+
+**This code will generate the value for a ready-to-be-used "Authorization" Header**:
+	
+`Authorization:	OAuth oauth_nonce="1906386233", oauth_signature="sQYmuXQV2ROJS3ukvpeaNNl2Jp8=", oauth_token="myAccessKey", oauth_consumer_key="myApiKey", oauth_version="1.0", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1461291933"`
+
+
+### Javascript SDK
+
+The following process guides you in generating OAuth 1.0a signature for node and the browser
+
+**Installation**
+
+Install with npm:
+
+`npm install oauth-signature`
+
+
+**Usage**
+
+To generate the OAuth signature call the following method:
+
+`
+oauthSignature.generate(httpMethod, url, parameters, consumerSecret, tokenSecret, options)`
+
+<aside class="notice">Both 	tokenSecret` and `options` are optional</aside>
+
+
+The default options parameter is as follows
+
+`var options = {
+	encodeSignature: true // will encode the signature following the RFC 3986 Spec by default
+}`
+
+Example
+
+The following is an example on how to generate the signature for the reference sample
+
+`var httpMethod = 'GET',
+	url = 'http://photos.example.net/photos',
+	parameters = {
+		oauth_consumer_key : 'dpf43f3p2l4k3l03',
+		oauth_token : 'nnch734d00sl2jdk',
+		oauth_nonce : 'kllo9940pd9333jh',
+		oauth_timestamp : '1191242096',
+		oauth_signature_method : 'HMAC-SHA1',
+		oauth_version : '1.0',
+		file : 'vacation.jpg',
+		size : 'original'
+	},
+	consumerSecret = 'kd94hf93k423kf44',
+	tokenSecret = 'pfkkdhi9sl3r4s00',
+	// generates a RFC 3986 encoded, BASE64 encoded HMAC-SHA1 hash
+	encodedSignature = oauthSignature.generate(httpMethod, url, parameters, consumerSecret, tokenSecret),
+	// generates a BASE64 encode HMAC-SHA1 hash
+	signature = oauthSignature.generate(httpMethod, url, parameters, consumerSecret, tokenSecret,
+		{ encodeSignature: false});
+`
+
+The `encodedSignature` variable will contain the RFC 3986 encoded, BASE64 encoded HMAC-SHA1 hash, ready to be used as a query parameter in a request: `tR3%2BTy81lMeYAr%2FFid0kMTYa%2FWM%3D`.
+
+The `signature` variable will contain the BASE64 HMAC-SHA1 hash, without encoding: `tR3+Ty81lMeYAr/Fid0kMTYa/WM=`.
+
+
+### PHP SDK
+
+OAuth Generator is a .NET project written in C#.
+
+**Requirements**
+
+Visual Studio should be installed and .NET packages installed.
+
+**Usage**
+
+Open OAuth.sln using Visual Studio and run directly to get a console window. The user will be prompted to enter the consumer key and consumer secret. The option for entering other values will be provided.
 
 
 

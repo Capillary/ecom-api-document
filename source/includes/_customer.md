@@ -1680,6 +1680,92 @@ CommunicationType | enum | The preferred communication channel(s) of the custome
 
 
 
+## Get Saved Cart Items
+
+Retrieves the details of cart items saved for a specific user. Cart abandoned items will be saved in the cart automatically.
+
+
+
+
+
+> Sample Request
+
+```html
+https://www.martjack.com/developerapi/Customer/SavedCart/9820eca5-d11f-4df1-9b20-983a45ea9631/0025fc54-a2d2-4ba8-800f-3c0ac91d9385
+
+```
+
+
+
+
+> Sample Response
+
+```json
+{
+  "messageCode": "1004",
+  "Message": "Successful",
+  "SavedCartItems": [
+    {
+      "CartItemId": 13222238,
+      "ProductId": 11000246,
+      "VariantProductId": 6752012,
+      "MerchantId": "9820eca5-d11f-4df1-9b20-983a45ea9631",
+      "StockAvailability": true,
+      "LastUpdated": "/Date(1474022999000+0530)/"
+    }
+  ],
+  "ErrorCode": 0
+}
+
+```
+
+
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `/Customer/SavedCart/{merchantId}/{UserId}`
+Rate Limited? | No
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | GET
+Batch Support | No
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+### Request URL
+
+`https://{host}/developerapi/Customer/SavedCart/{merchantId}/{UserId}`
+
+
+### Request Path Parameters
+
+Parameter | Type | Description
+-------- | ----- | -----------
+merchantId* | string | Unique GUID of the merchant
+user* | string | Unique GUID of the user to fetch saved cart items
+
+
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
+
+
+
+### Response Parameters
+
+Parameter | Type | Description
+--------- | ---- | -----------
+CartItemId | int | Unique cart id
+ProductId | long | Unique id of the product in cart
+VariantProductId | long | Unique id of the variant product
+StockAvailability | boolean | Whether the product is in stock or not
+LastUpdated | date | Date (in UST) when the cart is recently updated
+
+
+
+
+
+
 
 
 ## Get Customer Count

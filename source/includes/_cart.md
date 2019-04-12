@@ -4343,7 +4343,7 @@ Batch Support | No
 
 ### Request URL
 
-`https://{host}/developerapi/carts/UpdateCartProperties/{{merchantId}}`
+`https://{host}/developerapi/carts/UpdateCartProperties/{merchantId}`
 
 ### Additional Header Required
 
@@ -4355,8 +4355,8 @@ accesstoken* | Access token of the logged in user to validate the session
 
 Parameter | Type | Description
 --------- | ---- | -----------
-DeliverySlotID | string | The unique id of the delivery slot. Specify a valid id
-DemandedDeliveryDate | date-time | The customer's preferred delivery date in `MM-DD-YYYY HH:MM:SS` format
+DeliverySlotID* | string | The unique id of the delivery slot. Specify a valid id
+DemandedDeliveryDate* | date-time | The customer's preferred delivery date in `MM-DD-YYYY HH:MM:SS` format
 ShippingModeId | int | -NA for now-
 locationID | int | The location id of the fulfillment store 
 BillingAddress | obj | Specify the billing address of the customer in the respective attributes
