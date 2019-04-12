@@ -238,11 +238,11 @@ To obtain access, you first need to add the app in the control panel and generat
 </thead><tbody>
 <tr>
 <td>URL</td>
-<td>https://<host>/developerapi/{resource}/. We recommend using secure HTTPS requests instead of http for all your calls</td>
+<td>{host}/developerapi/{resource}/. We recommend using secure HTTPS requests instead of http for all your calls</td>
 </tr>
 <tr>
 <td>Host</td>
-<td>The server to which the API calls are made. This should be the URL of the respective cluster from where the calls are made. <br> - <strong>India</strong>: <code class="prettyprint">sg.ecom.capillary.in</code> <br> - <strong>YUM</strong>: <code class="prettyprint">eu.ecom.capillary.in</code> <br> - <strong>PH India</strong>: <code class="prettyprint">mb.ecom.capillary.in</code>  <br> - <strong>Walmart</strong>: <code class="prettyprint">wm.ecom.capillary.in</code> <br> - <strong>Staging</strong>: <code class="prettyprint">staging.ecom.capillary.in</code> <br> - <strong>Nightly</strong>: <code class="prettyprint">nightly.ecom.capillary.in</code></td>
+<td>The server to which the API calls are made. This should be the URL of the respective cluster from where the calls are made. <br> - <strong>India</strong>: <code class="prettyprint">https://sg.ecom.capillary.in</code> <br> - <strong>YUM</strong>: <code class="prettyprint">https://eu.ecom.capillary.in</code> <br> - <strong>PH India</strong>: <code class="prettyprint">https://mb.ecom.capillary.in</code>  <br> - <strong>Walmart</strong>: <code class="prettyprint">wm.ecom.capillary.in</code> <br> - <strong>Staging</strong>: <code class="prettyprint">http://staging.ecom.capillary.in</code> <br> - <strong>Nightly</strong>: <code class="prettyprint">http://nightly.ecom.capillary.in</code></td>
 </tr>
 <tr>
 <td>Resource</td>
@@ -258,6 +258,8 @@ To obtain access, you first need to add the app in the control panel and generat
 </tr>
 </tbody></table>
 
+<aside class="notice"> To ensure privacy and security while using Anywhere Commerce APIs, we will eventually stop supporting insecure HTTP requests and recommend to use the secure HTTPS version. </aside>
+
 <h3 id="how-to-pass-post-body">How to pass POST body?</h3>
 
 <p>You always need to pass the POST body in the format specified below:</p>
@@ -267,7 +269,7 @@ InputData={
 &lt;JSON PAYLOAD&gt;
 }&amp;InputFormat=application/json</code></p>
 
-<p>FOr example:</p>
+<p>For example:</p>
 
 <p>InputData={
 &ldquo;customer&rdquo;:{
@@ -616,7 +618,7 @@ public static void main(String[] args)
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Customer/{merchantId}/Create</code></p>
+<p><code class="prettyprint">{host}/developerapi/Customer/{merchantId}/Create</code></p>
 
 <h3 id="request-body-parameters">Request Body Parameters</h3>
 
@@ -803,7 +805,7 @@ public static void main(String[] args)
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Customer/{merchantId}/Update</code></p>
+<p><code class="prettyprint">{host}/developerapi/Customer/{merchantId}/Update</code></p>
 
 <h3 id="additional-header-required">Additional Header Required</h3>
 
@@ -965,7 +967,7 @@ Also, a customer should have logged in to perform any customer related tasks suc
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Customer/{merchantId}/LoginWithOTP/true?username={username}&amp;oTP={OTP}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Customer/{merchantId}/LoginWithOTP/true?username={username}&amp;oTP={OTP}</code></p>
 
 <h3 id="additional-headers-required">Additional Headers Required</h3>
 
@@ -1106,7 +1108,7 @@ Also, a customer should have logged in to perform any customer related tasks suc
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Customer/{merchantId}/login</code></p>
+<p><code class="prettyprint">{host}/developerapi/Customer/{merchantId}/login</code></p>
 
 <h3 id="request-body-parameters">Request Body Parameters</h3>
 
@@ -1234,7 +1236,7 @@ Also, a customer should have logged in to perform any customer related tasks suc
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Customer/{merchantId}/LoginWithThirdPartyProvider</code></p>
+<p><code class="prettyprint">{host}/developerapi/Customer/{merchantId}/LoginWithThirdPartyProvider</code></p>
 
 <h3 id="request-body-parameters">Request Body Parameters</h3>
 
@@ -1397,7 +1399,7 @@ Also, a customer should have logged in to perform any customer related tasks suc
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Customer/{merchantId}/StartCustomerSession</code></p>
+<p><code class="prettyprint">{host}/developerapi/Customer/{merchantId}/StartCustomerSession</code></p>
 
 <h3 id="additional-header-required">Additional Header Required</h3>
 
@@ -1535,7 +1537,7 @@ Also, a customer should have logged in to perform any customer related tasks suc
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Customer/{merchantId}/{UserId}/ChangePassword?password={newPassword}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Customer/{merchantId}/{UserId}/ChangePassword?password={newPassword}</code></p>
 
 <h3 id="request-path-parameters">Request Path Parameters</h3>
 
@@ -1634,7 +1636,7 @@ Also, a customer should have logged in to perform any customer related tasks suc
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Customer/v2/changePassword/{{merchantid}}/{[userid}}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Customer/v2/changePassword/{{merchantid}}/{[userid}}</code></p>
 
 <h3 id="additional-header-required">Additional Header Required</h3>
 
@@ -1766,7 +1768,7 @@ Also, a customer should have logged in to perform any customer related tasks suc
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Customer/{MerchantId}/v2/resetPassword</code></p>
+<p><code class="prettyprint">{host}/developerapi/Customer/{MerchantId}/v2/resetPassword</code></p>
 
 <h3 id="additional-header-required">Additional Header Required</h3>
 
@@ -1888,7 +1890,7 @@ Also, a customer should have logged in to perform any customer related tasks suc
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Customer/{MerchantId}/ValidateResetRequest</code></p>
+<p><code class="prettyprint">{host}/developerapi/Customer/{MerchantId}/ValidateResetRequest</code></p>
 
 <h3 id="additional-header-required">Additional Header Required</h3>
 
@@ -2000,7 +2002,7 @@ Also, a customer should have logged in to perform any customer related tasks suc
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Customer/{merchantId}/Logout</code></p>
+<p><code class="prettyprint">{host}/developerapi/Customer/{merchantId}/Logout</code></p>
 
 <h3 id="additional-header-required">Additional Header Required</h3>
 
@@ -2099,7 +2101,7 @@ Also, a customer should have logged in to perform any customer related tasks suc
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Customer/GetAccessToken/{MerchantId}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Customer/GetAccessToken/{MerchantId}</code></p>
 
 <h3 id="request-parameters">Request Parameters</h3>
 
@@ -2202,7 +2204,7 @@ Also, a customer should have logged in to perform any customer related tasks suc
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Customer/{merchantId}/{accesstoken}/ValidateToken</code></p>
+<p><code class="prettyprint">{host}/developerapi/Customer/{merchantId}/{accesstoken}/ValidateToken</code></p>
 
 <h3 id="request-parameters">Request Parameters</h3>
 
@@ -2288,7 +2290,7 @@ Also, a customer should have logged in to perform any customer related tasks suc
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Customer/Activation/{MerchantId}/{UserId}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Customer/Activation/{MerchantId}/{UserId}</code></p>
 
 <h3 id="request-body-parameters">Request Body Parameters</h3>
 
@@ -2372,7 +2374,7 @@ Also, a customer should have logged in to perform any customer related tasks suc
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Customer/DeActivation/{MerchantId}/{UserId}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Customer/DeActivation/{MerchantId}/{UserId}</code></p>
 
 <h3 id="request-body-parameters">Request Body Parameters</h3>
 
@@ -2500,7 +2502,7 @@ Also, a customer should have logged in to perform any customer related tasks suc
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Customer/{merchantId}/Search</code></p>
+<p><code class="prettyprint">{host}/developerapi/Customer/{merchantId}/Search</code></p>
 
 <h3 id="request-body-parameters">Request Body Parameters</h3>
 
@@ -2666,7 +2668,7 @@ Also, a customer should have logged in to perform any customer related tasks suc
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Customer/{merchantId}/{UserId}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Customer/{merchantId}/{UserId}</code></p>
 
 <h3 id="request-parameters">Request Parameters</h3>
 
@@ -2990,7 +2992,7 @@ Also, a customer should have logged in to perform any customer related tasks suc
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">http://{host}/developerapi/Customer/{merchantId}/All</code></p>
+<p><code class="prettyprint">{host}/developerapi/Customer/{merchantId}/All</code></p>
 
 <h3 id="request-parameter">Request Parameter</h3>
 
@@ -3144,7 +3146,7 @@ Also, a customer should have logged in to perform any customer related tasks suc
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Customer/SavedCart/{merchantId}/{UserId}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Customer/SavedCart/{merchantId}/{UserId}</code></p>
 
 <h3 id="request-path-parameters">Request Path Parameters</h3>
 
@@ -3264,7 +3266,7 @@ Also, a customer should have logged in to perform any customer related tasks suc
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">http://{host}/developerapi/Customer/{merchantId}/Count</code></p>
+<p><code class="prettyprint">{host}/developerapi/Customer/{merchantId}/Count</code></p>
 
 <h3 id="resource-information">Resource Information</h3>
 
@@ -3307,7 +3309,7 @@ Also, a customer should have logged in to perform any customer related tasks suc
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">http://{host}/developerapi/Customer/{merchantId}/Count</code></p>
+<p><code class="prettyprint">{host}/developerapi/Customer/{merchantId}/Count</code></p>
 
 <h3 id="request-path-parameter">Request Path Parameter</h3>
 
@@ -3415,7 +3417,7 @@ Also, a customer should have logged in to perform any customer related tasks suc
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Customer/{merchantId}/UpdateUserProfile</code></p>
+<p><code class="prettyprint">{host}/developerapi/Customer/{merchantId}/UpdateUserProfile</code></p>
 
 <h3 id="request-body-parameters">Request Body Parameters</h3>
 
@@ -3540,7 +3542,7 @@ Also, a customer should have logged in to perform any customer related tasks suc
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Customer/AddShippingAddress/{merchantId}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Customer/AddShippingAddress/{merchantId}</code></p>
 
 <h3 id="request-body-parameters">Request Body Parameters</h3>
 
@@ -3738,7 +3740,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Customer/GetShippingAddress/{merchantId}{UserId}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Customer/GetShippingAddress/{merchantId}{UserId}</code></p>
 
 <h3 id="request-path-parameters">Request Path Parameters</h3>
 
@@ -3819,7 +3821,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">http://{host}/developerapi/Customer/DeleteShippingAddress/{MerchantId}/{UserId}/{ShippingAddressId}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Customer/DeleteShippingAddress/{MerchantId}/{UserId}/{ShippingAddressId}</code></p>
 
 <h3 id="request-parameters">Request Parameters</h3>
 
@@ -3921,7 +3923,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Customer/GetStoreOperators/{merchantId}/{locationId}/{roleid}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Customer/GetStoreOperators/{merchantId}/{locationId}/{roleid}</code></p>
 
 <h3 id="request-path-parameters">Request Path Parameters</h3>
 
@@ -4037,7 +4039,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Customer/{merchantId}/AgentLogin</code></p>
+<p><code class="prettyprint">{host}/developerapi/Customer/{merchantId}/AgentLogin</code></p>
 
 <h3 id="request-body-parameters">Request Body Parameters</h3>
 
@@ -4129,7 +4131,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/CustomerGroups/Consumer/{merchantId}/{userGroupId}/{userId}/Add</code></p>
+<p><code class="prettyprint">{host}/developerapi/CustomerGroups/Consumer/{merchantId}/{userGroupId}/{userId}/Add</code></p>
 
 <h3 id="request-path-parameters">Request Path Parameters</h3>
 
@@ -4233,7 +4235,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/CustomerGroups/{merchantId}/{userGroupId}</code></p>
+<p><code class="prettyprint">{host}/developerapi/CustomerGroups/{merchantId}/{userGroupId}</code></p>
 
 <h3 id="request-path-parameters">Request Path Parameters</h3>
 
@@ -4424,7 +4426,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/CustomerGroups/Consumer/{merchantId}/{userGroupId}</code></p>
+<p><code class="prettyprint">{host}/developerapi/CustomerGroups/Consumer/{merchantId}/{userGroupId}</code></p>
 
 <h3 id="request-path-parameters">Request Path Parameters</h3>
 
@@ -4523,7 +4525,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/CustomerGroups/Group/{merchantId}/{userId}</code></p>
+<p><code class="prettyprint">{host}/developerapi/CustomerGroups/Group/{merchantId}/{userId}</code></p>
 
 <h3 id="request-path-parameters">Request Path Parameters</h3>
 
@@ -4655,7 +4657,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/CustomerGroups/{merchantId}</code></p>
+<p><code class="prettyprint">{host}/developerapi/CustomerGroups/{merchantId}</code></p>
 
 <h3 id="request-path-parameters">Request Path Parameters</h3>
 
@@ -4770,7 +4772,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/CustomerGroups/Consumer/{merchantId}/{userGroupId}/{userId}/Remove</code></p>
+<p><code class="prettyprint">{host}/developerapi/CustomerGroups/Consumer/{merchantId}/{userGroupId}/{userId}/Remove</code></p>
 
 <h3 id="request-path-parameters">Request Path Parameters</h3>
 
@@ -4894,7 +4896,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/product/UpdateLocationWiseStock</code></p>
+<p><code class="prettyprint">{host}/developerapi/product/UpdateLocationWiseStock</code></p>
 
 <h3 id="request-body-parameters">Request Body Parameters</h3>
 
@@ -5116,7 +5118,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Product/UpdateProductInfo</code></p>
+<p><code class="prettyprint">{host}/developerapi/Product/UpdateProductInfo</code></p>
 
 <h3 id="request-body-parameters">Request Body Parameters</h3>
 
@@ -5774,7 +5776,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Product/UpdateProductInfo</code></p>
+<p><code class="prettyprint">{host}/developerapi/Product/UpdateProductInfo</code></p>
 
 <h3 id="request-body-parameters">Request Body Parameters</h3>
 
@@ -6353,7 +6355,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Product/AttachImages/{MerchantId}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Product/AttachImages/{MerchantId}</code></p>
 
 <h3 id="additional-header-required">Additional Header Required</h3>
 
@@ -6615,7 +6617,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Product/Price/{MerchantId}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Product/Price/{MerchantId}</code></p>
 
 <h3 id="additional-header-required">Additional Header Required</h3>
 
@@ -6791,7 +6793,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Product/{merchantId}/LocationStockPrice</code></p>
+<p><code class="prettyprint">{host}/developerapi/Product/{merchantId}/LocationStockPrice</code></p>
 
 <h3 id="request-path-parameters">Request Path Parameters</h3>
 
@@ -6941,7 +6943,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Product/Information/{merchantId}/{productId}/{locationId}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Product/Information/{merchantId}/{productId}/{locationId}</code></p>
 
 <h3 id="request-path-parameters">Request Path Parameters</h3>
 
@@ -7221,7 +7223,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Product/InformationNAttr/{merchantid}/{productid}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Product/InformationNAttr/{merchantid}/{productid}</code></p>
 
 <h3 id="request-path-parameters">Request Path Parameters</h3>
 
@@ -7426,7 +7428,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Product/SKU/{merchantId}/{sku}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Product/SKU/{merchantId}/{sku}</code></p>
 
 <h3 id="request-path-parameters">Request Path Parameters</h3>
 
@@ -7627,7 +7629,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Product/{merchantId}/{productTag}/{locationId}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Product/{merchantId}/{productTag}/{locationId}</code></p>
 
 <h3 id="request-path-parameters">Request Path Parameters</h3>
 
@@ -7800,7 +7802,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Product/Category/{merchantId}/{categoryId}/{productType}/{pageNumber}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Product/Category/{merchantId}/{categoryId}/{productType}/{pageNumber}</code></p>
 
 <h3 id="request-path-parameters">Request Path Parameters</h3>
 
@@ -7996,7 +7998,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Product/{merchantId}/GetMultipleParentproducts</code></p>
+<p><code class="prettyprint">{host}/developerapi/Product/{merchantId}/GetMultipleParentproducts</code></p>
 
 <h3 id="request-body-parameters">Request Body Parameters</h3>
 
@@ -8277,7 +8279,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Product/Varients/{merchantId}/{ParentProductId}/{availability}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Product/Varients/{merchantId}/{ParentProductId}/{availability}</code></p>
 
 <h3 id="request-path-parameters">Request Path Parameters</h3>
 
@@ -8475,7 +8477,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Product/ProductVarient/{MerchantId}/{variantProductId}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Product/ProductVarient/{MerchantId}/{variantProductId}</code></p>
 
 <h3 id="request-path-parameters">Request Path Parameters</h3>
 
@@ -8571,7 +8573,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Product/LocationAttribute/{merchantId}/{sku}/{variantSku}/{locationRefCode}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Product/LocationAttribute/{merchantId}/{sku}/{variantSku}/{locationRefCode}</code></p>
 
 <h3 id="request-path-parameters">Request Path Parameters</h3>
 
@@ -8708,7 +8710,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Product/{merchantId}/{productTag}/{locationId}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Product/{merchantId}/{productTag}/{locationId}</code></p>
 
 <h3 id="request-path-parameters">Request Path Parameters</h3>
 
@@ -8921,7 +8923,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Product/{merchantId}/GetMultipleProductInformation</code></p>
+<p><code class="prettyprint">{host}/developerapi/Product/{merchantId}/GetMultipleProductInformation</code></p>
 
 <h3 id="request-path-parameters">Request Path Parameters</h3>
 
@@ -9103,7 +9105,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Product/GetProductsTagsByProductId/{merchantid}/{productid}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Product/GetProductsTagsByProductId/{merchantid}/{productid}</code></p>
 
 <h3 id="request-path-parameters">Request Path Parameters</h3>
 
@@ -9270,7 +9272,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Product/Category/{merchantid}/{CatagoryId}/{availibility}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Product/Category/{merchantid}/{CatagoryId}/{availibility}</code></p>
 
 <h3 id="request-path-parameters">Request Path Parameters</h3>
 
@@ -9427,7 +9429,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Product/AddReview/{MerchantId}/{UserId}/{SKU}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Product/AddReview/{MerchantId}/{UserId}/{SKU}</code></p>
 
 <h3 id="request-path-parameters">Request Path Parameters</h3>
 
@@ -9560,7 +9562,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Product/GetReviews/{MerchantId}/{Sku}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Product/GetReviews/{MerchantId}/{Sku}</code></p>
 
 <h3 id="request-body-parameters">Request Body Parameters</h3>
 
@@ -9662,7 +9664,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Product/UpdateProductAttribute/{MerchantId}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Product/UpdateProductAttribute/{MerchantId}</code></p>
 
 <h3 id="request-body-parameters">Request Body Parameters</h3>
 
@@ -9859,7 +9861,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Product/GetBundleItemsbyBundleProductId/{Merchantid}/{Productid}/{isdefault}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Product/GetBundleItemsbyBundleProductId/{Merchantid}/{Productid}/{isdefault}</code></p>
 
 <h3 id="request-path-parameters">Request Path Parameters</h3>
 
@@ -10013,7 +10015,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Product/MSMQTaskDetails/{merchantid}/{taskid}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Product/MSMQTaskDetails/{merchantid}/{taskid}</code></p>
 
 <h3 id="request-path-parameters">Request Path Parameters</h3>
 
@@ -10150,7 +10152,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Product/MSMQErrorDetails/{merchantid}/{taskid}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Product/MSMQErrorDetails/{merchantid}/{taskid}</code></p>
 
 <h3 id="request-path-parameters">Request Path Parameters</h3>
 
@@ -10281,7 +10283,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/product/AddLocationTagtoProduct/{merchantId}</code></p>
+<p><code class="prettyprint">{host}/developerapi/product/AddLocationTagtoProduct/{merchantId}</code></p>
 
 <h3 id="request-body-parameters">Request Body Parameters</h3>
 
@@ -10385,7 +10387,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Product/RemoveLocationTagFromProduct/{MerchantId}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Product/RemoveLocationTagFromProduct/{MerchantId}</code></p>
 
 <h3 id="request-body-parameters">Request Body Parameters</h3>
 
@@ -10502,7 +10504,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Product/{MerchantId}/Search</code></p>
+<p><code class="prettyprint">{host}/developerapi/Product/{MerchantId}/Search</code></p>
 
 <h3 id="request-body-parameters">Request Body Parameters</h3>
 
@@ -10639,7 +10641,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Product/GetProductsTagsByProductId/{merchantid}/{productid}/{locationid}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Product/GetProductsTagsByProductId/{merchantid}/{productid}/{locationid}</code></p>
 
 <h3 id="request-path-parameters">Request Path Parameters</h3>
 
@@ -10776,7 +10778,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Product/Attribute/{merchantid}/{productid}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Product/Attribute/{merchantid}/{productid}</code></p>
 
 <h3 id="request-path-parameters">Request Path Parameters</h3>
 
@@ -10923,7 +10925,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Product/Comments/{productid}/{postid}/{merchantid}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Product/Comments/{productid}/{postid}/{merchantid}</code></p>
 
 <h3 id="request-path-parameters">Request Path Parameters</h3>
 
@@ -11150,7 +11152,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Product/Contents/{merchantId}/{productId}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Product/Contents/{merchantId}/{productId}</code></p>
 
 <h3 id="request-path-parameters">Request Path Parameters</h3>
 
@@ -11279,7 +11281,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Product/Featured/{merchantId}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Product/Featured/{merchantId}</code></p>
 
 <h3 id="request-path-parameters">Request Path Parameters</h3>
 
@@ -11368,7 +11370,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/product/updatestock</code></p>
+<p><code class="prettyprint">{host}/developerapi/product/updatestock</code></p>
 
 <h3 id="request-body-parameters">Request Body Parameters</h3>
 
@@ -11465,7 +11467,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Product/UpdateLocationProductStock</code></p>
+<p><code class="prettyprint">{host}/developerapi/Product/UpdateLocationProductStock</code></p>
 
 <h3 id="request-body-parameters">Request Body Parameters</h3>
 
@@ -11604,7 +11606,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Product/Similar/{merchantId}/{productId}/{LocationId}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Product/Similar/{merchantId}/{productId}/{LocationId}</code></p>
 
 <h3 id="request-path-parameters">Request Path Parameters</h3>
 
@@ -11708,7 +11710,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Product/GetTierPriceDetailsbyproductId/{merchantId}/{userId}/{productId}/{locationId}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Product/GetTierPriceDetailsbyproductId/{merchantId}/{userId}/{productId}/{locationId}</code></p>
 
 <h3 id="request-path-parameters">Request Path Parameters</h3>
 
@@ -11815,7 +11817,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Product/PincodeServiceability/{merchantId}/{productId}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Product/PincodeServiceability/{merchantId}/{productId}</code></p>
 
 <h3 id="request-body-parameters">Request Body Parameters</h3>
 
@@ -11912,7 +11914,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/ProductAutoComplete/{merchantId}/{keyword}/{limit}/{locationId}</code></p>
+<p><code class="prettyprint">{host}/developerapi/ProductAutoComplete/{merchantId}/{keyword}/{limit}/{locationId}</code></p>
 
 <h3 id="request-path-parameters">Request Path Parameters</h3>
 
@@ -12088,7 +12090,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Product/UpSale/{merchantId}/{productId}/{locationId}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Product/UpSale/{merchantId}/{productId}/{locationId}</code></p>
 
 <h3 id="request-path-parameters">Request Path Parameters</h3>
 
@@ -12177,7 +12179,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Product/ValidateLocation/{merchantId}/{productId}/{variantProductId}/{pinCode}/{locationId}/{quantity}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Product/ValidateLocation/{merchantId}/{productId}/{variantProductId}/{pinCode}/{locationId}/{quantity}</code></p>
 
 <h3 id="request-path-parameters">Request Path Parameters</h3>
 
@@ -12282,7 +12284,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Product/RemoveOfferText/{merchantId}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Product/RemoveOfferText/{merchantId}</code></p>
 
 <h3 id="request-path-parameters">Request Path Parameters</h3>
 
@@ -12378,7 +12380,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/ProductTags/{MerchantId}</code></p>
+<p><code class="prettyprint">{host}/developerapi/ProductTags/{MerchantId}</code></p>
 
 <h3 id="request-path-parameters">Request Path Parameters</h3>
 
@@ -12465,7 +12467,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/ProductTags/{MerchantId}/{ProductTag}</code></p>
+<p><code class="prettyprint">{host}/developerapi/ProductTags/{MerchantId}/{ProductTag}</code></p>
 
 <h3 id="request-path-parameters">Request Path Parameters</h3>
 
@@ -12552,7 +12554,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/ProductTags/{MerchantId}/count</code></p>
+<p><code class="prettyprint">{host}/developerapi/ProductTags/{MerchantId}/count</code></p>
 
 <h3 id="request-path-parameters">Request Path Parameters</h3>
 
@@ -12648,7 +12650,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/carts/V2/SendOTP/{MerchantId}</code></p>
+<p><code class="prettyprint">{host}/developerapi/carts/V2/SendOTP/{MerchantId}</code></p>
 
 <h3 id="additional-header">Additional Header</h3>
 
@@ -12754,7 +12756,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/carts/V2/ValidateOTP/{merchantId}</code></p>
+<p><code class="prettyprint">{host}/developerapi/carts/V2/ValidateOTP/{merchantId}</code></p>
 
 <h3 id="request-parameters">Request Parameters</h3>
 
@@ -13060,7 +13062,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/carts/AddCartItems/{merchantId}</code></p>
+<p><code class="prettyprint">{host}/developerapi/carts/AddCartItems/{merchantId}</code></p>
 
 <h3 id="request-body-parameters">Request Body Parameters</h3>
 
@@ -14123,7 +14125,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/carts/AddCartItems/{merchantId}</code></p>
+<p><code class="prettyprint">{host}/developerapi/carts/AddCartItems/{merchantId}</code></p>
 
 <h3 id="request-body-parameters">Request Body Parameters</h3>
 
@@ -15386,7 +15388,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/carts/AddCartItems/{merchantId}</code></p>
+<p><code class="prettyprint">{host}/developerapi/carts/AddCartItems/{merchantId}</code></p>
 
 <h3 id="request-body-parameters">Request Body Parameters</h3>
 
@@ -16192,7 +16194,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/carts/AddCartItems/{merchantId}</code></p>
+<p><code class="prettyprint">{host}/developerapi/carts/AddCartItems/{merchantId}</code></p>
 
 <h3 id="request-body-parameters">Request Body Parameters</h3>
 
@@ -16611,7 +16613,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Carts/LocationCart/{merchantId}/{productId}/{varProductId}/{quantity}/{locationId}/{currency}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Carts/LocationCart/{merchantId}/{productId}/{varProductId}/{quantity}/{locationId}/{currency}</code></p>
 
 <h3 id="request-path-parameters">Request Path Parameters</h3>
 
@@ -16997,7 +16999,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/carts/edit/{merchantId}</code></p>
+<p><code class="prettyprint">{host}/developerapi/carts/edit/{merchantId}</code></p>
 
 <h3 id="additional-header-required">Additional Header Required</h3>
 
@@ -17299,7 +17301,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Carts/Update/{merchantId}/{cartReferenceKey}/{new quantity}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Carts/Update/{merchantId}/{cartReferenceKey}/{new quantity}</code></p>
 
 <h3 id="additional-header-required">Additional Header Required</h3>
 
@@ -17731,7 +17733,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/carts/UpdateCartProperties/{merchantId}</code></p>
+<p><code class="prettyprint">{host}/developerapi/carts/UpdateCartProperties/{merchantId}</code></p>
 
 <h3 id="additional-header-required">Additional Header Required</h3>
 
@@ -18679,7 +18681,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Carts/cart/{merchantId}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Carts/cart/{merchantId}</code></p>
 
 <h3 id="additional-header-required">Additional Header Required</h3>
 
@@ -19015,7 +19017,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Carts/cart/{merchantId}/{accesstoken}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Carts/cart/{merchantId}/{accesstoken}</code></p>
 
 <h3 id="additional-header-required">Additional Header Required</h3>
 
@@ -19092,7 +19094,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Carts/Remove/{MerchantId}/{cartReferneKey}/{quantity}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Carts/Remove/{MerchantId}/{cartReferneKey}/{quantity}</code></p>
 
 <h3 id="additional-header-required">Additional Header Required</h3>
 
@@ -19196,7 +19198,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Carts/RemoveAll/{merchantId}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Carts/RemoveAll/{merchantId}</code></p>
 
 <h3 id="additional-header-required">Additional Header Required</h3>
 
@@ -19292,7 +19294,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Carts/clear/{MerchantId}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Carts/clear/{MerchantId}</code></p>
 
 <h3 id="additional-header-required">Additional Header Required</h3>
 
@@ -19423,7 +19425,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/carts/AddOrderAttributes/{merchantId}</code></p>
+<p><code class="prettyprint">{host}/developerapi/carts/AddOrderAttributes/{merchantId}</code></p>
 
 <h3 id="additional-header-required">Additional Header Required</h3>
 
@@ -19778,7 +19780,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/carts/UpdateAddress/{merchantId}</code></p>
+<p><code class="prettyprint">{host}/developerapi/carts/UpdateAddress/{merchantId}</code></p>
 
 <h3 id="additional-header-required">Additional Header Required</h3>
 
@@ -20160,7 +20162,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Carts/ApplyVoucher/{merchantId}/{voucherCode}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Carts/ApplyVoucher/{merchantId}/{voucherCode}</code></p>
 
 <h3 id="additional-header-required">Additional Header Required</h3>
 
@@ -20470,7 +20472,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Carts/RemoveVoucher/{merchantId}/{voucherCode}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Carts/RemoveVoucher/{merchantId}/{voucherCode}</code></p>
 
 <h3 id="additional-header-required">Additional Header Required</h3>
 
@@ -20650,7 +20652,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/carts/GetAllPromotions/{merchantId}</code></p>
+<p><code class="prettyprint">{host}/developerapi/carts/GetAllPromotions/{merchantId}</code></p>
 
 <h3 id="additional-header-required">Additional Header Required</h3>
 
@@ -20904,7 +20906,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Carts/PaymentOptions/{merchantId}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Carts/PaymentOptions/{merchantId}</code></p>
 
 <h3 id="additional-header-required">Additional Header Required</h3>
 
@@ -21214,7 +21216,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Carts/ShippingMode/{merchantId}/{shippingModeID}/Change/{ispickupshippingMode}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Carts/ShippingMode/{merchantId}/{shippingModeID}/Change/{ispickupshippingMode}</code></p>
 
 <h3 id="additional-header-required">Additional Header Required</h3>
 
@@ -21528,7 +21530,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Carts/SetDeliverySlot/{merchantId}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Carts/SetDeliverySlot/{merchantId}</code></p>
 
 <h3 id="additional-header-required">Additional Header Required</h3>
 
@@ -21877,7 +21879,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Carts/DeliverySlots/{merchantId}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Carts/DeliverySlots/{merchantId}</code></p>
 
 <h3 id="additional-header-required">Additional Header Required</h3>
 
@@ -22008,7 +22010,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">http://{host}/developerapi/Carts/TargetBlocks/{merchantId}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Carts/TargetBlocks/{merchantId}</code></p>
 
 <h3 id="additional-header-required">Additional Header Required</h3>
 
@@ -22239,7 +22241,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Carts/GetCommonStoresforCartItems/{merchantId}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Carts/GetCommonStoresforCartItems/{merchantId}</code></p>
 
 <h3 id="request-body-parameters">Request Body Parameters</h3>
 
@@ -22283,138 +22285,6 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 </tbody></table>
 
 <aside class="notice"> **Pass any one parameter - either ProductId or ProductSKU. </aside>
-
-<h2 id="get-saved-cart-items">Get Saved Cart Items</h2>
-
-<p>Retrieves the details of cart items saved for a specific user. Cart abandoned items will be saved in the cart automatically.</p>
-
-<blockquote>
-<p>Sample Request</p>
-</blockquote>
-<pre class="highlight html"><code>https://www.martjack.com/developerapi/Customer/SavedCart/9820eca5-d11f-4df1-9b20-983a45ea9631/0025fc54-a2d2-4ba8-800f-3c0ac91d9385
-
-</code></pre>
-<blockquote>
-<p>Sample Response</p>
-</blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"messageCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1004"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"SavedCartItems"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"CartItemId"</span><span class="p">:</span><span class="w"> </span><span class="mi">13222238</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"ProductId"</span><span class="p">:</span><span class="w"> </span><span class="mi">11000246</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"VariantProductId"</span><span class="p">:</span><span class="w"> </span><span class="mi">6752012</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9820eca5-d11f-4df1-9b20-983a45ea9631"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"StockAvailability"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"LastUpdated"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/Date(1474022999000+0530)/"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">],</span><span class="w">
-  </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
-</span><span class="p">}</span><span class="w">
-
-</span></code></pre>
-<h3 id="resource-information">Resource Information</h3>
-
-<table><thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead><tbody>
-<tr>
-<td>URI</td>
-<td><code class="prettyprint">/Customer/SavedCart/{merchantId}/{UserId}</code></td>
-</tr>
-<tr>
-<td>Rate Limited?</td>
-<td>No</td>
-</tr>
-<tr>
-<td>Authentication</td>
-<td>Yes</td>
-</tr>
-<tr>
-<td>Response Formats</td>
-<td>JSON</td>
-</tr>
-<tr>
-<td>HTTP Methods</td>
-<td>GET</td>
-</tr>
-<tr>
-<td>Batch Support</td>
-<td>No</td>
-</tr>
-</tbody></table>
-
-<ul>
-<li><strong>Rate limiter</strong> controls the number of incoming and outgoing traffic of a network</li>
-<li><strong>Authentication</strong> verifies the identity of the current user or integration. See Introduction &gt; Authentication (Merchant Setup on Admin Portal) for more details</li>
-</ul>
-
-<h3 id="request-url">Request URL</h3>
-
-<p><code class="prettyprint">https://{host}/developerapi/Customer/SavedCart/{merchantId}/{UserId}</code></p>
-
-<h3 id="request-path-parameters">Request Path Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>merchantId*</td>
-<td>string</td>
-<td>Unique GUID of the merchant</td>
-</tr>
-<tr>
-<td>user*</td>
-<td>string</td>
-<td>Unique GUID of the user to fetch saved cart items</td>
-</tr>
-</tbody></table>
-
-<aside class="notice"> All parameters marked by * are mandatory. </aside>
-
-<h3 id="response-parameters">Response Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>CartItemId</td>
-<td>int</td>
-<td>Unique cart id</td>
-</tr>
-<tr>
-<td>ProductId</td>
-<td>long</td>
-<td>Unique id of the product in cart</td>
-</tr>
-<tr>
-<td>VariantProductId</td>
-<td>long</td>
-<td>Unique id of the variant product</td>
-</tr>
-<tr>
-<td>StockAvailability</td>
-<td>boolean</td>
-<td>Whether the product is in stock or not</td>
-</tr>
-<tr>
-<td>LastUpdated</td>
-<td>date</td>
-<td>Date (in UST) when the cart is recently updated</td>
-</tr>
-</tbody></table>
 
           <h1 id="pricelist">Pricelist</h1>
 
@@ -22505,7 +22375,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Product/Pricelist/{MerchantId}/{PricelistRefCode}/upload</code></p>
+<p><code class="prettyprint">{host}/developerapi/Product/Pricelist/{MerchantId}/{PricelistRefCode}/upload</code></p>
 
 <h3 id="request-body-parameters">Request Body Parameters</h3>
 
@@ -22622,7 +22492,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Product/Pricelist/Details/Delete/{MerchantId}/{PricelistRefCode}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Product/Pricelist/Details/Delete/{MerchantId}/{PricelistRefCode}</code></p>
 
 <h3 id="request-path-parameters">Request Path Parameters</h3>
 
@@ -22819,7 +22689,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Pricelist/{merchantId}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Pricelist/{merchantId}</code></p>
 
 <h3 id="request-path-parameters">Request Path Parameters</h3>
 
@@ -22954,7 +22824,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/ShoppingList/add/{MerchantId}</code></p>
+<p><code class="prettyprint">{host}/developerapi/ShoppingList/add/{MerchantId}</code></p>
 
 <h3 id="request-parameters">Request Parameters</h3>
 
@@ -23078,7 +22948,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/ShoppingList/{MerchantId}/{UserId}/{shoppinglistId}/{GetDefaultWishlist}</code></p>
+<p><code class="prettyprint">{host}/developerapi/ShoppingList/{MerchantId}/{UserId}/{shoppinglistId}/{GetDefaultWishlist}</code></p>
 
 <h3 id="request-parameters">Request Parameters</h3>
 
@@ -23228,7 +23098,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/ShoppingList/items/add/{MerchantId}</code></p>
+<p><code class="prettyprint">{host}/developerapi/ShoppingList/items/add/{MerchantId}</code></p>
 
 <h3 id="request-body-parameters">Request Body Parameters</h3>
 
@@ -23348,7 +23218,7 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/ShoppingList/Items/{merchantId}/{shoppingListId}/{userId}</code></p>
+<p><code class="prettyprint">{host}/developerapi/ShoppingList/Items/{merchantId}/{shoppingListId}/{userId}</code></p>
 
 <h3 id="request-parameters">Request Parameters</h3>
 
@@ -23515,7 +23385,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
                      </span><span class="nt">"checkouttype"</span><span class="p">:</span><span class="s2">"Online Payment"</span><span class="p">,</span><span class="w">
                      </span><span class="nt">"paymentno"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
                      </span><span class="nt">"amount"</span><span class="p">:</span><span class="mi">9495</span><span class="p">,</span><span class="w">
-                     </span><span class="nt">"transaciondate"</span><span class="p">:</span><span class="s2">"07\/26\/2018"</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"transaciondate"</span><span class="p">:</span><span class="s2">"07/26/2018"</span><span class="p">,</span><span class="w">
                      </span><span class="nt">"paymentstatus"</span><span class="p">:</span><span class="s2">"Authorized"</span><span class="w">
                   </span><span class="p">}</span><span class="w">
                </span><span class="p">]</span><span class="w">
@@ -23555,6 +23425,10 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <td><code class="prettyprint">Order/BulkOrderCreation</code></td>
 </tr>
 <tr>
+<td>Response Formats</td>
+<td>JSON</td>
+</tr>
+<tr>
 <td>Rate Limited?</td>
 <td>No</td>
 </tr>
@@ -23579,7 +23453,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Order/BulkOrderCreation</code></p>
+<p><code class="prettyprint">{host}/developerapi/Order/BulkOrderCreation</code></p>
 
 <h3 id="request-body-parameters">Request Body Parameters</h3>
 
@@ -23598,12 +23472,12 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>orderdate*</td>
 <td>date</td>
-<td>Ordered date in <code class="prettyprint">dd/mm/yyyy</code> format</td>
+<td>Ordered date in <code class="prettyprint">mm/dd/yyyy</code> or <code class="prettyprint">yyyy/mm/dd</code> format</td>
 </tr>
 <tr>
 <td>deliveredon</td>
 <td>date</td>
-<td>Specify the estimated delivery of the item if applicable for the merchant in <code class="prettyprint">dd/mm/yyyy</code> format</td>
+<td>Specify the estimated delivery of the item if applicable for the merchant in <code class="prettyprint">mm/dd/yyyy</code> or <code class="prettyprint">yyyy/mm/dd</code> or</td>
 </tr>
 <tr>
 <td>customertype</td>
@@ -23633,12 +23507,17 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>paymentlinkstatus</td>
 <td>enum</td>
-<td>Status of the payment. Predefined enum values: Pending (Bank transfer, Cheque,), Authorized (COD, Prepaid)</td>
+<td>Whether payment link needs to sent to customer (Yes) or not (No). Use only if the Order status is Pending. A link for making the payment will be sent to the customer with all the available payment options</td>
+</tr>
+<tr>
+<td>Storelocationcode</td>
+<td>string</td>
+<td>Source location of the order from where the order was initiated</td>
 </tr>
 <tr>
 <td>calculateshippingtax</td>
 <td>enum</td>
-<td>Specify `<code class="prettyprint">NO</code> if the order value includes tax and service charges, specify <code class="prettyprint">YES</code> to add charges separately</td>
+<td>Whether tax or shipping charges should be calculated based on CP Configuration. If <code class="prettyprint">Yes</code> it will be calculated based on the CP Configuration rules. Specify <code class="prettyprint">No</code> to consider input values from the payload</td>
 </tr>
 <tr>
 <td>shipfirstname, shiplastname, shipaddress1 &hellip;</td>
@@ -23658,7 +23537,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>locationcode</td>
 <td>string</td>
-<td>Reference code of the  order fulfillment location</td>
+<td>Location code of the order fulfillment location (Generally used for Location specific merchants)</td>
 </tr>
 <tr>
 <td>isselfship</td>
@@ -23949,6 +23828,14 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <td><code class="prettyprint">Order/BulkOrderCreation</code></td>
 </tr>
 <tr>
+<td>Response Formats</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>No</td>
+</tr>
+<tr>
 <td>Authentication</td>
 <td>Yes</td>
 </tr>
@@ -23969,7 +23856,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Order/BulkOrderCreation</code></p>
+<p><code class="prettyprint">{host}/developerapi/Order/BulkOrderCreation</code></p>
 
 <h3 id="request-body-parameters">Request Body Parameters</h3>
 
@@ -23988,12 +23875,12 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>orderdate*</td>
 <td>date</td>
-<td>Ordered date in <code class="prettyprint">dd/mm/yyyy</code> format</td>
+<td>Ordered date in <code class="prettyprint">mm/dd/yyyy</code> or <code class="prettyprint">yyyy/mm/dd</code> format</td>
 </tr>
 <tr>
 <td>deliveredon</td>
 <td>date</td>
-<td>Specify the estimated delivery of the item if applicable for the merchant in <code class="prettyprint">dd/mm/yyyy</code> format</td>
+<td>Specify the estimated delivery of the item if applicable for the merchant in <code class="prettyprint">mm/dd/yyyy</code> or <code class="prettyprint">yyyy/mm/dd</code> format</td>
 </tr>
 <tr>
 <td>customertype</td>
@@ -24023,12 +23910,12 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>paymentlinkstatus</td>
 <td>enum</td>
-<td>Status of the payment. Predefined enum values: Values: Pending (Bank transfer, Cheque,), Authorized (COD, Prepaid)</td>
+<td>Whether payment link needs to sent to customer (Yes) or not (No). Use only if the Order status is Pending. A link for making the payment will be sent to the customer with all the available payment options</td>
 </tr>
 <tr>
 <td>calculateshippingtax</td>
 <td>enum</td>
-<td>Specify `<code class="prettyprint">NO</code> if the order value includes tax and service charges. specify <code class="prettyprint">YES</code> to add charges separately</td>
+<td>Whether tax or shipping charges should be calculated based on CP Configuration. If <code class="prettyprint">Yes</code> it will be calculated based on the CP Configuration rules. Specify <code class="prettyprint">No</code> to consider input values from the payload</td>
 </tr>
 <tr>
 <td>shipfirstname, shiplastname, shipaddress1 &hellip;</td>
@@ -24046,9 +23933,14 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <td>Specify the customer’s preferred personalized message for the recipient (for gift orders)</td>
 </tr>
 <tr>
+<td>storelocationcode</td>
+<td>string</td>
+<td>Source location of the order from where the order was initiated</td>
+</tr>
+<tr>
 <td>locationcode</td>
 <td>string</td>
-<td>Reference code of the order fulfillment location</td>
+<td>Location code of the order fulfillment location (Generally used for Location specific merchants)</td>
 </tr>
 <tr>
 <td>isselfship</td>
@@ -24189,7 +24081,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <blockquote>
 <p>Sample Request</p>
 </blockquote>
-<pre class="highlight html"><code>http://{{url}}/developerapi/Order/PlaceOrder/81e77da2-723b-483d-8c0d-49f800c1exxx
+<pre class="highlight html"><code>http://www.martjack.com/developerapi/Order/PlaceOrder/81e77da2-723b-483d-8c0d-49f800c1exxx
 </code></pre>
 <blockquote>
 <p>Sample POST Request</p>
@@ -24258,7 +24150,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">http://{host}/developerapi/Order/PlaceOrder/{{MerchantId}}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Order/PlaceOrder/{MerchantId}</code></p>
 
 <h3 id="additional-header">Additional Header</h3>
 
@@ -24302,11 +24194,6 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <td>gatewayId*</td>
 <td>string</td>
 <td>Gateway id through which the payment is made</td>
-</tr>
-<tr>
-<td>channelType</td>
-<td>string</td>
-<td>The channel from which the order is placed. For example: amazon, myntra</td>
 </tr>
 <tr>
 <td>skipDeliveryAreaValidation</td>
@@ -24646,7 +24533,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <h2 id="authorize-order">Authorize Order</h2>
 
-<p>Authorizes a pending order (an order with pending payment status).</p>
+<p>Authorizes a pending order (an order with pending payment status) or failed order.</p>
 
 <blockquote>
 <p>Sample Request</p>
@@ -24657,8 +24544,19 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <blockquote>
 <p>Sample POST Request (RAW)</p>
 </blockquote>
-<pre class="highlight json"><code><span class="err">OrderID=</span><span class="mi">7507817</span><span class="err">&amp;merchantId=f</span><span class="mi">48</span><span class="err">fdd</span><span class="mi">16-92</span><span class="err">db</span><span class="mi">-4188-854</span><span class="err">d</span><span class="mi">-1</span><span class="err">ecd</span><span class="mi">9</span><span class="err">b</span><span class="mi">62</span><span class="err">d</span><span class="mi">066</span><span class="err">&amp;PaymentType=Credit&amp;bankInstrumentNumber=</span><span class="mi">12444</span><span class="err">&amp;bankName=KOTAK&amp;pGResponse=ewe</span><span class="mi">23232323232</span><span class="w">
-
+<pre class="highlight json"><code><span class="err">MerchantID=fd</span><span class="mi">986588-63</span><span class="err">df</span><span class="mi">-4</span><span class="err">d</span><span class="mi">76-9</span><span class="err">ddd</span><span class="mi">-5</span><span class="err">d</span><span class="mi">8</span><span class="err">b</span><span class="mi">984518</span><span class="err">a</span><span class="mi">5</span><span class="err">&amp;InputFormat=application/json&amp;InputData=</span><span class="p">{</span><span class="w">
+</span><span class="nt">"AuthorizeOrder"</span><span class="p">:</span><span class="w">
+ </span><span class="p">{</span><span class="w">
+ </span><span class="nt">"merchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fd986588-63df-4d76-9ddd-5d8b984518a5"</span><span class="p">,</span><span class="w">
+ </span><span class="nt">"OrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7557689"</span><span class="p">,</span><span class="w">
+ </span><span class="nt">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"03/12/2019"</span><span class="p">,</span><span class="w">
+ </span><span class="nt">"Comment"</span><span class="p">:</span><span class="s2">"TestComment"</span><span class="p">,</span><span class="w">
+ </span><span class="nt">"PaymentType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Credit"</span><span class="p">,</span><span class="w">
+ </span><span class="nt">"BankInstrumentNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12444"</span><span class="p">,</span><span class="w">
+ </span><span class="nt">"BankName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KOTAK"</span><span class="p">,</span><span class="w">
+ </span><span class="nt">"PGResponse"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ewe23232323232"</span><span class="w">
+ </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre>
 <blockquote>
 <p>Sample Response</p>
@@ -24712,7 +24610,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/order/Authorize</code></p>
+<p><code class="prettyprint">{host}/developerapi/order/Authorize</code></p>
 
 <h3 id="request-body-parameters">Request Body Parameters</h3>
 
@@ -24732,6 +24630,16 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <td>OrderID*</td>
 <td>int</td>
 <td>Unique id of the order that you want to authorize</td>
+</tr>
+<tr>
+<td>Date</td>
+<td>date</td>
+<td>Date of authorization</td>
+</tr>
+<tr>
+<td>Comment</td>
+<td>string</td>
+<td>Specify if you want to provide any comment related to the order authentication</td>
 </tr>
 <tr>
 <td>PaymentType*</td>
@@ -24864,7 +24772,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">http://{host}/developerapi/Order/ProcessTransaction/{MerchantId}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Order/ProcessTransaction/{MerchantId}</code></p>
 
 <h3 id="request-body-parameters">Request Body Parameters</h3>
 
@@ -25017,7 +24925,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi//Order/UpdateTransaction/{merchantId}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Order/UpdateTransaction/{merchantId}</code></p>
 
 <h3 id="request-body-parameters">Request Body Parameters</h3>
 
@@ -25093,8 +25001,8 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
   </span><span class="nt">"OrderSearch"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"Action"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
     </span><span class="nt">"CheckOutType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Online Payment"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"DateFrom"</span><span class="p">:</span><span class="w"> </span><span class="s2">"09\/15\/2017"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"DateTo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"09\/16\/2017"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"DateFrom"</span><span class="p">:</span><span class="w"> </span><span class="s2">"09/15/2017"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"DateTo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"09/16/2017"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"DateType"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
     </span><span class="nt">"EmailID"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
     </span><span class="nt">"FristName"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
@@ -25240,7 +25148,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/order/Search/{merchantId}</code></p>
+<p><code class="prettyprint">{host}/developerapi/order/Search/{merchantId}</code></p>
 
 <h3 id="request-body-parameters">Request Body Parameters</h3>
 
@@ -25259,12 +25167,12 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>DateFrom</td>
 <td>date</td>
-<td>Search orders of a specific duration between <code class="prettyprint">DateFrom</code> and <code class="prettyprint">DateTo</code>. The duration is considered on the basis of specified <code class="prettyprint">DateType&#39;. Pass the date in</code>MM\/DD\/YYYY` format</td>
+<td>Search orders of a specific duration between <code class="prettyprint">DateFrom</code> and <code class="prettyprint">DateTo</code>. The duration is considered on the basis of specified <code class="prettyprint">DateType&#39;. Pass the date in</code>MM/DD/YYYY` format</td>
 </tr>
 <tr>
 <td>DateTo</td>
 <td>date</td>
-<td>Search orders of a specific duration between <code class="prettyprint">DateFrom</code> and <code class="prettyprint">DateTo</code>. The duration is considered on the basis of specified <code class="prettyprint">DateType&#39;. Pass the date in</code>MM\/DD\/YYYY` format</td>
+<td>Search orders of a specific duration between <code class="prettyprint">DateFrom</code> and <code class="prettyprint">DateTo</code>. The duration is considered on the basis of specified <code class="prettyprint">DateType&#39;. Pass the date in</code>MM/DD/YYYY` format</td>
 </tr>
 <tr>
 <td>DateType</td>
@@ -25415,7 +25323,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/order/SaveMerchantTransaction/{merchantId}</code></p>
+<p><code class="prettyprint">{host}/developerapi/order/SaveMerchantTransaction/{merchantId}</code></p>
 
 <h3 id="request-body-parameters">Request Body Parameters</h3>
 
@@ -25846,7 +25754,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Order/ReOrder/{merchantId}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Order/ReOrder/{merchantId}</code></p>
 
 <h3 id="request-path-parameters">Request Path Parameters</h3>
 
@@ -25877,6 +25785,11 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <td>OrderId*</td>
 <td>int</td>
 <td>Existing Order id of the customer that you want to order again</td>
+</tr>
+<tr>
+<td>orderItemId</td>
+<td>int</td>
+<td>Specify the order item id to reorder a specific item; <code class="prettyprint">0</code> to consider the entire order items</td>
 </tr>
 <tr>
 <td>UserId*</td>
@@ -25928,12 +25841,12 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 </tr>
 </tbody></table>
 
-<h2 id="fetch-order-history">Fetch Order History</h2>
+<h2 id="get-order-history">Get Order History</h2>
 
 <blockquote>
 <p>Sample Request</p>
 </blockquote>
-<pre class="highlight html"><code>http://{www.martjack.com/developerapi/Order/History/81e77da2-723b-483d-8c0d-49f800c1exxx
+<pre class="highlight html"><code>http://www.martjack.com/developerapi/Order/History/81e77da2-723b-483d-8c0d-49f800c1exxx
 </code></pre>
 <blockquote>
 <p>Sample POST Request</p>
@@ -25981,7 +25894,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
                </span><span class="nt">"CurrencyCode"</span><span class="p">:</span><span class="s2">"INR"</span><span class="p">,</span><span class="w">
                </span><span class="nt">"GV"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
                </span><span class="nt">"OrderId"</span><span class="p">:</span><span class="mi">567282</span><span class="p">,</span><span class="w">
-               </span><span class="nt">"PaymentDate"</span><span class="p">:</span><span class="s2">"1\/1\/1900"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"PaymentDate"</span><span class="p">:</span><span class="s2">"1/1/1900"</span><span class="p">,</span><span class="w">
                </span><span class="nt">"PaymentDetailsId"</span><span class="p">:</span><span class="mi">539740</span><span class="p">,</span><span class="w">
                </span><span class="nt">"PaymentOption"</span><span class="p">:</span><span class="s2">"OnlineBankTransfer"</span><span class="p">,</span><span class="w">
                </span><span class="nt">"PaymentResponse"</span><span class="p">:</span><span class="s2">"{\"TransactionType\":\"TPG\",\"Mode\":\"TPG\",\"Card\":\"xxxxxxxxxxxx\",\"ResponseMessage\":\"{\\\"MID\\\":\\\"CPWHOL99145646120719\\\",\\\"ORDERID\\\":\\\"6979181\\\",\\\"TXNAMOUNT\\\":\\\"7801.00\\\",\\\"CURRENCY\\\":\\\"INR\\\",\\\"TXNID\\\":\\\"70001001203\\\",\\\"BANKTXNID\\\":\\\"1233957\\\",\\\"STATUS\\\":\\\"TXN_SUCCESS\\\",\\\"RESPCODE\\\":\\\"01\\\",\\\"RESPMSG\\\":\\\"Txn Successful.\\\",\\\"TXNDATE\\\":\\\"2018-07-26 18:49:23.0\\\",\\\"GATEWAYNAME\\\":\\\"WALLET\\\",\\\"BANKNAME\\\":\\\"\\\",\\\"PAYMENTMODE\\\":\\\"PPI\\\",\\\"CHECKSUMHASH\\\":\\\"qLXOxRBDS5SHAjZu1xLcQovmM4OLv7kYa93lZO76XqgXR8mHfK7KsxNIEYQA2KgU8B6eXf2ZzWf95k6DoKY34ZQa7S/TvP5gasePQDjS+fA=\\\",\\\"orderID\\\":\\\"6979181\\\"}\"}"</span><span class="p">,</span><span class="w">
@@ -26067,7 +25980,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host url}/developerapi/Order/History/{MerchantId}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Order/History/{MerchantId}</code></p>
 
 <h3 id="request-body-parameters">Request Body Parameters</h3>
 
@@ -26170,164 +26083,108 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <blockquote>
 <p>Sample Request</p>
 </blockquote>
-<pre class="highlight html"><code>https://www.martjack.com/developerapi/Order/Invoice/6c57599f-2c43-4c82-806a-e07c3410fxxx/invoice_hyc-2017-2018-00000127/1435
+<pre class="highlight html"><code>https://www.martjack.com/developerapi/Order/Invoice/f48fdd16-92db-4188-854d-1ecd9b62d067/invoice_hyc-00000576/18340
 </code></pre>
 <blockquote>
 <p>Sample Response</p>
 </blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">  
-   </span><span class="nt">"messageCode"</span><span class="p">:</span><span class="s2">"1004"</span><span class="p">,</span><span class="w">
-   </span><span class="nt">"Message"</span><span class="p">:</span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
-   </span><span class="nt">"Orders"</span><span class="p">:[</span><span class="w">  
-      </span><span class="p">{</span><span class="w">  
-         </span><span class="nt">"OrderId"</span><span class="p">:</span><span class="mi">5648247</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"Status"</span><span class="p">:</span><span class="s2">"S"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"sku"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"shipdate"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"MerchantId"</span><span class="p">:</span><span class="s2">"6c57599f-2c43-4c82-806a-e07c3410f5d3"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"UserId"</span><span class="p">:</span><span class="s2">"f72da7b6-9566-4c99-b0e6-aa882e7acc43"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"TotalAmount"</span><span class="p">:</span><span class="mi">451</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"AmountPayable"</span><span class="p">:</span><span class="mi">451</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"OrderDate"</span><span class="p">:</span><span class="s2">"15/02/2018"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"BillFirstname"</span><span class="p">:</span><span class="s2">"Tom Sawyer"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"BillLastname"</span><span class="p">:</span><span class="s2">"N"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"BillCountry"</span><span class="p">:</span><span class="s2">"India"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"BillingState"</span><span class="p">:</span><span class="s2">"Karnataka"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"BillCity"</span><span class="p">:</span><span class="s2">"32"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"BillEmail"</span><span class="p">:</span><span class="s2">"tom.sawyer@example.com"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"BillZIP"</span><span class="p">:</span><span class="s2">"560068"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"BillPhone"</span><span class="p">:</span><span class="s2">"NA"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"BillMobile"</span><span class="p">:</span><span class="s2">"9098000000"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"BillAddress1"</span><span class="p">:</span><span class="s2">"#304-39,Brigade Enclave,Hosakerehalli,Banglore"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"ShipFirstname"</span><span class="p">:</span><span class="s2">"Tom Sawyer"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"ShipLastname"</span><span class="p">:</span><span class="s2">" - "</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"ShipCountry"</span><span class="p">:</span><span class="s2">"India"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"ShipState"</span><span class="p">:</span><span class="s2">"Karnataka"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"ShipCity"</span><span class="p">:</span><span class="s2">"32"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"ShipEmail"</span><span class="p">:</span><span class="s2">"tom.sawyer@example.com"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"ShipZip"</span><span class="p">:</span><span class="s2">"560047"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"ShipPhone"</span><span class="p">:</span><span class="s2">"9098000000"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"ShipMobile"</span><span class="p">:</span><span class="s2">"9098000000"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"ShipAddress1"</span><span class="p">:</span><span class="s2">"A5-415, Malaprabha Block&amp;#10;National Games Village, Koramangala"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"ShipOtherCity"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"DeliveryOption"</span><span class="p">:</span><span class="s2">"ship"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"TAXTotal"</span><span class="p">:</span><span class="mf">40.90</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"VoucherCode"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"LeadTime"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"BillAddress2"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"ShipAddress2"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"IsGift"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"SupplierID"</span><span class="p">:</span><span class="s2">"00000000-0000-0000-0000-000000000000"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"ConversionFactor"</span><span class="p">:</span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"cpuserid"</span><span class="p">:</span><span class="s2">"00000000-0000-0000-0000-000000000000"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"OrderLineId"</span><span class="p">:[</span><span class="w">  
-            </span><span class="p">{</span><span class="w">  
-               </span><span class="nt">"OrderLineId"</span><span class="p">:</span><span class="mi">21411124</span><span class="p">,</span><span class="w">
-               </span><span class="nt">"OrderId"</span><span class="p">:</span><span class="mi">5648247</span><span class="p">,</span><span class="w">
-               </span><span class="nt">"ProductId"</span><span class="p">:</span><span class="mi">11139502</span><span class="p">,</span><span class="w">
-               </span><span class="nt">"VariantProductId"</span><span class="p">:</span><span class="mi">7086906</span><span class="p">,</span><span class="w">
-               </span><span class="nt">"IsParentProduct"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
-               </span><span class="nt">"Description"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-               </span><span class="nt">"Quantity"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
-               </span><span class="nt">"ShippingCost"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
-               </span><span class="nt">"ProductPrice"</span><span class="p">:</span><span class="mf">459.09</span><span class="p">,</span><span class="w">
-               </span><span class="nt">"TotalPromotionDiscount"</span><span class="p">:</span><span class="mi">50</span><span class="p">,</span><span class="w">
-               </span><span class="nt">"ReturnReason"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-               </span><span class="nt">"ReturnAction"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-               </span><span class="nt">"StockAction"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-               </span><span class="nt">"ReturnQty"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
-               </span><span class="nt">"IsBackOrder"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
-               </span><span class="nt">"TotalVoucherDiscount"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
-               </span><span class="nt">"TotalTaxAmount"</span><span class="p">:</span><span class="mf">40.9091</span><span class="p">,</span><span class="w">
-               </span><span class="nt">"ShippingVoucherDiscount"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
-               </span><span class="nt">"CustomFields"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-               </span><span class="nt">"VariantMasterProductId"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
-               </span><span class="nt">"LocationCode"</span><span class="p">:</span><span class="s2">"OCDEL"</span><span class="p">,</span><span class="w">
-               </span><span class="nt">"ShippingStatus"</span><span class="p">:</span><span class="s2">"S"</span><span class="p">,</span><span class="w">
-               </span><span class="nt">"DeliveryMode"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-               </span><span class="nt">"VendorId"</span><span class="p">:</span><span class="s2">"00000000-0000-0000-0000-000000000000"</span><span class="p">,</span><span class="w">
-               </span><span class="nt">"ItemStatus"</span><span class="p">:</span><span class="s2">"S"</span><span class="p">,</span><span class="w">
-               </span><span class="nt">"SKU"</span><span class="p">:</span><span class="s2">"INDIGOF11515WHT"</span><span class="p">,</span><span class="w">
-               </span><span class="nt">"VariantSku"</span><span class="p">:</span><span class="s2">"8907319010800"</span><span class="p">,</span><span class="w">
-               </span><span class="nt">"ProductTitle"</span><span class="p">:</span><span class="s2">"White Cotton Skirt"</span><span class="p">,</span><span class="w">
-               </span><span class="nt">"BundleProductId"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-               </span><span class="nt">"ParentReDetailsId"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-               </span><span class="nt">"ImageUrl"</span><span class="p">:</span><span class="s2">"http://images-cdn-stage.azurewebsites.net/azure/stage-resources/6c57599f-2c43-4c82-806a-e07c3410f5d3/Images/ProductImages/Source/INDIGOF11515WHT1-optimized.jpg;width=300"</span><span class="p">,</span><span class="w">
-               </span><span class="nt">"IsPrimaryProduct"</span><span class="p">:</span><span class="s2">"false"</span><span class="p">,</span><span class="w">
-               </span><span class="nt">"Portion"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-               </span><span class="nt">"MRP"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-               </span><span class="nt">"TaxAmount"</span><span class="p">:</span><span class="s2">"40.90"</span><span class="p">,</span><span class="w">
-               </span><span class="nt">"TaxDetails"</span><span class="p">:[</span><span class="w">  
-                  </span><span class="p">{</span><span class="w">  
-                     </span><span class="nt">"TaxCategory"</span><span class="p">:</span><span class="s2">"IGST"</span><span class="p">,</span><span class="w">
-                     </span><span class="nt">"TaxRate"</span><span class="p">:</span><span class="s2">"10"</span><span class="p">,</span><span class="w">
-                     </span><span class="nt">"TaxAmount"</span><span class="p">:</span><span class="mf">40.9091</span><span class="p">,</span><span class="w">
-                     </span><span class="nt">"IsTaxRatePercentage"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
-                     </span><span class="nt">"TaxCode"</span><span class="p">:</span><span class="kc">null</span><span class="w">
-                  </span><span class="p">}</span><span class="w">
-               </span><span class="p">],</span><span class="w">
-               </span><span class="nt">"IsTaxable"</span><span class="p">:</span><span class="s2">"True"</span><span class="p">,</span><span class="w">
-               </span><span class="nt">"HSNCode"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-               </span><span class="nt">"UOM"</span><span class="p">:</span><span class="s2">"Pieces"</span><span class="p">,</span><span class="w">
-               </span><span class="nt">"ActualWeight"</span><span class="p">:</span><span class="s2">"0.000"</span><span class="w">
-            </span><span class="p">}</span><span class="w">
-         </span><span class="p">],</span><span class="w">
-         </span><span class="nt">"PaymentDetails"</span><span class="p">:[</span><span class="w">  
-            </span><span class="p">{</span><span class="w">  
-               </span><span class="nt">"PointsBurned"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-               </span><span class="nt">"AgentId"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-               </span><span class="nt">"GV"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-               </span><span class="nt">"Channel"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-               </span><span class="nt">"CurrencyCode"</span><span class="p">:</span><span class="s2">"INR"</span><span class="p">,</span><span class="w">
-               </span><span class="nt">"PaymentResponse"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-               </span><span class="nt">"PaymentStatus"</span><span class="p">:</span><span class="s2">"A"</span><span class="p">,</span><span class="w">
-               </span><span class="nt">"Amount"</span><span class="p">:</span><span class="s2">"130"</span><span class="p">,</span><span class="w">
-               </span><span class="nt">"PaymentDate"</span><span class="p">:</span><span class="s2">"8/6/2017"</span><span class="p">,</span><span class="w">
-               </span><span class="nt">"PaymentType"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-               </span><span class="nt">"OrderId"</span><span class="p">:</span><span class="mi">5648247</span><span class="p">,</span><span class="w">
-               </span><span class="nt">"PaymentDetailsId"</span><span class="p">:</span><span class="mi">5743268</span><span class="p">,</span><span class="w">
-               </span><span class="nt">"checkOutGroup"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-               </span><span class="nt">"PaymentOption"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-               </span><span class="nt">"clientIP"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-               </span><span class="nt">"ResponseCode"</span><span class="p">:</span><span class="s2">"N"</span><span class="p">,</span><span class="w">
-               </span><span class="nt">"ClientUserAgent"</span><span class="p">:</span><span class="s2">"GuzzleHttp/6.2.0 curl/7.35.0 PHP/5.5.9-1ubuntu4.19"</span><span class="w">
-            </span><span class="p">}</span><span class="w">
-         </span><span class="p">],</span><span class="w">
-         </span><span class="nt">"Rewards"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"ShippingDiscount"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"VoucherDiscount"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"PromotionDiscount"</span><span class="p">:</span><span class="mi">50</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"OriginalOrderId"</span><span class="p">:</span><span class="s2">"5648247"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"ReturnOrderId"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"ReferenceNo"</span><span class="p">:</span><span class="s2">"443"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"DemandedDeliveryDate"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"deliveryslots"</span><span class="p">:{</span><span class="w">  
-            </span><span class="nt">"StartTime"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"EndTime"</span><span class="p">:</span><span class="s2">""</span><span class="w">
-         </span><span class="p">},</span><span class="w">
-         </span><span class="nt">"GiftMessage"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"LanguageCode"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"ShipStateCode"</span><span class="p">:</span><span class="s2">"KA"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"ShipCountryCode"</span><span class="p">:</span><span class="s2">"IN"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"BillStateCode"</span><span class="p">:</span><span class="s2">"KA"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"BillCountryCode"</span><span class="p">:</span><span class="s2">"IN"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"RefundAmount"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"Promotions"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"TaxDetails"</span><span class="p">:[</span><span class="w">  
-            </span><span class="p">{</span><span class="w">  
-               </span><span class="nt">"TaxCategory"</span><span class="p">:</span><span class="s2">"IGST"</span><span class="p">,</span><span class="w">
-               </span><span class="nt">"TaxRate"</span><span class="p">:</span><span class="s2">"10"</span><span class="p">,</span><span class="w">
-               </span><span class="nt">"TaxAmount"</span><span class="p">:</span><span class="mf">40.9091</span><span class="p">,</span><span class="w">
-               </span><span class="nt">"IsTaxRatePercentage"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
-               </span><span class="nt">"TaxCode"</span><span class="p">:</span><span class="kc">null</span><span class="w">
-            </span><span class="p">}</span><span class="w">
-         </span><span class="p">],</span><span class="w">
-         </span><span class="nt">"MerchantGSTIN"</span><span class="p">:</span><span class="s2">"07650296886"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"CustomerGSTIN"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"TaxableInvoiceNumber"</span><span class="p">:</span><span class="s2">"tax/2017-2018/0048"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"BillofSupplyInvoiceNumber"</span><span class="p">:</span><span class="s2">""</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-   </span><span class="p">]</span><span class="w">
+<pre class="highlight json"><code><span class="w">
+</span><span class="p">{</span><span class="w">
+    </span><span class="nt">"messageCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1004"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"InvoiceOrders"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"OrderId"</span><span class="p">:</span><span class="w"> </span><span class="mi">7520003</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"InvoiceDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"27-Mar-2019"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ShipmentID"</span><span class="p">:</span><span class="w"> </span><span class="mi">5516645</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"InvoiceNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"invoice_hyc-00000576"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f48fdd16-92db-4188-854d-1ecd9b62d067"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"UserId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00000000-0000-0000-0000-000000000000"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"OrderTotalAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">549</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"InvoiceAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">549</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"OrderDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"27-Mar-2019"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"OrderRefNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3550"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"BillFirstname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sana"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"BillLastname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ta Minh"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"BillCountry"</span><span class="p">:</span><span class="w"> </span><span class="s2">"India"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"BillingState"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Karnataka"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"BillCity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bengaluru"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"BillEmail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sahana.garje@capillarytech.com"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"BillZIP"</span><span class="p">:</span><span class="w"> </span><span class="s2">"560078"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"BillPhone"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"BillMobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7411982768"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"BillAddress1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Yen Lac"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"BillAddress2"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"BillCityCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"19761"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"BillStateCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KA"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"BillCountryCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IN"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ShipFirstname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sana"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ShipLastname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ta Minh"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ShipCountry"</span><span class="p">:</span><span class="w"> </span><span class="s2">"India"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ShipState"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Karnataka"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ShipCity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bengaluru"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ShipEmail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sahana.garje@capillarytech.com"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ShipZip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"560078"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ShipPhone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7411982768"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ShipMobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7411982768"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ShipAddress1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Yen Lac"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ShipAddress2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Yen Lac"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ShipOtherCity"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ShipCityCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"19761"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ShipStateCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KA"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ShipCountryCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IN"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ShipLat"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ShipLong"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"LocationCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1001"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"TaxTotal"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ShippingCost"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"IsGift"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Rewards"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"PromotionDiscount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"DemandedDeliveryDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01-Jan-1900"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"MerchantGSTIN"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"TaxableInvoiceNumber"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"BillofSupplyInvoiceNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"invoicebill_hyc-002194"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"deliveryslot"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"StartTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12: 00 AM"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"EndTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12:00 AM"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"DeliverySlotId"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"InvoiceLineItem"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nt">"ShipmentItemId"</span><span class="p">:</span><span class="w"> </span><span class="mi">22091385</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"OrderLineId"</span><span class="p">:</span><span class="w"> </span><span class="mi">26178585</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"OrderId"</span><span class="p">:</span><span class="w"> </span><span class="mi">7520003</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"ProductId"</span><span class="p">:</span><span class="w"> </span><span class="mi">11995626</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"VariantProductId"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"Quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"ShippingCost"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"ProductPrice"</span><span class="p">:</span><span class="w"> </span><span class="mi">549</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"PromotionDiscount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"TaxAmount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"DeliveryMode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"H"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"VendorId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00000000-0000-0000-0000-000000000000"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"SKU"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100011145"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"VariantSku"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"ProductTitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nestle Milkmaid - 400g Tin"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"HSNCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"04029920"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"MRP"</span><span class="p">:</span><span class="w"> </span><span class="s2">"115.000"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"CatalogDiscount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"UOM"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pieces"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"AverageWeight"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"IsTaxable"</span><span class="p">:</span><span class="w"> </span><span class="s2">"False"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"TaxDetails"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+                    </span><span class="nt">"BatchNo"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"PickingPrice"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"PickListCustomFields"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+                    </span><span class="nt">"TotalTaxOnDeliveryCharge"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"ShipmentCustomFields"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="nt">"ShippingStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"R"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>Retrieves details of a specific invoice.</p>
@@ -26373,7 +26230,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/order/invoice/{merchantid}/{InvoiceNumber}/{LocationRefCode}</code></p>
+<p><code class="prettyprint">{host}/developerapi/order/invoice/{merchantid}/{InvoiceNumber}/{LocationRefCode}</code></p>
 
 <h3 id="request-path-parameters">Request Path Parameters</h3>
 
@@ -26517,23 +26374,9 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <li><strong>Authentication</strong> verifies the identity of the current user or integration. See Introduction &gt; Authentication (Merchant Setup on Admin Portal) for more details</li>
 </ul>
 
-<h3 id="additional-header-required">Additional Header Required</h3>
-
-<table><thead>
-<tr>
-<th>Header Name</th>
-<th>Value</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>token_secret</td>
-<td>Unique authentication key generated for the request</td>
-</tr>
-</tbody></table>
-
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Order/Details/{MerchantId}/{OrderId}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Order/Details/{MerchantId}/{OrderId}</code></p>
 
 <h3 id="request-parameters">Request Parameters</h3>
 
@@ -26849,7 +26692,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">http://{host}/developerapi/order/V2/{MerchantId}/{orderID}</code></p>
+<p><code class="prettyprint">{host}/developerapi/order/V2/{MerchantId}/{orderID}</code></p>
 
 <h3 id="request-path-parameters">Request Path Parameters</h3>
 
@@ -27105,7 +26948,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Order/DetailsByRefCode/{merchantId}/{orderReferenceNo}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Order/DetailsByRefCode/{merchantId}/{orderReferenceNo}</code></p>
 
 <h3 id="request-path-parameters">Request Path Parameters</h3>
 
@@ -27274,7 +27117,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Order/LineItem/{merchantId}/{orderLineId}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Order/LineItem/{merchantId}/{orderLineId}</code></p>
 
 <h3 id="request-path-parameters">Request Path Parameters</h3>
 
@@ -27421,7 +27264,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Order/GetOrderStatus/{MerchantId}/{orderId}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Order/GetOrderStatus/{MerchantId}/{orderId}</code></p>
 
 <h3 id="request-path-parameters">Request Path Parameters</h3>
 
@@ -27505,7 +27348,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <ul>
 <li>it is either in Authorized (A) or Pending (P) Status</li>
-<li>the picklist is either created or completed</li>
+<li>the picklist is either created or completed for any of the order items</li>
 </ul>
 
 <h3 id="resource-information">Resource Information</h3>
@@ -27549,7 +27392,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">http://{host}/developerapi/Order/Cancel</code></p>
+<p><code class="prettyprint">{host}/developerapi/Order/Cancel</code></p>
 
 <h3 id="request-body-parameters">Request Body Parameters</h3>
 
@@ -27689,7 +27532,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">http://{host}/developerapi/Order/CancelItem</code></p>
+<p><code class="prettyprint">{host}/developerapi/Order/CancelItem</code></p>
 
 <h3 id="request-body-parameters">Request Body Parameters</h3>
 
@@ -27826,7 +27669,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Order/AddOrderLineItem/{MerchantId}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Order/AddOrderLineItem/{MerchantId}</code></p>
 
 <h3 id="request-body-parameters">Request Body Parameters</h3>
 
@@ -27911,9 +27754,9 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
     </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Lets you process order returns and change the sub-status of the return order requests.</p>
+<p>Lets you process return requests and change the sub-status of the return requests.</p>
 
-<p>For a return order a brand could configure multiple sub-statuses according to its work-flow.</p>
+<p>For return requests, a brand could configure multiple sub-statuses according to its work-flow.</p>
 
 <h3 id="resource-information">Resource Information</h3>
 
@@ -27956,7 +27799,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Order/ProcessReturn/{MerchantId}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Order/ProcessReturn/{MerchantId}</code></p>
 
 <h3 id="request-body-parameters">Request Body Parameters</h3>
 
@@ -28064,7 +27907,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Order/UpdateReturnRequestStatus/{merchantId}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Order/UpdateReturnRequestStatus/{merchantId}</code></p>
 
 <h3 id="request-body-parameters">Request Body Parameters</h3>
 
@@ -28113,6 +27956,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
    </span><span class="nt">"shipment"</span><span class="p">:{</span><span class="w">  
       </span><span class="nt">"OrderId"</span><span class="p">:</span><span class="s2">"7503709"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"LocationRefCode"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"LogisticsType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ConfiguredProvider"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"ShipDate"</span><span class="p">:</span><span class="s2">"2019/11/01"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"ShipmentType"</span><span class="p">:</span><span class="s2">"normal"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"CourierName"</span><span class="p">:</span><span class="s2">"test"</span><span class="p">,</span><span class="w">
@@ -28206,7 +28050,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Order/Ship</code></p>
+<p><code class="prettyprint">{host}/developerapi/Order/Ship</code></p>
 
 <h3 id="request-body-parameters">Request Body Parameters</h3>
 
@@ -28236,6 +28080,11 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <td>CourierName*</td>
 <td>string</td>
 <td>The courier service used for shipment</td>
+</tr>
+<tr>
+<td>LogisticsType</td>
+<td>enum</td>
+<td>Specify <code class="prettyprint">ConfiguredProvider</code> if the logistic provider is configured for the merchant; else leave it blank. You need to pass the AWBNumber and CourierName if LogisticType is blank. If <code class="prettyprint">ConfiguredProvider</code>, AWB number will be considered or assigned as per configured</td>
 </tr>
 <tr>
 <td>ShipDate*</td>
@@ -28307,7 +28156,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
     </span><span class="nt">"ShipmentType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Normal"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"AirwayBillNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"CourierName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Custom"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"ShipmentPickupDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018\/10\/30"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ShipmentPickupDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018/10/30"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"LocationCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1001"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"ShipmentPackageInputs"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
@@ -28397,7 +28246,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Order/CreateShipmentPackages/{MerchantId}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Order/CreateShipmentPackages/{MerchantId}</code></p>
 
 <h3 id="request-body-parameters">Request Body Parameters</h3>
 
@@ -28431,12 +28280,12 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>ShipmentPickupDate*</td>
 <td>date-time</td>
-<td>Pickup date of the shipment in <code class="prettyprint">YYYY\/MM\/DD</code> format</td>
+<td>Pickup date of the shipment in <code class="prettyprint">YYYY/MM/DD</code> format</td>
 </tr>
 <tr>
 <td>LocationCode*</td>
 <td>string</td>
-<td>Reference code of the order fulfillment location</td>
+<td>Location code of the order fulfillment location (Generally used for Location specific merchants)</td>
 </tr>
 <tr>
 <td>PackageCode</td>
@@ -28550,7 +28399,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Order/ChangeSubStatus/{MerchantId}/{OrderId}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Order/ChangeSubStatus/{MerchantId}/{OrderId}</code></p>
 
 <h3 id="request-path-parameters">Request Path Parameters</h3>
 
@@ -28690,7 +28539,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Order/UpdateShipmentTripDetails/{MerchantId}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Order/UpdateShipmentTripDetails/{MerchantId}</code></p>
 
 <h3 id="request-body-parameters">Request Body Parameters</h3>
 
@@ -28819,7 +28668,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Order/UpdateShipmentStatus/{merchantId}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Order/UpdateShipmentStatus/{merchantId}</code></p>
 
 <h3 id="request-body-parameters">Request Body Parameters</h3>
 
@@ -28925,7 +28774,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Order/ShipmentPackages/{merchantId}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Order/ShipmentPackages/{merchantId}</code></p>
 
 <h3 id="response-parameters">Response Parameters</h3>
 
@@ -29037,7 +28886,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Order/ShipmentDetails/{merchantId}/{shipmentId}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Order/ShipmentDetails/{merchantId}/{shipmentId}</code></p>
 
 <h3 id="request-path-parameters">Request Path Parameters</h3>
 
@@ -29256,7 +29105,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Order/GetOrderActivityHistory/{MerchantId}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Order/GetOrderActivityHistory/{MerchantId}</code></p>
 
 <h3 id="request-body-parameters">Request Body Parameters</h3>
 
@@ -29462,7 +29311,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Order/{merchantId}/{orderId}/Shipments</code></p>
+<p><code class="prettyprint">{host}/developerapi/Order/{merchantId}/{orderId}/Shipments</code></p>
 
 <h3 id="request-path-parameters">Request Path Parameters</h3>
 
@@ -29621,7 +29470,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Order/getshipments/{merchantId}/{orderID}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Order/getshipments/{merchantId}/{orderID}</code></p>
 
 <h3 id="request-path-parameters">Request Path Parameters</h3>
 
@@ -29761,7 +29610,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Order/GetShipmentHistory/{merchantId}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Order/GetShipmentHistory/{merchantId}</code></p>
 
 <h3 id="request-body-parameters">Request Body Parameters</h3>
 
@@ -29856,7 +29705,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Order/UpdateShipmentCourierDetails/{merchantId}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Order/UpdateShipmentCourierDetails/{merchantId}</code></p>
 
 <h3 id="request-body-parameters">Request Body Parameters</h3>
 
@@ -30024,7 +29873,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Order/CalculateTax/{merchantId}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Order/CalculateTax/{merchantId}</code></p>
 
 <h3 id="request-body-parameters">Request Body Parameters</h3>
 
@@ -30043,7 +29892,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>SourceLocationCode</td>
 <td>int</td>
-<td>Location code of the product</td>
+<td>Location code of the order fulfillment location (Generally used for Location specific merchants)</td>
 </tr>
 <tr>
 <td>SourceLocationId</td>
@@ -30329,7 +30178,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Order/CalculateTax/{merchantId}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Order/CalculateTax/{merchantId}</code></p>
 
 <h3 id="request-body-parameters">Request Body Parameters</h3>
 
@@ -30558,7 +30407,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Order/BalanceEnquiry/{merchantId}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Order/BalanceEnquiry/{merchantId}</code></p>
 
 <h3 id="request-body-parameters">Request Body Parameters</h3>
 
@@ -30652,7 +30501,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Order/UpdateOrderReference/{merchantId}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Order/UpdateOrderReference/{merchantId}</code></p>
 
 <h3 id="request-body-parameters">Request Body Parameters</h3>
 
@@ -30815,7 +30664,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/DeveloperAPI/Order/CreateReturnRequest/{merchantId}</code></p>
+<p><code class="prettyprint">{host}/developerapi/DeveloperAPI/Order/CreateReturnRequest/{merchantId}</code></p>
 
 <h3 id="request-body-parameters">Request Body Parameters</h3>
 
@@ -31141,7 +30990,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Order/GetReturnRequestHistory/{merchantId}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Order/GetReturnRequestHistory/{merchantId}</code></p>
 
 <h3 id="request-body-parameters">Request Body Parameters</h3>
 
@@ -31356,7 +31205,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Order/GetReturnRequest/{merchantId}/{returnRequestId}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Order/GetReturnRequest/{merchantId}/{returnRequestId}</code></p>
 
 <h3 id="request-path-parameters">Request Path Parameters</h3>
 
@@ -31593,7 +31442,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Order/GetReturnRequestByOrderID/{MerchantId}/{OrderId}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Order/GetReturnRequestByOrderID/{MerchantId}/{OrderId}</code></p>
 
 <h3 id="request-path-parameters">Request Path Parameters</h3>
 
@@ -31750,7 +31599,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Order/EditOrderLineItem/{MerchantId}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Order/EditOrderLineItem/{MerchantId}</code></p>
 
 <h3 id="request-body-parameters">Request Body Parameters</h3>
 
@@ -31850,7 +31699,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Order/GetDocument/{MerchantId}/{OrderId}/{objectType}/{objectValue}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Order/GetDocument/{MerchantId}/{OrderId}/{objectType}/{objectValue}</code></p>
 
 <h3 id="request-path-parameters">Request Path Parameters</h3>
 
@@ -31990,7 +31839,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Order/AddManifest/{merchantId}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Order/AddManifest/{merchantId}</code></p>
 
 <h3 id="request-body-parameters">Request Body Parameters</h3>
 
@@ -32109,7 +31958,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Order/UpdateManifest/{merchantId}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Order/UpdateManifest/{merchantId}</code></p>
 
 <h3 id="request-body-parameters">Request Body Parameters</h3>
 
@@ -32209,7 +32058,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Order/GetManifest/{MerchantId}/{ManifestId}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Order/GetManifest/{MerchantId}/{ManifestId}</code></p>
 
 <h3 id="request-path-parameters">Request Path Parameters</h3>
 
@@ -32352,7 +32201,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Order/TaxVoucher/{merchantId}/{orderId}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Order/TaxVoucher/{merchantId}/{orderId}</code></p>
 
 <h3 id="request-path-parameters">Request Path Parameters</h3>
 
@@ -32396,7 +32245,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <tr>
 <td>LocationCode</td>
 <td>int</td>
-<td>Location code of the delivery location</td>
+<td>Location code of the order fulfillment location (Generally used for Location specific merchants)</td>
 </tr>
 <tr>
 <td>OrderLineId</td>
@@ -32579,7 +32428,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Order/LeadSearch/{merchantId}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Order/LeadSearch/{merchantId}</code></p>
 
 <h3 id="request-body-parameters">Request Body Parameters</h3>
 
@@ -32658,7 +32507,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <p>Picklist is a document that contains the list of order items to be picked up from inventory for further processing. Picklist is maintained by shippers with large inventory or multiple orders. This resource provides all APIs related creating and managing picklist.</p>
 
-<h2 id="confirm-picklist">Confirm picklist</h2>
+<h2 id="confirm-picklist">Confirm Picklist</h2>
 
 <p>Lets you update picklist of an order item.</p>
 
@@ -32740,7 +32589,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/PickList/ConfirmPicklistItems/{MerchantId}</code></p>
+<p><code class="prettyprint">{host}/developerapi/PickList/ConfirmPicklistItems/{MerchantId}</code></p>
 
 <h3 id="request-body-parameters">Request Body Parameters</h3>
 
@@ -32757,7 +32606,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <td>Unique picklist id of the item</td>
 </tr>
 <tr>
-<td>PickListItemStatus</td>
+<td>PickListItemStatus*</td>
 <td>enum</td>
 <td>The status of the current item. <code class="prettyprint">F</code> for found, <code class="prettyprint">N</code> for not found, <code class="prettyprint">C</code> for cancel. If no value is passed, not found is considered as the default value</td>
 </tr>
@@ -32782,7 +32631,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <td>Net price of the item. The item price can be changed if <code class="prettyprint">isVariance</code> is set to true</td>
 </tr>
 <tr>
-<td>isVariance</td>
+<td>isVariance*</td>
 <td>boolean</td>
 <td>Whether there is change in the price of the current item while creating picklist. If there is a difference, the item price can be changed by passing the <code class="prettyprint">ActualPrice</code> of the item</td>
 </tr>
@@ -32920,7 +32769,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/PickList/ProcessPicklist/{MerchantId}</code></p>
+<p><code class="prettyprint">{host}/developerapi/PickList/ProcessPicklist/{MerchantId}</code></p>
 
 <h3 id="request-body-parameters">Request Body Parameters</h3>
 
@@ -32932,7 +32781,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 </tr>
 </thead><tbody>
 <tr>
-<td>MerchantID</td>
+<td>MerchantID*</td>
 <td>string</td>
 <td>Unique GUID of the merchant</td>
 </tr>
@@ -32942,12 +32791,12 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <td>Unique id of the picklist</td>
 </tr>
 <tr>
-<td>SubStatus</td>
+<td>SubStatus*</td>
 <td>enum</td>
 <td>Unique 2 character code of the sub-status of the picklist or picklist item. Values are as per configured in the CP for that merchant</td>
 </tr>
 <tr>
-<td>PicklistOperatorID</td>
+<td>PicklistOperatorID*</td>
 <td>string</td>
 <td>Unique id of the staff that confirms the picklist</td>
 </tr>
@@ -32957,27 +32806,27 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <td>Any comments related to the picklist at the request level/item level</td>
 </tr>
 <tr>
-<td>ConfirmPicking</td>
+<td>ConfirmPicking*</td>
 <td>enum</td>
 <td>Specify <code class="prettyprint">1</code> to confirm pick up, <code class="prettyprint">0</code> if not confirmed. The default value is &lsquo;0&rsquo;</td>
 </tr>
 <tr>
-<td>OrderPickListDetailId</td>
+<td>OrderPickListDetailId*</td>
 <td>int</td>
 <td>Unique internal reference id generated for each picklist item</td>
 </tr>
 <tr>
-<td>RetransactionID</td>
+<td>RetransactionID*</td>
 <td>int</td>
 <td>Order id of the item for which you want to update picklist</td>
 </tr>
 <tr>
-<td>PicklistID</td>
+<td>PicklistID*</td>
 <td>int</td>
 <td>Unique id of the picklist</td>
 </tr>
 <tr>
-<td>RedetailsID</td>
+<td>RedetailsID*</td>
 <td>int</td>
 <td>Unique item id as in the REtransaction table</td>
 </tr>
@@ -33002,12 +32851,12 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <td>Net price of the item. The item price can be changed if <code class="prettyprint">isVariance</code> is set to true</td>
 </tr>
 <tr>
-<td>isVariance</td>
+<td>isVariance*</td>
 <td>boolean</td>
 <td>Whether there is change in the price of the current item when picklist is created. If there is a price difference, the item price can be changed by passing the <code class="prettyprint">ActualPrice</code> of the item</td>
 </tr>
 <tr>
-<td>PickingPrice</td>
+<td>PickingPrice*</td>
 <td>int</td>
 <td>Additional price charged for packing (if applicable). For example, in restaurants additional charge will be levied on takeaway orders for packing</td>
 </tr>
@@ -33247,7 +33096,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 </tr>
 <tr>
 <td>HTTP Methods</td>
-<td>POST</td>
+<td>GET</td>
 </tr>
 <tr>
 <td>Batch Support</td>
@@ -33262,7 +33111,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/PickList/GetPickListSummary/{MerchantId}/{pickListId}</code></p>
+<p><code class="prettyprint">{host}/developerapi/PickList/GetPickListSummary/{MerchantId}/{pickListId}</code></p>
 
 <h3 id="request-body-parameters">Request Body Parameters</h3>
 
@@ -33409,7 +33258,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/PickList/GetPickLists/{MerchantId}</code></p>
+<p><code class="prettyprint">{host}/developerapi/PickList/GetPickLists/{MerchantId}</code></p>
 
 <h3 id="request-body-parameters">Request Body Parameters</h3>
 
@@ -33421,7 +33270,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 </tr>
 </thead><tbody>
 <tr>
-<td>MerchantId</td>
+<td>MerchantId*</td>
 <td>string</td>
 <td>Unique GUID of the merchant</td>
 </tr>
@@ -33790,7 +33639,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/PickList/GetPickListswithOrdersInfo/{MerchantId}</code></p>
+<p><code class="prettyprint">{host}/developerapi/PickList/GetPickListswithOrdersInfo/{MerchantId}</code></p>
 
 <h3 id="request-body-parameters">Request Body Parameters</h3>
 
@@ -33869,6 +33718,8 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 </tbody></table>
 
 <h2 id="get-picklist-items">Get PickList Items</h2>
+
+<p>Retrieves items of a specific picklist by item status.</p>
 
 <blockquote>
 <p>Sample Request</p>
@@ -34104,7 +33955,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/PickList/GetPickListItems/{MerchantId}/{pickListId}/{orderItemStatus}</code></p>
+<p><code class="prettyprint">{host}/developerapi/PickList/GetPickListItems/{MerchantId}/{pickListId}/{orderItemStatus}</code></p>
 
 <h3 id="request-path-parameters">Request Path Parameters</h3>
 
@@ -34211,7 +34062,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/PickList/GetItemsubstitutes/{merchantId}/{productId}</code></p>
+<p><code class="prettyprint">{host}/developerapi/PickList/GetItemsubstitutes/{merchantId}/{productId}</code></p>
 
 <h3 id="request-path-parameters">Request Path Parameters</h3>
 
@@ -34563,7 +34414,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Store/Countries/{MerchantId}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Store/Countries/{MerchantId}</code></p>
 
 <h3 id="request-parameter">Request Parameter</h3>
 
@@ -34857,7 +34708,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Store/Cities/{MerchantId}/{StateCode}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Store/Cities/{MerchantId}/{StateCode}</code></p>
 
 <h3 id="request-parameter">Request Parameter</h3>
 
@@ -34948,7 +34799,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Store/Cities/{merchantId}/{statecode}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Store/Cities/{merchantId}/{statecode}</code></p>
 
 <h3 id="request-path-parameters">Request Path Parameters</h3>
 
@@ -35042,7 +34893,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Store/Countries/{merchantid}/{countrycode}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Store/Countries/{merchantid}/{countrycode}</code></p>
 
 <h3 id="request-path-parameters">Request Path Parameters</h3>
 
@@ -35162,7 +35013,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Store/Information/{merchantId}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Store/Information/{merchantId}</code></p>
 
 <h3 id="request-path-parameters">Request Path Parameters</h3>
 
@@ -35279,7 +35130,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Store/State/{merchantId}/{stateCode}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Store/State/{merchantId}/{stateCode}</code></p>
 
 <h3 id="request-path-parameters">Request Path Parameters</h3>
 
@@ -35494,7 +35345,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Store/States/{merchantId}/{Countrycode}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Store/States/{merchantId}/{Countrycode}</code></p>
 
 <h3 id="request-path-parameters">Request Path Parameters</h3>
 
@@ -35594,15 +35445,15 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Store/getchannelinfo/{merchantid}/{channelid}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Store/getchannelinfo/{merchantid}/{channelid}</code></p>
 
 <p>OR</p>
 
-<p><code class="prettyprint">https://{host}/developerapi/Store/getchannelinfo/{merchantid}/{channelcode}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Store/getchannelinfo/{merchantid}/{channelcode}</code></p>
 
 <p>OR</p>
 
-<p><code class="prettyprint">https://{host}/developerapi/Store/getchannelinfo/{merchantid}/0/{channelrefcode}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Store/getchannelinfo/{merchantid}/0/{channelrefcode}</code></p>
 
 <h3 id="request-path-parameters">Request Path Parameters</h3>
 
@@ -35700,7 +35551,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Store/UpdateChannel/{merchantid}/{channelrefcode}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Store/UpdateChannel/{merchantid}/{channelrefcode}</code></p>
 
 <h3 id="request-path-parameters">Request Path Parameters</h3>
 
@@ -35812,7 +35663,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Store/GetVendorDetails/{merchantId}/{vendorId}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Store/GetVendorDetails/{merchantId}/{vendorId}</code></p>
 
 <h3 id="request-path-parameters">Request Path Parameters</h3>
 
@@ -35931,7 +35782,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Location/StoreDeliveryAreaMapping/{MerchantId}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Location/StoreDeliveryAreaMapping/{MerchantId}</code></p>
 
 <h3 id="request-body-parameters">Request Body Parameters</h3>
 
@@ -36061,7 +35912,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Location/UpdateLocation/{MerchantId}/{LocationrefCode}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Location/UpdateLocation/{MerchantId}/{LocationrefCode}</code></p>
 
 <h3 id="header-modification-required">Header Modification Required</h3>
 
@@ -36167,7 +36018,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Location/UpdateStoreTimings/{MerchantId}/{Locationrefcode}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Location/UpdateStoreTimings/{MerchantId}/{Locationrefcode}</code></p>
 
 <h3 id="request-path-parameters">Request Path Parameters</h3>
 
@@ -36392,7 +36243,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Location/{MerchantId}/Search</code></p>
+<p><code class="prettyprint">{host}/developerapi/Location/{MerchantId}/Search</code></p>
 
 <h3 id="path-parameters">Path Parameters</h3>
 
@@ -36572,7 +36423,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Location/{merchantid}/SearchDeliveryAreas</code></p>
+<p><code class="prettyprint">{host}/developerapi/Location/{merchantid}/SearchDeliveryAreas</code></p>
 
 <h3 id="request-body-parameters">Request Body Parameters</h3>
 
@@ -37070,7 +36921,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Location/Information/{MerchantId}/{{LocationId}}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Location/Information/{MerchantId}/{{LocationId}}</code></p>
 
 <h3 id="request-parameters">Request Parameters</h3>
 
@@ -37219,7 +37070,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Location/{MerchantId}/GetCities</code></p>
+<p><code class="prettyprint">{host}/developerapi/Location/{MerchantId}/GetCities</code></p>
 
 <h3 id="request-path-parameters">Request Path Parameters</h3>
 
@@ -37309,7 +37160,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Location/AddDeliveryArea/{merchantId}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Location/AddDeliveryArea/{merchantId}</code></p>
 
 <h3 id="request-body-parameters">Request Body Parameters</h3>
 
@@ -37502,7 +37353,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Location/DeliveryAreas/{merchantId}/{locationId}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Location/DeliveryAreas/{merchantId}/{locationId}</code></p>
 
 <h3 id="request-path-parameters">Request Path Parameters</h3>
 
@@ -37849,7 +37700,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Location/Information/{merchantId}/{locationId}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Location/Information/{merchantId}/{locationId}</code></p>
 
 <h3 id="request-path-parameters">Request Path Parameters</h3>
 
@@ -37981,7 +37832,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Location/ReasonCodes/{merchantId}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Location/ReasonCodes/{merchantId}</code></p>
 
 <h3 id="request-parameters">Request Parameters</h3>
 
@@ -38088,7 +37939,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Location/UpdateLocationETA/{merchantId}/{OrderDeliveryType}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Location/UpdateLocationETA/{merchantId}/{OrderDeliveryType}</code></p>
 
 <h3 id="request-query-parameters">Request Query Parameters</h3>
 
@@ -38245,7 +38096,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Location/Information/{merchantId}/{LocationCode}/{OrderDeliveryType}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Location/Information/{merchantId}/{LocationCode}/{OrderDeliveryType}</code></p>
 
 <h3 id="request-query-parameters">Request Query Parameters</h3>
 
@@ -38384,7 +38235,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Location/{MerchantId}/SearchDeliveryPincodes</code></p>
+<p><code class="prettyprint">{host}/developerapi/Location/{MerchantId}/SearchDeliveryPincodes</code></p>
 
 <h3 id="request-body-parameters">Request Body Parameters</h3>
 
@@ -38524,7 +38375,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Location/Log/{merchantId}/{locationCode}/{fromDate}/{toDate}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Location/Log/{merchantId}/{locationCode}/{fromDate}/{toDate}</code></p>
 
 <h3 id="request-path-parameters">Request Path Parameters</h3>
 
@@ -38622,7 +38473,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Merchant/GetSignedUrl/{MerchantId}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Merchant/GetSignedUrl/{MerchantId}</code></p>
 
           <h1 id="category">Category</h1>
 
@@ -38699,7 +38550,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Category/Information/{MerchantId}/{CategoryId}</code></p>
+<p><code class="prettyprint">{host}/developerapi/Category/Information/{MerchantId}/{CategoryId}</code></p>
 
 <h3 id="request-body-parameters">Request Body Parameters</h3>
 
@@ -38811,7 +38662,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/developerapi/Category/{MerchantId}/{cateogryId}/variantproperties</code></p>
+<p><code class="prettyprint">{host}/developerapi/Category/{MerchantId}/{cateogryId}/variantproperties</code></p>
 
 <h3 id="request-path-parameters">Request Path Parameters</h3>
 

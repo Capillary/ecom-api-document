@@ -153,14 +153,14 @@ The following sub-sections provide the process for generating values of other pa
 
 You can generate Nonce using the following API
 
-`http://{{url}}/developerapi/OAuth/Nounce`
+`{host}/developerapi/OAuth/Nounce`
 
 
 #### Generating TimeStamp
 
 Use the following API to generate TimeStamp
 
-`http://{{url}}/developerapi/OAuth/TimeStamp`
+`{host}/developerapi/OAuth/TimeStamp`
 
 
 #### Generating Outh Signature
@@ -175,7 +175,7 @@ To generate Outh Signature use the following
 
 Example:
 
-`http://www.martjack.com/developerapi/OAuth/Signature//QFTBNOUC/NDH1BYBFRYHSPDJXFV3RGISB/1548658024/5681074/POST?url=http://www.martjack.com/Customer/06e2d5fc-402b-475e-be79-592c2df95398/Create`
+`http://www.martjack.com/developerapi/OAuth/Signature/QFTBNOUC/NDH1BYBFRYHSPDJXFV3RGISB/1548658024/5681074/POST?url=http://www.martjack.com/Customer/06e2d5fc-402b-475e-be79-592c2df95398/Create`
 
 
 Once you get the oauth_signature, you can make API calls.
