@@ -249,6 +249,11 @@ Go to examples and run
 
 
 
+
+
+
+
+
 ### Java SDK
 
 **oauth1-signature-builder**:
@@ -262,7 +267,10 @@ Java 8 minimal library to create tailor-made OAuth-1.0a signatures (weights 24.5
 
 Run the java code in a compatible platform.
 
-`public static void main(String[] args) {
+```java
+
+public static void main(String[] args) 
+{
 
 		OAuthConfig oauthConfig = new OAuthConfigBuilder("myApiKey", "myApiSecret")
 				.setTokenKeys("myAccessKey", "myAccessSecret")
@@ -275,7 +283,7 @@ Run the java code in a compatible platform.
 
 		System.out.println(signature.getAsHeader());
 }
-`
+```
 
 **This code will generate the value for a ready-to-be-used "Authorization" Header**:
 	
@@ -297,17 +305,16 @@ Install with npm:
 
 To generate the OAuth signature call the following method:
 
-`
-oauthSignature.generate(httpMethod, url, parameters, consumerSecret, tokenSecret, options)`
+`oauthSignature.generate(httpMethod, url, parameters, consumerSecret, tokenSecret, options)`
 
 <aside class="notice">Both 	tokenSecret` and `options` are optional</aside>
 
 
 The default options parameter is as follows
 
-`var options = {
+```var options = {
 	encodeSignature: true // will encode the signature following the RFC 3986 Spec by default
-}`
+}```
 
 Example
 
@@ -339,7 +346,11 @@ The `encodedSignature` variable will contain the RFC 3986 encoded, BASE64 encode
 The `signature` variable will contain the BASE64 HMAC-SHA1 hash, without encoding: `tR3+Ty81lMeYAr/Fid0kMTYa/WM=`.
 
 
-### PHP SDK
+
+
+
+
+### .NET SDK
 
 OAuth Generator is a .NET project written in C#.
 
@@ -350,6 +361,3 @@ Visual Studio should be installed and .NET packages installed.
 **Usage**
 
 Open OAuth.sln using Visual Studio and run directly to get a console window. The user will be prompted to enter the consumer key and consumer secret. The option for entering other values will be provided.
-
-
-
