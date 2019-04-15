@@ -1138,7 +1138,7 @@ Parameter | Type | Description
 orderId* | int | Unique id of the order for which you want to update transaction details
 paymentStatus | enum | New status of the current transaction. Values: `P` for pending, `A` for authorized, `F` for failed
 respCode | string | Unique code generated for the transaction from the payment gateway 
-txnID | long | Unique id of the specific transaction that you want to update
+txnID | long | Unique id of the specific transaction that you want to update. Required to update a specific transaction of an order
 respMsg | string | Response message received for the transaction from the payment gateway
 gVcode | string | Coupon code used for the order (to update gift voucher transaction )
 pointsBurned | int | Number of points burned for the transaction (to update points based transaction)
@@ -3729,8 +3729,9 @@ InputFormat=application/json&merchantId=81e77da2-723b-483d-8c0d-49f800c1xxxx&Inp
    "UpdateShipmentStatus":{  
       "ShipmentId":"2205635",
       "Shippingstatus":"D",
-      "ShippingMessage":"Shipment is completed"
-	  "reason":"done"
+      "ShippingMessage":"Shipment is completed",
+	  "reason":"done",
+	  "userId":""
    }
 }
 ```
@@ -3772,6 +3773,7 @@ ShipmentId* | string  | Unique id of the shipment that you want to update
 Shippingstatus* | enum | New status of the current shipment. Values: `I` - RTO initiated, `O` - RTO Received, `L` - RTO Lost, `X` - Others, `S` - Shipment created, `R` - Dispatched, `T` - In transit, `U` - Out for delivery, `D` - Delivered, `C` - RTO Closed, `F` - Cancelled, `E` - RTO Refunded/Replacement closed, `W` - Waiting for Collection (in-store), `G` - At Gate
 ShippingMessage | string | Message that you want to provide for the shipment
 reason | string | Reason that you want to specify for the shipment update
+userId | string | Unique id of the operator who is updating the status
 
 
  
@@ -5176,7 +5178,7 @@ Mobile | string | Mobile number of the customer excluding country code
 RefundAmount | float | Total amount to be refunded to the customer (once the item return is initiated)
 RefundedAmount | float | Actual amount refunded to the customer
 ConfirmedRefundAmount | float | Refund amount confirmed by the staff (at the warehouse)
-IsSelfShip | boolean | If the order shipment is handled by marketplace such as Amazon or Flipkart specify `False`, if the shipment is handled by the merchant itself, specify `True`
+IsSelfShip | enum | `Yes` if the user will ship the return package to the merchant, `No` if the merchant has to pickup the package from the user
 ShipmentId | int | Unique id of the return shipment
 ReturnRequestShipmentDetails | obj | Details of each return item
 CourierName | string | Name of the courier service chosen for return shipment
@@ -5862,9 +5864,10 @@ merchantId* | string | Unique GUID of the merchant
 ShippingProvider* | string | Name of the shipping service
 UserId | string | Unique GUID of the current user that updates the manifest details
 LocationId | int | Unique location id of the shipment
+LocationCode | string | Unique location code of the shipment
 ChannelId* | int | Channel id of the marketplace
 shipmentId* | long | Unique id of each shipment
-TripId | string | Unique id of the shipment trip
+TripId | string | Unique id of the shipment trip. A trip is a shipment containing multiple orders assigned to a delivery associate which need to be delivered to end customers. Each trip will have a unique trip id
 
 
 
