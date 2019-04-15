@@ -1138,7 +1138,7 @@ Parameter | Type | Description
 orderId* | int | Unique id of the order for which you want to update transaction details
 paymentStatus | enum | New status of the current transaction. Values: `P` for pending, `A` for authorized, `F` for failed
 respCode | string | Unique code generated for the transaction from the payment gateway 
-txnID* | long | Unique id of the specific transaction that you want to update
+txnID | long | Unique id of the specific transaction that you want to update
 respMsg | string | Response message received for the transaction from the payment gateway
 gVcode | string | Coupon code used for the order (to update gift voucher transaction )
 pointsBurned | int | Number of points burned for the transaction (to update points based transaction)
@@ -3730,6 +3730,7 @@ InputFormat=application/json&merchantId=81e77da2-723b-483d-8c0d-49f800c1xxxx&Inp
       "ShipmentId":"2205635",
       "Shippingstatus":"D",
       "ShippingMessage":"Shipment is completed"
+	  "reason":"done"
    }
 }
 ```
@@ -3770,6 +3771,7 @@ Parameter | Type | Description
 ShipmentId* | string  | Unique id of the shipment that you want to update
 Shippingstatus* | enum | New status of the current shipment. Values: `I` - RTO initiated, `O` - RTO Received, `L` - RTO Lost, `X` - Others, `S` - Shipment created, `R` - Dispatched, `T` - In transit, `U` - Out for delivery, `D` - Delivered, `C` - RTO Closed, `F` - Cancelled, `E` - RTO Refunded/Replacement closed, `W` - Waiting for Collection (in-store), `G` - At Gate
 ShippingMessage | string | Message that you want to provide for the shipment
+reason | string | Reason that you want to specify for the shipment update
 
 
  
