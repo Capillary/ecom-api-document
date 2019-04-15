@@ -24952,7 +24952,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <td>Unique code generated for the transaction from the payment gateway</td>
 </tr>
 <tr>
-<td>txnID*</td>
+<td>txnID</td>
 <td>long</td>
 <td>Unique id of the specific transaction that you want to update</td>
 </tr>
@@ -28615,6 +28615,7 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
       </span><span class="nt">"ShipmentId"</span><span class="p">:</span><span class="s2">"2205635"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"Shippingstatus"</span><span class="p">:</span><span class="s2">"D"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"ShippingMessage"</span><span class="p">:</span><span class="s2">"Shipment is completed"</span><span class="w">
+      </span><span class="s2">"reason"</span><span class="err">:</span><span class="s2">"done"</span><span class="w">
    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -28693,6 +28694,11 @@ http://www.martjack.com/developerapi/Order/BulkOrderCreation
 <td>ShippingMessage</td>
 <td>string</td>
 <td>Message that you want to provide for the shipment</td>
+</tr>
+<tr>
+<td>reason</td>
+<td>string</td>
+<td>Reason that you want to specify for the shipment update</td>
 </tr>
 </tbody></table>
 

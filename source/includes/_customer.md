@@ -2321,7 +2321,7 @@ Parameter | Type | Description
 -------- | ----- | -----------
 merchantId* | string | Unique GUID of the merchant associated to the agent account
 username* | string | Username of the agent's login account
-
+password* | string | Password of the agent account
 
 <aside class="notice"> All parameters marked by * are mandatory. </aside>
 
