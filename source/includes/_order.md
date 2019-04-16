@@ -5178,7 +5178,7 @@ Mobile | string | Mobile number of the customer excluding country code
 RefundAmount | float | Total amount to be refunded to the customer (once the item return is initiated)
 RefundedAmount | float | Actual amount refunded to the customer
 ConfirmedRefundAmount | float | Refund amount confirmed by the staff (at the warehouse)
-IsSelfShip | enum | `Yes` if the user will ship the return package to the merchant, `No` if the merchant has to pickup the package from the user
+IsSelfShip | enum | Specify `Yes` if the user will ship the return package to the merchant, `No` if the merchant has to pickup the package from the user
 ShipmentId | int | Unique id of the return shipment
 ReturnRequestShipmentDetails | obj | Details of each return item
 CourierName | string | Name of the courier service chosen for return shipment
@@ -5470,8 +5470,8 @@ Source | int | values from 1-5. Source from which the return request is made. Ex
 RequestStatus | enum | Current status of the return request. Values: `I` for initiated, `C` for closed
 RequestType | enum | Type of the return request. `R` for return to origin (RTO) `C` for customer return and `CU` for Return created due to item cancellation
 RefundStatus | enum | Current status of the refund. Values: `I` for initiated, `C` for closed
-IncludeShippingCost | enum | `Yes` if the shipping cost is included in the return item, `No` if shipping cost is not included 
-IsSelfShip | enum | ‘Yes` if the user will ship the return package to the merchant, `No`, if the merchant has to pickup the package from the user
+IncludeShippingCost | enum | The value will be `Yes` if the shipping cost is included in the return item, `No` if shipping cost is not included 
+IsSelfShip | enum | The value will be ‘Yes` if the user will ship the return package to the merchant, `No`, if the merchant has to pickup the package from the user
 SubStatus | string | The sub-status code of the return request
 
 

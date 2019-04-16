@@ -59,4 +59,41 @@ $(document).ready(function () {
    $('.tocify-subheader li.tocify-item a').each(function () {
        $(this).attr('title', $(this).text());
    });
+   function isOnScreen(elem) {
+    if (elem.length === 0) {
+        return;
+    }
+    let $window = jQuery(window),
+        viewport_top = $window.scrollTop(),
+        viewport_height = $window.height(),
+        viewport_bottom = viewport_top + viewport_height,
+        $elem = jQuery(elem),
+        top = $elem.offset().top,
+        height = $elem.height(),
+        bottom = top + height;
+
+    return (top >= viewport_top && top < viewport_bottom) ||
+        (bottom > viewport_top && bottom <= viewport_bottom) ||
+        (height > viewport_height && top <= viewport_top && bottom >= viewport_bottom);
+}
+
+let storedHash = window.location.hash;
+window.setInterval(function () {
+    if (window.location.hash != storedHash) {
+        storedHash = window.location.hash;
+        console.log(storedHash);
+        if (isOnScreen('.tocify-focus') === false) {
+            $('.tocify-wrapper').scroll();
+            $(".tocify-wrapper").animate({
+                scrollTop: $('.tocify-focus').offset().top/100
+            }, 0);
+        }
+    }
+}, 0);
+
+$('body').append('<style>.fab {position: fixed;bottom: 40px;right: 40px;color: #14283C;padding: 4px;font-size: 24px;line-height: 1;background: #FFF;opacity: 0.2;border-radius: 1000px;height: 24px;width: 24px;text-align: center;-webkit-transition: .2s linear;transition: .2s linear;}.fab:hover {opacity: 1;cursor: pointer;}</style><div class="fab">↑</div>')
+
+$('.fab').click(function(){
+    $('html, body').animate({ scrollTop: 0 }, 'slow');
+});
 });
