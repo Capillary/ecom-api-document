@@ -96,4 +96,5 @@ $('body').append('<style>.fab {position: fixed;bottom: 40px;right: 40px;color: #
 $('.fab').click(function(){
     $('html, body').animate({ scrollTop: 0 }, 'slow');
 });
+
 });
