@@ -81,13 +81,11 @@ MobileNo* | The registered mobile number to which the OTP has to be sent
 https://www.martjack.com/developerapi/carts/V2/ValidateOTP/81e77da2-723b-483d-8c0d-49f800c1exxx
 ```
 
-> Sample POST Request
+> Sample POST Request (RAW)
 
 ```json
-InputFormat=application/json&InputData={
-"OTP": "345432",
-"mobile": "7411000000"
-}	
+
+OTP=345432&mobile=7411000000
 
 ```
 
