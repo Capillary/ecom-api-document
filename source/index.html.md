@@ -226,10 +226,13 @@ oauth_consumer_key=QFTSEOUC
 
 ## OAuth SDKs
 
-Alternatively, you can also use SDKs for authentication. Here you can see SDKd and the installation process for different environments.
+Alternatively, you can also use SDKs for authentication. Here you can see SDKd and the installation process for different environments. Click <a href="https://github.com/Capillary/OAuthSDK">here</a> for the list of available OAuth SDKs
 
 
 ### PHP SDK
+
+Click <a href="https://github.com/Capillary/OAuthSDK/tree/master/php">here</a> to access the PHP OAuth SDK.
+
 
 **Installation**
 
@@ -257,6 +260,8 @@ Go to examples and run
 
 
 ### Java SDK
+
+Click <a href="https://github.com/Capillary/OAuthSDK/tree/master/Java">here</a> to access the Java OAuth SDK.
 
 **oauth1-signature-builder**:
 
@@ -296,7 +301,7 @@ public static void main(String[] args)
 
 ### Javascript SDK
 
-The following process guides you in generating OAuth 1.0a signature for node and the browser
+The following process guides you in generating OAuth 1.0a signature for node and the browser. Click <a href="https://github.com/Capillary/OAuthSDK/tree/master/js_signature">here</a> to access the Javascript OAuth SDK.
 
 **Installation**
 
@@ -359,7 +364,7 @@ The `signature` variable will contain the BASE64 HMAC-SHA1 hash, without encodin
 
 ### .NET SDK
 
-OAuth Generator is a .NET project written in C#.
+OAuth Generator is a .NET project written in C#. Click <a href="https://github.com/Capillary/OAuthSDK/tree/master/net_core/OAuth">here</a> to access the .NET SDK.
 
 **Requirements**
 
