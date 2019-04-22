@@ -120,6 +120,14 @@ Batch Support | No
 
 `{host}/developerapi/carts/V2/ValidateOTP/{merchantId}`
 
+
+### Additional Header
+
+Header | Description
+------ | ------
+APISessionRequired* | Pass `true` to not see OTP in the response. If not passed, you will see OTP sent to the customer in the response
+
+
 ### Request Parameters
 Parameter | Description
 --------- | -----------
@@ -6405,6 +6413,7 @@ Batch Support | No
 * **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
 
 ### Request URL
+
 `{host}/developerapi/Carts/ApplyVoucher/{merchantId}/{voucherCode}`
 
 ### Additional Header Required
@@ -6638,6 +6647,7 @@ Batch Support | No
 * **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
 
 ### Request URL
+
 `{host}/developerapi/Carts/RemoveVoucher/{merchantId}/{voucherCode}`
 
 ### Additional Header Required
@@ -6925,6 +6935,7 @@ Batch Support | No
 * **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
 
 ### Request URL
+
 `{host}/developerapi/Carts/PaymentOptions/{merchantId}`
 
 ### Additional Header Required
