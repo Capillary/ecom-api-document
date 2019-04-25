@@ -226,7 +226,7 @@ oauth_consumer_key=QFTSEOUC
 
 ## OAuth SDKs
 
-Alternatively, you can also use SDKs for authentication. Here you can see SDKd and the installation process for different environments. Click <a href="https://github.com/Capillary/OAuthSDK">here</a> for the list of available OAuth SDKs
+Alternatively, you can also use SDKs for authentication. Here you can see SDK and the installation process for different environments. Click <a href="https://github.com/Capillary/OAuthSDK">here</a> for the list of available OAuth SDKs
 
 
 ### PHP SDK
