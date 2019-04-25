@@ -727,8 +727,10 @@ body {
 }
 
 .tocify-wrapper .tocify-focus {
-    background: #D5D9E0;
-    background-color: #D5D9E0 !important;
+     background: -webkit-linear-gradient(45deg, #CCD2DC, #EDF1F7);
+    background: -o-linear-gradient(45deg, #CCD2DC, #EDF1F7);
+    background: linear-gradient(45deg, #CCD2DC, #EDF1F7);
+    background-color: none !important;
 }
 
 .tocify-subheader .tocify-wrapper li {
@@ -942,8 +944,10 @@ li.tocify-item {
 }
 
 li.tocify-item:hover {
-    opacity: 0.8;
-    background: #D5D9E0;
+    opacity: .8;
+    background: -webkit-linear-gradient(45deg, #CCD2DC, #EDF1F7);
+    background: -o-linear-gradient(45deg, #CCD2DC, #EDF1F7);
+    background: linear-gradient(45deg, #CCD2DC, #EDF1F7);
 }
 
 .tocify-wrapper .search-results a {
@@ -1012,7 +1016,7 @@ pre ::selection {
     font-size: 24px;
     line-height: 1;
     background: #FFF;
-    opacity: 0.2;
+    opacity: 0;
     border-radius: 1000px;
     height: 24px;
     width: 24px;
@@ -1026,3 +1030,4 @@ pre ::selection {
     opacity: 1;
     cursor: pointer;
 }
+

@@ -70,3 +70,17 @@ $(document).ready(function () {
         }, 'slow');
     });
 });
+
+
+
+function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        $('.fab').css('opacity', '0.2');
+    } else {
+        $('.fab').css('opacity', '0');
+    }
+}
+
+window.onscroll = function () {
+    scrollFunction();
+};
