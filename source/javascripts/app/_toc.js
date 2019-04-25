@@ -55,19 +55,14 @@
   });
 })(window);
 
-//$(document).ready(function () {
-//   $('.tocify-subheader li.tocify-item a').each(function () {
-       $(this).attr('title', $(this).text());
-//   });
 
-// });
 
 
 $(document).ready(function () {
     $('.tocify-subheader li.tocify-item a').each(function () {
         $(this).attr('title', $(this).text());
     });
-    $('body').append('<style>.fab {position: fixed;bottom: 40px;right: 40px;color: #14283C;padding: 4px;font-size: 24px;line-height: 1;background: #FFF;opacity: 0.2;border-radius: 1000px;height: 24px;width: 24px;text-align: center;-webkit-transition: .2s linear;transition: .2s linear;}.fab:hover {opacity: 1;cursor: pointer;}</style><div class="fab">↑</div>');
+    $('body').append('<div class="fab">↑</div>');
 
     $('.fab').click(function () {
         $('html, body').animate({

@@ -143,7 +143,7 @@ Parameter | Type | Description
 -------- | ----- | ----------
 UserProfiles | array | Customer level custom field details
 UserInfoId | string | Internal GUID generated for the customer. UserInfoId is used along with the userId in APIs like customer update
-MarketingNotificationType | enum | Channel used for marketing communications. Value: `SMS`, `Email`
+MarketingNotificationType | enum | Channel used for marketing communications. Supported value: `SMS`, `Email`
 
 
 
