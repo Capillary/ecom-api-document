@@ -584,7 +584,7 @@ merchantId* | string | Unique id (GUID) of the merchant
 username | string | Registered login username of the customer
 operatorid | string | Unique GUID of the back-end operator or current CP user id. The generated access token will be associated to both the user and operator
 password | string | Password of the operator account
-locationid | int | Location id associated to the user
+locationid | int | Location id associated to the operator
 
 <aside class=notice>All parameters and headers marked by * are mandatory.</aside>
 
@@ -1283,6 +1283,9 @@ Parameter | Type | Description
 UserName** | string | Fetches all customers matching the specified keyword in the username. For example, if you specify `tom`, you will get all customers whose username start with tom
 mobile** | string | Fetch customers whose registered mobile number contains the specified keyword. For example, you can get all customers whose mobile numbers  contain 9945
 email** | string | Search customers whose registered email id contains a specified keyword. For example, you can get all customers whose email ids contain john 
+SearchType** | CreateDate, UserName
+FromDate:"2019/04/25",
+ToDate:"2019/04/25"
 
 <aside class="notice"> ** Any one among the above parameters is mandatory. </aside>
 

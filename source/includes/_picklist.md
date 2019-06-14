@@ -3,6 +3,101 @@
 Picklist is a document that contains the list of order items to be picked up from inventory for further processing. Picklist is maintained by shippers with large inventory or multiple orders. This resource provides all APIs related creating and managing picklist.
 
 
+## Create Picklist
+
+Lets you create order picklist for a specific location.
+
+> Sample Request
+
+```html
+https://www.martjack.com/developerapi/Pricelist/createPicklist/fd986588-63df-4d76-9ddd-5d8b984518a5
+```
+
+> Sample POST Request
+
+```json
+MerchantId=fd986588-63df-4d76-9ddd-5d8b984518a5&InputFormat=application/json&InputData={
+"PicklistCreate": {
+"PickerName": "Test",
+"LoginUserID": "fd986588-63df-4d76-9ddd-5d8b984518a5",
+"CreatedBy": "Test",
+"ZoneID": 0,
+"PickerID": "c70640f3-6a9f-471d-aeac-895089846e0f",
+"LocationId": "26191",
+"DeliverySlotID": 0,
+"MerchantId": "fd986588-63df-4d76-9ddd-5d8b984518a5",
+"DeliveryDate": "2018/04/27",
+"PicklistOperatorID": "00000000-0000-0000-0000-000000000000",
+"PicklistCreateOrderDetails": [{
+"PicklistCreateItemDetails": [{
+"ChildProductId": "0",
+"IsBundleParentProduct": "False",
+"LocationId": "26191",
+"Quantity": "1",
+"ProductId": "14497553",
+"OrderItemID": "28141571"
+}],
+"OrderId": "7676691"
+}],
+"PicklistName": "test"
+}
+}
+```
+
+> Sample Response
+
+```json
+{
+"Message": "Successful",
+"PicklistID": 195095,
+"messageCode": "1004",
+"ErrorCode": 0
+}
+```
+
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `/picklist/createPicklist/{merchantId}`
+Rate Limited? | No
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | POST
+Batch Support | No
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+### Request URL
+
+`https://{host}/developerapi/picklist/createPicklist/{merchantId}`
+
+
+### Request Body Parameters
+
+Parameter | Type | Description
+-------- | ----- | -----------
+merchantId* | string | Unique GUID of the merchant
+PickerName | string | Specify a name for the picklist
+LoginUserID | string | Unique GUID of the current logged in user
+CreatedBy | string | Name of the operator who is creating the picklist
+ZoneID | int | Unique id of the zone. Default value is `0`
+PickerID* | string | Unique picker id assigned to the picklist 
+LocationId* | int | Unique id of the order fulfillment location
+DeliverySlotID | int | Unique id of the delivery slot. Specify a valid id
+DeliveryDate | date | Specify the estimated delivery date of the items of the picklist in `YYYY/MM/DD` format 
+PicklistOperatorID | string | Unique GUID of the picklist operator 
+ChildProductId | int | Unique id of the variant product or child product of the bundle
+IsBundleParentProduct | boolean | Whether the item is a parent product of a bundle 
+Quantity | int | Quantity of the current item that you want to add
+ProductId | int | Unique id of the parent product 
+OrderItemID | int | Unique order line-item id of the current product 
+OrderId* | int | Order id associated to the current item
+PicklistName | string |Specify a name for the current picklist
+
+<aside class="notice">All parameters marked by * are mandatory. </aside>
+
 
 
 ##  Confirm Picklist

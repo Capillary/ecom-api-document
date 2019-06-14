@@ -6173,7 +6173,6 @@ accesstoken* | Access token of the logged in user to validate the session
 
 Parameter | Type | Description 
 --------- | ---- | ----------
-locationID* | int | The location id of the order fulfillment store
 BillingAddress | obj | Specify the billing address of the customer in the respective attributes
 ShippingAddress | obj | Specify the preferred shipping address of the customer in the respective attributes
 BillMobile | string | Mobile number of the customer as per the billing address
