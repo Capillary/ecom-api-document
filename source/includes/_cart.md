@@ -174,210 +174,261 @@ InputFormat=application/json&InputData={
 > Sample Response
 
 ```json
-{
-    "messageCode": "1004",
-    "Message": "Successful",
-    "Carts": {
-        "MerchantId": "81e77da2-723b-483d-8c0d-49f800c1xxxx",
-        "ProductCost": 60.528000000000006,
-        "ShippingCost": 12.9,
-        "VoucherDiscount": 0,
-        "PromotionDiscount": 0,
-        "TaxAmount": 0,
-        "OrderTotal": 73.428,
-        "VoucherCode": "",
-        "UserSelectedCurrency": "INR",
-        "Bill_FirstName": "Tom",
-        "Bill_LastName": "Sawyer",
-        "Bill_Address1": "#103, MG Road",
-        "Bill_Address2": "",
-        "Bill_CountryCode": "IN",
-        "_Bill_StateCode": "KA",
-        "Bill_City": "Bangalore",
-        "Bill_CityCode": "2148",
-        "Bill_OtherCityName": "",
-        "Bill_Telephone": "9967000000",
-        "Bill_Mobile": "9967000000",
-        "Bill_PostCode": "",
-        "Bill_Email": "",
-        "Ship_FirstName": "Tom",
-        "Ship_LastName": "Sawyer",
-        "Ship_Address1": "AutoTestAddres1Bill",
-        "Ship_Address2": "",
-        "Ship_CountryCode": "IN",
-        "Ship_StateCode": "KA",
-        "Ship_City": "2148",
-        "Ship_CityCode": "2148",
-        "Ship_OtherCityName": "",
-        "Ship_Telephone": "9967000000",
-        "Ship_Mobile": "9967000000",
-        "Ship_PostCode": "",
-        "Ship_Email": "",
-        "CartItems": [
-            {
-                "ProductId": 12688208,
-                "VariantProductId": 0,
-                "MRP": 4.5,
-                "WebPrice": 0,
-                "Quantity": 1,
-                "description": "Seafood Supreme",
-                "SupplierId": "81e77da2-723b-483d-8c0d-49f800c1e288",
-                "CartReferenceKey": "18e18f60-a1a9-44f0-b256-536e2fe0a3a7",
-                "IsFreeProduct": false,
-                "PriceCapped": false,
-                "TotalCap": 0,
-                "CappedRefKey": "00000000-0000-0000-0000-000000000000",
-                "CatalogpromotionDiscount": 0,
-                "BundleCartReferenceKey": "00000000-0000-0000-0000-000000000000",
-                "BundleCartItems": [
-                    {
-                        "ProductId": 12688172,
-                        "VariantProductId": 9727843,
-                        "MRP": 5.9,
-                        "WebPrice": 4.5,
-                        "Quantity": 1,
-                        "description": "Seafood Supreme Crust",
-                        "SupplierId": "81e77da2-723b-483d-8c0d-49f800c1e288",
-                        "CartReferenceKey": "752b5193-af86-43ea-86e4-b9e5ccb8a941",
-                        "TotalCap": 0,
-                        "CatalogpromotionDiscount": 0,
-                        "BundleCartReferenceKey": "18e18f60-a1a9-44f0-b256-536e2fe0a3a7",
-                        "ItemPromotionDiscountAmount": 0,
-                        "IsPrimaryProduct": true,
-                        "IsPromotionProduct": false,
-                        "VariantsInfo": [
-                            {
-                                "PropertyName": "Crust",
-                                "Value": "Pan"
-                            },
-                            {
-                                "PropertyName": "Size",
-                                "Value": "Medium"
-                            }
-                        ],
-                        "Por": "",
-                        "IsDefaultBundleItem": true,
-                        "CartPromotionRules": [],
-                        "CategoryId": "CN00215782",
-                        "CategoryName": null,
-                        "BrandId": "311548",
-                        "BrandName": "PizzaHut",
-                        "GroupId": 0
-                    }
-                ],
-                "IsPrimaryProduct": false,
-                "ItemPromotionDiscountAmount": 0,
-                "IsPromotionProduct": false,
-                "Por": "",
-                "IsDefaultBundleItem": false,
-                "ProductImage": "//images-cdn-test.azureedge.net/azure/test-resources/81e77da2-723b-483d-8c0d-49f800c1e288/Images/ProductImages/Source/Opt-SEAFOOD_ISLAND_showcase.png;width=100;height=100;scale=canvas;anchor=bottomcenter",
-                "CartPromotionRules": [],
-                "CategoryId": "CN00215794",
-                "CategoryName": null,
-                "BrandId": "311548",
-                "BrandName": "PizzaHut",
-                "ParentCartItems": null
+{  
+   "messageCode":"1004",
+   "Message":"Successful",
+   "Carts":{  
+      "MerchantId":"81e77da2-723b-483d-8c0d-49f800c1xxxx",
+      "ProductCost":60.528000000000006,
+      "ShippingCost":12.9,
+      "VoucherDiscount":0,
+      "PromotionDiscount":0,
+      "TaxAmount":0,
+      "OrderTotal":73.428,
+      "VoucherCode":"",
+      "UserSelectedCurrency":"INR",
+      "Bill_FirstName":"Tom",
+      "Bill_LastName":"Sawyer",
+      "Bill_Address1":"#103, MG Road",
+      "Bill_Address2":"",
+      "Bill_CountryCode":"IN",
+      "_Bill_StateCode":"KA",
+      "Bill_City":"Bangalore",
+      "Bill_CityCode":"2148",
+      "Bill_OtherCityName":"",
+      "Bill_Telephone":"9967000000",
+      "Bill_Mobile":"9967000000",
+      "Bill_PostCode":"",
+      "Bill_Email":"",
+      "Ship_FirstName":"Tom",
+      "Ship_LastName":"Sawyer",
+      "Ship_Address1":"AutoTestAddres1Bill",
+      "Ship_Address2":"",
+      "Ship_CountryCode":"IN",
+      "Ship_StateCode":"KA",
+      "Ship_City":"2148",
+      "Ship_CityCode":"2148",
+      "Ship_OtherCityName":"",
+      "Ship_Telephone":"9967000000",
+      "Ship_Mobile":"9967000000",
+      "Ship_PostCode":"",
+      "Ship_Email":"",
+      "CartItems":[  
+         {  
+            "ProductId":12688208,
+            "VariantProductId":0,
+            "MRP":4.5,
+            "WebPrice":0,
+            "Quantity":1,
+            "description":"Seafood Supreme",
+            "SupplierId":"81e77da2-723b-483d-8c0d-49f800c1e288",
+            "CartReferenceKey":"18e18f60-a1a9-44f0-b256-536e2fe0a3a7",
+            "IsFreeProduct":false,
+            "PriceCapped":false,
+            "TotalCap":0,
+            "CappedRefKey":"00000000-0000-0000-0000-000000000000",
+            "CatalogpromotionDiscount":0,
+            "BundleCartReferenceKey":"00000000-0000-0000-0000-000000000000",
+            "BundleCartItems":[  
+               {  
+                  "ProductId":12688172,
+                  "VariantProductId":9727843,
+                  "MRP":5.9,
+                  "WebPrice":4.5,
+                  "Quantity":1,
+                  "description":"Seafood Supreme Crust",
+                  "SupplierId":"81e77da2-723b-483d-8c0d-49f800c1e288",
+                  "CartReferenceKey":"752b5193-af86-43ea-86e4-b9e5ccb8a941",
+                  "TotalCap":0,
+                  "CatalogpromotionDiscount":0,
+                  "BundleCartReferenceKey":"18e18f60-a1a9-44f0-b256-536e2fe0a3a7",
+                  "ItemPromotionDiscountAmount":0,
+                  "IsPrimaryProduct":true,
+                  "IsPromotionProduct":false,
+                  "VariantsInfo":[  
+                     {  
+                        "PropertyName":"Crust",
+                        "Value":"Pan"
+                     },
+                     {  
+                        "PropertyName":"Size",
+                        "Value":"Medium"
+                     }
+                  ],
+                  "Por":"",
+                  "IsDefaultBundleItem":true,
+                  "CartPromotionRules":[  
+
+                  ],
+                  "CategoryId":"CN00215782",
+                  "CategoryName":null,
+                  "BrandId":"311548",
+                  "BrandName":"PizzaHut",
+                  "GroupId":0
+               }
+            ],
+            "IsPrimaryProduct":false,
+            "ItemPromotionDiscountAmount":0,
+            "IsPromotionProduct":false,
+            "Por":"",
+            "IsDefaultBundleItem":false,
+            "ProductImage":"//images-cdn-test.azureedge.net/azure/test-resources/81e77da2-723b-483d-8c0d-49f800c1e288/Images/ProductImages/Source/Opt-SEAFOOD_ISLAND_showcase.png;width=100;height=100;scale=canvas;anchor=bottomcenter",
+            "CartPromotionRules":[  
+
+            ],
+            "CategoryId":"CN00215794",
+            "CategoryName":null,
+            "BrandId":"311548",
+            "BrandName":"PizzaHut",
+            "ParentCartItems":null
+         },
+         {  
+            "ProductId":12688220,
+            "VariantProductId":0,
+            "MRP":90.567,
+            "WebPrice":50.328,
+            "Quantity":1,
+            "description":"Classic Pepperoni",
+            "SupplierId":"81e77da2-723b-483d-8c0d-49f800c1e288",
+            "CartReferenceKey":"ff462a81-699f-4798-9b73-4f9d9753xxxx",
+            "IsFreeProduct":false,
+            "PriceCapped":false,
+            "TotalCap":0,
+            "CappedRefKey":"00000000-0000-0000-0000-000000000000",
+            "CatalogpromotionDiscount":0,
+            "BundleCartReferenceKey":"00000000-0000-0000-0000-000000000000",
+            "BundleCartItems":[  
+               {  
+                  "ProductId":12688160,
+                  "VariantProductId":0,
+                  "MRP":5.7,
+                  "WebPrice":5.7,
+                  "Quantity":1,
+                  "description":"Classic Pepperoni Crust",
+                  "SupplierId":"81e77da2-723b-483d-8c0d-49f800c1xxxx",
+                  "CartReferenceKey":"ab59003f-81b5-45ea-8de8-4cd76f9bxxxx",
+                  "TotalCap":0,
+                  "CatalogpromotionDiscount":0,
+                  "BundleCartReferenceKey":"ff462a81-699f-4798-9b73-4f9d97536xxx",
+                  "ItemPromotionDiscountAmount":0,
+                  "IsPrimaryProduct":false,
+                  "IsPromotionProduct":false,
+                  "VariantsInfo":[  
+
+                  ],
+                  "Por":"",
+                  "IsDefaultBundleItem":true,
+                  "CartPromotionRules":[  
+
+                  ],
+                  "CategoryId":"CN0021xxxx",
+                  "CategoryName":null,
+                  "BrandId":"311548",
+                  "BrandName":"Capillary",
+                  "GroupId":0
+               }
+            ],
+            "IsPrimaryProduct":false,
+            "ItemPromotionDiscountAmount":0,
+            "IsPromotionProduct":false,
+            "Por":"",
+            "IsDefaultBundleItem":false,
+            "ProductImage":"//images-cdn-test.azureedge.net/azure/test-resources/81e77da2-723b-483d-8c0d-49f800c1e288/Images/ProductImages/Source/Opt-Classic_Pepperoni_showcase.png;width=100;height=100;scale=canvas;anchor=bottomcenter",
+            "CartPromotionRules":[  
+
+            ],
+            "CategoryId":"CN00215792",
+            "CategoryName":null,
+            "BrandId":"311548",
+            "BrandName":"PizzaHut",
+            "ParentCartItems":null
+         }
+      ],
+      "Suppliers":[  
+         {  
+            "SupplierId":"81e77da2-723b-483d-8c0d-49f800c1xxxx",
+            "SupplierName":"Capillary Pizza",
+            "IsSelected":false,
+            "OrderStatus":null
+         }
+      ],
+      "ShippingOptions":[  
+         {  
+            "SupplierId":"81e77da2-723b-483d-8c0d-49f800c1xxxx",
+            "ShippingMode":"12174",
+            "ShippingModeId":12174,
+            "isselected":true
+         }
+      ],
+      "PaymentOptionsChannel":[  
+         {  
+            "MerchantId":"81e77da2-723b-483d-8c0d-49f800c1xxxx",
+            "PaymentType":"COD",
+            "Paymentoption":"COD",
+            "GatewayId":"0",
+            "GatewayTitle":"COD",
+            "PaidAmount":0,
+            "EnalbeOTP":false
+         }
+      ],
+      "ErrorCollection":null,
+      "GiftMsg":"",
+      "DemandedDeliveryDate":"/Date(1536228000000+0530)/",
+      "RemainTotal":0,
+      "ShippingZoneType":null,
+      "DeliverySlotID":0,
+      "FailedProducts":null,
+      "PickupFirstName":"AutoTestNameBillg23fff",
+      "PickupLastName":"AutoTestLastNameBill",
+      "PickupEmail":"",
+      "PickupMobile":"9967819918",
+      "LocationId":"22612",
+      "TaxDetail":[  
+
+      ],
+      "ComboSuggestion":[  
+
+      ],
+      "BusinessRuleDescriptionView":[  
+         {  
+            "RuleId":41689,
+            "RuleDescription":"Product Price",
+            "IsShowCaseCrietriaSet":"true",
+            "RuleProductShowCase":{  
+               "Attributes":[  
+
+               ],
+               "Brands":[  
+
+               ],
+               "Categories":[  
+                  "CU00215758"
+               ],
+               "Groups":[  
+
+               ],
+               "Products":[  
+
+               ],
+               "Suppliers":[  
+
+               ],
+               "Tags":[  
+
+               ],
+               "Variants":[  
+
+               ]
             },
-            {
-                "ProductId": 12688220,
-                "VariantProductId": 0,
-                "MRP": 90.567,
-                "WebPrice": 50.328,
-                "Quantity": 1,
-                "description": "Classic Pepperoni",
-                "SupplierId": "81e77da2-723b-483d-8c0d-49f800c1e288",
-                "CartReferenceKey": "ff462a81-699f-4798-9b73-4f9d9753xxxx",
-                "IsFreeProduct": false,
-                "PriceCapped": false,
-                "TotalCap": 0,
-                "CappedRefKey": "00000000-0000-0000-0000-000000000000",
-                "CatalogpromotionDiscount": 0,
-                "BundleCartReferenceKey": "00000000-0000-0000-0000-000000000000",
-                "BundleCartItems": [
-                    {
-                        "ProductId": 12688160,
-                        "VariantProductId": 0,
-                        "MRP": 5.7,
-                        "WebPrice": 5.7,
-                        "Quantity": 1,
-                        "description": "Classic Pepperoni Crust",
-                        "SupplierId": "81e77da2-723b-483d-8c0d-49f800c1xxxx",
-                        "CartReferenceKey": "ab59003f-81b5-45ea-8de8-4cd76f9bxxxx",
-                        "TotalCap": 0,
-                        "CatalogpromotionDiscount": 0,
-                        "BundleCartReferenceKey": "ff462a81-699f-4798-9b73-4f9d97536xxx",
-                        "ItemPromotionDiscountAmount": 0,
-                        "IsPrimaryProduct": false,
-                        "IsPromotionProduct": false,
-                        "VariantsInfo": [],
-                        "Por": "",
-                        "IsDefaultBundleItem": true,
-                        "CartPromotionRules": [],
-                        "CategoryId": "CN0021xxxx",
-                        "CategoryName": null,
-                        "BrandId": "311548",
-                        "BrandName": "Capillary",
-                        "GroupId": 0
-                    }
-                ],
-                "IsPrimaryProduct": false,
-                "ItemPromotionDiscountAmount": 0,
-                "IsPromotionProduct": false,
-                "Por": "",
-                "IsDefaultBundleItem": false,
-                "ProductImage": "//images-cdn-test.azureedge.net/azure/test-resources/81e77da2-723b-483d-8c0d-49f800c1e288/Images/ProductImages/Source/Opt-Classic_Pepperoni_showcase.png;width=100;height=100;scale=canvas;anchor=bottomcenter",
-                "CartPromotionRules": [],
-                "CategoryId": "CN00215792",
-                "CategoryName": null,
-                "BrandId": "311548",
-                "BrandName": "PizzaHut",
-                "ParentCartItems": null
-            }
-        ],
-        "Suppliers": [
-            {
-                "SupplierId": "81e77da2-723b-483d-8c0d-49f800c1xxxx",
-                "SupplierName": "Capillary Pizza",
-                "IsSelected": false,
-                "OrderStatus": null
-            }
-        ],
-        "ShippingOptions": [
-            {
-                "SupplierId": "81e77da2-723b-483d-8c0d-49f800c1xxxx",
-                "ShippingMode": "12174",
-                "ShippingModeId": 12174,
-                "isselected": true
-            }
-        ],
-        "PaymentOptionsChannel": [
-            {
-                "MerchantId": "81e77da2-723b-483d-8c0d-49f800c1xxxx",
-                "PaymentType": "COD",
-                "Paymentoption": "COD",
-                "GatewayId": "0",
-                "GatewayTitle": "COD",
-                "PaidAmount": 0,
-                "EnalbeOTP": false
-            }
-        ],
-        "ErrorCollection": null,
-        "GiftMsg": "",
-        "DemandedDeliveryDate": "/Date(1536228000000+0530)/",
-        "RemainTotal": 0,
-        "ShippingZoneType": null,
-        "DeliverySlotID": 0,
-        "FailedProducts": null,
-        "PickupFirstName": "AutoTestNameBillg23fff",
-        "PickupLastName": "AutoTestLastNameBill",
-        "PickupEmail": "",
-        "PickupMobile": "9967819918",
-        "LocationId": "22612",
-        "TaxDetail": [],
-        "ComboSuggestion": [],
-        "ConvertedDeals": []
-    },
-    "ErrorCode": 0
+            "IsAutoAdd":false,
+            "IsFreeActionInstructionType":true
+         }
+      ],
+      "AppliedPromotionDetailsList":null,
+      "ConvertedDeals":[  
+      ]
+   },
+   "ErrorCode":0
 }
 ```
 
@@ -3144,6 +3195,250 @@ ComboSuggestion | array | Suggestions related to the deal items based on the car
 ConvertedDeals | array | The cart items that are converted to deal items 
 
 
+## Add Free Products to Cart
+
+
+Lets you add free products to the cart.
+
+
+
+> Sample Request
+
+```html
+https://www.martjack.com/developerapi/Carts/AddFreeProducts/{merchantId}/{promotionruleid}
+
+```
+
+> Sample POST Request
+
+```json
+InputFormat=application/json&InputData={  
+   "cart":{  
+      "DelveryMode":"H",
+      "Item":[  
+         {  
+            "Status":"A",
+            "VariantProductID":0,
+            "LocationId":13378,
+            "CartReferenceKey":"00000000-0000-0000-0000-000000000000",
+            "ProductID":8278046,
+            "Quantity":1
+         }
+      ]
+   }
+}
+```
+
+
+> Sample Response
+
+```json
+{
+    "messageCode": "1004",
+    "Message": "Successful",
+    "Carts": {
+        "MerchantId": "81e77da2-723b-483d-8c0d-49f800c1e288",
+        "ProductCost": 2.860596,
+        "ShippingCost": 0,
+        "VoucherDiscount": 0,
+        "PromotionDiscount": 0,
+        "TaxAmount": 0.29,
+        "OrderTotal": 3.150596,
+        "VoucherCode": "",
+        "UserSelectedCurrency": "OMR",
+        "Bill_FirstName": null,
+        "Bill_LastName": "",
+        "Bill_Address1": "",
+        "Bill_Address2": null,
+        "Bill_CountryCode": "",
+        "_Bill_StateCode": null,
+        "Bill_City": "Other",
+        "Bill_CityCode": "554",
+        "Bill_OtherCityName": null,
+        "Bill_Telephone": null,
+        "Bill_Mobile": null,
+        "Bill_PostCode": null,
+        "Bill_Email": "",
+        "Ship_FirstName": null,
+        "Ship_LastName": "",
+        "Ship_Address1": "",
+        "Ship_Address2": null,
+        "Ship_CountryCode": "OM",
+        "Ship_StateCode": "OM11",
+        "Ship_City": "29879",
+        "Ship_CityCode": "29879",
+        "Ship_OtherCityName": null,
+        "Ship_Telephone": null,
+        "Ship_Mobile": null,
+        "Ship_PostCode": null,
+        "Ship_Email": null,
+        "CartItems": [
+            {
+                "ProductId": 8278046,
+                "VariantProductId": 0,
+                "MRP": 5.17,
+                "WebPrice": 2.860596,
+                "Quantity": 1,
+                "description": "Hershey's cookie",
+                "SupplierId": "81e77da2-723b-483d-8c0d-49f800c1e288",
+                "CartReferenceKey": "32f4332f-2e2e-4942-8c94-51149925835c",
+                "IsFreeProduct": false,
+                "PriceCapped": false,
+                "TotalCap": 0,
+                "CappedRefKey": "00000000-0000-0000-0000-000000000000",
+                "CatalogpromotionDiscount": 0,
+                "BundleCartReferenceKey": "00000000-0000-0000-0000-000000000000",
+                "IsPrimaryProduct": false,
+                "ItemPromotionDiscountAmount": 0,
+                "IsPromotionProduct": false,
+                "Por": "",
+                "IsDefaultBundleItem": false,
+                "ProductImage": "//imagecdn.example.me/azure//stage-resources/81e77da2-723b-483d-8c0d-49f800c1e288/Images/ProductImages/Source/Hersheys_cookie_showcase.png;width=100;height=100;scale=canvas;anchor=bottomcenter",
+                "CartPromotionRules": [],
+                "CategoryId": "CU00215760",
+                "CategoryName": null,
+                "BrandId": "207264",
+                "BrandName": "PizzaHut",
+                "ParentCartItems": []
+            }
+        ],
+        "Suppliers": [
+            {
+                "SupplierId": "81e77da2-723b-483d-8c0d-49f800c1e288",
+                "SupplierName": "Pizza Hut",
+                "IsSelected": false,
+                "OrderStatus": null
+            }
+        ],
+        "ShippingOptions": [
+            {
+                "SupplierId": "81e77da2-723b-483d-8c0d-49f800c1e288",
+                "ShippingMode": "9284",
+                "ShippingModeId": 9284,
+                "isselected": true
+            }
+        ],
+        "PaymentOptionsChannel": [
+            {
+                "MerchantId": "81e77da2-723b-483d-8c0d-49f800c1e288",
+                "PaymentType": "COD",
+                "Paymentoption": "COD",
+                "GatewayId": "0",
+                "GatewayTitle": "COD",
+                "PaidAmount": 0,
+                "EnalbeOTP": false
+            },
+            {
+                "MerchantId": "81e77da2-723b-483d-8c0d-49f800c1e288",
+                "PaymentType": "Credit",
+                "Paymentoption": "<div style=\"padding-left:30px;\"><img src=\"/images/paymentoptions/Visa.jpg\"/><img src=\"/images/paymentoptions/Mastercard.jpg\" style=\"margin-left:4px;\" /><div >You can pay using Master or Visa Credit Card</div></div>",
+                "GatewayId": "14017",
+                "GatewayTitle": "Pay Fort",
+                "PaidAmount": 0,
+                "EnalbeOTP": false
+            }
+        ],
+        "ErrorCollection": null,
+        "GiftMsg": "",
+        "DemandedDeliveryDate": "/Date(-2208988800000)/",
+        "RemainTotal": 0,
+        "ShippingZoneType": null,
+        "DeliverySlotID": 0,
+        "FailedProducts": null,
+        "PickupLastName": "",
+        "PickupEmail": "",
+        "LocationId": "13378",
+        "TaxDetail": [
+            {
+                "TaxCategory": " (5%) خدمة توصيل",
+                "TaxRate": "5",
+                "TaxAmount": 0.1430298,
+                "IsTaxRatePercentage": false,
+                "TaxCode": "0",
+                "TaxCategoryID": "6"
+            },
+            {
+                "TaxCategory": "(5%) ضريبة البلدية",
+                "TaxRate": "5",
+                "TaxAmount": 0.1430298,
+                "IsTaxRatePercentage": false,
+                "TaxCode": "0",
+                "TaxCategoryID": "2"
+            }
+        ],
+        "ComboSuggestion": [],
+        "ConvertedDeals": [],
+        "BusinessRuleDescriptionView": [
+            {
+                "RuleId": 41689,
+                "RuleDescription": "Product Price",
+                "IsShowCaseCrietriaSet": true,
+                "RuleProductShowCase": {
+                    "Attributes": [],
+                    "Brands": [],
+                    "Categories": [
+                        "CU00215758",
+                        ""
+                    ],
+                    "Groups": [],
+                    "Products": [],
+                    "Suppliers": [],
+                    "Tags": [],
+                    "Variants": []
+                },
+                "IsAutoAdd": false,
+                "IsFreeActionInstructionType": true
+            }
+        ],
+        "AppliedPromotionDetailsList": null
+    },
+    "FailedItems": [],
+    "ErrorCode": 0
+}
+
+
+```
+
+
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `/AddFreeProducts/{merchantId}/{promotionruleid}`
+Rate Limited? | No
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | POST
+Batch Support | No
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+### Request URL
+
+`https://{host}/developerapi/Carts/AddFreeProducts/{merchantId}/{promotionruleid}`
+
+
+### Request Body Parameters
+
+Parameter | Type | Description
+-------- | ----- | -----------
+merchantId* | string | Unique GUID of the merchant
+DelveryMode | enum | Delivery mode of the product. Value: `H` for home delivery, `S` for takeaway
+Status | enum | Status of the cart item. Specify `A` to add an item to the cart, `D` to delete an item from cart
+VariantProductID | int | Variant id of the product that you want to add 
+LocationId | int | Location id of the product
+CartReferenceKey | string | Unique GUID of the item in the cart as per AddCartItems
+ProductID | int | Unique id of the product that you want to add
+Quantity | int | Quantity of the item that you want to add the cart
+
+
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
+
+
+
+
+
 ## Location Add to Cart
 
 
@@ -4404,7 +4699,7 @@ Retrieves cart items of the user based on the current session.
 > Sample Request
 
 ```html
-https://www.martjack.com/developerapi/Carts/cart/81e77da2-723b-483d-8c0d-49f800c1exxx
+https://www.martjack.com/developerapi/Carts/cart/81e77da2-723b-483d-8c0d-49f800c1exxx?promotionDetails=true
 
 ```
 
@@ -5170,16 +5465,28 @@ https://www.martjack.com/developerapi/Carts/cart/81e77da2-723b-483d-8c0d-49f800c
       "TaxDetail":[  
 
       ],
-      "ComboSuggestion":[  
-
-      ],
-      "ConvertedDeals":[  
-
-      ]
+      "ComboSuggestion":[ ],
+	    "ConvertedDeals": [],
+       "BusinessRuleDescriptionView": [],
+       "AppliedPromotionDetailsList": [
+           {
+               "PromotionId": 40981,
+               "PromotionTitle": "user group",
+               "VoucherCode": null,
+               "PromotionAction": 6,
+               "RuleMessage": "",
+               "Description": "",
+               "DiscountAmount": 18
+           }
+       ]
    },
-   "FailedItems":[  
-
-   ],
+   "Token": {
+       "AccessToken": "5dp0j3mnzizmldsfb20lfnq5",
+       "issued_at": "/Date(1565263998649+0530)/",
+       "UserId": "5e9bd7d6-148b-496b-aa14-93a4b1bf662a",
+       "IsLoggedInUser": false,
+       "MerchantId": "efad5608-a459-449d-87a0-894082c2b6b0"
+   },
    "ErrorCode":0
 }
 
@@ -5190,7 +5497,7 @@ https://www.martjack.com/developerapi/Carts/cart/81e77da2-723b-483d-8c0d-49f800c
 ### Resource Information
 | | |
 --------- | ----------- |
-URI | `/Carts/cart/{merchantId}`
+URI | `/Carts/cart/{merchantId}?promotionDetails=true`
 Rate Limited? | No
 Authentication | Yes
 Response Formats | JSON
@@ -5202,7 +5509,7 @@ Batch Support | No
 
 ### Request URL
 
-`{host}/developerapi/Carts/cart/{merchantId}`
+`{host}/developerapi/Carts/cart/{merchantId}?promotionDetails=true`
 
 
 
@@ -5211,8 +5518,14 @@ Batch Support | No
 Header | Description
 ------ | ------
 accesstoken* | Access token of the logged in user to validate the session
+languageCode | Specify the ISO language code to get cart promotion break-up details in your preferred language. For example, zh for Chinese, id for Indonesian, ar for Arabic. English is the default language.
 
+### Request Path Parameters
 
+Parameter | Type | Description
+--------- | ---- | -----------
+merchantId* | string | Unique GUID of the merchant
+promotionDetails | boolean | Pass true to retrieve promotion break up details 
 
 
 
@@ -6445,8 +6758,21 @@ GroupId | int | Determines the bundle group id of the nested cart item. Applicab
 ComboSuggestion | array | Product suggestions based on the cart items to increase the basket/cart size
 
 
+### Error Codes
 
+The following tables shows error codes for different validation parameter. For example, mismatch in location, invoice number, user type and so on.
 
+Case | Cart Voucher | Campaign Voucher
+---- | ------------ | ---------------
+Location | 3002<br>Voucher not applicable for your location {locationId} | NA
+UserType | 3006<br>Invalid Customer type | 3006<br>Invalid Customer type
+Cart condition & action condition | 3012<br>Coupon not applicable | 3009<br>Minimum Cart amount not reached for this voucher
+Inactive | 3001<br>Invalid Coupon Code | 3001<br>Invalid Coupon Code
+CurrentDate > EndDate | 3001<br>Invalid Coupon Code | 3001<br>Invalid Coupon Code
+CurrentDate < StartDate | 3001<br>Invalid Coupon Code | 3008<br>Expired Coupon Code
+USerLimit exceeded | 3004<br>Coupon usage limit for user exceeded | 3004<br>Coupon usage limit for user exceeded
+VoucherLimit exceeded | 3005<br>Coupon usage limit exceeded | 3005<br>Coupon usage limit exceeded 
+Vouchercode not exist | 3001<br>Invalid Coupon Code | NA
 
 ## Remove Applied Voucher
 
@@ -8052,6 +8378,98 @@ Longitude | float | Get common stores in the specific latitude and longitude
 
 
 <aside class="notice"> **Pass any one parameter - either ProductId or ProductSKU. </aside>
+
+
+
+## Get Coupon Suggestions
+
+Suggests coupons applicable on cart items.
+
+
+
+
+
+
+> Sample Request
+
+```html
+https://www.martjack.com/developerapi/
+
+```
+
+
+
+
+> Sample Response
+
+```json
+{
+"CouponSuggestions": {
+"voucherSuggestions": [
+{
+"RuleDescription": "",
+"NoOfUsesDonePerUser": 0,
+"NoOfUsesconfiguredPerVoucher": -1,
+"RuleCriteria": [
+
+],
+"RuleId": 41825,
+"cartDiscountValue": 50,
+"EndDate": "/Date(1688127300000+0530)/",
+"NoOfUsesConfiguredPerUser": -1,
+"NoOfUsesDonePerVoucher": 0,
+"isSatisfied": true,
+"RuleTitle": "CouponSuggestions1",
+"isVoucher": true,
+"voucherCode": "CouponSuggestions2"
+}
+]
+},
+"Message": "skip",
+"messageCode": "skip",
+"Token": {
+"AccessToken": "skip",
+"UserId": "skip",
+"IsLoggedInUser": "skip",
+"MerchantId": "skip",
+"issued_at": "skip"
+},
+"ErrorCode": "skip"
+}
+
+
+```
+
+
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `/CouponSuggestion/{{merchantid}}`
+Rate Limited? | No
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | GET
+Batch Support | No
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+### Request URL
+
+`https://{host}/developerapi/carts/CouponSuggestion/{{merchantid}}`
+
+
+### Request Query Parameters
+
+Parameter | Type | Description
+-------- | ----- | -----------
+merchantId* | string | Unique GUID of the merchant
+
+
+
+<aside class="notice"> All parameters marked by * are mandatory. </aside>
+
 
 
 

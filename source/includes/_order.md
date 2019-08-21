@@ -1977,6 +1977,7 @@ https://www.martjack.com/developerapi/Order/Invoice/f48fdd16-92db-4188-854d-1ecd
             "MerchantId": "f48fdd16-92db-4188-854d-1ecd9b62d067",
             "UserId": "00000000-0000-0000-0000-000000000000",
             "OrderTotalAmount": 549,
+			"externalInvoiceNumber": "HYC-123-1234",
             "InvoiceAmount": 549,
             "OrderDate": "27-Mar-2019",
             "OrderRefNumber": "3550",
@@ -1985,7 +1986,7 @@ https://www.martjack.com/developerapi/Order/Invoice/f48fdd16-92db-4188-854d-1ecd
             "BillCountry": "India",
             "BillingState": "Karnataka",
             "BillCity": "Bengaluru",
-            "BillEmail": "sahana.garje@capillarytech.com",
+            "BillEmail": "sah.garj@example.com",
             "BillZIP": "560078",
             "BillPhone": "",
             "BillMobile": "7411982768",
@@ -1999,7 +2000,7 @@ https://www.martjack.com/developerapi/Order/Invoice/f48fdd16-92db-4188-854d-1ecd
             "ShipCountry": "India",
             "ShipState": "Karnataka",
             "ShipCity": "Bengaluru",
-            "ShipEmail": "sahana.garje@capillarytech.com",
+            "ShipEmail": "sah.garj@example.com",
             "ShipZip": "560078",
             "ShipPhone": "7411982768",
             "ShipMobile": "7411982768",
@@ -3871,6 +3872,7 @@ http://www.martjack.com/DeveloperAPI/Order/ShipmentDetails/f48fdd16-92db-4188-85
          "OrderId":7405405,
          "ServiceProvider":"ITOCHU",
          "DocketNumber":"ABC",
+		 "externalInvoiceNumber": "HYC-123-1234",
          "ShippingDate":"22-Nov-2018",
          "ShippingCharges":"0",
          "ShipmentItems":[  
@@ -4144,6 +4146,7 @@ https://www.martjack.com/developerapi/Order/9820eca5-d11f-4df1-9b20-983a45ea9631
       "DeliveredDate": "26-Feb-2019",
       "ShipmentId": 5516837,
       "OrderId": 7508407,
+	  "externalInvoiceNumber": "HYC-123-1234",
       "ServiceProvider": "BMSP",
       "DocketNumber": "AWB3399204",
       "ShippingDate": "26-Feb-2019",
@@ -4324,6 +4327,7 @@ https://www.martjack.com/developerapi/Order/getshipments/389d3f1a-8c9a-41bd-9b3a
 		"ReturnRequestId": "0",
 		"InvoiceNumber": "00001320",
 		"InvoiceAmount": "9995",
+		"externalInvoiceNumber": "HYC-123-1234",
 		"CollectableAmount": "0",
 		"IslabelReady": "False",
 		"LogisticID": "",
@@ -4482,11 +4486,21 @@ https://www.martjack.com/developerapi/Order/UpdateShipmentCourierDetails/9820eca
 ```
 
 
-> Sample POST Request (RAW)
+> Sample POST Request
 
 
 ```json
-MerchantId=9820eca5-d11f-4df1-9b20-983a45ea9631&ShipmentId=5516733&awbNumber=AWB965979&islabelReady=true&providerId=MPBS
+MerchantId=9820eca5-d11f-4df1-9b20-983a45ea9631&InputFormat=application/json&InputData={
+"Shipment": {
+"ShipmentId": "4230982",
+"MerchantId": "9820eca5-d11f-4df1-9b20-983a45ea9631",
+"UserId": "00000000-0000-0000-0000-000000000000",
+"AWBNumber": "1234567890",
+"IslabelReady": "false",
+"ProviderId": "FedEx",
+"externalInvoiceNumber": "HYC-123-1234"
+}
+}
 
 ```
 
@@ -4531,9 +4545,10 @@ Parameter | Type | Description
 merchantId* | string | Unique GUID of the merchant
 shipmentId | long | New shipment id that you want to update with
 aWBNumber | string | New AWB number that you want to update with
-islabelReady | enum | Specify `true` if the shipment label is ready, else specify `false`. You will get an option to download the shipment label as PDF if available
+islabelReady | enum | Specify `true` only if the merchant uses invoice or dispatch note and the the label is ready, else specify `false`. You will get an option to download the shipment label as PDF if available
 userId | string | Logged in user id of the CP who is updating shipment details
 providerId | int | Unique id of the shipment provider
+externalInvoiceNumber | string | Specify the invoice number of the shipment
 dispatchLabelContentType | | 
 
 <aside class="notice"> Provide at least one of the above parameters that you want to update. </aside>    
@@ -4953,6 +4968,95 @@ userId* | string | Unique GUID of the user for which you want to fetch the walle
 
 
 <aside class="notice"> All parameters marked by * are mandatory. </aside>
+
+
+## Update Order Custom Attribute Values
+
+Lets you update values of custom attributes of an order.
+
+> Sample Request
+
+```html
+developerapi/Order/UpdateOrderCustomAttributesValues/1b3420ce-002f-4f66-bbda-cd0828aa2af8 
+
+```
+
+> Sample POST Request
+
+```json
+MerchantId=1b3420ce-002f-4f66-bbda-cd0828aa2af8&InputFormat=application/json&InputData=
+{
+   "Orders":[{
+   
+      "OrderID":"8283199",
+     "OrderItems":
+     [
+     
+     {
+     "OrderLineID":"51796945",
+     "OrderItemCustomFieldValues":[{"test":"254.1"}]
+}
+]
+}
+   ]
+}
+```
+
+
+> Sample Response
+
+```json
+{
+    "isupdated": true,
+    "messageCode": "1004",
+    "Message": "All orderItem custom fields updated",
+    "updateOrderCustomResponses": [
+        {
+            "OrderID": 8283199,
+            "isupdated": false,
+            "Message": null,
+            "updateOrderItemCustomResponses": [
+                {
+                    "OrderLineID": 51796945,
+                    "isupdated": true,
+                    "Message": "All orderitem custom fields are updated for the above OrderLineID"
+                }
+            ]
+        }
+    ]
+} 
+```
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `Order/UpdateOrderCustomAttributesValues/{merchantId}`
+Rate Limited? | No
+Authentication | Yes
+Response Formats | JSON
+HTTP Methods | POST
+Batch Support | No
+
+* **Rate limiter** controls the number of incoming and outgoing traffic of a network
+* **Authentication** verifies the identity of the current user or integration. See Introduction > Authentication (Merchant Setup on Admin Portal) for more details
+
+
+
+### Request URL
+
+`{host}/developerapi/Order/Order/UpdateOrderCustomAttributesValues/{merchantId}`
+
+
+
+### Request Body Parameters
+
+Parameter | Type | Description
+--------- | ---- | -----------
+OrderID | int | Order id for which you want to update custom field values.
+OrderLineID | int | Order line item id for which you want to update custom field values.
+OrderItemCustomFieldValues | obj | Pass the attribute names that you want to update with the new attribute values as key:value pairs.
+
+
 
 
 
