@@ -19907,20 +19907,23 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <pre class="highlight json"><code><span class="err">InputFormat=application/json&amp;InputData=</span><span class="p">{</span><span class="w">
    </span><span class="nt">"Cart"</span><span class="p">:{</span><span class="w">
       </span><span class="nt">"BillFirstName"</span><span class="p">:</span><span class="s2">"Tom Sawyer"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"BillLastName"</span><span class="p">:</span><span class="s2">"Sawyer"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"BillEmail"</span><span class="p">:</span><span class="s2">"tom.sawyer@example.com"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"BillMobile"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
       </span><span class="nt">"BillCountry"</span><span class="p">:</span><span class="s2">"India"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"BillZip"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
       </span><span class="nt">"BillCity"</span><span class="p">:</span><span class="s2">"2148"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"BillCountryCode"</span><span class="p">:</span><span class="s2">"IN"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"BillOtherCity"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"BillLastName"</span><span class="p">:</span><span class="s2">"Sawyer"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"BillState"</span><span class="p">:</span><span class="s2">"KA"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"BillAddress"</span><span class="p">:</span><span class="s2">"#103/1, MG Road"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"BillAddress1"</span><span class="p">:</span><span class="s2">"#31-220, Town Hall Road"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"BillTelephone"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
       </span><span class="nt">"BillTelephoneCode"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
       </span><span class="nt">"BillMobileCode"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"ShipLastName"</span><span class="p">:</span><span class="s2">"James"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ShipFirstName"</span><span class="p">:</span><span class="s2">"Tom"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ShipLastName"</span><span class="p">:</span><span class="s2">"Sawyer"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ShipEmail"</span><span class="p">:</span><span class="s2">"tom.sawyer@example.com"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"ShipTelephone"</span><span class="p">:</span><span class="s2">"1234567899"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"ShipState"</span><span class="p">:</span><span class="s2">"KA"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"ShipMobile"</span><span class="p">:</span><span class="s2">"1234567899"</span><span class="p">,</span><span class="w">
@@ -19932,7 +19935,6 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
       </span><span class="nt">"ShipCity"</span><span class="p">:</span><span class="s2">"2148"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"ShipZip"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
       </span><span class="nt">"ShipTelephoneCode"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"ShipFirstName"</span><span class="p">:</span><span class="s2">"Tom"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"ShipCountry"</span><span class="p">:</span><span class="s2">"India"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"SkipDeliveryAreaValidation"</span><span class="p">:</span><span class="s2">"false"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"IsShippingAddressDifferent"</span><span class="p">:</span><span class="s2">"false"</span><span class="w">
@@ -22872,27 +22874,28 @@ http://www.martjack.com/developerapi/Customer/GetShippingAddress/81e77da2-723b-4
 <blockquote>
 <p>Sample POST Request</p>
 </blockquote>
-<pre class="highlight json"><code><span class="err">MerchantId=</span><span class="mi">0639</span><span class="err">f</span><span class="mi">7</span><span class="err">a</span><span class="mi">6-34</span><span class="err">cc</span><span class="mi">-48</span><span class="err">b</span><span class="mi">2-9</span><span class="err">fd</span><span class="mi">9</span><span class="err">-a</span><span class="mi">80</span><span class="err">e</span><span class="mi">2</span><span class="err">ed</span><span class="mi">8</span><span class="err">xxxx&amp;InputFormat=application/json&amp;InputData=</span><span class="p">{</span><span class="w">  
-   </span><span class="nt">"pricelistitems"</span><span class="p">:{</span><span class="w">  
-      </span><span class="nt">"pricelistiem"</span><span class="p">:{</span><span class="w">  
-         </span><span class="nt">"sku"</span><span class="p">:</span><span class="s2">"zara1234121"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"variantsku"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"Quantity"</span><span class="p">:</span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"MRP"</span><span class="p">:</span><span class="s2">"444"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"WebPrice"</span><span class="p">:</span><span class="s2">"333"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"TokenPrice"</span><span class="p">:</span><span class="s2">"222"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="nt">"product"</span><span class="p">:{</span><span class="w">  
-         </span><span class="nt">"sku"</span><span class="p">:</span><span class="s2">"sun1234121"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"variantsku"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"Qty"</span><span class="p">:</span><span class="s2">"2"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"MRP"</span><span class="p">:</span><span class="s2">"200"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"WebPrice"</span><span class="p">:</span><span class="s2">"190"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"TokenPrice"</span><span class="p">:</span><span class="s2">"50"</span><span class="w">
-      </span><span class="p">}</span><span class="w">
+<pre class="highlight json"><code><span class="err">MerchantId=</span><span class="mi">0639</span><span class="err">f</span><span class="mi">7</span><span class="err">a</span><span class="mi">6-34</span><span class="err">cc</span><span class="mi">-48</span><span class="err">b</span><span class="mi">2-9</span><span class="err">fd</span><span class="mi">9</span><span class="err">-a</span><span class="mi">80</span><span class="err">e</span><span class="mi">2</span><span class="err">ed</span><span class="mi">8</span><span class="err">xxxx&amp;InputFormat=application/json&amp;InputData=</span><span class="p">{</span><span class="w"> 
+   </span><span class="nt">"pricelistitems"</span><span class="p">:{</span><span class="w"> 
+      </span><span class="nt">"pricelistitem"</span><span class="p">:[</span><span class="w"> 
+         </span><span class="p">{</span><span class="w"> 
+            </span><span class="nt">"sku"</span><span class="p">:</span><span class="s2">"17CASLA1066-GR"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"variantsku"</span><span class="p">:</span><span class="s2">"101620659"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"qty"</span><span class="p">:</span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"mrp"</span><span class="p">:</span><span class="mi">3891</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"webprice"</span><span class="p">:</span><span class="mi">1945</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"tokenprice"</span><span class="p">:</span><span class="mi">972</span><span class="w">
+         </span><span class="p">},</span><span class="w">
+         </span><span class="p">{</span><span class="w"> 
+            </span><span class="nt">"sku"</span><span class="p">:</span><span class="s2">"17CASLA1066-GR"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"variantsku"</span><span class="p">:</span><span class="s2">"101620659"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"qty"</span><span class="p">:</span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"mrp"</span><span class="p">:</span><span class="mi">3891</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"webprice"</span><span class="p">:</span><span class="mi">1945</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"tokenprice"</span><span class="p">:</span><span class="mi">972</span><span class="w">
+         </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-
 </span></code></pre>
 <blockquote>
 <p>Sample Response</p>
