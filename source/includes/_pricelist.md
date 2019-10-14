@@ -12,27 +12,28 @@ https://www.martjack.com/developerapi/Pricelist/f48fdd16-92db-4188-854d-1ecd9b62
 > Sample POST Request
 
 ```json
-MerchantId=0639f7a6-34cc-48b2-9fd9-a80e2ed8xxxx&InputFormat=application/json&InputData={  
-   "pricelistitems":{  
-      "pricelistiem":{  
-         "sku":"zara1234121",
-         "variantsku":"",
-         "Quantity":"1",
-         "MRP":"444",
-         "WebPrice":"333",
-         "TokenPrice":"222"
-      },
-      "product":{  
-         "sku":"sun1234121",
-         "variantsku":"",
-         "Qty":"2",
-         "MRP":"200",
-         "WebPrice":"190",
-         "TokenPrice":"50"
-      }
+MerchantId=0639f7a6-34cc-48b2-9fd9-a80e2ed8xxxx&InputFormat=application/json&InputData={ 
+   "pricelistitems":{ 
+      "pricelistitem":[ 
+         { 
+            "sku":"17CASLA1066-GR",
+            "variantsku":"101620659",
+            "qty":"1",
+            "mrp":3891,
+            "webprice":1945,
+            "tokenprice":972
+         },
+         { 
+            "sku":"17CASLA1066-GR",
+            "variantsku":"101620659",
+            "qty":"1",
+            "mrp":3891,
+            "webprice":1945,
+            "tokenprice":972
+         }
+      ]
    }
 }
-
 ```
 
 > Sample Response
