@@ -688,6 +688,11 @@ public static void main(String[] args)
 <td>boolean</td>
 <td>Used by merchants with CRM enabled. Specify <code class="prettyprint">true</code> subscribe customer&rsquo;s mobile number/email id in CRM to receive offers, else speify <code class="prettyprint">false</code></td>
 </tr>
+<tr>
+<td>PreferredLanguage</td>
+<td>string</td>
+<td>Specify the preferred language of the customer in ISO code. For example, <code class="prettyprint">en</code> for English, <code class="prettyprint">ar</code> Arabic</td>
+</tr>
 </tbody></table>
 
 <aside class=notice>All parameters marked by * are mandatory.</aside>
@@ -868,6 +873,11 @@ public static void main(String[] args)
 <td>CountryName</td>
 <td>string</td>
 <td>Full name of the country. Example, India, Australia, and Brazil</td>
+</tr>
+<tr>
+<td>PreferredLanguage</td>
+<td>string</td>
+<td>Specify the preferred language of the customer in ISO code. For example, <code class="prettyprint">en</code> for English, <code class="prettyprint">ar</code> Arabic</td>
 </tr>
 </tbody></table>
 
@@ -2736,6 +2746,16 @@ ToDate:&ldquo;2019/04/25&rdquo;</p>
 <td>enum</td>
 <td>Channel(s) used for marketing communications. Value: SMS, Email</td>
 </tr>
+<tr>
+<td>PreferredLanguage</td>
+<td>string</td>
+<td>Preferred language of the customer in ISO code. For example, <code class="prettyprint">en</code> for English, <code class="prettyprint">ar</code> Arabic</td>
+</tr>
+<tr>
+<td>IsActivated</td>
+<td>boolean</td>
+<td>Flag that specifies if the customer is active (<code class="prettyprint">true</code>) or inactive <code class="prettyprint">false</code></td>
+</tr>
 </tbody></table>
 
 <h2 id="get-all-customers">Get All Customers</h2>
@@ -3084,6 +3104,16 @@ ToDate:&ldquo;2019/04/25&rdquo;</p>
 <td>CommunicationType</td>
 <td>enum</td>
 <td>The preferred communication channel(s) of the customer. Possible Values: sms, email, push</td>
+</tr>
+<tr>
+<td>PreferredLanguage</td>
+<td>string</td>
+<td>Preferred language of the customer in ISO code. For example, <code class="prettyprint">en</code> for English, <code class="prettyprint">ar</code> Arabic</td>
+</tr>
+<tr>
+<td>IsActivated</td>
+<td>boolean</td>
+<td>Flag that specifies if the customer is active (<code class="prettyprint">true</code>) or inactive <code class="prettyprint">false</code></td>
 </tr>
 </tbody></table>
 
