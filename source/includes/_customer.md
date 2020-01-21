@@ -43,7 +43,8 @@ InputFormat=application/json&InputData={
       "States":null,
       "merchantId":"81e77da2-723b-483d-8c0d-49f800c1xxxx",
       "Password":"ABG-704@cp",
-      "CommunicationType":null
+      "CommunicationType":null,
+	  "PreferredLanguage":"en"
    }
 }
 ```
@@ -86,7 +87,8 @@ InputFormat=application/json&InputData={
         "Countries": null,
         "States": null,
         "CommunicationType": "nochannel",
-        "MarketingNotificationType": "sms|email|push"
+        "MarketingNotificationType": "sms|email|push",
+		"PreferredLanguage":"en"
     },
     "ErrorCode": 0
 }
@@ -129,6 +131,7 @@ StateName | string | Full name of the state. Example: Karnataka, California, and
 Country | string | Alpha-2 code of the country as per the customer's billing address. Example: IN (for India), AU (for Australia), and BR (for Brazil)
 CountryName | string | Full name of the country. Example: India, Australia, and Brazil
 IsReceiveOffers | boolean | Used by merchants with CRM enabled. Specify `true` subscribe customer's mobile number/email id in CRM to receive offers, else speify `false`
+PreferredLanguage | string | Specify the preferred language of the customer in ISO code. For example, `en` for English, `ar` Arabic
 
 <aside class=notice>All parameters marked by * are mandatory.</aside>
 
@@ -181,7 +184,8 @@ InputFormat=application/json&InputData={
       "Industry":"",
       "OtherArea":"",
       "CountryName":"",
-      "IsReceiveOffers":false
+      "IsReceiveOffers":false,
+	  "PreferredLanguage":"en"
    }
 }
 ```
@@ -233,6 +237,8 @@ State | string | State's postal abbreviation. Example: KA (for Karnataka), CA (f
 StateName | string | Full name of the state such as Karnataka, California, and Indiana
 Country | string | Alpha-2 code of the country of the customer. Example, IN (for India), AU (for Australia), BR (for Brazil)
 CountryName | string | Full name of the country. Example, India, Australia, and Brazil
+PreferredLanguage | string | Specify the preferred language of the customer in ISO code. For example, `en` for English, `ar` Arabic
+
 
 <aside class="notice"> All parameters marked by * are mandatory. </aside>
 
@@ -1360,7 +1366,9 @@ https://www.martjack.com/developerapi/Customer/81e77da2-723b-483d-8c0d-49f800c1x
       "Countries":null,
       "States":null,
       "CommunicationType":"nochannel",
-      "MarketingNotificationType":"sms|email|push"
+      "MarketingNotificationType":"sms|email|push",
+	  "PreferredLanguage": "en",
+	  "IsActivated": true
    },
    "ErrorCode":0
 }
@@ -1403,7 +1411,8 @@ UserProfiles | array | Customer level custom field details
 UserInfoId | string | GUID generated for the customer internally. UserInfoId is used in APIs like customer update along with the UserId
 CommunicationType | string | The preferred communication channel(s) of the customer. Possible Values: SMS, EMAIL
 MarketingNotificationType | enum | Channel(s) used for marketing communications. Value: SMS, Email
-
+PreferredLanguage | string | Preferred language of the customer in ISO code. For example, `en` for English, `ar` Arabic
+IsActivated | boolean | Flag that specifies if the customer is active (`true`) or inactive `false`
 
 
 
@@ -1455,7 +1464,9 @@ MarketingNotificationType | enum | Channel(s) used for marketing communications.
       "Countries": null,
       "States": null,
       "CommunicationType": "sms|email|push",
-      "MarketingNotificationType": "sms|email|push"
+      "MarketingNotificationType": "sms|email|push",
+	  "PreferredLanguage": "en",
+	  "IsActivated": true
     },
     {
       "UserProfiles": [
@@ -1505,7 +1516,9 @@ MarketingNotificationType | enum | Channel(s) used for marketing communications.
       "Countries": null,
       "States": null,
       "CommunicationType": "sms|email|push",
-      "MarketingNotificationType": "sms|email|push"
+      "MarketingNotificationType": "sms|email|push",
+	  "PreferredLanguage": "en",
+	  "IsActivated": true
     },
     {
       "UserProfiles": [],
@@ -1540,7 +1553,9 @@ MarketingNotificationType | enum | Channel(s) used for marketing communications.
       "Countries": null,
       "States": null,
       "CommunicationType": "sms|email|push",
-      "MarketingNotificationType": "sms|email|push"
+      "MarketingNotificationType": "sms|email|push",
+	  "PreferredLanguage": "en",
+	  "IsActivated": true
     },
     {
       "UserProfiles": [],
@@ -1575,7 +1590,9 @@ MarketingNotificationType | enum | Channel(s) used for marketing communications.
       "Countries": null,
       "States": null,
       "CommunicationType": "sms|email|push",
-      "MarketingNotificationType": "sms|email|push"
+      "MarketingNotificationType": "sms|email|push",
+	  "PreferredLanguage": "en",
+	  "IsActivated": true
     },
     {
       "UserProfiles": [
@@ -1625,7 +1642,9 @@ MarketingNotificationType | enum | Channel(s) used for marketing communications.
       "Countries": null,
       "States": null,
       "CommunicationType": "sms|email|push",
-      "MarketingNotificationType": "sms|email|push"
+      "MarketingNotificationType": "sms|email|push",
+	  "PreferredLanguage":"en",
+	  "IsActivated": true
     }
   ],
   "ErrorCode": 0
@@ -1680,7 +1699,8 @@ Country | string | Alpha-2 code of the country associated to the address. Exampl
 CountryName | string | Full name of the country. Example: India, Australia, and Brazil
 IsReceiveOffers | boolean | Applicable for merchants where CRM is enabled. States whether the customer has subscribed his mobile number or email id to receive offers
 CommunicationType | enum | The preferred communication channel(s) of the customer. Possible Values: sms, email, push
-
+PreferredLanguage | string | Preferred language of the customer in ISO code. For example, `en` for English, `ar` Arabic
+IsActivated | boolean | Flag that specifies if the customer is active (`true`) or inactive `false`
 
 
 ## Get Saved Cart Items
