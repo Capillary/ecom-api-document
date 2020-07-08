@@ -1341,6 +1341,224 @@ Also, a customer should have logged in to perform any customer related tasks suc
 </tr>
 </tbody></table>
 
+<h2 id="customer-login-with-third-party-async">Customer Login (with Third Party Async)</h2>
+
+<p>Authenticates customer login with a third-party provider - Google and Facebook with an additional token as a mandatory parameter.</p>
+
+<aside class="notice">Currently, there is no support for other providers. For others, you can use the previous API LoginWithThirdPartyProvider.</aside>
+
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
+<pre class="highlight html"><code>http://martjack.com/developerapi/Customer/9820eca5-d11f-4df1-9b20-983a45ea9631/LoginWithThirdPartyProviderAsync
+</code></pre>
+<blockquote>
+<p>Sample POST Request</p>
+</blockquote>
+<pre class="highlight json"><code><span class="err">InputFormat=application/json&amp;InputData=</span><span class="p">{</span><span class="w">
+   </span><span class="nt">"provider"</span><span class="p">:</span><span class="s2">"google"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"profileId"</span><span class="p">:</span><span class="s2">"example123"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"email"</span><span class="p">:</span><span class="s2">"test.user@capillarytech.com"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"MobileNo"</span><span class="p">:</span><span class="s2">"91-7411600000"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"FirstName"</span><span class="p">:</span><span class="s2">"Test"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"LastName"</span><span class="p">:</span><span class="s2">"User"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"gender"</span><span class="p">:</span><span class="s2">"M"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"loginId"</span><span class="p">:</span><span class="s2">"test.user@capillarytech.com"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"”Token”"</span><span class="p">:</span><span class="s2">"ya29.ImG9BzJnCduB6sjq7xVEPlTVnEHtO4GnEwxbbvhStq6aaW6GgKtY1odasEKK5M6MkPpBhpncISyJ3fWA48IyhbhGeBvnD0db1oKf8fo5uXsfWGgXhSs2wqzTi3NIWVGkZLFG"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"subscribeToOffers"</span><span class="p">:</span><span class="s2">"true"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"messageCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1004"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Logged In successfully"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"Token"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"AccessToken"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50p2yjcmiizlfyltl3vrltvj"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"issued_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/Date(1543483006985+0530)/"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"UserId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5820c36d-7148-4154-afa7-32b0798f21f6"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9820eca5-d11f-4df1-9b20-983a45ea9631"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"ErrorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td><code class="prettyprint">/Customer/{merchantId}/LoginWithThirdPartyProviderAsync</code></td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>POST</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+</tbody></table>
+
+<ul>
+<li><strong>Rate limiter</strong> controls the number of incoming and outgoing traffic of a network</li>
+<li><strong>Authentication</strong> verifies the identity of the current user or integration. See Introduction &gt; Authentication (Merchant Setup on Admin Portal) for more details</li>
+</ul>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">{host}/developerapi/Customer/{merchantId}/LoginWithThirdPartyProviderAsync</code></p>
+
+<h3 id="request-body-parameters">Request Body Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>merchantId*</td>
+<td>string</td>
+<td>Unique GUID of the merchant</td>
+</tr>
+<tr>
+<td>provider</td>
+<td>string</td>
+<td>Name of the third party through which the customer wants to login. Currently supported values: <code class="prettyprint">google</code>, <code class="prettyprint">facebook</code></td>
+</tr>
+<tr>
+<td>profileId</td>
+<td>string</td>
+<td>Unique profile id of the third-party provider</td>
+</tr>
+<tr>
+<td>email</td>
+<td>string</td>
+<td>Email id of the user registered with the third-party provider. If left blank, you will see a prompt to enter email ID (if registration setting is of type email)</td>
+</tr>
+<tr>
+<td>firstName</td>
+<td>string</td>
+<td>First name of the user</td>
+</tr>
+<tr>
+<td>lastName</td>
+<td>string</td>
+<td>Last name of the user</td>
+</tr>
+<tr>
+<td>gender</td>
+<td>string</td>
+<td>Customer gender. Value: <code class="prettyprint">M</code> for male and <code class="prettyprint">F</code> for female</td>
+</tr>
+<tr>
+<td>loginId</td>
+<td>string</td>
+<td>Login username (as per the third party). This has to be an email ID</td>
+</tr>
+<tr>
+<td>Token*</td>
+<td>string</td>
+<td>Unique object or string generated for the current user</td>
+</tr>
+<tr>
+<td>mobileNo</td>
+<td>string</td>
+<td>Registered mobile number of the user that is registered with the provider</td>
+</tr>
+<tr>
+<td>subscribeToOffers</td>
+<td>enum</td>
+<td>Specify <code class="prettyprint">true</code> to subscribe the user to the merchant offers, specify <code class="prettyprint">false</code> not to subscribe</td>
+</tr>
+</tbody></table>
+
+<aside class=notice>All parameters marked by * are mandatory.</aside>
+
+<h3 id="response-parameters">Response Parameters</h3>
+
+<p>Following table contains descriptions of a few response parameters that require more information. It does not include the parameters that are already in the request body or self explanatory.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>AccessToken</td>
+<td>string</td>
+<td>An object or string that identifies the current user. Access token is required to make customer related API calls such as validate token, update customer details, update profile attributes, and so on</td>
+</tr>
+<tr>
+<td>issued_at</td>
+<td>date-time</td>
+<td>The date and time when the access token was generated for the user</td>
+</tr>
+</tbody></table>
+
+<h3 id="response-codes">Response Codes</h3>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1000</td>
+<td>Unhandled exception. Please contact support desk.</td>
+</tr>
+<tr>
+<td>1004</td>
+<td>Operation successful</td>
+</tr>
+<tr>
+<td>1003</td>
+<td>Authentication failed. This could be due either due to  invalid token, social login authentication failed, or API authentication failed</td>
+</tr>
+<tr>
+<td>1016</td>
+<td>Invalid data passed</td>
+</tr>
+<tr>
+<td>1030</td>
+<td>Authorization failed</td>
+</tr>
+</tbody></table>
+
+<p>For invalid Data:
+Code: with respective message</p>
+
+<p>For any exception:
+Coe:1000 with respective message</p>
+
+<p>Success:
+Code :</p>
+
+<p>:
+Code:1030</p>
+
 <h2 id="start-customer-session">Start Customer Session</h2>
 
 <p>Starts a new customer session and generates access token which is required to make customer related API calls.</p>
