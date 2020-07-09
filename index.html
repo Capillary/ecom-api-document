@@ -1270,12 +1270,12 @@ Also, a customer should have logged in to perform any customer related tasks suc
 <td>Unique GUID of the merchant</td>
 </tr>
 <tr>
-<td>provider</td>
+<td>provider*</td>
 <td>string</td>
 <td>Name of the third party service provider through which the customer wants to login</td>
 </tr>
 <tr>
-<td>profileId</td>
+<td>profileId*</td>
 <td>string</td>
 <td>Unique profile id of the service provider</td>
 </tr>
@@ -1343,7 +1343,7 @@ Also, a customer should have logged in to perform any customer related tasks suc
 
 <h2 id="customer-login-with-third-party-async">Customer Login (with Third Party Async)</h2>
 
-<p>Authenticates customer login with a third-party provider - Google and Facebook - through access token.</p>
+<p>Authenticates customer login with a third-party provider - Google and Facebook - through access token. This API works only for merchants having registration setting email or email/mobile provided the login id and/or email is email value.</p>
 
 <aside class="notice">Currently, there is no support for other providers. For others, you can use the previous API LoginWithThirdPartyProvider.</aside>
 
@@ -1441,19 +1441,19 @@ Also, a customer should have logged in to perform any customer related tasks suc
 <td>Unique GUID of the merchant</td>
 </tr>
 <tr>
-<td>provider</td>
+<td>provider*</td>
 <td>string</td>
 <td>Name of the third party through which the customer wants to login. Currently supported values: <code class="prettyprint">google</code>, <code class="prettyprint">facebook</code></td>
 </tr>
 <tr>
-<td>profileId</td>
+<td>profileId*</td>
 <td>string</td>
 <td>Unique profile id of the third-party provider</td>
 </tr>
 <tr>
-<td>email</td>
+<td>email**</td>
 <td>string</td>
-<td>Email id of the user registered with the third-party provider. If left blank, you will see a prompt to enter email ID (if registration setting is of type email)</td>
+<td>Email id of the user registered with the third-party provider. Either <code class="prettyprint">email</code> or <code class="prettyprint">loginId</code> is mandatory.</td>
 </tr>
 <tr>
 <td>firstName</td>
@@ -1471,9 +1471,9 @@ Also, a customer should have logged in to perform any customer related tasks suc
 <td>Customer gender. Value: <code class="prettyprint">M</code> for male and <code class="prettyprint">F</code> for female</td>
 </tr>
 <tr>
-<td>loginId</td>
+<td>loginId**</td>
 <td>string</td>
-<td>Login username (as per the third party). This has to be an email ID</td>
+<td>Login username (as per the third party - usually, email ID). Either <code class="prettyprint">email</code> or <code class="prettyprint">loginId</code> is mandatory. If this is left blank, it considers the value of the <code class="prettyprint">email</code> param.</td>
 </tr>
 <tr>
 <td>Token*</td>
@@ -1492,7 +1492,7 @@ Also, a customer should have logged in to perform any customer related tasks suc
 </tr>
 </tbody></table>
 
-<aside class=notice>All parameters marked with * are mandatory.</aside>
+<aside class=notice>All parameters marked with * are mandatory, and any one among the parameters marked with ** is mandatory.</aside>
 
 <h3 id="response-parameters">Response Parameters</h3>
 
@@ -1516,48 +1516,6 @@ Also, a customer should have logged in to perform any customer related tasks suc
 <td>The date and time when the access token was generated for the user</td>
 </tr>
 </tbody></table>
-
-<h3 id="response-codes">Response Codes</h3>
-
-<table><thead>
-<tr>
-<th>Code</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>1000</td>
-<td>Unhandled exception. Please contact support desk.</td>
-</tr>
-<tr>
-<td>1004</td>
-<td>Operation successful</td>
-</tr>
-<tr>
-<td>1003</td>
-<td>Authentication failed. This could be due either due to  invalid token, social login authentication failed, or API authentication failed</td>
-</tr>
-<tr>
-<td>1016</td>
-<td>Invalid data passed</td>
-</tr>
-<tr>
-<td>1030</td>
-<td>Authorization failed</td>
-</tr>
-</tbody></table>
-
-<p>For invalid Data:
-Code: with respective message</p>
-
-<p>For any exception:
-Coe:1000 with respective message</p>
-
-<p>Success:
-Code :</p>
-
-<p>:
-Code:1030</p>
 
 <h2 id="start-customer-session">Start Customer Session</h2>
 
@@ -40175,7 +40133,7 @@ comment | string | Any comments for the order sub-status change.</p>
 </tr>
 <tr>
 <td>1003</td>
-<td>Authentication failed</td>
+<td>Authentication failed. This could be due either due to  invalid token, social login authentication failed, or API authentication failed</td>
 </tr>
 <tr>
 <td>1004</td>
@@ -40271,7 +40229,7 @@ comment | string | Any comments for the order sub-status change.</p>
 </tr>
 <tr>
 <td>1030</td>
-<td>Service is not authorized</td>
+<td>Authorization failed.</td>
 </tr>
 <tr>
 <td>1031</td>
